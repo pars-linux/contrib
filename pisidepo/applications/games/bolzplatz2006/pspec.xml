@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>bolzplatz2006</Name>
+        <Homepage>http://www.xenoage.com/bp2k6/en/index.php</Homepage>
+        <Packager>
+            <Name>uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Bolzplatz 2006</Summary>
+        <Summary xml:lang="tr">Bolzplatz 2006</Summary>
+        <Description>Slam Soccer 2006 is a funny football game in 3D-comic-style.</Description>
+        <Description xml:lang="tr">Üç boyutlu, komik stilli bir futbol oyunu</Description>
+        <Archive sha1sum="8e7db17b3af76ab93640ee3fc10e15a63462fbf8" type="targz">http://switch.dl.sourceforge.net/sourceforge/bp2k6/bolzplatz2006-linux.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>bolzplatz2006</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.5.0">sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/bolzplatz2006.desktop">bolzplatz2006.desktop</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-22</Date>
+            <Version>1.0.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
