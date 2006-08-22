@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kiosktool</Name>
+        <Homepage>http://extragear.kde.org/apps/kiosktool.php</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE Kiosk GUI Admin Tool</Summary>
+        <Summary xml:lang="tr">KDE için kiosk yönetim aracı</Summary>
+        <Description>A Point and Click tool for system administrators to enable KDE's KIOSK features or otherwise preconfigure KDE for groups of users.</Description>
+        <Description xml:lang="tr">Özellikle internet kafeler için yararlı olabilecek bu uygulama sayesinde ağdaki bilgisayarları kolayca kontrol edebilirsiniz.</Description>
+        <Archive sha1sum="eb13c32987a8b18e07ae4e8b2f5d60b15b2f89f3" type="tarbz2">http://kde.mirrors.hoobly.com/stable/apps/KDE3.x/admin/kiosktool-1.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kiosktool</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/docs</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-26</Date>
+            <Version>1.0</Version>
+            <Comment>First Release</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
