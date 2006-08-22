@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmetabar</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php?content=28725</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Kmetabar is version of the metabar</Summary>
+        <Summary xml:lang="tr">Kmetabar, metabar'in gelistirilmiş bir versiyonudur</Summary>
+        <Description>...</Description>
+        <Archive sha1sum="ee7ab90f7c87fa5e1a456fe0d7293c3d01a0c078" type="tarbz2">http://www.kde-apps.org/content/files/28725-kmetabar-0.2-beta2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.4.0">kdebase</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>kmetabar</Name>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.4.0">kdebase</Dependency>
+        </RuntimeDependencies>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-05-10</Date>
+            <Version>0.2_beta2</Version>
+            <Comment>First Release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
