@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>teg</Name>
+        <Homepage>http://teg.sourceforge.net/index.php?page=main</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>TEG is a round-based computer board game.</Summary>
+        <Summary xml:lang="tr">Ünlü bilgisayar oyunu Risk'in benzeri bir strateji oyunu.</Summary>
+        <Description>TEG is a round-based computer board game.</Description>
+        <Description xml:lang="tr">Ünlü bilgisayar oyunu Risk'in benzeri bir strateji oyunu.</Description>
+        <Archive sha1sum="dce0e76d3e45390c04bb2fac6f21693d467e48ad" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/teg/teg-0.11.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>glib2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>teg</Name>
+        <RuntimeDependencies>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>glib2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/gconf</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/teg.desktop" permission="0644" owner="root">teg.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/teg_icono.png" permission="0644" owner="root">teg_icono.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-13</Date>
+            <Version>0.11.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
