@@ -1,0 +1,120 @@
+diff -Naur klearnnotes2-1.2/src/timidity-io.c klearnnotes2-1.2mod/src/timidity-io.c
+--- klearnnotes2-1.2/src/timidity-io.c	2004-03-01 06:27:53.000000000 +0200
++++ klearnnotes2-1.2mod/src/timidity-io.c	2006-06-26 22:54:01.000000000 +0300
+@@ -439,17 +439,15 @@
+     if(fildes != seqfd)
+ 	return syscall(SYS_ioctl, fildes, request, arg);
+ 
+-    switch(request)
+-    {
+-      case SNDCTL_SEQ_RESET:
++    if(request == SNDCTL_SEQ_RESET) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SEQ_RESET\n");
+ #endif
+ 	timidity_eot();
+ 	timidity_meta_seq(0x01, 0x00, 0); /* TiMidity reset */
+ 	return 0;
+-
+-      case SNDCTL_SEQ_SYNC: {
++    }
++    if(request == SNDCTL_SEQ_SYNC) {
+ 	    static double last_time;
+ 	    double t;
+ 
+@@ -465,18 +463,17 @@
+ 	    sync_mode = 1;
+ 	    timidity_sync((int)(BUF_HIGH_SYNC * 100));
+ 	    sync_mode = 0;
++        return 0;
+ 	}
+-	return 0;
+-
+-      case SNDCTL_SYNTH_INFO:
++    if(request == SNDCTL_SYNTH_INFO) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SYNTH_INFO\n");
+ #endif
+ 	memcpy(arg, &ext_synth_info[ ((struct synth_info *)arg)->device ],
+ 	       sizeof(struct synth_info));
+ 	return 0;
+-
+-      case SNDCTL_SEQ_CTRLRATE:
++ }
++    if(request == SNDCTL_SEQ_CTRLRATE) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SEQ_CTRLRATE\n");
+ #endif
+@@ -485,57 +482,55 @@
+ 	    return -1;
+ 	*(int *)arg = atoi(res + 4);
+ 	return 0;
+-
+-      case SNDCTL_SEQ_TESTMIDI:
++ }
++    if (request == SNDCTL_SEQ_TESTMIDI) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SEQ_TESTMIDI\n");
+ #endif
+ 	return 0;
+-
+-      case SNDCTL_SEQ_RESETSAMPLES:
++ }
++    if(request == SNDCTL_SEQ_RESETSAMPLES) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SEQ_RESETSAMPLES\n");
+ #endif
+ 	return 0;
+-
+-      case SNDCTL_SEQ_NRSYNTHS:
++ }
++    if (request == SNDCTL_SEQ_NRSYNTHS) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SEQ_NRSYNTHS\n");
+ #endif
+ 	*(int *)arg = sizeof(ext_synth_info)/sizeof(ext_synth_info[0]);
+ 	return 0;
+-
+-      case SNDCTL_SEQ_NRMIDIS:
++ }
++    if (request == SNDCTL_SEQ_NRMIDIS) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SEQ_NRMIDIS\n");
+ #endif
+ 	*(int *)arg = 1;
+ 	return 0;
+-
+-      case SNDCTL_MIDI_INFO:
++ }
++    if (request == SNDCTL_MIDI_INFO) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_MIDI_INFO\n");
+ #endif
+ 	return -1;
+-
+-      case SNDCTL_SYNTH_MEMAVL:
++ }
++    if (request == SNDCTL_SYNTH_MEMAVL) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_SYNTH_MEMAVL\n");
+ #endif
+ 	return -1;
+-
+-      case SNDCTL_FM_4OP_ENABLE:
++ }
++    if (request == SNDCTL_FM_4OP_ENABLE) {
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl SNDCTL_FM_40P_ENABLE\n");
+ #endif
+ 	return -1;
+-
+-      default:
++}
+ #ifdef	DEBUG
+ 	fprintf(stderr, "ioctl UNKNOWN : %08x\n", request);
+ #endif
+ 	return -1;
+-    }
+ }
+ 
+ #ifdef	__cplusplus
