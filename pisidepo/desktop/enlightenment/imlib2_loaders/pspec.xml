@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>imlib2_loaders</Name>
+        <Homepage>http://www.enlightenment.org/pages/imlib2.html</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>image loader plugins for Imlib 2</Summary>
+        <Summary xml:lang="tr">Imlib 2 için eklenti yükleyicisi</Summary>
+        <Description>image loader plugins for Imlib 2</Description>
+        <Description xml:lang="tr">Imlib 2 için eklenti yükleyicisi</Description>
+        <Archive sha1sum="06c1035519b40a9cb7e001838b64fe4196ae2b21" type="targz">http://enlightenment.freedesktop.org/files/imlib2_loaders-1.2.2.001.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.0">imlib2</Dependency>
+            <Dependency versionFrom="1.0.5">edb</Dependency>
+            <Dependency versionFrom="0.9.9">eet</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>imlib2_loaders</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.0">imlib2</Dependency>
+            <Dependency versionFrom="1.0.5">edb</Dependency>
+            <Dependency versionFrom="0.9.9">eet</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/imlib2/loaders</Path>
+            <Path fileType="doc">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-12</Date>
+            <Version>1.2.2.001</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
