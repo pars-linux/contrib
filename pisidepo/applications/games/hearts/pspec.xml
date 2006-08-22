@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>hearts</Name>
+        <Homepage>http://hearts.luispedro.org/</Homepage>
+        <Packager>
+            <Name>uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Hearts card game</Summary>
+        <Summary xml:lang="tr">Hearts kart oyunu</Summary>
+        <Description>Hearts is a card game with beta support for network play</Description>
+        <Description xml:lang="tr">Maça kızı da olarak da bilinen ünlü kart oyunu</Description>
+        <Archive sha1sum="e8541e7f6b1c7ed6cc4b34e4da44406244b5a09a" type="tarbz2">http://switch.dl.sourceforge.net/sourceforge/hearts/hearts-1.98.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="0">hearts-1.98-gcc.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>hearts</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+        <Path fileType="executable">/usr/kde/3.5/bin</Path>
+        <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-06</Date>
+            <Version>1.98</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
