@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bmpx</Name>
+	<Homepage>http://www.beep-media-player.org</Homepage>
+        <Packager>
+            <Name>Erhan Onur Şendag</Name>
+            <Email>onursendag@yahoo.com</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>Next generation Beep Media Player</Summary>
+	<Summary xml:lang="tr">Yeni nesil ses oynatıcısı</Summary>
+	<Description>Next generation Beep Media Player</Description>
+        <Description xml:lang="tr">Yeni nesil ses oynatıcısı</Description>
+	<Archive sha1sum="2ceb4d3c6f935d94a16584bba3ee560ae7653c1e" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/beepmp/bmpx-0.14.4.tar.bz2</Archive>
+        <BuildDependencies>
+   	    <Dependency versionFrom="2.10.0">glib2</Dependency>
+            <Dependency versionFrom="2.8.0">gtk2</Dependency>
+            <Dependency versionFrom="1.10.0">pango</Dependency>
+            <Dependency versionFrom="2.6.1">libxml2</Dependency>
+            <Dependency versionFrom="1.0.0">cairo</Dependency>
+            <Dependency versionFrom="0.8">startup-notification</Dependency>
+            <Dependency versionFrom="2.5.1">libglade2</Dependency>
+            <Dependency versionFrom="1.4">taglib</Dependency>
+            <Dependency versionFrom="0.10.4">gstreamer</Dependency>
+            <Dependency versionFrom="0.10.4">gst-plugins-base</Dependency>
+            <Dependency versionFrom="0.10.2">gst-plugins-good</Dependency>
+            <Dependency versionFrom="0.10.2">gst-plugins-bad</Dependency>
+            <Dependency versionFrom="0.10.2">gst-plugins-ugly</Dependency>
+            <Dependency versionFrom="0.10.1">gst-plugins-ffmpeg</Dependency>
+            <Dependency versionFrom="2.1.2">musicbrainz</Dependency>
+            <Dependency versionFrom="0.25.5">neon</Dependency>
+            <Dependency versionFrom="0.60">dbus</Dependency>
+            <Dependency versionFrom="0.5.5.1">hal</Dependency>
+            <Dependency versionFrom="0.1.1">gamin</Dependency>
+            <Dependency>fam</Dependency>
+            <!-- FIXME >=sys-apps/dbus-0.60 >=sys-apps/hal-0.5.5.1  -->
+        </BuildDependencies>
+    </Source>
+    <Package>
+           <Name>bmpx</Name>
+           <RuntimeDependencies>
+               <Dependency versionFrom="2.10">glib2</Dependency>
+               <Dependency versionFrom="2.8.8">gtk2</Dependency>
+               <Dependency versionFrom="1.10.0">pango</Dependency>
+               <Dependency versionFrom="2.6.1">libxml2</Dependency>
+               <Dependency versionFrom="1.0.2">cairo</Dependency>
+               <Dependency versionFrom="0.8">startup-notification</Dependency>
+               <Dependency versionFrom="2.5.1">libglade2</Dependency>
+               <Dependency versionFrom="1.4">taglib</Dependency>
+               <Dependency versionFrom="0.10.4">gstreamer</Dependency>
+               <Dependency versionFrom="0.10.4">gst-plugins-base</Dependency>
+               <Dependency versionFrom="0.10.2">gst-plugins-good</Dependency>
+               <Dependency versionFrom="0.10.2">gst-plugins-bad</Dependency>
+               <Dependency versionFrom="0.10.2">gst-plugins-ugly</Dependency>
+               <Dependency versionFrom="0.10.1">gst-plugins-ffmpeg</Dependency>
+               <Dependency versionFrom="2.1.1">musicbrainz</Dependency>
+               <Dependency versionFrom="0.25.5">neon</Dependency>
+               <Dependency>fam</Dependency>
+               <Dependency versionFrom="0.31.2">intltool</Dependency>
+               <Dependency versionFrom="0.17">pkgconfig</Dependency>
+               <!-- FIXME nls? ( >=sys-devel/gettext-0.14.1 	mad? ( >=media-plugins/gst-plugins-mad-0.10.2 )
+	                vorbis? ( >=media-plugins/gst-plugins-vorbis-0.10.4 )	ogg? ( >=media-plugins/gst-plugins-ogg-0.10.4 )	
+                        ffmpeg? ( >=media-plugins/gst-plugins-ffmpeg-0.10.0 )	alsa? ( >=media-plugins/gst-plugins-alsa-0.10.4 )
+                  	oss? ( >=media-plugins/gst-plugins-oss-0.10.2 )	flac? ( >=media-plugins/gst-plugins-flac-0.10.2 )
+                	theora? ( >=media-plugins/gst-plugins-theora-0.10.4 )	cdparanoia? ( >=media-plugins/gst-plugins-cdparanoia-0.10.4 ) -->
+           </RuntimeDependencies>
+           <Files>
+	       <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="header">/usr/include</Path>
+               <Path fileType="library">/usr/lib</Path>
+               <Path fileType="data">/usr/libexec</Path> <!-- libexec library ?? -->
+               <Path fileType="localedata">/usr/share/locale</Path>
+	       <Path fileType="man">/usr/share/man/</Path>
+               <Path fileType="doc">/usr/share/doc</Path>
+	       <Path fileType="data">/usr/share/applications</Path>
+	       <Path fileType="data">/usr/share/icons</Path>
+	       <Path fileType="data">/usr/share/bmpx</Path>
+               <Path fileType="data">/usr/share/dbus-1</Path>
+               <Path fileType="data">/usr/share/libhrel</Path>
+               <Path fileType="data">/</Path>
+	   </Files>
+	     
+    </Package> 
+    <History>
+        <Update release="2">
+            <Date>2006-06-18</Date>
+	    <Version>0.14.4</Version>
+            <Comment>First release.</Comment>
+            <Name>dependency and configure fix</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Update>
+	<Update release="1">
+            <Date>2006-05-20</Date>
+            <Version>0.14.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Erhan Onur Şendağ</Name>
+            <Email>onursendag@yahoo.com</Email>
+        </Update>
+</History>
+</PISI>
