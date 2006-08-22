@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>pouetchess</Name>
+        <Homepage>http://pouetchess.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>PouetChess is a 3D and open source chess game for Linux with very few and basic dependencies.</Summary>
+        <Summary xml:lang="tr">Pouetchess; açık kaynak kodlu, 3 boyutlu bir satranç oyunudur</Summary>
+        <Description>...</Description>
+        <Archive type="targz" sha1sum="023bea8043b5dcf8a134531b920497c7efb89adb">
+            http://heanet.dl.sourceforge.net/sourceforge/pouetchess/pouetchess_src_0.2.0.tar.gz
+        </Archive>
+        <Patches>
+            <Patch>configure-fix.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>scons</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pouetchess</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/pouetchess.desktop" owner="root" permission="0644">pouetchess.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/pouetchess.png" owner="root" permission="0644">pouetchess.png</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+       <Update release="2">
+           <Date>2006-08-05</Date>
+           <Version>0.2.0</Version>
+           <Comment>Fix #79.</Comment>
+           <Name>Uğur Çetin</Name>
+           <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-27</Date>
+            <Version>0.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
