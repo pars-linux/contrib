@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>klearnnotes2</Name>
+        <Homepage>http://klearnnotes2.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KLearnNotes2 is a program which can help you learn music notes' names fast and easily.</Summary>
+        <Summary xml:lang="tr">KLearnNotes müzik notala adlarını kolay ve hızlı bir şekilde öğrenmenize yardımcı olan bir uygulamadır</Summary>
+        <Description>...</Description>
+        <Archive type="tarbz2" sha1sum="1009ec9472d0e3a4e58508449c1b155003583212">
+            http://heanet.dl.sourceforge.net/sourceforge/klearnnotes2/klearnnotes2-1.2.tar.bz2
+        </Archive>
+        <Patches>
+            <Patch level="1">kln-timidityfix.patch</Patch>
+            <Patch>KLN-fix.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="3.0">kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>klearnnotes2</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.0">kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/klearnnotes2.desktop" owner="root" permission="0644">klearnnotes2.desktop</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-06-26</Date>
+            <Version>1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
