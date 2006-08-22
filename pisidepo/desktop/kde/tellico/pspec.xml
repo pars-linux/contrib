@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>tellico</Name>
+        <Homepage>http://www.periapsis.org/tellico</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A collection manager for the KDE environment</Summary>
+        <Summary xml:lang="tr">KDE için koleksiyon yönetim uygulaması</Summary>
+        <Description>...</Description>
+        <Archive type="targz" sha1sum="42fdbe15b74217ce74028b380fddf3b9a7de90f4">
+            http://periapsis.org/tellico/download/tellico-1.1.6.tar.gz
+        </Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4.23">libxml2</Dependency>
+            <Dependency versionFrom="1.0.19">libxslt</Dependency>
+            <Dependency>kdemultimedia</Dependency>
+            <Dependency>taglib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tellico</Name>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-06-27</Date>
+            <Version>1.1.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
