@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xsane</Name>
+        <Homepage>http://www.xsane.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical scanning frontend</Summary>
+        <Summary xml:lang="tr">Grafiksel tarayıcı önucu</Summary>
+        <Description>Graphical scanning frontend</Description>
+        <Description xml:lang="tr">Grafiksel tarayıcı önucu</Description>
+        <Archive sha1sum="22725e8a956955b75ac6791f69a3e9a4ae744ac7" type="targz">ftp://ftp3.sane-project.org/pub/sane/xsane/xsane-0.991.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>gimp</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xsane</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/sane/xsane</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/xsane.desktop">xsane.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-29</Date>
+            <Version>0.991</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
