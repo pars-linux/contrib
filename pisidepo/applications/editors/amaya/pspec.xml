@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>amaya</Name>
+        <Homepage>http://www.w3.org/Amaya/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Summary>
+        <Summary xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Summary>
+        <Description>Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Description>
+        <Description xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Description>
+        <Archive sha1sum="39422d1e33db79cc32df509b08344d51ce234032" type="targz">http://www.w3.org/Amaya/Distribution/amaya-fullsrc-9.51.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>imlib2</Dependency>
+            <Dependency>perl</Dependency>
+            <Dependency>raptor</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>amaya</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>imlib2</Dependency>
+            <Dependency>perl</Dependency>
+            <Dependency>raptor</Dependency>
+        </RuntimeDependencies>
+        <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-22</Date>
+            <Version>9.51</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
