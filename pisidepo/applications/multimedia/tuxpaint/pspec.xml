@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tuxpaint</Name>
+        <Homepage>http://www.newbreedsoftware.com/tuxpaint</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Drawing program designed for young children</Summary>
+        <Summary xml:lang="tr">Çocuklar için hazırlanmış çizim programı</Summary>
+        <Description>Drawing program designed for young children</Description>
+        <Description xml:lang="tr">Çocuklar için hazırlanmış çizim programı</Description>
+        <Archive sha1sum="59338caf9844042b37c4668bfa441b83234901f4" type="binary">http://surfnet.dl.sourceforge.net/sourceforge/tuxpaint/tuxpaint-0.9.15b-1.fc4.i386.rpm</Archive>
+        <BuildDependencies>
+            <Dependency>libpng</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>netpbm</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="2">freetype</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tuxpaint</Name>
+        <RuntimeDependencies>
+            <Dependency>libpng</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>netpbm</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="2">freetype</Dependency>
+        </RuntimeDependencies>
+        <Files>
+                <Path fileType="config">/etc/tuxpaint</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+           <AdditionalFile target="/usr/share/locale/tr/LC_MESSAGES/tuxpaint.mo" permission="0644" owner="root">tuxpaint.mo</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-19</Date>
+            <Version>0.9.15b</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
