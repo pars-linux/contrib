@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ecore</Name>
+        <Homepage>http://www.enlightenment.org/Libraries/Ecore/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>core event abstraction layer and X abstraction layer (nice convenience library</Summary>
+        <Summary xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Summary>
+        <Description>core event abstraction layer and X abstraction layer (nice convenience library</Description>
+        <Description xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Description>
+        <Archive sha1sum="cfb6455e49becfc1912567428cd33d6dd589cf2d" type="targz">http://enlightenment.freedesktop.org/files/ecore-0.9.9.027.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency>curl</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency versionFrom="0.9.9.027">evas</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ecore</Name>
+        <RuntimeDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency>curl</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency versionFrom="0.9.9.027">evas</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-10</Date>
+            <Version>0.9.9.027</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
