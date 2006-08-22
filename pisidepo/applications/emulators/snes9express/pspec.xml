@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>snes9express</Name>
+        <Homepage>http://www.linuxgames.com/snes9express/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>snes9x for X</Summary>
+        <Summary xml:lang="tr">X için snes9x</Summary>
+        <Description>Snes9express is a graphical interface for the X11 versions of snes9x, featuring an organized layout of common snes9x options.</Description>
+        <Description xml:lang="tr">Snes9express, snes9x için bir X11 arayüzüdür, snes9x seçeneklerini kolaylıkla değiştirebilmenizi sağlar.</Description>
+        <Archive sha1sum="9712f6643bdd456110a45463c90891c2b82682dc" type="targz">http://switch.dl.sourceforge.net/sourceforge/snes9express/snes9express-1.42.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="0">snes9express-1.42-errno.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>snes9express</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg</Dependency>
+            <Dependency>snes9x</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/snes9express</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-06</Date>
+            <Version>1.42</Version>
+            <Comment>First Release</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
