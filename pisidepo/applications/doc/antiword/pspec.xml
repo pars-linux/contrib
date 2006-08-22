@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>antiword</Name>
+        <Homepage>http://www.winfield.demon.nl</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Free MS Word document reader</Summary>
+        <Summary xml:lang="tr">Özgür bir MS Word belgesi okuyucu</Summary>
+        <Description>Antiword converts the binary files from Word 2, 6, 7, 97, 2000, 2002 and 2003 to plain text and to PostScript. This is a console application.</Description>
+        <Description xml:lang="tr">Antiword ile Word 2, 6, 7, 97, 2000, 2002 ve 2003 dosyalarınızı düz metine veya PostScript'e çevirebilirisiz. Bu bir konsol uygulamasıdır.</Description>
+        <Archive type="targz" sha1sum="4364f7f99cb2d37f7d1d5bc14a335ccc0c67292e">http://www.winfield.demon.nl/linux/antiword-0.37.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">001_all_antiword-0.37-ppc-macos.diff</Patch>
+            <Patch level="1">002_all_antiword-install-paths.diff</Patch>
+            <Patch level="1">003_all_CVE-2005-3126-from-debian.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>antiword</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-06-14</Date>
+            <Version>0.37</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
