@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>ppracer</Name>
+        <Homepage>http://projects.planetpenguin.de</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>PlanetPenguin Racer is an OpenGL racing game</Summary>
+        <Summary xml:lang="tr">PlanetPenguin Racer OpenGL bir yarış oyunudur</Summary>
+        <Description>...</Description>
+        <Archive type="tarbz2" sha1sum="3fb083eaf1ba632675250714ffeb3e2133965194">
+            http://download.berlios.de/ppracer/ppracer-0.5alpha.tar.bz2
+        </Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2">libsdl</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="8.0">tcl</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>freetype</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">ppracer-turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ppracer</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2">libsdl</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="8.0">tcl</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>freetype</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+   </Package>
+
+   <History>
+       <Update release="2">
+           <Date>2006-06-28</Date>
+           <Version>0.5</Version>
+           <Comment>Turkish translation.</Comment>
+           <Name>Uğur Çetin</Name>
+           <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-27</Date>
+            <Version>0.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
