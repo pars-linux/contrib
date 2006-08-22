@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mpg321</Name>
+        <Homepage>http://sourceforge.net/projects/mpg321</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Free MP3 player</Summary>
+        <Summary xml:lang="tr">Özgür bir MP3 çalıcısı</Summary>
+        <Description>...</Description>
+        <Archive sha1sum="90268d0d187ddd7625d143b95791cb39a1630b79" type="targz">
+            http://kent.dl.sourceforge.net/sourceforge/mpg321/mpg321-0.2.10.tar.gz
+        </Archive>
+        <BuildDependencies>
+            <Dependency>libmad</Dependency>
+            <Dependency>libid3tag</Dependency>
+            <Dependency versionFrom="0.8.0">libao</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>mpg321</Name>
+        <RuntimeDependencies>
+            <Dependency>libmad</Dependency>
+            <Dependency>libid3tag</Dependency>
+            <Dependency versionFrom="0.8.0">libao</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-27</Date>
+            <Version>0.2.10</Version>
+            <Comment>First release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
