@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>enemy-territory</Name>
+        <Homepage>http://www.idsoftware.com/</Homepage>
+        <Packager>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Packager>
+        <License>RTCW-ETEULA</License>
+        <IsA>app:gui</IsA>
+        <Summary>standalone multi-player game based on Return to Castle Wolfenstein</Summary>
+        <Summary xml:lang="tr">Counter-Strike tarzinda internet üzerinden oynanabilinen bir oyun </Summary>
+        <Description>standalone multi-player game based on Return to Castle Wolfenstein</Description>
+        <Description xml:lang="tr">Counter-Strike tarzinda internet üzerinden oynanabilinen bir oyun</Description>
+        <Archive sha1sum="9a66247affcdf804a7341c7630e5610d1ae5d39f" type="binary">ftp://ftp.red.telefonica-wholesale.net/GAMES/ET/linux/et-linux-2.60.x86.run</Archive>
+        <!--  ftp://ftp.red.telefonica-wholesale.net/GAMES/ET/linux/et-linux-2.60.x86.run -->
+        <!--  http://idsoftware/et/linux/et-linux-2.60.x86.run  -->
+        <!--  http://3dgamers/wolfensteinet/et-linux-2.60.x86.run -->
+        <BuildDependencies>
+            <Dependency>glibc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>enemy-territory</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/opt/enemy-territory</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/et.desktop" permission="0644" owner="root">et.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/bin/et" permission="0755" owner="root">et</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-04-24</Date>
+            <Version>2.60</Version>
+            <Comment>First release.</Comment>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Update>
+    </History>
+</PISI>
