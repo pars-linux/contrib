@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dark-oberon</Name>
+        <Homepage>http://dark-oberon.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Serkan Avcı</Name>
+            <Email>killer@wolke7.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Warcraft II like real-time strategy game.</Summary>
+        <Summary xml:lang="tr">Warcraft II benzeri strateji oyunu.</Summary>
+        <Description>Dark Oberon is an open source real-time strategy game similar to Warcraft II released under GPL.</Description>
+        <Description xml:lang="tr">Dark Oberon, Warcraft II'ye benzeyen açık kaynaklı bir gerçek zamanlı strateji oyunudur.</Description>
+        <Archive sha1sum="1708a1e6ed762c674bd7aa3296d3d28e297bc589" type="targz">http://mesh.dl.sourceforge.net/sourceforge/dark-oberon/dark-oberon-1.0.2-RC1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.75">fmod</Dependency>
+            <Dependency>glfw</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>darkoberon.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>dark-oberon</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.75">fmod</Dependency>
+            <Dependency>glfw</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/darkoberon</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/bin/dark-oberon" permission="0755" owner="root">darkoberon.sh</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/darkoberon.desktop" permission="0644" owner="root">darkoberon.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/dark-oberon.png" permission="0644" owner="root">dark-oberon.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2006-08-19</Date>
+            <Version>1.0.2-rc1</Version>
+            <Comment>version-fix</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-19</Date>
+            <Version>1.0.2-rc1</Version>
+            <Comment>Added glfw dependency.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-08</Date>
+            <Version>1.0.2-rc1</Version>
+            <Comment>First release.</Comment>
+            <Name>Serkan Avcı</Name>
+            <Email>killer@wolke7.net</Email>
+        </Update>
+    </History>
+</PISI>
