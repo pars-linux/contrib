@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>nxtvepg</Name>
+        <Homepage>http://nxtvepg.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>receive and browse free TV programme listings via bttv for tv networks in Europe</Summary>
+        <Summary xml:lang="tr">Avrupadaki Televizyon proğram listelerini bttv üzerinden tv ağları için al ve tara </Summary>
+        <Description>receive and browse free TV programme listings via bttv for tv networks in Europe</Description>
+        <Description xml:lang="tr">Tv proğram listesi</Description>
+        <Archive sha1sum="02008ff681377367b4b5a9d7734de9471a69e5de" type="targz">http://heanet.dl.sourceforge.net/sourceforge/nxtvepg/nxtvepg-2.7.6.tar.gz</Archive>
+        <Patches>
+            <Patch>nxtvepg-db.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>sed</Dependency> tcl
+            <Dependency>tcltk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>nxtvepg</Name>
+        <RuntimeDependencies>
+            <Dependency>sed</Dependency>
+            <Dependency versionFrom="8.0">tcltk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/</Path>
+        </Files>
+        <!-- AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/valknut.desktop" permission="0644" owner="root">valknut.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/valknut/translation/valknut.tr.qm" permission="0644" owner="root">valknut.tr.qm</AdditionalFile>
+        </AdditionalFiles -->
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-11</Date>
+            <Version>2.7.6</Version>
+            <Comment>First release.</Comment>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Update>
+    </History>
+</PISI>
