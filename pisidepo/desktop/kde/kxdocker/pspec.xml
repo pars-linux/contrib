@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>kxdocker</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php?content=10958</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KXDocker is an innovative docker for KDE</Summary>
+        <Summary xml:lang="tr">Kde için bir panel</Summary>
+        <Description>...</Description>
+        <Archive type="tarbz2" sha1sum="750c13ff299083b654773b445755d743fa7e835b">
+            http://www.xiaprojects.com/www/downloads/files/kxdocker/1.0.0/kxdocker-1.1.4a.tar.bz2
+        </Archive>
+        <!--
+        <Patches>
+            <Patch level="3">kxdocker114a-compiz.diff</Patch>
+        </Patches>
+        -->
+        <BuildDependencies>
+            <Dependency versionFrom="3.4.0">kdebase</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kxdocker</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.4.0">kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-08-03</Date>
+            <Version>1.1.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
