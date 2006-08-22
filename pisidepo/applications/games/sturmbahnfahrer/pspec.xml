@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sturmbahnfahrer</Name>
+        <Homepage>http://www.sturmbahnfahrer.com/</Homepage>
+        <Packager>
+            <Name>Serkan Avcı</Name>
+            <Email>killer@wolke7.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Sturmbahnfahrer:Simulated obstacle course for automobiles</Summary>
+        <Summary xml:lang="tr">Sturmbahnfahrer:Simulated obstacle course for automobiles</Summary>
+        <Description>Sturmbahnfahrer:Simulated obstacle course for automobiles</Description>
+        <Description xml:lang="tr">Sturmbahnfahrer:Simulated obstacle course for automobiles</Description>
+        <Archive sha1sum="9f59162ebb6b3db484cd364d8ba6e04717ad3b39" type="targz">http://www.stolk.org/sturmbahnfahrer/download/sturmbahnfahrer-1.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ode</Dependency>
+            <Dependency>plib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>sturmbahnfahrer</Name>
+        <RuntimeDependencies>
+            <Dependency>ode</Dependency>
+            <Dependency>plib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/games</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/games/sturmbahnfahrer</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/sturmbahnfahrer.desktop" permission="0644" owner="root">sturmbahnfahrer.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/sturmbahnfahrer.png" permission="0644" owner="root">sturmbahnfahrer.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-08</Date>
+            <Version>1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Serkan Avcı</Name>
+            <Email>killer@wolke7.net</Email>
+        </Update>
+    </History>
+</PISI>
