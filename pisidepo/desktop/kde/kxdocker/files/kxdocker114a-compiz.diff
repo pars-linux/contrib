@@ -1,0 +1,63 @@
+diff -u --recursive kxdocker-1.1.4a.orig/src/xgdockercomposite.cpp kxdocker-1.1.4a/src/xgdockercomposite.cpp
+--- kxdocker-1.1.4a.orig/src/xgdockercomposite.cpp	2006-04-17 08:47:18.000000000 -0400
++++ kxdocker-1.1.4a/src/xgdockercomposite.cpp	2006-06-20 04:21:48.000000000 -0400
+@@ -160,10 +160,11 @@
+ 	}
+ 	setBackgroundMode(Qt::NoBackground,Qt::NoBackground);
+ 	// compiz
++	KWin::setType(winId(), NET::Override);
+ 	KWin::setType(winId(), NET::Dock);
+-	KWin::setState( winId(), NET::StaysOnTop );
++	KWin::setState( winId(), NET::StaysOnTop || NET::KeepAbove || NET::SkipTaskbar || NET::SkipPager || NET::Sticky );
+ 	// altre prove
+-	//KWin::setType(winId(), NET::Override);
++    KWin::setOnAllDesktops(winId(),true);
+ 	NETWinInfo* info;
+ 	info = new NETWinInfo( qt_xdisplay(), winId(), qt_xrootwin(), NET::WMState );
+ 	info->setDesktop( NETWinInfo::OnAllDesktops);
+@@ -2860,7 +2861,8 @@
+ 	setUnShadowed();
+ 	// compiz
+ 	//qWarning("KWin::setState(winId(), NET::KeepAbove);");
+-	KWin::setState(winId(), NET::KeepAbove);
++	KWin::setState( winId(), NET::StaysOnTop || NET::KeepAbove || NET::SkipTaskbar || NET::SkipPager || NET::Sticky );
++	//KWin::setState(winId(), NET::KeepAbove);
+ 	//KWin::setState( winId(), NET::StaysOnTop );
+ 	KWin::setOnAllDesktops(winId(),true);
+ 	qApp->syncX();
+@@ -3472,7 +3474,7 @@
+ 	if(xPillow!=NULL)xPillow->hide();
+ 	//QWidget::lower();
+ 	//qWarning("KWin::setState( winId(), NET::KeepBelow);");
+- 	KWin::setState(winId(),NET::KeepBelow);
++	KWin::setState( winId(), NET::KeepBelow || NET::SkipTaskbar || NET::SkipPager || NET::Sticky );
+ 	repaint(false);
+ 	lastRaise=0;
+ 	isRaised=0;
+diff -u --recursive kxdocker-1.1.4a.orig/src/xgdockerfake.cpp kxdocker-1.1.4a/src/xgdockerfake.cpp
+--- kxdocker-1.1.4a.orig/src/xgdockerfake.cpp	2006-04-09 06:10:58.000000000 -0400
++++ kxdocker-1.1.4a/src/xgdockerfake.cpp	2006-06-20 04:21:50.000000000 -0400
+@@ -153,8 +153,9 @@
+ 	}
+ 	setBackgroundMode(Qt::NoBackground,Qt::NoBackground);
+ 	KWin::setType(winId(), NET::Dock);
++	KWin::setState( winId(), NET::StaysOnTop || NET::KeepAbove || NET::SkipTaskbar || NET::SkipPager || NET::Sticky );
+ 	//KWin::setType(winId(), NET::Override);
+-	KWin::setState( winId(), NET::StaysOnTop );
++    KWin::setOnAllDesktops(winId(),true);
+ 	NETWinInfo* info;
+ 	info = new NETWinInfo( qt_xdisplay(), winId(), qt_xrootwin(), NET::WMState );
+ 	info->setDesktop( NETWinInfo::OnAllDesktops);
+diff -u --recursive kxdocker-1.1.4a.orig/src/xgfloater.cpp kxdocker-1.1.4a/src/xgfloater.cpp
+--- kxdocker-1.1.4a.orig/src/xgfloater.cpp	2006-01-03 08:55:05.000000000 -0500
++++ kxdocker-1.1.4a/src/xgfloater.cpp	2006-06-20 04:18:14.000000000 -0400
+@@ -45,7 +45,8 @@
+ 	setBackgroundMode(Qt::NoBackground,Qt::NoBackground);
+ 	KWin::setType(winId(), NET::Dock);
+ 	//KWin::setType(winId(), NET::Override);
+-	KWin::setState( winId(), NET::StaysOnTop );
++	KWin::setState( winId(), NET::StaysOnTop || NET::KeepAbove || NET::SkipTaskbar || NET::SkipPager || NET::Sticky );
++    KWin::setOnAllDesktops(winId(),true);
+ 	setFocusPolicy(QWidget::StrongFocus);
+ 	setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+ 	MaxY=0;
