@@ -1,0 +1,96 @@
+diff -Naur cinepaint-0.21-0/app/cms.h cinepaint-0.21-0-yeni/app/cms.h
+--- cinepaint-0.21-0/app/cms.h	2006-03-09 07:16:52.000000000 +0200
++++ cinepaint-0.21-0-yeni/app/cms.h	2006-05-11 21:25:59.000000000 +0300
+@@ -20,7 +20,7 @@
+ #ifndef __CMS_H__
+ #define __CMS_H__
+ 
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ 
+ #ifndef cmsFLAGS_GUESSDEVICECLASS
+ #define cmsFLAGS_GUESSDEVICECLASS 0x0020
+diff -Naur cinepaint-0.21-0/app/depth/commands.c cinepaint-0.21-0-yeni/app/depth/commands.c
+--- cinepaint-0.21-0/app/depth/commands.c	2006-03-23 10:17:10.000000000 +0200
++++ cinepaint-0.21-0-yeni/app/depth/commands.c	2006-05-11 21:26:12.000000000 +0300
+@@ -16,7 +16,7 @@
+  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+  */
+ 
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+diff -Naur cinepaint-0.21-0/app/look_profile.c cinepaint-0.21-0-yeni/app/look_profile.c
+--- cinepaint-0.21-0/app/look_profile.c	2006-03-09 07:03:57.000000000 +0200
++++ cinepaint-0.21-0-yeni/app/look_profile.c	2006-05-11 21:27:07.000000000 +0300
+@@ -1,5 +1,5 @@
+ #include <gtk/gtk.h>
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ 
+ #include "../lib/version.h"
+ #include "actionarea.h"
+diff -Naur cinepaint-0.21-0/plug-ins/icc_examin/icc_examin.cpp cinepaint-0.21-0-yeni/plug-ins/icc_examin/icc_examin.cpp
+--- cinepaint-0.21-0/plug-ins/icc_examin/icc_examin.cpp	2006-03-28 10:15:00.000000000 +0300
++++ cinepaint-0.21-0-yeni/plug-ins/icc_examin/icc_examin.cpp	2006-05-11 21:26:26.000000000 +0300
+@@ -66,8 +66,8 @@
+ #include "lib/plugin_main.h"
+ #include "lib/wire/libtile.h"
+ #include "plugin_pdb.h"
+-#include <lcms.h>
+-#include <icc34.h>
++#include <lcms/lcms.h>
++#include <lcms/icc34.h>
+ }
+ 
+ 
+diff -Naur cinepaint-0.21-0/plug-ins/jpeg/jpeg.c cinepaint-0.21-0-yeni/plug-ins/jpeg/jpeg.c
+--- cinepaint-0.21-0/plug-ins/jpeg/jpeg.c	2005-06-15 10:09:31.000000000 +0300
++++ cinepaint-0.21-0-yeni/plug-ins/jpeg/jpeg.c	2006-05-11 21:26:53.000000000 +0300
+@@ -33,7 +33,7 @@
+ #include "lib/plugin_main.h"
+ 
+ #include <stdio.h>
+-#include "lcms.h"
++#include "lcms/lcms.h"
+ #include "iccjpeg.h"
+ 
+ 
+diff -Naur cinepaint-0.21-0/plug-ins/openexr/chroma_icc.cxx cinepaint-0.21-0-yeni/plug-ins/openexr/chroma_icc.cxx
+--- cinepaint-0.21-0/plug-ins/openexr/chroma_icc.cxx	2005-10-07 09:39:51.000000000 +0300
++++ cinepaint-0.21-0-yeni/plug-ins/openexr/chroma_icc.cxx	2006-05-11 21:25:47.000000000 +0300
+@@ -22,7 +22,7 @@
+  */
+ 
+ #include <ImfStandardAttributes.h>
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ 
+ char*
+ writeICCprims (Imf::Chromaticities & image_prim, size_t & size)
+diff -Naur cinepaint-0.21-0/plug-ins/tiff/info.c cinepaint-0.21-0-yeni/plug-ins/tiff/info.c
+--- cinepaint-0.21-0/plug-ins/tiff/info.c	2005-11-21 10:27:23.000000000 +0200
++++ cinepaint-0.21-0-yeni/plug-ins/tiff/info.c	2006-05-11 21:26:40.000000000 +0300
+@@ -37,7 +37,7 @@
+ #include "tiff_plug_in.h"
+ #include "info.h"
+ 
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ 
+ #ifndef DEBUG
+  /*#define DEBUG*/
+diff -Naur cinepaint-0.21-0/plug-ins/tiff/tiff_plug_in.h cinepaint-0.21-0-yeni/plug-ins/tiff/tiff_plug_in.h
+--- cinepaint-0.21-0/plug-ins/tiff/tiff_plug_in.h	2006-03-27 08:49:48.000000000 +0300
++++ cinepaint-0.21-0-yeni/plug-ins/tiff/tiff_plug_in.h	2006-05-11 21:27:16.000000000 +0300
+@@ -80,7 +80,7 @@
+     #include <gtk/gtk.h>
+   #endif
+ #endif
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ #if GIMP_MAJOR_VERSION == 0 && GIMP_MINOR_VERSION == 15
+   #include "libgimp/gimpcms.h"
+ #endif
