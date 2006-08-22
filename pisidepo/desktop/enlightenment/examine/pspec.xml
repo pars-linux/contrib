@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>examine</Name>
+        <Homepage>http://www.enlightenment.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>configuration library for applications based on the EFL</Summary>
+        <Summary xml:lang="tr">EFL tabanlı uygulamalr için yapılandırma kütüphanesi</Summary>
+        <Description>configuration library for applications based on the EFL</Description>
+        <Description xml:lang="tr">EFL tabanlı uygulamalr için yapılandırma kütüphanesi</Description>
+        <Archive sha1sum="5e1ab89c813d0084f50380818ab3b5763b47b1fc" type="tarbz2">
+            http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/examine-2006-04-17.tar.bz2
+        </Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.0">eet</Dependency>
+            <Dependency versionFrom="1.0.5">edb</Dependency>
+            <Dependency versionFrom="0.0.4">ewl</Dependency>
+            <Dependency versionFrom="0.9.9">ecore</Dependency>
+            <Dependency>readline</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>examine</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.9.0">eet</Dependency>
+            <Dependency versionFrom="1.0.5">edb</Dependency>
+            <Dependency versionFrom="0.0.4">ewl</Dependency>
+            <Dependency versionFrom="0.9.9">ecore</Dependency>
+            <Dependency>readline</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-13</Date>
+            <Version>2006-04-17</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
