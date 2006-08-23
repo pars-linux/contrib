@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk-xfce-engine</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>GTK+2 Xfce Theme Engine</Summary>
+        <Summary xml:lang="tr">GTK-2 xfce tema aracı</Summary>
+        <Description>GTK+2 Xfce Theme Engine</Description>
+        <Description xml:lang="tr">GTK-2 xfce tema aracı</Description>
+        <Archive sha1sum="b9458b5639a81dfb5be675921fd4a2d2f4cb4305" type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/gtk-xfce-engine-2.2.8.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+           <Name>gtk-xfce-engine</Name>
+           <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>glib2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+               <Path fileType="library">/usr/lib</Path>
+               <Path fileType="data">/usr/share/themes</Path>
+           </Files>
+    </Package> 
+    <History>
+        <Update release="1">
+            <Date>2006-05-07</Date>
+            <Version>2.2.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
