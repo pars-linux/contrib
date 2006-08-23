@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xarchiver</Name>
+        <Homepage>http://xarchiver.xfce.org/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce 4 archive frontend</Summary>
+        <Summary xml:lang="tr">Xfce 4 arşiv arayüzü</Summary>
+        <Description>Xarchiver, a lightweight GTK2 only frontend to 7zip, arj, rar, zip, bzip2, tar, gzip and RPM</Description>
+        <Description xml:lang="tr">Xfce 4 arşiv arayüzü</Description>
+        <Archive sha1sum="29c754d330f0cb14ccd80ea714157d895fe9a807"  type="tarbz2">http://belnet.dl.sourceforge.net/sourceforge/xarchiver/xarchiver-0.3.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>xarchiver</Name>
+       <RuntimeDependencies>
+           <Dependency>gtk2</Dependency>
+           <Dependency>xorg</Dependency>
+       </RuntimeDependencies> 
+            <Files>
+               <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="localedata">/usr/share/locale</Path>
+               <Path fileType="data">/usr/share</Path>
+           </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>0.3.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
