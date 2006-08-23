@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+     <Name>sourceinstall</Name>
+     <Homepage>http://www.gnu.org/software/sourceinstall/sourceinstall.html</Homepage>
+     <Packager>
+      <Name>Hakan Sonmez</Name>
+      <Email>gecici90@yahoo.com</Email>
+     </Packager>
+     <License>GPL-2</License>
+     <IsA>app:console</IsA>
+     <PartOf>applications</PartOf>
+     <Summary>Gnu Source Installer</Summary>
+     <Summary xml:lang="tr">Gnu Source Installer Konsol Versiyon</Summary>
+     <Description>Gnu Source Installer Konsol Versiyon</Description>
+     <Description xml:lang="tr">
+      Gnu Source Installer programinin gtk gerektirmeyen
+      konsol versiyonudur
+     </Description>
+     <Archive type="targz" sha1sum="6aff58daa5ab098a10139a36677a6117ee3c7a85">
+      ftp://ftp.gnu.org/gnu/sourceinstall/sourceinstall-2.1.tar.gz
+     </Archive>
+     <BuildDependencies>
+      <Dependency>autoconf2_59</Dependency>
+      <Dependency>automake1_4</Dependency>
+     </BuildDependencies>
+	
+    </Source>
+
+    <Package>
+     <Name>sourceinstall</Name>
+     <RuntimeDependencies>
+      <Dependency>libsrcinst</Dependency>
+     </RuntimeDependencies>
+     <Files>
+      <Path fileType="executable">/usr/bin</Path>
+      <Path fileType="man">/usr/share/man</Path>
+     </Files>
+    </Package>
+    <History>
+     <Update release="1">
+      <Date>2006-07-06</Date>
+      <Version>2.1</Version>
+      <Comment>First Release</Comment>
+      <Name>Hakan Sonmez</Name>
+      <Email>gecici90@yahoo.com</Email>
+     </Update>
+    </History>
+</PISI>
