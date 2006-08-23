@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce-utils</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce 4 utilities</Summary>
+        <Summary xml:lang="tr">Xfce 4 yardımcı uygulamaları</Summary>
+        <Description>Xfce 4 utilities</Description>
+        <Description xml:lang="tr">Xfce yardımcı uygulamaları</Description>
+        <Archive sha1sum="a19e68dd676743636dec80d9ce2b0d6149c7a315"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce-utils-4.2.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+	    <Dependency>libxfcegui4</Dependency>
+	    <Dependency>xfce-mcs-manager</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce-utils</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>xorg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/X11/Sessions/xfce4" permission="0755" owner="root">xfce4</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
