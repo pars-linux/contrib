@@ -12,7 +12,6 @@ WorkDir="Amaya"
 def setup():
     shelltools.makedirs("%s/Amaya/obj" % get.workDIR())
     shelltools.cd("%s/Amaya/obj" % get.workDIR())
-
     shelltools.system("ln -s ../configure")
     autotools.configure("--prefix=/usr/share")
 
@@ -33,9 +32,11 @@ def install():
     pisitools.dosym("/usr/share/Amaya-9.51/wx/bin/amaya", "/usr/bin/amaya")
     pisitools.dosym("/usr/share/Amaya-9.51/wx/bin/print", "/usr/bin/print")
 
+    pisitools.domove("/usr/share/Amaya-9.51/doc/*", "/usr/share/doc/%s" % get.srcTAG())
+
     #remove redundant dirs and files
     pisitools.removeDir("/usr/share/bin")
-
+    pisitools.removeDir("/usr/share/Amaya-9.51/doc")
 
 
 
