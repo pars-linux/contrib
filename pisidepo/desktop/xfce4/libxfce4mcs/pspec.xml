@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libxfce4mcs</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Libraries for Xfce 4</Summary>
+        <Summary xml:lang="tr">XFCE için kütüphaneler</Summary>
+        <Description>Libraries for Xfce 4</Description>
+        <Description xml:lang="tr">XFCE için kütüphaneler</Description>
+        <Archive sha1sum="e7e926cbc319a893d53c5dabed5f0651acb20f6e"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/libxfce4mcs-4.2.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>glib2</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>libxfce4mcs</Name>
+       <RuntimeDependencies>
+           <Dependency>libxfce4util</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>xorg</Dependency>
+       </RuntimeDependencies> 
+            <Files>
+               <Path fileType="header">/usr/include</Path>
+               <Path fileType="library">/usr/lib</Path>
+           </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
