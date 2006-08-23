@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>GD</Name>
+        <Homepage>http://www.cpan.org/modules/by-module/GD/GD-2.34.readme</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>Artistic GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GD library</Summary>
+        <Summary xml:lang="tr">GD kütüphanesi</Summary>
+        <Description>Interface to Thomas Boutell's gd library</Description>
+        <Description xml:lang="tr">Thomas Boutell'in gd kütüphaneleri için arayüz</Description>
+        <Archive type="targz" sha1sum="5f4b5e924fb7a0281d4fc1208682b8ee35afbe22">
+            http://cpan.ulak.net.tr/authors/id/L/LD/LDS/GD-2.34.tar.gz
+        </Archive>
+        <BuildDependencies>
+             <Dependency versionFrom="2.0.28">gd</Dependency>
+             <Dependency>jpeg</Dependency>
+             <Dependency>freetype</Dependency>
+             <Dependency>giflib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>GD</Name>
+        <RuntimeDependencies>
+             <Dependency versionFrom="2.0.28">gd</Dependency>
+             <Dependency>jpeg</Dependency>
+             <Dependency>freetype</Dependency>
+             <Dependency>giflib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-06-23</Date>
+            <Version>2.34</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
