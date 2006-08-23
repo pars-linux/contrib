@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>SimGear</Name>
+        <Homepage>http://www.simgear.org/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>library</IsA>
+        <PartOf>programming.libs</PartOf>
+        <Summary>Simulator construction tools</Summary>
+        <Summary lang="tr">Simülatör inşa araçları</Summary>
+        <Description>SimGear is a set of open-source libraries designed to be used as building blocks for quickly assembling 3d simulations, games, and visualization applications.</Description>
+        <Description lang="tr">Simgear, hızlıca 3b simülasyonlar, oyunlar ve görsel uygulamalar inşa etmeyi sağlayan bir takım açık kaynaklı kütüphanelerden oluşmaktadır.</Description>
+        <Archive sha1sum="83e8435b52463fdb2736ccb2f0e42b572528131f" type="targz">ftp://ftp.simgear.org/pub/simgear/Source/SimGear-0.3.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.8.4">plib</Dependency>
+            <Dependency>openal</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>SimGear</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include/simgear</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2006-04-27</Date>
+            <Version>0.3.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-04-03</Date>
+            <Version>0.3.10-pre3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-03-25</Date>
+            <Version>0.3.10-pre2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-03-25</Date>
+            <Version>0.3.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
