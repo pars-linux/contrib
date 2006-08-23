@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>XML-Simple</Name>
+        <Homepage>http://www.cpan.org/modules/by-module/XML/XML-Simple-2.14.readme</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <PartOf></PartOf>
+        <Summary>XML::Simple perl module</Summary>
+        <Summary xml:lang="tr">XML::Simple perl modülü</Summary>
+        <Description>XML::Simple - Easy API to read/write XML</Description>
+        <Description xml:lang="tr">XML::Simple, XML okumak ve yazmak için kolay bir API'dir</Description>
+        <Archive type="targz" sha1sum="6d5134129ffea0721f0ae6633e22c9a6205cffa1">
+            http://cpan.ulak.net.tr/authors/id/G/GR/GRANTM/XML-Simple-2.14.tar.gz
+        </Archive>
+        <BuildDependencies>
+            <Dependency>XML-SAX</Dependency>
+            <Dependency versionFrom="1.04">XML-NamespaceSupport</Dependency>
+            <Dependency versionFrom="2.30">XML-Parser</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>XML-Simple</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-06-15</Date>
+            <Version>2.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
