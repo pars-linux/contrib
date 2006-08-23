@@ -1,6 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 #
-#Pardox pardox2006 at hotmail dot com
-#
+# Fethi Aymaz <fethi@linux-sevenler.org>
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
