@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>limewire</Name>
+        <Homepage>http://www.limewire.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Limewire Java Gnutella client</Summary>
+        <Summary xml:lang="tr">Java ile yazılmış bir Gnutella istemcisi</Summary>
+        <Description>Limewire Java Gnutella client</Description>
+        <Archive type="zip" sha1sum="ee3c36381136cc5b5a4df817f24d89c10869ff2e">
+            http://maverick.limewire.com/download/LimeWireOther.zip
+        </Archive>
+    </Source>
+
+    <Package>
+        <Name>limewire</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/opt/limewire</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/bin/limewire" owner="root" permission="0755">limewire</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/limewire.png" owner="root" permission="0644">limewire.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/limewire.desktop" owner="root" permission="0644">limewire.desktop</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-08-11</Date>
+            <Version>4.12</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
