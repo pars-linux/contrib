@@ -6,6 +6,8 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
+WorkDir="klineakconfig-0.8-beta2"
+
 def setup():
     kde.configure()
 
