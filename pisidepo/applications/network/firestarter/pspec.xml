@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>firestarter</Name>
+        <Homepage>http://www.fs-security.com</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK based firewall</Summary>
+        <Summary xml:lang="tr">GTK tabanlı bir güvenlik duvarı</Summary>
+        <Description>Firestarter is a GTK based firewall</Description>
+        <Description xml:lang="tr">Firestarter, GTK tabanlı bir güvenlik duvarıdır</Description>
+        <Archive sha1sum="26dbc59a726b102729f32b775a46284b047aa99d" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/firestarter/firestarter-1.0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6.0">gtk2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>iptables</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency versionFrom="0.21">intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>firestarter</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6.0">gtk2</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>iptables</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency versionFrom="0.21">intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/firestarter.desktop" owner="root" permission="0644">firestarter.desktop</AdditionalFile>
+            <AdditionalFile target="/etc/init.d/firestarter" owner="root" permission="0644">firestarter</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/firestarter.png" owner="root" permission="0644">firestarter.png</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-12</Date>
+            <Version>1.0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
