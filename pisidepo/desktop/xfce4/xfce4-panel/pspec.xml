@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-panel</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>xfce4 panel</Summary>
+        <Summary xml:lang="tr">XFCE4 paneli</Summary>
+        <Description>xfce4 panel</Description>
+        <Description xml:lang="tr">XFCE4 panel</Description>
+        <Archive sha1sum="d42a9e3c66b49c8fd4dcb15cd0b8776a60dd43c3"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-panel-4.2.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg</Dependency>
+	    <Dependency>libxfce4mcs</Dependency>
+	    <Dependency>libxfce4util</Dependency>
+	    <Dependency>libxfcegui4</Dependency>
+	    <Dependency>xfce-mcs-manager</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>xfce4-panel</Name>
+       <RuntimeDependencies>
+           <Dependency>startup-notification</Dependency>
+           <Dependency>xfce-mcs-plugins</Dependency>
+	   <Dependency>xfce-mcs-manager</Dependency>
+	   <Dependency>libxfce4mcs</Dependency>
+	   <Dependency>libxfcegui4</Dependency>
+	   <Dependency>libxfce4util</Dependency>
+           <Dependency>xorg</Dependency>
+       </RuntimeDependencies> 
+            <Files>
+               <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="config">/etc</Path>
+               <Path fileType="header">/usr/include</Path>
+               <Path fileType="library">/usr/lib</Path>
+               <Path fileType="localedata">/usr/share</Path>
+           </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
