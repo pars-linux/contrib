@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>kcheckgmail</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php?content=14927</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>GMail notifier for KDE</Summary>
+        <Summary xml:lang="tr">KDE için GMail kontrolcüsü</Summary>
+        <Description>KCheckGmail is a system tray application to notify you about how many email messages you have in your Gmail account.</Description>
+        <Description xml:lang="tr">KCheckGmail, GMail hesabınıza bir e-posta geldiğinde sistem tepsisinde size haber verir.</Description>
+        <Archive type="tarbz2" sha1sum="8aa42eb996098ec4d7ff662e1e2db053626c1c4f">http://switch.dl.sourceforge.net/sourceforge/kcheckgmail/kcheckgmail-0.5.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kcheckgmail</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-08-23</Date>
+            <Version>0.5.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
