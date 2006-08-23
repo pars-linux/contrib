@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ksimus</Name>
+        <Homepage>http://ksimus.berlios.de</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KSimus is a KDE tool for simulation, automatization and visualization of technical processes.</Summary>
+        <Summary xml:lang="tr">KSimus, teknik işlemlerin simülasyonu, otomatiklerştirilmesi ve canlandırılması için bir KDE aracı.</Summary>
+        <Description>KSimus is a KDE tool for simulation, automatization and visualization of technical processes.</Description>
+        <Description xml:lang="tr">KSimus, teknik işlemlerin simülasyonu, otomatiklerştirilmesi ve canlandırılması için bir KDE aracı.</Description>
+        <Archive sha1sum="8a5e85574ff6463fc90b21b7322ddc08340a8813" type="targz">http://ftp.debian.org/debian/pool/main/k/ksimus/ksimus_0.3.6-2.orig.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">ksimus_0.3.6-2-10.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ksimus</Name>
+        <Files>
+                <Path fileType="executable">/usr/kde/3.5/bin</Path>
+                <Path fileType="header">/usr/kde/3.5/include</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+                <AdditionalFile target="/usr/kde/3.5/share/applications/kde/ksimus.desktop" permission="0644" owner="root">ksimus.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/kde/3.5/share/pixmaps/ksimus.png" permission="0644" owner="root">ksimus.png</AdditionalFile>
+	</AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-14</Date>
+            <Version>0.3.6.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
