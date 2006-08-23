@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>k3guitune</Name>
+        <Homepage>http://www.geocities.com/harpin_floh/kguitune_page.html</Homepage>
+        <Packager>
+            <Name>Fahri Tuğrul GÜRKAYNAK</Name>
+            <Email>ftugrul@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Guitar Tuner</Summary>
+        <Summary xml:lang="tr">Gitar akort yazılımı</Summary>
+        <Description>K3Guitune is a program that lets you tune a musical instrument using your computer and its microphone.</Description>
+        <Description xml:lang="tr">K3Guitune müzik enstrümanınızı bilgisayarınızın mikrofonuyla akort etmenizi sağlayan bir yazılımdır.</Description>
+        <Archive sha1sum="494e19ddf7a3ade10f496891675f6c97a8b05965" type="tarbz2">http://home.planet.nl/~lamer024/files/k3guitune-0.5.2.tar.bz2</Archive>
+        <Patches>
+            <Patch level="0">varsayilan_OSS.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>k3guitune</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applnk/</Path>
+            <Path fileType="data">/usr/share/apps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-13</Date>
+            <Version>0.5.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Fahri Tuğrul GÜRKAYNAK</Name>
+            <Email>ftugrul@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
