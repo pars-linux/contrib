@@ -1,10 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-#Pardox pardox2006 at hotmail dot com
 # Uğur Çetin <jnmbk@users.sourceforge.net>
-#
-
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
