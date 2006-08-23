@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bluefish</Name>
+	<Homepage>http://bluefish.openoffice.nl/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Bluefish is a powerful editor for experienced web designers and programmers</Summary>
+        <Summary xml:lang="tr">Bluefish web sayfası tasarım ve hazırlanmasında kullanılan güçlü bir düzenleyicidir</Summary>
+        <Description>Bluefish is a powerful editor for experienced web designers and programmers. Bluefish supports many programming and markup languages, but it focuses on editing dynamic and interactive websites.</Description>
+        <Description xml:lang="tr">Bluefish web sayfası tasarım ve hazırlanmasında kullanılan güçlü bir düzenleyicidir.</Description>
+        <Archive sha1sum="084ecbf348fd8eb092c9fc702615c9f82a544d9d" type="tarbz2">http://bluefish.mrball.net/downloads/bluefish-1.0.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>aspell</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>bluefish</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>aspell</Dependency>
+        </RuntimeDependencies>
+        <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-02</Date>
+            <Version>1.0.5</Version>
+            <Comment>First release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
