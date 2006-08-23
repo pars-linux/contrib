@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xffm</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce 4 file manager</Summary>
+        <Summary xml:lang="tr">Xfce 4 dosya yöneticisi</Summary>
+        <Description>Xfce 4 file manager</Description>
+        <Description xml:lang="tr">Xfce 4 dosya yöneticisi</Description>
+        <Archive sha1sum="f1d4ddd9377c241ee94bc373d7f9b8ef58a79ca2"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xffm-4.2.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg</Dependency>
+	    <Dependency>libxfcegui4</Dependency>
+	    <Dependency>dbh</Dependency>
+	    <Dependency>libxfce4mcs</Dependency>
+	    <Dependency>xfce-mcs-manager</Dependency>
+	    <Dependency>librsvg</Dependency>
+	    <Dependency>libxml2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xffm</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce-mcs-manager</Dependency>
+	    <Dependency>startup-notification</Dependency>
+	    <Dependency>dbh</Dependency>
+	    <Dependency>libxml2</Dependency>
+            <Dependency>xorg</Dependency>
+            <Dependency>samba</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
