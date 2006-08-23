@@ -8,7 +8,7 @@
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 
-WorkDir=""
+WorkDir="."
 
 def setup():
     shelltools.system("rpm2targz tuxpaint-0.9.15b-1.fc4.i386.rpm")
