@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>d4x</Name>
+        <Homepage>http://www.krasu.ru/soft/chuchelo</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>app:gui</IsA>
+        <Summary>GTK based download manager for X</Summary>
+        <Summary xml:lang="tr">GTK tabanlı, X için indirme yöneticisi</Summary>
+        <Description>GTK based download manager for X</Description>
+        <Description xml:lang="tr">GTK tabanlı, X için indirme yöneticisi</Description>
+        <Archive sha1sum="1af65691f9dcec7b3a2a7962ee451e0efc9673d4" type="targz">http://ftp.debian.org/debian/pool/main/d/d4x/d4x_2.5.7.1.orig.tar.gz</Archive>
+        <Patches>
+            <Patch level="0">d4x-tr.patch</Patch>
+            <Patch level="1">d4x-2.5.7.1-libintl_fix.patch</Patch>
+            <Patch level="1">d4x-2.5.7.1-speed.patch</Patch>
+            <Patch level="0">nt.desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency versionFrom="0.11.2">gettext</Dependency>
+            <Dependency versionFrom="0.9.7e">openssl</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency versionFrom="0.2.7">esound</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>d4x</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency versionFrom="0.11.2">gettext</Dependency>
+            <Dependency versionFrom="0.9.7e">openssl</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency versionFrom="0.2.7">esound</Dependency>
+        </RuntimeDependencies>
+        <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/d4x</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-18</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
