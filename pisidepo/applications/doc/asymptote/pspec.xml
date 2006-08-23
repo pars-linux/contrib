@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>asymptote</Name>
+        <Homepage>http://asymptote.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Asymptote vector graphics framework</Summary>
+        <Summary xml:lang="tr">Asymptote vector graphics framewor</Summary>
+        <Description>Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing</Description>
+        <Description xml:lang="tr">Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing</Description>
+        <Archive sha1sum="0c752b87d52420d053a16da8f231a5f14cbca2a8"  type="tarbz2">http://ertugrulerata.googlepages.com/asymptote-1.06.tar.bz2</Archive>
+       <BuildDependencies>
+           <Dependency>readline</Dependency>
+           <Dependency>fftw3</Dependency>
+           <Dependency>texinfo</Dependency>
+           <Dependency>ghostscript</Dependency>
+           <Dependency>tetex</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>asymptote</Name>
+            <Files>
+               <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="library">/usr/lib</Path>
+               <Path fileType="data">/usr/share/asymptote</Path>
+               <Path fileType="doc">/usr/share/doc</Path>
+               <Path fileType="man">/usr/share/man</Path>
+           </Files>
+       <RuntimeDependencies>
+           <Dependency>readline</Dependency>
+           <Dependency>fftw3</Dependency>
+           <Dependency>texinfo</Dependency>
+           <Dependency>ghostscript</Dependency>
+           <Dependency>tetex</Dependency>
+         </RuntimeDependencies>	
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-06-12</Date>
+            <Version>1.06</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
