@@ -16,6 +16,3 @@ def build():
 
 def install():
     kde.install()
-    pisitools.domo("po/tr.po", "tr", "klineakconfig.mo")
-    pisitools.dodir("/usr/kde/3.5/share/locale/tr/LC_MESSAGES")
-    pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/klineakconfig.mo", "/usr/kde/3.5/share/locale/tr/LC_MESSAGES")
