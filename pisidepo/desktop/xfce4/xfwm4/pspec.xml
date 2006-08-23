@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>xfwm4</Name>
+    <Homepage>http://xfce.sourceforge.net</Homepage>
+    <Packager>
+        <Name>Ertuğrul Erata</Name>
+        <Email>ertugrulerata@gmail.com</Email>
+    </Packager>
+    <License>GPL-2</License>
+    <IsA>app:gui</IsA>
+    <Summary>Xfce 4 window manager</Summary>
+    <Summary xml:lang="tr">Xfce 4 pencere yöneticisi</Summary>
+    <Description>Xfce 4 window manager</Description>
+    <Description xml:lang="tr">Xfce 4 pencere yöneticisi</Description>
+    <Archive sha1sum="7bea1f749077c7aa902da69c8711dff16933dae2"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfwm4-4.2.3.2.tar.gz</Archive>
+    <BuildDependencies>
+        <Dependency>xorg</Dependency>
+	<Dependency>libxfce4mcs</Dependency>
+	<Dependency>libxfce4util</Dependency>
+	<Dependency>libxfcegui4</Dependency>
+	<Dependency>xfce-mcs-manager</Dependency>
+	<Dependency>startup-notification</Dependency>
+    </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfwm4</Name>
+        <RuntimeDependencies>
+            <Dependency>startup-notification</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
+	    <Dependency>libxfce4mcs</Dependency>
+	    <Dependency>libxfcegui4</Dependency>
+	    <Dependency>libxfce4util</Dependency>
+            <Dependency>xorg</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
