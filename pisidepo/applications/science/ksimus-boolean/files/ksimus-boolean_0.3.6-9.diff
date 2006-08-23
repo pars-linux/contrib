@@ -1,0 +1,1828 @@
+--- ksimus-boolean-0.3.6.orig/debian/compat
++++ ksimus-boolean-0.3.6/debian/compat
+@@ -0,0 +1 @@
++4
+--- ksimus-boolean-0.3.6.orig/debian/docs
++++ ksimus-boolean-0.3.6/debian/docs
+@@ -0,0 +1,3 @@
++AUTHORS
++README
++TODO
+--- ksimus-boolean-0.3.6.orig/debian/control
++++ ksimus-boolean-0.3.6/debian/control
+@@ -0,0 +1,25 @@
++Source: ksimus-boolean
++Section: electronics
++Priority: optional
++Maintainer: Aurelien Jarno <aurel32@debian.org>
++Build-Depends: debhelper (>> 4.0.0), coreutils (>= 4.5.1), ksimus-dev (>= 0.3.6-2-7), ksimus-dev (<< 0.3.6.0), libtool, automake1.7, autoconf, autotools-dev
++Standards-Version: 3.6.2
++
++Package: ksimus-boolean
++Architecture: any
++Depends: ksimus (>= 0.3.6-2-7), ksimus (<= 0.3.6.0), ${shlibs:Depends}, ${misc:Depends}
++Enhances: ksimus
++Description: KSimus boolean package
++ KSimus is an application for simulating networks with boolean and floating
++ point data type. Some more data types are planned. Currently there exists
++ only a few components, but because of the modular character of KSimus
++ extensions are easy to develop.
++ .
++ The Boolean package contains a number of components, such as: OR, NOR, XOR
++ and XNOR gates; RS, JK and JK Master/Slave flip flops; a D latch; a
++ multichannel D latch; a counter; a multiplexer and a demultiplexer; a delay;
++ a 7-segment display; some buttons; and the constants TRUE and FALSE.
++ .
++  Author:   Rasmus Diekenbrock <ksimus@gmx.de>.
++  Homepage: http://ksimus.berlios.de
++     
+--- ksimus-boolean-0.3.6.orig/debian/copyright
++++ ksimus-boolean-0.3.6/debian/copyright
+@@ -0,0 +1,12 @@
++This package was debianized by Aurelien Jarno <aurelien@aurel32.net> on
++Tue,  8 Jan 2002 22:48:38 +0100.
++
++It was downloaded from http://ksimus.berlios.de
++
++Upstream Author: Rasmus Diekenbrock <ksimus@gmx.de>
++
++Copyright:
++
++You are free to distribute this software under the terms of the GNU General
++Public License.  On Debian systems, the complete text of the GNU General Public
++License can be found in /usr/share/common-licenses/GPL file.
+--- ksimus-boolean-0.3.6.orig/debian/rules
++++ ksimus-boolean-0.3.6/debian/rules
+@@ -0,0 +1,108 @@
++#!/usr/bin/make -f
++# Sample debian/rules that uses debhelper.
++# GNU copyright 1997 to 1999 by Joey Hess.
++
++# Uncomment this to turn on verbose mode.
++#export DH_VERBOSE=1
++
++# These are used for cross-compiling and for saving the configure script
++# from having to guess our platform (since we know it already)
++DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
++DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
++
++ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
++	CFLAGS += -g
++endif
++ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
++	INSTALL_PROGRAM += -s
++endif
++
++debian/debiandirs: admin/debianrules
++	perl -w admin/debianrules echodirs > debian/debiandirs
++
++configure:
++	dh_testdir
++
++	/usr/bin/libtoolize -f
++	cp -f /usr/share/aclocal/libtool.m4 admin/libtool.m4.in
++	$(MAKE) -f admin/Makefile.common
++
++-include debian/debiandirs
++
++config.status: configure
++	dh_testdir
++
++	CXXFLAGS=-fPIC QTDIR=/usr/share/qt3 ./configure \
++	                        --host=$(DEB_HOST_GNU_TYPE) \
++				--build=$(DEB_BUILD_GNU_TYPE) \
++	                        $(configkde) \
++				--disable-final
++
++build: build-stamp
++build-stamp:  config.status
++	dh_testdir
++
++	$(MAKE)
++	touch build-stamp
++
++clean:
++	dh_testdir
++	dh_testroot
++	-$(MAKE) distclean
++	-rm -f *-stamp
++	-rm -f debian/debiandirs
++	-rm -f admin/config.sub admin/config.guess admin/ltmain.sh configure
++	-rm -f admin/libtool.m4.in aclocal.m4 acinclude.m4
++	-rm -f config.log
++	-find $(CURDIR) -name Makefile.in -exec rm -f {} \;
++	dh_clean
++
++install: build
++	dh_testdir
++	dh_testroot
++	dh_clean -k
++	dh_installdirs
++
++	# Main install.
++	$(MAKE) install DESTDIR=$(CURDIR)/debian/ksimus-boolean
++
++	# Make common links for docs.
++	for p in 'ksimus-boolean'; do \
++	  for i in `find $(CURDIR)/debian/ksimus-boolean/usr/share/doc/kde/HTML -type d -name $$p -not -regex .*/en/$$p`; do \
++	    ln -f -n -s ../../en/common $$i/common; done; done
++
++
++# Build architecture-independent files here.
++binary-indep: build install
++
++# Build architecture-dependent files here.
++binary-arch: build install
++	dh_testdir 
++	dh_testroot 
++#	dh_installdebconf	
++	dh_installdocs 
++#	dh_installexamples
++#	dh_installmenu 
++#	dh_installlogrotate
++#	dh_installemacsen
++#	dh_installpam
++#	dh_installmime
++#	dh_installinit
++#	dh_installcron
++#	dh_installman 
++#	dh_installinfo
++	dh_installchangelogs ChangeLog
++	dh_link 
++	dh_strip
++	dh_compress --exclude=.docbook
++	dh_fixperms 
++#	dh_makeshlibs
++	dh_installdeb
++#	dh_perl
++	dh_shlibdeps
++	dh_gencontrol
++	dh_md5sums
++	dh_builddeb
++
++binary: binary-indep binary-arch
++.PHONY: build clean binary-indep binary-arch binary install
+--- ksimus-boolean-0.3.6.orig/debian/changelog
++++ ksimus-boolean-0.3.6/debian/changelog
+@@ -0,0 +1,163 @@
++ksimus-boolean (0.3.6-9) unstable; urgency=low
++
++  * Added Spanish translation. Thanks to Juan Manuel Garcia Molina
++    (closes: bug#348565).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed, 18 Jan 2006 08:41:47 +0100
++
++ksimus-boolean (0.3.6-8) unstable; urgency=low
++
++  * Use automake-1.7 instead of automake-1.6 (closes: bug#335128).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sat, 22 Oct 2005 12:28:13 +0200
++
++ksimus-boolean (0.3.6-7) unstable; urgency=low
++
++  * C++ transition: build-depends on ksimus-dev (>= 0.3.6-2-7).
++  * Bumped Standards-Version to 3.6.2 (no changes).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Thu, 18 Aug 2005 11:28:07 +0200
++
++ksimus-boolean (0.3.6-6) unstable; urgency=low
++
++  * libtoolize before building. 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed, 23 Mar 2005 09:13:14 +0100
++
++ksimus-boolean (0.3.6-5) unstable; urgency=low
++
++  * GCC 3.4 fixes by Andres Jochens (closes: bug#265474).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sat, 14 Aug 2004 19:15:02 +0200
++
++ksimus-boolean (0.3.6-4) unstable; urgency=low
++
++  * Don't depend on make and grep. They are build-essential packages.
++  * Bumped standards-version to 3.6.1.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon,  7 Jun 2004 00:28:42 +0200
++
++ksimus-boolean (0.3.6-3) unstable; urgency=low
++
++  * Bumped build-dependency on debhelper to (>> 4.0.0). 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon,  5 May 2003 01:47:41 +0200
++
++ksimus-boolean (0.3.6-2) unstable; urgency=low
++
++  * Fixed /lib64 detection.
++  * Bumped standards-version to 3.5.9.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon, 31 Mar 2003 07:19:32 +0200
++
++ksimus-boolean (0.3.6-1) unstable; urgency=low
++
++  * New upstream version.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 30 Mar 2003 01:12:49 +0100
++
++ksimus-boolean (0.3.5-1-kde3-4) unstable; urgency=low
++
++  * Added homepage and author to the description.
++  * Depends on ${misc:Depends}.
++  * Uses debian/compat instead of DH_COMPAT.
++  * Uses autotools-dev to update config.{guess,sub}.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Thu,  6 Mar 2003 21:15:12 +0100
++
++ksimus-boolean (0.3.5-1-kde3-3) unstable; urgency=low
++
++  * Build-depends on libqt3-compat-headers.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 16 Feb 2003 01:08:54 +0100
++
++ksimus-boolean (0.3.5-1-kde3-2) unstable; urgency=low
++
++  * Fixed dependencies. 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun,  9 Feb 2003 02:24:19 +0100
++
++ksimus-boolean (0.3.5-1-kde3-1) unstable; urgency=low
++
++  * Built for Qt 3/KDE 3.1.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sat,  8 Feb 2003 04:30:20 +0100
++
++ksimus-boolean (0.3.5-1-3) unstable; urgency=low
++
++  * Force build with gcc-2.95 on most archs, gcc-2.96 on ia64 and gcc-3.0 on
++    hppa.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed,  8 Jan 2003 22:40:43 +0100
++
++ksimus-boolean (0.3.5-1-2) unstable; urgency=low
++
++  * Fixed debian/copyright.
++  * Standards-Version Bumped to 3.5.8.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Fri, 20 Dec 2002 13:47:37 +0100
++
++ksimus-boolean (0.3.5-1-1) unstable; urgency=low
++
++  * New upstream release which fixes various build problems.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 20 Oct 2002 23:29:37 +0200
++
++ksimus-boolean (0.3.5-1) unstable; urgency=low
++
++  * New upstream release
++    Changelog:
++    - new components: Delay, Demultiplexer, Multiplexer
++    - a lot of bug fixes
++  * Updated Policy standard compliance to 3.5.7
++
++ -- Aurelien Jarno <aurel32@debian.org>  Fri,  4 Oct 2002 01:34:47 +0200
++
++ksimus-boolean (0.3.4-2) unstable; urgency=low
++
++  * Removed build dependencies on autoconf, automake and perl. 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed,  3 Jul 2002 21:26:23 +0200
++
++ksimus-boolean (0.3.4-1) unstable; urgency=low
++
++  * New upstream release
++    Changelog :
++    - Added component documentation
++    - Added multichannel D latch
++
++ -- Aurelien Jarno <aurel32@debian.org>  Tue, 19 Mar 2002 10:51:12 +0100
++
++ksimus-boolean (0.3.3-3) unstable; urgency=low
++
++  * Initial Debian upload. 
++  * Changed my maintainer e-mail address to <aurel32@debian.org>.  :)
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon, 18 Mar 2002 23:10:14 +0100
++
++ksimus-boolean (0.3.3-2) unstable; urgency=low
++
++  * Add Build-Depends.
++    Update French translation.
++
++ -- Aurelien Jarno <aurelien@aurel32.net>  Thu, 24 Jan 2002 16:52:41 +0100
++
++ksimus-boolean (0.3.3-1) unstable; urgency=low
++
++  * New upstream release
++    Changelog :
++    - French and German translations
++    - Boolean7Segment uses ComponentStyle and friends (adjust color and frame)
++    - Gates are rotatable now.
++
++ -- Aurelien Jarno <aurelien@aurel32.net>  Thu, 24 Jan 2002 07:27:11 +0100
++
++ksimus-boolean (0.3.2-1) unstable; urgency=low
++
++  * Initial Release.
++
++ -- Aurelien Jarno <aurelien@aurel32.net>  Tue,  8 Jan 2002 22:48:38 +0100
++
++Local variables:
++mode: debian-changelog
++End:
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristateor.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristateor.cpp
+@@ -109,5 +109,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristatexor.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristatexor.cpp
+@@ -108,5 +108,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/inverter.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/inverter.cpp
+@@ -142,4 +142,4 @@
+ 	CompView::draw(p);
+ }
+ 
+-}; //namespace
++} //namespace
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleancounter.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleancounter.h
+@@ -205,6 +205,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/boolean.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/boolean.h
+@@ -68,7 +68,7 @@
+ extern const PackageInfo * packageInfo;
+ 
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+ 
+ /** The init function. PACKAGE_INIT_FUNCTION is a macro which expands to the real function name. */
+ extern "C" const PackageInfo * KSIMUS_PACKAGE_INIT_FUNCTION(KLocale * ksimusLocale);
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/demultiplexer.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/demultiplexer.cpp
+@@ -440,4 +440,4 @@
+ //###############################################################
+ //###############################################################
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/rsflipflop.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/rsflipflop.cpp
+@@ -149,6 +149,6 @@
+ //###############################################################
+ 
+ 	
+-}; //namespace
++} //namespace
+ 
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/multidlatch.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/multidlatch.h
+@@ -214,6 +214,6 @@
+ 
+ //###############################################################
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/extconnbooltristate.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/extconnbooltristate.h
+@@ -144,6 +144,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/dflipflop.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/dflipflop.h
+@@ -96,6 +96,6 @@
+ 
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/boolean7segment.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/boolean7segment.cpp
+@@ -255,5 +255,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/rsflipflop.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/rsflipflop.h
+@@ -75,7 +75,7 @@
+ 
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/boolean2in1out.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/boolean2in1out.cpp
+@@ -101,5 +101,5 @@
+ 	setState(false);
+ }
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/convertbool2booltristate.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/convertbool2booltristate.h
+@@ -96,6 +96,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristatexor.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristatexor.h
+@@ -75,6 +75,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristateand.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristateand.h
+@@ -75,6 +75,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/multiplexer.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/multiplexer.cpp
+@@ -451,4 +451,4 @@
+ //###############################################################
+ //###############################################################
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/jkflipflop.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/jkflipflop.h
+@@ -169,6 +169,6 @@
+ 
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/multidlatch.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/multidlatch.cpp
+@@ -254,7 +254,7 @@
+ bool MultiDLatch::getResetValue() const
+ {
+ 	return m_resetValue;
+-};
++}
+ 
+ void MultiDLatch::setChannelCount(int count)
+ {
+@@ -421,4 +421,4 @@
+ //###############################################################
+ //###############################################################
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristateor.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristateor.h
+@@ -75,6 +75,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristate1out.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristate1out.cpp
+@@ -88,12 +88,12 @@
+ KSimBoolTristate BoolTristate1Out::getResetState() const
+ {
+ 	return m_resetState;
+-};
++}
+ 	
+ KSimBoolTristate BoolTristate1Out::getResetStateInit() const
+ {
+ 	return m_resetStateInit;
+-};
++}
+ 	
+ 
+ 
+@@ -402,5 +402,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristateand.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristateand.cpp
+@@ -109,5 +109,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleanor.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleanor.cpp
+@@ -128,4 +128,4 @@
+ 	setState(result);
+ }
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleanxor.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleanxor.h
+@@ -62,6 +62,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/Makefile.am
++++ ksimus-boolean-0.3.6/ksimus-boolean/Makefile.am
+@@ -5,7 +5,7 @@
+ ## INCLUDES were found outside kdevelop specific part
+ 
+ 
+-LDFLAGS =      -shared
++AM_LDFLAGS =      -shared
+ 
+ libksimus_boolean_la_METASOURCES = AUTO
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/delay.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/delay.cpp
+@@ -323,4 +323,4 @@
+ //##########################################################################################
+ 
+ 	
+-}; //namespace
++} //namespace
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/convertbooltristate2bool.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/convertbooltristate2bool.h
+@@ -81,6 +81,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/extconnbooltristate.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/extconnbooltristate.cpp
+@@ -113,7 +113,7 @@
+ KSimBoolTristate ExtConnBoolTristateBase::getResetState() const
+ {
+ 	return m_resetState;
+-};
++}
+ 
+ 
+ ComponentPropertyBaseWidget * ExtConnBoolTristateBase::createGeneralProperty(QWidget *parent)
+@@ -275,5 +275,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/monoflop.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/monoflop.cpp
+@@ -332,4 +332,4 @@
+ //##########################################################################################
+ 
+ 	
+-}; //namespace
++} //namespace
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleanor.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleanor.h
+@@ -63,6 +63,6 @@
+ 	virtual void draw(QPainter * p);
+ };
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/boolean.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/boolean.cpp
+@@ -205,7 +205,7 @@
+ KInstance * instance = 0;
+ const PackageInfo * packageInfo = 0;
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+ 
+ 
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/demultiplexer.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/demultiplexer.h
+@@ -198,6 +198,6 @@
+ 
+ //###############################################################
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/flipflopbase.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/flipflopbase.h
+@@ -135,5 +135,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/boolean2in1out.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/boolean2in1out.h
+@@ -83,6 +83,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleancounter.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleancounter.cpp
+@@ -618,5 +618,5 @@
+ 	
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/implicitconverterbooltristate2bool.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/implicitconverterbooltristate2bool.h
+@@ -53,6 +53,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleanxor.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleanxor.cpp
+@@ -74,7 +74,7 @@
+ 
+ BooleanXorView::BooleanXorView(BooleanXor * comp, eViewType viewType)
+ 	: BooleanXIn1OutView(comp, viewType)
+-{};
++{}
+ 
+ void BooleanXorView::draw(QPainter * p)
+ {
+@@ -123,5 +123,5 @@
+ }
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/jkflipflop.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/jkflipflop.cpp
+@@ -373,5 +373,5 @@
+ 
+ //###############################################################
+ 	
+-}; //namespace
++} //namespace
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/inverter.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/inverter.h
+@@ -81,6 +81,6 @@
+ 
+ };
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleanconstant.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleanconstant.h
+@@ -70,6 +70,6 @@
+ //###############################################################
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/flipflopbase.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/flipflopbase.cpp
+@@ -181,4 +181,4 @@
+ 
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/monoflop.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/monoflop.h
+@@ -145,6 +145,6 @@
+ 
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/boolean7segment.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/boolean7segment.h
+@@ -128,6 +128,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/multiplexer.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/multiplexer.h
+@@ -208,6 +208,6 @@
+ 
+ //###############################################################
+ 
+-};  //namespace KSimLibBoolean
++}  //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booleanconstant.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/booleanconstant.cpp
+@@ -191,5 +191,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/booltristate1out.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/booltristate1out.h
+@@ -369,6 +369,6 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/convertbooltristate2bool.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/convertbooltristate2bool.cpp
+@@ -159,5 +159,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/implicitconverterbooltristate2bool.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/implicitconverterbooltristate2bool.cpp
+@@ -79,5 +79,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/dflipflop.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/dflipflop.cpp
+@@ -189,4 +189,4 @@
+ 
+ //###############################################################
+ 	
+-}; //namespace
++} //namespace
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/convertbool2booltristate.cpp
++++ ksimus-boolean-0.3.6/ksimus-boolean/convertbool2booltristate.cpp
+@@ -174,5 +174,5 @@
+ 
+ //###############################################################
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+--- ksimus-boolean-0.3.6.orig/ksimus-boolean/delay.h
++++ ksimus-boolean-0.3.6/ksimus-boolean/delay.h
+@@ -142,6 +142,6 @@
+ 
+ 
+ 
+-}; //namespace KSimLibBoolean
++} //namespace KSimLibBoolean
+ 
+ #endif
+--- ksimus-boolean-0.3.6.orig/admin/detect-autoconf.sh
++++ ksimus-boolean-0.3.6/admin/detect-autoconf.sh
+@@ -58,6 +58,9 @@
+     elif test -x "`$WHICH automake-1.6`" ; then
+       AUTOMAKE="`$WHICH automake-1.6`"
+       ACLOCAL="`$WHICH aclocal-1.6`"
++    elif test -x "`$WHICH automake-1.7`" ; then
++      AUTOMAKE="`$WHICH automake-1.7`"
++      ACLOCAL="`$WHICH aclocal-1.7`"
+     fi
+   else
+      AUTOMAKE="$UNSERMAKE"
+--- ksimus-boolean-0.3.6.orig/admin/acinclude.m4.in
++++ ksimus-boolean-0.3.6/admin/acinclude.m4.in
+@@ -2965,7 +2965,7 @@
+             kdelibsuff=$enableval)
+     if test "$kdelibsuff" = "none"; then
+         if test -d /lib64 ; then
+-            kdelibsuff=64
++            kdelibsuff=
+         else
+             kdelibsuff=
+         fi
+--- ksimus-boolean-0.3.6.orig/po/es.po
++++ ksimus-boolean-0.3.6/po/es.po
+@@ -0,0 +1,949 @@
++# translation of es.po to Spanish
++# Copyright (C) 2006 Free Software Foundation, Inc.
++#
++# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2006.
++msgid ""
++msgstr ""
++"Project-Id-Version: es\n"
++"POT-Creation-Date: 2003-03-02 17:37+0100\n"
++"PO-Revision-Date: 2006-01-17 18:56+0100\n"
++"Last-Translator: Juan Manuel Garcia Molina <juanma@superiodico.net>\n"
++"Language-Team: Spanish <kde-es@kybs.de>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Generator: KBabel 1.11.1\n"
++
++#: convertbool2booltristate.cpp:50
++msgid ""
++"_: Component\n"
++"Boolean to Boolean Tristate"
++msgstr "Booleano a booleano triestado"
++
++#: convertbool2booltristate.cpp:52
++msgid ""
++"_: Component\n"
++"Converter/Boolean to Boolean Tristate"
++msgstr "Conversor/Booleano a booleano triestado"
++
++#: convertbool2booltristate.cpp:73 convertbooltristate2bool.cpp:74
++msgid ""
++"_: Connector\n"
++"Input"
++msgstr "Entrada"
++
++#: convertbool2booltristate.cpp:80
++msgid ""
++"_: Connector\n"
++"Enable"
++msgstr "Activar"
++
++#: booltristate1out.cpp:62 convertbool2booltristate.cpp:86
++msgid ""
++"_: Connector\n"
++"Output"
++msgstr "Salida"
++
++#: dflipflop.cpp:58
++msgid ""
++"_: Component\n"
++"D Latch"
++msgstr "Latch D"
++
++#: dflipflop.cpp:60
++msgid ""
++"_: Component\n"
++"Boolean/Flip Flop/D Latch"
++msgstr "Booleano/Flip flop/Latch D"
++
++#: dflipflop.cpp:81
++msgid ""
++"_: Boolean-Connector\n"
++"Data"
++msgstr "Datos"
++
++#: dflipflop.cpp:86 multidlatch.cpp:105
++msgid ""
++"_: Boolean-Connector\n"
++"Enable"
++msgstr "Activar"
++
++#: booleancounter.cpp:103 dflipflop.cpp:97 jkflipflop.cpp:121 monoflop.cpp:95
++#: multidlatch.cpp:101
++msgid ""
++"_: Boolean\n"
++"Reset input:"
++msgstr "Reiniciar entrada:"
++
++#: dflipflop.cpp:101 jkflipflop.cpp:125
++msgid ""
++"_: Boolean\n"
++"Set input:"
++msgstr "Definir entrada:"
++
++#: convertbooltristate2bool.cpp:47
++msgid ""
++"_: Component\n"
++"Boolean Tristate to Boolean"
++msgstr "Booleano triestado a booleano"
++
++#: convertbooltristate2bool.cpp:49
++msgid ""
++"_: Component\n"
++"Converter/Boolean Tristate to Boolean"
++msgstr "Conversor/Booleano triestado a booleano"
++
++#: convertbooltristate2bool.cpp:81
++msgid ""
++"_: Connector\n"
++"Data Output"
++msgstr "Salida de datos"
++
++#: convertbooltristate2bool.cpp:89
++msgid ""
++"_: Connector\n"
++"Wire active"
++msgstr "Cable activo"
++
++#: booleanconstant.cpp:46
++msgid ""
++"_: Component\n"
++"Boolean Const True"
++msgstr "Constante booleana Cierto"
++
++#: booleanconstant.cpp:48
++msgid ""
++"_: Component\n"
++"Boolean/Input/Const True"
++msgstr "Booleano/Entrada/Constante Cierto"
++
++#: booleanconstant.cpp:59
++msgid ""
++"_: Component\n"
++"Boolean Const False"
++msgstr "Constante booleana Falso"
++
++#: booleanconstant.cpp:61
++msgid ""
++"_: Component\n"
++"Boolean/Input/Const False"
++msgstr "Booleano/Entrada/Constante Falso"
++
++#: boolean2in1out.cpp:69 booleanconstant.cpp:165
++msgid ""
++"_: Boolean-Connector\n"
++"Output"
++msgstr "Salida"
++
++#: flipflopbase.cpp:55
++msgid ""
++"_: Boolean-Connector\n"
++"/Output"
++msgstr "/Salida"
++
++#: flipflopbase.cpp:61
++msgid ""
++"_: Boolean-Connector\n"
++"Set"
++msgstr "Definir"
++
++#: booleancounter.cpp:97 flipflopbase.cpp:66 multidlatch.cpp:95
++msgid ""
++"_: Boolean-Connector\n"
++"Reset"
++msgstr "Reiniciar"
++
++#: flipflopbase.cpp:140
++msgid ""
++"_: Boolean\n"
++"Dominant Input:"
++msgstr "Entrada dominante:"
++
++#: flipflopbase.cpp:146
++msgid ""
++"_: Boolean\n"
++"Set Input"
++msgstr "Definir entrada"
++
++#: flipflopbase.cpp:147 monoflop.cpp:266
++msgid ""
++"_: Boolean\n"
++"Reset Input"
++msgstr "Reiniciar entrada"
++
++#: flipflopbase.cpp:149
++msgid ""
++"_: Boolean\n"
++"Set here dominant input."
++msgstr "Defina aquí la entrada dominante."
++
++#: jkflipflop.cpp:61
++msgid ""
++"_: Component\n"
++"JK Flip Flop"
++msgstr "Flip flop JK"
++
++#: jkflipflop.cpp:63
++msgid ""
++"_: Component\n"
++"Boolean/Flip Flop/JK-FF"
++msgstr "Booleano/Flip Flop/FF JK"
++
++#: jkflipflop.cpp:74
++msgid ""
++"_: Component\n"
++"JK Master Slave Flip Flop"
++msgstr "Flip flop JK maestro esclavo"
++
++#: jkflipflop.cpp:76
++msgid ""
++"_: Component\n"
++"Boolean/Flip Flop/JK-MS-FF"
++msgstr "Booleano/Flip flop/FF JK ME"
++
++#: jkflipflop.cpp:101
++msgid ""
++"_: Boolean-Connector JK-FF\n"
++"J"
++msgstr "J"
++
++#: jkflipflop.cpp:106
++msgid ""
++"_: Boolean-Connector JK-FF\n"
++"K"
++msgstr "K"
++
++#: jkflipflop.cpp:111
++msgid ""
++"_: Boolean-Connector\n"
++"Clock"
++msgstr "Reloj"
++
++#: jkflipflop.cpp:334
++msgid ""
++"_: Boolean\n"
++"Master Slave:"
++msgstr "Maestro esclavo:"
++
++#: jkflipflop.cpp:340
++msgid ""
++"_: Boolean\n"
++"Enabled"
++msgstr "Activado"
++
++#: jkflipflop.cpp:341
++msgid ""
++"_: Boolean\n"
++"Disabled"
++msgstr "Desactivado"
++
++#: jkflipflop.cpp:343
++msgid ""
++"_: Boolean\n"
++"Enables the Master Salve functionality.\n"
++"If disabled, the FF works in single edge mode."
++msgstr ""
++"Activa la funcionalidad maestro esclavo.\n"
++"Si está desactivado, el FF funciona en modo sencillo."
++
++#: booleanxor.cpp:48
++msgid ""
++"_: Component\n"
++"Boolean Exclusive OR"
++msgstr "O exclusiva booleana"
++
++#: booleanxor.cpp:50
++msgid ""
++"_: Component\n"
++"Boolean/Gates/XOR"
++msgstr "Booleano/Puertas/XOR"
++
++#: booleanxor.cpp:61
++msgid ""
++"_: Component\n"
++"Boolean Exclusive NOR"
++msgstr "NOR exclusiva booleana"
++
++#: booleanxor.cpp:63
++msgid ""
++"_: Component\n"
++"Boolean/Gates/XNOR"
++msgstr "Booleano/Puertas/XNOR"
++
++#: booleancounter.cpp:60
++msgid ""
++"_: Component\n"
++"Boolean Counter with RCO and RBO"
++msgstr "Contador booleano con RCO y RBO"
++
++#: booleancounter.cpp:62
++msgid ""
++"_: Component\n"
++"Boolean/Counter/with RCO and RBO"
++msgstr "Booleano/Contador/con RCO y RBO"
++
++#: booleancounter.cpp:108
++msgid ""
++"_: Boolean-Connector\n"
++"Clock Up"
++msgstr "Reloj arriba"
++
++#: booleancounter.cpp:114
++msgid ""
++"_: Boolean\n"
++"Clock up input:"
++msgstr "Entrada de reloj arriba:"
++
++#: booleancounter.cpp:121
++msgid ""
++"_: Boolean-Connector\n"
++"Clock Down"
++msgstr "Reloj abajo"
++
++#: booleancounter.cpp:127
++msgid ""
++"_: Boolean\n"
++"Clock down input:"
++msgstr "Entrada de reloj abajo:"
++
++#: booleancounter.cpp:133 multidlatch.cpp:120
++#, c-format
++msgid ""
++"_: Boolean-Connector\n"
++"Output %1"
++msgstr "Salida %1"
++
++#: booleancounter.cpp:141
++msgid ""
++"_: Boolean-Connector\n"
++"Ripple Borrow Out"
++msgstr "Salida de acarreo previo"
++
++#: booleancounter.cpp:146
++msgid ""
++"_: Boolean\n"
++"Ripple borrow output:"
++msgstr "Salida de acarreo previo:"
++
++#: booleancounter.cpp:151
++msgid ""
++"_: Boolean-Connector\n"
++"Ripple Carry Out"
++msgstr "Salida de acarreo"
++
++#: booleancounter.cpp:156
++msgid ""
++"_: Boolean\n"
++"Ripple carry output:"
++msgstr "Salida de acarreo:"
++
++#: booleancounter.cpp:205
++msgid ""
++"_: Boolean\n"
++"Connector 'Clock Up' or 'Clock Down' must be visible."
++msgstr "El conector «Reloj arriba» o «Reloj abajo» debe ser visible."
++
++#: booleancounter.cpp:302
++msgid ""
++"_: Boolean\n"
++"Counter"
++msgstr "Contador"
++
++#: booleancounter.cpp:426
++msgid ""
++"_: Boolean\n"
++"Counter width:"
++msgstr "Ancho del contador:"
++
++#: booleancounter.cpp:432
++msgid ""
++"_: Boolean\n"
++" bit"
++msgstr " bit"
++
++#: booleancounter.cpp:433
++msgid ""
++"_: Boolean\n"
++"Sets the counter width."
++msgstr "Define el ancho del contador."
++
++#: booleancounter.cpp:438
++msgid ""
++"_: Boolean\n"
++"Maximum:"
++msgstr "Máximo:"
++
++#: booleancounter.cpp:442
++msgid ""
++"_: Boolean\n"
++"Sets the maximum counter value.\n"
++"This value is used if the counter wraps around."
++msgstr ""
++"Define el valor máximo del contador.\n"
++"Este valor se utiliza cuando el contador lo envuelve."
++
++#: booleancounter.cpp:448
++msgid ""
++"_: Boolean\n"
++"Minimum:"
++msgstr "Mínimo:"
++
++#: booleancounter.cpp:452
++msgid ""
++"_: Boolean\n"
++"Sets the minimum counter value.\n"
++"This value is used if the counter wraps around."
++msgstr ""
++"Define el valor mínimo del contador.\n"
++"Este valor se utiliza cuando el contador lo envuelve."
++
++#: booleancounter.cpp:458
++msgid ""
++"_: Boolean\n"
++"Reset value:"
++msgstr "Valor de reinicio:"
++
++#: booleancounter.cpp:462
++msgid ""
++"_: Boolean\n"
++"Sets the reset counter value.\n"
++"This value is also used if the counter is reseted."
++msgstr ""
++"Define el valor de reinicio del contador.\n"
++"Este valor también se usa cuando se reinicia el contador."
++
++#: booleancounter.cpp:469
++msgid ""
++"_: Boolean\n"
++"Hint: minimum counter width is %1 bit"
++msgstr "Consejo: la anchura mínima del contador es %1 bit"
++
++#: booleancounter.cpp:472
++msgid ""
++"_: Boolean\n"
++"This is the minimal possible counter width.\n"
++"This value depends on wired connectors."
++msgstr ""
++"Es la anchura mínima posible del contador.\n"
++"Este valor depende de los conectores conectados."
++
++#: monoflop.cpp:62
++msgid ""
++"_: Component\n"
++"Mono Flop"
++msgstr "Flop mono"
++
++#: monoflop.cpp:64
++msgid ""
++"_: Component\n"
++"Boolean/Flip Flop/Mono Flop"
++msgstr "Booleano/Flip flop/Flop mono"
++
++#: monoflop.cpp:89
++msgid ""
++"_: Boolean\n"
++"Trigger"
++msgstr "Disparador"
++
++#: monoflop.cpp:265
++msgid ""
++"_: Boolean\n"
++"Trigger Input"
++msgstr "Entrada de disparador"
++
++#: monoflop.cpp:272
++msgid ""
++"_: Boolean\n"
++"Retrigger:"
++msgstr "Volver a disparar:"
++
++#: monoflop.cpp:278
++msgid ""
++"_: Boolean\n"
++"On"
++msgstr "Activado"
++
++#: monoflop.cpp:279
++msgid ""
++"_: Boolean\n"
++"Off"
++msgstr "Desactivado"
++
++#: monoflop.cpp:281
++msgid ""
++"_: Boolean\n"
++"Set here the retrigger mode."
++msgstr "Defina aquí el modo para volver a disparar."
++
++#: monoflop.cpp:287
++msgid ""
++"_: Boolean\n"
++"Time:"
++msgstr "Tiempo:"
++
++#: monoflop.cpp:293
++msgid ""
++"_: Boolean\n"
++"Set here the duration."
++msgstr "Defina aquí la duración:"
++
++#: extconnbooltristate.cpp:138
++msgid "Default State:"
++msgstr "Estado predefinido:"
++
++#: extconnbooltristate.cpp:144
++msgid ""
++"Sets the default state of the external connector.\n"
++"This state is used if the external connector is not connected."
++msgstr ""
++"Define el estado predefinido del conector externo.\n"
++"Este estado se utiliza cuando el conector externo no está conectado."
++
++#: extconnbooltristate.cpp:190
++msgid ""
++"_: Component\n"
++"External Connector Boolean Tristate Input"
++msgstr "Entrada triestado booleana de conector externo"
++
++#: extconnbooltristate.cpp:192
++msgid ""
++"_: Component\n"
++"External Connector/Bool Tristate Input"
++msgstr "Conector externo/Entrada triestado booleana"
++
++#: extconnbooltristate.cpp:210 extconnbooltristate.cpp:238
++msgid ""
++"_: Connector\n"
++"Internal"
++msgstr "Interno"
++
++#: extconnbooltristate.cpp:217 extconnbooltristate.cpp:246
++msgid ""
++"_: Connector\n"
++"External"
++msgstr "Externo"
++
++#: extconnbooltristate.cpp:264
++msgid ""
++"_: Component\n"
++"External Connector Boolean Tristate Output"
++msgstr "Salida triestado booleana de conector externo"
++
++#: extconnbooltristate.cpp:266
++msgid ""
++"_: Component\n"
++"External Connector/Bool Tristate Output"
++msgstr "Conector externo/Salida triestado booleana"
++
++#: delay.cpp:54
++msgid ""
++"_: Component\n"
++"Delay"
++msgstr "Retardo"
++
++#: delay.cpp:56
++msgid ""
++"_: Component\n"
++"Boolean/Timing/Delay"
++msgstr "Booleano/Temporización/Retardo"
++
++#: delay.cpp:80 demultiplexer.cpp:116 inverter.cpp:83
++msgid ""
++"_: Boolean-Connector\n"
++"Input"
++msgstr "Entrada"
++
++#: delay.cpp:154
++#, c-format
++msgid ""
++"_: Boolean\n"
++"Delay limited: %1"
++msgstr "Retardo limitado: %1"
++
++#: delay.cpp:257
++msgid ""
++"_: Boolean\n"
++"Delay time:"
++msgstr "Tiempo de retardo:"
++
++#: delay.cpp:269
++msgid ""
++"_: Boolean\n"
++"Set here the duration auf the delay."
++msgstr "Defina aquí la duración del retardo."
++
++#: delay.cpp:273
++msgid ""
++"_: Boolean - Hint in dialog\n"
++"Hint:"
++msgstr "Consejo:"
++
++#: delay.cpp:281
++msgid ""
++"_: Boolean - Hint in dialog\n"
++"Shows the effective delay time.\n"
++"This time depends on the value of 'Simulation time per tick'."
++msgstr ""
++"Muestra el tiempo efectivo del retardo.\n"
++"Este tiempo depende del valor de «Tiempo de simulación por tic»."
++
++#: delay.cpp:317
++msgid ""
++"_: Boolean - prints delay in a suitable time unit and ticks\n"
++"effective delay time %1 / %2 ticks"
++msgstr "tiempo efectivo de retardo %1 / %2 tics"
++
++#: booleanor.cpp:51
++msgid ""
++"_: Component\n"
++"Boolean OR"
++msgstr "O booleana"
++
++#: booleanor.cpp:53
++msgid ""
++"_: Component\n"
++"Boolean/Gates/OR"
++msgstr "Booleano/Puertas/O"
++
++#: booleanor.cpp:64
++msgid ""
++"_: Component\n"
++"Boolean NOR"
++msgstr "NOR booleana"
++
++#: booleanor.cpp:66
++msgid ""
++"_: Component\n"
++"Boolean/Gates/NOR"
++msgstr "Booleano/Puertas/NOR"
++
++#: booltristateand.cpp:47
++msgid ""
++"_: Component\n"
++"Boolean AND with Tristate output"
++msgstr "Y booleana con salida triestado"
++
++#: booltristateand.cpp:49
++msgid ""
++"_: Component\n"
++"Boolean/Tristate/Gates/AND with Tristate output"
++msgstr "Booleano/Triestado/Puertas/Y con salida triestado"
++
++#: booltristateand.cpp:60
++msgid ""
++"_: Component\n"
++"Boolean NAND with Tristate output"
++msgstr "NAND booleana con salida triestado"
++
++#: booltristateand.cpp:62
++msgid ""
++"_: Component\n"
++"Boolean/Tristate/Gates/NAND with Tristate output"
++msgstr "Booleano/Triestado/Puertas/NAND con salida triestado"
++
++#: booltristate1out.cpp:186
++msgid "Reset State: "
++msgstr "Reiniciar estado: "
++
++#: booltristate1out.cpp:192
++msgid "Changes the reset state of the component to true, false or inactive."
++msgstr "Pone el estado de reinicio del componente como cierto, falso o inactivo."
++
++#: booltristate1out.cpp:234
++msgid ""
++"_: Boolean-Connector\n"
++"Enable Output"
++msgstr "Activar salida"
++
++#: booltristate1out.cpp:316 multidlatch.cpp:110
++#, c-format
++msgid ""
++"_: Boolean-Connector\n"
++"Input %1"
++msgstr "Entrada %1"
++
++#: multidlatch.cpp:68
++msgid ""
++"_: Component\n"
++"Multiple D Latches"
++msgstr "Varios latches D"
++
++#: multidlatch.cpp:70
++msgid ""
++"_: Component\n"
++"Boolean/Flip Flop/Multiple D Latches"
++msgstr "Booleano/Flip flop/Varios latches D"
++
++#: multidlatch.cpp:206
++msgid ""
++"_: Boolean\n"
++"&Add Latch"
++msgstr "&Añadir latch"
++
++#: multidlatch.cpp:214
++msgid ""
++"_: Boolean\n"
++"&Delete Latch"
++msgstr "E&liminar latch"
++
++#: multidlatch.cpp:363
++msgid ""
++"_: Boolean\n"
++"Number of latches: "
++msgstr "Número de latches: "
++
++#: multidlatch.cpp:368
++msgid ""
++"_: Boolean\n"
++"Change number of latches here."
++msgstr "Cambie aquí el número de latches."
++
++#: multidlatch.cpp:373
++msgid ""
++"_: Boolean\n"
++"Reset value: "
++msgstr "Valor de reinicio: "
++
++#: multidlatch.cpp:378
++msgid ""
++"_: Boolean\n"
++"Set the reset value of the latches here."
++msgstr "Defina aquí el valor de reinicio de los latches."
++
++#: multiplexer.cpp:67
++msgid ""
++"_: Component\n"
++"Boolean Multiplexer"
++msgstr "Multiplexor booleano"
++
++#: multiplexer.cpp:69
++msgid ""
++"_: Component\n"
++"Boolean/Mux & Demux/Multiplexer"
++msgstr "Booleano/Mux y demux/Multiplexor"
++
++#: demultiplexer.cpp:95 multiplexer.cpp:98
++msgid ""
++"_: Boolean-Connector\n"
++"Enable Latch Output"
++msgstr "Activar salida de latch"
++
++#: demultiplexer.cpp:101 multiplexer.cpp:104
++msgid ""
++"_: Boolean\n"
++"Enable Output Latch:"
++msgstr "Activar salida de latch:"
++
++#: demultiplexer.cpp:105 multiplexer.cpp:108
++msgid ""
++"_: Boolean-Connector\n"
++"Enable Latch Address"
++msgstr "Activar dirección de latch"
++
++#: demultiplexer.cpp:111 multiplexer.cpp:114
++msgid ""
++"_: Boolean\n"
++"Enable Address Latch:"
++msgstr "Activar dirección de latch:"
++
++#: multiplexer.cpp:118
++#, c-format
++msgid ""
++"_: Connector\n"
++"Input %1"
++msgstr "Entrada %1"
++
++#: demultiplexer.cpp:133 multiplexer.cpp:128
++#, c-format
++msgid ""
++"_: Connector\n"
++"Address %1"
++msgstr "Dirección %1"
++
++#: demultiplexer.cpp:204 multiplexer.cpp:197
++msgid ""
++"_: Boolean\n"
++"&Add Channel"
++msgstr "&Añadir canal"
++
++#: demultiplexer.cpp:211 multiplexer.cpp:204
++msgid ""
++"_: Boolean\n"
++"&Delete Channel"
++msgstr "E&liminar canal"
++
++#: demultiplexer.cpp:399 multiplexer.cpp:392
++msgid ""
++"_: Boolean\n"
++"Number of channels: "
++msgstr "Número de canales: "
++
++#: demultiplexer.cpp:404 multiplexer.cpp:397
++msgid ""
++"_: Boolean\n"
++"Change number of channels here."
++msgstr "Cambie aquí el número de canales."
++
++#: multiplexer.cpp:402
++msgid ""
++"_: Boolean\n"
++"Reset state: "
++msgstr "Estado de reinicio: "
++
++#: multiplexer.cpp:407
++msgid ""
++"_: Boolean\n"
++"Change the reset state of the channels here."
++msgstr "Cambie aquí el valor de reinicio de los canales."
++
++#: boolean2in1out.cpp:74
++msgid ""
++"_: Boolean-Connector\n"
++"Input A"
++msgstr "Entrada A"
++
++#: boolean2in1out.cpp:79
++msgid ""
++"_: Boolean-Connector\n"
++"Input B"
++msgstr "Entrada B"
++
++#: boolean7segment.cpp:60
++msgid ""
++"_: Component\n"
++"7 Segment Display"
++msgstr "Pantalla de 7 segmentos"
++
++#: boolean7segment.cpp:62
++msgid ""
++"_: Component\n"
++"Boolean/Output/7 Segment Display"
++msgstr "Booleano/Salida/Pantalla de 7 segmentos"
++
++#: boolean7segment.cpp:96
++msgid ""
++"_: Boolean-Connector\n"
++"Input 1"
++msgstr "Entrada 1"
++
++#: boolean7segment.cpp:101
++msgid ""
++"_: Boolean-Connector\n"
++"Input 2"
++msgstr "Entrada 2"
++
++#: boolean7segment.cpp:106
++msgid ""
++"_: Boolean-Connector\n"
++"Input 4"
++msgstr "Entrada 4"
++
++#: boolean7segment.cpp:111
++msgid ""
++"_: Boolean-Connector\n"
++"Input 8"
++msgstr "Entrada B"
++
++#: rsflipflop.cpp:50
++msgid ""
++"_: Component\n"
++"RS Flip Flop"
++msgstr "Flip flop RS"
++
++#: rsflipflop.cpp:52
++msgid ""
++"_: Component\n"
++"Boolean/Flip Flop/RS-FF"
++msgstr "Booleano/Flip flop/FF RS"
++
++#: demultiplexer.cpp:66
++msgid ""
++"_: Component\n"
++"Boolean Demultiplexer"
++msgstr "Demultiplexor booleano"
++
++#: demultiplexer.cpp:68
++msgid ""
++"_: Component\n"
++"Boolean/Mux & Demux/Demultiplexer"
++msgstr "Booleano/Mux y demux/Demultiplexor"
++
++#: demultiplexer.cpp:123
++#, c-format
++msgid ""
++"_: Connector\n"
++"Output %1"
++msgstr "Salida %1"
++
++#: inverter.cpp:49
++msgid ""
++"_: Component\n"
++"Inverter"
++msgstr "Inversor"
++
++#: inverter.cpp:51
++msgid ""
++"_: Component\n"
++"Boolean/Gates/Inverter"
++msgstr "Booleano/Puertas/Inversor"
++
++#: inverter.cpp:62
++msgid ""
++"_: Component\n"
++"Identity"
++msgstr "Identidad"
++
++#: inverter.cpp:64
++msgid ""
++"_: Component\n"
++"Boolean/Gates/Identity"
++msgstr "Booleano/Puertas/Identidad"
++
++#: booltristatexor.cpp:47
++msgid ""
++"_: Component\n"
++"Boolean XOR with Tristate output"
++msgstr "XOR booleana con salida triestado"
++
++#: booltristatexor.cpp:49
++msgid ""
++"_: Component\n"
++"Boolean/Tristate/Gates/XOR with Tristate output"
++msgstr "Booleano/Triestado/Puertas/XOR con salida triestado"
++
++#: booltristatexor.cpp:60
++msgid ""
++"_: Component\n"
++"Boolean XNOR with Tristate output"
++msgstr "XNOR booleana con salida triestado"
++
++#: booltristatexor.cpp:62
++msgid ""
++"_: Component\n"
++"Boolean/Tristate/Gates/XNOR with Tristate output"
++msgstr "Booleano/Triestado/Puertas/XNOR con salida triestado"
++
++#: booltristateor.cpp:47
++msgid ""
++"_: Component\n"
++"Boolean OR with Tristate output"
++msgstr "O booleana con salida triestado"
++
++#: booltristateor.cpp:49
++msgid ""
++"_: Component\n"
++"Boolean/Tristate/Gates/OR with Tristate output"
++msgstr "Booleano/Triestado/Puertas/O con salida triestado"
++
++#: booltristateor.cpp:60
++msgid ""
++"_: Component\n"
++"Boolean NOR with Tristate output"
++msgstr "NOR booleana con salida triestado"
++
++#: booltristateor.cpp:62
++msgid ""
++"_: Component\n"
++"Boolean/Tristate/Gates/NOR with Tristate output"
++msgstr "Booleano/Triestado/Puertas/NOR con salida triestado"
++
