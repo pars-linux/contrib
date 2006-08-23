@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ksimus-datarecorder</Name>
+        <Homepage>http://ksimus.berlios.de</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>The package Data Recorder contains some components which record data for KSimus.</Summary>
+        <Summary xml:lang="tr">Ksimus için gerekli verileri kayden bileşenleri içeren paket.</Summary>
+        <Description>The package Data Recorder contains some components which record data for KSimus.</Description>
+        <Description xml:lang="tr">Ksimus için gerekli verileri kayden bileşenleri içeren paket.</Description>
+        <Archive sha1sum="c0c239eca1b577323f45c60c3812223152d40e19" type="targz">http://ftp.debian.org/debian/pool/main/k/ksimus-datarecorder/ksimus-datarecorder_0.3.6.orig.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ksimus</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">ksimus-datarecorder_0.3.6-9.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ksimus-datarecorder</Name>
+        <RuntimeDependencies>
+            <Dependency>ksimus</Dependency>
+        </RuntimeDependencies>
+        <Files>
+                <Path fileType="library">/usr/kde/3.5/lib/ksimus</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc/</Path>
+                <Path fileType="localedata">/usr/kde/3.5/share/locale/</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-20</Date>
+            <Version>0.3.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
