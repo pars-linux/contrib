@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mousepad</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Small text editor for Xfce 4</Summary>
+        <Summary xml:lang="tr">xfce4 için yazı düzenleyici</Summary>
+        <Description>Small text editor for Xfce 4</Description>
+        <Description xml:lang="tr">xfce4 için yazı düzenleyici</Description>
+        <Archive sha1sum="8fd12f5945dc4618f06f9e24c8986e6af521c4b2"  type="targz">http://mir2.ovh.net/gentoo-distfiles/distfiles/mousepad-0.2.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>mousepad</Name>
+       <RuntimeDependencies>
+           <Dependency>libxfce4mcs</Dependency>
+           <Dependency>xorg</Dependency>
+       </RuntimeDependencies> 
+            <Files>
+               <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="localedata">/usr/share</Path>
+           </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>0.2.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
