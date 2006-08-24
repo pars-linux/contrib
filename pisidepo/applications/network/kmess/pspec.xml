@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmess</Name>
+        <Homepage>http://kmess.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <PartOf>applications.network</PartOf>
+        <Summary>MSN Messenger clone for KDE</Summary>
+        <Summary xml:lang="tr">KDE için MSN Messenger</Summary>
+        <Description>KMess is a MSN Messenger compatible chat client for Linux. It enables Linux users to chat with friends online who are using MSN Messenger in Windows or Mac OS. The strength of KMess is it's integration with the KDE desktop environment, focus on MSN Messenger specific features and an easy-to-use interface.</Description>
+        <Description xml:lang="tr">KMess, Linux için MSN Messenger uyumlu bir sohbet istemcisidir. Linux kullanıcılarının Windows veya Mac OS kullanan arkadaşlarıyla sohbet etmesini mümkün kılar. KMess'in en güçlü yanları KDE ile uyum içinde çalışması, MSN Messenger'ın özellikleri üzerine yoğunlaşması ve kolay kullanımıdır.</Description>
+        <Archive sha1sum="1613c65c7b9ffaa6a1f55396297d25ab7ee3103d" type="targz">http://mesh.dl.sourceforge.net/sourceforge/kmess/kmess-1.4.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kmess</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-04-25</Date>
+            <Version>1.4.3</Version>
+            <Comment>First Release</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
