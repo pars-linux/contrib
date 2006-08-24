@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>hamachi</Name>
+        <Homepage>http://uludag.org.tr</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>Asis</License>
+        <IsA>app:console</IsA>
+        <Summary>Hamachi is a zero-configuration virtual private networking tool.</Summary>
+        <Summary xml:lang="tr">Hamachi, konfigurasyon gerektirmeyen bir gizli sanal ağ aracıdır</Summary>
+        <Description>...</Description>
+        <Archive type="targz" sha1sum="c3dfb636ec6abbd8438dc8737fea957e3a854d14">
+            http://files.hamachi.cc/linux/hamachi-0.9.9.9-20-lnx.tar.gz
+        </Archive>
+    </Source>
+
+    <Package>
+        <Name>hamachi</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/hamachi.desktop">hamachi.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/ghamachi">ghamachi</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/hamachi.png">hamachi.png</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+   </Package>
+
+   <History>
+       <Update release="2">
+           <Date>2006-08-04</Date>
+           <Version>0.9.9.9</Version>
+           <Comment>Added comar script and additional files.</Comment>
+           <Name>Uğur Çetin</Name>
+           <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-03</Date>
+            <Version>0.9.9.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
