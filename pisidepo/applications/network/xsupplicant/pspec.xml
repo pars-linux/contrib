@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+          SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xsupplicant</Name>
+        <Homepage>http://open1x.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>daemon</IsA>
+        <IsA>app:gui</IsA>
+        <IsA>app:console</IsA>
+        <PartOf>applications.network</PartOf>
+        <Summary>Open source implementation of the IEEE 802.1x protocol</Summary>
+        <Summary lang="tr">IEEE 802.1x protokolünün açık kaynaklı uyarlaması</Summary>
+        <Description>Open1x is an open source implementation of the IEEE 802.1x protocol. This project includes support for the authenticator and supplicant, while other projects (e.g., FreeRADIUS) provide support for the authentication server.</Description>
+        <Description lang="tr">Open1x, IEEE 802.1x protokolünün açık kaynaklı uyarlamasıdır. Bu programın diğerlerinden (ör: FreeRadius) farkı kimlik doğrulayıcı ve sağlayıcı desteğini içermesidir.</Description>
+        <Archive sha1sum="e8274e70570c25b51fbf4398fb780d5aaed1aa7f" type="targz">http://mesh.dl.sourceforge.net/sourceforge/open1x/xsupplicant-1.2.4.tar.gz</Archive>
+    </Source>
+    
+    <Package>
+        <Name>xsupplicant</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/xsupplicant.conf" permission="0600" owner="root">xsupplicant.conf</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-03-27</Date>
+            <Version>1.2.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
