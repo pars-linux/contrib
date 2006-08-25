@@ -13,12 +13,16 @@ WorkDir="epsilon-0.3.0.007"
 
 def setup():
 
-    autotools.configure("--prefix=/usr \
-                         --enable-ecore \
-                         --enable-imlib2 \
-                         --enable-epeg \
-                         --with-evas-prefix=/usr/share/evas \
-                         --enable-edje")
+    autotools.configure("--with-imlib2 \
+                         --with-imlib2-exec \
+                         --with-epeg \
+                         --with-epeg-exec \
+                         --with-evas \
+                         --with-evas-exec \
+                         --with-ecore \
+                         --with-ecore-exec \
+                         --with-edje \
+                         --with-edje-exec")
 
 def build():
     autotools.make()
