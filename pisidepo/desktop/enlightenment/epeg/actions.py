@@ -12,8 +12,7 @@ from pisi.actionsapi import get
 WorkDir="epeg-0.9.0.007"
 
 def setup():
-    autotools.configure("--prefix=/usr \
-                         --with-jpeg")
+    autotools.configure("--with-jpeg")
 
 def build():
     autotools.make()
