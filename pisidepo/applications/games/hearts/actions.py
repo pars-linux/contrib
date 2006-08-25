@@ -1,5 +1,6 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
+#
 # Uğur Çetin <jnmbk@users.sourceforge.net>
 
 from pisi.actionsapi import kde
