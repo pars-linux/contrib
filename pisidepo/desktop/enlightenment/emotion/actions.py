@@ -9,17 +9,23 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="emotion"
+WorkDir="emotion-0.0.1.004"
 
 def setup():
 
     autotools.system("./autogen.sh --prefix=/usr \
-                                   --enable-eet \
-                                   --with-evas-prefix=/usr/share/evas \
-                                   --enable-edje \
-                                   --with-ecore-prefix=/usr/share/ecore \
-                                   --with-embryo-prefix=/usr/share/embryo \
-                                   --enable-xine")
+                                   --with-eet \
+                                   --with-eet-exec \
+                                   --with-evas \
+                                   --with-evas-exec \
+                                   --with-edje \
+                                   --with-edje-exec \
+                                   --with-ecore \
+                                   --with-ecore-exec \
+                                   --with-embryo \
+                                   --with-embryo-exec \
+                                   --with-xine \
+                                   --with-xine-exec")
 
 def build():
     autotools.make()
