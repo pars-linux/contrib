@@ -12,12 +12,16 @@ from pisi.actionsapi import get
 WorkDir="esmart-0.9.0.007"
 
 def setup():
-    autotools.configure("--prefix=/usr \
-                         --enable-evas \
+    autotools.configure("--with-evas \
+                         --with-evas-exec \
                          --with-ecore \
-                         --with-imlib2=/usr/share/imlib2 \
+                         --with-ecore-exec \
+                         --with-imlib2 \
+                         --with-imlib2-exec \
                          --with-epsilon \
-                         --with-edje=/usr/share/edje")
+                         --with-epsilon-exec \
+                         --with-edje \
+                         --with-edje-exec")
 
 def build():
     autotools.make()
