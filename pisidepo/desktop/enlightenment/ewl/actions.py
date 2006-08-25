@@ -12,13 +12,15 @@ from pisi.actionsapi import get
 WorkDir="ewl-0.0.4.007"
 
 def setup():
-    autotools.configure("--prefix=/usr \
-                         --with-evas=/usr/share/evas \
-                         --with-ecore=/usr/share/ecore \
-                         --with-emotion=/usr/share/emotion \
-                         --with-edje=/usr/share/edje \
-                         --with-edge-png \
-                         --enable-software-x11 \
+    autotools.configure("--with-evas \
+                         --with-evas-exec \
+                         --with-ecore \
+                         --with-ecore-exec \
+                         --with-emotion \
+                         --with-emotion-exec \
+                         --with-edje \
+                         --with-edje-exec \
+                         --with-x \
                          --enable-opengl \
                          --enable-fbcon")
 
