@@ -9,15 +9,15 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="examine"
+WorkDir="examine-0.0.1"
 
 def setup():
     autotools.aclocal()
     autotools.system("./autogen.sh --prefix=/usr \
-                                   --with-gnu-ld \
-                                   --with-pic \
-                                   --with-ecore=/usr/share/ecore \
-                                   --with-ewl=/usr/share/ewl")
+                                   --with-ecore \
+                                   --with-ecore-exec \
+                                   --with-ewl \
+                                   --with-ewl-exec")
 
 def build():
     autotools.make()
