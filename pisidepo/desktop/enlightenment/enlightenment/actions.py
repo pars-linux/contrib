@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="enlightenment-0.16.999.027"
+WorkDir="enlightenment-0.16.999.032"
 
 def setup():
     autotools.configure("--enable-nls \
@@ -25,7 +25,7 @@ def setup():
                          --enable-hints-ewmh \
                          --enable-fsstd \
                          --enable-zoom \
-                         --with-imlib2=/usr/share/imlib2 \
+                         --with-imlib2 \
                          --enable-evas-config \
                          --enable-ecore-config \
                          --enable-edje_cc \
