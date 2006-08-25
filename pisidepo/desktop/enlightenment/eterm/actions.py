@@ -23,9 +23,9 @@ def setup():
                          --enable-utmp \
                          --with-imlib \
                          --enable-trans \
-                         --enable-auto-encoding \
+                         --disable-auto-encoding \
                          --enable-xim \
-                         --enable-unicode-multi-charset \
+                         --disable-unicode-multi-charset \
                          --with-delete=execute \
                          --with-backspace=auto")
 
