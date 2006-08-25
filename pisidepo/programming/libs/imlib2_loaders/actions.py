@@ -5,6 +5,7 @@
 #
 #murattsenell@gmail.com
 
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
@@ -12,12 +13,12 @@ from pisi.actionsapi import get
 WorkDir="imlib2_loaders-1.2.2.001"
 
 def setup():
-    autotools.configure("--with-imlib2-config \
-                         --with-eet-config \
-                         --with-edb-config \
-                         --disable-edb \
-                         --disable-eet \
-                         --disable-xcf")
+    shelltools.export("IMLIB2_CONFIG", "")
+    shelltools.export("EDB_CONFIG", "")
+    shelltools.export("EET_CONFIG", "")
+    autotools.configure("--enable-edb \
+                         --enable-eet \
+                         --enable-xcf")
 
 def build():
     autotools.make()
