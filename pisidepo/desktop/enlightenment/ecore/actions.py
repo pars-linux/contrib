@@ -9,28 +9,24 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="ecore-0.9.9.027"
+WorkDir="ecore-0.9.9.032"
 
 def setup():
-    autotools.configure("--prefix=/usr \
-                         --enable-ecore-txt \
+    autotools.configure("--enable-ecore-txt \
                          --enable-ecore-x \
                          --enable-ecore-job \
-                         --enable-ecore-fb \
-                         --enable-ecore-dfb \
                          --enable-ecore-evas \
                          --enable-ecore-evas-gl \
-                         --enable-evas-xrender \
-                         --enable-evas-dfb \
-                         --enable-ecore-evas-dfb \
-                         --enable-ecore-evas-fb \
                          --enable-ecore-evas-buffer \
                          --enable-ecore-con \
                          --enable-openssl \
-                         --enable-ecore-ipc \
-                         --enable--ecore-dbus \
+                         --enable-ecore-dbus \
                          --enable-ecore-config \
-                         --enable-ecore-file")
+                         --enable-ecore-file \
+                         --enable-inotify \
+                         --enable-poll \
+                         --enable-curl \
+                         --enable-pthreads")
 
 def build():
     autotools.make()
@@ -38,5 +34,3 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dodoc("AUTHORS", "Changelog", "COPYING*", "NEWS", "README*")
-    # Syntax Error Fix
-    pisitools.dosed("%s/usr/lib/libecore_txt.la","dependency_libs='","dependency_libs=''")
