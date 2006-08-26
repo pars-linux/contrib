@@ -10,12 +10,16 @@ def setup():
     pass
 
 def build():
-    autotools.make()
+    autotools.make("BINARY_DIR=usr/share/openttd \
+                    DATA_DIR=usr/share/openttd \
+                    INSTALLDIR=usr/share/openttd \
+                    USE_HOMEDIR=1 \
+                    PERSONAL_DIR=.openttd \
+                    INSTALL=1")
 
 def install():
     pisitools.insinto("/usr/share/openttd/data", "data/*")
     pisitools.insinto("/usr/share/openttd/lang", "lang/*.lng")
     pisitools.insinto("/usr/share/pixmaps", "media/openttd.128.png")
     pisitools.doexe("openttd", "/usr/share/openttd")
-    pisitools.dodoc("docs/*")
-    pisitools.dodoc("*.txt")
+    pisitools.dodoc("docs/*", "*.txt")
