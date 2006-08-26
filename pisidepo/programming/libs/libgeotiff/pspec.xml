@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgeotiff</Name>
+        <Homepage>http://www.remotesensing.org/geotiff/geotiff.html</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Library for reading TIFF files with embedded tags for geographic (cartographic) information</Summary>
+        <Summary xml:lang="tr">Coğrafi bilgiler için gömülü etiketli TIFF dosyalarını okumak için kütüphane.</Summary>
+        <Description>Library for reading TIFF files with embedded tags for geographic (cartographic) information</Description>
+        <Description xml:lang="tr">Coğrafi bilgiler için gömülü etiketli TIFF dosyalarını okumak için kütüphane.</Description>
+        <Archive sha1sum="6fcf26c43b88c6bc5a157ed8a9eba5133270f053" type="targz">ftp://ftp.remotesensing.org/geotiff/libgeotiff/libgeotiff-1.2.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>zip</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency versionFrom="4.4.9">proj</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libgeotiff</Name>
+        <RuntimeDependencies>
+            <Dependency>zip</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency versionFrom="4.4.9">proj</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-26</Date>
+            <Version>1.2.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
