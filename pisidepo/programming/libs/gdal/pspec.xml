@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gdal</Name>
+        <Homepage>http://www.remotesensing.org/gdal/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>GDAL is a translator library for raster geospatial data formats (includes OGR support)</Summary>
+        <Summary xml:lang="tr">GDAL, coğrafi tarama örüntüsü veri biçimleri için gerekli bir kütüphanedir (OGR desteği içerir)</Summary>
+        <Description>GDAL is a translator library for raster geospatial data formats (includes OGR support)</Description>
+        <Description xml:lang="tr">GDAL, coğrafi tarama örüntüsü veri biçimleri için gerekli bir kütüphanedir (OGR desteği içerir)</Description>
+        <Archive sha1sum="eda247dd96558ff79f843fb7b4393bf62cb01644" type="targz">http://www.gdal.org/dl/gdal-1.3.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.1.4">zlib</Dependency>
+            <Dependency versionFrom="3.7.0">tiff</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>giflib</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>cfitsio</Dependency>
+            <Dependency versionFrom="1.3.28">swig</Dependency>
+            <Dependency>xerces-c</Dependency>
+            <Dependency versionFrom="1.6.4">hdf5</Dependency>
+            <Dependency>netcdf</Dependency>
+            <Dependency>ogdi</Dependency>
+            <Dependency>jasper</Dependency>
+            <Dependency versionFrom="4.4.9">proj</Dependency>
+            <Dependency>hdf5</Dependency>
+            <Dependency>postgresql-srv</Dependency>
+            <Dependency>unixodbc</Dependency>
+            <Dependency versionFrom="2.3">python</Dependency>
+            <Dependency versionFrom="3">sqlite</Dependency>
+            <Dependency versionFrom="2.2.3">geos</Dependency>
+            <Dependency>doxygen</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gdal</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.1.4">zlib</Dependency>
+            <Dependency versionFrom="3.7.0">tiff</Dependency>
+            <Dependency>libgeotiff</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>giflib</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>cfitsio</Dependency>
+            <Dependency versionFrom="1.3.28">swig</Dependency>
+            <Dependency>xerces-c</Dependency>
+            <Dependency versionFrom="1.6.4">hdf5</Dependency>
+            <Dependency>netcdf</Dependency>
+            <Dependency>ogdi</Dependency>
+            <Dependency>jasper</Dependency>
+            <Dependency versionFrom="4.4.9">proj</Dependency>
+            <Dependency>hdf5</Dependency>
+            <Dependency>postgresql-srv</Dependency>
+            <Dependency>unixodbc</Dependency>
+            <Dependency versionFrom="2.3">python</Dependency>
+            <Dependency versionFrom="3">sqlite</Dependency>
+            <Dependency versionFrom="2.2.3">geos</Dependency>
+            <Dependency>doxygen</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-26</Date>
+            <Version>1.3.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
