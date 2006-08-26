@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>R</Name>
+        <Homepage>http://www.r-project.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2 LGPL-2.1</License>
+        <IsA>app:console</IsA>
+        <Summary>R is a free software environment for statistical computing and graphics</Summary>
+        <Summary xml:lang="tr">R özgür istatistik ve grafik ortamı </Summary>
+        <Description>R statistical computing and graphics</Description>
+        <Description xml:lang="tr">R özgür istatistik ve grafik ortamı</Description>
+        <Archive sha1sum="62cf87f4a273f17d5a55a5ffaf0bfcdfdae3c03d"  type="targz">http://godel.cs.bilgi.edu.tr/mirror/cran/src/base/R-2/R-2.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>tcltk</Dependency>
+            <Dependency>xorg</Dependency>
+            <Dependency>firefox</Dependency>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>tetex</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>R</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg</Dependency>
+            <Dependency>firefox</Dependency>
+            <Dependency>tcltk</Dependency>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>tetex</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/R</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+     <AdditionalFiles>
+            <AdditionalFile target="/etc/env.d/99R" owner="root" permission="0644">99R</AdditionalFile>
+            <AdditionalFile target="/usr/lib/R/bin/R" owner="root" permission="0755">R</AdditionalFile>
+    </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-24</Date>
+            <Version>2.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
