@@ -22,9 +22,12 @@
 
     <Package>
         <Name>openttd</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.7">libsdl</Dependency>
+        </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/share/openttd</Path>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/openttd</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -33,12 +36,16 @@
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/openttd.desktop">openttd.desktop</AdditionalFile>
             <AdditionalFile owner="root" permission="0755" target="/usr/bin/openttd">openttd</AdditionalFile>
         </AdditionalFiles>
-        <Provides>
-            <COMAR script="package.py">System.Package</COMAR>
-        </Provides>
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2006-08-26</Date>
+            <Version>0.4.8</Version>
+            <Comment>Use HOMEDIR</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="4">
             <Date>2006-08-13</Date>
             <Version>0.4.8</Version>
