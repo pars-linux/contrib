@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ogdi</Name>
+        <Homepage>http://ogdi.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>OGDI is the Open Geographic Datastore Interface.</Summary>
+        <Summary xml:lang="tr">OGDI, açık kaynak, coğrafi veri deposu arayüzü</Summary>
+        <Description>OGDI is the Open Geographic Datastore Interface.</Description>
+        <Description xml:lang="tr">OGDI, açık kaynak, coğrafi veri deposu arayüzü</Description>
+        <Archive sha1sum="f94ec72519733f8f65359f29d03eb1facc4284a0" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/ogdi/ogdi-3.1.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>proj</Dependency>
+            <Dependency>zlib</Dependency>
+            <Dependency>expat</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ogdi</Name>
+        <RuntimeDependencies>
+            <Dependency>proj</Dependency>
+            <Dependency>zlib</Dependency>
+            <Dependency>expat</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-16</Date>
+            <Version>3.1.5</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
