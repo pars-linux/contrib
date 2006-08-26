@@ -1,7 +1,7 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 #
 #Ertugrul Erata ertugrulerata at gmail.com
-#
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
