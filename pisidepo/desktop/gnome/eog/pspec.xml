@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>eog</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <PartOf>desktop.gnome</PartOf>
+        <Summary xml:lang="tr">GNOME için resim gösterici</Summary>
+        <Description xml:lang="tr">GNOME için resim görüntüleme programı.</Description>
+        <Archive sha1sum="09768a64a6446d554d25a4a8769650e7202374cc" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/eog/2.15/eog-2.15.90.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency versionFrom="2.7.1">gtk2</Dependency>
+            <Dependency versionFrom="0.22.0">gdk-pixbuf</Dependency>
+            <Dependency versionFrom="2.5.91">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.5.92">libgnomeui</Dependency>
+            <Dependency versionFrom="2.3.6">libglade2</Dependency>
+            <Dependency versionFrom="2.3.16">libart_lgpl</Dependency>
+            <Dependency versionFrom="2.2">libgnomeprint</Dependency>
+            <Dependency versionFrom="2.2">libgnomeprintui</Dependency>
+            <Dependency versionFrom="0.3.2">gnome-desktop</Dependency>
+            <Dependency versionFrom="0.2.12">libexif</Dependency>
+            <Dependency>lcms</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>eog</Name>
+        <Files>
+            <Path fileType="data">/etc/gconf/schemas</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/eog</Path>
+            <Path fileType="doc">/usr/share/gnome/help/eog</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/omf/eog</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <RuntimeDependencies>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <!--Dependency>bonobo-activation</Dependency-->
+            <Dependency>gconf</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gdk-pixbuf</Dependency>
+            <!--Dependency>eel</Dependency-->
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>libglade2</Dependency>
+        </RuntimeDependencies>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-29</Date>
+            <Version>2.15.90</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
