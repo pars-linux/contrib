@@ -5,8 +5,6 @@
 
 from pisi.actionsapi import kde
 
-WorkDir = "cpuinfo"
-
 def setup():
     kde.configure()
 
