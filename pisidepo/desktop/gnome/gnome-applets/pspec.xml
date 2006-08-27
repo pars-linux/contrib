@@ -30,6 +30,9 @@
             <!--Dependency versionFrom="1.1.3">system-tools-backends</Dependency-->
             <Dependency versionFrom="1.13">gnome-desktop</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="0">gnome-applets-2.14.2-cpufreq-selector-lazy-binding.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -50,7 +53,20 @@
             <Dependency versionFrom="1.13">gnome-desktop</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="data">/</Path>
+            <Path fileType="data">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/gnome-2.0</Path>
+            <Path fileType="data">/usr/share/gnome-applets</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/xmodmap</Path>
         </Files>
    </Package>
 
