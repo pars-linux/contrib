@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>exo</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Libraries for Xfce 4</Summary>
+        <Summary xml:lang="tr">Libraries for Xfce 4</Summary>
+        <Description xml:lang="tr">Libraries for Xfce 4</Description>
+        <Description>Libraries for Xfce 4</Description>
+        <Archive sha1sum="bcef9e5ec6f266391cd8267c53c7c69c9ac68289" type="tarbz2">http://www.xfce.org/archive/xfce-4.3.90.2/src/exo-0.3.1.8beta2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6.4">glib2</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>URI</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4util</Dependency>
+            <Dependency versionFrom="4.2.2">libxfcegui4</Dependency>
+            <Dependency>pygtk</Dependency>
+            <Dependency versionFrom="4.2.2">xfce-mcs-manager</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>exo</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6.4">glib2</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>URI</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4util</Dependency>
+            <Dependency versionFrom="4.2.2">libxfcegui4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>0.3.1.8_beta2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
