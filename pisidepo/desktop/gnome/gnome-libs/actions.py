@@ -8,18 +8,25 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import libtools
 from pisi.actionsapi import get
 
 def setup():
     autotools.autoconf()
-#   shelltools.export("append-flags", "-I/usr/include/db1")
     shelltools.export("CFLAGS", "%s -I/usr/include/db1" % get.CFLAGS())
-    shelltools.export("ESD_CONFIG", "no")
-    autotools.rawConfigure("--disable-nls \
-                            --with-kde-datadir=%s/share \
-                            --disable-gtk-doc \
-                            --enable-prefer-db1" % get.kdeDIR())
-
+    libtools.libtoolize("--force")
+    autotools.rawConfigure("--host=%s  \
+                            --prefix=/usr \
+			    --libdir=/usr/lib \
+                            --mandir=/usr/share/man \
+			    --infodir=/usr/share/info \
+			    --sysconfdir=/etc \
+			    --localstatedir=/var/lib \
+			    --with-kde-datadir=%s/share \
+                            --disable-gtk-doc  \
+			    --enable-prefer-db1 \
+			    --enable-compat185" % (get.HOST(), get.kdeDIR()))
+                           
 def build():
     autotools.make("-j1")
 
