@@ -28,11 +28,10 @@ def setup():
 			    --enable-compat185" % (get.HOST(), get.kdeDIR()))
                            
 def build():
-    #çekil git ordan db4
-    shelltools.system("mv /usr/include/db.h /usr/include/db.h_wait")
-    shelltools.system("cp db.h /usr/include/db.h")
+    #db yüzünden düştüğümüz hallere bak :)
+    pisitools.dosed("libgnome/gnome-dump.c", "<db1/db.h>", "\"%s/%s/db.h\"" % (get.workDIR(), get.srcDIR()))
+    pisitools.dosed("libgnome/gnome-metadata.c", "<db1/db.h>", "\"%s/%s/db.h\"" % (get.workDIR(), get.srcDIR()))
     autotools.make("-j1")
-    shelltools.system("mv /usr/include/db.h_wait /usr/include/db.h")
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
