@@ -28,7 +28,11 @@ def setup():
 			    --enable-compat185" % (get.HOST(), get.kdeDIR()))
                            
 def build():
+    #çekil git ordan db4
+    shelltools.system("mv /usr/include/db.h /usr/include/db.h_wait")
+    shelltools.system("cp db.h /usr/include/db.h")
     autotools.make("-j1")
+    shelltools.system("mv /usr/include/db.h_wait /usr/include/db.h")
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
