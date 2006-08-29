@@ -1,24 +1,23 @@
 <?xml version="1.0" ?>
-<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-	<Name>gnome-libs</Name>
-	<Homepage>http://www.gnome.org/</Homepage>
+        <Name>gnome-libs</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
         <Packager>
             <Name>Fethi Aymaz</Name>
             <Email>fethi@linux-sevenler.org</Email>
         </Packager>
-	<License>GPL-2</License>
-	<IsA>library</IsA>
-	<Summary>GNOME Core Libraries</Summary>
-	<Description>GNOME Core Libraries</Description>
-	<Archive sha1sum="359340f41fc038de9554c38af2cea99b71b1ef2a" type="tarbz2">http://ftp.gnome.org/pub/gnome/sources/gnome-libs/1.4/gnome-libs-1.4.2.tar.bz2</Archive>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GNOME Core Libraries</Summary>
+        <Description>GNOME Core Libraries</Description>
+        <Archive sha1sum="359340f41fc038de9554c38af2cea99b71b1ef2a" type="tarbz2">http://ftp.gnome.org/pub/gnome/sources/gnome-libs/1.4/gnome-libs-1.4.2.tar.bz2</Archive>
         <Patches>
             <Patch level="1">gnome-libs-1.4.2-gcc4.patch</Patch>
             <Patch level="1">gnome-libs-1.4.2-gtkdoc_fixes.patch</Patch>
             <Patch level="1">gnome-libs-1.4.2-m4.patch</Patch>
             <Patch level="1">gnome-libs-1.4.2-ppc64.patch</Patch>
-            <Patch level="0">db1-pardus.patch</Patch>
         </Patches>
         <BuildDependencies>
             <Dependency versionFrom="1.9.10">imlib</Dependency>
@@ -33,7 +32,7 @@
             <Dependency versionFrom="0.11">intltool</Dependency>
         </BuildDependencies>
     </Source>
-    
+
     <Package>
         <Name>gnome-libs</Name>
         <RuntimeDependencies>
@@ -49,17 +48,17 @@
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
-	    <Path fileType="header">/usr/include</Path>
-	    <Path fileType="library">/usr/lib</Path>
-	    <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-	    <Path fileType="localedata">/usr/share/aclocal</Path>
-	    <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/aclocal</Path>
+            <Path fileType="man">/usr/share/man</Path>
             <Path fileType="data">/usr/share/idl</Path>
             <Path fileType="data">/</Path>
-    	</Files>
+        </Files>
     </Package>
-    
+
     <History>
         <Update release="2">
             <Date>2006-08-28</Date>
