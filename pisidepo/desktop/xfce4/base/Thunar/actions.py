@@ -1,5 +1,7 @@
-from pisi.actionsapi import autotools
 
+
+from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
 
 WorkDir="Thunar-0.3.2beta2"
 
@@ -15,3 +17,4 @@ def build():
 
 def install():
     autotools.install()
+    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
