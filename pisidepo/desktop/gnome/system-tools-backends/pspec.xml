@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>system-tools-backends</Name>
+        <Homepage>http://www.gnome.org/projects/gst/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Tools aimed to make easy the administration of UNIX systems</Summary>
+        <Description>Formerly known as the Ximian Setup Tools, the GST are a fully integrated set of tools aimed to make easy the job that means the computer administration on an UNIX or Linux system. They're thought to help from the new Linux or UNIX user to the system administrators.</Description>
+        <Archive sha1sum="b047c30fdc5635c048f1509a5c0d4130c83cbe5a" type="tarbz2">ftp://ftp.gnome.org/pub/GNOME/sources/system-tools-backends/1.4/system-tools-backends-1.4.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4.12">libxml2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>system-tools-backends</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4.12">libxml2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/lib</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-30</Date>
+            <Version>1.4.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
