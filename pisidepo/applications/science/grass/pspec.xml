@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>grass</Name>
+        <Homepage>http://grass.itc.it/index.php</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Geographic Resources Analysis Support System</Summary>
+        <Summary xml:lang="tr">Coğrafi Kaynak Analizi Destek Sistemi</Summary>
+        <Description>GRASS is a Geographic Information System (GIS) used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.</Description>
+        <Description xml:lang="tr">GRASS, coğrafi veri yönetimi ve analizi, resim işleme, grafik/harita üretimi, uzamsal modelleme ve canlandırma amaçlı kullanılan bir Coğrafi Bilgi Sistemidir (GIS-Geographic Information System).</Description>
+        <Archive sha1sum="ea26163f42805a2571a0a35ac58457bffdbcfc1e" type="targz">http://grass.itc.it/grass61/source/grass-6.1.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.1.4">zlib</Dependency>
+            <Dependency versionFrom="2.5.4a">flex</Dependency>
+            <Dependency versionFrom="1.35">bison</Dependency>
+            <Dependency versionFrom="5.3">ncurses</Dependency>
+            <Dependency versionFrom="1.8.0">gdbm</Dependency>
+            <Dependency versionFrom="4.4.9">proj</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>gdal</Dependency>
+            <Dependency>postgresql-srv</Dependency>
+            <Dependency versionFrom="2.0.6">unixodbc</Dependency>
+            <Dependency versionFrom="1.2.2">libpng</Dependency>
+            <Dependency versionFrom="2.3">readline</Dependency>
+            <Dependency versionFrom="3.5.7">tiff</Dependency>
+            <Dependency versionFrom="2.0">freetype</Dependency>
+            <Dependency>tcltk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>grass</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.1.4">zlib</Dependency>
+            <Dependency versionFrom="2.5.4a">flex</Dependency>
+            <Dependency versionFrom="1.35">bison</Dependency>
+            <Dependency versionFrom="5.3">ncurses</Dependency>
+            <Dependency versionFrom="1.8.0">gdbm</Dependency>
+            <Dependency versionFrom="4.4.9">proj</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>gdal</Dependency>
+            <Dependency>postgresql-srv</Dependency>
+            <Dependency versionFrom="2.0.6">unixodbc</Dependency>
+            <Dependency versionFrom="1.2.2">libpng</Dependency>
+            <Dependency versionFrom="2.3">readline</Dependency>
+            <Dependency versionFrom="3.5.7">tiff</Dependency>
+            <Dependency versionFrom="2.0">freetype</Dependency>
+            <Dependency>tcltk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/opt/bin</Path>
+            <Path fileType="executable">/opt/grass-6.1.0/bin</Path>
+            <Path fileType="data">/opt/grass-6.1.0</Path>
+            <Path fileType="doc">/opt/grass-6.1.0/docs</Path>
+            <Path fileType="config">/opt/grass-6.1.0/etc</Path>
+            <Path fileType="header">/opt/grass-6.1.0/include</Path>
+            <Path fileType="library">/opt/grass-6.1.0/lib</Path>
+            <Path fileType="man">/opt/grass-6.1.0/man</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+     <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/grass.desktop" permission="0644" owner="root">grass.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/grass.png" permission="0644" owner="root">grass.png</AdditionalFile>
+    </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-29</Date>
+            <Version>6.1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>murattsenell@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
