@@ -35,7 +35,7 @@ def setup():
                          --with-gdal \
                          --with-odbc \
                          --with-fftw \
-                         --with-motif \
+                         --with-motif=no \
                          --with-freetype --with-freetype-includes=/usr/include/freetype2 \
                          --with-glw \
                          --with-nls \
