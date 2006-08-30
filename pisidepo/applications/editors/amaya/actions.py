@@ -34,9 +34,13 @@ def install():
 
     pisitools.domove("/usr/share/Amaya-9.51/doc/*", "/usr/share/doc/%s" % get.srcTAG())
 
+    #Turkish supoort activated
+    pisitools.dosed("%s/usr/share/Amaya-9.51/config/unix-thot.rc" % get.installDIR(), "LANG=en","LANG=tr")
+
     #remove redundant dirs and files
     pisitools.removeDir("/usr/share/bin")
     pisitools.removeDir("/usr/share/Amaya-9.51/doc")
+
 
 
 
