@@ -10,7 +10,7 @@ from pisi.actionsapi import shelltools
 
 def setup():
     shelltools.export("R_HOME_DIR", "/usr/lib/R")
-    autotools.configure("--enable-R-profiling --enable-R-shlib --enable-shared --with-tcltk --with-tcl-config=/usr/lib/tclConfig.sh --with-tk-config=/usr/lib/tkConfig.sh --with-system-pcre --with-system-zlib --with-system-bzlib --with-blas")
+    autotools.configure("--enable-R-profiling --enable-R-shlib --enable-shared --with-tcltk --with-tcl-config=/usr/lib/tclConfig.sh --with-tk-config=/usr/lib/tkConfig.sh --with-system-pcre --with-system-zlib --with-system-bzlib --with-jpeglib --with-png --with-readline --with-blas")
 
 def build():
     autotools.make()
