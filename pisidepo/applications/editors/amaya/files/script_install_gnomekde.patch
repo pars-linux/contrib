@@ -1,0 +1,20 @@
+--- Amaya/batch/script_install_gnomekde.in.orig	2005-07-20 19:11:51.000000000 +0300
++++ Amaya/batch/script_install_gnomekde.in	2006-08-30 18:46:23.000000000 +0300
+@@ -57,12 +57,15 @@
+ fi
+ 
+ # --- creating amaya-version.desktop
+-$ECHO "--> Creating $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop file"
++$ECHO "--> Creating $GNOMEKDEDIR/applications/amaya.desktop file"
+ $ECHO "[Desktop Entry]" > $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+ $ECHO "Encoding=UTF-8" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+-$ECHO "Name=Amaya @APP_VER@" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
++$ECHO "Name=Amaya" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+ $ECHO "Comment=Edit the Web" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+ $ECHO "Comment[fr]=Editez le Web" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
++$ECHO "Comment[tr]=Web Düzenleyicisi" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
++$ECHO "GenericName=Edit the Web" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
++$ECHO "GenericName[tr]=Web Düzenleyicisi" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+ $ECHO "Categories=Application;Network;Development;" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+ $ECHO "Exec=$PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
+ $ECHO "Icon=amaya-@APP_VER@.png" >> $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop
