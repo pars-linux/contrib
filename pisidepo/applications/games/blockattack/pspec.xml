@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>blockattack</Name>
+        <Homepage>http://blockattack.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Another block fall game based on Tetris Attack</Summary>
+        <Description>Block Attack - Rise of the Blocks is a block fall game. Like Tetris Attack and Crack Attack, block are raising from the floor and the player must clear them before they touch the roof. Blocks are cleared by making a line of three blocks in the same color horizontally or vertically, and blocks can only be changed horizontally. The goal is to either get as much points as possible, get as much point in two minutes, clear all blocks in limited moves and clear a number of lines. Two player slit screen is available. Two players can compete in Time Trial (who gets most points in two minutes) or Vs. mode where clearing more than 3 blocks trows blocks at the opponent.</Description>
+        <Archive type="targz" sha1sum="c7360e78856ea4eb1516a8af30672e715c3ff642">http://switch.dl.sourceforge.net/sourceforge/blockattack/blockattack-1.3.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>enet</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>blockattack</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/blockattack</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-01</Date>
+            <Version>1.3.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
