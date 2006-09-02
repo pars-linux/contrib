@@ -21,6 +21,13 @@
 	    <Dependency>libxfce4util</Dependency>
 	    <Dependency>libxfcegui4</Dependency>
 	    <Dependency>xfce-mcs-manager</Dependency>
+	    <Dependency>atk</Dependency>
+	    <Dependency>cairo</Dependency>
+	    <Dependency>gtk2</Dependency>
+	    <Dependency>glib2</Dependency>
+	    <Dependency>atk</Dependency>
+	    <Dependency>libxml2</Dependency>
+	    <Dependency>pango</Dependency>
         </BuildDependencies>
     </Source>
     <Package>
@@ -28,20 +35,39 @@
        <RuntimeDependencies>
            <Dependency>startup-notification</Dependency>
            <Dependency>xfce-mcs-plugins</Dependency>
-	   <Dependency>xfce-mcs-manager</Dependency>
-	   <Dependency>libxfce4mcs</Dependency>
-	   <Dependency>libxfcegui4</Dependency>
-	   <Dependency>libxfce4util</Dependency>
+           <Dependency>xfce-mcs-manager</Dependency>
+           <Dependency>libxfce4mcs</Dependency>
+           <Dependency>libxfcegui4</Dependency>
+           <Dependency>libxfce4util</Dependency>
            <Dependency>xorg</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>libxml2</Dependency>
+           <Dependency>pango</Dependency> 
        </RuntimeDependencies> 
             <Files>
                <Path fileType="executable">/usr/bin</Path>
                <Path fileType="config">/etc</Path>
                <Path fileType="header">/usr/include</Path>
                <Path fileType="library">/usr/lib</Path>
-               <Path fileType="localedata">/usr/share</Path>
+               <Path fileType="localedata">/usr/share/locale/tr</Path>
+               <Path fileType="data">/usr/share</Path>
            </Files>
     </Package>
+
+    <Package>
+       <Name>xfce4-panel-locales</Name>
+        <RuntimeDependencies>
+              <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies> 
+            <Files>
+               <Path fileType="localedata">/usr/share/locale/</Path>
+            </Files>
+    </Package>
+
     <History>
         <Update release="1">
             <Date>2006-05-08</Date>
