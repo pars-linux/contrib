@@ -17,8 +17,13 @@
         <Archive sha1sum="be517073e756ce15f430d8e9435e21e28fbc122e"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce-mcs-manager-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>pkgconfig</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>libxfce4mcs</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -26,15 +31,31 @@
         <Name>xfce-mcs-manager</Name>
         <RuntimeDependencies>
             <Dependency>libxfce4mcs</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
             <Dependency>xorg</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="localedata">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
+
+    <Package>
+        <Name>xfce-mcs-manager-locales</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce-mcs-manager</Dependency>
+        </RuntimeDependencies>
+        <Files>
+             <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+     </Package>
 
     <History>
         <Update release="1">
