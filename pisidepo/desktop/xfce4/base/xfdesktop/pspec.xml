@@ -17,11 +17,16 @@
         <Archive sha1sum="d4b1285947e6f42e6aa1b95a9e7bed645a1f596d"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfdesktop-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg</Dependency>
-	    <Dependency>libxfce4util</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>libxfce4mcs</Dependency>
-	    <Dependency>xfce4-panel</Dependency>
-	    <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -29,18 +34,34 @@
        <Name>xfdesktop</Name>
        <RuntimeDependencies>
            <Dependency>xfce4-panel</Dependency>
-	   <Dependency>libxfce4util</Dependency>
-	   <Dependency>libxfcegui4</Dependency>
-	   <Dependency>libxfce4mcs</Dependency>
+           <Dependency>libxfce4util</Dependency>
+           <Dependency>libxfcegui4</Dependency>
+           <Dependency>libxfce4mcs</Dependency>
            <Dependency>xorg</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>atk</Dependency>
        </RuntimeDependencies>
        <Files>
            <Path fileType="executable">/usr/bin</Path>
            <Path fileType="library">/usr/lib</Path>
            <Path fileType="config">/etc</Path>
-           <Path fileType="localedata">/usr/share</Path>
+           <Path fileType="localedata">/usr/share/locale/tr</Path>
+           <Path fileType="data">/usr/share</Path>
        </Files>
    </Package>
+
+   <Package>
+        <Name>xfdesktop-locales</Name>
+         <RuntimeDependencies>
+           <Dependency>xfdesktop</Dependency>
+        </RuntimeDependencies>
+       <Files>
+         <Path fileType="localedata">/usr/share/locale</Path>
+       </Files>
+     </Package>
 
    <History>
        <Update release="1">

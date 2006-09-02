@@ -16,7 +16,6 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.removeDir("/usr/share/locale")
     pisitools.remove("/usr/share/xfce4/*.az")
     pisitools.remove("/usr/share/xfce4/*.ca")
     pisitools.remove("/usr/share/xfce4/*.de")

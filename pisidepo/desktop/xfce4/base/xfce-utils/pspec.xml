@@ -20,6 +20,11 @@
             <Dependency>libxfce4mcs</Dependency>
 	    <Dependency>libxfcegui4</Dependency>
 	    <Dependency>xfce-mcs-manager</Dependency>
+	    <Dependency>gtk2</Dependency>
+	    <Dependency>glib2</Dependency>
+	    <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -28,12 +33,17 @@
         <RuntimeDependencies>
             <Dependency>xfce-mcs-manager</Dependency>
             <Dependency>xorg</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="config">/etc</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/xfce4</Path>
@@ -42,6 +52,16 @@
             <AdditionalFile target="/etc/X11/Sessions/xfce4" permission="0755" owner="root">xfce4</AdditionalFile>
         </AdditionalFiles>
     </Package>
+
+    <Package>
+        <Name>xfce-utils-locales</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce-utils</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+     </Package>
 
     <History>
         <Update release="1">

@@ -17,12 +17,17 @@
         <Archive sha1sum="f1d4ddd9377c241ee94bc373d7f9b8ef58a79ca2"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xffm-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>dbh</Dependency>
-	    <Dependency>libxfce4mcs</Dependency>
-	    <Dependency>xfce-mcs-manager</Dependency>
-	    <Dependency>librsvg</Dependency>
-	    <Dependency>libxml2</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>dbh</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -30,18 +35,34 @@
         <Name>xffm</Name>
         <RuntimeDependencies>
             <Dependency>xfce-mcs-manager</Dependency>
-	    <Dependency>startup-notification</Dependency>
-	    <Dependency>dbh</Dependency>
-	    <Dependency>libxml2</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency>dbh</Dependency>
+            <Dependency>libxml2</Dependency>
             <Dependency>xorg</Dependency>
             <Dependency>samba</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
         </RuntimeDependencies> 
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="localedata">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
+
+    <Package>
+       <Name>xffm-locales</Name>
+       <RuntimeDependencies>
+          <Dependency>xffm</Dependency>
+       </RuntimeDependencies>
+       <Files>
+           <Path fileType="localedata">/usr/share/locale</Path>
+       </Files>
+     </Package>
 
     <History>
         <Update release="1">

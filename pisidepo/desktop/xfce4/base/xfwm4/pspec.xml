@@ -17,30 +17,51 @@
     <Archive sha1sum="7bea1f749077c7aa902da69c8711dff16933dae2"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfwm4-4.2.3.2.tar.gz</Archive>
     <BuildDependencies>
         <Dependency>xorg</Dependency>
-	<Dependency>libxfce4mcs</Dependency>
-	<Dependency>libxfce4util</Dependency>
-	<Dependency>libxfcegui4</Dependency>
-	<Dependency>xfce-mcs-manager</Dependency>
-	<Dependency>startup-notification</Dependency>
+        <Dependency>libxfce4mcs</Dependency>
+        <Dependency>libxfce4util</Dependency>
+        <Dependency>libxfcegui4</Dependency>
+        <Dependency>xfce-mcs-manager</Dependency>
+        <Dependency>startup-notification</Dependency>
+        <Dependency>gtk2</Dependency>
+        <Dependency>glib2</Dependency>
+        <Dependency>pango</Dependency>
+        <Dependency>cairo</Dependency>
+        <Dependency>atk</Dependency>
     </BuildDependencies>
     </Source>
 
     <Package>
-        <Name>xfwm4</Name>
-        <RuntimeDependencies>
-            <Dependency>startup-notification</Dependency>
-            <Dependency>xfce-mcs-manager</Dependency>
-	    <Dependency>libxfce4mcs</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>libxfce4util</Dependency>
-            <Dependency>xorg</Dependency>
-        </RuntimeDependencies> 
+     <Name>xfwm4</Name>
+     <RuntimeDependencies>
+        <Dependency>startup-notification</Dependency>
+        <Dependency>xfce-mcs-manager</Dependency>
+        <Dependency>libxfce4mcs</Dependency>
+        <Dependency>libxfcegui4</Dependency>
+        <Dependency>libxfce4util</Dependency>
+        <Dependency>xorg</Dependency>
+        <Dependency>gtk2</Dependency>
+        <Dependency>glib2</Dependency>
+        <Dependency>pango</Dependency>
+        <Dependency>cairo</Dependency>
+        <Dependency>atk</Dependency>
+     </RuntimeDependencies> 
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="localedata">/usr/share</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
         </Files>
     </Package>
+
+    <Package>
+       <Name>xfwm4-locales</Name>
+        <RuntimeDependencies>
+             <Dependency>xffm</Dependency>
+        </RuntimeDependencies>
+       <Files>
+              <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+   </Package>
 
     <History>
         <Update release="1">

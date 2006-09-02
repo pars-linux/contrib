@@ -16,7 +16,6 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.removeDir("/usr/share/locale")
     pisitools.domo("po/tr.po","tr","xffm.mo")
     pisitools.removeDir("/usr/share/xfce4/doc/he")
     pisitools.removeDir("/usr/share/xfce4/doc/fr")
