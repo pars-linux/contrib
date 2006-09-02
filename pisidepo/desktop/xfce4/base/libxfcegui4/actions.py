@@ -17,5 +17,4 @@ def build():
 def install():
     autotools.install()
     pisitools.removeDir("/usr/share/gtk-doc")
-    pisitools.removeDir("/usr/share/locale")
     pisitools.domo("po/tr.po","tr","libxfcegui4.mo")
