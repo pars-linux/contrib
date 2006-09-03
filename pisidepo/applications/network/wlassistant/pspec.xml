@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>wlassistant</Name>
+        <Homepage>http://wlassistant.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Wireless Assistant</Summary>
+        <Summary xml:lang="tr">Kablosuz Ağ Yardımcısı</Summary>
+        <Description>A small application allowing you to scan for wireless networks and connect to them.</Description>
+        <Description xml:lang="tr">Bu küçük uygulamayla etrafınızdaki kablosuz ağları tarayıp istediğinize bağlanabilirsiniz.</Description>
+        <Archive type="tarbz2" sha1sum="cd9ee5bd10313827d37a0d8208ad6b959ac9b22d">http://switch.dl.sourceforge.net/sourceforge/wlassistant/wlassistant-0.5.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>scons</Dependency>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>wlassistant</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="27">wireless-tools</Dependency>
+            <Dependency>dhcpcd</Dependency>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applnk</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-03</Date>
+            <Version>0.5.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
