@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>nautilus-sendto</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>A nautilus extension for sending files to locations</Summary>
+        <Summary xml:lang="tr">Dosyaları farklı yere göndermek için gerekli Nautilus eklentisi</Summary>
+        <Description>A nautilus extension for sending files to locations</Description>
+        <Description xml:lang="tr">Dosyaları farklı yere göndermek için gerekli Nautilus eklentisi</Description>
+        <Archive type="tarbz2" sha1sum="a75834d6fd8a134eb430905285c66ea3a737e0b2">ftp://ftp.gnome.org/pub/GNOME/sources/nautilus-sendto/0.7/nautilus-sendto-0.7.tar.bz2</Archive>
+        <Patches>
+            <Patch level="0">nautilus-sendto-0.7-configure-options.patch</Patch>
+            <Patch level="0">nautilus-sendto-0.7-gaim-2.0-plugin.patch</Patch>
+            <Patch level="0">turkish-lang.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">glib2</Dependency>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="2.5.1">libglade2</Dependency>
+            <Dependency versionFrom="2.13.0">libbonobo</Dependency>
+            <Dependency versionFrom="2.13.0">libbonoboui</Dependency>
+            <Dependency versionFrom="2.13.0">libgnome</Dependency>
+            <Dependency versionFrom="2.13.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.13.0">nautilus</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.19">pkgconfig</Dependency>
+            <Dependency versionFrom="0.35">intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>nautilus-sendto</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">glib2</Dependency>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="2.5.1">libglade2</Dependency>
+            <Dependency versionFrom="2.13.0">libbonobo</Dependency>
+            <Dependency versionFrom="2.13.0">libbonoboui</Dependency>
+            <Dependency versionFrom="2.13.0">libgnome</Dependency>
+            <Dependency versionFrom="2.13.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.13.0">nautilus</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.19">pkgconfig</Dependency>
+            <Dependency versionFrom="0.35">intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-03</Date>
+            <Version>0.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
