@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>nautilus-open-terminal</Name>
+        <Homepage>http://manny.cluecoder.org/packages/nautilus-open-terminal</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Nautilus Plugin for Opening Terminals</Summary>
+        <Summary xml:lang="tr">Terminalleri açmak için Nautilus eklentisi</Summary>
+        <Description>Nautilus Plugin for Opening Terminals</Description>
+        <Description xml:lang="tr">Terminalleri açmak için Nautilus eklentisi</Description>
+        <Archive type="targz" sha1sum="8a5447efe420a77a8cc19e27c95b1d78492f14fe">http://manny.cluecoder.org/packages/nautilus-open-terminal/nautilus-open-terminal-0.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6.0">nautilus</Dependency>
+            <Dependency versionFrom="2.9.91">gnome-desktop</Dependency>
+            <Dependency versionFrom="2.6.0">glib2</Dependency>
+            <Dependency versionFrom="2.4.0">gtk2</Dependency>
+            <Dependency versionFrom="2.0.0">gconf</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency versionFrom="0.18">intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>nautilus-open-terminal</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6.0">nautilus</Dependency>
+            <Dependency versionFrom="2.9.91">gnome-desktop</Dependency>
+            <Dependency versionFrom="2.6.0">glib2</Dependency>
+            <Dependency versionFrom="2.4.0">gtk2</Dependency>
+            <Dependency versionFrom="2.0.0">gconf</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency versionFrom="0.18">intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/nautilus</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-03</Date>
+            <Version>0.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
