@@ -19,3 +19,4 @@ def install():
     pisitools.removeDir("/usr/share/xfce4/doc/fr")
     pisitools.removeDir("/usr/share/xfce4/doc/he")
     pisitools.domo("po/tr.po","tr","xfdesktop.mo")
+    pisitools.insinto("/etc/xdg/xfce4/desktop/","menu.xml.tr")
