@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>gnome-netstatus</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Network interface information applet</Summary>
+        <Summary xml:lang="tr">Ağ arayüzü bilgi programcığı</Summary>
+        <Description>Network interface information applet</Description>
+        <Description xml:lang="tr">Ağ arayüzü bilgi programcığı</Description>
+        <Archive type="tarbz2" sha1sum="10080783853cc285fd920b4d1adc4e290411a73b">http://ftp.acc.umu.se/pub/GNOME/sources/gnome-netstatus/2.12/gnome-netstatus-2.12.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.3.1">gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.5.2">libgnomeui</Dependency>
+            <Dependency versionFrom="2">gnome-panel</Dependency>
+            <Dependency versionFrom="2">gconf</Dependency>
+            <Dependency versionFrom="0.29">intltool</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnome-netstatus</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.3.1">gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.5.2">libgnomeui</Dependency>
+            <Dependency versionFrom="2">gnome-panel</Dependency>
+            <Dependency versionFrom="2">gconf</Dependency>
+            <Dependency versionFrom="0.29">intltool</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/gconf</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-04</Date>
+            <Version>2.12.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
