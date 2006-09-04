@@ -18,3 +18,5 @@ def build():
 def install():
     kde.install()
     pisitools.remove("/usr/kde/3.5/share/apps/katepart/syntax/r.xml")
+    pisitools.domo("po/tr.po","tr","rkward.mo")
+    pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/rkward.po","/usr/kde/3.5/share/locale/tr/LC_MESSAGES/rkward.po")
