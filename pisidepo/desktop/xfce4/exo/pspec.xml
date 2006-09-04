@@ -19,7 +19,6 @@
         <BuildDependencies>
             <Dependency versionFrom="2.6.4">glib2</Dependency>
             <Dependency versionFrom="2.6">gtk2</Dependency>
-            <Dependency>libpng</Dependency>
             <Dependency>pango</Dependency>
             <Dependency>URI</Dependency>
             <Dependency versionFrom="4.2.2">libxfce4mcs</Dependency>
@@ -35,7 +34,6 @@
         <RuntimeDependencies>
             <Dependency versionFrom="2.6.4">glib2</Dependency>
             <Dependency versionFrom="2.6">gtk2</Dependency>
-            <Dependency>libpng</Dependency>
             <Dependency>pango</Dependency>
             <Dependency>URI</Dependency>
             <Dependency versionFrom="4.2.2">libxfce4mcs</Dependency>
@@ -47,7 +45,18 @@
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
             <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>exo-locales</Name>
+        <RuntimeDependencies>
+            <Dependency>exo</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 

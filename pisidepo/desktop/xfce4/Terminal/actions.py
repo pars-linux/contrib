@@ -12,3 +12,4 @@ def build():
 def install():
     autotools.install()
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+    pisitools.removeDir("/usr/share/doc/Terminal/ja")

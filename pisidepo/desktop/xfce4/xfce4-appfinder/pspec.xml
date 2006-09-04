@@ -10,27 +10,58 @@
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
-	<Summary>Xfce 4 application finder</Summary>
-	<Summary xml:lang="tr">Xfce 4 uygulama bulucu</Summary>
-	<Description>Xfce 4 application finder</Description>
-	<Description xml:lang="tr">Xfce 4 uygulama bulucu</Description>
-	<Archive sha1sum="327e657a06d2fa2ecd62f8407dd6b4cc3dab2878"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-appfinder-4.2.3.tar.gz</Archive>
+        <Summary>Xfce4 application finder</Summary>
+        <Summary xml:lang="tr">Xfce4 uygulama bulucu</Summary>
+        <Description>Xfce4 application finder</Description>
+        <Description xml:lang="tr">Xfce 4 uygulama bulucu</Description>
+        <Archive sha1sum="327e657a06d2fa2ecd62f8407dd6b4cc3dab2878"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-appfinder-4.2.3.tar.gz</Archive>
         <BuildDependencies>
-	   <Dependency>libxfcegui4</Dependency>
-      </BuildDependencies>
-
-</Source>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>expat</Dependency>
+        </BuildDependencies>
+    </Source>
     <Package>
        <Name>xfce4-appfinder</Name>
        <RuntimeDependencies>
            <Dependency>libxfce4mcs</Dependency>
            <Dependency>xorg</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>libxfce4util</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>startup-notification</Dependency>
+           <Dependency>fontconfig</Dependency>
+           <Dependency>expat</Dependency>
        </RuntimeDependencies> 
             <Files>
                <Path fileType="executable">/usr/bin</Path>
-               <Path fileType="localedata">/usr/share</Path>
+               <Path fileType="data">/usr/share/xfce4/doc</Path>
+               <Path fileType="data">/usr/share/applicationsc</Path>
+               <Path fileType="data">/usr/share/pixmaps</Path>
+               <Path fileType="localedata">/usr/share/locale/tr</Path>
            </Files>
     </Package>
+
+    <Package>
+       <Name>xfce4-appfinder-locales</Name>
+       <RuntimeDependencies>
+           <Dependency>xfce4-appfinder</Dependency>
+       </RuntimeDependencies>
+            <Files>
+                  <Path fileType="localedata">/usr/share/locale</Path>
+             </Files>
+    </Package>
+
     <History>
         <Update release="1">
             <Date>2006-05-08</Date>
