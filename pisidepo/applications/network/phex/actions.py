@@ -16,4 +16,3 @@ def install():
     pisitools.dodir("/usr/share/pixmaps")
     shelltools.system("unzip -j phex.jar phex/gui/resources/icons/phex/phex_wiz.gif -d %s/usr/share/pixmaps" % get.installDIR())
     pisitools.insinto("/opt/phex", "*")
-    pisitools.remove("/opt/freemind/pisiBuildState")
