@@ -15,5 +15,4 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.removeDir("/usr/share/locale")
     pisitools.domo("po/tr.po","tr","xfce4-trigger-launcher.mo")
