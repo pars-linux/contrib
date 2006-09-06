@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>amyedit</Name>
+        <Homepage>http://amyedit.sf.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary> AmyEdit is a LaTeX editor</Summary>
+        <Summary xml:lang="tr">LaTeX düzenleyicisi</Summary>
+        <Description> AmyEdit is a LaTeX editor</Description>
+        <Description xml:lang="tr">LaTeX düzenleyicisi</Description>
+        <Archive type="tarbz2" sha1sum="2ca1c7910b231e782596548622a51de96e1bd090">http://switch.dl.sourceforge.net/sourceforge/amyedit/amyedit-1.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6">gtkmm</Dependency>
+            <Dependency>aspell</Dependency>
+            <Dependency versionFrom="1.0">gtksourceview</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>amyedit</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">gtkmm</Dependency>
+            <Dependency>aspell</Dependency>
+            <Dependency versionFrom="1.0">gtksourceview</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-06</Date>
+            <Version>1.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
