@@ -14,11 +14,9 @@ from pisi.actionsapi import get
 
 
 def setup():
-
-    autotools.configure()
+    autotools.configure("--enable-gc=system")
 
 def build():
-
     autotools.make()
 
 def install():
