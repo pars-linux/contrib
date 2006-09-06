@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 #
-# murattsenell@gmail.com
+# muratasenel@gmail.com
 #######################
 
 from pisi.actionsapi import autotools

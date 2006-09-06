@@ -1,6 +1,6 @@
 #Murat Şenel
 #
-#murattsenell@gmail.com
+#muratasenel@gmail.com
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import get

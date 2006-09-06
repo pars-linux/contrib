@@ -3,7 +3,7 @@
 #
 #Murat Şenel
 #
-#murattsenell@gmail.com
+#muratasenel@gmail.com
 
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
