@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#Murat Şenel <> muratasenel at gmail.com <>
+#Murat Şenel <> muratasenel@gmail.com <>
 
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
