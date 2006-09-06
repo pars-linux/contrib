@@ -1,5 +1,5 @@
 #
-#Pardox pardox2006 at hotmail dot com
+#Fethi Aymaz <fethi@linux-sevenler.org>
 #
 
 from pisi.actionsapi import autotools
