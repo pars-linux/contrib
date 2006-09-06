@@ -8,7 +8,7 @@ from pisi.actionsapi import get
 
 
 def setup():
-    autotools.configure("--with-sound=alsa")
+    autotools.configure()
 
 def build():
     autotools.make()

@@ -10,14 +10,20 @@
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
-        <Summary>Xfce 4 trigger launcher panel plugin</Summary>
-        <Summary xml:lang="tr">Xfce 4 trigger launcher panel plugin</Summary>
-        <Description>Xfce 4 trigger launcher panel plugin</Description>
-        <Description xml:lang="tr">Xfce 4 trigger launcher panel plugin</Description>
+        <Summary>Xfce4 trigger launcher panel plugin</Summary>
+        <Summary xml:lang="tr">Xfce4 trigger launcher panel plugin</Summary>
+        <Description>Xfce4 trigger launcher panel plugin</Description>
+        <Description xml:lang="tr">Xfce4 trigger launcher panel plugin</Description>
         <Archive sha1sum="8b68183fde3e88131563fbfdedf2d804ffcfb546"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-trigger-launcher-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg</Dependency>
-	    <Dependency>xfce4-panel</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libxml2</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -26,10 +32,25 @@
         <RuntimeDependencies>
             <Dependency>xfce4-panel</Dependency>
             <Dependency>xorg</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libxml2</Dependency>
         </RuntimeDependencies> 
         <Files>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="localedata">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+        </Files>
+    </Package>
+    <Package>
+        <Name>xfce4-trigger-launcher-locales</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce4-trigger-launcher</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 

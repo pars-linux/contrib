@@ -17,10 +17,15 @@
         <Archive sha1sum="80e0da399bf7cb9617f914b285f87266e9b1428f"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-mixer-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg</Dependency>
-	    <Dependency>libxfce4util</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>libxfce4mcs</Dependency>
-	    <Dependency>xfce4-panel</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>xfce4-panel</Dependency>
         </BuildDependencies>
     </Source>
     <Package>
@@ -29,14 +34,31 @@
            <Dependency>xfce4-panel</Dependency>
            <Dependency>alsa-lib</Dependency>
            <Dependency>xorg</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
        </RuntimeDependencies> 
             <Files>
                <Path fileType="executable">/usr/bin</Path>
                <Path fileType="library">/usr/lib</Path>
                <Path fileType="config">/etc</Path>
-               <Path fileType="localedata">/usr/share</Path>
+               <Path fileType="data">/usr/share/applications</Path>
+	       <Path fileType="data">/usr/share/icons</Path>
+	       <Path fileType="localedata">/usr/share/locale/tr</Path>
            </Files>
     </Package>
+    <Package>
+    <Name>xfce4-mixer-locales</Name>
+         <RuntimeDependencies>
+              <Dependency>xfce4-mixer</Dependency>
+         </RuntimeDependencies> 
+         <Files>
+            <Path fileType="localedata">/usr/share/locale</Path>
+         </Files>
+     </Package>
+
     <History>
         <Update release="1">
             <Date>2006-05-08</Date>

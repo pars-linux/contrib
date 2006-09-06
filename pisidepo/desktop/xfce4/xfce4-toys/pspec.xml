@@ -10,15 +10,20 @@
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
-        <Summary>Xfce 4 panel toys plugin</Summary>
-        <Summary xml:lang="tr">Xfce 4 panel toys plugin</Summary>
-        <Description>Xfce 4 panel toys plugin</Description>
-        <Description xml:lang="tr">Xfce 4 trigger launcher panel plugin</Description>
+        <Summary>Xfce4 panel toys plugin</Summary>
+        <Summary xml:lang="tr">Xfce4 panel toys plugin</Summary>
+        <Description>Xfce4 panel toys plugin</Description>
+        <Description xml:lang="tr">Xfce4 toys plugin</Description>
         <Archive sha1sum="bbc6069d2a3762e23d48ef8617c9dafa355b7f7a"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-toys-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>xfce4-panel</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
         </BuildDependencies>
     </Source>
     <Package>
@@ -26,12 +31,28 @@
        <RuntimeDependencies>
            <Dependency>xfce4-panel</Dependency>
            <Dependency>xorg</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
        </RuntimeDependencies> 
             <Files>
                <Path fileType="executable">/usr/bin</Path>
                <Path fileType="library">/usr/lib</Path>
-               <Path fileType="localedata">/usr/share</Path>
+               <Path fileType="localedata">/usr/share/locale/tr</Path>
+               <Path fileType="data">/usr/share/xfce4</Path>
            </Files>
+    </Package>
+
+    <Package>
+    <Name>xfce4-toys-locales</Name>
+         <RuntimeDependencies>
+               <Dependency>xfce4-toys</Dependency>
+        </RuntimeDependencies> 
+              <Files>
+                  <Path fileType="localedata">/usr/share/locale</Path>
+              </Files>
     </Package>
     <History>
         <Update release="1">

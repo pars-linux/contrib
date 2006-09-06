@@ -23,6 +23,11 @@
             <Dependency>dbus</Dependency>
             <Dependency>xine-lib</Dependency>
             <Dependency>taglib</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">xfmedia-dbus-0.6-support.patch</Patch>
@@ -38,13 +43,30 @@
             <Dependency>dbus</Dependency>
             <Dependency>xine-lib</Dependency>
             <Dependency>taglib</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-	    <Path fileType="config">/etc</Path>
+            <Path fileType="config">/etc</Path>
             <Path fileType="library">/usr/lib</Path>
-	    <Path fileType="header">/usr/include</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/xfmedia</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+    <Package>
+         <Name>xfmedia-locales</Name>
+         <RuntimeDependencies>
+              <Dependency>xfmedia</Dependency>
+         </RuntimeDependencies> 
+        <Files>
+              <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 

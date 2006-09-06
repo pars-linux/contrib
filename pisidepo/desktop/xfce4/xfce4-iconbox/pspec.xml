@@ -17,9 +17,14 @@
         <Archive sha1sum="fb4a76a4b565c2e4a8b07612b7a3313e6175494b"  type="targz">http://www.xfce.org/archive/xfce-4.2.3.2/src/xfce4-iconbox-4.2.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg</Dependency>
-	    <Dependency>libxfcegui4</Dependency>
-	    <Dependency>libxfce4mcs</Dependency>
-	    <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
         </BuildDependencies>
     </Source>
     <Package>
@@ -27,13 +32,24 @@
        <RuntimeDependencies>
            <Dependency>xfce4-panel</Dependency>
            <Dependency>xorg</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>libxfcegui4</Dependency>
+           <Dependency>libxfce4mcs</Dependency>
+           <Dependency>xfce-mcs-manager</Dependency>
        </RuntimeDependencies> 
             <Files>
                <Path fileType="executable">/usr/bin</Path>
                <Path fileType="library">/usr/lib</Path>
-               <Path fileType="localedata">/usr/share</Path>
+               <Path fileType="localedata">/usr/share/locale</Path>
+               <Path fileType="data">/usr/share/icons</Path>
+               <Path fileType="data">/usr/share/applications</Path>
            </Files>
     </Package>
+
     <History>
         <Update release="1">
             <Date>2006-05-08</Date>
