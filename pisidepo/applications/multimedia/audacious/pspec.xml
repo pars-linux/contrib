@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>audacious</Name>
+        <Homepage>http://audacious-media-player.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Audacious is a fork of beep-media-player</Summary>
+        <Summary xml:lang="tr">Beep-media-player benzeri bir çoklu ortam oynatıcısı</Summary>
+        <Description>Audacious is a fork of beep-media-player</Description>
+        <Description xml:lang="tr">Beep-media-player benzeri bir çoklu ortam oynatıcısı</Description>
+        <Archive type="targz" sha1sum="25087f081054807aa48e3415aae0e1679667a392">http://audacious-media-player.org/release/audacious-1.1.2.tgz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency>musicbrainz</Dependency>
+            <Dependency versionFrom="2.3.1">libglade2</Dependency>
+            <Dependency versionFrom="1.4">libbinio</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency versionFrom="1.0.10">alsa-lib</Dependency>
+            <Dependency>arts</Dependency>
+            <Dependency versionFrom="0.2.30">esound</Dependency>
+            <Dependency versionFrom="1.0">libvorbis</Dependency>
+            <Dependency versionFrom="1.1.2">flac</Dependency>
+            <Dependency versionFrom="2.6.0">gconf</Dependency>
+            <Dependency versionFrom="0.4">bio2jack</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>lirc</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency>libmpcdec</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>timidity</Dependency>
+            <Dependency versionFrom="0.9.0">libogg</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency versionFrom="0.9.0">pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>audacious</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency>musicbrainz</Dependency>
+            <Dependency versionFrom="2.3.1">libglade2</Dependency>
+            <Dependency versionFrom="1.4">libbinio</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency versionFrom="1.0.10">alsa-lib</Dependency>
+            <Dependency>arts</Dependency>
+            <Dependency versionFrom="0.2.30">esound</Dependency>
+            <Dependency versionFrom="1.0">libvorbis</Dependency>
+            <Dependency versionFrom="1.1.2">flac</Dependency>
+            <Dependency versionFrom="2.6.0">gconf</Dependency>
+            <Dependency versionFrom="0.4">bio2jack</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>lirc</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency>libmpcdec</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>timidity</Dependency>
+            <Dependency versionFrom="1.0">libogg</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency versionFrom="0.9.0">pkgconfig</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-06</Date>
+            <Version>1.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
