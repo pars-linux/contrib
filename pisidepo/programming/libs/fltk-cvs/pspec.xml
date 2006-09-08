@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fltk-cvs</Name>
+        <Homepage>http://www.fltk.org</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>FLTK (pronounced "fulltick") is a cross-platform C++ GUI toolkit</Summary>
+        <Summary xml:lang="tr">FLTK, platformlar arası C++ kullanıcı arayüzü için bir araç takımı</Summary>
+        <Description>FLTK (pronounced "fulltick") is a cross-platform C++ GUI toolkit</Description>
+        <Description xml:lang="tr">FLTK, platformlar arası C++ kullanıcı arayüzü için bir araç takımı</Description>
+        <Archive sha1sum="3f750510c39f4047c8844714459d014a7bf6c2a1" type="tarbz2">http://gd.tuwien.ac.at/hci/fltk/snapshots/fltk-2.0.x-r4886.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">makefile.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>libpng</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>groff</Dependency>
+            <Dependency>xorg</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fltk-cvs</Name>
+        <Conflicts>
+            <Package>fltk</Package>
+        </Conflicts>
+        <RuntimeDependencies>
+            <Dependency>libpng</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>xorg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-07</Date>
+            <Version>4886</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
