@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>dillo</Name>
+        <Homepage>http://www.dillo.org/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Lean GTK+-based web browser</Summary>
+        <Description>Dillo aims to be a multi-platform browser alternative that's small, stable, developer-friendly, usable, fast, and extensible.</Description>
+        <Archive type="tarbz2" sha1sum="ee03b11ba6b75d3180ca906d8275bd35e8765995">http://www.dillo.org/download/dillo-0.8.6.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.0">gtk1</Dependency>
+            <Dependency>fltk-cvs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>dillo</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.0">gtk1</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-07</Date>
+            <Version>0.8.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
