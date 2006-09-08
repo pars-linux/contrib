@@ -7,9 +7,13 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 
+WorkDir="dillo-0.8.6-i18n-misc-20060709"
+
 def setup():
     autotools.configure("--disable-glibtest \
-                         --disable-gtktest")
+                         --disable-gtktest \
+                         --enable-ipv6 \
+                         --disable-dlgui")
 
 def build():
     autotools.make()
