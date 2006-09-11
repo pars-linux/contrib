@@ -5,18 +5,16 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
-WorkDir = "."
+WorkDir = "freemind"
+
+def build():
+    shelltools.system("ant dist")
 
 def install():
+    shelltools.cd("../bin/dist")
     shelltools.chmod("freemind.sh", 0755)
-    pisitools.insinto("/opt/freemind", "*")
-    pisitools.dosym("/opt/freemind/freemind.sh", "/usr/bin/freemind")
-    pisitools.remove("/opt/freemind/freemind.bat")
-    pisitools.remove("/opt/freemind/Freemind.exe")
-    pisitools.remove("/opt/freemind/pisiBuildState")
-    #Turkish translation
-    shelltools.cd("%s/opt/freemind/lib" % get.installDIR())
-    shelltools.system("zip freemind.jar Resources_tr.properties")
-    pisitools.remove("/opt/freemind/lib/Resources_tr.properties")
+    pisitools.insinto("/usr/share/freemind", "*")
+    pisitools.dosym("/usr/share/freemind/freemind.sh", "/usr/bin/freemind")
+    pisitools.remove("/usr/share/freemind/freemind.bat")
+    pisitools.remove("/usr/share/freemind/Freemind.exe")

@@ -14,7 +14,11 @@
         <Summary xml:lang="tr">Java dilinde yazılmış zihin haritası programı</Summary>
         <Description>FreeMind is a premier free mind-mapping software written in Java. You can easily organize your thoughts with this software.</Description>
         <Description xml:lang="tr">Freemind, öncü ve özgür bir zihin haritalama uygulamasıdır. Bunun sayesinde düşüncelerinizi kolaylıkla organize edebilirsiniz.</Description>
-        <Archive sha1sum="d3f6d205604e8f7b5e1435f6d54a371e326e6c37" type="zip">http://mesh.dl.sourceforge.net/sourceforge/freemind/freemind-bin-max-0_8_0.zip</Archive>
+        <Archive sha1sum="64dcd81dcd9a4c8039f2a2549cf9fcaf87769a91" type="targz">http://switch.dl.sourceforge.net/sourceforge/freemind/freemind-src-0_8_0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch>freemind-0.8.0-pardus.patch</Patch>
             <Patch>freemind-tr-translation.patch</Patch>
@@ -28,7 +32,7 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/opt/freemind</Path>
+            <Path fileType="data">/usr/share/freemind</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/mimelnk/application</Path>
@@ -41,6 +45,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2006-09-11</Date>
+            <Version>0.8.0</Version>
+            <Comment>Compile from source</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="5">
             <Date>2006-07-28</Date>
             <Version>0.8.0</Version>
