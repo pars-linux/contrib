@@ -5,7 +5,6 @@
 #
 #muratasenel@gmail.com
 
-from pisi.actionsapi import libtools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
@@ -52,7 +51,7 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install("DESTDIR=%s" % get.installDIR())
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
     pisitools.doman("man/man1/*")
 
