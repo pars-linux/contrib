@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>prokyon3</Name>
+        <Homepage>http://prokyon3.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Multithreaded music manager and tag editor based on Qt and MySQL</Summary>
+        <Summary xml:lang="tr">Qt ve MySQL tabanlı müzik yöneticisi ve etiket düzenleyicisi</Summary>
+        <Description>Multithreaded music manager and tag editor based on Qt and MySQL</Description>
+        <Description xml:lang="tr">Qt ve MySQL tabanlı müzik yöneticisi ve etiket düzenleyicisi</Description>
+        <Archive type="targz" sha1sum="6311cb81b82ad6e6eb61fe64f63156055cf76ec6">http://surfnet.dl.sourceforge.net/sourceforge/prokyon3/prokyon3-0.9.5RC1.tar.gz</Archive>
+        <Patches>
+            <Patch>prokyon-desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="3">qt</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency>musicbrainz</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>mysql-server</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>prokyon3</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3">qt</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency>musicbrainz</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>mysql-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-13</Date>
+            <Version>0.9.5-rc1</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
