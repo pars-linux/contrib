@@ -16,6 +16,9 @@
         <Description>Powerful text searches on Linux using regular expressions for both the file name, and the search text.</Description>
         <Description xml:lang="tr">Bu uygulama sayesinde dosya adları veya dosyanın içerdiği sözcükler arasında ayrıntılı aramalar yapabilirsiniz.</Description>
         <Archive type="targz" sha1sum="91ee4a94c28a070c45209b8bb917538caa10881c">http://switch.dl.sourceforge.net/sourceforge/searchmonkey/searchmonkey-0.6.2.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">turkish.patch</Patch>
+        </Patches>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
         </BuildDependencies>
@@ -28,7 +31,9 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/searchmonkey.desktop">searchmonkey.desktop</AdditionalFile>
@@ -36,6 +41,13 @@
    </Package>
 
    <History>
+        <Update release="2">
+            <Date>2006-09-17</Date>
+            <Version>0.6.2</Version>
+            <Comment>Turkish translation.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="1">
             <Date>2006-09-15</Date>
             <Version>0.6.2</Version>
