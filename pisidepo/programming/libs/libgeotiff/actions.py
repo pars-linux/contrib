@@ -6,11 +6,10 @@
 #muratasenel@gmail.com
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import libtools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir = "libgeotiff-1.2.2"
+WorkDir = "libgeotiff-1.2.3"
 
 def setup():
     autotools.configure("--with-zip \
@@ -23,6 +22,8 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.dodoc("ChangeLog", "Doxyfile", "HOWTO-RELEASE", "LICENSE", "README*")
+    pisitools.dodoc("ChangeLog", "Doxyfile", "HOWTO-RELEASE", "LICENSE", "README*", "docs/manual.txt")
+    pisitools.dohtml("docs/*")
+    pisitools.remove("/usr/share/doc/%s/README.WIN" % get.srcTAG())
 
 
