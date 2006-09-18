@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>stellarium</Name>
+        <Homepage>http://www.stellarium.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Stellarium is a free open source planetarium for your computer.</Summary>
+        <Summary xml:lang="tr">Stellarium, bilgisayarınız için açık kod yıldız evi</Summary>
+        <Description>It shows a realistic sky in 3D, just like what you see with the naked eye, binoculars or a telescope.</Description>
+        <Description xml:lang="tr">Çıplak gözle, dürbünle ve ya teleskopla baktığınızda gördüğünüze yakın gerçekçi 3B gökyüzü gösterir</Description>
+        <Archive type="targz" sha1sum="036c7427544084a9bd9211b83f7ee3b82de6b994">http://surfnet.dl.sourceforge.net/sourceforge/stellarium/stellarium-0.8.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>glut</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>stellarium</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>glut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/stellarium.desktop" permission="0644" owner="root">stellarium.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/stellarium.png" permission="0644" owner="root">stellarium.png</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-18</Date>
+            <Version>0.8.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
