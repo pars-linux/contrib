@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>rkward</Name>
-	<Homepage>http://rkward.sourceforge.net/</Homepage>
+        <Homepage>http://rkward.sourceforge.net/</Homepage>
         <Packager>
             <Name>Ertuğrul Erata</Name>
             <Email>ertugrulerata@gmail.com</Email>
@@ -12,18 +12,15 @@
         <IsA>app:gui</IsA>
         <Summary>Data analysis tool</Summary>
         <Summary xml:lang="tr">Veri işleme aracı </Summary>
-        <Description>Data analysis tool</Description>
-        <Description xml:lang="tr">Veri işleme aracı</Description>
-        <Archive sha1sum="9dee2d3a23d3423f52898926035d1c62f5609fce"  type="targz">http://ovh.dl.sourceforge.net/sourceforge/rkward/rkward-0.3.6.tar.gz</Archive>
+        <Description>RKWard aims to provide an easily extensible, easy to use IDE/GUI for the R-project. RKWard tries to combine the power of the R-language with the (relative) ease of use of commercial statistics tools.</Description>
+        <Description xml:lang="tr">RKWard, R projesi için kolayca genişleyebilir, ve kolay kullanılabilir bir grafik arayüz (geliştirme ortamı) sağlamayı amaçlar. R dilinin gücüyle ticari programların kullanım kolaylığını birleştirmeye çalışır.</Description>
+        <Archive sha1sum="8e04b94ecb7d683d52157c8a725a902bfc2a4e0f"  type="targz">http://switch.dl.sourceforge.net/sourceforge/rkward/rkward-0.3.7.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>R</Dependency>
             <Dependency>xorg</Dependency>
             <Dependency>kdelibs</Dependency>
             <Dependency>php-cli</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>tr.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -38,10 +35,18 @@
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="library">/usr/kde/3.5/lib</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="library">/usr/lib</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2006-08-24</Date>
+            <Version>0.3.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="1">
             <Date>2006-08-24</Date>
             <Version>0.3.6</Version>
