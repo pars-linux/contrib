@@ -34,7 +34,7 @@ def setup():
                          --with-mrsid=no \
                          --with-jp2mrsid=yes \
                          --without-bsb \
-                         --with-mysql=no \
+                         --with-mysql \
                          --with-xerces \
                          --with-odbc \
                          --with-sqlite \
@@ -51,9 +51,11 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
     pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
     pisitools.doman("man/man1/*")
+    pisitools.dohtml("html/*")
+    pisitools.dohtml("ogr/*")
 
     #prevent file conflict
     pisitools.removeDir("/usr/lib/perl5")
