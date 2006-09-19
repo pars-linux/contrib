@@ -1,3 +1,9 @@
 #!/bin/bash
 # Run OpenTTD on Pardus
+# copies *.scn files to ~/.openttd/scenario on first run
+if [ ! -d ~/.openttd ]
+    then
+        mkdir ~/.openttd
+        cp -r /usr/share/openttd/scenario ~/.openttd/
+fi
 /usr/share/openttd/openttd -c ~/.openttd/openttd.cfg $*
