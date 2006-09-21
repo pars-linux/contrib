@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fet</Name>
+        <Homepage>http://www.lalescu.ro/liviu/fet/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
+        <Summary xml:lang="tr">FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
+        <Description>FET is a probabilistic program for automatically generating the timetable of a school, high-school or university.</Description>
+        <Description xml:lang="tr">FET is a probabilistic program for automatically generating the timetable of a school, high-school or university</Description>
+        <Archive sha1sum="a3dcea9a262c9ffcb0b1e57b10aca88b554ae776"  type="tarbz2">http://www.lalescu.ro/liviu/fet/download/fet-4.2.3.tar.bz2</Archive>
+        <BuildDependencies>
+             <Dependency>qt4</Dependency>
+             <Dependency>fontconfig</Dependency>
+             <Dependency>xorg</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fet</Name>
+        <RuntimeDependencies>
+             <Dependency>qt4</Dependency>
+             <Dependency>fontconfig</Dependency>
+             <Dependency>xorg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/share/fet</Path>
+            <Path fileType="localedata">/usr/share/fet/translations</Path>
+            <Path fileType="data">/usr/share/fet/doc</Path>
+            <Path fileType="data">/usr/share/fet/sample_inputs</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-24</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
