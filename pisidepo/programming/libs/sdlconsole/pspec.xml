@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>sdlconsole</Name>
+        <Homepage>http://wacha.ch/wiki/sdlconsole/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>library</IsA>
+        <Summary>Console library for SDL</Summary>
+        <Summary xml:lang="tr">SDL için konsol kütüphanesi</Summary>
+        <Description>A Quake-like drop-down console that can be added to any SDL application as an easy to use interface to your program.</Description>
+        <Description xml:lang="tr">SDL uygulamalarına kolaylıkla eklenebilen, Quake benzeri consol arayüzü kütüphanesi.</Description>
+        <Archive type="targz" sha1sum="ac1415d8049286a75c409465245a859c3a243173">http://switch.dl.sourceforge.net/sourceforge/sdlconsole/sdlconsole-2.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>sdlconsole</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-21</Date>
+            <Version>2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
