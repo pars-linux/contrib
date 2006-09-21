@@ -4,9 +4,8 @@
 # Murat Şenel <muratasenel@gmail.com>
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="PySozluk"
+WorkDir="PySozluk-1.01"
 
 def setup():
     pass
@@ -22,5 +21,5 @@ def install():
     pisitools.insinto("/usr/share/pysozluk", "pysozluk.py")
     pisitools.insinto("/usr/share/applications", "pysozluk.desktop")
     pisitools.insinto("/usr/share/pixmaps", "pysozluk.png")
-    pisitools.dodoc("BENI_OKU")
+    pisitools.dodoc("README")
 
