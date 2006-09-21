@@ -30,11 +30,18 @@
              <Dependency>xorg</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="executable">/usr/share/fet</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="localedata">/usr/share/fet/translations</Path>
             <Path fileType="data">/usr/share/fet/doc</Path>
             <Path fileType="data">/usr/share/fet/sample_inputs</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/pixmaps/fet.desktop" permission="0755" owner="root">fet.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/fet.desktop" permission="0755" owner="root">fet.desktop</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
