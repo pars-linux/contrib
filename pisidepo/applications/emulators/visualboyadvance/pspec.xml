@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>visualboyadvance</Name>
+        <Homepage>http://vba.ngemu.com/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Gameboy, gameboy color, and gameboy advance emulator</Summary>
+        <Summary xml:lang="tr">Gameboy, gameboy color ve gameboy advance emülatörü</Summary>
+        <Description>An emulator for Gameboy and GameboyAdvance systems.</Description>
+        <Description xml:lang="tr">Gameboy ve GameboyAdvance sistemleri için bir emülatör.</Description>
+        <Archive type="targz" sha1sum="04d82406079563fd17cda07f72488185e9152f51">http://switch.dl.sourceforge.net/sourceforge/vba/VisualBoyAdvance-src-1.7.2.tar.gz</Archive>
+        <Patches>
+            <Patch>1.7.2-homedir.patch</Patch>
+            <Patch level="1">1.7.2-gcc34.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>visualboyadvance</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/bin/visualboyadvance" permission="0755" owner="root">visualboyadvance</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-21</Date>
+            <Version>1.7.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
