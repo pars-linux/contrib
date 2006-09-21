@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from pisi.actionsapi import shelltools
+import os
 
 def postInstall():
     os.system("e17genmenu -k")
