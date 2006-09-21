@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>kdevisualboyadvance</Name>
+        <Homepage>http://sourceforge.net/projects/kvbadvance/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE frontend for VisualBoy Advance</Summary>
+        <Summary xml:lang="tr">VisualBoy Advance için KDE arayüzü</Summary>
+        <Description>This application is a FrontEnd for VisualBoy Advance, based on others frontends online like (kvba, qtvba, vbaexpress), and trying to be the best.</Description>
+        <Description xml:lang="tr">Bu uygulama VisualBoy Advance için bir KDE arayüzü sunar. kvba, qtvba, vbaexpress gibi diğer arayüzler baz alınarak en iyisi oluşturulmaya çalışılmıştır.</Description>
+        <Archive type="targz" sha1sum="129d67fc93653d5a724432e237fa236cdfdddaa0">http://switch.dl.sourceforge.net/sourceforge/kvbadvance/KDEVisualBoyAdvance-0.3beta.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">sdl-console.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency versionFrom="3.2">qt</Dependency>
+            <Dependency versionFrom="1.2.2">libsdl</Dependency>
+            <Dependency>sdlconsole</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kdevisualboyadvance</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency versionFrom="3.2">qt</Dependency>
+            <Dependency>visualboyadvance</Dependency>
+            <Dependency versionFrom="1.2.2">libsdl</Dependency>
+            <Dependency>sdlconsole</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-21</Date>
+            <Version>0.3_beta1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
