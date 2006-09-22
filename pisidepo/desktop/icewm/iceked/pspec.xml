@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>iceked</Name>
+	<Homepage></Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>IceWM keys editor</Summary>
+	<Summary xml:lang="tr">IceWM tuş editörü</Summary>
+	<Description>IceWM keys editor</Description>
+        <Description xml:lang="tr">IceWM tuş editörü</Description>
+	<Archive sha1sum="d3d321f0675428d67ec553c2da06492663caae79" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/icecc/iceked-1.5.tar.bz2</Archive>
+        <BuildDependencies>
+   	    <Dependency versionFrom="3">qt</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>iceked</Name>
+        <RuntimeDependencies>            
+            <Dependency versionFrom="3">qt</Dependency>
+	    <Dependency>icewm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="data">/usr/share/iceked</Path>
+	    <Path fileType="data">/</Path>
+	</Files>
+	<!-- AdditionalFiles>
+	    <AdditionalFile target="/usr/share/applications/.desktop" permission="0644" owner="root">.desktop</AdditionalFile>
+	    <AdditionalFile target="/usr/share//.qm" permission="0644" owner="root">.tr.qm</AdditionalFile>
+        </AdditionalFiles -->
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-06-18</Date>
+	    <Version>1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
