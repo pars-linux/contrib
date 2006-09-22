@@ -5,16 +5,14 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import kde
 from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
 
 def setup():
     shelltools.system("/usr/bin/qmake-qt4 fet.pro")
 
 def build():
-    kde.make()
+    autotools.make()
 
 
 def install():
