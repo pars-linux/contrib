@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>icewm</Name>
+	<Homepage>http://www.icewm.org/
+	http://sourceforge.net/projects/icewmsilverxp/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>devel</IsA>
+	<Summary>Ice Window Manager with Themes</Summary>
+	<Summary xml:lang="tr">Icewm masaustu ortami</Summary>
+	<Description>Ice Window Manager with Themes</Description>
+        <Description xml:lang="tr">Icewm masaustu ortami</Description>
+	<Archive sha1sum="648f553b04c6cbf58b83a63ac6974ecefd231cd3" type="targz">http://heanet.dl.sourceforge.net/sourceforge/icewm/icewm-1.2.28.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">pardus_menu.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>kdmtheme</Dependency>
+            <Dependency>imlib</Dependency>
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>icewm</Name>
+        <RuntimeDependencies>
+	    <Dependency versionFrom="4">sed</Dependency>
+            <Dependency>imlib</Dependency>
+            <Dependency>kdmtheme</Dependency>
+            <!-- Dependency>xineramaproto</Dependency>
+            <Dependency>xextproto</Dependency>
+            <Dependency>xproto</Dependency -->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icewm</Path>
+            <Path fileType="config">/etc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/X11/Sessions/icewm" permission="0755" owner="root">icewm</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-09-20</Date>
+            <Version>1.2.28</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-22</Date>
+	    <Version>1.2.26</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
