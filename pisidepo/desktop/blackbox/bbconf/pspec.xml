@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bbconf</Name>
+	<Homepage>http://bbconf.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>devel</IsA>
+	<Summary>All-in-one blackbox configuration tool</Summary>
+	<Summary xml:lang="tr">Blackbox masaustu ortami icin hepsi bir arada ayarlama araci</Summary>
+	<Description>All-in-one blackbox configuration tool.</Description>
+        <Description xml:lang="tr">Blackbox masaustu ortami icin hepsi bir arada ayarlama araci</Description>
+	<Archive sha1sum="c2c9c3dcb6fc74738e38208813b4eb2378307e3c" type="targz">http://heanet.dl.sourceforge.net/sourceforge/bbconf/bbconf-1.10.tar.gz</Archive>
+	<BuildDependencies>
+            <Dependency>qt</Dependency>
+	    <!-- Dependency versionFrom="3*">qt</Dependency -->
+            <Dependency>blackbox</Dependency> 
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>bbconf</Name>
+        <RuntimeDependencies>
+	    <Dependency>blackbox</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="library">/usr/lib</Path>
+	    <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-05-18</Date>
+	    <Version>1.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
