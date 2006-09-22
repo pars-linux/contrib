@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>fluxconf</Name>
+	<Homepage>http://devaux.fabien.free.fr/flux/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>devel</IsA>
+	<Summary>Configuration editor for fluxbox</Summary>
+	<Summary xml:lang="tr">Fluxbox için düzenleme aracı</Summary>
+	<Description>Configuration editor for fluxbox.</Description>
+	<Description xml:lang="tr">Fluxbox için düzenleme aracı.</Description>
+	<Archive sha1sum="c9e262d21b4badfcebccb0f500af10c854bda9eb" type="targz">http://devaux.fabien.free.fr/flux/fluxconf-0.9.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk1</Dependency>
+	    <Dependency>fluxbox</Dependency>
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>fluxconf</Name>
+        <RuntimeDependencies>
+            <Dependency>fluxbox</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="localedata">/usr/share/locale</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	</Files>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-09-20</Date>
+            <Version>0.9.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-22</Date>
+	    <Version>0.9.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
