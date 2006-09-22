@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bbtime</Name>
+	<Homepage>http://bbtools.windsofstorm.net/available.phtml#bbtime</Homepage>
+        <Packager>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>devel</IsA>
+	<Summary>Blackbox time watcher</Summary>
+	<Summary xml:lang="tr">Blackbox masaustu zaman göstericisi</Summary>
+	<Description>Blackbox time watcher</Description>
+        <Description xml:lang="tr">Blackbox masaustu zaman göstericisi</Description>
+	<Archive sha1sum="c6969e484a67e7848609ec93c919d54ebb536f71" type="targz">http://bbtools.windsofstorm.net/sources/bbtime-0.1.5.tar.gz</Archive>
+        <BuildDependencies>
+            <!-- Dependency>xorg</Dependency -->
+            <Dependency>blackbox</Dependency> 
+	</BuildDependencies>
+    </Source>
+    <Package>
+           <Name>bbtime</Name>
+           <RuntimeDependencies>
+	       <Dependency>blackbox</Dependency>
+           </RuntimeDependencies>
+           <Files>
+               <Path fileType="executable">/usr/bin</Path>
+	       <Path fileType="doc">/usr/share/doc</Path>
+	       <Path fileType="data">/usr/share/bbtools</Path>
+	   </Files>
+    </Package> 
+    <History>
+        <Update release="1">
+            <Date>2006-05-18</Date>
+	    <Version>0.1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Update>
+</History>
+</PISI>
