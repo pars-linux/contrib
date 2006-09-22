@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bbcd</Name>
+	<Homepage>http://tranber1.free.fr/bbcd.html</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>Basic CD Player for blackbox wm</Summary>
+	<Summary xml:lang="tr">Blackbox masaustu ortami icin basit CD oynaticisi</Summary>
+	<Description>Basic CD Player for blackbox wm.</Description>
+        <Description xml:lang="tr">Blackbox masaustu ortami icin basit CD oynaticisi.</Description>
+	<Archive sha1sum="dbc8fd68f381979ea6598d20e64ce0c9e675e3fe" type="targz">http://tranber1.free.fr/bbcd-0.3.1.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">bbcd-0.3.1_0.3.1a.diff</Patch>
+            <Patch level="1">bbcd-0.3.1-gcc3.3.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>blackbox</Dependency>
+            <Dependency versionFrom="0.99.12">libcdaudio</Dependency> 
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>bbcd</Name>
+        <RuntimeDependencies>
+	    <Dependency>blackbox</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/bbtools</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-05-18</Date>
+	    <Version>0.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
