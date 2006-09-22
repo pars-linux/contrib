@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>icets</Name>
+	<Homepage>http://icecc.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>IceWM Theme Editor</Summary>
+	<Summary xml:lang="tr">IceWM Tema editörü</Summary>
+	<Description>IceWM Theme Editor</Description>
+        <Description xml:lang="tr">IceWM tema editörü</Description>
+	<Archive sha1sum="20dfa71993de7f0c9c00ba8313ea78ada1cfd2ce" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/icecc/icets-1.4.tar.bz2</Archive>
+        <BuildDependencies>
+   	    <Dependency versionFrom="3">qt</Dependency>
+	    <Dependency versionFrom="4">sed</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>icets</Name>
+        <RuntimeDependencies>            
+            <Dependency versionFrom="3">qt</Dependency>
+	    <Dependency>icewm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="data">/usr/share/applications</Path>
+	    <Path fileType="data">/usr/share/pixmaps</Path>
+	    <Path fileType="data">/</Path>
+        </Files>
+	<!-- AdditionalFiles>
+	     <AdditionalFile target="/usr/share/applications/.desktop" permission="0644" owner="root">.desktop</AdditionalFile>
+	     <AdditionalFile target="/usr/share//.qm" permission="0644" owner="root">.tr.qm</AdditionalFile>
+        </AdditionalFiles -->
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-06-18</Date>
+	    <Version>1.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
