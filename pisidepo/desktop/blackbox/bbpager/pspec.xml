@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bbpager</Name>
+	<Homepage>http://blackboxwm.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>devel</IsA>
+	<Summary>An understated pager for Blackbox</Summary>
+	<Summary xml:lang="tr">Blackbox için anlaşılır bir sayfalayıcı</Summary>
+	<Description>An understated pager for Blackbox.</Description>
+        <Description xml:lang="tr">Blackbox için anlaşılır bir sayfalayıcı</Description>
+	<Archive sha1sum="a0a6708e7badb62d5e8cbbac276ccdc4eb109ea4" type="targz">http://bbtools.windsofstorm.net/sources/bbpager-0.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <!-- Dependency>xorg</Dependency-->
+            <Dependency>blackbox</Dependency> 
+	</BuildDependencies>
+    </Source>
+    <Package>
+           <Name>bbpager</Name>
+           <RuntimeDependencies>
+	       <Dependency>blackbox</Dependency>
+           </RuntimeDependencies>
+           <Files>
+               <Path fileType="executable">/usr/bin</Path>
+	       <Path fileType="doc">/usr/share/doc</Path>
+	       <Path fileType="data">/usr/share/bbtools</Path>
+	   </Files>
+    </Package> 
+    <History>
+        <Update release="1">
+            <Date>2006-05-18</Date>
+	    <Version>0.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>PardoX</Name>
+            <Email>pardox2006@hotmail.com</Email>
+        </Update>
+</History>
+</PISI>
