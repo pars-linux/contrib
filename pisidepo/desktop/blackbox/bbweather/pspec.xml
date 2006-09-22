@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bbweather</Name>
+	<Homepage>http://www.netmeister.org/apps/bbweather/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>devel</IsA>
+	<Summary>Blackbox weather monitor</Summary>
+	<Summary xml:lang="tr">Blackbox masaüstü hava durumu göstericisi</Summary>
+	<Description>Blackbox weather monitor</Description>
+        <Description xml:lang="tr">Blackbox masaüstü hava durumu göstericisi</Description>
+	<Archive sha1sum="bdb3359876434a6d698a70a975312ca29b2116c4" type="tarbz2">http://www.netmeister.org/apps/bbweather-0.6.2.tar.bz2</Archive>
+        <BuildDependencies>
+	    <Dependency versionFrom="1.7">wget</Dependency>
+	    <Dependency versionFrom="5.6.1">perl</Dependency>
+            <Dependency>xorg</Dependency>
+            <Dependency>blackbox</Dependency> 
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>bbweather</Name>
+        <RuntimeDependencies>
+	    <Dependency>blackbox</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="data">/usr/share/bbtools</Path>
+	</Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-05-18</Date>
+	    <Version>0.6.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
