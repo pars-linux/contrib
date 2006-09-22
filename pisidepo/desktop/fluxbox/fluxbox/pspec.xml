@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>fluxbox</Name>
+	<Homepage>http://www.fluxbox.org</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>Fluxbox is an X11 window manager featuring tabs and an iconbar</Summary>
+	<Summary xml:lang="tr">fluxbox masaüstü ortamı</Summary>
+	<Description>Fluxbox is an X11 window manager featuring tabs and an iconbar.</Description>
+        <Description xml:lang="tr">fluxbox masaüstü ortamı.</Description>
+	<Archive sha1sum="fb9dc0913b2362e714a63e1bddff1960fd5c2c54" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/fluxbox/fluxbox-1.0rc2.tar.bz2</Archive>
+	<BuildDependencies>
+            <Dependency>kdmtheme</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>imlib2</Dependency>
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>fluxbox</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg</Dependency>
+            <Dependency>kdmtheme</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="man">/usr/share/man</Path>
+	    <Path fileType="data">/usr/share/fluxbox</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	</Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/X11/Sessions/fluxbox" permission="0755" owner="root">fluxbox</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    
+    <History>
+        <Update release="3">
+            <Date>2006-09-20</Date>
+            <Version>1.0_rc2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-06-19</Date>
+            <Version>1.0_rc1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-22</Date>
+	    <Version>0.9.15.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
