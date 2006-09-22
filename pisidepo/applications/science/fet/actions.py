@@ -20,4 +20,6 @@ def install():
     pisitools.dosym("/usr/share/fet/fet","/usr/bin/fet")
     pisitools.insinto("/usr/share/fet/translations","translations/*.qm")
     pisitools.insinto("/usr/share/fet/doc","doc/*")
+    pisitools.doman("doc/fet.1")
+    pisitools.remove("/usr/share/fet/doc/fet.1")
     pisitools.insinto("/usr/share/fet/sample_inputs","sample_inputs/*")
