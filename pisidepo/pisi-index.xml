@@ -20,12 +20,12 @@
             <IsA>app:gui</IsA>
             <PartOf>desktop.kde</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="a34fc342423d4d277bd93ded3990403a48d97693">http://switch.dl.sourceforge.net/sourceforge/kbfx/kbfx-0.4.9.2rc1.tar.gz</Archive>
+            <Archive type="tarbz2" sha1sum="0d2db653d31393b2092f0d2d323f3fa670a40ee8">http://osdn.dl.sourceforge.net/sourceforge/kbfx/kbfx-0.4.9.2rc2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>kdelibs</Dependency>
             </BuildDependencies>
-            <Version>0.4.9.2_rc1</Version>
-            <Release>2</Release>
+            <Version>0.4.9.2_rc2</Version>
+            <Release>3</Release>
             <SourceURI>desktop/kde/kbfx/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -51,6 +51,13 @@
                 <AdditionalFile target="/usr/kde/3.5/share/icons/crystalsvg/48x48/actions/pressed.png" permission="0644">pressed.png</AdditionalFile>
             </AdditionalFiles>
             <History>
+                <Update release="3">
+                    <Date>2006-09-23</Date>
+                    <Version>0.4.9.2_rc2</Version>
+                    <Name>Uğur Çetin</Name>
+                    <Email>jnmbk@users.sourceforge.net</Email>
+                    <Comment>Version bump</Comment>
+                </Update>
                 <Update release="2">
                     <Date>2006-08-28</Date>
                     <Version>0.4.9.2_rc1</Version>
@@ -68,6 +75,13 @@
             </History>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2006-09-23</Date>
+                <Version>0.4.9.2_rc2</Version>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+                <Comment>Version bump</Comment>
+            </Update>
             <Update release="2">
                 <Date>2006-08-28</Date>
                 <Version>0.4.9.2_rc1</Version>
@@ -3219,6 +3233,769 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>iceiconcvt</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM icons&apos; converter</Summary>
+            <Summary xml:lang="tr">IceWM simge çevirici</Summary>
+            <Description xml:lang="en">IceWM icons&apos; converter</Description>
+            <Description xml:lang="tr">IceWM simge çevirici</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="c1f21bf78d8668c7a63ad3d99e5e838bfb52842a">http://heanet.dl.sourceforge.net/sourceforge/icecc/iceiconcvt-1.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>PyQt</Dependency>
+            </BuildDependencies>
+            <Version>1.0</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/iceiconcvt/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>iceiconcvt</Name>
+            <Summary xml:lang="en">IceWM icons&apos; converter</Summary>
+            <Summary xml:lang="tr">IceWM simge çevirici</Summary>
+            <Description xml:lang="en">IceWM icons&apos; converter</Description>
+            <Description xml:lang="tr">IceWM simge çevirici</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>PyQt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>1.0</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>1.0</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icecc</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM Control Center (only main program, see icewm-tools for the rest)</Summary>
+            <Summary xml:lang="tr">IceWM denetim merkezi</Summary>
+            <Description xml:lang="en">IceWM Control Center</Description>
+            <Description xml:lang="tr">IceWM denetim ortamı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="acfdf16a71833e80ad2f1267cadf31297050e41d">http://heanet.dl.sourceforge.net/sourceforge/icecc/icecc-2.9.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+            </BuildDependencies>
+            <Version>2.9</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icecc/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icecc</Name>
+            <Summary xml:lang="en">IceWM Control Center (only main program, see icewm-tools for the rest)</Summary>
+            <Summary xml:lang="tr">IceWM denetim merkezi</Summary>
+            <Description xml:lang="en">IceWM Control Center</Description>
+            <Description xml:lang="tr">IceWM denetim ortamı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icecc</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>2.9</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>2.9</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icemc</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM menu/toolbar editor</Summary>
+            <Summary xml:lang="tr">IceWM menü ve araç kutusu</Summary>
+            <Description xml:lang="en">IceWM menu/toolbar editor</Description>
+            <Description xml:lang="tr">IceWM menü ve araç kutusu</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="a014039121050ebf684efeb80456301bf5a5e45c">http://heanet.dl.sourceforge.net/sourceforge/icecc/icemc-2.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+            </BuildDependencies>
+            <Version>2.1</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icemc/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icemc</Name>
+            <Summary xml:lang="en">IceWM menu/toolbar editor</Summary>
+            <Summary xml:lang="tr">IceWM menü ve araç kutusu</Summary>
+            <Description xml:lang="en">IceWM menu/toolbar editor</Description>
+            <Description xml:lang="tr">IceWM menü ve araç kutusu</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>2.1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>Fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>2.1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>Fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icets</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM Theme Editor</Summary>
+            <Summary xml:lang="tr">IceWM Tema editörü</Summary>
+            <Description xml:lang="en">IceWM Theme Editor</Description>
+            <Description xml:lang="tr">IceWM tema editörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="20dfa71993de7f0c9c00ba8313ea78ada1cfd2ce">http://heanet.dl.sourceforge.net/sourceforge/icecc/icets-1.4.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency versionFrom="4">sed</Dependency>
+            </BuildDependencies>
+            <Version>1.4</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icets/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icets</Name>
+            <Summary xml:lang="en">IceWM Theme Editor</Summary>
+            <Summary xml:lang="tr">IceWM Tema editörü</Summary>
+            <Description xml:lang="en">IceWM Theme Editor</Description>
+            <Description xml:lang="tr">IceWM tema editörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>1.4</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>1.4</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icewm</Name>
+            <Homepage>http://www.icewm.org/
+	http://sourceforge.net/projects/icewmsilverxp/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Ice Window Manager with Themes</Summary>
+            <Summary xml:lang="tr">Icewm masaustu ortami</Summary>
+            <Description xml:lang="en">Ice Window Manager with Themes</Description>
+            <Description xml:lang="tr">Icewm masaustu ortami</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="648f553b04c6cbf58b83a63ac6974ecefd231cd3">http://heanet.dl.sourceforge.net/sourceforge/icewm/icewm-1.2.28.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">pardus_menu.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>kdmtheme</Dependency>
+                <Dependency>imlib</Dependency>
+            </BuildDependencies>
+            <Version>1.2.28</Version>
+            <Release>2</Release>
+            <SourceURI>desktop/icewm/icewm/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icewm</Name>
+            <Summary xml:lang="en">Ice Window Manager with Themes</Summary>
+            <Summary xml:lang="tr">Icewm masaustu ortami</Summary>
+            <Description xml:lang="en">Ice Window Manager with Themes</Description>
+            <Description xml:lang="tr">Icewm masaustu ortami</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="4">sed</Dependency>
+                <Dependency>imlib</Dependency>
+                <Dependency>kdmtheme</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icewm</Path>
+                <Path fileType="config">/etc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/etc/X11/Sessions/icewm" permission="0755">icewm</AdditionalFile>
+            </AdditionalFiles>
+            <History>
+                <Update release="2">
+                    <Date>2006-09-20</Date>
+                    <Version>1.2.28</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>Version bump.</Comment>
+                </Update>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>1.2.26</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-09-20</Date>
+                <Version>1.2.28</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>Version bump.</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>1.2.26</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icebgset</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM background editor</Summary>
+            <Summary xml:lang="tr">IceWM arkaplan editörü</Summary>
+            <Description xml:lang="en">IceWM background editor</Description>
+            <Description xml:lang="tr">IceWM arkaplan editörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="89f7beda8a507fece845461fb8a2b40b1cfe29ea">http://heanet.dl.sourceforge.net/sourceforge/icecc/icebgset-1.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+            </BuildDependencies>
+            <Version>1.3</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icebgset/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icebgset</Name>
+            <Summary xml:lang="en">IceWM background editor</Summary>
+            <Summary xml:lang="tr">IceWM arkaplan editörü</Summary>
+            <Description xml:lang="en">IceWM background editor</Description>
+            <Description xml:lang="tr">IceWM arkaplan editörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>1.3</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>1.3</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icesndcfg</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM sound editor.</Summary>
+            <Summary xml:lang="tr">IceWm masaüstü için ses editörü</Summary>
+            <Description xml:lang="en">IceWM sound editor.</Description>
+            <Description xml:lang="tr">IceWM ses ayarlı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="a8611f36167625b7771c262601fd7ddd51ec2b4a">http://heanet.dl.sourceforge.net/sourceforge/icecc/icesndcfg-1.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+            </BuildDependencies>
+            <Version>1.3</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icesndcfg/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icesndcfg</Name>
+            <Summary xml:lang="en">IceWM sound editor.</Summary>
+            <Summary xml:lang="tr">IceWm masaüstü için ses editörü</Summary>
+            <Description xml:lang="en">IceWM sound editor.</Description>
+            <Description xml:lang="tr">IceWM ses ayarlı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>1.3</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>1.3</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icecursorscfg</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM cursor&apos;s configurator</Summary>
+            <Summary xml:lang="tr">IceWM cursor düzenleyicisi</Summary>
+            <Description xml:lang="en">IceWM cursor&apos;s configurator</Description>
+            <Description xml:lang="tr">IceWM cursor düzenleyicisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="62bfd08d57e19df59a25191f50fa4427e2f80679">http://heanet.dl.sourceforge.net/sourceforge/icecc/icecursorscfg-0.6.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>PyQt</Dependency>
+            </BuildDependencies>
+            <Version>0.6</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icecursorscfg/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icecursorscfg</Name>
+            <Summary xml:lang="en">IceWM cursor&apos;s configurator</Summary>
+            <Summary xml:lang="tr">IceWM cursor düzenleyicisi</Summary>
+            <Description xml:lang="en">IceWM cursor&apos;s configurator</Description>
+            <Description xml:lang="tr">IceWM cursor düzenleyicisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>PyQt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>0.6</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>0.6</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>iceked</Name>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM keys editor</Summary>
+            <Summary xml:lang="tr">IceWM tuş editörü</Summary>
+            <Description xml:lang="en">IceWM keys editor</Description>
+            <Description xml:lang="tr">IceWM tuş editörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="d3d321f0675428d67ec553c2da06492663caae79">http://heanet.dl.sourceforge.net/sourceforge/icecc/iceked-1.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+            </BuildDependencies>
+            <Version>1.5</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/iceked/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>iceked</Name>
+            <Summary xml:lang="en">IceWM keys editor</Summary>
+            <Summary xml:lang="tr">IceWM tuş editörü</Summary>
+            <Description xml:lang="en">IceWM keys editor</Description>
+            <Description xml:lang="tr">IceWM tuş editörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/iceked</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>1.5</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>1.5</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icerrun</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM &apos;recently used programs&apos; menu generator</Summary>
+            <Summary xml:lang="tr">IceWM menü oluşturma aracı</Summary>
+            <Description xml:lang="en">IceWM &apos;recently used programs&apos; menu generator</Description>
+            <Description xml:lang="tr">IceWM menü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="09c61c5cc60ca780af786a036b16be4dabe4e65e">http://heanet.dl.sourceforge.net/sourceforge/icecc/icerrun-0.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.0">python</Dependency>
+            </BuildDependencies>
+            <Version>0.5</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icerrun/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icerrun</Name>
+            <Summary xml:lang="en">IceWM &apos;recently used programs&apos; menu generator</Summary>
+            <Summary xml:lang="tr">IceWM menü oluşturma aracı</Summary>
+            <Description xml:lang="en">IceWM &apos;recently used programs&apos; menu generator</Description>
+            <Description xml:lang="tr">IceWM menü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.0">python</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>0.5</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>0.5</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icewoed</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM winoptions editor.</Summary>
+            <Summary xml:lang="tr">IceWM pencere ayarları editörü</Summary>
+            <Description xml:lang="en">IceWM winoptions editor.</Description>
+            <Description xml:lang="tr">IceWM pencere ayarlayıcısı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="ca58b5769c27ee587458c12c285e231b990c3da9">http://heanet.dl.sourceforge.net/sourceforge/icecc/icewoed-1.8.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+            </BuildDependencies>
+            <Version>1.8</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icewoed/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icewoed</Name>
+            <Summary xml:lang="en">IceWM winoptions editor.</Summary>
+            <Summary xml:lang="tr">IceWM pencere ayarları editörü</Summary>
+            <Description xml:lang="en">IceWM winoptions editor.</Description>
+            <Description xml:lang="tr">IceWM pencere ayarlayıcısı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3">qt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icewoed</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>1.8</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>1.8</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>icemergeprefs</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">IceWM private/global preferences merger</Summary>
+            <Summary xml:lang="tr">IceWM masaüstü genel veya özel tercih birleştiricisi</Summary>
+            <Description xml:lang="en">IceWM private/global preferences merger</Description>
+            <Description xml:lang="tr">IceWM masaüstü genel veya özel tercih birleştiricisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="9f163b835069ba27f278434efa444b3d7699b30b">http://heanet.dl.sourceforge.net/sourceforge/icecc/icemergeprefs-0.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>PyQt</Dependency>
+            </BuildDependencies>
+            <Version>0.5</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/icewm/icemergeprefs/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>icemergeprefs</Name>
+            <Summary xml:lang="en">IceWM private/global preferences merger</Summary>
+            <Summary xml:lang="tr">IceWM masaüstü genel veya özel tercih birleştiricisi</Summary>
+            <Description xml:lang="en">IceWM private/global preferences merger</Description>
+            <Description xml:lang="tr">IceWM masaüstü genel veya özel tercih birleştiricisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.icewm</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>PyQt</Dependency>
+                <Dependency>icewm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icemergeprefs</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-06-18</Date>
+                    <Version>0.5</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-18</Date>
+                <Version>0.5</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>exo</Name>
             <Homepage>http://www.xfce.org</Homepage>
             <Packager>
@@ -5588,6 +6365,1132 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>commonbox-styles</Name>
+            <Homepage>http://mkeadle.org/distfiles/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Common styles for fluxbox, blackbox, and openbox.</Summary>
+            <Summary xml:lang="tr">fluxbox blackbox ve openbox için ortak biçemler</Summary>
+            <Description xml:lang="en">Common styles for fluxbox, blackbox, and openbox.</Description>
+            <Description xml:lang="tr">fluxbox blackbox ve openbox için ortak biçemler</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="36805afdfa0b21270cc1d726b3c9b8dfefab9a8b">http://mkeadle.org/distfiles/commonbox-styles-0.6.tar.bz2</Archive>
+            <Version>0.6</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/commonbox-styles/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>commonbox-styles</Name>
+            <Summary xml:lang="en">Common styles for fluxbox, blackbox, and openbox.</Summary>
+            <Summary xml:lang="tr">fluxbox blackbox ve openbox için ortak biçemler</Summary>
+            <Description xml:lang="en">Common styles for fluxbox, blackbox, and openbox.</Description>
+            <Description xml:lang="tr">fluxbox blackbox ve openbox için ortak biçemler</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Files>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/commonbox</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.6</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.6</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbcd</Name>
+            <Homepage>http://tranber1.free.fr/bbcd.html</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Basic CD Player for blackbox wm</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortami icin basit CD oynaticisi</Summary>
+            <Description xml:lang="en">Basic CD Player for blackbox wm.</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortami icin basit CD oynaticisi.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="dbc8fd68f381979ea6598d20e64ce0c9e675e3fe">http://tranber1.free.fr/bbcd-0.3.1.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">bbcd-0.3.1_0.3.1a.diff</Patch>
+                <Patch level="1">bbcd-0.3.1-gcc3.3.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+                <Dependency versionFrom="0.99.12">libcdaudio</Dependency>
+            </BuildDependencies>
+            <Version>0.3.1</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbcd/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbcd</Name>
+            <Summary xml:lang="en">Basic CD Player for blackbox wm</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortami icin basit CD oynaticisi</Summary>
+            <Description xml:lang="en">Basic CD Player for blackbox wm.</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortami icin basit CD oynaticisi.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.3.1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.3.1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbrb</Name>
+            <Homepage>http://bbrb.sourceforge.net</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Background manager for blackbox/fluxbox/openbox</Summary>
+            <Summary xml:lang="tr">Blackbox/Fluxbox/Openbox icin Arkaplan yöneticisi</Summary>
+            <Description xml:lang="en">Background manager for blackbox/fluxbox/openbox</Description>
+            <Description xml:lang="tr">Blackbox/Fluxbox/Openbox icin Arkaplan yöneticisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="7e1d9a5509600c61ae147e3df4b1ce18856df06a">http://heanet.dl.sourceforge.net/sourceforge/bbrb/bbrb-0.4.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk1</Dependency>
+                <Dependency>imlib</Dependency>
+            </BuildDependencies>
+            <Version>0.4.1</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbrb/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbrb</Name>
+            <Summary xml:lang="en">Background manager for blackbox/fluxbox/openbox</Summary>
+            <Summary xml:lang="tr">Blackbox/Fluxbox/Openbox icin Arkaplan yöneticisi</Summary>
+            <Description xml:lang="en">Background manager for blackbox/fluxbox/openbox</Description>
+            <Description xml:lang="tr">Blackbox/Fluxbox/Openbox icin Arkaplan yöneticisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>xv</Dependency>
+                <Dependency>blackbox</Dependency>
+                <Dependency>eterm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-20</Date>
+                    <Version>0.4.1</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-20</Date>
+                <Version>0.4.1</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbppp</Name>
+            <Homepage>http://bbtools.windsofstorm.net/sources/available.phtml#bbppp</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox ppp frontend/monitor</Summary>
+            <Summary xml:lang="tr">Blackbox ppp arayüzü</Summary>
+            <Description xml:lang="en">Blackbox ppp frontend/monitor</Description>
+            <Description xml:lang="tr">Blackbox ppp arayüzü</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="c1630556e398ceb31dcda87c6dc3b3c4712c801e">http://bbtools.windsofstorm.net/sources/bbppp-0.2.3.tar.gz</Archive>
+            <Patches>
+                <Patch>bbppp-gcc3-multiline.diff</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.2.3</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbppp/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbppp</Name>
+            <Summary xml:lang="en">Blackbox ppp frontend/monitor</Summary>
+            <Summary xml:lang="tr">Blackbox ppp arayüzü</Summary>
+            <Description xml:lang="en">Blackbox ppp frontend/monitor</Description>
+            <Description xml:lang="tr">Blackbox ppp arayüzü</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.2.3</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.2.3</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbrun</Name>
+            <Homepage>http://www.darkops.net/bbrun/</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox program execution dialog box</Summary>
+            <Summary xml:lang="tr">Blackbox uygulama çalıştırma penceresi</Summary>
+            <Description xml:lang="en">Blackbox program execution dialog box</Description>
+            <Description xml:lang="tr">Blackbox uygulama çalıştırma penceresi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="b2928ccbf3ba477b1b29ee106032e2389df5a373">http://www.darkops.net/bbrun/bbrun-1.6.tar.gz</Archive>
+            <Patches>
+                <Patch>Makefile.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>xorg</Dependency>
+                <Dependency>gtk2</Dependency>
+            </BuildDependencies>
+            <Version>1.6</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbrun/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bblaunch</Name>
+            <Summary xml:lang="en">Blackbox program execution dialog box</Summary>
+            <Summary xml:lang="tr">Blackbox uygulama çalıştırma penceresi</Summary>
+            <Description xml:lang="en">Blackbox program execution dialog box</Description>
+            <Description xml:lang="tr">Blackbox uygulama çalıştırma penceresi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>1.6</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>1.6</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbappconf</Name>
+            <Homepage>http://bbtools.windsofstorm.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">utility that allows you to specify window properties in blackbox</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortaminda pencere ayarlari yapmaya yarayan arac</Summary>
+            <Description xml:lang="en">utility that allows you to specify window properties in blackbox</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortaminda pencere ayarlari yapmaya yarayan arac</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="13b5746f7977eea1c1175ec39ceec66926151f18">http://bbtools.windsofstorm.net/sources/bbappconf-0.0.2.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">bbappconf-0.0.2-fix-sigsegv.diff</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.0.2</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbappconf/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbappconf</Name>
+            <Summary xml:lang="en">utility that allows you to specify window properties in blackbox</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortaminda pencere ayarlari yapmaya yarayan arac</Summary>
+            <Description xml:lang="en">utility that allows you to specify window properties in blackbox</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortaminda pencere ayarlari yapmaya yarayan arac</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.0.2</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.0.2</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbweather</Name>
+            <Homepage>http://www.netmeister.org/apps/bbweather/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox weather monitor</Summary>
+            <Summary xml:lang="tr">Blackbox masaüstü hava durumu göstericisi</Summary>
+            <Description xml:lang="en">Blackbox weather monitor</Description>
+            <Description xml:lang="tr">Blackbox masaüstü hava durumu göstericisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="bdb3359876434a6d698a70a975312ca29b2116c4">http://www.netmeister.org/apps/bbweather-0.6.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="1.7">wget</Dependency>
+                <Dependency versionFrom="5.6.1">perl</Dependency>
+                <Dependency>xorg</Dependency>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.6.2</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbweather/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbweather</Name>
+            <Summary xml:lang="en">Blackbox weather monitor</Summary>
+            <Summary xml:lang="tr">Blackbox masaüstü hava durumu göstericisi</Summary>
+            <Description xml:lang="en">Blackbox weather monitor</Description>
+            <Description xml:lang="tr">Blackbox masaüstü hava durumu göstericisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.6.2</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.6.2</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>blackbox</Name>
+            <Homepage>http://blackboxwm.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">A small, fast, full-featured window manager for X</Summary>
+            <Summary xml:lang="tr">X ortamı için küçük, hızlı ve tam teşekküllü bir masaüstü</Summary>
+            <Description xml:lang="en">A small, fast, full-featured window manager for X</Description>
+            <Description xml:lang="tr">X ortamı için küçük, hızlı ve tam teşekküllü bir masaüstü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="66455b8400d6659b5681c290a5ced3697d199955">http://mesh.dl.sourceforge.net/sourceforge/blackboxwm/blackbox-0.70.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>kdmtheme</Dependency>
+                <Dependency>pkgconfig</Dependency>
+                <Dependency>xorg</Dependency>
+                <Dependency>sed</Dependency>
+            </BuildDependencies>
+            <Version>0.70.1</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/blackbox/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>blackbox</Name>
+            <Summary xml:lang="en">A small, fast, full-featured window manager for X</Summary>
+            <Summary xml:lang="tr">X ortamı için küçük, hızlı ve tam teşekküllü bir masaüstü</Summary>
+            <Description xml:lang="en">A small, fast, full-featured window manager for X</Description>
+            <Description xml:lang="tr">X ortamı için küçük, hızlı ve tam teşekküllü bir masaüstü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>kdmtheme</Dependency>
+                <Dependency>xorg</Dependency>
+                <Dependency>gettext</Dependency>
+                <Dependency>freetype</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib/</Path>
+                <Path fileType="man">/usr/share/man/</Path>
+                <Path fileType="data">/usr/share/blackbox</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/xsessions</Path>
+                <Path fileType="config">/etc/X11/Sessions</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/xsessions/blackbox.desktop" permission="0644">blackbox.desktop</AdditionalFile>
+                <AdditionalFile target="/etc/X11/Sessions/blackbox" permission="0644">blackbox</AdditionalFile>
+            </AdditionalFiles>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-06</Date>
+                    <Version>0.70.1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-06</Date>
+                <Version>0.70.1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbacpi</Name>
+            <Homepage>http://bbacpi.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">ACPI monitor for X11</Summary>
+            <Summary xml:lang="tr">X ortami icin ACPI goruntuleyici</Summary>
+            <Description xml:lang="en">ACPI monitor for X11</Description>
+            <Description xml:lang="tr">X ortami icin ACPI goruntuleyici</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="2781f0289f00c3e7aa20cc2098cddabd40b76a38">http://heanet.dl.sourceforge.net/sourceforge/bbacpi/bbacpi-0.1.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xorg</Dependency>
+                <Dependency>imlib2</Dependency>
+            </BuildDependencies>
+            <Version>0.1.5</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbacpi/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbacpi</Name>
+            <Summary xml:lang="en">ACPI monitor for X11</Summary>
+            <Summary xml:lang="tr">X ortami icin ACPI goruntuleyici</Summary>
+            <Description xml:lang="en">ACPI monitor for X11</Description>
+            <Description xml:lang="tr">X ortami icin ACPI goruntuleyici</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>acpi</Dependency>
+                <Dependency>acpid</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.1.5</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.1.5</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbdate</Name>
+            <Homepage>http://bbtools.windsofstorm.net/available.phtml</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox date display</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortami icin zaman gostericisi</Summary>
+            <Description xml:lang="en">Blackbox date display</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortami icin zaman gostericisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="c48052eec337dfdca5fdfe6b87cd2bccf3a03921">http://bbtools.windsofstorm.net/sources/bbdate-0.2.4.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xorg</Dependency>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.2.4</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbdate/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbdate</Name>
+            <Summary xml:lang="en">Blackbox date display</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortami icin zaman gostericisi</Summary>
+            <Description xml:lang="en">Blackbox date display</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortami icin zaman gostericisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.2.4</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.2.4</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbconf</Name>
+            <Homepage>http://bbconf.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">All-in-one blackbox configuration tool</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortami icin hepsi bir arada ayarlama araci</Summary>
+            <Description xml:lang="en">All-in-one blackbox configuration tool.</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortami icin hepsi bir arada ayarlama araci</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="c2c9c3dcb6fc74738e38208813b4eb2378307e3c">http://heanet.dl.sourceforge.net/sourceforge/bbconf/bbconf-1.10.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>qt</Dependency>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>1.10</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbconf/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbconf</Name>
+            <Summary xml:lang="en">All-in-one blackbox configuration tool</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu ortami icin hepsi bir arada ayarlama araci</Summary>
+            <Description xml:lang="en">All-in-one blackbox configuration tool.</Description>
+            <Description xml:lang="tr">Blackbox masaustu ortami icin hepsi bir arada ayarlama araci</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>1.10</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>1.10</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbkeys</Name>
+            <Homepage>http://bbkeys.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Use keyboard shortcuts in the blackbox wm</Summary>
+            <Summary xml:lang="tr">Blackbox masaustunde kisayol tuslarini kullanin</Summary>
+            <Description xml:lang="en">Use keyboard shortcuts in the blackbox wm</Description>
+            <Description xml:lang="tr">Blackbox masaustunde kisayol tuslarini kullanin</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="b406f47f298fe83df6be89d2437dae2cee007439">http://heanet.dl.sourceforge.net/sourceforge/bbkeys/bbkeys-0.9.0.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.70.0">blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.9.0</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbkeys/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbkeys</Name>
+            <Summary xml:lang="en">Use keyboard shortcuts in the blackbox wm</Summary>
+            <Summary xml:lang="tr">Blackbox masaustunde kisayol tuslarini kullanin</Summary>
+            <Description xml:lang="en">Use keyboard shortcuts in the blackbox wm</Description>
+            <Description xml:lang="tr">Blackbox masaustunde kisayol tuslarini kullanin</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.70.0">blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/bbkeys</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.9.0</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.9.0</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbmail</Name>
+            <Homepage>http://bbtools.windsofstorm.net/available.phtml#bbmail</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox mail notification</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu e-posta uyaricisi</Summary>
+            <Description xml:lang="en">Blackbox mail notification</Description>
+            <Description xml:lang="tr">Blackbox masaustu e-posta uyaricisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="1707500785614805b88b77d4e86c3fbb059744e2">http://bbtools.windsofstorm.net/sources/bbmail-0.8.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.8.3</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbmail/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbmail</Name>
+            <Summary xml:lang="en">Blackbox mail notification</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu e-posta uyaricisi</Summary>
+            <Description xml:lang="en">Blackbox mail notification</Description>
+            <Description xml:lang="tr">Blackbox masaustu e-posta uyaricisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man/</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.8.3</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.8.3</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbtime</Name>
+            <Homepage>http://bbtools.windsofstorm.net/available.phtml#bbtime</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox time watcher</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu zaman göstericisi</Summary>
+            <Description xml:lang="en">Blackbox time watcher</Description>
+            <Description xml:lang="tr">Blackbox masaustu zaman göstericisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="c6969e484a67e7848609ec93c919d54ebb536f71">http://bbtools.windsofstorm.net/sources/bbtime-0.1.5.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.1.5</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbtime/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbtime</Name>
+            <Summary xml:lang="en">Blackbox time watcher</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu zaman göstericisi</Summary>
+            <Description xml:lang="en">Blackbox time watcher</Description>
+            <Description xml:lang="tr">Blackbox masaustu zaman göstericisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.1.5</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.1.5</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>whitebox</Name>
+            <Homepage>http://whitebox.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Configuration editor for blackbox type window managers. Not all features work with all window managers.</Summary>
+            <Summary xml:lang="tr">Blackbox tipi masaüstü ortamlari ayarlari icin düzenleyici.Tüm masaustu icin her özellik calismayabilir</Summary>
+            <Description xml:lang="en">Configuration editor for blackbox type window managers. Not all features work with all window managers.</Description>
+            <Description xml:lang="tr">Blackbox tipi masaüstü ortamlari ayarlari icin düzenleyici.Tüm masaustu icin her özellik calismayabilir</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="c19098d17100f0c632031bb3d59bfc2bd6682a6d">http://heanet.dl.sourceforge.net/sourceforge/whitebox/whiteBOX-0.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>gtk1</Dependency>
+                <Dependency>blackbox</Dependency>
+                <Dependency versionFrom="0.22">gdk-pixbuf</Dependency>
+            </BuildDependencies>
+            <Version>0.5</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/whitebox/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>whitebox</Name>
+            <Summary xml:lang="en">Configuration editor for blackbox type window managers. Not all features work with all window managers.</Summary>
+            <Summary xml:lang="tr">Blackbox tipi masaüstü ortamlari ayarlari icin düzenleyici.Tüm masaustu icin her özellik calismayabilir</Summary>
+            <Description xml:lang="en">Configuration editor for blackbox type window managers. Not all features work with all window managers.</Description>
+            <Description xml:lang="tr">Blackbox tipi masaüstü ortamlari ayarlari icin düzenleyici.Tüm masaustu icin her özellik calismayabilir</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+                <Dependency versionFrom="0.22">gdk-pixbuf</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man/</Path>
+                <Path fileType="data">/usr/share/whiteBOX</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/whiteBOX/pixmaps/arrowdn.xpm" permission="0644">arrowdn.xpm</AdditionalFile>
+                <AdditionalFile target="/usr/share/whiteBOX/pixmaps/arrowup.xpm" permission="0644">arrowup.xpm</AdditionalFile>
+                <AdditionalFile target="/usr/share/whiteBOX/pixmaps/doc1.xpm" permission="0644">doc1.xpm</AdditionalFile>
+            </AdditionalFiles>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.5</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.5</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbpager</Name>
+            <Homepage>http://blackboxwm.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">An understated pager for Blackbox</Summary>
+            <Summary xml:lang="tr">Blackbox için anlaşılır bir sayfalayıcı</Summary>
+            <Description xml:lang="en">An understated pager for Blackbox.</Description>
+            <Description xml:lang="tr">Blackbox için anlaşılır bir sayfalayıcı</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="a0a6708e7badb62d5e8cbbac276ccdc4eb109ea4">http://bbtools.windsofstorm.net/sources/bbpager-0.3.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.3.1</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbpager/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbpager</Name>
+            <Summary xml:lang="en">An understated pager for Blackbox</Summary>
+            <Summary xml:lang="tr">Blackbox için anlaşılır bir sayfalayıcı</Summary>
+            <Description xml:lang="en">An understated pager for Blackbox.</Description>
+            <Description xml:lang="tr">Blackbox için anlaşılır bir sayfalayıcı</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.3.1</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.3.1</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bbsload</Name>
+            <Homepage>http://bbtools.windsofstorm.net/available.phtml#bbsload</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Blackbox load monitor</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu yükleme ekrani</Summary>
+            <Description xml:lang="en">Blackbox load monitor</Description>
+            <Description xml:lang="tr">Blackbox yükleme ekrani</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="47a19e8352981067426d185cd5296cbc7aba4d4a">http://bbtools.windsofstorm.net/sources/bbsload-0.2.8.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>blackbox</Dependency>
+            </BuildDependencies>
+            <Version>0.2.8</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bbsload/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bbsload</Name>
+            <Summary xml:lang="en">Blackbox load monitor</Summary>
+            <Summary xml:lang="tr">Blackbox masaustu yükleme ekrani</Summary>
+            <Description xml:lang="en">Blackbox load monitor</Description>
+            <Description xml:lang="tr">Blackbox yükleme ekrani</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/bbtools</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.2.8</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.2.8</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>bblaunch</Name>
+            <Homepage>http://blackboxwm.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">An application launcher for Blackbox type window managers</Summary>
+            <Summary xml:lang="tr">Blackbox tippi pencere yönetici programlari icin bir uygulama baslaticisi</Summary>
+            <Description xml:lang="en">An application launcher for Blackbox type window managers</Description>
+            <Description xml:lang="tr">Blackbox tippi pencere yönetici programlari icin bir uygulama baslaticisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="17599ef17531ebf32a5de7a375b6e2757fee236e">http://mirror.etf.bg.ac.yu/gentoo/distfiles/bblaunch-0.0.3.tar.gz</Archive>
+            <Patches>
+                <Patch>bblaunch-0.0.3.patch</Patch>
+            </Patches>
+            <Version>0.0.3</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/blackbox/bblaunch/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bblaunch</Name>
+            <Summary xml:lang="en">An application launcher for Blackbox type window managers</Summary>
+            <Summary xml:lang="tr">Blackbox tippi pencere yönetici programlari icin bir uygulama baslaticisi</Summary>
+            <Description xml:lang="en">An application launcher for Blackbox type window managers</Description>
+            <Description xml:lang="tr">Blackbox tippi pencere yönetici programlari icin bir uygulama baslaticisi</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.blackbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>blackbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-05-18</Date>
+                    <Version>0.0.3</Version>
+                    <Name>PardoX</Name>
+                    <Email>pardox2006@hotmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-05-18</Date>
+                <Version>0.0.3</Version>
+                <Name>PardoX</Name>
+                <Email>pardox2006@hotmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>edb</Name>
             <Homepage>http://www.enlightenment.org/Libraries/Edb/</Homepage>
             <Packager>
@@ -7460,6 +9363,448 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>fluxbox</Name>
+            <Homepage>http://www.fluxbox.org</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar</Summary>
+            <Summary xml:lang="tr">fluxbox masaüstü ortamı</Summary>
+            <Description xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar.</Description>
+            <Description xml:lang="tr">fluxbox masaüstü ortamı.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="fb9dc0913b2362e714a63e1bddff1960fd5c2c54">http://heanet.dl.sourceforge.net/sourceforge/fluxbox/fluxbox-1.0rc2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>kdmtheme</Dependency>
+                <Dependency>freetype</Dependency>
+                <Dependency>imlib2</Dependency>
+            </BuildDependencies>
+            <Version>1.0_rc2</Version>
+            <Release>3</Release>
+            <SourceURI>desktop/fluxbox/fluxbox/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fluxbox</Name>
+            <Summary xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar</Summary>
+            <Summary xml:lang="tr">fluxbox masaüstü ortamı</Summary>
+            <Description xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar.</Description>
+            <Description xml:lang="tr">fluxbox masaüstü ortamı.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>xorg</Dependency>
+                <Dependency>kdmtheme</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/fluxbox</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/etc/X11/Sessions/fluxbox" permission="0755">fluxbox</AdditionalFile>
+            </AdditionalFiles>
+            <History>
+                <Update release="3">
+                    <Date>2006-09-20</Date>
+                    <Version>1.0_rc2</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>Version bump</Comment>
+                </Update>
+                <Update release="2">
+                    <Date>2006-06-19</Date>
+                    <Version>1.0_rc1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>Version bump</Comment>
+                </Update>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>0.9.15.1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-09-20</Date>
+                <Version>1.0_rc2</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-06-19</Date>
+                <Version>1.0_rc1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>0.9.15.1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>fluxter</Name>
+            <Homepage>http://www.isomedia.com/homes/stevencooper/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">workspace pager dockapp, particularly useful with the Fluxbox window manager</Summary>
+            <Summary xml:lang="tr">Fluxbox için kullanışlı çalışma ortamı sayfalayıcısı</Summary>
+            <Description xml:lang="en">workspace pager dockapp, particularly useful with the Fluxbox window manager.</Description>
+            <Description xml:lang="tr">Fluxbox için kullanışlı çalışma ortamı sayfalayıcısı.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="d0da4759a21fdadc8a6457195c87b6648b5d69bc">http://benedict.isomedia.com/homes/stevencooper/files/fluxter-0.1.0.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>fluxbox</Dependency>
+            </BuildDependencies>
+            <Version>0.1.0</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/fluxbox/fluxter/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fluxter</Name>
+            <Summary xml:lang="en">workspace pager dockapp, particularly useful with the Fluxbox window manager</Summary>
+            <Summary xml:lang="tr">Fluxbox için kullanışlı çalışma ortamı sayfalayıcısı</Summary>
+            <Description xml:lang="en">workspace pager dockapp, particularly useful with the Fluxbox window manager.</Description>
+            <Description xml:lang="tr">Fluxbox için kullanışlı çalışma ortamı sayfalayıcısı.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>fluxbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/fluxbox</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>0.1.0</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>0.1.0</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>fbdesk</Name>
+            <Homepage>http://www.fluxbox.org/fbdesk/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">fluxbox-util application that creates and manage icons on your Fluxbox desktop</Summary>
+            <Summary xml:lang="tr">fluxbox masaüstü ortamı için icon oluşturmak ve düzenlemek için araç</Summary>
+            <Description xml:lang="en">fluxbox-util application that creates and manage icons on your Fluxbox desktop.</Description>
+            <Description xml:lang="tr">fluxbox masaüstü ortamı için icon oluşturmak ve düzenlemek için araç.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="2f5ead00dbcd4c5b2d8cebce4ca6c52aa5d13cbe">http://www.fluxbox.org/download/fbdesk-1.4.0.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>freetype</Dependency>
+                <Dependency>imlib2</Dependency>
+            </BuildDependencies>
+            <Version>1.4.0</Version>
+            <Release>2</Release>
+            <SourceURI>desktop/fluxbox/fbdesk/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fbdesk</Name>
+            <Summary xml:lang="en">fluxbox-util application that creates and manage icons on your Fluxbox desktop</Summary>
+            <Summary xml:lang="tr">fluxbox masaüstü ortamı için icon oluşturmak ve düzenlemek için araç</Summary>
+            <Description xml:lang="en">fluxbox-util application that creates and manage icons on your Fluxbox desktop.</Description>
+            <Description xml:lang="tr">fluxbox masaüstü ortamı için icon oluşturmak ve düzenlemek için araç.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>gettext</Dependency>
+                <Dependency>fluxbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="2">
+                    <Date>2006-09-20</Date>
+                    <Version>1.4.0</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>Version bump.</Comment>
+                </Update>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>1.2.1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-09-20</Date>
+                <Version>1.4.0</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>Version bump.</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>1.2.1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>ftmenu</Name>
+            <Homepage>http://ftmenu.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">A tray menu for the Fluxbox toolbar</Summary>
+            <Summary xml:lang="tr">Fluxbox araç çubuğu için menü çekmecesi</Summary>
+            <Description xml:lang="en">A tray menu for the Fluxbox toolbar.</Description>
+            <Description xml:lang="tr">Fluxbox araç çubuğu için menü çekmecesi.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="fa115f85996fbd3b22e7f2d5ba259dab9f1d7877">http://mesh.dl.sourceforge.net/sourceforge/ftmenu/ftmenu-0.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <Version>0.3</Version>
+            <Release>2</Release>
+            <SourceURI>desktop/fluxbox/ftmenu/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ftmenu</Name>
+            <Summary xml:lang="en">A tray menu for the Fluxbox toolbar</Summary>
+            <Summary xml:lang="tr">Fluxbox araç çubuğu için menü çekmecesi</Summary>
+            <Description xml:lang="en">A tray menu for the Fluxbox toolbar.</Description>
+            <Description xml:lang="tr">Fluxbox araç çubuğu için menü çekmecesi.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>fluxbox</Dependency>
+                <Dependency>gtk2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="2">
+                    <Date>2006-09-22</Date>
+                    <Version>0.3</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>Version bump.</Comment>
+                </Update>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>0.1</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-09-22</Date>
+                <Version>0.3</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>Version bump.</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>0.1</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>fluxbox-styles-fluxmod</Name>
+            <Homepage>http://www.fluxmod.dk/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">A collection of FluxBox themes from FluxMod</Summary>
+            <Summary xml:lang="tr">Fluxbox tema koleksiyonu</Summary>
+            <Description xml:lang="en">A collection of FluxBox themes from FluxMod.</Description>
+            <Description xml:lang="tr">Fluxbox tema koleksiyonu.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="576f0028184422406ca69079ccb1c79cde4cfe05">http://paket.dt.gen.tr/paketler/fluxbox-styles-fluxmod-20050128.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>sed</Dependency>
+                <Dependency>fluxbox</Dependency>
+            </BuildDependencies>
+            <Version>20050128</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/fluxbox/fluxbox-styles-fluxmod/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fluxbox-styles-fluxmod</Name>
+            <Summary xml:lang="en">A collection of FluxBox themes from FluxMod</Summary>
+            <Summary xml:lang="tr">Fluxbox tema koleksiyonu</Summary>
+            <Description xml:lang="en">A collection of FluxBox themes from FluxMod.</Description>
+            <Description xml:lang="tr">Fluxbox tema koleksiyonu.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>fluxbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/fluxbox</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/fluxbox/menu.d/styles/styles-menu-fluxmod" permission="0755">styles-menu-fluxmod</AdditionalFile>
+            </AdditionalFiles>
+            <History>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>20050128</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>20050128</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>fluxconf</Name>
+            <Homepage>http://devaux.fabien.free.fr/flux/</Homepage>
+            <Packager>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Packager>
+            <Summary xml:lang="en">Configuration editor for fluxbox</Summary>
+            <Summary xml:lang="tr">Fluxbox için düzenleme aracı</Summary>
+            <Description xml:lang="en">Configuration editor for fluxbox.</Description>
+            <Description xml:lang="tr">Fluxbox için düzenleme aracı.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="c9e262d21b4badfcebccb0f500af10c854bda9eb">http://devaux.fabien.free.fr/flux/fluxconf-0.9.9.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk1</Dependency>
+                <Dependency>fluxbox</Dependency>
+            </BuildDependencies>
+            <Version>0.9.9</Version>
+            <Release>2</Release>
+            <SourceURI>desktop/fluxbox/fluxconf/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fluxconf</Name>
+            <Summary xml:lang="en">Configuration editor for fluxbox</Summary>
+            <Summary xml:lang="tr">Fluxbox için düzenleme aracı</Summary>
+            <Description xml:lang="en">Configuration editor for fluxbox.</Description>
+            <Description xml:lang="tr">Fluxbox için düzenleme aracı.</Description>
+            <IsA>devel</IsA>
+            <PartOf>desktop.freedesktop.fluxbox</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency>fluxbox</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <History>
+                <Update release="2">
+                    <Date>2006-09-20</Date>
+                    <Version>0.9.9</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>Version bump.</Comment>
+                </Update>
+                <Update release="1">
+                    <Date>2006-04-22</Date>
+                    <Version>0.9.8</Version>
+                    <Name>Fethi Aymaz</Name>
+                    <Email>fethi@linux-sevenler.org</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-09-20</Date>
+                <Version>0.9.9</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>Version bump.</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-22</Date>
+                <Version>0.9.8</Version>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>R</Name>
             <Homepage>http://www.r-project.org</Homepage>
             <Packager>
@@ -8472,9 +10817,9 @@
             <IsA>library</IsA>
             <PartOf>programming.libs</PartOf>
             <License>MIT</License>
-            <Archive type="targz" sha1sum="18a2ac933b37487f60a3ce51fa6b0565fc465b87">ftp://ftp.remotesensing.org/proj/proj-4.4.9.tar.gz</Archive>
-            <Version>4.4.9</Version>
-            <Release>1</Release>
+            <Archive type="targz" sha1sum="99143c27f37485aa03563bff38870dbca88bce41">ftp://ftp.remotesensing.org/proj/proj-4.5.0b2.tar.gz</Archive>
+            <Version>4.5.0_beta2</Version>
+            <Release>2</Release>
             <SourceURI>programming/libs/proj/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -8495,6 +10840,13 @@
                 <Path fileType="data">/usr/share</Path>
             </Files>
             <History>
+                <Update release="2">
+                    <Date>2006-09-20</Date>
+                    <Version>4.5.0_beta2</Version>
+                    <Name>Murat Şenel</Name>
+                    <Email>muratasenel@gmail.com</Email>
+                    <Comment>First release</Comment>
+                </Update>
                 <Update release="1">
                     <Date>2006-08-26</Date>
                     <Version>4.4.9</Version>
@@ -8505,6 +10857,13 @@
             </History>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-09-20</Date>
+                <Version>4.5.0_beta2</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
             <Update release="1">
                 <Date>2006-08-26</Date>
                 <Version>4.4.9</Version>
@@ -10297,9 +12656,10 @@
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
             </Packager>
-            <Summary xml:lang="en">PouetChess is a 3D and open source chess game for Linux with very few and basic dependencies.</Summary>
-            <Summary xml:lang="tr">Pouetchess; açık kaynak kodlu, 3 boyutlu bir satranç oyunudur</Summary>
-            <Description xml:lang="en">...</Description>
+            <Summary xml:lang="en">3D chess game</Summary>
+            <Summary xml:lang="tr">3 boyutlu satranç oyunu</Summary>
+            <Description xml:lang="en">PouetChess is a 3D and open source chess game for Linux with very few and basic dependencies.</Description>
+            <Description xml:lang="tr">Pouetchess; açık kaynak kodlu, 3 boyutlu bir satranç oyunudur.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.games</PartOf>
             <License>GPL-2</License>
@@ -10318,9 +12678,10 @@
         </Source>
         <Package>
             <Name>pouetchess</Name>
-            <Summary xml:lang="en">PouetChess is a 3D and open source chess game for Linux with very few and basic dependencies.</Summary>
-            <Summary xml:lang="tr">Pouetchess; açık kaynak kodlu, 3 boyutlu bir satranç oyunudur</Summary>
-            <Description xml:lang="en">...</Description>
+            <Summary xml:lang="en">3D chess game</Summary>
+            <Summary xml:lang="tr">3 boyutlu satranç oyunu</Summary>
+            <Description xml:lang="en">PouetChess is a 3D and open source chess game for Linux with very few and basic dependencies.</Description>
+            <Description xml:lang="tr">Pouetchess; açık kaynak kodlu, 3 boyutlu bir satranç oyunudur.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.games</PartOf>
             <License>GPL-2</License>
@@ -10338,11 +12699,11 @@
             </AdditionalFiles>
             <History>
                 <Update release="2">
-                    <Date>2006-08-05</Date>
+                    <Date>2006-09-23</Date>
                     <Version>0.2.0</Version>
                     <Name>Uğur Çetin</Name>
                     <Email>jnmbk@users.sourceforge.net</Email>
-                    <Comment>Fix #79.</Comment>
+                    <Comment>Install correctly.</Comment>
                 </Update>
                 <Update release="1">
                     <Date>2006-06-27</Date>
@@ -10355,11 +12716,11 @@
         </Package>
         <History>
             <Update release="2">
-                <Date>2006-08-05</Date>
+                <Date>2006-09-23</Date>
                 <Version>0.2.0</Version>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
-                <Comment>Fix #79.</Comment>
+                <Comment>Install correctly.</Comment>
             </Update>
             <Update release="1">
                 <Date>2006-06-27</Date>
@@ -13050,9 +15411,12 @@
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
             <License>GPL-2</License>
-            <Archive type="binary" sha1sum="59338caf9844042b37c4668bfa441b83234901f4">http://surfnet.dl.sourceforge.net/sourceforge/tuxpaint/tuxpaint-0.9.15b-1.fc4.i386.rpm</Archive>
+            <Archive type="targz" sha1sum="37eb954ea79356a5c201a437ae333b3177b4ba79">http://switch.dl.sourceforge.net/sourceforge/tuxpaint/tuxpaint-0.9.15b.tar.gz</Archive>
+            <Patches>
+                <Patch>lang-tr.patch</Patch>
+                <Patch>pardus-makefile.patch</Patch>
+            </Patches>
             <BuildDependencies>
-                <Dependency>rpm2targz</Dependency>
                 <Dependency>libpng</Dependency>
                 <Dependency>sdl-ttf</Dependency>
                 <Dependency>sdl-mixer</Dependency>
@@ -13063,7 +15427,7 @@
                 <Dependency versionFrom="2">freetype</Dependency>
             </BuildDependencies>
             <Version>0.9.15_beta1</Version>
-            <Release>1</Release>
+            <Release>2</Release>
             <SourceURI>applications/multimedia/tuxpaint/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -13086,17 +15450,24 @@
                 <Dependency versionFrom="2">freetype</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="config">/etc/tuxpaint</Path>
+                <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
             </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/locale/tr/LC_MESSAGES/tuxpaint.mo" permission="0644">tuxpaint.mo</AdditionalFile>
-            </AdditionalFiles>
             <History>
+                <Update release="2">
+                    <Date>2006-09-22</Date>
+                    <Version>0.9.15_beta1</Version>
+                    <Name>Murat Şenel</Name>
+                    <Email>muratasenel@gmail.com</Email>
+                    <Comment>Build from source, not rpm</Comment>
+                </Update>
                 <Update release="1">
                     <Date>2006-06-19</Date>
                     <Version>0.9.15_beta1</Version>
@@ -13107,6 +15478,13 @@
             </History>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-09-22</Date>
+                <Version>0.9.15_beta1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Build from source, not rpm</Comment>
+            </Update>
             <Update release="1">
                 <Date>2006-06-19</Date>
                 <Version>0.9.15_beta1</Version>
@@ -14974,6 +17352,12 @@
         <Description xml:lang="tr">GNOME masaüstüne ait yazılımlar</Description>
     </Component>
     <Component>
+        <Name>desktop.freedesktop.icewm</Name>
+        <LocalName xml:lang="tr">IceWM Masaüstü</LocalName>
+        <Summary xml:lang="tr">IceWM masaüstü ortamı bileşenleri</Summary>
+        <Description xml:lang="tr">...</Description>
+    </Component>
+    <Component>
         <Name>desktop.xfce4</Name>
         <LocalName xml:lang="tr">Xfce4 Özgür Masaüstü</LocalName>
         <Summary xml:lang="tr">xfce4 temel yazılımları</Summary>
@@ -14986,10 +17370,22 @@
         <Description xml:lang="tr">Xfce4 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
     </Component>
     <Component>
+        <Name>desktop.freedesktop.blackbox</Name>
+        <LocalName xml:lang="tr">Blackbox Masaüstü</LocalName>
+        <Summary xml:lang="tr">Blackbox masaüstü ortamı bileşenleri</Summary>
+        <Description xml:lang="tr">...</Description>
+    </Component>
+    <Component>
         <Name>desktop.enlightenment</Name>
         <LocalName xml:lang="tr">Enlightenment DR17 Masaüstü</LocalName>
         <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait yazılımlar</Summary>
         <Description xml:lang="tr">Enlightenment DR17 masaüstünde çalışan çeşitli uygulama yazılımı ve kütüphanelerini içerir.</Description>
+    </Component>
+    <Component>
+        <Name>desktop.freedesktop.fluxbox</Name>
+        <LocalName xml:lang="tr">Fluxbox Masaüstü</LocalName>
+        <Summary xml:lang="tr">Fluxbox masaüstü ortamı bileşenleri</Summary>
+        <Description xml:lang="tr">...</Description>
     </Component>
     <Component>
         <Name>programming.languages</Name>
