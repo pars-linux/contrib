@@ -5,7 +5,7 @@
 
 from pisi.actionsapi import kde
 
-WorkDir = "kbfx-0.4.9.2rc1"
+WorkDir = "kbfx-0.4.9.2rc2"
 
 def setup():
     kde.configure()
