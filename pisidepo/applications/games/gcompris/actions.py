@@ -9,12 +9,10 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "gcompris-8.0BETA4"
+WorkDir = "gcompris-8.0BETA6"
 
 def setup():
-    autotools.autoconf()
-    autotools.configure("--enable-binreloc \
-                         --disable-sdltest \
+    autotools.configure("--disable-sdltest \
                          --disable-glibtest \
                          --disable-xf86vidmode \
                          --enable-sqlite \
