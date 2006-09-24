@@ -1,0 +1,44 @@
+diff -Naur pilonga-1.1-orig/ebuild.tcl pilonga-1.1/ebuild.tcl
+--- pilonga-1.1-orig/ebuild.tcl	2006-09-22 15:25:09.000000000 +0300
++++ pilonga-1.1/ebuild.tcl	2006-09-24 16:59:11.000000000 +0300
+@@ -193,8 +193,11 @@
+             if {$xHomepage == "" && [regexp "HOMEPAGE=\"(.*)\"" $line Dummy xHomepage]} continue
+             if {$xLicense == "" && [regexp "LICENSE=\"(.*)\"" $line Dummy xLicense]} continue
+             if {$xSourcePath == "" && [regexp "SRC_URI=\"(\[^\"]+)\"?" [::ebuild::CombineLines $line $fh] Dummy xSourcePath]} {
+-                set xSourcePath [lindex $xSourcePath end]
+-                set xSourcePath [::bash::PutBashVarValue $xSourcePath]
++                foreach a $xSourcePath {
++                    if {[regexp "\.tar\." $a]} break
++                }
++                #set xSourcePath [lindex $xSourcePath end]
++                set xSourcePath [::bash::PutBashVarValue $a]
+                 set xSourcePath [GetMirror $xSourcePath]
+                 continue
+             }
+diff -Naur pilonga-1.1-orig/pisi.tcl pilonga-1.1/pisi.tcl
+--- pilonga-1.1-orig/pisi.tcl	2006-09-22 14:03:09.000000000 +0300
++++ pilonga-1.1/pisi.tcl	2006-09-24 16:59:07.000000000 +0300
+@@ -1,20 +1,14 @@
+ namespace eval ::pisi {
+     #create pspec
+     proc CreatePspec {} {
+-
+         global xMy_Name xMy_eMail
+         global xglobalPspec
+         eval $xglobalPspec
+ 
+         set ZipType ""
+-
+-        regexp "$xVersion2.(\[^/]*)$" $xSourcePath Dummy ZipType
+-        regsub "\\." $ZipType "" ZipType
+-        regsub "\"" $ZipType "" ZipType
+-        if {$ZipType == ""} {
+-            regexp "tar.(..?.?.?)$" $xSourcePath Dummy d1
+-            set ZipType "tar$d1"
+-        }
++        set d1 "gz"
++        regexp "tar.(..?.?.?)$" $xSourcePath Dummy d1
++        set ZipType "tar$d1"
+ 
+         set fh [open "pspec.xml" "w"]
+ 
