@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scrollkeeper</Name>
+        <Homepage>http://scrollkeeper.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>FDL-1.1 LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>cataloging system for documentation on open systems</Summary>
+        <Description>cataloging system for documentation on open systems</Description>
+        <Archive sha1sum="395e50fa1e2570e97cca62374a6392e9494d5ddb" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/scrollkeeper/0.3/scrollkeeper-0.3.14.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">scrollkeeper-0.3.14-gcc2_fix.patch</Patch>
+            <Patch level="1">scrollkeeper-0.3.14-gentoo.patch</Patch>
+            <Patch level="1">scrollkeeper-0.3.14-nls.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4.19">libxml2</Dependency>
+            <Dependency versionFrom="1.0.14">libxslt</Dependency>
+            <Dependency versionFrom="1.1.3">zlib</Dependency>
+            <Dependency versionFrom="4.1.2">docbook-xml</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+            <Dependency versionFrom="0.29">intltool</Dependency>
+            <Dependency>gettext</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>scrollkeeper</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4.19">libxml2</Dependency>
+            <Dependency versionFrom="1.0.14">libxslt</Dependency>
+            <Dependency versionFrom="1.1.3">zlib</Dependency>
+            <Dependency versionFrom="4.1.2">docbook-xml</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="data">/usr/share/sgml</Path>
+            <Path fileType="data">/usr/share/xml</Path>
+            <Path fileType="data">/usr/share/scrollkeeper</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/var/log</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/var/lib/scrollkeeper</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-09-09</Date>
+            <Version>0.3.14</Version>
+            <Comment>Dep. reconfigured and new patches added.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-31</Date>
+            <Version>0.3.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

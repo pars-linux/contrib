@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgnomeprint</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2 LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>Printer handling for Gnome</Summary>
+        <Summary xml:lang="tr">Gnome için yazıcı aracı</Summary>
+        <Description>Printer handling for Gnome.</Description>
+        <Description xml:lang="tr">Gnome için yazıcı aracı.</Description>
+        <Archive sha1sum="9e7fb75b18d162a274a7cf77f64d84b2741174a5" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/libgnomeprint/2.12/libgnomeprint-2.12.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2">glib2</Dependency>
+            <Dependency versionFrom="2.3.7">libart_lgpl</Dependency>
+            <Dependency versionFrom="1.5">pango</Dependency>
+            <Dependency versionFrom="2.4.23">libxml2</Dependency>
+            <Dependency versionFrom="1">fontconfig</Dependency>
+            <Dependency versionFrom="2.0.5">freetype</Dependency>
+            <Dependency>zlib</Dependency>
+            <Dependency>popt</Dependency>
+            <Dependency versionFrom="1.1.20">cups</Dependency>
+            <Dependency versionFrom="0.2">libgnomecups</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.28">intltool</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency>flex</Dependency>
+            <Dependency>bison</Dependency>
+            <Dependency versionFrom="4.1.2">docbook-xml</Dependency>
+            <Dependency versionFrom="0.9">gtk-doc</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>libgnomeprint</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2">glib2</Dependency>
+            <Dependency versionFrom="2.3.7">libart_lgpl</Dependency>
+            <Dependency versionFrom="1.5">pango</Dependency>
+            <Dependency versionFrom="2.4.23">libxml2</Dependency>
+            <Dependency versionFrom="1">fontconfig</Dependency>
+            <Dependency versionFrom="2.0.5">freetype</Dependency>
+            <Dependency>zlib</Dependency>
+            <Dependency>popt</Dependency>
+            <Dependency versionFrom="1.1.20">cups</Dependency>
+            <Dependency versionFrom="0.2">libgnomecups</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/libgnomeprint</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-08-29</Date>
+            <Version>2.12.1</Version>
+            <Comment>Dependencies Reconfigured and gconf support added.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-27</Date>
+            <Version>2.12.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>nautilus</Name>
+        <Homepage>http://www.gnome.org/projects/nautilus/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2</License>
+        <License>FDL-1.1</License>
+        <IsA>library</IsA>
+        <IsA>app:gui</IsA>
+        <Summary>A file manager for the GNOME desktop</Summary>
+        <Description>A file manager for the GNOME desktop</Description>
+        <Archive type="tarbz2" sha1sum="975b2328545f8edfd1cd4903f515df683dd3acd9">ftp://ftp.gnome.org/pub/GNOME/sources/nautilus/2.14/nautilus-2.14.0.tar.bz2</Archive>
+        <Patches>
+            <Patch level="0">nautilus-shell-interface.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.3.10">libart_lgpl</Dependency>
+            <Dependency versionFrom="2.1">libbonobo</Dependency>
+            <Dependency versionFrom="2.14.1">libeel</Dependency>
+            <Dependency versionFrom="0.2.27">esound</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.9.9">gnome-desktop</Dependency>
+            <Dependency versionFrom="2.1.1">libgnome</Dependency>
+            <Dependency versionFrom="2.6">libgnomeui</Dependency>
+            <Dependency versionFrom="2.13.2">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.4">orbit2</Dependency>
+            <Dependency versionFrom="1.1.2">pango</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.0.1">librsvg</Dependency>
+            <Dependency versionFrom="2.4.7">libxml2</Dependency>
+            <Dependency versionFrom="0.8">startup-notification</Dependency>
+            <Dependency versionFrom="0.5.12">libexif</Dependency>
+            <Dependency versionFrom="2.0">gconf</Dependency>
+            <Dependency>popt</Dependency>
+            <Dependency>eject</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.28">intltool</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>nautilus</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.3.10">libart_lgpl</Dependency>
+            <Dependency versionFrom="2.1">libbonobo</Dependency>
+            <Dependency versionFrom="2.14.1">libeel</Dependency>
+            <Dependency versionFrom="0.2.27">esound</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.9.9">gnome-desktop</Dependency>
+            <Dependency versionFrom="2.1.1">libgnome</Dependency>
+            <Dependency versionFrom="2.6">libgnomeui</Dependency>
+            <Dependency versionFrom="2.13.2">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.4">orbit2</Dependency>
+            <Dependency versionFrom="1.1.2">pango</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.0.1">librsvg</Dependency>
+            <Dependency versionFrom="2.4.7">libxml2</Dependency>
+            <Dependency versionFrom="0.8">startup-notification</Dependency>
+            <Dependency versionFrom="0.5.12">libexif</Dependency>
+            <Dependency versionFrom="2.0">gconf</Dependency>
+            <Dependency>popt</Dependency>
+            <Dependency>eject</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-15</Date>
+            <Version>2.14.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

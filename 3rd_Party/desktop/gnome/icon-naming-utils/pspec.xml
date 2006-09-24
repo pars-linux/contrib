@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>icon-naming-utils</Name>
+        <Homepage>http://tango-project.org/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Utilities to help with the transition to the new freedesktop.org naming scheme</Summary>
+        <Description>Utilities to help with the transition to the new freedesktop.org naming scheme, they will map the new names to the legacy names used by the GNOME and KDE desktops.</Description>
+        <Archive sha1sum="0e69f29f294de6d84dd0f1dff3824510cdcde06f" type="targz">http://tango-project.org/releases/icon-naming-utils-0.8.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2">XML-Simple</Dependency>
+            <Dependency>perl</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>icon-naming-utils</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2">XML-Simple</Dependency>
+            <Dependency>perl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/dtds</Path>
+            <Path fileType="data">/usr/share/pkgconfig</Path>
+            <Path fileType="data">/usr/share/icon-naming-utils</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+   
+    <History>
+        <Update release="2">
+            <Date>2006-09-10</Date>
+            <Version>0.8.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-29</Date>
+            <Version>0.7.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

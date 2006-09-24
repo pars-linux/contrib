@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>xchat-gnome</Name>
+	<Homepage>http://xchat-gnome.navi.cx/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>GNOME frontend for the popular X-Chat IRC client</Summary>
+	<Description>GNOME frontend for the popular X-Chat IRC client</Description>
+	<Archive sha1sum="c2d027db941b9c1455569d55675ffcb5401f5f7a" type="tarbz2">http://releases.navi.cx/xchat-gnome/xchat-gnome-0.13.tar.bz2</Archive>
+	<Patches>
+	    <Patch level="1">0.11-libnotify-libsexy-configure.patch</Patch>
+	</Patches>
+        <BuildDependencies>
+   	    <Dependency versionFrom="2.8.0">glib2</Dependency>
+	    <Dependency versionFrom="2.13">libgnome</Dependency>
+	    <Dependency versionFrom="2.8.0">gconf</Dependency>
+	    <Dependency versionFrom="2.6.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.3.0">libglade2</Dependency>
+            <Dependency versionFrom="2.9.2">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.8.0">gtk2</Dependency>
+            <!-- Dependency>gtkspell</Dependency -->
+            <Dependency versionFrom="0.9.6">openssl</Dependency>
+            <Dependency versionFrom="5.6.1">perl</Dependency>
+            <Dependency>python</Dependency>
+            <Dependency>tcl</Dependency>
+            <Dependency versionFrom="0.35">dbus</Dependency>
+            <Dependency versionFrom="0.1.7">libsexy</Dependency>
+            <Dependency versionFrom="0.3.2">libnotify</Dependency>
+            <Dependency>gnome-common</Dependency>
+            <Dependency versionFrom="0.7">pkgconfig</Dependency>
+            <Dependency versionFrom="0.3.2">gnome-doc-utils</Dependency>
+            <Dependency>gettext</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>xchat-gnome</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.8.0">glib2</Dependency>
+            <Dependency versionFrom="2.13">libgnome</Dependency>
+            <Dependency versionFrom="2.8.0">gconf</Dependency>
+            <Dependency versionFrom="2.6.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.3.0">libglade2</Dependency>
+            <Dependency versionFrom="2.9.2">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.8.0">gtk2</Dependency>
+            <!-- Dependency>gtkspell</Dependency -->
+            <Dependency versionFrom="0.9.6">openssl</Dependency>
+            <Dependency versionFrom="5.6.1">perl</Dependency>
+            <Dependency>python</Dependency>
+            <Dependency>tcl</Dependency>
+            <Dependency versionFrom="0.35">dbus</Dependency>
+            <Dependency versionFrom="0.1.7">libsexy</Dependency>
+            <Dependency versionFrom="0.3.2">libnotify</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/gconf/schemas</Path>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="header">/usr/include</Path>
+	    <Path fileType="library">/usr/lib/</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/xchat-gnome</Path>
+	    <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-09-17</Date>
+	    <Version>0.13</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

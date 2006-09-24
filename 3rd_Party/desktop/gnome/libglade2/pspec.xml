@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libglade2</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GLADE interface builder</Summary>
+        <Summary xml:lang="tr">GLADE arayüz oluşturucu</Summary>
+        <Description>Library to construct graphical interfaces at runtime.</Description>
+        <Description xml:lang="tr">GLADE arayüz oluşturucu</Description>
+        <Archive sha1sum="5d6bd9a194676173c3efb76538d54d89bbeaf5fa" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-2.6.0.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">Makefile.in.am-2.4.2-xmlcatalog.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.5">glib2</Dependency>
+            <Dependency versionFrom="2.5">gtk2</Dependency>
+            <Dependency versionFrom="1.9">atk</Dependency>
+            <Dependency versionFrom="2.4.10">libxml2</Dependency>
+            <Dependency versionFrom="2.0">python</Dependency>
+            <Dependency versionFrom="0.12">pkgconfig</Dependency>
+            <Dependency versionFrom="1">gtk-doc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libglade2</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.5">glib2</Dependency>
+            <Dependency versionFrom="2.5">gtk2</Dependency>
+            <Dependency versionFrom="1.9">atk</Dependency>
+            <Dependency versionFrom="2.4.10">libxml2</Dependency>
+            <Dependency versionFrom="2.0">python</Dependency>
+        </RuntimeDependencies>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/xml</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/xml/libglade</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-09-09</Date>
+            <Version>2.6.0</Version>
+            <Comment>Dep. reconfigured, comar added , gconf enabled and Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-27</Date>
+            <Version>2.5.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

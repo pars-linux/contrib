@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>gnome-keyring-manager</Name>
+	<Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>library</IsA>
+	<Summary>A keyring management program for the GNOME Desktop</Summary>
+	<Description>A keyring management program for the GNOME Desktop</Description>
+	<Archive sha1sum="71e25d2184351954b9d8821b98ade8828d5259bf" type="tarbz2">http://ftp.gnome.org/pub/gnome/sources/gnome-keyring-manager/2.14/gnome-keyring-manager-2.14.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2">libglade2</Dependency>
+            <Dependency versionFrom="2.6">libgnomeui</Dependency>
+            <Dependency versionFrom="0.3.2">gnome-keyring</Dependency>
+            <Dependency versionFrom="2">gconf</Dependency>
+            <Dependency versionFrom="0.3.8">scrollkeeper</Dependency>
+            <Dependency versionFrom="0.28">intltool</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+   	    <Dependency versionFrom="0.3.2">gnome-doc-utils</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>gnome-keyring-manager</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2">libglade2</Dependency>
+            <Dependency versionFrom="2.6">libgnomeui</Dependency>
+            <Dependency versionFrom="0.3.2">gnome-keyring</Dependency>
+            <Dependency versionFrom="2">gconf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="data">/usr/share/applications</Path>    
+	    <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/gnome-keyring</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+	    <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+    	</Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-08-26</Date>
+	    <Version>2.14.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

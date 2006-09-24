@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>knoda</Name>
+        <Homepage>http://www.knoda.org/</Homepage>
+        <Packager>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Knoda is a database frontend for KDE</Summary>
+        <Summary xml:lang="tr">KDE için hızlı veritabanı geliştirme kütüphanesi</Summary>
+        <Description xml:lang="tr">Veritabanı ve arayüzden bağımsız olarak çalışan ve KDE için hızlı veritabanı geliştirmeyi sağlayan kütüphanedir.</Description>
+        <Description>Knoda is a database frontend for KDE. It is based on hk-classes.</Description>
+        <Archive sha1sum="b9c46c0e3803043cabab411adc10ff875195953f" type="tarbz2">http://surfnet.dl.sourceforge.net/sourceforge/knoda/knoda-0.8.2-test1.tar.bz2</Archive>
+        
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>hk-classes</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>knoda-tr.patch</Patch>
+            <Patch>knoda-desktop.patch</Patch>
+            <Patch>x-hk_classes-sqlite2-desktop.patch</Patch>
+            <Patch>x-hk_connection-desktop.patch</Patch>
+            <Patch>x-paradox-desktop.patch</Patch>
+            <Patch>x-xbase-desktop.patch</Patch>
+        </Patches>
+    </Source>
+    
+    <Package>
+        <Name>knoda</Name>
+        <RuntimeDependencies>
+            <Dependency>hk-classes</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc/</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2005-06-18</Date>
+            <Version>0.8.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gail</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Accessibility support for Gtk+ and libgnomecanvas</Summary>
+        <Summary xml:lang="tr">Gtk+ ve libgnomecanvas için erişim kütüphanesi</Summary>
+        <Description>Accessibility support for Gtk+ and libgnomecanvas.</Description>
+        <Description xml:lang="tr">Gtk+ ve libgnomecanvas için erişim kütüphanesi.</Description>
+        <Archive sha1sum="0b58a0dddcf7f9f502570c83d7924032d5eba5e8" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/gail/1.8/gail-1.8.11.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.7">atk</Dependency>
+            <Dependency versionFrom="2.3.5">gtk2</Dependency>
+            <Dependency versionFrom="2">libgnomecanvas</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency versionFrom="1">gtk-doc</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>gail</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.7">atk</Dependency>
+            <Dependency versionFrom="2.3.5">gtk2</Dependency>
+            <Dependency versionFrom="2">libgnomecanvas</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-09-09</Date>
+            <Version>1.8.11</Version>
+            <Comment>Dep. reconfigured and gconf enabled.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-27</Date>
+            <Version>1.8.11</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
