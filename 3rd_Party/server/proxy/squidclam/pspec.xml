@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>squidclam</Name>
+        <Homepage>http://www.squidguard.org</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>plugin</IsA>
+        <Summary>Clam Anti-Virus plugin for Squid</Summary>
+        <Description>A redirector for Squid which scans accessed URLs for viruses, using Clam Anti-Virus</Description>
+        <Archive sha1sum="ebae236e7d2597739171048d5f7b14f77ffa9318" type="targz">http://mesh.dl.sourceforge.net/sourceforge/squidclam/squidclam-0.21.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>curl</Dependency>
+            <Dependency>clamav</Dependency>
+        </BuildDependencies> 
+    </Source>
+
+    <Package>
+        <Name>squidclam</Name>
+        <RuntimeDependencies>
+            <Dependency>squid</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>                                                                          
+        <Update release="1">
+            <Date>2006-06-14</Date>
+            <Version>0.21</Version>
+            <Comment>First release</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ntp</Name>
+        <Homepage>http://www.ntp.org</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>as:is</License>
+        <IsA>daemon</IsA>
+        <Summary>Network Time Protocol suite/programs</Summary>
+        <Description>Network Time Protocol suite/programs</Description>
+        <Archive sha1sum="f43125e25138c7d4de1d054b4e6df8186ca30b8d" type="targz">http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2.2p2.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">ntp-4.2.2_p2-sntp-header.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.6">openssl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ntp</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.2">ncurses</Dependency>
+            <Dependency>readline</Dependency>
+            <Dependency>libcap</Dependency>
+            <Dependency versionFrom="0.9.6">openssl</Dependency>
+            <Dependency versionFrom="5b">Portmap</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/var/lib</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/conf.d/ntpd">ntpd.conf</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-27</Date>
+            <Version>4.2.2_p2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>firebird</Name>
+        <Homepage>http://www.firebirdsql.net/</Homepage>
+        <Packager>
+            <Name>Furkan Duman</Name>
+            <Email>coderlord@gmail.com</Email>
+        </Packager>
+        <License>Interbase-1.0</License>
+        <IsA>daemon</IsA>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>A relational database offering many ANSI SQL-99 features</Summary>
+        <Summary xml:lang="tr">Birçok ANSI SQL-99 özelliği sunan ilişkisel bir veritabanı</Summary>
+        <Description>A relational database offering many ANSI SQL-99 features</Description>
+        <Description xml:lang="tr">Birçok ANSI SQL-99 özelliği sunan, küçük, hızlı ve çok kararlı bir veritabanı sunucu.</Description>
+        <Archive sha1sum="6be1e2e46be6ebd16e5b9b10ad2b4f5aeb15f3d4" type="tarbz2">http://surfnet.dl.sourceforge.net/sourceforge/firebird/firebird-1.5.3.4870.tar.bz2</Archive>
+        <Patches>
+            <Patch>firebird-1.5-build.patch</Patch>
+            <Patch>pardus_hosts_equiv.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>firebird-dev</Name>
+        <Summary>Firebird relational database development headers and example files</Summary>
+        <Summary xml:lang="tr">İlişkisel veritabanı Firebird'in geliştirici dosyaları</Summary>
+        <Description>Firebird relational database development headers and example files</Description>
+        <Description xml:lang="tr">Firebird'i harici yazılımlarda kullanabilmek için gerekli istemci API açıklamalarını ve örneklerini içerir</Description>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="header">/opt/firebird/include</Path>
+            <Path fileType="doc">/opt/firebird/examples</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>firebird-client</Name>
+        <Summary>Firebird relational database client library</Summary>
+        <Summary xml:lang="tr">Firebird istemci kütüphanesi</Summary>
+        <Description>Firebird relational database client library</Description>
+        <Description xml:lang="tr">Firebird sunucuya bağlantı için kullanılan istemci kütüphanesi</Description>
+        <Files>
+            <Path fileType="library">/usr/lib/libfbclient.*</Path>
+            <Path fileType="library">/usr/lib/libgds.*</Path>
+            <Path fileType="library">/opt/firebird/lib/libfbclient.*</Path>
+            <Path fileType="library">/opt/firebird/lib/libgds.*</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>firebird-super-server</Name>
+        <RuntimeDependencies>
+            <Dependency>firebird-client</Dependency>
+        </RuntimeDependencies>
+       <Files>
+            <Path fileType="executable">/opt/firebird/bin</Path>
+            <Path fileType="executable">/opt/firebird/intl</Path>
+            <Path fileType="executable">/etc/init.d</Path>
+            <Path fileType="doc">/opt/firebird/doc</Path>
+            <Path fileType="doc">/opt/firebird/README</Path>
+            <Path fileType="doc">/opt/firebird/WhatsNew</Path>
+            <Path fileType="data">/opt/firebird/help</Path>
+            <Path fileType="data">/opt/firebird/*.msg</Path>
+            <Path fileType="data">/opt/firebird/security.fdb</Path>
+            <!-- Log File -->
+            <Path fileType="data">/var/log</Path>
+            <Path fileType="data">/opt/firebird/firebird.log</Path>
+            <Path fileType="config">/opt/firebird/*.conf</Path>
+            <Path fileType="config">/etc/firebird</Path>
+            <Path fileType="library">/opt/firebird/lib/libib_util.so</Path>
+            <Path fileType="library">/usr/lib/libib_util.so</Path>
+            <Path fileType="library">/opt/firebird/UDF</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0700" target="/etc/init.d/firebird">firebird.init</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/firebird/hosts.equiv">hosts.equiv</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+          <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-04-08</Date>
+            <Version>1.5.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Furkan Duman</Name>
+            <Email>coderlord@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

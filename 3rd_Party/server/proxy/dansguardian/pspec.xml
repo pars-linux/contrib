@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>dansguardian</Name>
+        <Homepage>http://www.dansguardian.org</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>daemon</IsA>
+        <Summary>Web content filtering via proxy</Summary>
+        <Description>Web content filtering via proxy</Description>
+        <Archive sha1sum="3b1c343c17119bc95dd0526c307504302866e73e" type="targz">http://dansguardian.org/downloads/2/Alpha/dansguardian-2.9.7.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>clamav</Dependency>
+            <Dependency>libpcre</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>dansguardian</Name>
+        <Files>
+            <Path fileType="executable">/usr/sbin/</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="localedata">/usr/share/dansguardian</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <Provides>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>                                                                          
+        <Update release="1">
+            <Date>2006-06-14</Date>
+            <Version>2.9.7.1</Version>
+            <Comment>First release</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

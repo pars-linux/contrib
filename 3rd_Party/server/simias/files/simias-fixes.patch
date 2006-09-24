@@ -1,0 +1,115 @@
+--- simias-1.4.6128.1/tools/gsoap/linux-2.7/src/init2.c.xx	2006-05-18 16:06:22.000000000 +0200
++++ simias-1.4.6128.1/tools/gsoap/linux-2.7/src/init2.c	2006-05-18 16:06:29.000000000 +0200
+@@ -176,6 +176,7 @@
+ /*
+ init - initialize symbol table with predefined keywords
+ */
++void
+ init()
+ { struct Keyword *k;
+   for (k = keywords; k->s; k++)
+--- simias-1.4.6128.1/tools/gsoap/linux-2.7/src/error2.c.xx	2006-05-18 16:12:03.000000000 +0200
++++ simias-1.4.6128.1/tools/gsoap/linux-2.7/src/error2.c	2006-05-18 16:08:44.000000000 +0200
+@@ -58,6 +58,7 @@
+ /*
+ yyerror - called by parser from an error production with nonterminal `error'
+ */
++void
+ yyerror(char *s)
+ {	fprintf(stderr, "%s(%d): %s\n", filename, yylineno, s);
+ }
+@@ -65,6 +66,7 @@
+ /*
+ lexerror - called by lexical analyzer upon failure to recognize a token
+ */
++void
+ lexerror(const char *s)
+ {	fprintf(stderr, "%s(%d): %s: %s\n", filename, yylineno, s, yytext);
+ 	if (lexerrno++ >= MAXERR)
+@@ -74,6 +76,7 @@
+ /*
+ synerror - called by a semantic action in the yacc grammar
+ */
++void
+ synerror(const char *s)
+ {	fprintf(stderr, "%s(%d): Syntax error: %s\n", filename, yylineno-1, s);
+ 	if (synerrno++ >= MAXERR)
+@@ -83,6 +86,7 @@
+ /*
+ semerror - report semantic error from static checking
+ */
++void
+ semerror(const char *s)
+ {	fprintf(stderr, "\n%s(%d): **ERROR**: %s\n\n", filename, yylineno, s);
+ 	if (semerrno++ >= MAXERR)
+@@ -92,6 +96,7 @@
+ /*
+ semwarn - report semantic warning from static checking
+ */
++void
+ semwarn(const char *s)
+ {	fprintf(stderr, "\n**WARNING**: %s (detected at line %d in %s)\n\n", s, yylineno, filename);
+ 	semwarno++;
+@@ -100,6 +105,7 @@
+ /*
+ compliancewarn - report compliance warning
+ */
++void
+ compliancewarn(const char *s)
+ {	fprintf(stderr, "Compliance warning: %s\n", s);
+ }
+@@ -107,6 +113,7 @@
+ /*
+ typerror - report type error (a semantic error)
+ */
++void
+ typerror(const char *s)
+ {	fprintf(stderr, "%s(%d): Type error: %s\n", filename, yylineno, s);
+ 	if (semerrno++ >= MAXERR)
+@@ -116,6 +123,7 @@
+ /*
+ execerror - print error message and terminate execution
+ */
++void
+ execerror(const char *s)
+ {	fprintf(stderr, "Critical error: %s\n", s);
+ 	exit(1);
+@@ -124,6 +132,7 @@
+ /*
+ progerror - called when check(expr) failed, i.e. upon programming error
+ */
++void
+ progerror(const char *s, const char *f, int l)
+ {	fprintf(stderr, "Program failure: %s in file %s line %d\n", s, f, l);
+ 	exit(1);
+--- simias-1.4.6128.1/tools/gsoap/linux-2.7/src/error2.h.xx	2006-05-18 16:07:25.000000000 +0200
++++ simias-1.4.6128.1/tools/gsoap/linux-2.7/src/error2.h	2006-05-18 16:08:51.000000000 +0200
+@@ -44,17 +44,17 @@
+ extern char errbuf[];
+ 
+ #ifdef WIN32
+-extern soapcpp2error(char*);
++extern void soapcpp2error(char*);
+ #else
+-extern yyerror(char*);
++extern void yyerror(char*);
+ #endif
+ 
+-extern lexerror(const char*);
+-extern synerror(const char *);
+-extern semerror(const char *);
+-extern semwarn(const char *);
+-extern compliancewarn(const char *);
+-extern typerror(const char*);
+-extern execerror(const char*);
+-extern progerror(const char*, const char*, int);
+-extern errstat();
++extern void lexerror(const char*);
++extern void synerror(const char *);
++extern void semerror(const char *);
++extern void semwarn(const char *);
++extern void compliancewarn(const char *);
++extern void typerror(const char*);
++extern void execerror(const char*);
++extern void progerror(const char*, const char*, int);
++extern int errstat();

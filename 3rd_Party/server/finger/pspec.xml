@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>finger</Name>
+        <Homepage>ftp://ftp.uk.linux.org/pub/linux/Networking/netkit</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>daemon</IsA>
+        <Summary>Finger daemon and client</Summary>
+        <Description>Finger daemon and client</Description>
+        <Archive sha1sum="cc0ab33494c618cf6f75d3e91c744bd36628cfe5" type="targz">ftp://ftp.uk.linux.org/pub/linux/Networking/netkit/bsd-finger-0.17.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">time.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>finger</Name>
+        <PartOf>applications.network</PartOf>
+        <IsA>app:console</IsA>
+        <Summary>Finger client</Summary>
+        <Summary xml:lang="tr">Finger istemcisi</Summary>
+        <Description>Finger client</Description>
+        <Description xml:lang="tr">Finger istemcisi</Description>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man/man1</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>finger-server</Name>
+        <RuntimeDependencies>
+            <Dependency>xinetd</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man/man8</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xinetd.d/finger">finger.xinetd</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-12</Date>
+            <Version>0.17</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
