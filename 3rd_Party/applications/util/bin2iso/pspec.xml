@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>bin2iso</Name>
+	<Homepage>http://users.andara.com/~doiron/bin2iso/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>public-domain</License>
+	<IsA>app:console</IsA>
+	<Summary>converts RAW format (.bin/.cue) files to ISO/WAV format</Summary>
+	<Summary xml:lang="tr">RAW (.bin/.cue) dosya formatını ISO/WAV formatına çevirir</Summary>
+	<Description>converts RAW format (.bin/.cue) files to ISO/WAV format.</Description>
+        <Description xml:lang="tr">RAW (.bin/.cue) dosya formatını ISO/WAV formatına çevirir.</Description>
+	<Archive sha1sum="7c4de93fa5850455afdc4f223040a73c563df55a" type="tarbz2">ftp://ftp.ankara.edu.tr/gentoo/distfiles/bin2iso-19b.tar.bz2</Archive>
+	<!--  ftp://ftp.tu-clausthal.de/pub/linux/gentoo/distfiles/bin2iso-19b.tar.bz2 -->
+        <Patches>
+            <Patch level="0">bin2iso-19b-sanity-checks.patch</Patch>
+        </Patches>
+    </Source>
+    
+    <Package>
+        <Name>bin2iso</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+	</Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-09-16</Date>
+            <!-- Version>19b-r2</Version -->
+	    <Version>19_beta1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

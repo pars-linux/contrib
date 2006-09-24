@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dmraid</Name>
+        <Homepage>http://people.redhat.com/~heinzm/sw/dmraid</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Device-Mapper Software RAID support tool and library</Summary>
+        <Description>Device-Mapper Software RAID support tool and library</Description>
+        <Archive sha1sum="8776ed6b88d12eb16118dc960e3737ef764c34e7" type="tarbz2">http://people.redhat.com/~heinzm/sw/dmraid/src/dmraid-1.0.0.rc11.tar.bz2</Archive>
+        <Patches>
+            <Patch>dmraid-destdir-fix.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>device-mapper</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>dmraid</Name>
+        <RuntimeDependencies>
+            <Dependency>device-mapper</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-20</Date>
+            <Version>1.0.0.rc11</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

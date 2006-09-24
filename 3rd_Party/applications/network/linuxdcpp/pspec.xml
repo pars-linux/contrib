@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>linuxdcpp-cvs</Name>
+	<Homepage>http://linuxdcpp.berlios.de</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>DC for Linux is a Unix/Linux port of DC++,</Summary>
+	<Summary xml:lang="tr">Linux için DC++</Summary>
+	<Description>DC for Linux is a Unix/Linux port of DC++,</Description>
+        <Description xml:lang="tr">Linux için DC++</Description>
+	<Archive sha1sum="1a5551071a5a6c76bc9fd9ae9b909553d3e623e4" type="tarbz2">ftp://ftp.pardus.org.tr/pub/pisi/source/linuxdcpp-cvs-27062006.tar.bz2</Archive>
+        <BuildDependencies>
+	    <Dependency>libglade2</Dependency>
+	    <Dependency versionFrom="2.6">gtk2</Dependency>
+       	    <Dependency>pango</Dependency>
+	</BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>linuxdcpp-cvs</Name>
+        <RuntimeDependencies>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/ldcpp/doc</Path>
+	    <Path fileType="data">/usr/share</Path>
+	</Files>
+	<AdditionalFiles>
+	    <AdditionalFile target="/usr/share/applications/linuxdcpp.desktop" permission="0644" owner="root">linuxdcpp.desktop</AdditionalFile>
+	    <AdditionalFile target="/usr/share/pixmaps/linuxdcpp.png" permission="0644" owner="root">linuxdcpp.png</AdditionalFile>
+            <AdditionalFile target="/usr/bin/ldcpp" permission="0755" owner="root">ldcpp</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    
+    <History>
+        <Update release="3">
+            <Date>2006-06-27</Date>
+            <Version>27062006</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-06-25</Date>
+            <Version>25062006</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-04</Date>
+	    <Version>01062006</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

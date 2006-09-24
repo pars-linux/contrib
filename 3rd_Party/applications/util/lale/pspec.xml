@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lale</Name>
+        <Homepage>http://lale.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Foxgui base Türkish Dictionary</Summary>
+        <Summary xml:lang="tr">Lâle sözlük</Summary>
+        <Description>Foxgui base Türkish dictionary</Description>
+        <Description xml:lang="tr">Lâle sözlük</Description>
+        <Archive sha1sum="c3eb76b529bd8b13f551944acd518bfb8b69e2ac" type="targz">http://heanet.dl.sourceforge.net/sourceforge/lale/lale-2.30-linux.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>lale</Name>
+        <Conflicts>
+            <Package>lale_kaynak</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/lale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/lale.desktop" permission="0644" owner="root">lale.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/lale.png" permission="0644" owner="root">lale.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/lale/sozluk_at.lal" permission="0644" owner="root">sozluk_at.lal</AdditionalFile>
+            <AdditionalFile target="/usr/bin/lale" permission="0755" owner="root">lale</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-03-18</Date>
+            <Version>2.30</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

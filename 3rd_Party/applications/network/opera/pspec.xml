@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>opera</Name>
+        <Homepage>http://www.opera.com/linux/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>OPERA-8.50</License>
+        <IsA>app:gui</IsA>
+        <Summary>Opera - Web Browser</Summary>
+        <Summary xml:lang="tr">Opera - Web Tarayıcı</Summary>
+        <Description>Opera - Web Browser</Description>
+        <Description xml:lang="tr">Web Tarayıcı</Description>
+        <Archive sha1sum="5a01332473f4541bafbe922bb33294f4d74e6785" type="binary">ftp://ftp.ankara.edu.tr/opera/linux/854/final/en/i386/shared/opera-8.54-20060330.6-shared-qt.i386-en.rpm</Archive>
+        <BuildDependencies>
+            <Dependency>sed</Dependency>
+            <Dependency>rpm2targz</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>opera</Name>
+        <RuntimeDependencies>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>jpeg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="library">/usr/lib/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man/</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/opera</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/opera/locale/ouw854_de.lng" permission="0644" owner="root">ouw854_de.lng</AdditionalFile>
+            <AdditionalFile target="/usr/share/opera/locale/ouw854_tr.lng" permission="0644" owner="root">ouw854_tr.lng</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/opera.desktop" permission="0644" owner="root">opera.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-01</Date>
+            <Version>8.54-20060330</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

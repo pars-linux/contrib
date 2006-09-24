@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qcomicbook</Name>
+        <Homepage>http://linux.bydg.org/~yogin/</Homepage>
+        <Packager>
+            <Name>Furkan Duman</Name>
+            <Email>coderlord@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>An image viewer specifically designed to handle comic books</Summary>
+        <Summary xml:lang="tr">Çizgi roman görüntüleyicisi</Summary>
+        <Description>QComicBook is a viewer for comic book archives containing jpeg/png images, which aims at convenience and simplicity.</Description>
+        <Description xml:lang="tr">Çizgi roman görüntüleyicisi</Description>
+        <Archive sha1sum="2437452c298cb5ae5bcde3b511947a93762318d1" type="targz">http://linux.bydg.org/~yogin/qcomicbook-0.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>imlib2</Dependency>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qcomicbook</Name>
+        <RuntimeDependencies>
+            <Dependency>imlib2</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>unrar</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/qcomicbook</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-20</Date>
+            <Version>0.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Furkan Duman</Name>
+            <Email>coderlord@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>comix</Name>
+	<Homepage>http://comix.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:gui</IsA>
+	<Summary>A GTK image viewer specifically designed to handle comic books.</Summary>
+	<Summary xml:lang="tr">özellikle çizgi romanları okumak için tasarlanmış bir resim görüntüleyici</Summary>
+	<Description>A GTK handle comic books image viewer</Description>
+        <Description xml:lang="tr">Bir GTK çizgi roman görüntüleyicisi</Description>
+	<Archive sha1sum="e443ff544a7e39b8a7e2d05954a1b56aa0f52b68" type="targz">http://heanet.dl.sourceforge.net/sourceforge/comix/comix-3.5.1.tar.gz</Archive>
+	<Patches>
+	    <Patch level="0">comix_desktop.patch</Patch>
+	</Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.8.0">pygtk</Dependency>
+            <Dependency versionFrom="1.1.4">python-imaging</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>comix</Name>
+        <RuntimeDependencies>            
+            <Dependency versionFrom="2.8.0">pygtk</Dependency>
+            <Dependency versionFrom="1.1.4">python-imaging</Dependency>
+            <Dependency>unrar</Dependency>
+        </RuntimeDependencies>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc/gconf/schemas</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+	    <Path fileType="data">/usr/share/applications</Path>
+	    <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="4">
+            <Date>2006-08-30</Date>
+            <Version>3.5.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-08-19</Date>
+            <Version>3.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-07-05</Date>
+            <Version>3.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-27</Date>
+	    <Version>3.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

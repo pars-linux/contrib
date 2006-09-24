@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>azureus</Name>
+        <Homepage>http://azureus.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2 BSD</License>
+        <IsA>app:gui</IsA>
+        <Summary>Azureus - Java BitTorrent Client</Summary>
+        <Summary xml:lang="tr">Azureus - Java BitTorrent istemcisi</Summary>
+        <Description>Azureus is a BitTorrent Client written in Java</Description>
+        <Description xml:lang="tr">Azureus, Java ile yazılmış bir BitTorrent istemcisidir</Description>
+        <Archive sha1sum="0c2e6611598bee2fd249367a937ca5b8045892a7" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/azureus/Azureus_2.5.0.0_linux.tar.bz2</Archive>
+        <!-- Patches>
+            <Patch level="0">azureus.patch</Patch>
+        </Patches -->
+        <BuildDependencies>
+            <Dependency>sun-jre</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>azureus</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/azureus</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/azureus.desktop" permission="0644" owner="root">azureus.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2006-08-23</Date>
+            <Version>2.5.0.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-05-13</Date>
+            <Version>2.4.0.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-03-15</Date>
+            <Version>2.4.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

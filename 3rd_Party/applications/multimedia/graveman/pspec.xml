@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>graveman</Name>
+        <Homepage>http://graveman.tuxfamily.org/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical frontend for cdrecord, mkisofs, readcd and sox using GTK+2</Summary>
+        <Summary xml:lang="tr">cdrecord, mkisofs, readcd and sox GTK+2 grafik arayüzü</Summary>
+        <Description>Graphical frontend for cdrecord, mkisofs, readcd and sox using GTK+2</Description>
+        <Description xml:lang="tr">cdrecord, mkisofs, readcd and sox GTK+2 grafik arayüzü</Description>
+        <Archive sha1sum="9c099a777314717cee5fb4d6dc640ef0a16235b0" type="tarbz2">http://graveman.tuxfamily.org/sources/graveman-0.3.12-5.tar.bz2</Archive>
+	<Patches>
+	    <Patch level="0">joliet-long.patch</Patch>
+	    <Patch level="0">rename.patch</Patch>
+	    <Patch level="0">graveman_desktop.patch</Patch>
+	</Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="2.4">glib2</Dependency>
+            <Dependency versionFrom="2.4">libglade2</Dependency>
+            <Dependency versionFrom="0.22">intltool</Dependency>
+            <Dependency versionFrom="0.15">libmad</Dependency>
+            <Dependency versionFrom="1.1.0">flac</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.15">libid3tag</Dependency>
+            <Dependency versionFrom="1.0">libogg</Dependency>
+            <Dependency versionFrom="1.0">libvorbis</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>graveman</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="2.4">glib2</Dependency>
+            <Dependency versionFrom="2.4">libglade2</Dependency>
+            <Dependency versionFrom="0.22">intltool</Dependency>
+            <Dependency versionFrom="0.15">libmad</Dependency>
+            <Dependency versionFrom="1.1.0">flac</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.15">libid3tag</Dependency>
+            <Dependency versionFrom="1.0">libogg</Dependency>
+            <Dependency versionFrom="1.0">libvorbis</Dependency>
+            <Dependency versionFrom="2.0">cdrtools</Dependency>
+            <Dependency versionFrom="1.1.9">cdrdao</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency versionFrom="5.20">dvd+rw-tools</Dependency>
+            <Dependency versionFrom="12.17.0">sox</Dependency>
+            <!-- Dependency>libintl</Dependency -->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/graveman</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="man">/usr/share/man/</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+	</Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-19</Date>
+            <Version>0.3.12.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

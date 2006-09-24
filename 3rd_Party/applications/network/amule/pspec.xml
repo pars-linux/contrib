@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>amule</Name>
+        <Homepage>http://www.amule.org/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>aMule, the all-platform eMule p2p client</Summary>
+        <Summary xml:lang="tr">eMule p2p istemcisi</Summary>
+        <Description>aMule, the all-platform eMule p2p client</Description>
+        <Description xml:lang="tr">aMule, birçok platformda çalışabilen bir eMule istemcisidir</Description>
+        <Archive sha1sum="dd47deb38e7a5b823550b85150f5a814c597b273" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/amule/aMule-2.1.3.tar.bz2</Archive>
+        <Patches>
+            <Patch>amule_desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.1">zlib</Dependency>
+            <Dependency versionFrom="2.6.0">wxGTK</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>amule</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6.0">wxGTK</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package>xmule</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2006-06-14</Date>
+            <Version>2.1.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-06-04</Date>
+            <Version>2.1.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-05-13</Date>
+            <Version>2.1.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-03-08</Date>
+            <Version>2.1.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
