@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>pilonga</Name>
+        <Homepage>http://sourceforge.net/projects/pilonga/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>ebuild to pisi converter</Summary>
+        <Summary xml:lang="tr">ebuild'den pisi yapma aracı</Summary>
+        <Description>Pilonga automatically downloads and converts ebuild files to pisi files. Can be used by typing "pilonga packagename" in the console.</Description>
+        <Description xml:lang="tr">Pilonga ebuild dosyalarından pisi kaynağı üretir. Konsoldan "pilonga paketadı" şeklinde kullanılabilir.</Description>
+        <Archive type="targz" sha1sum="1e6ddb5e9f4d87fb34cf0f709ecb38eef9ddba80">http://switch.dl.sourceforge.net/sourceforge/pilonga/pilonga-1.1.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">fixd1.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pilonga</Name>
+        <RuntimeDependencies>
+            <Dependency>tcl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/pilonga</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/pilonga">pilonga.sh</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-24</Date>
+            <Version>1.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
