@@ -31,7 +31,7 @@ def install():
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "docs/*")
 
     #Very strange error..! One of the files in captures/ doesn't support utf-8 and when the actions.py is saved, the name of the file will be changed so better to remove captures/
-    pisitools.removeDir("/usr/share/doc/tuxpaint-0.9.15b-2/fr/html/images/captures")
+    pisitools.removeDir("/usr/share/doc/%s/fr/html/images/captures" % get.srcTAG())
 
     #icon files
     for res in ("192x192", "128x128", "96x96", "64x64", "48x48", "32x32", "22x22", "16x16"):
