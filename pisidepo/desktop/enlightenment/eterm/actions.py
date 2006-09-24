@@ -9,10 +9,9 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="Eterm-0.9.3"
+WorkDir="Eterm-0.9.4"
 
 def setup():
-
     autotools.configure("--prefix=/usr \
                          --with-x \
                          --disable-mmx \
@@ -23,9 +22,10 @@ def setup():
                          --enable-utmp \
                          --with-imlib \
                          --enable-trans \
-                         --disable-auto-encoding \
+                         --enable-auto-encoding \
+                         --enable-name-reporting-escapes \
                          --enable-xim \
-                         --disable-unicode-multi-charset \
+                         --enable-unicode-multi-charset \
                          --with-delete=execute \
                          --with-backspace=auto")
 
