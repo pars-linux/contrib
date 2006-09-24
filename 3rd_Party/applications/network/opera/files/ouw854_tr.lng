@@ -1,0 +1,5345 @@
+; Opera language file version 2.0
+; Copyright © 1995-2005 Opera Software ASA. All rights reserved.
+; Translated by root
+; Created on 2005-09-15 07:20
+; Lines starting with ; (like this) are comments and need not be translated
+
+[Info]
+Language="tr"
+; The string below is the language name in its own language
+LanguageName="Türkçe"
+Charset="utf-8"
+Build.Linux=1358
+Version.Linux=8.50
+DB.version=607
+
+[Translation]
+
+; General strings
+
+; Used in a popup error message when Opera can't connect to the remote
+; server due to other phenomena than the one stated in 32873.
+32869="Uzaktaki sunucuya erişilemedi"
+
+; The error code corresponding to this string is used in a number of
+; situations when the server has abruptly closed the connection, and then
+; the string can be used in a popup error message.
+32864="Bağlantı sunucu tarafından kesildi"
+
+; Used in a popup error message when Opera has failed to load a requested
+; page more than once.
+32874="Sayfa yükleme girişimleri başarısız oldu.\r\n\r\nSunucuda bir sorun olabilir."
+
+; Used in a popup error message when Operas request to connect to a server
+; is refused. (For example when the server exists but does not answer on
+; the specified port.)
+32873="Uzaktaki sunucuya erişilemedi"
+
+; Used in a popup error message when Opera has tried to resolve a server
+; name with the DNS to fetch a requested document from it, and the server
+; domain exists but the server itself does not (for example
+; http://fff.example.com).
+32871="Uzaktaki sunucunun yeri bulunamadı"
+
+; Used in a popup error message when Opera has tried to resolve a server
+; name with the DNS to fetch a requested document from it, and the server
+; domain doesn't exist (for example http://invalid).
+32872="Girilen adres bu bilgisayardan kullanılamaz"
+
+; Used as default error message in a popup error message, when no other
+; network error message applies.
+32868="İç iletişim hatası"
+
+; Used in a popup error message when there is no route from the client's
+; subnet to the server's subnet, likely due to a badly configured network.
+32881="Ağ kullanılamaz. Sistem yöneticinize başvurun"
+
+; Used in a number of error situations, when the user has entered a
+; malformed URL, such as opera:nonexistant, into the URL field. The http
+; respose error code 400 (Bad request), and some other http error codes
+; between 400 and 500 (signifying client errors) also give the same
+; result.
+32832="Geçersiz adres"
+
+; Used in a popup error message when the network of the underlying system is
+; down. This could be due to errors in the protocol stack, network card or
+; driver, or in the physical network outside of the system.
+32865="Ağ sorunu"
+
+; Used in a popup error message when the server has tried to redirect a
+; document request from Opera to an adress and Opera fails to connect to
+; that server.
+21462="Sunucu geçersiz bir adrese yönlendirmeyi denedi.\r\nLütfen bu durumu sitenin yöneticisine iletin."
+
+; Used in a popup error message when a proxy server has been specified for a
+; specific request type, and the proxy server doesn't answer when an URL
+; of that type is entered in the URL field.
+32897="Vekil sunucuya bağlanılamadı"
+
+; Used in a popup error message when Opera has tried to resolve a proxy
+; server name with the DNS to fetch a requested document from it, and the
+; server domain exists but the server itself does not (for example
+; fff.opera.com).
+32898="Vekil sunucu bulunamadı"
+
+; Used in a popup error message when Opera has tried to resolve a proxy
+; server name with the DNS to fetch a requested document from it, and the
+; server domain doesn't exist (for example fjdlsakhngfjf).
+32899="Vekil sunucuya erişilemedi. Sunucu kullanılamaz"
+
+; Used in a popup error message when Operas request to connect to a proxy
+; server is refused. (For example when the server exists but does not
+; answer on the specified port.)
+32900="Vekil sunucuya bağlanılamadı. Giriş engellendi"
+
+; Used when Opera has tried to open a network socket to a server and the
+; socket is busy. This message should be handled internally most of the
+; time.
+32866="Ağ soketi engellendi"
+
+; Used in a popup error message when a non-recoverable error has occurred in
+; the network protocol stack or network drivers of the system.
+32883="Ağ soketi sorunları oluştu. Lütfen ağ sürücülerinizi kontrol edin."
+
+; 
+32885="Uzaktaki sunucu zaman aşımına uğradı. Lütfen daha sonra tekrar deneyin."
+
+; Used in a popup error message when not enough socket resources (file
+; handles, network buffers) are free.
+32867="Ağ soketi kaynak sorunu. Tekrar deneyin"
+
+; Used in a popup error message when Opera discovers that the network
+; implementation lacks functionality needed to handle the protocol that is
+; needed to fulfill a request.
+32882="Winsock önemli derecede işlev kaybına uğradı."
+
+32870="Yanlış Winsock sürümü"
+; The default error message, used in any situation where no more specific
+; error message can be created.
+20000="İç uygulama hatası."
+
+20001="Lütfen yazdırma işlemi tamamlanana kadar bekleyin"
+20002="Yeni pencere açılamıyor. Bellek dolu"
+; Used in a popup error message when the address type is unknown or
+; unsupported.
+20003="Adres türü bilinmiyor ya da desteklenmiyor"
+
+; Might be used in a popup error message when the user has clicked the Home
+; button and no home page is set in preferences and we don't have a quick
+; UI (if we have Quick we use the Set homepage dialog).
+20005="Başlangıç sayfası belirlenmemiş. Lütfen bir tane belirtin."
+
+20013="Yazıcı ile bağlantı kurulamadı"
+; Used in an error popup message when the printer has encountered an error
+; while printing (as opposed to 20013 which pops up if the printing can't
+; even start, which is more likely.)
+20015="Sayfa yazdırılamadı. Lütfen yazıcınızın durumunu kontrol edin"
+
+20016="Sayfa yazdırılıyor"
+; Used in a popup error message when the user has requested a file from the
+; server that it's not allowed to fetch (HTTP response code 4?? unless
+; handled specifically), if the user has set the Network/Server
+; errors/Always show dialog box preference.
+33040="Karşı sunucu bağlanmayı reddediyor.\r\nBu adres kullanılamaz."
+
+; Used in a popup error message when the user has requested a file from the
+; server that does not exist (HTTP response code 404), if the user has set
+; the Network/Server errors/Always show dialog box preference.
+33041="Adres bulunamadı"
+
+; Used in a popup error message as a default message when the user has made
+; a valid request for a file from the server, and the server encounters an
+; error that prevents it to fulfill the request (HTTP response code 5xx
+; and 6xx), if the user has set the Network/Server errors/Always show
+; dialog box preference.
+33042="Karşı sunucu ya da dosya bulunamadı"
+
+; Used in a popup error message when the user has requested a file from the
+; server, and the server could not fulfill the request since this
+; functionality wasn't implemented (HTTP error code 501), if the user has
+; set the Network/Server errors/Always show dialog box preference.
+33043="Karşıdaki sunucuda işlev kaybı oldu"
+
+; Used in a popup error message when the user has requested a document from
+; the server, the server sends the document using HTTP compression, and
+; the document decoder couldn't decode the data properly.
+33046="Veri çözülürken bir sorun oluştu. Muhtemelen bozulmuş veri olabilir."
+
+; Used in a popup error message when the user has submitted a form using a
+; HTTP request method (specified with the METHOD attribute to the FORM tag
+; in the HTML form) that the server does not accept (HTTP error code 405),
+; if the user has set the Network/Server errors/Always show dialog box
+; preference.
+33424="HTTP erişim yöntemi sunucu tarafından kabul edilmedi"
+
+; Used in a popup error message when the user tries to fetch a document by
+; clicking a link, and the server cannot send the requested document in a
+; format that matches the content of the HTTP accept headers sent in the
+; request (HTTP error code 406), if the user has set the Network/Server
+; errors/Always show dialog box preference. However, Opera accepts all
+; document formats and sends *.* in its accept header, so this is unlikely
+; to happen.
+33425="Sunucu kabul edilebilir veri göndermiyor"
+
+; Used in a popup error message when the user has requested a document from
+; the server, the server needs more data from Opera to fulfill the
+; request, and Opera fails to deliver the data before the server times out
+; and cancels the request (HTTP error code 408). Unlikely to happen very
+; often. Visible if the user has set the Network/Server errors/Always show
+; dialog box preference
+33426="Sunucu zaman aşımına uğradı"
+
+; Used in a popup error message when Opera has sent a HTTP request to fetch
+; or send a document to the server, and the server determins that there's
+; a conflict with a third part regarding the document, that can be solved
+; by the user (HTTP error message 409). This could happen when the user
+; submits a form that leads to a change of an online document, and the
+; server detects that the changes conflicts with other changes already
+; made to the document. Visible if the user has set the Network/Server
+; errors/Always show dialog box preference
+33427="Sunucudaki kaynak veri ile çelişki"
+
+; Used in a popup error message when the user has requested a document and
+; the server answers that the document has been there, but has been
+; permanently removed (HTTP error code 410). Visible if the user has set
+; the Network/Server errors/Always show dialog box preference.
+33428="Bu adres artık kullanılamaz"
+
+; Used in a popup error message if the user has sent a request to the
+; server, and the server answers that it needs a Content-Length header to
+; process the request (HTTP error code 411). Opera never sends requests
+; without a valid Content-Lenght header. Visible if the user has set the
+; Network/Server errors/Always show dialog box preference.
+33429="HTTP içerik boyutu gerekiyor"
+
+; Used in a popup error message if the user has sent a request to the server
+; containing one or more precondition headers, and one or more of these
+; preconditions evaluated false on the server (HTTP error code 412). The
+; precondition headers could be If-Range and If-Modifified-Since, that
+; could be used to fetch the missing parts of a earlier partially fetched
+; documents, if the document is still the same. Unlikely to happen.
+; Visible if the user has set the Network/Server errors/Always show dialog
+; box preference.
+33430="HTTP ön koşulları hatalı"
+
+; Used in a popup error message when the user has sent a request to a
+; server, and the server signalled that the request entity (the actual
+; request data) was too large (HTTP error code 413). Visible if the user
+; has set the Network/Server errors/Always show dialog box preference.
+33431="HTTP istek verisi çok uzun"
+
+; Used in a popup error message when the user has sent a request to a server
+; and the URL is longer than the server can handle (HTTP error code 414).
+; Visible if the user has set the Network/Server errors/Always show dialog
+; box preference.
+33432="HTTP adresi çok uzun"
+
+; Used in a popup error message when the user has sent a request to a server
+; and the server didn't recognize the content type of the request entitiy
+; (HTTP error code 415). Visible if the user has set the Network/Server
+; errors/Always show dialog box preference.
+33433="Karşıdaki sunucu içerik türünü algılayamadı"
+
+; Used in a popup error message if Opera has requested a part of a file that
+; does not exist (HTTP error code 416). This shouldn't happen. Visible if
+; the user has set the Network/Server errors/Always show dialog box
+; preference.
+33434="Sunucu istek gönderilen dosya parçasını ulaştırmadı"
+
+; Used in a popup error message if Opera has sent a request with certain
+; expectations in the HTTP header 'Expect', and the server can't meet that
+; expectation because vital features are not implemented. For example, the
+; server can be expected to handle HTTP_CONTINUE (HTTP reply code 100)
+; when sending in forms (HTTP error code 417). Visible if the user has set
+; the Network/Server errors/Always show dialog box preference.
+33435="HTTP beklenti hatası"
+
+; Used in a popup error message when Opera has sent a request to a HTTP
+; proxy server, and the upstream server returned an invalid response code
+; (HTTP error code 502). Visible if the user has set the Network/Server
+; errors/Always show dialog box preference.
+33436="HTTP geçidi hatalı"
+
+; Used in a popup error message when the user has requested a document and
+; the server can't fulfill the request since it's overloaded or offline
+; (HTTP error code 503). Visible if the user has set the Network/Server
+; errors/Always show dialog box preference.
+33437="Hizmet çok yüklü veya çevrim dışı. Lütfen daha sonra tekrar deneyin"
+
+; Used in a popup error message when the user has sent a request to a proxy
+; server, and the upstream server did not answer before the proxy server
+; timed out (HTTP error code 504). Visible if the user has set the
+; Network/Server errors/Always show dialog box preference.
+33438="HTTP geçidi zaman aşımına uğradı"
+
+; Used in a popup error message when the user has requested a document from
+; a server, and the server doesn't support the HTTP version used (HTTP
+; error code 505). Visible if the user has set the Network/Server
+; errors/Always show dialog box preference.
+33439="HTTP sürümü kabul edilmedi"
+
+; Used in a warning popup message when the user has tried to fetch a
+; document from a server, using HTTP digest authentication to check the
+; documents integrity, and the authentication failed.
+33047="Doğrulama hatalı. İçerik güvenilir olmayabilir"
+
+; Used in a warning popup message when the user has tried to fetch a
+; document from a proxy server, using HTTP digest authentication to check
+; the documents integrity, and the authentication failed.
+33048="Vekil sunucu doğrulamasında hata. İçerik güvenilir olmayabilir"
+
+; Used in a popup error message when the user has entered an FTP URL into
+; the URL field, and the server answered that the ftp service was not
+; currently available (FTP error 421).
+33056="FTP sunucusu kullanılamaz"
+
+; Used in a popup error message as a default error message when the user has
+; entered an FTP URL into the URL field and an error has occurred.
+33057="FTP modülünde iç hata"
+
+; Used in a popup error message when the user has entered an FTP URL into
+; the URL field, and the server has rejected the connection.
+33058="FTP sunucusuna erişilemedi, büyük ihtimalle\r\nçok fazla kullanıcı bağlı. Lütfen daha sonra tekrar deneyin."
+
+; Can be used when the the user has entered an FTP URL into the URL field,
+; and the server has rejected the connection because the provided user
+; name didn't exist. Normally an authentication dialog is shown instead.
+33059="Kullanıcı FTP sunucunda bulunamadı"
+
+; Can be used when the the user has entered an FTP URL without user name and
+; password into the URL field to do an anonymous login, and the server did
+; not accept anonymous logins. Normally an authentication dialog is shown
+; instead.
+33060="Bu FTP sunucusu erişimde kullanıcı adı ve şifre gerektiriyor"
+
+; Used in a popup error message when the user has entered an FTP URL into
+; the URL field, and the directory did not exist
+33061="FTP dizini bulunamadı"
+
+; Used in a popup error message when the user has entered an FTP URL into
+; the URL field, and the file did not exist.
+33062="Dosya bulunamadı"
+
+; Used in a popup error message when an initiated FTP file download is
+; interrupted by the server, either by the connection being closed (FTP
+; error 426) or the download action being aborted (FTP error 451).
+33063="Bağlantı FTP sunucusu tarafından kapatıldı"
+
+; Used in a popup error message when the user has entered an FTP URL in the
+; URL field to request a file download, and the server signals that it
+; can't set up a passive data channel to transfer the file (FTP error
+; 425).
+33064="Karşı FTP kanalı açılamadı"
+
+; Used in a popup error message when the user has entered a file URL
+; pointing to a file that does not exist in the URL field.
+33120="Dosya açılamadı"
+
+20017="Yazıcı ölçeklemesi sadece 20% ile 400% arasında ayarlanabilir. Lütfen geçerli bir değer girin"
+20018="Tek bir sunucuya yapılacak en fazla bağlantı sayısı 1 ile 99 arasında olmalı."
+20019="En fazla toplam bağlantı sayısı 1 ile 999 arasında olmalı."
+20020="En fazla geçmiş listesi satır sayısı 0 ile 999 arasında olmalı."
+; Used in a popup error message when the user has requested a file from the
+; server, and the server recieves the request but no data exists to return
+; (HTTP error code 204), if the user has set the Network/Server
+; errors/Always show dialog box preference.
+33044="Karşı sunucu bağlantıyı kurdu - hiç veri göndermedi"
+
+; Used in a popup error message when the user has entered a file URL in the
+; URL field and the file is read-protected.
+32903="Bu dosyaya erişim reddedildi"
+
+; Used in a popup error message when the user has entered a file URL in the
+; URL field and the file does not exist.
+32904="Dosya kayıtlı değil"
+
+; Used in a popup error message when Opera has tried to write a file to disk
+; and there was not enough disk space left. This happens for example when
+; trying to save a page to disk, but also in many other places and
+; situations, not always connected with something that the user does.
+32905="Dosyaya yazılamıyor. Disk dolu."
+
+; Used in a popup error message when Opera has failed to write data into the
+; cache, for example when fetching a document.
+32906="İç tampon bellek hatası"
+
+20045="Kaynaklar doldu. Dizi yüklenemedi"
+; Used as default text on file upload input elements in forms in HTML
+; documents.
+20046="Seç"
+
+; Used in a popup error message when the user has entered a telnet URL
+; (starts with 'telnet:') in the URL field to start a telnet session, and
+; no telnet application is specified in preferences.
+20048="Bir Telnet uygulaması belirtilmemiş. Lütfen Seçenekler kısmında bir Telnet uygulamasının tam yolunu kaydediniz."
+
+; Used in a popup error message when the user has entered a telnet URL
+; (starts with 'telnet:') in the URL field to start a telnet session, and
+; no hostname has been specificed in the url.
+20049="Sağlayıcı ismi belirtilmemiş"
+
+; Used in a popup error message when the user has entered a TN3270 URL
+; (starting with tn3270:) in the URL field, to connect to a server with
+; TN3270, and no path to a TN3270 terminal application has been specified
+; in the preferences. (TN3270 is a variant of telnet used mainly on IBM
+; mainframes).
+20121="Bir TN3270 uygulaması belirtilmemiş. Lütfen Seçenekler kısmında bir TN3270 uygulamasının tam yolunu kaydediniz."
+
+; Used in a popup error message when the user has entered a TN3270 URL
+; (starting with tn3270:) in the URL field, to connect to a server with
+; TN3270, and no hostname has been specified. (TN3270 is a variant of
+; telnet used mainly on IBM mainframes).
+20122="Sağlayıcı ismi belirtilmemiş"
+
+20226="Tema Dosyaları (*.zip)|*.zip|Tüm Dosyalar (*.*)|*.*|"
+20050="HTML dosyaları|*.htm;*.html|Metin dosyaları|*.txt|GIF dosyaları|*.gif|JPEG dosyaları|*.jpg;*.jpeg|BMP dosyaları|*.bmp|Ses dosyaları|*.wav|AVI Video dosyaları|*.avi|MIDI Müzik dosyaları|*.mid;*.midi|Opera pencere yapılandırması|*.win|XML dosyaları|*.xml|Stil sayfaları|*.css|Tüm dosyalar (*.*)|*.*| "
+; Used in the File/Open dialog to let the user select what type of files the
+; dialog should show. The labels are visible in the File type dropdown
+; list.
+20051="HTML dosyaları (*.htm;*.html)|*.htm;*.html|Metin dosyaları (*.txt)|*.txt|GIF dosyaları (*.gif)|*.gif|PNG dosyaları (*.png)|*.png|JPEG dosyaları (*.jpg)|*.jpg|BMP dosyaları (*.bmp)|*.bmp|Tüm dosyalar (*.*)|*.*|"
+
+20052="Uygulama dosyaları (*.exe)|*.exe|Tüm dosyalar (*.*)|*.*|"
+30120="Ses dosyaları (*.wav)|*.wav|Tüm dosyalar (*.*)|*.*|"
+20126="X509 (*.usr)|*.usr|PKCS #7 imli (*.p7s)|*.p7s|PKCS #7 (*.p7)|*.p7|PKCS #12 (özel anahtar ile) (*.p12)|*.p12;*.pfx|PEM dosyası (*.pem)|*.pem|Tüm dosyalar|*.*|"
+20127="X509 (*.usr)|*.usr|PKCS #7 imli (*.p7s)|*.p7s|PKCS #7 (*.p7)|*.p7|PKCS #12 (özel anahtar ile) (*.p12)|*.p12;*.pfx|PEM dosyası (*.pem)|*.pem|"
+20128="X509 (*.ca)|*.ca;*.crt;*.cer;*.509;*.der|PKCS #7 imli (*.p7s)|*.p7s|PKCS #7(*.p7)|*.p7|PEM dosyası (*.pem)|*.pem|Tüm dosyalar|*.*|"
+20227="Virgülle ayrılmış dosya (*.csv)|*.csv|Tüm dosyalar (*.*)|*.*|"
+; Used in the authentication dialog when the user tries to access a password
+; protected document.
+20082="Lütfen sayfaya girmek için kullanıcı adı ve şifre girin."
+
+; Used in the authentication dialog when the user has tried to access a
+; password protected HTML page and authentication has failed.
+20053="Sayfayla doğrulama yapılamadı. Lütfen kullanıcı adı ve şifreyi tekrar girin."
+
+; Used when the user has tried to access an URL type that according to the
+; settings in preferences should be accessed through a proxy server, and
+; the proxy server requires authentication.
+20110="Lütfen vekil sunucuya bağlanmak için kullanıcı adı ve şifre girin."
+
+; Used when the user has tried to access an URL type that according to the
+; settings in preferences should be accessed through a proxy server, and
+; the authentication to the proxy server fails.
+20109="Vekil sunucu doğrulaması yapılamadı. Lütfen kullanıcı adı ve şifreyi tekrar girin."
+
+20118="CSS dosyaları (*.css)|*.css|HTML dosyaları (*.htm,*.html)|*.htm;*.html|Tüm dosyalar (*.*)|*.*|"
+20341="Resimler|*.gif;*.png;*.jpg;*.jpeg;*.jpe;*.bmp|Tüm Dosyalar|*.*|"
+20073="ileti(ler) postalandı"
+; Used in a popup error message when Opera finds that the document type is
+; unknown, or no document exists. This is hard to produce, though, since
+; handle all unknown file/mime types by letting the user decide what to do
+; with them - save, open or other alternatives, and empty documents are
+; just ignored.
+20074="Bilinmeyen belge ya da belge belirtilmemiş"
+
+20075="Opera dizini yaratılamıyor. Lütfen geçerli bir dizin ismi deneyin"
+; Used in an error popup dialog when the user has entered a gopher or WAIS
+; url in the URL field, and no corresponding proxy has been set in
+; preferences.
+20076="Bu adres türü vekil sunucu kullanımını gerektiriyor. Lütfen Seçenekler'de bir vekil sunucu belirtin."
+
+; Used as the default text to substitute an image in an HTML document, if
+; the image can't be loaded (or viewing of images is turned off) and the
+; images alt attribute is empty.
+20078="Resim"
+
+; Used as the default prompt string to a searchable index specified with the
+; ISINDEX tag (an early form of forms functionality, deprecated in HTML
+; 4.X) in a HTML document, and is rendered in the document above an input
+; text area. (The label can be changed from this default with the PROMPT
+; attribute to the ISINDEX tag.)
+20079="Bu bir aranabilir indekstir"
+
+; Used at the end of an HTML document that has not been fully loaded because
+; the user has cancelled the request with the Stop button.
+20081="Aktarım durdu!"
+
+20084="Bu tür dahilidir ve silinemez."
+22509="Dosya türünü sil"
+20085="Şu dosya türü ilişkilendirmesini silmek istediğinizden emin misiniz: [%s] ?\n\n Eğer silerseniz Opera bu dosya türünü artık tanımayacaktır."
+32886="WSOCK32.DLL sistem dosyası bulunamıyor. Ağ sürücülerinizi tekrar kurmanız gerekebilir."
+20093="Opera e-posta"
+16615="Eğer istediğiniz bir reklam şemalarını görmek istiyorsanız lütfen bu seçeneği seçiniz"
+; Search strings
+17060="Arama türü"
+17061="Anahtar kelime"
+17062="<Varsayılan>"
+
+; Search with x
+17063="%s ile ara"
+
+30121="Opera yeni pencere oluşturamadı, çünkü sistem kaynakları çok düşük.\nLütfen Opera'daki pencerelerden ya da başka uygulamalardan birkaçını kapatarak kaynakları arttırın."
+25409="Windows Kaynakları"
+25410="Sistem kaynakları çok düşük"
+17056="Olay"
+17057="Ses dosyası"
+22461="&Dosyayı aç"
+22462="&Dosyayı %s ile aç"
+22464="Ne yapmak istersiniz?"
+22463="Uyarı! Dosyaları açmadan önce virüs taraması yapmalısınız"
+22468="Bilinmeyen sunucu"
+22515="Belge:"
+22516="Resim:"
+22517="Yüklenen:"
+22518="Hız:"
+22519="Süre:"
+; Used in the dialog title when user tried to download file to an invalid
+; directory.
+22736="Geçersiz dosya indirme dizini"
+
+; The user tried to download a file to an invalid directory.
+22735="Geçersiz bir dizine dosya indirmeyi denediniz."
+
+20094="Geçersiz kenarlık boyutu. Değer 0 ile 5 cm (2 inç) arasında olmalı"
+20098="Alıcı belirlenmemiş. Lütfen bir alıcı veya bir haber grubu belirtin"
+20101="Çoklu ortam dosyası çalınamıyor. Lütfen aygıtın doğru yüklendiğinden emin olun."
+21020="Kayıtlı uygulama çalıştırılamadı. Windows belleği yetersiz ya da uygulama başlatma dosyası bozuk."
+21021="Dosya bulunamadı."
+21022="Yol bulunamadı."
+21023="Kayıtlı uygulama başlatılamadı. Bellek yetersiz."
+21024="Kayıtlı uygulama başlatılamadı. Bir kütüphane (DLL) dosyası bozuk görünüyor."
+21025="Kayıtlı uygulama başlatılamadı, 32 bit Windows uzantılarına ihtiyaç duyuyor."
+21026="Bu tür için kayıtlı uygulama yok."
+21027="Kayıtlı uygulama başlatılamıyor."
+21030="Uygulama başlatılamıyor. Windows belleği yetersiz ya da uygulama başlatma dosyası bozuk."
+21031="Uygulama bulunamadı."
+21032="Uygulamanın dizin yolu bulunamadı."
+21033="Uygulama başlatılamadı. Bellek yetersiz."
+21034="Uygulama başlatılamadı. Bir kütüphane (DLL) dosyası bozuk görünüyor."
+21035="Uygulama başlatılamadı, 32 bit Windows uzantılarına ihtiyaç duyuyor."
+21036="Uygulama başlatılamadı."
+22505="Bir MIME türü tanımlamanız gerekiyor."
+22506="MIME türü belirtilmemiş"
+22512="Bu MIME türü zaten tanımlanmış.\n\n%s\n\nÜzerine yazmak ister misiniz?"
+22513="MIME türünün üzerine yazılsın mı?"
+; Popup error message when the user has tried to print a document and the
+; printer signals that it's out of paper. Currently unsorted.
+20103="Sayfa yazdırılamıyor. Yazıcıda kağıt yok."
+
+; Used in the document window when showing an ftp file listing. 
+20125="Ana dizin"
+
+; Used in the 'type' column of the created directory listing when a file URL
+; pointing to a directory (for example file://localhost/C:/) has been
+; entered in the URL field, when the list item type is a directory.
+22494="Dizin"
+
+; Used in the column titles of the created directory listing when a file URL
+; pointing to a directory (for example file://localhost/C:/) has been
+; entered in the URL field.
+22496="İsim"
+22497="Tür"
+22498="Boyut"
+22499="Tarih"
+
+20200="Normal"
+20201="Başlık 1 <H1>"
+20202="Başlık 2 <H2>"
+20203="Başlık 3 <H3>"
+20204="Başlık 4 <H4>"
+20205="Başlık 5 <H5>"
+20206="Başlık 6 <H6>"
+20207="Ön biçimli metin <PRE>"
+20208="Bağlantılar <a>"
+20230="Tek satır form giriş alanı"
+20212="Çoklu satır form giriş alanı"
+20213="Form düğmesi yazısı"
+20214="CSS yazı tipi ailesi serif"
+20215="CSS yazı tipi ailesi sans-serif"
+20216="CSS yazı tipi ailesi cursive"
+20217="CSS yazı tipi ailesi fantasy"
+20218="CSS yazı tipi ailesi eş aralıklı"
+22072="Adres çok uzun."
+; Used in a popup error message when there is not enough free memory for
+; Opera to complete the current task.
+21002="Bellek yetersiz."
+
+21249="Bulunan sonuçlar"
+21180="Kişisel araç çubuğu"
+21181="Boş sayfa"
+21199="Yeni dizin"
+21200="Ekle"
+21201="Ekle"
+21202="Menü"
+21248="Bul"
+21193="Yeni sayfa"
+21203="Yeni"
+21204="Aç"
+21205="Kaydet"
+21206="Yazdır"
+21207="Kopyala"
+21208="Bul"
+21209="Geri"
+21210="Yenile"
+21211="İleri"
+21212="Ana sayfa"
+21213="Git"
+21214="Etkin"
+21215="Döşe"
+21216="Basamakla"
+21254="Hızlı liste"
+21255="Tam Ekran"
+21197="Git"
+21198="Ara"
+21194="Devam et"
+21195="Yenile"
+21196="Dur"
+21050="Tüm pencereleri kapat?"
+; Used in the progress bar when a request for fetching a document has been
+; enqueued for sending to the server.
+21059="İstek %s tarafına gönderilmek üzere sıraya eklendi..."
+
+; Used in the progress bar when Opera is looking up the name for the host to
+; fetch a document from.
+21060="%s sunucu adına bakılıyor..."
+
+; Used in the progress bar when connecting to the host to fetch the
+; requested document.
+21061="%s uzaktaki sunucusuna bağlanılıyor..."
+
+; Used in the progress bar when sending a document request to the server.
+21062="%s tarafına istek gönderiliyor..."
+
+; Used in the progress bar when receiving data from the requested document
+; from the server.
+21063="%s tarafından veri alınıyor..."
+
+; Used in the progress bar when starting the network before fetching a
+; requested document.
+21064="ağa/modeme bağlanılıyor..."
+
+; Used in the progress bar (often too briefly to be seen, before the
+; hostname lookup) when searching for a complete name for the server to
+; fetch a requested document from.
+21065="Sunucu adının tamamı için aranıyor..."
+
+; Used in the progress bar when setting up an encrypted connection with the
+; server before fetching a requested document.
+21066="Güvenli bağlantı yapılandırılıyor..."
+
+; Used in the progress bar when connecting to a proxy server to fetch a
+; requested document.
+21067="Vekil sunucuya bağlanılıyor..."
+
+; Used in the progress bar when waiting for a connection to the server to be
+; set up, to fetch a requested document.
+21760="%1 tarafına bağlanmak için %2 bekleniyor"
+
+; Used in the progress bar when a requested file has been loaded from the
+; server.
+21074="%s tarafına yapılan istek sonuçlandı"
+
+; Used in the progress bar when waiting for a reply from the server after
+; requesting a document.
+21068="40 saniyelik zaman aşımı süresi etkinleştirildi. Veri bekleniyor..."
+
+; Used in a popup warning message when the user has submitted a HTML form to
+; a server, which accepts the request, but never sends an HTTP_CONTINUE
+; (HTTP response code 100) to tell Opera to send the forms data. Opera
+; waits for 40 seconds before showing the warning message.
+33045="Sunucuda bir sorun var.\n\nEğer yükleme doğru olarak bitmezse lütfen yüklemeyi durdurun ve formu yeniden gönderin."
+
+; Used in the progress bar while the user selects to accept or reject a
+; cookie in the cookie warning/confirmation dialog, when accessing a site
+; that requires the server to set client cookies, and Opera is not set to
+; automatically receive this kind of cookie.
+21077="Çerez(ler) için kullanıcı onayı bekleniyor..."
+
+; Used in the progress bar while Opera checks that the domain stated in the
+; cookie exists.
+21078="Çerez alan adlarının doğrulanması için DNS bekleniyor..."
+
+; Used in a popup error message if the user has entered an URL with a port
+; specification that is not the default port for that protocol, and is
+; among the ones that Opera uses internally (for example
+; www.example.com:25) in the URL field.
+33050="Güvenlik nedenleriyle bu bağlantı noktasına erişim kapatılmıştır."
+
+; Used in a popup error message, along with the complete cookie data, when
+; the server wants to set an HTTP cookie with a domain attribute that does
+; not match the server name.
+33051="Sunucu doğru olmayan bir çerez ayarı yapmaya çalıştı. Sunucu adı ile alan adı özellikleri kombinasyonu kabul edilebilir değil ve bu yüzden çerez engellenecek\r\n\r\nSitenin yöneticisine geçerli çerez ayarlarını sorabilirsiniz."
+
+; Used in a popup error message, along with the complete cookie data, when
+; the server wants to set an HTTP cookie, and Opera fails to look up the
+; domain stated in the cookie in the DNS.
+33052="Sunucu, kayıtlı olmayan IP adresine sahip bir alan adı ayarlamaya çalıştı. Güvenlik nedenleri için bu kabul edilebilir değil ve bu yüzden çerez reddedilecek\r\n\r\nÇerezde belirtilen alan adı için bir IP adresi yaratmayı sitenin yöneticisine sorabilirsiniz."
+
+; Used in about page.
+22726=", bu eklenti etkin değil"
+
+21080="Opera başlangıcı"
+21081="Opera'dan çıkış"
+21082="Sayfa yüklendi"
+21079="İndirme tamamlandı"
+21083="Başarısız"
+21084="Linki takip et"
+21111="Yok"
+22522="Tema yok"
+22469="%s dosyaları için kayıtlı gösterici yok. Bu dosya türünü açabilmek için bir uygulama belirtmelisiniz.\nLütfen uygulama belirtmek için [Gelişmiş] düğmesine tıklayın."
+22470="Uygulama bulunamadı"
+25142="Olayda çalınmak üzere bir ses dosyası seçin"
+21100="Windows kaynakları çok düşük. Belki birkaç pencereyi kapatmak ya da başka uygulamaları sonlandırmak sorunu halledebilir."
+21101="Windows kaynakları çok düşük. Belki birkaç pencereyi kapatmak ya da başka uygulamaları sonlandırmak sorunu halledebilir."
+21104="Kaydedilmiş pencere dosyası bozulmuş görünüyor ve kullanılamaz durumda."
+21112="Opera pencere düzeni (*.win)|*.win|Tüm dosyalar (*.*)|*.*|"
+21247="Görünüm"
+21233="Gönder"
+21235="Dur"
+20105="Sayfa %d"
+; Used in an warning/confirmation dialog when the user has submitted a form
+; via email.
+20108="Bu form e-posta yoluyla gönderilecek. Alıcıya adınızın e-posta adresinizin de ulaşmasını istiyorsanız [Evet] düğmesine tıklayın. Anonim bir e-posta adresi kullanmak istiyorsanız [Hayır] düğmesine tıklayın."
+
+; Used in an warning/confirmation dialog when the user has tried to submit
+; an HTML form insecurely.
+20111="Bu form şifrelenmeden gönderilecek. Devam etmek istiyor musunuz?"
+
+; Used in a warning/confirmation dialog when the user has submitted an HTML
+; form, and the server wants to redirect the submitted data to another
+; server. GET and POST refers to HTTP commands. POST is to send the form
+; data again to the new destination, GET discards the data, but continues
+; to to the new destination.
+20119="Sunucu formunuzu yönlendirmek istiyor.\n\nFormunuzu yeni hedefe göndermek için [Evet] düğmesine tıklayın\n\nFormu göndermeden yeni adrese gitmek için [Hayır] düğmesine tıklayın.\n\nDevam etmek istemiyorsanız [İptal] düğmesine tıklayın."
+
+21401="Yok"
+21402="Düşük"
+21403="Orta"
+21404="Yüksek"
+21405="Sunucuda güvenlik yok"
+21407="Sunucuda düşük güvenlik"
+21409="Sunucuda orta derecede güvenlik"
+21411="Sunucuda yüksek güvenlik"
+21406="Sunucuda düşük güvenlik. şifrelenmemiş resimler"
+21408="Sunucuda orta derecede güvenlik. şifrelenmemiş resimler"
+21410="Sunucuda yüksek güvenlik. şifrelenmemiş resimler"
+; Used in the title bar of the Certificate authorities dialog in the network
+; security preferences.
+21250="Sertifika doğrulamaları"
+
+; Used in the title bar of the Personal certificate dialog in the network
+; security preferences.
+21251="Kişisel sertifikalar"
+
+; Used in a popup error message when the client was unable to connect to the
+; server.
+21252="Sunucuya bağlantı başarısız."
+
+; Used in a poup error message to inform about a transmission failure.
+21253="Aktarma başarısız."
+
+; Used in a popup error message when the certificate is illegal or
+; non-verifiable.
+21258="Geçersiz ya da onaylanmamış sertifika."
+
+; Used in a popup error message when the certificate is unsupported.
+21259="Desteklenmeyen sertifika."
+
+; Used in a popup error message when the certificate has been revoked by its
+; issuer.
+21260="Bu sertifika yayıncısı tarafından kapatıldı."
+
+; Used in a popup error message when the certificate has expired.
+21261="Bu sertifikanın süresi bitmiş."
+
+; Used in a popup error message when the certificate is unknown.
+21262="Bu sertifika bilinmiyor."
+
+; Used in a popup error message, when the certificate is valid, but
+; permission denied.
+21265="Bu sertifika geçerli ama izin verilmedi."
+
+; Used in a popup error message when an internal error has occurred.
+21271="Bir hata oluştu."
+
+; Used in a popup error message when the certificate's chain was not ordered
+; properly.
+21274="Bu sertifika tam olarak düzenlenmedi."
+
+; Used in a popup error message when no acceptable SSL 2 encryption methods
+; have been found.
+21272="Kabul edilmiş SSL2 şifreleme yöntemi bulunamadı."
+
+; Used in a popup error message when an unknown error has been detected.
+21273="Tanımlanmamış hata oluştu"
+
+; Used in a popup error message when the server only supports SSL 2, and SSL
+; 2 is not enabled in preferences.
+21319="Bu sunucu yalnız SSL2yi destekler. Bu sunucuya bağlanmak istiyorsanız, tercihler ayarında SSL 2'yi devreye sokmalısın"
+
+; Used as a title of a warning dialog.
+21276="Güvenli bağlantı: Uyarı (%u)"
+21277="Güvenli bağlantı: Sunucu Uyarısı (%u)"
+
+; Used as a title of a error dialog.
+21278="Güvenli bağlantı: Ölümcül hata (%u)"
+21279="Güvenli bağlantı: Sunucunun Ölümcül hatası(%u)"
+
+; Used in the security password dialog.
+21280="Lütfen güvenlik şifresini giriniz."
+21281="Lütfen eski güvenlik şifresini giriniz."
+21282="Lütfen yeni güvenlik şifresini giriniz."
+21283="Lütfen yeni güvenlik şifresini yeniden girin."
+21284="Yanlış şifre, lütfen doğru güvenlik şifresini giriniz."
+
+; Error message during changing of password.
+21285="Güvenlik şifresini değiştirme işlemi hatayla sonuçlandı."
+
+; Information to the user about requirements on security password.
+21388="Şifreniz, en az bir rakam ya da bir harf içeren, 6 karakterden az olmayacak şekilde verilmelidir."
+
+; Used in the security password dialog.
+21320="Lütfen bir güvenlik şifresi girin."
+
+; Used in a text label in the view certificates dialog.
+21286="Veritabanında kayıtlı kişisel sertifikalar var."
+21287="Veritabanında kayıtlı sertifika izinleri var."
+
+; Message during installation of certificate.
+21288="Veritabanındaki bu sertifika izinlerinin sertifika grubunu yükleyeyim mi?"
+21289="Veritabanındaki bu sertifika grubu yüklensin mi?"
+21330="Veritabanındaki bu PEM kodlu sertifika grubunu yükleyeyim mi?"
+
+; Used in a popup error dialog when there is problem with the server's
+; certificate and the user is about to send a request to the server.
+21291="Bu sunucuya bir talep göndermekte siniz. devam edeyim mi?"
+
+; Used in a popup error dialog when there is problem with the server's
+; certificate, it did not match its hostname.
+21293="Bu sunucunun sertifikası sunucu ismi ile uyuşmuyor. Kabul edeyim mi?"
+
+; Used as a dialog text when one of the certificates presented by the server
+; has expired.
+21378="Sunucu tarafından sunulan sertifikalardan birinin süresi bitmiş.Bu sertifikayı kabul edeyim mi?"
+
+; Used in a dialog text when the user is prompted to select a certificate
+; for the server.
+21309="Bu sunucu bir sertifika istiyor. Lütfen bu sertifikalardan birini seçiniz ya da hiç sertifika göndermemek için [İptal] düğmesine tıklayın"
+
+; Used in a popup error message when the signatures of the certificate could
+; not be verified.
+21331="Bu sertifikanın imzaları doğrulanamadı."
+
+; Used in a popup error message when the certificate cannot be used for the
+; intended purpose.
+21464="Bu sertifika bu talep için kullanılamaz."
+
+; Used as a dialog title when installing certificates.
+21303="Yetkilendirme sertifikasını yükleyin"
+21304="Hizmetçi sertifikasını yükleyin"
+21336="PEM sertifikasını yükleyin"
+
+; Used as a dialog title when the user should select a client certificate..
+21305="Hizmetçi sertifikasını yükleyin"
+
+; Used as a dialog title when there is a problem with the certificate.
+21306="Sertifika uyarı "
+21307="Yanlış sertifika ismi"
+21308="Sertifikanın süresi bitmiş"
+21377="Sunucu sertifikasının süresi bitmiş"
+
+; Used in a popup error message when the certificate has expired.
+21312="Sertifikanın süresi bitmiş.Bunu silmeli ve güncellenmiş sertifika yüklemelisiniz."
+
+; Used in a dialog title when the server's certificate chain is incomplete.
+21314="Sertifika imzalayanı bulunamadı."
+
+; Used in a dialog when the server's certificate chain is incomplete, during
+; certificate installation.
+21321="Bu sunucunun sertifika grubu tam değil, ve  Bu imzalayan(lar) kayıtlı değil. Kabul edeyim mi?"
+21322="Bu sunucunun kök sertifikası kayıtlı değil.Bu sertifikayı yükleyebilirsiniz. Yüklemeyi kabul edeyim mi?"
+
+; Used in a dialog during certificate installation. The certificate has been
+; installed and is usable, but Opera couldn't verify it, because the the
+; signer of certificate is missing.
+21315="Sertifikanız yüklendi ve onu kullanabilirsiniz. Ama Opera onu doğrulamayacaktır. bu sertifikanın imzalayanı kayıp. Eğer var ise bu sertifikanın imzalayanı yükleyiniz"
+
+21311="Yükle"
+; Error message during changing of password.
+21323="Güvenlik şifresinin ayarı hata ile sonuçlandı."
+
+; Used in a popup error message when the installation of a certificate
+; failed.
+21316="Bu sertifikanın yüklenmesi  hata ile sonuçlandı."
+
+; Used in a dialog during certificate installation, when the client
+; certificatea had no matching private key in the database.
+21317="Hizmetçi sertifikası veritabanındaki özel anahtar ile uyuşmuyor."
+
+; Used in a dialog during certificate installation, when the certificate's
+; chain was not ordered properly.
+21318="Bu sertifika grubu doğru olarak düzene girmedi."
+
+; Used in a popup error message when the installation of a certificate
+; failed, because there was a different client certificate already
+; installed.
+21324="Bu anahtar için farklı hizmetçi sertifika yüklenmiş. Yükleme yapılamadı."
+
+; Used in a popup error message when a different certificate already exist
+; for at least one of the installed certificate authorities.
+21325="Yüklü sertifika izinlerinden en az biri için farklı sertifika mevcut. Bunlar dikkate alınmadı."
+
+21326="Anahtar Üretiliyor"
+21327="lütfen bekleyiniz, Opera özel anahtarınızı üretiyor."
+; Error message when encryption is disabled.
+21328="Tercihler ayarlarında bütün şifreleme metotları devre dışı bırakılmış."
+
+; Used in a dialog during certificate installation, when the certificate is
+; unknown or has an illegal format.
+21329="Sertifika bilinmiyor ya da geçersiz biçime sahip."
+
+; Error message when encryption is disabled.
+21332="Güvenlik işlemleri geçerli değil."
+21333="Güvenlik devre dışı."
+
+21334="Bu güvenlik işlemi devre dışı."
+21335="Bu Güvenlik DDL'si olmadan Opera'nın güvenlik özellikleri kullanılamaz."
+21337="Kabul et"
+; Used in a popup error message when the server's certificate held an
+; illegal name expression.
+21338="Bu sunucunun sertifikası bir geçersiz isimle askıya alındı."
+
+; Header for description of encryption type in certificate dialogs. Max 30
+; characters.
+21344="Bağlantı"
+
+; IMPORTANT!!!! Do not change %u, %ld or \r and \n !!!!
+21346="Mod:"
+21347="mod:"
+21348="Kuvvet:"
+21349="Ortak kuvvet:"
+21350="Özel kuvvet:"
+21351="Asal 1:"
+21352="Asal 2:"
+21353="kuvvet1:"
+21354="kuvvet2:"
+21355="çarpan:"
+21364="Desteklenmemiş anahtar algoritması "
+21365="Bilinmeyen genişleme nesnesi kimliği "
+21367="Bilinmeyen imza algoritması "
+
+; Followed by the version of the certificate format. !!IMPORTANT!! No HTML
+; special characters are allowed !!
+21368="sertifika sürümü"
+
+; Followed by the certificate's serial number. !!IMPORTANT!! No HTML special
+; characters are allowed !!
+21369="Seri numarası"
+
+; Followed by the date the certificate became valid. !!IMPORTANT!! No HTML
+; special characters are allowed !!
+21370="Geçerliliğin başlangıcı: "
+
+; Followed by the certificate's expiration date. !!IMPORTANT!! No HTML
+; special characters are allowed !!
+21371="\r\nGeçerliliğin sonu: "
+
+; Followed by the certificate's fingerprint. !!IMPORTANT!! No HTML special
+; characters are allowed !!
+21372="\r\nParmak izi: "
+
+; Followed by the certificates's public key name. !!IMPORTANT!! No HTML
+; special characters are allowed !!
+21373="\r\n\r\nOrtak anahtar algoritması: "
+
+; Followed by the algorithm used to sign the certificate. !!IMPORTANT!! No
+; HTML special characters are allowed !!
+21374="\r\nimza algoritması: "
+
+; Followed by a list of extensions. !!IMPORTANT!! No HTML special characters
+; are allowed !!
+21375="Uzantılar"
+
+; The exension is critical. !!IMPORTANT!! No HTML special characters are
+; allowed !!
+21376="(Kritik)"
+
+; IMPORTANT!!!! Do not change %u, %ld or \r and \n !!!!
+21461="\r\n\r\nOrtak Anahtar parmak izi (SHA-1):\r\n  "
+
+; Max 199 chars 
+21366="%u bit Özel anahtar. Üretilen %s.\r\nURL: %s"
+
+21362="Sertifika SSL doğrulama ya da SSL sertifikaların yayınlanmasında kullanılamaz."
+21356="Bu sertifika SSL hizmetçi doğrulamasında kullanılabilir."
+21357="Bu sertifika SSL sunucu doğrulamasında kullanılabilir."
+21358="Bu sertifika SSL sunucu ve hizmetçi doğrulamasında kullanılabilir."
+21359="Bu sertifika SSL sertifikaların yayınlanmasında kullanılabilir."
+21360="Bu sertifika SSL hizmetçi doğrulamasında ve SSL sertifikaların yayınlanmasında kullanılabilir."
+21361="Bu sertifika SSL sunucu doğrulamasında ve SSL sertifikaların yayınlanmasında kullanılabilir."
+21363="Bu sertifika SSL sunucu ve hizmetçi doğrulamasında ve SSL sertifikaların yayınlanmasında kullanılabilir."
+; Used in a popup error message when the server has requested an
+; authentication method that Opera does not support, when fetching a
+; document.
+32901="Sunucu desteklenmeyen oturum açma doğrulaması yöntemi talep etti."
+
+; Used in a popup error message when a proxy server has requested an
+; authentication method that Opera does not support, when fetching a
+; document.
+32902="Vekil sunucu, desteklenmeyen bir oturum açma doğrulaması yöntemi talep etti."
+
+; Used in a popup error message when the user has tried to authenticate to a
+; page outside of the given security realm.
+32907="bu URL doğrulanabilir URL'lerin listesinde değil. \r\ndoğrulama talebi gönderilemiyor."
+
+; Used in the progress bar while Opera is uploading a file to the server.
+21386="Dosya(ları)n sunucuya yüklenmesi"
+
+21382="Bu işlev Opera'nın bu sürümünde geçerli değil."
+21379="Bu özellik devre dışı"
+; Used as a title of the generated drives list page (opera:drives) on some
+; platforms.
+21383="Sürücüler"
+
+; Used as title of the generated plug-in list page (opera:plugins) on some
+; platforms.
+21384="Eklentiler"
+
+; Used as title of the generated history list page, when the user has
+; selected Windows/Special/History, or entered the URL opera:history.
+21385="Geçmiş"
+
+21400="Eklenti dizinleri tarandı.\nyeni dosya tipleri eklentileri devreye alındı.\n Bilinen dosya tipleri eklentileri eklendi ama devreye alınmadı."
+; Used as title of the generated cache list page, when the user has selected
+; Windows/Special/Cache, or entered the URL opera:cache.
+21415="Geçici bellek"
+
+; Used in the Filename column of the created cache listing (created by
+; entering the special URL opera:cache into the URL field) when the file
+; is cached in memory and not to a file.
+22493="(Bellek)"
+
+; Used in about page.
+22491="Kaynak kodu"
+
+; Used as page title in a blank page created by entering the special URL
+; opera:blank in the URL field.
+22492="boş sayfa"
+
+; Used as column titles in the generated cache list page, when the user has
+; selected Windows/Special/Cache, or entered the URL opera:cache.
+21416="Dosya Adı"
+21417="Adres"
+21418="Boyut"
+
+21420="Bu aktarımı iptal etmek istiyor musunuz?"
+; Used in a popup confirmation dialog when the user has gone to
+; Preferences/Multimedia, enabled plug-ins and pressed the 'Find plug-ins'
+; button, and new plug-ins needs to be activated.
+21764="/"%2/" dosya tipi için /"%1/" eklentisini ilişkilendirmek istiyor musunuz?"
+
+21428="Kayıtsız sürüm"
+21501="Sayfayı buraya ekle..."
+21504="Tüm dizin nesnelerini aç"
+; Docked hotlist window
+21517="Başlık"
+
+21525="Yer imlerini yönet..."
+21600="Takma ad nokta, iki nokta üst üste ve taksim işareti içeremez."
+21601="Geçersiz takma ad"
+22520="Özel Fare Hareketleri"
+22521="İlk kez özel fare hareketi uyguladınız\n\nFarenin ikinci düğmesi basılı iken\nözel fare hareketleri çalıştırılabilir. Özel fare hareketleri için Yardım'a basınız.\n\nÖzel fare hareketlerini kullanmaya devam etmek ister misiniz?"
+; Use skin from button set (buttons.ini)
+22738="Düğme setindeki kaplamayı kullanayım mı?"
+22737="Düğme seti tema resimlerini içerin.\nOnları kullanmak ister misiniz?"
+
+22739="Opera'yı satın alıp, reklam panolarını kaldırmak için buraya tıklayın"
+; Serial number stuff
+22004="Opera kaydı"
+22002="Girmiş olduğunuz kayıt bilgisi doğru olarak görünmüyor.\n\nLütfen doğru olarak girdiğinize emin olunuz."
+22003="Opera şimdi kayıtlıdır."
+
+21300="Kısayollar"
+21301="İndeks"
+21342="Opera kapandığı zaman."
+21343="Bu çerez yalnız alan adındaki güvenli sunucuya gönderilecek."
+21393="Bu çerez alan adındaki herhangi bir sunucuya gönderilebilir."
+21394="Bu çerez yalnız bu güvenli sunucuya gönderilecek."
+21395="Bu çerez yalnız bu sunucuya gönderilecek."
+21396="Bu çerez veritabanından kaldırılacak."
+21397="Özellikler dosyası alındı.Fakat bu dosyanın kullanılabilmesi için komut satırının yükseltilmesi gerekiyor. Yükseltme önceki Opera sürümleriyle uyumsuzluğa neden olabilir. Yükseltmek istiyor musunuz? Eğer [Hayır] ı seçerseniz varsayılan ayarlar kullanılmaya devam edecek."
+22071="İndirmeler"
+22232="kullanıcı tanımlı"
+; Used in a popup error dialog during loading of global history list.
+21431="Geçmiş dosyanız bozuk ve temizlenecek."
+
+; Probably deprecated. On O7 and O6 Win, the JavaScript error dialog is
+; popped up instead, if the user has requested in preferences/Multimedia
+; to be alerted of JavaScript errors.
+32825="JavaScript işletimi yapılamadı."
+21450="Betiğin işletilmesi hata ile sonuçlandı."
+21451="Betiğin derlenmesi hata ile sonuçlandı."
+
+; Used if Opera for some reason tries to run JavaScript in a non-HTML
+; document. This is not likely to happen.
+21452="javascript: URL'ler sadece HTML belgelerle çalıştırılabilir."
+
+; Used in a popup error message when the Opera fails to load the JavaScript
+; library at startup.
+21453="ES262-32.DLL sistem dosyası yüklenemedi. JavaScript işletilemeyecek. "
+
+; Used in the progress bar while Opera is busy running a JavaScript program.
+21454="JavaScript işletiliyor..."
+
+22076="İsim"
+22075="Boyut"
+22080="Tür"
+22077="İşlem"
+22078="Kalan Zaman"
+22079="Hız"
+22085="Tamamlandı"
+22086="Durduruldu"
+22087="Hata"
+22109="Dosya bilgisini kopyala"
+22099="Hata"
+22120="Dosyalar"
+22122="Bütün Dosyalar (*.*)"
+14121="Bu sayfadaki java programlarını çalıştırma"
+25266="&Bu ekranı bir daha gösterme"
+22151="Yeni dizin"
+; Used in the title bar of a warning/confirmation dialog when a script tries
+; to read the content of a password input element in a form in a HTML
+; document.
+22486="JavaScript güvenlik uyarısı"
+
+; Used in a warning/confirmation dialog when a script tries to read the
+; content of a password input element in a form in a HTML document.
+21430="Bir betik formdaki bu şifreleri okumak istiyor.\n\nBu betiğe şifrelerinize erişmeye izin vermek ister misiniz?"
+
+22102="Çevirmeli ağ bağlantısını kesme işlemi yapılamadı (zaman aşımı)"
+22103="Çevirmeli ağ bağlantısı kesilsin mi?"
+22104="%s'a bağlandınız. Açık çevirmeli ağ bağlantılarını kapatmak ister misiniz?"
+22115="Sık kullanılan özellikleri"
+22117="Yer imleri"
+34304="Yanlış PIN Kodu"
+34305="İmza doğrulanamadı"
+34306="Bu kart okuyucusu kullanımda"
+34307="Bu kartla ilgili bir kaç sorun olabilir"
+34308="kart numaranız Bu E-Postada listelenen alıcılardan hiç birinki  ile uyuşmuyor"
+34309="şifrelenemedi (tanımlanmamış hata)"
+22128="İsim"
+22263="Çevrimiçi"
+22264="Dışarıda"
+22265="Hemen dönecek"
+22266="Meşgul"
+22268="Çevrimdışı görün"
+22269="Telefonda"
+69523="Yemekte"
+22415="Sanat / Kültür"
+22416="Otomobiller"
+22417="Kitaplar / Dergiler"
+22418="Bilgisayar / Oyunlar"
+22419="Bilgisayar / Teknoloji"
+22420="Yemek Pişirme"
+22421="Moda / Dükkanlar"
+22422="Finans / Yatırım"
+22423="Yiyecek / şarap"
+22424="Sağlık / Zayıflama"
+22425="Ev / Bahçe"
+22426="Filmler"
+22427="Müzik"
+22428="Haberler / Olaylar"
+22429="Bilim / Eğitim"
+22430="Spor  / Hobiler"
+22431="Seyahat / Tatil"
+22432="Belirtilmemiş"
+22433="25,000 $ dan az"
+22434="25,000-35,999 $"
+22435="36,000-49,999 $"
+22436="50,000-75,999 $"
+22437="76,000-99,999 $"
+22438="100,000 $ dan fazla"
+22439="1900-1929"
+22440="1930-1949"
+22441="1950-1959"
+22442="1960-1969"
+22443="1970-1979"
+22444="1980-1989"
+22445="1990 ya da sonrası"
+22446="Erkek"
+22447="Kadın"
+22448="Bekar"
+22449="Bekar ve çocuklu"
+22450="Evli"
+22451="Evli ve Çocuklu"
+22452="Orta öğretim"
+22453="Lise"
+22454="Yüksekokul"
+22455="2 yıllık üniversite"
+22456="4 yıllık üniversite"
+22457="Lisans üstü"
+21470="Bu sayfa tanımlama dosyası göndermek istiyor\r\n   %s="%s"\r\n\r\nBu değer %sgönderilecek %sşuradaki belgelere %s%s%s%s, ve şununla başlayan yola /%s.\r\n\r\n"
+21471="sadece "
+21472="güvenli sayfalar "
+21473="bu sunucu "
+21474="bu alan adındaki bütün sunucular "
+21475=", bağlantı noktası"
+22234="Opera'yı yükseltin"
+21476="bu çerez Opera kapandığı zaman silinecek."
+21477=", ama hakim olmazsanız, bu çerez Opera kapandığı zaman silinecek."
+21478="%s%s 'a kadar bu çerez geçerli olacaktır \r\n\r\n"
+21479="Bu çerez %s 'a kadar geçerli ve süresi geçmiş. aynı isimli herhangi bir mevcut çerez silinecek.\r\n\r\n"
+21480="Bu hizmet bu çerezin amacı hakkındaki aşağıdaki iletiyi gönderdi :"%s"\r\n"
+21481="\r\ndaha ayrıntılı bilginin bulunacağı adres : <%s>\r\n%s\r\n\r\n"
+21482="servisin Bu çerez hakkındaki bilgileri sunacağı adres : <%s>\r\n%s\r\n\r\n"
+21483="\r\nAşağıdaki "görünüm yorumu" düğmesini tıklayarak bu sayfayı görebilirsiniz.\r\n"
+21484="Kabul et (Opera kapanmadan önce değişiklikleri içerir)"
+21485="Kabul et (Değişiklikler hariç)"
+21486="Kabul et, ama Opera kapanırken sil"
+21487="Kabul et, ama Opera kapanırken kaydet"
+21488="Bu sunucudan gelen çerezleri kabul et"
+21489="Bu sunucudan gelen çerezleri reddet"
+21490="Bu alan adından gelen çerezleri kabul et"
+21491="Bu alan adından gelen çerezleri reddet"
+21499="\r\n----------------------\r\nBütün Çerez İstekleri:\r\n\r\n"
+21738="Bu sunucudan gelen Üçüncü parti çerezleri kabul et"
+21739="Bu sunucudan gelen Üçüncü parti çerezleri reddet"
+21740="Bu alan adından gelen Üçüncü parti çerezleri kabul et"
+21741="Bu alan adından gelen Üçüncü parti çerezleri reddet"
+21492="Tümünü sormadan reddet"
+21493="Çok seçenekli olarak iletişim kutusunda görüntüle."
+21494="Sunucu Yöneticisi'nde tanımlanmış olarak işaretle"
+21495="Tümünü sormadan kabul et"
+21496="Sadece sunucudan gelen çerezleri kabul et"
+21497="Tümünü sormadan reddet"
+21746="Çok seçenekli şekilde iletişim kutusunda görüntüle"
+21498="Tümünü sormadan kabul et "
+22183="Değişiklikleri uygulamak için Opera yeniden başlatılmalıdır.\n\nOpera'yı kapatmak istiyor musunuz?"
+22184="Opera'yı kapatayım mı?"
+22185="Geçerli dil (İngilizce)"
+22210="Desteklenmiş Java Çalışma Ortamı sürümü bulunamadı.\n Sun firmasından Java Çalışma Ortamı'nın 1.2 ya da daha üst sürümünü yüklemeniz gerekmektedir.\nJava otomatik olarak bu oturum için devre dışı bırakılacaktır.\nsonraki oturumlar için java'yı  devre dışı bırakmak istiyor musunuz? "
+22211="Opera'nın java sınıflarını işletmek için yeteri kadar yetkilendirmesi yok. \nOpera'nın yetkiler dosyası bulunmadı ya da bu yetkiler dosyası \n Opera.jar dosyasının iznini içermiyor. Java appletleri çalışmayacak."
+22212="Yüklenmiş Java Çalışma Ortamı sürümü Opera'nın sürümü ile uyumlu değil. Lütfen JRE 1.2 ya da daha yeni sürümünü <http://www.javasoft.com> adresinden indiriniz."
+22213="Java DLL Kayıt biriminin söylemiş \nolduğu yerde bulunamadı. Java yüklemeniz\n bozuk gibi görünüyor. Java Appletler çalışmayacak."
+22214="Java sanal makinesi oluşturulamadı. "
+22215="Java sanal makinesinden çıkıldı.\n\n Bu oturumun tümü için java devre dışı olacak."
+22216="Java sanal makinesi iptal edildi.\n\nBu oturumun tümü için java devre dışı olacak. "
+22217="Yerel java metotların kaydı yapılamadı.\n\n ya eski Opera.jar dosyasını kullanıyorsunuz \nya da bu dosya Opera Class yolunda değil. Java Appletler çalışmayacak."
+22218="JREnin yükleme talimatlarını görmek istiyor musunuz? "
+22219="Opera.jar dosyası bulunamadı.\n[JAVA] bölümünde ya da Opera.ini dosyanızda 'OPERA CLASSPATH' girdisi yok \nya da Bu girdi yanlış dizini gösteriyor.\n Java Appletler çalışmayacak."
+22220="Opera.policy dosyası bulunamadı.\n[JAVA] bölümünde ya da Opera.ini dosyanızda 'SECURITY POLICY' girdisi yok\nya da Bu girdi yanlış dizini gösteriyor.\n Java Appletler çalışmayacak."
+; Dialog title for signed Java applets certificate dialog.
+22221="Java güvenlik"
+
+; Used in dialog for signed Java applets.
+22222="Bir imzalı applet daha fazla ayrıcalıklar talep ediyor.Bu applete bütün izinleri vermek ister misiniz?"
+
+22123="Hiçbiri bulunamadı"
+22173="E-posta gönderme hatası"
+22174="Herhangi bir dış E-Posta uygulaması belirtilmedi."
+22175="E-posta gönderme hatası"
+22176="Dış E-Posta uygulaması başlatılamadı."
+22179="E-posta"
+22182="Opera E-Posta hesabınızın özellikleri yeteri kadar ayarlanmadı.\nşimdi E-Posta tercihlerinizi düzeltmek istiyor musunuz?"
+22180="Seçilmiş dış E-Posta hizmetçisi belertilmedi.\nşimdi E-Posta tercihlerinizi düzeltmek istiyor musunuz?"
+22181="Bilgisayarınızda varsayılan bir E-Posta hizmetçisi yok.\nşimdi E-Posta tercihlerinizi düzeltmek istiyor musunuz?"
+22177="Uyarı"
+22178="Seçilen dış E-Posta hizmetçisi ya mevcut değil \nya da geçerli hesaba sahip değil.\n\nyine değişiklikleri uygulayım  mı?"
+21720="Opera olarak tanıt"
+21721="Mozilla %s olarak tanıt"
+21723="MSIE %s olarak tanıt"
+21736="Yasal olmayan yollara izin ver "
+21734="Re&ddet"
+21735="K&abul et"
+22240="Dil dosyalarınızı içeren dizini seçiniz"
+22514="Kullanıcıdan tanımlı"
+; Used as default text on submit input elements in forms in HTML documents.
+13043="Gönder"
+
+; Used as default text on reset input elements in forms in HTML documents.
+13044="Sıfırla"
+
+; Used as default text on button input elements in forms in HTML documents.
+13045="Düğme"
+
+; Used at top of the document when trying to show an malformed XML document.
+; Followed by a more specific XML error message.
+13046="XML yorumlamada sorun"
+
+; Used in a popup error message when the user has entered input in a text
+; input element in a WML document, and the input did not match the format
+; specification.
+13047="Geçersiz girdi"
+
+11463="&Sayfa Çubuğu"
+11458="Aramaları göster"
+11326="En son kullanıldığı gibi"
+11327="Sayfa çubuk düzeni ile"
+11328="Listeyi göstermeden"
+; Preferences dialog options
+11521="Reklam"
+11500="Erişilebilirlik"
+11501="Varsayılan tarayıcı"
+11502="Yazı tipleri "
+11503="E-Posta"
+11504="Dosya türleri"
+11505="Geçmiş ve geçici bellek"
+11506="Tarayıcı görüntüsü"
+11524="Sayfa Stili"
+11507="Diller"
+11508="Çoklu ortam"
+11509="Ağ"
+11511="Programlar ve yollar"
+11512="Kişisel bilgiler"
+11514="Gizlilik"
+11515="Güvenlik"
+11516="Sesler"
+11517="Başlangıç ve çıkış"
+11522="Arama"
+11519="Pencereler"
+
+11626="Kategori"
+11621="Yeni ayarlar uygulanıyor, lütfen bekleyiniz...."
+11627="İsim"
+11628="Açıklama"
+11629="Yol"
+17035="MIME tipi"
+17036="Dosya uzantıları "
+; Unicode block names for the international font preferences
+11525="Otomatik"
+11526="Geçerli yazı tipi yok"
+11527="Arapça"
+11528="Ermenice"
+11529="Basit Latin"
+11530="Bengal"
+11531="Cherokee"
+11532="Para birimi sembolleri"
+11533="Basitleştirilmiş Çince"
+11534="Geleneksel Çince"
+11535="Kiril alfabesi"
+11536="Devanagari"
+11537="Etyopyaca"
+11538="Genel noktalama işaretleri"
+11539="Gürcüce"
+11540="Yunanca"
+11541="Genişletilmiş Yunanca"
+11542="Gujarati"
+11543="Gurmukhi"
+11544="Yarım genişlikli ve Tam genişlikli Formlar"
+11545="Hangul"
+11546="İbranice"
+11547="Hiragana"
+11548="CJK sembolleri ve noktalama işaretleri"
+11572="Kanji"
+11549="Kanada"
+11550="Katakana"
+11551="Khmer"
+11552="Laoca"
+11553="Latin-1 Eklemesi"
+11554="Latin Genişletilmiş-A"
+11555="Latin Genişletilmiş-B"
+11556="Latin Genişletilmiş Eklentiler"
+11557="Malayca"
+11558="Moğolca"
+11559="Myanmar"
+11560="Sayı Formları"
+11561="Ogham"
+11562="Oriya"
+11563="Runik"
+11564="Sinhala"
+11565="Süryanice"
+11566="Tamilce"
+11567="Telugu"
+11568="Thaana"
+11569="Tayca"
+11570="Tibetçe"
+11571="Birleşmiş Kanada Aborijin Hecelemesi"
+
+; About page
+11700="Opera Hakkında"
+11701="Kayıt bilgileri"
+11702="Kayıtlı mı?"
+11703="İsim"
+11704="Kuruluş"
+11705="Değerlendirme"
+11706="Yollar"
+11707="Sistem"
+11708="Tercihler"
+11709="Opera dizini"
+11710="Kaydedilmiş pencereler"
+11711="Sık kullanılanlar"
+11712="Eklenti dizini"
+11713="Geçici bellek"
+11714="Yardım belgeleri"
+11715="Java"
+11716="Üçüncü parti yazılımlar"
+11717="Opera software yukarıda belirtilen grup ve kişilere yardımlarından dolayı teşekkür eder."
+11718="Yüklü JRE sürümü Opera'nın bu sürümü ile desteklenmemektedir."
+11719="Java Çalışma Ortamı yüklü değil"
+11720="Evet"
+11721="Hayır"
+11722="Geçersiz"
+
+22248="piksel"
+22250="piksel başına bit"
+22249="bayt"
+22244="hata iletisi"
+22251="%i karede canlandırılmış"
+22170="Dosya bulunamadı."
+22171="Geçersiz dosya ismi"
+22167="Lütfen yol ve dosya isminin doğru olduğunu kontrol ediniz."
+22510="bayt"
+22252="B"
+; Short for kilobyte
+22253="KB"
+
+22254="MB"
+22255="GB"
+22256="TB"
+22257="/s"
+; Used in about page.
+22480="Java yüklü değil"
+
+22465="Dosyaların kaydedileceği dizini seçiniz"
+; Used in about page.
+22481="Sürüm"
+22482="Revizyon"
+22483="Platform"
+22484="Sürüm bilgisi"
+22485="Sistem"
+22568="Ortak"
+
+22245="Opera yazıcınıza bağlanırken hata oluştu.Lütfen yazıcı ayarlarınızı kontrol ediniz. eğer uzak yazıcınız veya şebeke yazıcınız varsa şebeke bağlantınızı kontrol ediniz."
+22246="Yazıcı sorunu"
+22247="Yazıcı"
+22163="Bu penceredeki kaynak kodu düzenlendi.Saklamak ister misiniz?"
+; Used in the window title when the page has been edit using the internal
+; source viewer.
+22164="(Düzeltilmiş) "
+
+22235="Sayfa"
+; Used in a warning/confirmation dialog when the user has activated offline
+; mode and then requested Opera to access information that is only
+; available online.
+21433="şu anda çevrimdışı moddasınız.\n%s\n adresini açamazsınız\nÇevrimiçi moda geçmek ister misiniz?"
+
+22569="Dakika"
+22237="Dakika"
+22570="Saniye"
+22723="Saniye"
+22238="En son kullanılan"
+22239="Geçersiz yeniden yükleme değeri girdiniz.\nsadece rakamlar kullanılabilir ve yeniden yükleme değeri SIFIR olamaz."
+; XML error message used at top of the document, following string 13046,
+; when trying to show an malformed XML document. Followed by a line and
+; character count to help finding the error in the XML file.
+25001="Yetersiz bellek"
+25002="Yazılım hatası"
+25003="Bileşen bulunamadı"
+25004="iyi doldurulmadı"
+25005="Kapanmamış işaret"
+25007="Uyumsuz etiket"
+25008="Niteliği kopyala"
+25009="Belgeden sonra hurdaya at"
+25010="geçersiz parametre varlık referansı"
+25011="tanımlanmamış varlık"
+25012="tekrarlanmış varlık başvurusu"
+25013="Eşzamansız varlık"
+25014="yanlış karakter numarasına başvuru"
+25015="ikilik varlığa başvuru"
+25016="özellik belirtmede harici varlığa başvuru"
+25017="XML işleme bilgileri harici varlığın baş tarafında değil"
+25018="bilinmeyen kodlama"
+25019="XML açıklamasında belirlenmiş kodlama yanlış"
+25020="kapanmamış CDATA bölümü"
+25021="Harici varlık başvurusu işlenmesinde hata"
+25022="Bu belge bağımsız değildir"
+25000="Bilinmeyen hata"
+
+; Error messages from XML
+25023="Satır"
+25024="Karakter:"
+
+22154="'%s' için geçersiz değer"
+21765="'%1' geçersiz değer içeriyor\n %2 ile %3 arasındaki değer gereklidir.\n\n"
+22156="Bu değeri sıfırlamak ister misiniz?"
+22157="En son iyi değere eşitleyerek"
+22243="Bilinmeyen"
+; Used in a warning/confirmation dialog when an URL with a user name (like
+; http://username@www.example.com) is entered in the URL field.
+21463="Güvenlik uyarısı:\n\nKullanıcı ismini içeren adres göndermektesiniz.\n\n  kullanıcı İsmi: %s \n    sunucu :  %s\n\nBu adrese gitmek istediğinize emin misiniz?"
+
+22161="Bulunamadı."
+22162="Metin bulunamadı. "
+21120="Bütün başlıkları göster"
+; Label in the displayed header of a news/mail/MIME/MHTML message.
+21122="Tarih"
+21123="Kimden"
+21124="Konu"
+21125="Kime"
+21121="Bilgi"
+21126="CC"
+
+22703="Sadece resimler"
+22704="Sadece metin"
+22705="Resimler ve metin aşağıda"
+22706="Resimler ve metin sağda"
+22715="Açılır pencereleri kabul et"
+22716="Açılır pencereleri engelle"
+22717="Açılır pencereleri arka planda aç"
+22718="İstenilmeyen açılır pencereleri engelle"
+25316="Silmeyi onayla"
+25317="Lütfen bu panelin kalıcı olarak silinmesini onaylayınız.\n\n%s"
+25318="Hızlı liste paneli eklensin mi?"
+22729="Seç"
+22730="Opera kaydedilmiş pencere ayarlarınızla açılacak"
+22731="Opera başlangıç sayfanız ile açılacak"
+22732="Opera en son bıraktığınız şekilde açılacak."
+22733="Opera penceresiz açılacak"
+22734="Değişiklik yapmak için tıklayınız"
+17171="Google"
+17187="AllTheWeb"
+17189="Super"
+17174="Fiyat Karşılaştırma "
+17176="Alan adı"
+17180="Resim"
+17181="Video"
+17188="Google grupları"
+17182="Opera destek"
+17203="Haberler"
+; Prompting the user to enter the password protecting the key when importing
+; PKCS #12 key/certificate.
+21747="Lütfen anahtarı korumak için şifreyi giriniz"
+
+; Prompting the user to enter the password protecting the key when exporting
+; PKCS #12 key/certificate.
+21748="Lütfen ihraç edilmiş özel anahtarı korumak için şifreyi giriniz"
+
+; Prompting the user to re-enter the password protecting the key when
+; exporting PKCS #12 key/certificate.
+21749="Lütfen şifreyi yeniden giriniz"
+
+; Used when importing private PKCS #12 key.
+21750="Özel anahtarı al"
+
+21751="Anahtar ve sertifikayı al"
+21752="Özel anahtarı ve ilişikteki sertifikaları almak istiyor musunuz?"
+; Ask the user if to import the private PKCS #12 key.
+21753="Bu dosyada depolanan özel anahtarı almak istiyor musunuz?"
+
+; Error messages when importing PKCS #12 key/certificate.
+21754="Bu Özel anahtar ve sertifika alınamadı."
+21755="Dosyada özel anahtar yok"
+21756="İthal edilen anahtar ilişikteki sertifikanın anahtarı ile uyuşmuyor. İşlem yapılamadı."
+
+30211="Otomatik vekil sunucu yapılandırması tamamlanamadı.\nVekil sunucu yapılandırması devre dışı kalacak."
+22728="Adres alanında Web taraması yapabilirsiniz"
+25411="Dış E-Posta çerçevesi"
+25412="İç çerçeve kaynak kodu yüklenmesi önlendi:"
+10000="Yeni pencere aç"
+14134="İndirmeye devam et"
+14136="İndirmeyi durdur"
+67003="Boyut"
+67007="Parola Sihirbazı"
+; Message shown in the status bar when Java Virtual Machine is
+; loading/starting up.
+67008="Java sanal makinesi çalıştırılıyor"
+
+; Attribution-line when replying to a mail
+67009="%:Date tarihinde %f şöyle yazmış:"
+
+; Attribution-line when forwarding a mail
+67010="\\n\\n------- İletilmiş ileti -------\\nKimden: %:From:\\nKime: %:To:\\nKonu: %:Subject:\\nTarih: %:Date:\\n"
+
+; Attribution-line when followup to a news message
+67011="%:Date tarihinde %f şöyle yazmış:"
+
+; Attribution-line when replying by mail to a news message
+67012="%:Tarihinde:, %:Haber grubunda:: yazdınız"
+
+; Attribution-line when forwarding by mail a news message
+67013="\\n\\n---- İletilmiş Usenet iletisi ----\\nKimden: %:From:\\nHabergrubu: %:Newsgroups:\\nKonu: %:Subject:\\nTarih: %:Date:\\nURL: news://%:Message-Id:\\n"
+
+67020="Parola Sihirbazı"
+67021="Dizin kontrol ediliyor"
+67022="Dizinler getiriliyor"
+67023="Metni getiriyor"
+67024="Ekler getiriliyor"
+67025="Dizin oluşturuluyor"
+67026="Dizin siliniyor"
+67027="Dizin tekrar isimlendiriliyor"
+67028="Dizine üye olunuyor"
+67029="İleti siliniyor"
+67030="İleti zapta geçiliyor"
+67031="İşaret kaydediliyor"
+67032="Sunucuya bağlanılıyor"
+67033="Yanlış ileti büyüklüğü"
+67034="Yanlış kullanıcı ismi"
+67035="Yanlış şifre girdiniz"
+67036="İç ait hata"
+67037="Böyle bir ileti yok!"
+67038="Sunucudan iletileri silerken hata oluştu"
+67039="Bu Sunucuda TLS yok. Bu sunucudan E-Posta alabilmek için güvenli bağlantıyı kapatmanız gerekiyor."
+67040="Belirtilmemiş"
+67041="POP3 sunucusuna bağlanılamadı. Ağ hatası ?"
+; About page
+67042="Mail  dizini"
+
+67043="Sunucu geçersiz yönlendirme yaptı"
+; Used in index category in M2
+67044="Imap Dizinleri"
+67045="Süzgeçler"
+
+; Used while M2 is searching. Padded by ' <search>...'
+67046="Ara"
+
+; Formats the M2 display of time today
+67047="Bugün %X"
+
+; Used in M2 when a message has no label
+67048="Etiket yok"
+
+; Priority of a M2 message
+67049="En yüksek öncelikli"
+67050="Yüksek öncelikli"
+67051="Düşük öncelikli"
+67052="En düşük öncelikli"
+
+; Used in Mail|Manage Account
+67053="Hesap"
+67054="Durum"
+
+; Used in Mail|Newsgroups
+67055="Üye olundu"
+67056="Durum"
+67057="Haber grubu"
+
+; Received news index in m2
+67058="Gelen haberler"
+
+; Received list index in m2
+67059="Gelen listesi"
+
+; Clipboard index in m2
+67060="Önbellek"
+
+; Prefix for newsservers in serverlist in m2
+67061="Haberler:"
+
+; Prefix for mailservers in serverlist in m2
+67062="Posta"
+
+; Name for a new Imap folder in M2
+67063="Yeni"
+
+; Status-message when done fetching messages in M2
+67067="%u ileti alındı"
+
+; Status-message when no messages was fetched in M2
+67068="Hiçbir ileti alınamadı veya gönderilemedi"
+
+; Error-message if setting From or Organization in M2 failed
+67069="("%s") dan ya da  ("%s") kurumundan alınan başlıklar ayarlanamadı"
+
+; The From-address is not given according to standards
+67070="Hatalı 'Kime' adresi"
+
+; M2 was unable to mime-encode a message
+67071="Mime-kodlama hatası"
+
+; Store::AddMessage failed
+67072="İleti saklanamadı"
+
+; M2 needs Drafts and Outbox to store messages
+67073="Taslaklar ya da Giden kutusu bulunamadı"
+
+; M2 will move a message to Outbox when sending or queueing it
+67074="İleti Giden kutusuna taşınamadı"
+
+; M2 will move a message from Drafts when it is sent or deleted
+67075="İleti Taslaklar kutusuna taşınamadı"
+
+; M2 got an error-message while sending a message
+67076="İleti gönderilmesi hata ile sonuçlandı."
+
+; Default name for new indexes in M2
+67077="Yeni Süzgeç"
+
+; Used for invalid mbox files in M2
+67078="Geçersiz dosya "
+
+; Used various places in the import-code in M2
+67079="Al"
+
+; Progress-information in M2 import-code
+67080="Daha önce getirilmişti"
+
+; Used in the M2 Import Mail wizzard
+67081="Özel anahtarı al."
+
+; Marks where quoted text has been removed when replying to a mail
+67082="<kırpılmış>"
+
+; The file being downloaded is already being written to the selected file,
+; this is not possible!
+67083="MIME türü zaten belirlenmiş durumda"
+67084="Lütfen başka dosya ismi seçiniz."
+
+; Period to view e-mails from
+67085="Bugün"
+67086="Hafta"
+67087="Ay"
+67088="Üç Ay"
+67089="Yıl"
+67090="Sunucu"
+
+; Remove folder warning dialog title
+67091="%s kaldır"
+
+67092="Bu haber grubu aboneliğinden çıkmak istediğinize emin misiniz?"
+67093="'%s' silmek ister misiniz ?"
+67094="Bu IMAP dosyası aboneliğinden çıkmak istediğinize emin misiniz?"
+; Start a full search from the mail hotlist panel
+67095="Aramaya başla"
+
+67096="Hiçbir ileti seçilmedi"
+67097="Hiçbir görünüm seçilmedi"
+; Title of button in compose window
+67098="BCC"
+67099="Cevapla:"
+67100="İzlenecek:"
+67101="Haber"
+
+67102="(%d Okunmayan)"
+67103="(%d okunmamış, Toplam %d )"
+67104="Ek"
+67105="Boyut"
+67106="Hiçbir E-Posta adresi ayarlanmadı. Lütfen hesap ayarlarını yapınız"
+67107="Eksil sunucu ayarı"
+67108="Hesapta giden posta sunucusu ayarı bulunamadı"
+67109="Geçersiz 'kimden' adresi"
+67110="Hesapta eksik E-Posta adresi"
+67111="Geçersiz ileti"
+67112="Eksik adres ya da konu"
+67113="İletiyi iptal et"
+67114="Bu iletiyi iptal etmek istediğinize emin misiniz?"
+; Priority of a M2 message
+67115="Normal öncelikli"
+
+67116="Gidilecek Web adresi"
+67117="Hızlı bul"
+67118="Büyült"
+67119="Durum alanı"
+67120="Hesabı sil"
+67121="Bu hesabı silmek istediğinize emin misiniz?"
+67122="Hesapları yönet "
+67123="Hesap özellikleri"
+67124="%s sunucu "
+67125="Gelen %s sunucu"
+67126="Giden %s sunucu"
+67127="Varsayılan kodlama"
+67128="Sunucu temizleme"
+67129="Okunmuş iletileri silmek istediğinize emin misiniz?"
+67130="Tür"
+; General Do-not-show-this-dialog-again text for use in most new dialogs
+67131="Bu ekranı bir daha gösterme"
+
+67132="İleri >"
+67133="< Geri"
+67134="Bitir"
+67135="Kapat"
+67136="Orta"
+67137="Güçlü"
+67138="Ya da"
+37139="Ve"
+67140="Konu"
+67142="Kimden başlığı"
+67143="Kime başlığı"
+67144="CC başlığı"
+67145="Cevapla başlığı"
+67146="Haber Grubu başlığı"
+67147="Başka başlık"
+67148="İletinin tümü"
+67149="İçerir"
+67150="İçermez"
+67151="Düzenli ifadelere uyan"
+67152="Uyan iletileri süzgeçten geçir"
+67153="Ya da "
+67154="Ve "
+67155="Konu"
+67156="Gönderenin ismi"
+67157="Başka başlık"
+67158="iletinin tümü"
+67159="İçerir"
+67160="İçermez"
+; Used to format the title of a dialog, contact properties and similar
+67162="%s özellikleri"
+
+67163="Opera temalarını indir "
+67164="Tema indiriliyor..."
+67165="İndirilmiş temayı etkin kıl "
+67166="Bu tema kabul etmek istiyor musunuz?"
+67167="Tema ismi"
+67168="Yetkili:"
+67169="İndirme hatası"
+67173="Bir önceki oturum "
+67175="%d byte indirildi"
+67218="Sil"
+; Status-message when messages was sent in M2
+67361="%u gönderildi"
+
+67504="İletinin içeriği indirilmedi"
+67506="Normal E-Posta (POP3)"
+67507="IMAP"
+67508="Haber"
+67509="E-Posta  al"
+67510="OperaMail (Web)"
+67511="Opera 5/6 dan al"
+67512="Eudora dan al"
+67513="Netscape 6/7 den al"
+67514="Outlook Express®'ten E-postaları al"
+67515="mbox ile ilgili dosyaları al"
+; 'prefs' is the base name of the file, and should probably not be
+; translated
+67517="Netscape özellikler dosyası (prefs.js):"
+69416="Netscape özellikler dosyası (prefs.js)|prefs.js|"
+70512="Thunderbird özellikler dosyası (prefs.js):"
+70513="Thunderbird özellikler dosyası (prefs.js)|prefs.js|"
+
+67516="Posta Kutusu dizini:"
+67518="mbox dosya türü:"
+69417="Genel posta kutusu dosyaları (*.mb*)|*.mb*|Tüm dosyalar (*.*)|*.*|"
+67540="Kontrol et"
+; Added in front of server response when POP server returnes an error
+67561="Sunucu bildirimini :"
+
+; Used when IMAP folder subscription fails
+67589="Dizinin üyelik değiştiriminde hata oluştu! Belki dizin sunucudan silinmiş olabilir"
+
+; Used when mailserver reports that it does not support TLS
+67590="Sunucuda TLS desteği yok!"
+
+; Generic error when connection to IMAP server failed
+67591="IMAP sunucusuna bağlanılamadı."
+
+; Precedes IMAP alert messages
+67592="IMAP sunucusundan gelen uyarı: "
+
+; Used when IMAP-server notifies that folder has been renamed on server
+67593="Dizin ismi '%s' iken '%s' olarak değiştirildi"
+
+; Used when appending a message to an IMAP folder
+67594="İletilerin dizine taşınması hata ile sonuçlandı"
+
+; Used when copying an IMAP message failed
+67595="İleti kopyalanamadı"
+
+; Used when local storing of IMAP message failed
+67596="Getirilen ileti makinenize kaydedilemedi. Yeni iletileri indirdiğinizde bu ileti tekrar getirilecek."
+
+; Used by M2 POP backend when storing a message fails
+67597="Opera iletiyi %d (UIDL %s) POP3 sunucusundan indirmeye çalıştı, fakat makinenize kaydetme esnasında hata oluştu."
+
+; Generic message when a M2 backend fails to connect to its server
+67598="Sunucuya erişilemedi"
+
+; M2 SMTP error message
+67599="İleti gönderildi, fakat giden kutusundan taşınamadı."
+67600="Gönderme hatası. STMP sunucusu yeteri kadar tanımlanmamış olabilir? E-posta sıraya kondu."
+67601="SMTP sunucusuna erişilemedi"
+67602="İç hata"
+67603="Geçici sunucu hatası"
+67604="Sunucu hatası"
+67605="Alıcının söz dizimi hatası"
+67606="Alıcıya ulaşılamadı hatası"
+67607="Alıcı yerel değil"
+67608="Sunucu ismi belirtilmemiş"
+67609="SMTP hatası"
+67610="Alıcı hatası"
+67611="SMTP kimlik denetim hatası"
+67612="Sunucu TLS ' i desteklemiyor"
+67613="Sunucu SMTP bağlantısını desteklemiyor"
+67614="Bilinmeyen SMTO hatası"
+
+; Used when M2 for some reason isn't able to flush a message to disk
+67615="Kaydetme hatası oluştu, dosyaların düzen bozukluğu ya da virüs tarayıcısından kaynaklanmış olabilir (%i)"
+
+; String used in customize toolbar box
+68124="Belgeler"
+68125="Resimler"
+68126="Toplam "
+68127="Hız"
+68128="Geçen"
+68129="İlerleme raporu"
+68130="Genel"
+68131="Saat"
+68132="Özdeşleştir"
+
+; Imported bookmarks are stored in this folder
+68133="Netscape yer imleri"
+68134="Internet Explorer Sık kullanılanları"
+68135="KDE1 yer imleri"
+68136="Konqueror  yer imleri"
+
+; String to be used in preference font list for UI fonts
+69221="Menü metni"
+69222="Araçlar metni"
+69223="Ara yüz bildirimleri"
+69224="Pano metini"
+
+; String to be used in preference font list
+69225="E-posta yazılım metni"
+
+; String to be used in preference font list to identify a system default
+; font
+69226="(Varsayılanlar)"
+
+; When a SMTP server drops the connection when MAIL FROM is sent, it usually
+; is because needed authentication isn't fulfilled.
+69229="Sunucu bağlantıyı kesti, yenileme ve onaylama gerekebilir"
+
+; String that is displated on about page when java is installed
+69230="Java Çalışma Ortamı yüklü"
+
+; Version of Qt library that Opera uses. Shown on About page
+69231="Qt kütüphanesi"
+
+; Text to be used on the menubars. Some languages need a separate string
+; here
+69240="Önceki"
+
+; Used when saving a printer file to disk (from a filedialog box)
+69243="Postscript dosyaları (*.ps)|*.ps|All files (*.*)|*.*|"
+
+; Label in the displayed header of a news/mail message
+69244="Kuruluş"
+69245="Haber grupları"
+69246="İzlenecek: "
+69247="Alıcı(lar)"
+69248="Tekrar-Kimden"
+
+; Title string of the HTML text that displays certificate data
+69249="Sertifika bilgileri"
+
+; Header string for the detailed listing of certificate data
+69250="Ayrıntılar"
+
+; DSA Private Key key list item
+69251="Özel Anahtar (X)"
+
+; DSA Public Key list item
+69252="Özel Anahtar (Y)"
+
+; Component P of DSA key
+69253="DSA Parça P"
+
+; Component Q of DSA key
+69254="DSA Parça Q"
+
+; Component G of DSA key
+69255="DSA Parça G"
+
+; Diffie Hellman Private Key component
+69256="DH Özel Anahtarı"
+
+; Diffie Hellman Public Key Component
+69257="DH Özel Anahtarı"
+
+; Diffie Hellman Modulus Key component
+69258="DH Modülü"
+
+; Diffie Hellman Generator Key component
+69259="DH Üretme"
+
+; Add characters here that can be used as fallback shortcuts (eg: of the
+; kind "File (A)"). An empty string will disable fallback shortcuts.
+69260=" "
+
+67544="Opera Araçlar çubuk ayarlarını indir "
+67545="Araçlar çubuk ayarları indiriliyor"
+67546="Araçlar çubuk ayarını güncelle"
+67547="Bu araçlar şemasını kullanarak devam etmek ister misiniz? "
+67548="Opera Menü Ayarlarını indir "
+67549="Menü Ayarları indiriliyor"
+67551="Bu menü ayarlarını kullanarak devam etmek ister misiniz?"
+67552="Opera Fare Ayarlarını indir "
+67553="Fare Ayarları indiriliyor"
+67555="Bu fare ayarlarını kullanarak devam etmek ister misiniz?"
+67556="Opera Klavye Ayarlarını indir "
+67557="Klavye Ayarları indiriliyor"
+67559="Bu klavye ayarlarını kullanarak devam etmek ister misiniz?"
+67560="Kopyası"
+67564="Bu kimliğe güvenmek istediğinize emin misiniz?"
+; Open file dialog
+67565="Opera  yer imle dosyaları  (*.adr)|*.adr|"
+67566="HTML / Netscape yerimle dosyaları (*.htm, *.html)|*.htm;*.html|"
+67567="Konqueror yerimi dosyaları (*.xml)|*.xml|"
+
+; InputAction treeview header
+67576="Etki"
+67577="Girdi bilgileri ve kısayollar"
+
+67578="Klavye ayarları"
+67579="Fare Hareketleri"
+67580="Araç çubuğu ayarları"
+67581="Menü ayarları"
+67582="Tema resimleri"
+; Fonts and colors preferences
+67583="Tür"
+67584="Yazı tipi"
+
+; Cache preferences
+67585="Otomatik"
+
+; string appended to setupfilename if this is modified, in preferences
+; dialog
+67586="(Değiştirildi)"
+
+; Info panel
+67616="-isimsiz-"
+67617="URL'in ana sayfası:"
+67618="(Opera'nın kullandığı) sunucu kodlaması:"
+67619="Sunucudaki MIME türleri"
+67620="Ana sayfanın boyutu:"
+67621="İçerikli öğe sayısı:"
+67622="İçerikli öğelerin boyutları:"
+67623="Yerel önbellek dosyası:"
+67624="-Önbellek dosyası yok-"
+67625="Güvenlik"
+67626="Özet:"
+67627="-güvenli değil-"
+67628="Ek bilgiler"
+67629="Çerçeveler"
+67630="Çerçeve"
+67631="İç çerçeveler "
+67632="Çerçeve"
+
+67675="Sonraki"
+67679="Farklı kaydet..."
+67680="Oturum dosyasını seç"
+67681="Pencere"
+67682="Buraya yeni not yaz"
+67683="Dosya ekle"
+67685="Sürüm"
+67686="Şifreleme Yöntemi"
+67687="Açık"
+67688="Normal"
+67689="Gövde"
+67690="Boş bir sayfa ile başla"
+67691="Adresleri açmak %d üzeresiniz \n\nDevam et?"
+; History and cache preferences
+67692="Her %d dakikada"
+67693="Her %d saatte"
+67694="Saatte bir"
+67695="Haftada bir"
+
+67696="Yer imlerini açmak %d üzeresiniz \n\nDevam et?"
+67697="İlk hesabınız açıldı \n\nOpera'nın yeni E-posta ve haber yazılımı M2 \ndiğer yazılımlardan bir çok yönüyle farklıdır,\nonun için kullanma kılavuzunu okumanız \ntavsiye edilir.\n\nKullanma kılavuzunu okumak ister misiniz?"
+67698="M2 kullanarak"
+67699="Sayfanın altındaki açılır pencere"
+67700="Son büyüklüğü hatırla"
+67701="Her zaman ekranı kapla"
+67702="Her zaman basamakla"
+; Checkbox string in filetype dialog box
+69261="Web adreslerini yazılıma gönder"
+
+; Used in preference dialog box (window page)
+69262="Etkin sayfanın yanına yenisini aç"
+
+; Info panel. When server does not supply an encoding
+69263="-güvenli değil- "
+
+; Checkbox in download dialog for saving action
+69266="Bu ekranı bir daha gösterme ve seçeneği hatırla"
+
+; Certificate verification servername mismatch
+69267="Sunucu ismi "%1"  ile sertifika ismi "%2" uyuşmuyor. Birisi size kulak misafiri olmaya çalışıyor."
+
+; Certificate not yet valid
+69268=""%1"  için olan sertifika %2 önce geçerli değildir. Bilgi sayarınızın zamanı doğrumu ?"
+
+; The certificate expired on the given date
+69269=" "%1"Sertifikanın süresi bitmiş%2. Site yöneticisi sertifikayı  güncellemeli."
+
+; Certificate warning
+69270=""%1" gelen sertifikalar için uyarılmak istemiştiniz"
+
+; Unknown certificate authority
+69271=""%1" için olan sertifika bilinmeyen Sertifika Yetkilisi  "%2" tarafından imzalanmıştır. Bunun geçerli olduğunu tanımlamak mümkün değildir."
+
+; Unknown root certificate authority
+69272="Kök sertifikası "%1" Opera tarafından bilinmiyor. Bu sertifikaya güvence Opera tarafından verilememektedir."
+
+69300="Sunucu onaylama aşamasında  bağlantıyı kesti."
+69301="Yeni Opera hazır"
+69302="Opera'nın yeni sürümü hazır.\nYeni sürümü indirip yüklemek ister misiniz?"
+69303="MP3 dosyaları |*.mp3|"
+; Typically telnet, tn3270, news, mailto
+69304="Protokol"
+
+69305="Yazılım"
+; Voice XML related message from the Voice log panel
+69307="Konuşma-Anlama durum günlüğü"
+
+69308="Tanımlanmış yeni düğme ekleniyor\n\n%s\n\nEmin misiniz?"
+69309="Yeni düğmesi"
+69312="Konuşma-Anlama günlüğü"
+69332="Opera e-posta programı: http://www.opera.com/m2/"
+; Status message when M2 is emptying trash
+69333="Çöp kutusunu boşaltıyor"
+
+; Message string shown in dialog box before auto reset in kiosk mode
+69347="Opera etkisizlikten dolayı  %d saniye sonra tekrar yüklenecektir"
+69348="Opera etkisizlikten dolayı  1 saniye sonra tekrar yüklenecektir"
+
+; Text for button in toolbar that can clear contents if edit field
+69349="Temizle"
+
+; Message string used in a dialog box when user wants do do something that
+; requires online mode (eg. fetching mail)
+69352="Şu anda çevrimdışı moddasınız.\n\nÇevrimiçi moduna geçmek ister misiniz?"
+
+; Used in a popup error dialog when the certificate authority os unknown for
+; the presented certificate.
+69353="Sunulan Sertifika Yöneticisi tanınmıyor."
+
+; Used in a popup error dialog when handshake faild due to export
+; restrictions.
+69354="Verme kısıntısı yüzünden onaylanma hatası oluştu"
+
+; Used in a popup warning dialog when handshake faild because the server
+; does not want to accept the enabled SSL/TLS protocol versions.
+69355="Sunucunun SSL/TLS protokol sürümünü kabul etmemesinden dolayı doğrulama yapılamadı"
+
+; Used in a popup error dialog when handshake failed because the server
+; requires encryption methods more secure than those enabled.
+69356="Sunucunun daha güvenli bir şifreleme yöntemi istemesinden dolayı anlaşma sağlanamadı."
+
+; Used in a popup warning dialog when the server wants to negotiate a
+; connection that does not encrypt the data, but only verifies integrity.
+69357="Sunucu şifrelenmemiş data içeren bağlantılarla aşlaşma sağlıyor"
+
+; Used in preference dialog box to control page redrawing
+69358="Yüklenirken görüntülemeye başla"
+69359="1 saniye sonra görüntülemeye başla"
+69360="%d saniye sonra görüntülemeye başla"
+69361="Sayfa yüklendikten sonra görüntüle"
+
+; Label in the preference dialog box for page redrawing feature
+69362="Sayfa görüntüleme"
+
+; Used in mail filter dialog
+69369="%s adresinden gelen iletiler"
+
+; Add filter dialog box
+69374="Gönderenden Mesajlar"
+69375="Konusu şunu içeren iletiler"
+
+; Account properties dialog box
+69376="Hesap çeşidi"
+
+; Message in reindex mail dialog box
+69378="Opera E-postalarını yeniden sıralayacaktır. Eğer vazgeçerseniz, Opera bir dahaki sefere devam edecektir"
+
+; Used in pref. dialog box
+69379="Opera'yı satın alıp, reklam panolarını kaldırmak için buraya tıklayın"
+
+; Used in pref box (multimedia)
+69380="Hemen tekrar görüntüle"
+
+69396="%s kullanıcısına buradan hızlı cevap yaz"
+69397="sık kullanılan deyime uyar "
+69398="Bu görünümde göster ve kural ekle"
+; Used in javascript option dialog box
+69399="Pencereyi yeniden boyutlandır"
+69400="Pencerelerin taşınmasına izin ver"
+69401="Pencereleri ayarla"
+69402="Pencerelerin küçültülmesine izin ver"
+
+; Used in javascript option dialog
+69403="Durum kutusunun değiştirilmesine izin ver"
+
+; Opens javascript options dialog box
+69404="JavaScript seçenekleri..."
+
+; Label for window handling options
+69405="Pencere davranışı"
+
+; Option string for popup window management
+69406="Açılır pencereler dahil her zaman ekranı kapla"
+
+; Window handling mode string
+69407="Tanımlanmış sayfalar pencere içinde"
+
+; Window handling mode string (SDI mode)
+69408="Ayrı Pencerede"
+
+; Message string used on startup in we cannot load plug-ins
+69410="Opera, 'libnpp.so' eklenti kütüphanesini yükleyemedi. Eklentiler çalışmayacak.\n\nKurulumu tekrar gözden geçirin\n"
+
+; Fallback text for plug-in description when plug-in is missing this
+; resource
+69418="Açıklama yok"
+
+; Fallback text for plug-in name when plug-in is missing this resource
+69419="İsimsiz"
+
+; Message shown when downloaded skin can not be used
+69421="Devam edilemiyor. Opera sürümüne uygun bir tema türü seçiniz."
+
+69431="Bağlar bulunuyor: "
+69432="Metin bulunuyor: "
+; Quick find/inline search didn't find any matching items.
+69433="(Uyan yok)"
+
+; Used when a newsgroup name is not sent in UTF-8
+69438="Bu sunucudaki haber grubu isimleri standartlara uygun kodlanmamış. İsimler giden sunucu kodlamasına göre gösterilecektir."
+
+; RSS folder
+69440="RSS haber grupları"
+
+; Used for OE mail import, parameters are identity, account name and mailbox
+69441="%s [%s] (alındı)/%s"
+
+; 
+69442="(%s) -alma başarılamadı, [err=%i]\n Id:%s\n From:%s"
+69443=" bilgileri alındı"
+69444=" Dönüştürülüyor. Lütfen bekleyiniz..."
+69445="OE alma Uyarısı"
+69446="(%s) -boş posta kutusu atlandı"
+69447="Haber grupları"
+69448="Dizin"
+
+69449="Oda"
+69450="Kullanıcı Sayısı"
+69451="Konu"
+; 
+69454="%s takma adı zaten kullanılıyor. Yeni bir takma ad girin."
+
+69455="%s odası şifre korumalı. Şifreyi girin."
+69472="Otomatik döşe"
+69473="%d / %d"
+69474="%d / %d  (%d saniye kaldı)"
+69475="%d / %d  (%d dakika kaldı)"
+69476="VoiceXML Eklentisi ayarların geçerli olması için yeniden başlatmayı gerektiriyor. Şimdi yeniden başlatılsın mı?(Açık sayfalar da yeniden açılacak.)"
+69477="VoiceXML Eklentisi yeniden başlatmayı gerektiriyor"
+; A popup warning message that appears on pages with Voice XML content in a
+; language not supported by the voice browser
+69480="Konuşma Tanıma bu dili desteklemiyor"
+
+69522="%s\n(okunmayan iletileri görmek için buraya tıklayınız)"
+69524="%s size ekteki dosyayı göndermek istiyor. Almak istiyor musunuz?\n\nDosya: %s\nBoyut: %s\n\nNot: Tanımadığınız insanlardan dosya kabul etmeniz zararlı olabilir."
+69525="Dosyayı kabul et"
+69530="E-Posta (%d)"
+69531="Başlatılıyor"
+69532="'%s' dosyasının aktarımı tamamlandı \n(menü için buraya tıklayın)"
+69533="Bilgi"
+69536="Odaya davet"
+69537="%s sizi %s\n odasına çağırıyor Kabul ediyor musunuz?"
+69539="%s ile konuşma açık"
+69540="Bilinmeyen kişi"
+69541="%d kullanıcı, oda konusu: %s"
+69542="Sohbet odasına giriliyor..."
+69543="Dosya gönder"
+69544="%s odasında konuşma açık"
+69545="Sohbet bağlantısı kesildi"
+69546="%s sizi odadan attı (Sebep: %s)"
+69547="Sohbet odasından ayrıldınız"
+69548="%s %s odasına girdi"
+69549="%s bağlantıyı kesti"
+69550="%s %s odasından %s tarafından kovuldu (Sebep: %s)"
+69551="%s %s odasından ayrıldı"
+69552="Oda konusu: %s"
+69553="%s oda konusunu %s olarak değiştirdi"
+69554="Oda yönetimi açık"
+69555="%s +m kipini açtı: oda şu anda yönetiliyor"
+69556="%s -m kipini açtı: oda artık yönetilmiyor"
+69557="%s +l kipini açtı: artık kullanıcı sayı sınırı %s"
+69558="%s -l kipini açtı: kullanıcı sayı sınırı kaldırıldı"
+69559="%s +t kipini açtı: oda konusunu artık sadece yöneticiler değiştirebilir"
+69560="%s -t kipini açtı: oda konusunu artık herkes değiştirebilir"
+69561="%s +k kipini açtı: oda şu anda şifre korumalı"
+69562="%s -k kipini açtı: oda artık şifre korumalı değil"
+69563="%s +s kipini açtı: oda şu anda gizli"
+69564="%s -s kipini açtı: oda artık gizli değil"
+69565="%s %s kipini açtı"
+69566="%s %s kullanıcı kipini açtı"
+69567="%s takma adını %s olarak değiştirdi"
+69568="%s +o kullanıcı kipini açtı: %s şimdi oda yöneticisi"
+69569="%s -o kullanıcı kipini açtı: %s artık oda yöneticisi değil"
+69570="%s +v kullanıcı kipini açtı: oda yönetiliyorsa %s konuşabilir"
+69571="%s -v kullanıcı kipini açtı: oda yönetiliyorsa %s konuşamaz "
+69572="%s %s@%s (%s)"
+69573="%s şu odalarda bulunuyor: %s"
+69574="%s %s sunucusunu kullanıyor (%s)"
+69575="%s bir irc yöneticisi"
+69576="%s dışarıda (%s)"
+69577="%s %s olarak giriş yaptı"
+69578="%u saat"
+69579="%u saat"
+69580="%u dakika"
+69581="%u dakika"
+69582="%u saniye"
+69583="%u saniye"
+69584=" ve "
+69585="%s %s da giriş yaptı, %s kadar süredir işlem yapmıyor"
+69586="%s %s da giriş yaptı"
+69676="Lycos"
+69677="SearchBoss"
+69678="Amazon"
+69679="Ebay"
+69680="Download.com"
+69723="Yeni haberler:\n%s"
+; Dialog message
+69830="Bilinmeyen hata"
+
+; Message box text shown when hotlists data has been imported
+69868="%d girdi alındı"
+69869="Bir girdi alındı"
+
+; Used in File Handler Edit Dialog
+69873="Programı başlatmadan önce sor"
+
+; Short string in dialog header seaction
+69874="Sor"
+
+; File handler dialog box string
+69875="Dosyalar (varsayılan)"
+69876="Dizinler"
+
+; Dialog box string shown before opening a folder
+69877="Dizin aç"
+
+; Dialog box string shown before opening a file
+69878="Dosya aç"
+
+; String in dialog <open file><filename>WITH<application>
+69879="ile"
+
+; Text on buttn that opens file handler dialog box
+69880="Kaydedilen dosyalar için tutucular..."
+
+69883="Popülarite"
+69892="Odaları listele"
+69893="Yeni oda"
+69894="Takma ad değiştir"
+69895="E-Posta Gönder"
+69897="Gönder/Al"
+69914="Sabit boşluk"
+69915="Hareketli boşluk"
+69916="Sayfa Sığdırıcı"
+69920="Manşetler"
+; Message box string that is shown if mailto address contains command
+; character and we use an external e-mail client
+69937="E-Posta adresi komut karakterleri içeriyor. Komutu çalıştırmak istiyor musunuz?"
+
+69940="Sohbet (IRC)"
+69941="%u oda"
+69942="XHTML+Ses"
+69943="Kullanılamıyor"
+; This warning will be displayed for anonymous Diffie Hellman secure SSL
+; connections.
+69945="Sunucu ANONİM bağlantı istedi, bu yüzden sunucu kimliğini onaylamak mümkün değil. Bu zaten anonim bir hizmet midir? Bu sunucuya veri göndermek istiyor musunuz ?"
+
+; This warning is displayed if a low level encryption (level 1) is selected
+; by the server.
+69946="Bu site, güvensiz olarak nitelendirilen eski bir şifreleme yöntemi kullanıyor.  Bu gizli verilerinizi korumaya yetmeyebilir.  Devam etmek istiyor musunuz?"
+
+; Title of low encryption level dialog
+69947="Düşük şifreleme düzeyi"
+
+69998="Panolar"
+; The title of the error page that is shown when loading a URL fails.
+70034="Hata"
+
+; The error page that is shown when loading a URL fails.
+70035="Ulaşmaya çalıştığınız %s adresi, Şu anda kullanılabilir değil. Adresi doğru yazdığınızdan emin olup tekrar deneyiniz."
+
+; The error page that is shown when loading an url fails.
+70036="İnternete bağlanabilmek için vekil sunucu kullanmanız gerekmiyorsa, klavyenin F12 düğmesine basarak vekil sunucuları etkisiz duruma getirmeyi deneyiniz. Sonra sayfayı yenileyiniz."
+70037="Eşzamanlı DNS özelliğin etkin olup olmadığına bakınız. Etkin değilse, Opera Ağ tercihlerine giderek etkinleştiriniz"
+70038="Herhangi bir İnternet güvenlik yazılımının doğru ayarlanıp ayarlanmadığını ve olağan Web dolaşımına karışıp karışmadığını denetleyiniz."
+70039="Bir yerel ağ içindeki güvenlik duvarı arkasındaysanız ve bunun sorun yaratma olasılığı olduğunu düşünüyorsanız, sistem yöneticinize başvurunuz."
+70040="İnternet bağlantınızın etkin olduğuna emin olunuz ve aynı bağlantıyı kullanan öteki uygulamaların çalışıp çalışmadığını denetleyiniz."
+70041="Çevirmeli bağlantı kullanıyorsanız, bağlantınızınözelliklerini denetleyiniz ve sunucu türü bölümünde ağa oturum açılması seçeneğinin etkin olduğundan emin olunuz."
+
+; The associated tablefield displays the signature of the cetificate !!
+; IMPORTANT !! No special HTML characters in this string !!
+70053="İmza"
+
+70138="Konuşma anlama ayarlarını indirin"
+70139="Konuşma anlama ayarları indiriliyor..."
+70141="Bu ayarları kullanarak devam etmek istiyor musunuz?"
+; Voice C3N User Agent Identifier, shall only be translated if supported by
+; voicelibs
+70171="Opera"
+
+; Voice C3N Prelink Phrase, shall only be translated if supported by
+; voicelibs
+70172="(go to | jump to)"
+
+; Voice C3N Postlink Phrase, shall only be translated if supported by
+; voicelibs
+70173="[page]"
+
+; Encoding, when used other places than menus, to avoid crash with japanese
+; access keys
+70233="Kodlama"
+
+; Voice C3N Prenick Phrase, shall only be translated if supported by
+; voicelibs
+70281="yer imine git"
+
+; Voice C3N Postnick Phrase, shall only be translated if supported by
+; voicelibs
+70282=" "
+
+; While downloading binary setupfile
+70294="Uzantı indiriliyor"
+70295="Kurulum dosyası indiriliyor"
+
+; Used as template when redirect is turned off to produce a clickable link
+; to the redirection target.
+70321="<h1>Yönlendirme Durumu</h1>URL %s adresine yönlendirilmiş. Oraya gitmek için lütfen bağlantıyı tıklayın.<p>Otomatik yönlendirmeyi özellikler kısmından açabilirsiniz<p><hr>Opera tarafından oluşturulmuştur(C)"
+
+; used when a wml deck is not reached in correct order
+70337="Erişim reddedildi"
+70338="Bu WML destesine erişimi reddettiniz.\n\nBu desteye doğru bir sırayla erişmediniz."
+
+; used when opera generates a redirect message. this is the title.
+70344="Yönlendir"
+
+; A fatal SSL error occurred, e.g. a handshake or transmission error, the
+; internal error message gives more details
+70376="Güvenli iletişim tamamlanamadı"
+
+70377="Haberler güncelleniyor"
+; Used in a popup error message when the user has requested a document from
+; the server, the server sends the document using HTTP compression, and
+; the document decoder couldn't decode the data properly. This version is
+; used when LIMITED_MEMORY_DEVICE is turned on.
+70380="Veri işlemede bir sorun oldu. Muhtemelen bozulmuş veri ya da bellek yetersizliği sorunu var."
+
+; Used in a popup error message when the user has requested a document from
+; the server, and the server returns a HTTP_USE_PROXY (which is not
+; supported for security reasons) error code.
+70384="Sunucu Opera'yı alternatif bir vekil sunucuya yönlendirmeyi denedi. Güvenlik nedeniyle bu desteklenmez."
+
+; The title of the error page that is shown when loading a URL fails.
+70385="Diğer sayfalara bağlanıp bağlanamadığınızı kontrol edin."
+
+; The error page that is shown when loading a URL fails.
+70386="Güvenlik protokollerini kullanan bazı çevrimiçi hizmetler TLS 1.0 protokolüyle çalışmaz. Opera güvenlik ayarlarından TLS 1.0'ı devreden çıkarınız."
+70387="Ağ adresinde bir sorun yoksa, belki şunu yapmak istersiniz:"
+
+; The error page that is loaded when a URL fails.
+70388="Yardım mı gerekli?"
+70389="<a href="http://help.opera.com/">Opera Yardım</a> adresini açın."
+70390="<a href="http://www.opera.com/support/">Opera'nın çevrimiçi yardım masasına</a> a gidin."
+
+; Replaces obsolete string 69881.
+70423="Apple Mail programından al"
+
+; Notification of a blocked popup
+70428="Açılır pencere engellendi "
+
+; Message used to notify user of logging status.
+70429="<<< konuşma-anlama çıkışı - kayıt penceresi etkin değil >>>\n"
+
+; Text used in generating about text.
+70430="Eklenti yüklenemedi"
+
+; Text used in generating about text
+70485="IBM Multimodal Çalışma Ortamı"
+
+; Used for adding to account names when the account is temporary
+70502=" (geçici)"
+
+; String used when a popup has been blocked to give the user an option to
+; open it.
+70504="\n(açmak için buraya tıklayınız)"
+
+; Item on the start toolbar
+70505="Zirve 10"
+
+; Music toolbar item.
+70506="Ekle"
+
+; Music toolbar item
+70507="Çal"
+70508="Duraklat"
+70509="Durdur"
+
+70510="Dosya al"
+70511="Ara yüz görüntü e-posta"
+; List box entry
+70514="Thunderbird'den al"
+70515="Opera 7 den al"
+
+; Used as the default text to substitute a plug-in in an HTML document, if
+; the plug-in is not installed and the images alt attribute is empty
+70516="Eklenti içeriği"
+
+; Used as the default text to substitute a java applet in an HTML document,
+; if java is not installed and the images alt attribute is empty
+70517="Java applet içeriği"
+
+; Shown as tooltip and status information when the plug-in has not been
+; activated
+70524="Bu içeriğe erişebilmek için JavaScript'i etkinleştirmelisiniz. Bunun için F12'ye basıp "JavaScript'i etkinleştir"i seçin."
+
+; This is the title of an error page displayed when a URL containing illegal
+; characters in the servername is rejected during URL resolving
+70526="İzinsiz URL"
+
+; First line of the message, the URL is displayed on the next line
+70527="URL"
+
+; Second part of the illegal URL message, follows the URL
+70528="bulunduğu alanda geçerli olmayan karakterler içeriyor."
+
+; The possible reasons for why the invalid characters are there: Mistake, or
+; attack.
+70529="Bunların bulunma sebebi, adresteki bir yazım hatası olabilir, ancak adres sizi güvensiz olduğunu düşünebileceğiniz başka bir siteye gönderiyor olabilir."
+
+; Header for the SSL certificate description page" !!IMPORTANT!! No HTML
+; special characters are allowed !!
+70530="Güvenlik bilgisi"
+
+; Followed by the secure tunnel specification." !!IMPORTANT!! No HTML
+; special characters are allowed !!
+70531="Güvenlik protokolü"
+
+; Followed by the number of the certificate in the certificate chain, used
+; as a heading for the SSL certificate description page" !!IMPORTANT!! No
+; HTML special characters are allowed !!
+70532="Sunucu sertifikası"
+
+; Followed by the number of the certificate in the certificate chain, used
+; as a heading for the SSL certificate description page." !!IMPORTANT!! No
+; HTML special characters are allowed !!
+70533="Geçerli sertifika"
+70534="İstemci sertifikası"
+
+; Followed by the servername in the certificate that matched the servername
+; of the host
+70535="Geçerli Sunucu adı"
+
+; Who was the certificate for this server issued to
+70536="Yayımcı:"
+
+; Who was this certificate issued by?
+70537="Yayınlayan:"
+
+; This warning is displayed when the user has disabled some or all of the
+; strong encryption methods, and the server selected a low level
+; encryption method (level 1)
+70538="Sunucu çok düşük ve güvenli olmayan bir şifreleme sunuyor.  Bazı güçlü şifreleme yöntemlerini devre dışı bırakmışsınız, bu sunucuyu şu anki seviyeye inmeye zorlamış olabilir. Bu güçlü şifreleme yöntemlerini etkinleştirmenizi öneririz. Halihazırdaki düşük seviye şifreleme yöntemi ile devam etmek ister misiniz?"
+
+; Displayed in the about page if User JavaScript is enabled
+70550="Kullanıcı JavaScript dosyası"
+
+; Mail panel
+70615="İstenilen işlem gerçekleştirilemiyor çünkü seçili mesajlardan biri veya birkaçı alınmamış. Opera şimdi bu mesajları almayı deneyecek."
+70616="Taşıma veya kopyalama yapılamadı<"
+
+; Chat window
+70622="(%d kullanıcı)"
+
+; skin manager
+70624="Opera Standart"
+
+; Skin manager
+70625="Windows Biçimi"
+70626="Macintosh Biçimi"
+
+; Message string shown if a plug-in setup problem takes place
+70711="Opera, eklenti ayarında bir sorunla karşılaştı.\nEklentiler düzgün çalışmayabilir.\nKurulumunuzu kontrol edin."
+
+; Message string shown if a plug-in setup problem takes place. Do not
+; translate rge word 'libnpp.so'
+70712="'libnpp.so' eklentisi bulunamıyor"
+
+; Message string shown if a plug-in setup problem takes place
+70713="Bu eklenti kurulum paketinde mevcut."
+70714="Bu çalıştırılabilir dosya kurulum paketinde mevcut."
+70715="'libnpp.so' eklenti kütüphanesi yüklenemiyor"
+
+; Message string shown if a plug-in setup problem takes place. Do not
+; translate  the word 'operamotifwrapper'
+70716="Çalıştırılabilir eklenti 'operamotifwrapper' bulunamıyor."
+
+; Message string shown if a plug-in setup problem takes place. Do not
+; translate the word 'Motif'
+70717="Lütfen Motif'i kurun"
+
+; Message string shown if a plug-in setup problem takes place.
+70718="Yolu, Seçenekler bölümünden düzenleyebilirsiniz."
+
+; Tooltip text shown when mouse is hovering the e-mail client text field in
+; Preference dialog.  Do not translate the flags (like %t) and not
+; 'mailto'
+70719="Bayraklar\n\n%t (kime) Alıcı ile değiştirilecek\n%c (cc) CC alıcı ile değiştirilecek\n%a (bcc) BCC alıcı ile değiştirilecek\n%s (konu) Konu metni ile değiştirilecek\n%b (metin) Ana ileti ile değiştirilecek\n%r (adres) Adres ile değiştirilecek. Sonuç mailto: ile başlatacak\n%w (adres) %r gibi ancak bunda mailto: yok\n\nÖrneğin\n<istemci> [%t] [-cc %c] [-konu %s] [-metin %b]"
+
+; Message string shown if a plug-in setup problem takes place. Do not
+; translate the word 'operamotifwrapper'
+70720="Çalıştırılabilir eklenti 'operamotifwrapper' çalıştırılamıyor."
+
+; Move-to-sent-dropdown in mail import wizard, no mailbox selected:<none>
+70756="<hiçbiri>"
+
+; Caption for the list of alternate links in a newsfeed
+71004="Alternatif:"
+
+; Caption for the list of related links in a newsfeed
+71005="İlgili:"
+
+; Caption for the list of via links in a newsfeed
+71006="İle:"
+
+; Caption for the list of enclosures in a newsfeed
+71007="Başlık:"
+
+; Dialog title and components
+
+; Used in most dialogs
+1="Tamam"
+10362="Tamam"
+2="İptal"
+10358="İptal"
+
+; Opera as default browser
+10968="Protokoller"
+10969="http"
+10970="https"
+10971="news"
+10972="ftp"
+10973="gopher"
+10974="wais"
+25177="Başlangıçta, varsayılan tarayıcının Opera olup olmadığını denetle"
+25241="Tümünü seç"
+
+; Password required
+14499="Doğrulama"
+11140="İleti"
+10178="Kullanıcı adı"
+10179="Şifre"
+
+; Send form without encryption?
+14500="Teslim etme uyarısı"
+
+; Use Opera
+25176="Opera'yı varsayılan internet tarayıcısı olarak kullan"
+25174="Opera işletim sisteminizin varsayılan Web tarayıcısı olarak ayarlanmamış.\n\nWeb sayfaları için Opera'nın varsayılan tarayıcı olarak ayarlanmasını ister misiniz?"
+6="Evet"
+7="Hayır"
+
+; Validate source
+25268="Kaynak onayı"
+25267="Bu sayfayı çevrim içi kaynak kodu onaylayıcısına göndermek ister misiniz?"
+
+; Advanced startup settings
+10415="Eşzamanlı DNS"
+
+; Certificate
+10766="Sertifika ismi"
+10768="Yayımcı"
+10758="Bu sertifikayla doğrulanan sitelere bağlantı kur "
+10759="Sertifika kullanmadan önce iletişim kutusunu göster"
+10775="Onayla"
+10776="Yükle"
+
+; Performance
+10213="En fazla tek sunucu bağlantısı"
+10219="En fazla toplam bağlantı"
+
+; Personal information
+10938="Bu bilgiler sağ fare tuşuyla web sayfalarındaki formlara girilebilir"
+10874="İsim"
+10877="Soyadı"
+10878="Adres"
+10881="Şehir"
+10882="Bölge/eyalet"
+10884="Posta kodu"
+10886="Ülke"
+10888="Telefon"
+10890="Faks/Cep"
+10892="E-posta"
+10894="Kişisel sayfa"
+10896="Özel 1"
+10898="Özel 2"
+10900="Özel 3"
+
+; Fast bookmark access
+10949="Kısayolun ismini giriniz"
+
+; Server name completion
+11029="Yerel ağ makinesi ara"
+11030="Şunları kullanarak tamamlamayı dene"
+11031="Ön ek"
+11032="Son ek"
+
+; Links in frame
+11292="Aç"
+11293="Kapat"
+
+; Import e-mail
+11424="Alma seçenekleri"
+
+; Cookie security problem
+14297="Onayla"
+14298="Reddet"
+11297="Çerezdeki bir internet yolu, sayfasının adresiyle uyuşmuyor."
+11298="Çerezin meşru olup olmadığını sitenin yöneticisine sormayı deneyebilirsiniz."
+11299="Bu çerezi kabul etmek istiyor musunuz?"
+14503="[Onayla] ve [Reddet] komutlarını bütün alan adı kapsamına uygula"
+
+; Update language file
+25303="Opera dil dosyanız güncellenmeyi gerektiriyor."
+25304="Yeni dil dosyasını indir"
+
+; Automatic window reload
+14509="Etkin "
+14518="dakika"
+14513="saniye"
+14516="Sadece sayfa süre aşımına uğrarsa yeniden yükle "
+
+; Image properties
+16055="Resim"
+16056="Boyut"
+16057="Derinlik"
+16058="Adres"
+16059="Resim türü"
+16065="Dosya boyutu"
+
+; File download
+17020="Dosya"
+17021="Sunucu"
+
+; Delete private data
+25155="Bu işlem tüm pencereleri kapatacak, yürütülen bütün işlemleri durduracak ve aşağıda seçilmiş öğeleri silecektir."
+25156="Geçici çerezleri sil"
+25159="Bütün çerezleri sil"
+25157="Şifre korumalı sayfa ve verileri sil"
+25164="Bütün geçici dizini sil"
+25160="Ziyaret edilen sayfalar geçmişini sil"
+25161="Yazılmış adresler geçmişini sil"
+25163="Ziyaret edilen linkler geçmişini sil"
+25165="İndirilen dosyalar geçmişini sil"
+25162="Bütün E-Posta hesap şifrelerini sil"
+25169="Bütün Parola Sihirbazı şifrelerini sil"
+
+; Item properties
+10943="Takma ad"
+10944="Adres"
+10945="Açıklama"
+10820="Bulunduğu dizin"
+10824="Yaratılma"
+10825="Ziyaret ediliş"
+
+; Bookmarks Properties
+25103="İsim"
+
+; Set home page
+25371="Opera'yı her başlattığımda ana sayfamı görüntüle"
+
+; Save windows
+10661="Tüm açık sayfaları kolay erişim için kaydet"
+10199="Seç"
+10665="Opera'yı her açtığımda bu sayfaları göster"
+
+; Confirm file upload
+11108="Altta listelenen dosyalar aracılığınız olmadan başka bir bilgisayara gönderilmek üzere seçildi. Bu dosyaları göndermek istiyor musunuz?"
+11109="Hedef"
+11110="Form adresi"
+
+; Print options
+11080="Sayfa arka planını yazdır"
+14212="Başlıkları ve alt bilgileri yazdır"
+11115="Ölçekli yazdır"
+10257="Sayfa sınırları (santimetre)"
+10268="Üst"
+10266="Sol"
+10267="Sağ"
+10269="Alt"
+
+; Register Opera
+11193="Lütfen Opera'yı siparişiniz üzerine size gönderilen kayıt bilgilerini girin."
+11194="İsim"
+11195="Kuruluş"
+11196="Kayıt kodu"
+
+; Preferences
+10101="Uygula"
+
+; Advertising
+16601="Reklamlar"
+
+; Privacy
+10647="Otomatik yönlendirmeyi kullan"
+14498="Şifre korumalı sayfaları göstermek için çerez kullan"
+25394="Çerezleri etkinleştir"
+11456="Çerezleri Derle..."
+11280="Opera'dan çıkarken çerezleri sil"
+14299="Şüpheli alan adlarında uyarı göster "
+28507="Yasal olmayan yollara izin ver "
+14305="Şüpheli web bağlantılarında uyarı göster "
+
+; Accessibility
+11317="Fare işareti algılamasını kullan"
+11329="Hızlı tıklama menüsünü kullan"
+11318="Farenin ileri-geri hareketinin algılanması sol ele göre ayarla"
+13039="Otomatik tamamla özelliğini kullan"
+
+; Windows
+11324="Pencereleri sırala"
+
+; Programs
+25406="E-posta istemci&sini göster"
+25144="Dosya indirme dizini"
+10359="Kaynak gösterici"
+10252="Telnet yazılımı"
+10958="TN3270 yazılımı"
+
+; Fonts and colors
+10093="Seç"
+12091="En küçük yazı tipi boyutu (piksel)"
+11049="Arka plan rengi"
+11728="Bağlantı stili"
+10304="Bağlantı stilim..."
+25248="Uluslararası"
+25247="Uluslararası yazı tipleri..."
+
+; File type
+14128="Dosya türü"
+10129="MIME türü"
+10706="Etki"
+10128="Opera ile aç"
+10127="Diske kaydet"
+14129="Yükleme bittikten sonra aç"
+14130="Kaydetme yeri sorma, direkt olarak şuraya kaydet"
+10546="Varsayılan yazılım ile aç"
+10133="Başka bir yazılım ile aç"
+10717="Eklentiyi kullan"
+
+; Network
+11606="Tarayıcı tanımlaması"
+12065="Tüm uluslar arası web adreslerini UTF-8 ile kodla"
+11608="Vekil sunucular"
+11609="Ağ adresi tamamlama"
+10447="Her zaman sunucu hatalarını göster"
+25236="FTP yollarını kullanıcı dizinine göre göreceli göster"
+11094="Gerçek FTP yollarını göster"
+
+; Link style
+10282="Ziyaret edilmemiş"
+10098="Altı çizik"
+10099="Üzeri çizik"
+10097="Renk"
+10281="Ziyaret edilmiş"
+10499="Ziyaret edilmiş bağlantılar işaretli"
+10500="Gün"
+10502="Saat"
+10481="Her zaman resim bağlantılarına çerçeve ekle"
+10703="Her zaman linklerin üzerinde kenarlık olsun"
+
+; International fonts
+25252="Metin doğru gösterilmediği zaman kullanılmasını istediğiniz yazı tipini seçin."
+25253="Yazma sistemi"
+25255="Normal yazı tipi"
+25258="Eşit aralık yazı tipi"
+
+; Cache
+25152="Temizle"
+10329="Disk önbelleği boyutu"
+10339="Önbellek belgeleri "
+10340="Önbellek resimleri"
+10341="Diğer Önbellekler"
+10342="Çıkışta boşalt"
+10343="Şimdi boşalt"
+10345="Her zaman"
+10346="Hiç"
+10829="Yönlendirmeleri kontrol et"
+11091="Yönlendirmeleri kontrol et"
+
+; Proxy servers
+10171="Vekil sunucuları"
+10301="HTTP"
+11305="Bağ. N."
+10840="HTTPS"
+10300="FTP"
+11307="Bağ. N."
+10299="Gopher"
+10302="WAIS"
+10303="Aşağıdaki adreslerde vekil sunucu kullanma"
+11320="Otomatik vekil sunucu yapılandırması kullan"
+
+; E-mail client
+13206="Varsayılan E-Posta istemcisini kullan"
+13205="Özel belirtilmiş E-Posta istemcisini kullan"
+
+; Toolbars
+10222="Adres çubuğu içinde göster"
+
+; File types
+10789="Eylem MIME türü tarafından belirlensin"
+25148="MIME türü yapılandırılmamışsa dosya uzantısına göre eylem gerçekleştir"
+10122="Yeni"
+10135="Sil"
+10465="Düzenle"
+
+; Windows
+25372="Açık pencereyi yeniden kullan"
+10828="Açılır pencereler"
+10590="Kaydırma çubuklarını göster"
+10839="Pencere genişliğini göster"
+
+; Sounds
+10603="Uygulama seslerini aç"
+25140="Seç"
+25141="Temizle"
+10605="Dene"
+
+; Multimedia
+10441="Resimleri göster"
+10443="Sadece önbellekteki resimleri göster"
+10439="Resimleri gösterme"
+10644="Hareketli GIF göster "
+10646="Web sayfalarında sesi etkinleştir"
+10719="Eklentileri aç"
+
+; Security
+10733="Kişisel"
+10736="SSL 2'yi aç"
+10737="SSL 3'ü aç"
+10994="TLS 1'i aç"
+10749="Şifre"
+10813="Şifreyi sor"
+10753="Gerekli olduğunda"
+10752="Her oturumda"
+10750="Şifreyi ayarla..."
+10740="Uyarılar"
+10744="Formu güvenli olmayan şekilde göndermeden önce uyar"
+25269="Sayfayı onaylamadan önce uyarı göster"
+
+; Personal certificates
+10754="Sertifikalar"
+11726="Gönder..."
+11727="Aktar"
+
+; Cookie security breach
+14108="Adres"
+
+; The server wishes to send you a cookie
+14114="Adres"
+11406="Yorumu göster"
+
+; Language
+14222="Kullanıcı arabirim dili"
+14228="Web sayfaları için tercih edilen dil"
+14224="Ekle..."
+14225="Kaldır"
+14226="Yukarı taşı"
+14227="Aşağı taşı"
+16620="Dili belirlenemeyen sayfalarda varsayılacak kodlama"
+
+; Accept language
+14236="Web dilini seç"
+14234="Kullanıcı tanımlı"
+
+; PREFS_STARTEXIT
+10489="Başla"
+25400="Başlangıç bildirim kutusunu göster"
+11294="Çıkarken onay iste"
+11295="Çıkışta çevirmeli bağlantıyı kes"
+
+; Page style
+10588="Varsayılan yakınlaşma değeri"
+10658="Çerçeveleri aç"
+11100="İç çerçeveleri aç"
+10762="Etkin çerçeve kenarlarını göster"
+11039="Yetkili Modu"
+12070="Sayfa stil tablosu"
+12071="Sayfa yazı tipi ve renkleri "
+12072="Stil tablom"
+12073="Yazı tipi ve renkler"
+12074="Bağlantı stilim"
+25240="Kullanıcı modu"
+12076="Sayfa stil tablosu"
+12077="Sayfa yazı tipi ve renkleri "
+12078="Stil tablom"
+12079="Yazı Tipi ve renklerim"
+12080="Bağlantı stilim"
+11605="Stil tablom"
+
+; Search
+17025="Arama"
+17026="Yeni pencere için varsayılan arama motorunu seçin"
+17029="Sayfa başına düşen arama sonucu sayısı"
+9="Yardım"
+
+; TRANSWIN_CLIENT
+10997="Kimden"
+10999="Kime"
+11001="Boyut"
+11003="İndirilen"
+
+; Contact properties
+13301="İsim"
+
+; Net
+13307="Başlangıç sayfası"
+
+; Home
+13311="Posta adresi"
+13315="Telefon"
+13313="Faks"
+
+; Notes
+13309="Notlar"
+
+19000="Yazdır"
+19001="Sertifika"
+19002="Kabul edilen dil"
+19003="Gelişmiş başlangıç seçenekleri"
+19004="Tercihleri uygulamak"
+19005="Sunucu size bir çerez göndermek istiyor"
+19006="Hızlı kısayol erişimi"
+19007="Şifre"
+19008="JavaScript istemi"
+19009="Şifre gerekli"
+19010="Otomatik pencere yeniden yükle "
+19011="Özel veriyi sil"
+19014="Bilgiler"
+19015="Genel"
+19016="Notlar"
+19018="Dosya gönderme onayı"
+19019="Çerez güvenliği sorunu"
+19020="Çerez güvenlik ihlali"
+19025="Çerez sunucu süzgeçleri"
+19027="Opera'dan çıkılsın mı?"
+19029="Sayfaya git"
+19041="Resim özellikleri"
+19042="E-Posta hesabı al"
+19043="Kodlamasız form gönderilsin mi?"
+19044="Çerçevedeki bağlantılar"
+19046="Ağ adresi tamamlaması"
+19047="Dosya tipi"
+19050="Kişisel sertifikalar"
+19051="PIN kodunuzu giriniz"
+19052="Eklentiler"
+19053="Seçenekler"
+19054="Baskı önizleme"
+19055="Yazdırma seçenekleri"
+19057="Vekil sunucular"
+19058="Oturumu kaydet"
+19059="Opera'ya kayıt ol"
+19061="Bağlantı stili"
+19064="Uluslararası yazı tipleri"
+19065="Dil dosyasını güncelle "
+19067="Pencere"
+19068="Başlangıç sayfasını ayarla"
+26500="Kullanıcı İsmi"
+26501="Şifre"
+26502="Kullanıcı ismi ve şifresi"
+26503="Takma ad seç"
+26504="Yeni hesap sihirbazı"
+26505="Gerçek İsim"
+26506="Kuruluş"
+26507="E-Posta Adresi"
+26508="Bağlantı İsmi"
+26509="Şifre"
+26510="Gelen sunucu"
+26511="Giden sunucu"
+26512="İletileri ara"
+26513="Sohbet odasına gir"
+26514="Hızlı Liste"
+26515="E-posta"
+26516="Yer İmleri"
+26517="Kişiler"
+26518="Sohbet"
+26519="Geçmiş"
+26520="Gönder"
+26521="Dosya ekle"
+26522="Kimden"
+26523="Kime"
+26524="CC"
+26525="Konu"
+26526="İleti yaz"
+26527="Yeni E-Posta al"
+26528="E-Posta yaz"
+26529="Cevapla"
+26530="Tümünü cevapla"
+; Forward mail
+26531="İlet"
+
+26532="Sil"
+26533="Hızlı cevap"
+26534="Yenile"
+26535="İstenmeyen posta değil"
+26536="Okundu"
+26539="Konuyu değiştir"
+26540="Kayıtları kaydet"
+26541="Gönder"
+26542="Yeni yer imi"
+26543="Yeni dizin"
+26544="Görünüm"
+26545="Yeni Adres"
+26546="Yeni dizin"
+26548="Takma ad"
+26549="IRC sunucusu seçin ya da ismini yazın"
+26551="Kişiyi ekle "
+26552="Okunmamış(lar)"
+26555="Gelen Kutusu"
+26556="Giden kutusu"
+26557="Gönderilenler"
+26558="Taslaklar"
+26559="İstenmeyen Posta"
+26560="Çöp kutusu"
+26561="Önemli"
+26562="Yapılacaklar"
+26563="Cevaplanmış"
+26564="Takip et"
+26565="Oturum"
+26566="Parti"
+26567="Komik"
+26568="Değerli"
+26569="Müzik"
+26570="Resim"
+26571="Video"
+26572="Belgeler"
+26573="Arşivler"
+26577="Sıralama"
+26578="Tüm iletiler"
+26579="Kişiler"
+26580="Posta listeleri"
+26581="Aramalar"
+26582="Haber grubu"
+26583="Etiketler"
+26584="Ekler"
+26585="Peş peşe İletiler"
+26589="Oda"
+26590="Takma ad"
+26591="Kime"
+26592="Konu"
+26593="Gönderilmiş(ler)"
+26594="Etiket"
+26595="Kimden"
+26596="Konu"
+26597="Gönderim Tarihi "
+26598="Etiket"
+26610="Bağlantı kesildi"
+26611="Bağlanıyor"
+26612="Bağlanıldı"
+26613="Onaylanıyor"
+26614="Başlıkları getir"
+26615="İletiler getiriliyor"
+26616="Gruplar getiriliyor"
+26617="İleti gönderiliyor"
+28503="E-Posta ve Parola Sihirbazı için ana şifre olarak kullan"
+67000="Genel"
+67001="Sunucular"
+67002="Gelen"
+67006="Giden"
+67014="Süzgeç"
+; Error dialog
+67015="Jenerik hata"
+
+67016="Resimler"
+67176="Dosya indir"
+67178="Değiştir..."
+67179="Bununla aç"
+67180="Bu dosyayı Açmak ya da Kaydetmek ister misiniz."
+67181="Dosya uzantıları"
+67182="Dosya indirme penceresini göster"
+; New folder button
+67183="Yeni"
+
+67184="Sil..."
+67185="Araç çubuklarını kişiselleştir"
+67188="Silinen ileti uyarısı"
+67189="Silinen iletiler tüm görünümlerden de silinecektir"
+67190="Çöpten geri alma onu ilk bulunduğu yere geri getirir"
+67191="Süzgeçler"
+67192="Eşlendir"
+67195="İç süzgeçler"
+67196="Süzgeçten geçirilen iletileri okunmuş olarak işaretle"
+67197="Mevcut İletileri de süzgeçten geçir"
+67198="Bul"
+67199="İçinde ara"
+67200="Süre"
+67204="Sadece şurada ara"
+67205="Alt görünümler dahil"
+67206="Şifreyi hatırla"
+67207="Ne tür bir hesap açmak istediğinizi seçiniz"
+67208="Güvenli bağlantı kullan(TLS)"
+67209="İletileri sunucuda bırak"
+67210="Hangi yazılımdan getirmek istediğinizi seçiniz"
+67211="Adresler listesini al"
+67212="İletileri al"
+67213="Gözat..."
+67214="Parola sihirbazı şifrenizi kaydetsin mi?"
+67215="Ctrl+Enter ya da Parola Sihirbazı düğmesine basarak giriş yapabilirsiniz."
+67216="Bu sayfada asla"
+67217="Kullanmak istediğiniz kullanıcı ismini seçiniz."
+67219="Bir Web sayfası adresi girin ya da listeden bir tane seçin."
+67220="İleti süzgeçleri"
+67222="Hoş Geldiniz"
+67223="En son kaldığım yerden devam et"
+67224="Kaydedilmiş oturumla devam et"
+67225="Ana sayfa ile başla"
+67226="Pencere olmadan başlat"
+67227="İsim"
+67228="Ek E-Posta adresleri"
+67229="Resim URL si"
+67230="Simge"
+67323="Hızlı liste panelinde göster"
+67324="Hesap İsmi"
+67325="İsim soyad"
+67326="E-Posta adresi"
+67327="Cevapla"
+67328="NNTP sunucusu"
+67329="Sunucu"
+67330="Bağlantı noktası"
+67331="Güvenli bağlantı(TLS)"
+67332="Giden SMTP sunucusu"
+67333="İletiler indirildiyse okumuş olarak işaretle"
+67334="İletileri kontrol ederken iletilerin gövdesini indir"
+67335="İleti gövdesinin yerel nüshasını tut"
+67336="E-postaları kontrol etme aralığı (dakika)"
+67337="Kontrol ederken hesapları ekle"
+67338="İleti geldiğinde ses dosyası çal"
+67339="IMAP temel dosyasının yolu"
+67340="Otomatik olarak bütün giden iletileri özetle"
+67341="İletileri kuyruğa at (hemen gönderme!)"
+67342="İmza"
+67343="Gönderilen IMAP dizini"
+67349="Gönderilen iletiye bu imzayı ekle"
+; Manage accounts
+67344="Yeni"
+
+; Manage bookmarks
+67345="Yeni"
+
+67346="Düzenle"
+67347="Kes"
+67348="Yapıştır"
+67491="Bu sayfayı başlangıç sayfası olarak ata"
+67492="Opera'yla açılan dosyalarını türünü gizle "
+67493="Girilmiş adresi kullan"
+67494="Başlangıç sayfası adresi"
+67500="JavaScript hatasını panoda aç"
+; MDI/SDI switch
+67501="Yeni pencerede aç"
+
+67502="Tema dosyası"
+67503="Özel efektleri kullan"
+67519="Al"
+67541="Aktarımlar"
+; Used for outgoing properties in E-mail account properties dialog
+67562="E-posta kontrolünden sonra kuyruğa sokulmuş E-Postaları gönder"
+
+; Shown if a server message is sent to the authorization dialog in M2
+67563="Sunucu bildirimi"
+
+67568="Bu Opera oturumunu bitirmek istediğinize emin misiniz?"
+67569="Bu sayfa için"
+67570="Sunucunun tümüne"
+67571="Dizini göster"
+67574="Haber gruplarına abone ol"
+67575="IMAP dizinlerine üye ol"
+67587="Etkin indirmeler"
+67588="Şu anda etkin aktarmalarınız var Opera'yı kapatırsanız aktarmalarınız etkisiz hale gelecektir.\nOpera'yı kapatmak istediğinizden emin misiniz?"
+67684="Özellikler"
+; What to do when mid clicking outside a link. Currently only used on Linux
+68000="Orta tuş görevini belirleyin"
+
+; currently only used on Linux
+68001="Panodan metin yapıştır"
+68002="Gezdirmeye başla"
+68003="Yatay gezdirmeyi etkinleştir"
+
+; What do to when mid clicking on a link.
+68004="Bağlantı etkisini tıkla"
+
+68005="Bağlantıyı açma"
+68006="Aç"
+68007="Yeni pencerede aç"
+68008="Arka planda aç"
+68009="Yeni pencerede aç"
+68010="Arka plandaki pencerede aç"
+68011="İstediğiniz temayı ve simge boyutunu seçiniz"
+68012="Opera Standardı "
+68013="Klasik Windows"
+68014="Temam"
+68015="İsteğiniz araç çubuk yarlarını seçiniz"
+68016="Varsayılan araç çubukları"
+68018="Tanımladığın araç çubukları"
+68019="Daha fazla temayı ve araç çubuk ayarlarını my.opera.com da bulabilirsiniz"
+68020="Çerezi  ne yapmak istersiniz?"
+; Dialog box title.
+68021="Orta tuş tıklama seçenekleri"
+
+68022="Görünüm"
+68023="Sertifika Yöneticisi "
+68024="Yetkililer"
+68025="Şu anki şifre"
+68026="Yeni şifre"
+68027="Yeni şifrenizi onaylayınız"
+68029="Bununla aç"
+68030="İndir"
+68031="Yer imleri"
+68032="Adresleri Düzenle"
+68033="Varsayılanlar"
+68034="Sunucu Yöneticisi "
+68035="Parola Sihirbazı girişleri"
+68036="Normal çerezleri ayarla"
+68037="Bu ayarları tüm ağ için etkinleştir"
+68038="Bu sunucudan gelen çerezleri kabul et"
+68039="Bu sunucu/alan adı için üçüncü partı çerezleri kabul et."
+68040="Çerez"
+68041="Sunucu özellikleri "
+68042="Çerezleri Derle"
+68043="Parola Sihirbazı şifrelerini yönet"
+68044="Gezildiğinde yer imlerini sil"
+68045="Yazı tipini seç "
+68046="Yatık yazı"
+68047="Altı çizik"
+68048="Üstü çizgili"
+68049="Üzeri çizik"
+68050="Renk"
+68051="Örnek"
+68052="Güvenlik protokolleri"
+68053="Açmak için şifre gir"
+68054="Neyi Arıyorsunuz?"
+68055="Sonrakini bul"
+68056="Sadece tam sözcük karşılaştır"
+68057="Büyük/küçük harf karşılaştır"
+68058="Yukarı ara"
+68059="Aşağı ara"
+68060="Kaydedilmiş oturum ile başla"
+68061="'g opera' yazıldığında, Opera, Google arama motorunda aranacaktır"
+68062="Tema"
+68063="Boyut"
+68064="Araçlar ve menüler"
+68065="Yeniden adlandır"
+68066="Çoğalt"
+68067="Sil"
+68068="İlerleme  çubuğu"
+68069="Fare ve klavye"
+68070="Düzenle..."
+68071="Araç çubuğu ipuçlarını göster"
+68072="Yeni sayfalar"
+68073="Resimleri göster"
+68074="Opera'yla açılan dosyalarını türünü gizle"
+68075="Varsayılan yazılım ile aç"
+68076="Opera'nın kullandığı dosya türleri"
+68101="Opera'nın kullandığı protokoller"
+; HTML documents
+68077="HTML belgeleri"
+
+; Default application
+68078="XML belgeleri"
+
+; URL shortcuts
+68079="URL kısayolları"
+
+; Default application
+68080="GIF resimleri"
+68081="JPEG resimleri"
+68082="PNG resimleri"
+68083="BMP resimleri"
+68084="XBM resimleri"
+68085="Kime"
+
+68086="Dosya    Düzenle    Görünüm    Yer İmleri    Araçlar     Yardım"
+68087="Opera'yı kullan"
+68088="Adreste yazılan"
+68089="Geçmiş"
+68090="Önbellek boyutu"
+68091="Belgeleri kontrol et"
+68092="Resim kontrol et"
+68093="Diğerlerini kontrol et"
+68094="Normal çerezler"
+68095="Üçüncü kişiler"
+68096="Parola Sihirbazı"
+68097="Parola Sihirbazını etkinleştir"
+68098="Ana şifre"
+68099="Güvenlik protokolleri"
+68100="Sertifikaları düzenle"
+; Currently only used on Linux
+68102="Koyuluk"
+
+; Open application (source viewer etc) in a terminal
+68103="Terminal  ile aç"
+
+; External news program
+68104="Haber yazılımı"
+
+; Label for image dropdown box
+68105="Resimler"
+
+; Label for favicon dropdown box
+68106="Sayfa simgeleri"
+
+; Label for java path text field
+68107="Java yolu"
+
+; Button text for testing correct Java path
+68108="Java yolunu onayla"
+
+; Dropdown menu string
+68109="Gömülmüş imgeler "
+68110="Gömülmüş imgeleri göster "
+68111="Resim gösterme"
+
+; String in message box when testing and path is correct
+68112="Java yolu, geçerli bir dizini gösteriyor"
+
+; String in message box when testing and path is not found
+68113="Geçerli bir Java kurulumu bulunamadı"
+
+; String in message box when testing and an alternate path has been found
+68114="Aşağıdaki dizin daha uygun bir alternatif. Bu dizin kullanılsın mı ?"
+
+; String in message box when testing and all failed
+68115="Başka bir dizin girin ve yeniden deneyin"
+
+; Dialog caption and label string for plug-in path dialog box
+68117="Eklenti yolu"
+
+; Sub-paths of the plug-in path string
+68118="Yollar"
+
+; On top of a list showing all detected pug-ins
+68119="Bulunan eklentiler"
+
+; Button text of a button starting a plug-in search
+68120="Yeni bul..."
+
+; Button text of a button starting a dialog whe one can change the plug-in
+; path
+68121="Yolu değiştir..."
+
+; Dialog title of a dialog that detects plug-ins
+68122="Eklenti birleşimi"
+
+; Text above a list box
+68123="Birleştirmek istediğiniz eklentileri seçin"
+
+; filedialog title
+68137="Yeni Opera yer imi seç"
+
+; filedialog title 
+68138="Yeni Opera adres dosyasını seç"
+
+; filedialog title
+68139="Opera yer imi seç"
+68140="Opera Adres dosyasını seç"
+68141="Opera yer imlerini aktar"
+68142="Adres listesini aktar"
+68143="Opera yer imlerini farklı kaydet"
+68144="Opera adreslerini Farklı kaydet"
+68145="Opera yer imlerini HTML olarak kaydet"
+68146="Opera adreslerini HTML olarak kaydet"
+68147="Seçilen Opera yer imlerini farklı kaydet"
+68148="Seçilen Opera Adreslerini farklı kaydet"
+68149="Seçilen Opera yer imlerini HTML olarak kaydet"
+68150="Seçilen Opera adreslerini HTML olarak kaydet"
+68151="Alınacak Opera yer imlerini seçiniz"
+68152="Aktarılacak Opera adreslerini seç"
+68153="Alınacak  Netscape yer imlerini seç"
+68154="Aktarılacak Internet Explorer sık kullanılalar dizini seç"
+68155="Alınacak  Konqueror yer imlerini seç"
+68156="Alınacak  KDE1 yer imlerini seç"
+
+; Filedialog title
+68157="Ses dosyalarını seç"
+68158="Dil dosyasını seç"
+68159="Stil tablo dosyasını seç"
+
+; Parttern string to be used in a file dialog box
+68160="Dil dosyaları |*.lng|"
+
+; Dialog title 
+68161="Klavye ayarlarını düzenle"
+
+; Dialog title
+68162="Fare ayarlarını düzenle"
+69439="Konuşma ayarlarını düzenle"
+
+; Message box string shown when launching external programs
+68163="Harici bir yardım uygulaması belirtmediniz. Yapılandırmayı şimdi düzenlemek istiyor musunuz?"
+
+; Used in dialog box text
+68164="E-posta istemcisi"
+
+; Shown in error dialog box
+68165="Harici yardım uygulaması başlatılamıyor. Yapılandırmayı şimdi düzenlemek ister misiniz?"
+
+; One of the authentication methods in M2
+69227="Otomatik"
+69228="Sade metin"
+
+; Used in first time dialog box
+69238="Daha...."
+
+; Title of first time dialog box
+69239="İlk-defa ayarlama"
+
+; This string will be used to add custom filter types to filesdialogs.
+; Example: PHP becomes PHP files (*.PHP) Note that %1 and %2 must be used
+69241="%1 dosyası (*.%2)"
+
+; File dialog title
+69264="Sertifikayı al"
+69265="Sertifikayı aktar"
+
+69310="Temizle"
+69311="Küçült"
+69316="Sadece bu görünümden sil. Klavye kısayolu: Ctrl+X"
+69317="Giriş yöneticisi"
+69318="Vekil sunucu için HTTP 1.1 i yapılandır"
+69319="Sunum modu"
+69320="Akıcı kaydırma"
+69321="Varsayılan mod"
+69322="Modları ayarla"
+69323="Formların biçimlendirilmesini etkinleştir"
+69324="Kaydırma çubuğu stillerini etkinleştir"
+69325="İletileri silmeden önce uyar"
+69326="Ses Tercihleri"
+69327="Dinleme modu"
+69328="Konuş tuşuna bas"
+69329="Ses günlüğü seviyesi"
+69330="Fare düğmesine tıkladığımda konuşmayı durdur"
+69331="Not: Değişikleri etkinleştirmek için Opera'yı tekrar çalıştırmanız gerekmektedir."
+; General title in message boxes that tell we could not saved a file
+69341="Kaydetme hatayla sonuçlandı  "
+
+; Messagebox string telling saving failed for a hotlist file
+69342="Hızlı liste dosyası kaydedilemedi."
+
+; General message box string asking user to try action once more
+69343="Yeniden indirme yap "
+
+; Message box text
+69344="Hepsini kapat"
+69345="Etkin olmayanlar dışında hepsini kapat"
+
+; Dialog title for dialog box that will autoreset opera in kiosk mode
+69346="Opera sıfırlama"
+
+; Dialog title string. Keep in sync with corresponding menu entry
+69350="Yer imlerini yönet "
+
+; Dialog title used when user wants to do something that requires online
+; mode (eg. fetching mail)
+69351="Çevrimdışı "
+
+; General dialog button string 
+69364="Devam "
+
+; General dialog button string
+69365="Dur"
+
+; Caption for Reindex mail dialog box
+69377="E-postaları tekrar sırala"
+
+; Dialog caption javascript options dialog
+69409="JavaScript seçenekleri"
+
+69411="Sunucunun tümünde asla"
+69412="(%li%%) (Top:%li)"
+69413="İletiler işleniyor (%li%%) %li/%li (Tot:%li)"
+69414="Getirme bitti. %li ileti getirildi."
+69415="Getirilecek sayfa(ları) seç"
+; for STRICT_CACHE_LIMIT when page is too huge
+32863="Yükleme iptal edildi çünkü bellek limiti aşıldı"
+
+; Dialog title when downloaded skin can not be used
+69420="Geçersiz tema sürümü"
+
+; Dialog title when downloaded setupfile can not be used
+69866="Uyumsuz ayar sürümü"
+
+; Dialog text when downloaded setupfile can not be used
+69867="Seçilen ayar uygulanamaz. Lütfen kullanmakta olduğunuz Opera sürümüne uygun ayar dosyasını indiriniz."
+
+69423="Orta tuş tıklama seçenekleri"
+; Dialog title for save as file dialog
+69424="Resimlerle farklı kaydet"
+
+69425="Opera'nın ücretsiz sürümü, reklam panoları gösterir. Ne tür reklam kullanmak istediğinizi Tercihler menüsünden seçebilirsiniz"
+69426="Aramalarda Google tarafında sağlanan ilgili metni ve reklamları göster."
+69427="Google ve Opera kullanıcı haklarını korumak için ortak çalışırlar"
+69428="Daha oku"
+69429="Grafik reklamları göster."
+69430="Betiğin sağ tıklama almasına izin ver"
+69434="Otomatik CC"
+69435="Otomatik BCC"
+; Used in the dialog after having spellchecked the text
+69436="Yazım denetimi tamamlandı"
+
+; Caption of spellcheck dialog
+69437="Yazım denetimi"
+
+; 
+69452="Manşetlere (RSS) kaydol"
+69453="Sohbet Odaları"
+69456="İsim"
+69457="Adres"
+69458="<yeni hesap>"
+
+69459="Konuşurken tuşa basılı tutun"
+69460="Tuşa basın, sonra konuşun"
+69461="Tuş gerektirmeden konuşun"
+69462="Hiçbiri"
+; The key 'Insert'
+69463="Ekle"
+
+; The key 'Scroll Lock'
+69464="Scroll Lock"
+
+69465="Özel"
+69466="Kayıt tutulmuyor"
+69467="Sürekli bilgilendirme"
+69468="Bilgi"
+69469="Uyarı"
+69470="Şiddetli"
+69471="Konuşma anlama ayarları"
+; Caption for the Encoding Mismatch dialog
+69478="Kodlama Uyumsuzluğu"
+
+; Text in the Encoding Mismatch dialog
+69479="Bu karakterler şu anki ayarlarınızla gönderilemez. UTF-8 kodlamasıyla göndermek ister misiniz? Eğer [Hayır] derseniz bu karakterler soru işareti olarak görünecek. \n\n%s"
+
+; Used in print dialog box for selecting print range
+69481="Sayfalar(sayfaları arası)"
+
+; Account properties
+69519="DCC bağlantı noktası başlangıcı"
+69520="DCC bağlantı noktası sonu"
+69521="Kendi IP adresime bakmak için sunucuyu kullan"
+
+69526="Tarayıcı"
+69527="Boşluklar"
+69528="Düğmelerim"
+69529="Öneriler"
+69534="Yazım denetimi kullan"
+69535="Yazım denetimi kullanılabilir değil. Yazım denetimini nasıl ayarlayacağınız hakkında bilgi almak istiyor musunuz?"
+69538="Bağlanınca komutları gerçekleştir"
+69587="Oda listesi alınıyor..."
+69588="Özelden konuşma pencerelerini arka planda aç"
+69589="Katıl"
+69590="Düzenle"
+69591="Yenile"
+69592="Bu pencere dışında herhangi bir araç çubuğuna özelliklerini ayarlamak için tıklayınız"
+69593="Yerleştirme"
+69594="Sayfaya sığdır"
+69595="Sadece ihtiyaç halinde göster"
+69596="Özelleştirirken gizli olan araç çubuklarını göster"
+69597="Varsayılanlar"
+69598="Bu pencere dışında herhangi bir araç çubuğuna özelliklerini görmek için tıklayınız"
+69599="Araç çubuğunu varsayılanına ayarla"
+69600="Düğme ve yer tutucular"
+69601="Düğme ve yer tutucuları bu pencere dışında bir araç çubuğuna sürükleyiniz."
+69602="Güncelle"
+69603="Kurallar"
+69604="Süzme kuralını kendiliğinden öğren"
+69605="Yeni kural"
+69606="Kuralı kaldır"
+69607="İletileri süzgeçten geçirilmiş olarak işaretle"
+69608="Sadece bir üst görünümdeki iletileri süzgeçten geçir"
+69609="Takma adı giriniz"
+69610="Şifre gerekiyor"
+69611="Sadece yöneticiler oda konusunu değiştirebilir"
+69612="Sadece yöneticiler veya yetki verilenler konuşabilir"
+69613="Odayı, sohbet odası listesinde gösterme!"
+69614="Şifre korumalı"
+69615="Kullanıcı sayı sınırı"
+69616="Kural ekle"
+69617="İletileri aşağıdaki kurallara göre süzgeçten geçir"
+69618="Takma adlar"
+69619="Emir verirken önce bu kelimeye söyle"
+69620="Yazım denetimi"
+69621="Asıl metin"
+69622="Bununla değiştir"
+69623="Yoksay"
+69624="Değiştir"
+69625="Öğren"
+69627="Dil"
+69629="Çerez bilgisi"
+69630="İsim"
+69631="Değer"
+69632="Son kullanma tarihi"
+69633="Son ziyaret"
+69634="Güvenli"
+69635="Sadece yazana gönder"
+69636="Sürüm"
+69637="Buraya Al:"
+69638="Takma ad"
+; Dialog title for config dialog
+69871="Kayıtlı dosyalar için taşıyıcılar"
+
+; Dialog title for edit dialog
+69872="Dosya ilişkilerini düzenle"
+
+69882="İletileri dosyaya kaydet"
+69890="Konuşma anlamayı kullan"
+69891="Opera kullanıcı arabirimini konuşarak kontrol et"
+69898="OperaNet, Avrupa"
+69899="Undernet, Avrupa"
+69900="Undernet, Kuzey Amerika"
+69901="IRCnet, Afrika"
+69902="IRCnet, Asya"
+69903="IRCnet, Avrupa"
+69904="EFnet, Asya"
+69905="EFnet, Avrupa"
+69906="EFnet, Kuzey Amerika"
+69907="DALnet, Asya"
+69908="DALnet, Avrupa"
+69909="DALnet, Kuzey Amerika"
+69910="FreeNode, Avrupa"
+69911="FreeNode, Kuzey Amerika"
+69912="FreeNode, Okyanusya"
+69913="FreeNode, Güney Amerika"
+69917="Sayfaya sığdırma kapalı"
+69918="Birden fazla satıra sığdır"
+69919="Genişletme menüsünü göster"
+69921="Tarayıcı görünümü"
+69922="E-posta görünümü"
+; For license dialog
+69938="Kabul ediyorum"
+69939="Kabul etmiyorum"
+
+70003="Olası güvenlik tehlikesi"
+70004="İndirdiğiniz kurulum dosyası zararlı olabilir. Bu dosyanın yayıncısına güveniyorsanız kurun. Devam etmek istiyor musunuz?"
+; Dialog that is shown when Clear private Data is executed when active
+; transfers are kept.
+70042="Devam eden aktarımlar korundu"
+70043="Etkin aktarımlar kaldırılmadı."
+
+70045="Kullanıcıyı odadan atın"
+70046="%s isimli kullanıcıyı odadan atma nedeninizi yazın"
+70048="%u oda"
+70054="İsmi sunucudan al"
+; Dialog shown when Java is needed, but no Java RE is available
+70279="Java yüklü değil"
+70280="Bu sayfanın tüm içeriğine bakabilmek için Java yüklemelisiniz. Java'yı şimdi indirmek istiyor musunuz?"
+
+; Text shown when no new plug-ins were detected
+70291="Yeni eklenti bulunamadı"
+
+; Dialog shown when voice libraries is needed.
+70292="Konuşma anlama kütüphanesi yüklenmemiş"
+
+; Dialog shown when Voice libraries is needed.
+70293="Opera Konuşma anlama özelliğini kullanmak için ek dosyalara ihtiyaç duyuyor. Bu dosyalar yaklaşık 10.5MB dır. Şimdi konuşma kütüphanelerini indirmek istiyor musunuz?"
+
+; File filter when native save as dialog can save as html and save as html
+; with inline images. Note save with inlines must be the second option.
+70331="HTML dosyası|*.htm;*.html|HTML dosyası(resimlerle)|*.htm;*.html|Text file|*.txt|All files (*.*)|*.*|"
+
+; Gender option of TTS engine
+70336="Cinsiyet"
+
+; Button name for going to advanced voice preferences 
+70335="Gelişmiş..."
+
+; Heading for the dialog that prompts for download of a new version.
+70391="Yeni Opera sürümü mevcut"
+
+; The text in the dialog that prompts for download of a new version.
+70392="Opera'nın yeni bir sürümü, Opera %s, mevcut. Şimdi yükseltme yapmak istiyor musunuz?"
+
+; The default text that prompts for download of a new version.
+70393="Opera'nın yeni bir sürümü mevcut. Şimdi yükseltme yapmak istiyor musunuz?"
+
+; The heading for the dialog that informs the user that no new version has
+; been released.
+70394="En güncel Opera sürümünü kullanıyorsunuz"
+
+; The dialog that informs the user that no new version has been published.
+70395="Son sürüm Opera kullanıyorsunuz"
+
+; Header for the dialog that informs the user that the version check failed.
+70396="Yeni sürüm denetlenemedi"
+
+; Text for the dialog that informs the user that the version check failed.
+70397="Opera yeni sürümü denetlemede bir hata oluştu"
+
+; Part one of a warning string that informs the user that a file is missing
+; and instructs on how to fix it
+70399="Dosya "
+
+; Part two of a warning string that informs the user that a file is missing
+; and instructs on how to fix it.
+70400=" aşırı titiz anti-virüs programı tarafından engellenmişe benziyor. E-posta iletilerinde bir kayıp olmaması için,lütfen BU KUTUCUĞU KAPATMADAN bu dosyayı geri yükleyin."
+
+; The heading for the string that warns a user of a missing file.
+70401="Uyarı!"
+
+; Header for dialog used to ask confirmation of new subscription
+70402="Yeni üyelik"
+
+; Text for dialog asking confirmation of new subscription.
+70403="%s üyelik başvurusunu yapmak istiyor musunuz?"
+
+; Double linebreak, used as spacer.
+70404="\n\n"
+
+; Comment that is appended to the new subscription confirmation dialog if
+; the new subscription is of feed type.
+70405="Haber akışı, Manşetler menüsüne eklenecek ve gelişmeler için kontrol edilecek"
+
+; Text used to ask user to change to online mode if the user requests an
+; update check in offline mode.
+70406="Çevrimdışı tarama etkin. Opera sürüm kontrolü için upgrade.opera.com adresine bağlanmak zorunda \n\n çevrimiçi moduna geçmek istiyor musunuz?"
+
+; Header for the dialog used to ask the user to change to online mode if the
+; user requests an update check in offline mode.
+70407="upgrade.opera.com, adresine bağlanılması gerekiyor"
+
+; Question given to a user who uses functionality that requires a mail/IM
+; account without such an account set up.
+70408="Devam etmeden önce bir hesap açmalısınız. Şu anda bir hesap açmak istiyor musunuz?"
+
+; Header for a dialog that asks the user if he wants to create an account so
+; that mail/IM functionality can be used.
+70409="Hesap gerekiyor"
+
+; One of the advanced voice options.
+70410="Çok düşük"
+70411="Düşük"
+70412="Orta"
+70413="Yüksek"
+
+; One of the avdvanced voice options.
+70414="Çok yüksek"
+
+; One of the advanced voice options.
+70415="Sessiz"
+70416="Çok yumuşak"
+70417="Yumuşak"
+70418="Normal"
+70419="Sesli"
+70420="Çok sesli"
+
+; Alternative error message when the version checking fails.
+70421="Sürüm bilgisi dosyası açılamıyor."
+
+; Alternateive error message when the version checking fails.
+70422="Son sürüm bilgisini almak için sunucuya bağlanılamadı."
+
+; Text used to signal a user that an import has finished.
+70424="Veri alma tamamlandı."
+
+; An option in the voice section of the preferences that sets the voice
+; gender to male.
+70425="Bay"
+
+; An option in the voice section of the preferences that sets the voice
+; gender to female.
+70426="Bayan"
+
+; An option used in the preferences dialog to select advanced MDI-mode usage
+; of Opera.
+70427="Gelişmiş Opera çalışma alanı"
+
+; String used in the first time setup to ask the user about how he wants his
+; advertisements.
+70431="Opera'nın bedava sürümü reklam gösterir. Dilediğiniz reklam çeşidini seçiniz."
+
+; Header for the customize dialog.
+70432="Özelleştir"
+
+; Text for the Panels tab in the customize dialog.
+70433="Panolar"
+
+; Text used for describing options in the customize dialog.
+70434="Hangi panoları görüntüleyeceğinizi seçin"
+
+; Text used for describing an option in the customize dialog.
+70435="Panoların nerede görüneceğini seçiniz"
+
+; Checkbox text for selecting whether to show the panel toggle bar. Used in
+; the customize dialog.
+70436="Pano çerçevesini pencerenin kenarında göster."
+
+; Text used to explain an option in the customize dialog.
+70437="Opera bir yer imini web panosu olarak gösterebilir"
+
+; Button text used in the customize dialog.
+70438="Web panosu ekle..."
+
+; Nutton text used in the customize dialog.
+70439="Web panolarını al..."
+
+; Text for the Toolbars tab in the Customize dialog
+70440="Araç çubukları"
+
+; Text for describing an option in the Customize dialog.
+70441="Görünmesini istediğiniz araç çubuklarını seçiniz"
+
+; Checkbox text used in the Customize dialog.
+70442="Başlangıç çubuğu"
+
+; Checkbox text used in the customize dialog.
+70443="Görünüm çubuğu"
+
+; The text on the buttons tab in the Custiomize dialog.
+70444="Düğmeler"
+
+; Button text for a button in the Clear private data dialog.
+70445="Gelişmiş"
+
+; Checkbox text in the clear private data dialog
+70446="Bütün sayfaları kapat"
+
+; Checkbox text in the print dialog.
+70447="Sayfa genişliğine sığdır"
+
+; Checkbox text for the print options dialog
+70448="Sayfa yerleşimi"
+
+; Checkbox in the Script options dialog
+70449="Betiğin in adres çubuğunu saklamasına izin ver"
+
+; Button to select current page as startpage in Preferences dialog
+70450="Şimdikini kullan"
+
+; Checkbox text used in Search section of Preferences dialog.
+70451="Sayfa içi aramada da bu arama kutucuğunu kullan"
+
+; Label for a dropdown that selects color scheme in the Skins section of the
+; Preferences dialog.
+70452="Renk düzeni"
+
+; Title for the Advanced voice options dialog
+70453="Gelişmiş konuşma anlama özellikleri"
+
+; Checkbox text in the Advanced voice options dialog
+70454="Yüksek kaliteli yazı-okuma özelliğini aç."
+
+; Label in the Advanced voice options dialog.
+70455="Ses kalınlığı"
+70456="Hız"
+70457="Ses"
+70458="Güven düzeyi"
+
+; Title for the Report site problem dialog.
+70459="Site sorununu bildir"
+
+; Label for the Page address edit field in the Report site problem dialog.
+70460="Sayfa adresi"
+
+; Label for the Comment edit field in the Report site problem dialog.
+70461="Yorum"
+
+; The label for the configuraton edit field in hte Report site problem
+; dialog.
+70462="Yapılandırma ayrıntıları"
+
+; Message used in profile management.
+70487="Opera mevcut ayar dosyanızı (opera6.ini) profil dizinine kopyalamayı başaramadı."
+70488="Opera şu dosyayı göndermeyi başaramadı:\n\tKaynak: %s\n\tHedef:%s\n\nkalan işlemler atlanıyor."
+
+; Notification for display on the clear private data dialog
+70489="Tarayıcınızdaki bütün geçmiş bilgileri silinecektir. Tüm sayfaları kapatıp, aktarımları durdurup silme işlemine devam etmek istiyor musunuz?"
+
+; The title of the Add bookmark dialog.
+70495="Yer imi ekle"
+
+; The label for the create in folder selector in the Add bookmark dialog.
+70496="İçinde oluştur"
+
+; Text for the "New folder..." button in the Add bookmark dialog.
+70497="Yeni dizin..."
+
+; The "Show in panel" checkbox in the "Add bookmark" dialog. (Also in the
+; "Bookmark properties" dialog.)
+70498="Panoda göster"
+
+; Title for the "Folder properties" dialog.
+70499="Dizin özellikleri"
+
+; The expand button that opens the advanced delete private data section.
+70500="Gelişmiş >>"
+
+; The collapse button that hides the advanced delete private data section.
+70501="Gelişmiş <<"
+
+; Used in the bookmark properties dialog when creating a new folder.
+70503=" '%s' içinde oluşturulacak yeni dizinin adını girin"
+
+; Dialogue shown when a plug-in is needed, but the plug-in is unavailable.
+; Input string: plug-in name or empty string
+70518="%s eklentisi kurulu değil"
+
+; Dialogue shown when a plug-in is needed, but the plug-in is unavailable.
+; Input string 1: plug-in name or empty string. Input string 2: mimetype
+; or filename or empty string. Redirection goes to the PLUGINSPAGE site as
+; specified by the web site.
+70519="Bunu görüntülemek için %s eklentisine ihtiyacınız var\n%s\niçerik.\n\nEklentiyi şimdi indirmek ister misiniz?"
+
+; Dialogue shown when a plug-in is needed, but the plug-in is unavailable.
+; Input string 1: plug-in name or empty string. Input string 2: mimetype
+; or filename or empty string. Redirection goes to Opera's plugin support
+; site.
+70520="Bunu görüntülemek için %s eklentisine ihtiyacınız var\n%s\niçerik.\n\nDaha fazla eklenti kurulum bilgisi ister misiniz?"
+
+; Shown as tooltip and status information. Input string: plug-in name or
+; empty string
+70521="%s eklentisi kurulu değil.\nDaha fazla bilgi için eklenti içeriği alanına tıklayın"
+
+70525="Gelen bağlantıları kabul edebilir"
+; Security
+70539="TLS 1.1'i etkinleştir"
+
+; Displayed when trying to save to a directory not found
+70542="%s isimli yok, şimdi oluşturmak ister misiniz?"
+
+70543="Dizin bulunamadı"
+70544="Mail  dizini"
+70545="Dizin hatası"
+; Save mail attachments dialog
+70547="Ekleri kaydet"
+70548="Farklı kaydet"
+70549="Seç"
+
+; Notification message when deleting an IMAP folder
+70555="İletilerle birlikte IMAP dizini de sil"
+70556="Bu dizini sunucudan silmek istediğinize emin misiniz?"
+
+; Error message for version checking when the language was not found.
+70557="Seçilen dil, desteklenen diller arasında bulunmuyor, bu yüzden Opera, diliniz için uygun olan sürümü belirleyemiyor. Lütfen, Opera'yı en kısa sürede, dil dosyalarınız ile dağıtılmış sürüme güncelleyin."
+
+; Image properties dialog
+70558="Görüntü aygıtı:"
+70559="Görüntü aygıtı modeli:"
+70560="Dosya güncelleştirme günü ve saati:"
+
+; image properties dialog
+70561="Resim açıklaması"
+
+; Image properties dialog
+70562="Yazılım:"
+70563="Sanatçı:"
+70564="Telif hakkı:"
+
+; New prefs dialog
+70566="Reklam"
+70567="Tarama"
+70568="Ara"
+70569="Bildirimler"
+70570="İçerik"
+70571="Java"
+70572="Eklentiler"
+70573="Yazı tipleri"
+70574="İndirmeler"
+70575="Programlar"
+70576="Geçmiş"
+70577="Çerezler"
+70578="Güvenlik"
+70579="Ağ"
+70580="Araç çubukları"
+70581="Menüler"
+70582="Kısayollar"
+70583="Fare"
+70584="Ses"
+
+; Save attachments dialog
+70585="Ek"
+70586="Ekleri dizinine kaydet"
+
+; Security information dialog. This is inserted into other strings to be
+; specific about what server the dialog refers to.
+70587="%s sunucusu"
+
+; Security information dialog. Warning message
+70588="%s ile olan bağlantınız şifrelenmiştir, ancak sunulan sertifikada bazı hatalar var:"
+
+; Security information dialog,
+70589="Opera, sunucu sertifikası ile ilgili sorunlar tespit etti:"
+
+; Security information dialog
+70590="Bu yayımcıdan gelen sertifikalar için uyarılmak istemiştiniz"
+
+; Security information dialog.
+70591="Sunucu ismi %s ile sertifika ismi %s uyuşmuyor."
+
+; Security information dialog
+70592="Sertifika güvenilir bir yetkili tarafından imzalanmamış."
+
+; Security information dialog.
+70593="Sertifikanın süresi dolmuş."
+70594="Sertifika henüz geçerli değil."
+70595="Sunucu anonim bir bağlantı talebinde bulundu. Sunucu tanımlaması doğrulanamıyor."
+70596="Sunucu ile olan bağlantınız şifrelenmemiş ve başkaları tarafından gizlice izlenebilir."
+
+; Security information dialog
+70597="Sunucu tarafından güvensiz bir şifreleme seviyesi isteniyor"
+70598="Hata tanımlaması eksik"
+
+; Security information dialog.
+70599="\nÖnemli verilerinizi bu bağlantınız üzerinden göndermeniz güvenli değil!"
+70600="%s ile olan bağlantınız şifrelenmiş. Opera bu şifrelemeyi güçlü(3) olarak nitelendiriyor."
+70601="%s ile olan bağlantınız şifrelenmiş. Opera bu şifrelemeyi kuvvetli(2) olarak nitelendiriyor."
+70602="%s ile olan bağlantınız şifrelenmiş. Opera bu şifrelemeyi zayıf(1) olarak nitelendiriyor."
+70603="Opera, %s ile olan bağlantıyı güvensiz olarak nitelendirdi."
+70604="\n\nSertifika verisi bulunamadı.\nDoğrulama bilgisi erişilemez."
+70605="\n\n%s kendini elektronik bir sertifikalı olarak tanıttı. Sertifika, bu tarayıcının güvenilen yayımcılar listesinde bulunan bir yayımcı tarafından imzalanmış ve doğruluğu onaylanmış."
+
+; Security information dialog
+70606="%s için güvenlik bilgisi"
+
+; Security information dialog.
+70607="Güvenlik bilgisi"
+
+; Setup apply dialog.
+70608="Opera ayarı indir"
+70609="Ayar indiriliyor..."
+
+; setup apply dialog
+70610="Ayar kurulurken bir hata oluştu"
+
+; Setup apply dialog.
+70611="Yine de bu ayarı korumak istiyor musunuz?"
+
+; Setup apply dialog
+70612="İndirilen ayarı uygula"
+70613="Bu ayarı korumak ister misiniz?"
+70614="Ayar adı:"
+
+; Customize toolbars
+70627="Görünüm"
+70628="Kurulu temaları göster"
+70629="Daha fazla tema"
+
+; Customize toolbars.
+70630="Simge boyutu"
+
+; Proxy servers dialog
+70631="Yerel sunucular için vekil sunucu kullan"
+
+; New preferences dialog.
+70632="Genel"
+70633="Başlangıç"
+70634="Opera sık kullandığınız sayfalardan veya son kullandığınız sayfalardan başlayabilir"
+70635="Ana sayfa"
+70636="Sayfaları ve açılır pencereleri nasıl idare etmek istediğinizi seçin"
+70637="Sayfalar"
+70638="Sayfaları sekmelerde aç"
+70639="Her sekmede kapama düğmesi göster"
+70640="Açılır pencereler"
+70641="Dil"
+70642="Opera ve Web sayfaları için kullanacağınız dili seçin"
+70643="Parola Sihirbazı"
+70644="Kayıtlı kullanıcı adı ve şifreyi Parola Sihirbazı düğmesine tıklayarak doldurabilirsiniz."
+70645="Parola Sihirbazının şifreleri hatırlamasını sağla"
+70646="Şifreler"
+70647="Opera, formları kişisel bilgileriniz doğrultusunda doldurabilir."
+70648="Başlangıç sayfası"
+70649="Cep"
+70650="Web sayfaları"
+70651="Yeni sayfalar için resim ve yakınlaşma ayarlarını seçin"
+70652="Resimler"
+70653="Sayfa yakınlaşması"
+70654="Pencereye sığdır"
+70655="Belli stili olmayan sayfalar için yazı tipi ve renk seçin"
+70656="Normal yazı tipi"
+70657="Eş aralıklı yazı tipi"
+70658="Arka plan rengi"
+70659="Normal bağlantı rengi"
+70660="Normal bağlantıların altını çiz"
+70661="Ziyaret edilmiş bağlantı rengi"
+70662="Gezilen bağların altını çiz"
+70663="Gelişmiş"
+70664="İstediğiniz reklam çeşidine göre Opera'yı ücretsiz kullanabilirsiniz."
+70665="Bir ayar seçin veya daha fazlası için my.opera.com adresini ziyaret edin."
+70666="Ses kontrollü gezintiyi etkinleştir"
+70667="Ayrıntılar..."
+70668="Yeni mesajlar için bildirim göster"
+70669="Engellenen açılır pencereler için bildirim göster"
+70670="Biten aktarımlar için bildirim göster"
+70671="Ayrıntılı yazı tipi seçimi"
+70672="JavaScript dosyalarım"
+70673="Stil seçenekleri..."
+70674="E-posta programı"
+70675="Diğer protokoller için yardımcı uygulamaları seçin"
+70676="Çerezler bilgisayarınızda saklanan küçük dosyalardır. Bunlar, Web sitelerinin sizi hatırlamasını sağlar."
+70677="Kişisel sertifikalarınız korumak için bir şifre seçin."
+70678="Ana şifreyi ayarla..."
+70679="Eğer internete doğrudan erişiminiz yoksa, vekil sunucuları yapılandırın."
+
+; Report site problem dialog.
+70680="Sorunlu sayfalar hakkında Opera'ya bilgi gönderin"
+
+; Report site problem dialog
+70681="Sorun tipi"
+
+; Security information dialog
+70682="Genel"
+70683="Sertifika Yöneticisi :"
+70684="Sertifika yayımcısı:"
+70685="Daha önce geçerli değil:"
+70686="Son kullanma tarihi:"
+70687="Şifreleme protokolü:"
+70688="Ayrıntılar"
+70689="Sunucu sertifika zinciri"
+70690="İstemci sertifikası"
+70691="İstemci sertifika zinciri"
+
+; Option in the progress bar type dropdown in the customize dialog
+70707="Basit"
+
+; Fallback name for the server when a url is not avilable.
+70708="sunucu"
+
+; Test shown in message box when downloading an executable file
+70709="UYARI\nDosya çalıştırılabilir veya içersinde çalıştırılabilir bir betik bulunuyor.\nBu dosyayı kullanmadan önce diske kaydetmek isteyebilirsiniz.\n\n"
+
+; Text shown in a message box on startup if KDE window manager is running
+70710="Opera KDE'nin çalıştığını tespit etti.\n\nCtrl+F8 gibi bazı klavye kısayolları KDE için ayrılmış olduğundan Opera tarafından kullanılamayacak.\n\nKDE kısayollarını KDE Kontrol Merkezinden değiştirebilirsiniz."
+
+70723="Belirtilmemiş"
+70724="Ufak sorun"
+70725="Önemli sorun"
+70726="Site kullanılamaz"
+; Button text in preference dialog
+70727="Eklenti seçenekleri..."
+70728="Java seçenekleri..."
+
+; New preference dialog
+70729="Diğer"
+
+; Setup apply dialog
+70730="Dil dosyası indir"
+
+; Setup apply dialog.
+70731="Dil dosyası indiriliyor..."
+
+; Setup apply dialog when downloaded file does not contain our header
+70732="İndirilen dosya bozuk veya geçerli bir ayar dosyası değil"
+70733="Dosya tanınmıyor"
+
+; The session manager dialog
+70739="Oturumları yönet"
+70740="Aç"
+70741="Sayfaları pencere içinde aç"
+
+; Save session dialog
+70742="Oturum adı"
+
+; The report site problem dialog.
+70743="Ayrıntılar >>"
+70744="Ayrıntılar <<"
+
+; Ask if user wants to hand over an unknown protocol to external helper
+; application
+70749="Bilinmeyen kural"
+70750="Opera bu protokolü tek başına kullanamaz. Bu bağlantıyı varsayılan uygulama ile açmak ister misiniz?"
+
+; Import wizard: move-to-sent-dropdown
+70757="Gönderilmiş(ler)'e taşı:"
+
+; Optional server name completion via Web search
+70758="Site bulunmayınca Web'de ara"
+
+; Menu strings
+
+50845="Serbest"
+65307="Pano ekle..."
+65309="Panoyu düzenle"
+65310="Panoları al"
+54020="Yeni pencerede aç"
+54023="Kişisel araç çubuğunda göster"
+54001="Sayfa ekle"
+54007="Hepsini ekle"
+54002="Kes"
+54003="Kopyala"
+54004="Yapıştır"
+54005="Sil"
+63001="Hepsini seç"
+180130="Dosya"
+54013="Yeni"
+54010="Aç..."
+54015="Farklı kaydet..."
+54014="Seçilenleri farklı kaydet..."
+54006="Özellikler..."
+50466="Yeni pencere"
+53028="Yeni sayfa"
+50475="Pencereyi kapat"
+53027="Sayfayı kapat"
+50001="Aç..."
+50003="Farklı kaydet..."
+50977="Resimlerle farklı kaydet..."
+162500="Al"
+52250="E-posta..."
+52251="Opera yer imleri..."
+52252="Opera Adresleri..."
+52254="Netscape yer imleri..."
+52255="Internet Explorer sık kullanılanları..."
+162560="Ver"
+52256="Opera yer imleri..."
+52257="Opera adresleri..."
+50004="Yazdır..."
+50005="Yazıcı ayarları..."
+50476="Yazdırma seçenekleri..."
+54271="Baskı önizleme"
+51099="Çevrimdışı çalış"
+54493="Özel verileri sil..."
+162000="Hızlı özellik değiştirme"
+52200="Açılır pencereleri kabul et"
+52201="Açılır pencereleri engelle"
+52202="Açılır pencereleri arka planda aç"
+52203="GIF canlandırmalarını etkinleştir"
+52205="Web sayfalarındaki sesleri etkinleştir"
+52206="Java'yı etkinleştir"
+52207="Eklentileri etkinleştir"
+52208="JavaScript'i etkinleştir"
+52209="Çerezleri etkinleştir"
+52215="Başvurucu günlüğünü etkinleştir"
+52216="Vekil sunucuları etkinleştir"
+52210="Opera olarak tanıt"
+52211="Mozilla 5.0 olarak tanıt"
+52212="Mozilla 4.78 olarak tanıt"
+52213="Mozilla 3.0 olarak tanıt"
+52214="MSIE 5.0 olarak tanıt"
+50394="Seçenekler..."
+50006="Çıkış"
+50007="Geri al"
+50008="Kes"
+50009="Kopyala"
+50010="Yapıştır"
+50424="Sil"
+50641="Tümünü seç"
+50058="Bul..."
+50086="Sonrakini bul"
+52031="Öncekini bul"
+50063="Sayfada ara"
+145550="Ana çubuk"
+170510="Kişisel çubuk"
+53051="Üstte"
+53052="Altta"
+53053="Solda"
+53054="Sağda"
+53050="Kapalı"
+145570="Durum çubuğu"
+170210="Sayfa çubuğu"
+150740="Adres çubuğu"
+50612="Kaydırma çubukları"
+157300="Yakınlaşma"
+51730="%50"
+51731="%80"
+51732="%90"
+51733="%100"
+51734="%120"
+51735="%150"
+51736="%200"
+51739="-%100"
+51740="+%100"
+51737="-%10"
+51738="+%10"
+157500="Kodlama"
+51750="Otomatik seç"
+157510="Unicode"
+51751="UTF-8"
+51752="UTF-16"
+67447="UTF-32"
+67448="UTF-7"
+51753="US ASCII"
+157540="Batı Avrupa"
+51754="ISO-8859-1"
+51771="Windows-1252"
+51767="ISO-8859-15"
+157550="Orta Avrupa"
+51755="ISO-8859-2"
+67449="ISO-8859-1"
+51769="Windows-1250"
+157560="Güney Avrupa"
+51756="ISO-8859-3"
+157650="Baltık"
+51765="ISO-8859-13"
+51776="Windows-1257"
+51757="ISO-8859-4"
+157630="İskandinavca"
+51763="ISO-8859-10"
+51791="Windows-Sami-2"
+157660="Keltçe"
+51766="ISO-8859-14"
+157620="Türkçe"
+51762="ISO-8859-9"
+51773="Windows-1254"
+157770="Vietnamca"
+51777="Windows-1258"
+51783="VISCII"
+67450="VPS"
+157580="Kiril"
+51758="ISO-8859-5"
+51768="KOI8-R"
+51785="KOI8-U"
+51770="Windows-1251"
+51792="Codepage 866"
+157600="Yunan"
+51760="ISO-8859-7"
+51772="Windows-1253"
+157590="Arapça"
+51759="ISO-8859-6"
+51775="Windows-1256"
+157610="İbranice"
+51761="ISO-8859-8"
+67451="ISO-8859-8"
+51774="Windows-1255"
+157640="Tay dili"
+51764="ISO-8859-11 (TIS-620)"
+157890="Çince"
+51780="Big5 (Geleneksel)"
+67452="Big5 (Geleneksel)"
+51790="EUC-TW (Geleneksel)"
+51782="GB2312 (Basitleştirilmiş)"
+51786="HZ-GB2312 (Basitleştirilmiş)"
+67453="GB2312 (Basitleştirilmiş)"
+67454="ISO-2022-JP"
+157880="Japonca"
+; Auto detect for Russian, Chinese and Japanese
+51788="Otomatik dil seçimi"
+
+51778="Shift-JIS"
+51779="ISO-2022-JP"
+51781="EUC-JP"
+157840="Korece"
+51784="EUC-KR"
+51212="Görüntüyü yenile"
+44002="Kaynak kodu"
+50660="Çerçeve kaynak kodu"
+50995="Tam ekran"
+50032="Geri"
+; Next
+50031="İleri"
+
+50420="Dur"
+50477="Ana sayfa"
+50065="Yenile"
+44003="Çerçeveyi yenile"
+50725="Tüm sayfaları yenile"
+200000="Yenileme süresi"
+56000="Etkinleştir"
+56001="El ile..."
+50478="Başlangıç sayfasını ayarla..."
+50059="Sayfaya git..."
+65132="Benzer sayfalara git"
+50087="Yer imlerine ekle..."
+50679="Oluştur..."
+; Send menu, Mail
+65180="Bağlantı gönder"
+
+50979="Kontrol et"
+; Check menu, Mail
+51723="Hepsini kontrol et"
+
+; Send menu, Mail
+54070="Kuyruktakileri gönder"
+
+51139="Süzgeçler..."
+51145="Yeni hesap..."
+59999="Hesapları düzenle..."
+44004="Okundu olarak işaretle"
+44005="Okunmayan olarak işaretle"
+50836="İndirmeler"
+50837="Geçmiş"
+50838="Eklentiler"
+50835="Geçici dosyalar"
+54122="Java Uçbirim Ekranı "
+50498="Çoğalt"
+52035="Bağlantılı pencere yarat"
+50018="Basamakla"
+50019="Dikey döşe"
+51136="Yatay döşe"
+50567="Tümünü önceki boyuta getir"
+50565="Tümünü küçült"
+50545="Tümünü tam ekran yap"
+50564="Tümünü kapat"
+50479="Klavye"
+50525="Fare"
+60242="Satın al"
+50976="Opera'ya kayıt ol..."
+242400="Web'de Opera"
+; Opera on the Web menu
+60240="Başlangıç sayfası"
+60241="Destek"
+60246="Toplam"
+51131="OperaMail"
+
+50015="Opera hakkında"
+; link menu
+53018="Yeni sayfada aç"
+53019="Arka planda aç"
+50418="Bağlantıyı yer imlerine ekle"
+50216="Bağlantı adresini kopyala"
+50761="Hedefi farklı kaydet..."
+
+; mailto: link menu
+50436="E-posta gö&nder..."
+50542="E-posta adreslerini kopyala"
+
+; mailto: image link menu and image link menu
+50262="Resmi kaydet..."
+50251="Resmi kopyala"
+50419="Resmin adresini kopyala"
+56064="Resim özellikleri"
+200670="Resmi farklı kullan"
+56067="Ön plan tema resmi"
+56068="Arka plan tema resmi"
+57076="Masaüstü arka planı"
+56069="Ön plan tema resmini kaldır"
+56070="Arka plan tema resmini kaldır"
+
+; Default page menu
+50426="Geri"
+50427="İleri"
+50429="Dur"
+50430="Ana sayfa"
+50428="Yenile"
+50423="Yer imlerine ekle"
+50215="Adresi kopyala"
+65178="E-Posta ile gönder"
+292450="Arka plan"
+
+; Default page menu and image link menu
+65245="Resmi göster"
+
+; Default page menu
+50672="Resmi kaydet..."
+50671="Resmi kopyala"
+50673="Resim adresini kopyala"
+65244="Resim özellikleri..."
+200710="Resmi kullan"
+50432="Çoğalt"
+
+; Select menu
+50872="Metni kopyala"
+65184="Ara"
+291920="Bununla ara"
+65187="Sözlük"
+65188="Ansiklopedi"
+65186="Para değerleri"
+291960="Çeviri"
+65196="İngilizce'den Fransızca'ya"
+65197="İngilizce'den Almanca'ya"
+65198="İngilizce'den İtalyanca'ya"
+65199="İngilizce'den Portekizce'ye"
+65200="İngilizce'den İspanyolca'ya"
+65202="Fransızca'dan İngilizce'ye"
+65203="Fransızca'dan Almanca'ya"
+65204="Fransızca'dan İtalyanca'ya"
+65205="Fransızca'dan Portekizce'ye"
+65206="Fransızca'dan İspanyolca'ya"
+65207="Almanca'dan İngilizce'ye"
+65208="Almanca'dan Fransızca'ya"
+65209="İtalyanca'dan İngilizce'ye"
+65210="İtalyanca'dan Fransızca'ya"
+65211="Portekizce'den İngilizce'ye"
+65212="İspanyolca'dan İngilizce'ye"
+65213="İspanyolca'dan Fransızca'ya"
+65214="İngilizce'den Japonca'ya "
+65215="Japonca'dan İngilizce'ye"
+65218="E-mail olarak gönder"
+
+; Image link menu
+44015="Bağlantıyı yer imlerine ekle"
+
+140080="Düzenle"
+; File menu
+148470="Dosya"
+
+148480="Düzen"
+; Navigation menu
+148510="Gezinme"
+
+1127000="Düzenle"
+; Menu string, used for reverting the last change
+50864="Geri Al"
+
+; Menu string, used for cutting text
+50865="Kes"
+
+; Menu string, used for copying text
+50866="Kopyala"
+
+; Menu string, used for pasting text
+50867="Yapıştır"
+
+50868="Sil"
+; Menu string, used for selecting all text
+50869="Tümünü seç"
+
+56073="Tema al"
+; Transfers view
+54139="Ayrıntıları göster"
+67520="Yeni öğeleri üstte göster"
+
+146630="Çerçeve"
+50663="Kaynak kodunu görüntüle"
+50781="Farklı kaydet"
+56051="Kaynak kodu onayla"
+50669="Yer imlerine ekle"
+50668="Adresi kopyala"
+65179="E-posta ile  bağlantı yolla"
+50664="Yeniden yükle"
+44012="Bütün resimleri yükle"
+50708="Tam pencere yap"
+67350="Hızlı indirme"
+67351="Paneli kilitle"
+67352="Tüm hesapları al"
+67353="E-Posta oku..."
+67354="İşaretle ve bir sonraki okunmamışa git"
+; Cancel newsmessage
+67355="Postalamayı iptal et"
+
+67356="Etiketle"
+67357="İçinde göster"
+67358="Git"
+67362="Hepsini okundu olarak işaretle"
+67363="Çöp kutusunu boşalt"
+67364="Yönlendir"
+67359="Bir sonraki okunmamış"
+67360="Önceki okunmamış"
+67365="Tire"
+; noun (in 'Go to' menu)
+67366="Bağlantı kur"
+
+67367="Düz"
+67368="İç içe"
+67369="Kime ve kimden"
+67370="Küçük resimler"
+67371="Okunanları göster"
+67372="Çöpü göster"
+67373="İstenmeyen Postayı göster"
+67374="E-Posta listesini göster"
+67375="Haber gruplarını göster"
+67376="Hızlı cevabı göster"
+67377="Görünümden kaldır"
+; Forward mail
+67378="İlet"
+
+67379="Öncelik"
+67380="Benim düzenime göre sırala"
+67381="İsime göre sırala"
+67382="Takma ada göre sırala"
+67383="Adrese göre sırala"
+67384="Açıklamaya göre sırala"
+67385="Yaratılmaya göre sırala"
+67386="Ziyaret tarihine göre sırala"
+67387="A-dan Z ye düzenle"
+67388="Z-den A ya düzenle"
+67389="Aç"
+67390="Görünüm"
+67392="Ana sayfayı ziyaret et"
+67394="URL e git"
+; Help menu
+67395="Yardım"
+
+; Window menu
+67396="Pencere"
+
+; Mail menu and button
+67397="E-Posta"
+
+; Bookmarks menu
+67398="Yer İmleri"
+
+67399="Oturum"
+67400="Gezinme çubuğu"
+67401="Düğmeleri kilitle"
+67402="Araç çubuklarını düzenle..."
+67403="Tema"
+67404="Renk düzeni"
+; Browser View Menu
+67405="Stil"
+
+67406="Küçük ekran"
+67407="Site gezinmesi"
+; Send mail menu
+67408="Gönder"
+
+67409="Oku..."
+67410="Ara..."
+67411="Haber grupları..."
+67412="IMAP dizinleri..."
+67413="Etkin olmayanlar dışında hepsini kapat"
+; Bookmark Item File menu
+67414="Opera yer imlerini al..."
+67415="Netscape/Firefox yer imlerini al..."
+67416="Internet Explorer sık kullanılanlarını al..."
+67417="Opera yer imlerini aktar..."
+
+; Contact Item File menu
+67420="Yeni"
+
+; File/Session menu
+67421="Oturumu aç..."
+67422="Oturum ekle..."
+67423="Bu oturumu kaydet..."
+
+; Quick Preferences
+67424="İstenilmeyen açılır pencereleri engelle"
+
+; View Hotlist Menu
+67425="Yer imleri"
+67426="Posta"
+
+67427="Kişiler"
+; View Hotlist Menu
+67428="Geçmiş"
+67429="İndirmeler"
+67430="Bağlantılar"
+67431="Pencereler"
+
+67433="Renk düzeni yok"
+67434="Sistem renk düzeni"
+67435="Altın"
+67436="Kum"
+67437="Orman"
+67438="Deniz"
+67439="Mavi"
+67440="Çivit Mavisi"
+67441="Mor"
+67442="Koyu Kırmızı"
+67443="Kırmızı"
+67444="Özel efektler"
+67445="Yetkili Modu"
+67446="Kullanıcı modu"
+; Reload Menu
+67455="5 saniye"
+67456="15 saniye"
+67457="30 saniye"
+67458="1 dakika"
+67459="2 dakika"
+67460="5 dakika"
+67461="15 dakika"
+67462="30 dakika"
+
+; Site Navigation Menu
+67463="Ana sayfa"
+67464="Endeks"
+67465="İçerik"
+67466="Ara"
+67467="Terimler"
+67468="Yardım"
+67469="Adı"
+67470="Önceki"
+67471="Sonraki"
+67472="Son"
+67473="Yukarı"
+67474="Kopya hakkı"
+67475="Yazar"
+
+67476="JavaScript uçbirim ekranı"
+67477="İndirmeyi yeniden başlat"
+67478="İndirmeyi kaldır"
+67479="Stil"
+67480="Panoyu kaldır"
+67481="Araçlar çubuğundan kaldır"
+67482="Ses"
+67483="Hepsini kapat"
+67484="Etkinler dışında hepsini kapat"
+67487="Büyük resimler"
+67488="Aktarmadaki Pop up penceresi"
+; Right-click on address field
+67490="Yapıştır ve git"
+
+; Links Panel Toolbar
+67495="Kilitle"
+
+67496="Tam ekran"
+67497="Güvenlik"
+67498="Resimleri göster"
+; New page
+67499="Yeni"
+
+; Used in menus to show the keyboard shortcut, typically Ctrl+t
+67538="Ctrl"
+
+67521="Shift"
+67522="Alt"
+67523="Home"
+67524="End"
+67525="PageUp"
+67526="PageDown"
+67527="Yukarı"
+67528="Aşağı"
+67529="Sol"
+67530="Sağ"
+67531="Esc"
+67532="Ins"
+67533="Del"
+67534="Backspace"
+67535="Sekme"
+67536="Space"
+67537="Enter"
+67572="Bu görünümde göster"
+67573="Öteki öğeler"
+67633="Arka plandaki pencerede aç"
+67634="Görüntüle"
+67635="El ile"
+67636="1 saniyeden sonra"
+67637="2 saniye sonra"
+67638="3 saniye sonra"
+67639="5 saniye sonra"
+67640="10 saniyeden sonra"
+67641="Tercihen Düz metin "
+67642="HTML i tercih et"
+67643="Dış gömmeleri önle"
+67644="Tüm görünüm"
+67645="Bölümlü görünüm"
+67646="Tek dizin"
+67647="Yeni not"
+67648="Önceki"
+67649="Sonraki "
+67650="Resmi yenile"
+67651="Resmi aç"
+67652="Notlara ekle"
+67653="Kişisel bilgi gir"
+67654="Not ekle"
+67655="Hepsini temizle"
+67656="Not a yapıştır"
+67657="Menü çubuğu"
+67658="Bağlar"
+67659="Adreslere ekle"
+67660="Tüm adresleri dizinee ekle"
+67661="KDE1 yer imlerini al..."
+67662="Konqueror yer imlerini al..."
+67663="HTML olarak al"
+67664="Seçilenleri HTML olarak kaydet..."
+67665="Opera adreslerini al..."
+67666="Opera adreslerini aktar..."
+67667="Seçilen adresleri farklı kaydet..."
+67668="KDE1 yer imleri..."
+67669="Konqueror  yer imleri..."
+67670="HTML yer imleri..."
+67671="Bilgi"
+67672="Notlar"
+67673="Ses"
+67674="Ses Tercihleri... "
+67676="Ses"
+67677="Dinleniyor"
+67678="Konuşuyor"
+; Revert an undo operation
+68116="Kaldır"
+
+; Edit popup menu string. Translate with ampersand
+69000="&Geri al"
+69001="&Yeniden yap"
+69002="&Kes"
+69003="Ko&pyala"
+69004="Yapış&tır"
+69005="Temi&zle"
+69006="Tümün&ü seç"
+
+; Workspace popup menu string. Translate with ampersand
+69007="&Yeniden yükle"
+69008="&Taşı"
+69009="&Boyut"
+69010="Kü&çült"
+69011="&Önceki boyut"
+69012="&Kapat"
+69013="&Sonraki"
+69014="&Standart"
+69015="&Klasik"
+69016="&Dekorasyon"
+
+; Print dialog. Detination tab
+69017="Hedef "
+
+; Print dialog. Options tab
+69018="Seçenekler"
+
+; Print dialog. Printer program tab
+69019="Yazıcı programı"
+
+; Print dialog.
+69020="Yazıcılar"
+
+; Print dialog. List column header
+69021="Yazıcı "
+69022="Makine adı"
+69023="Yorum"
+
+; Print dialog. Checkbox
+69024="Dosyaya yazdır"
+
+; Print dialog. Frame text label
+69025="Aralığı yazdır"
+69026="Kopyalar"
+69027="Tümü"
+
+; Print dialog
+69028="Seçim"
+69029="Sayfalar"
+
+; Print dialog.
+69030="Gönderen:"
+
+; Print dialog
+69031="Kime:"
+69032="Kopya sayısı"
+69033="Önce ilk sayfayı yazdır"
+69034="önce son sayfayı yazdır"
+
+; Print dialog. Frame text label
+69035="Renk "
+69036="Seçenekler"
+69037="Sayfa biçimi"
+
+; Print dialog
+69038="Mümkünse renkli yazdır"
+69039="Siyah-beyaz yazdır"
+69040="Portre"
+69041="Peyzaj"
+
+; Print dialog. Printer parameter
+69042="Parametre"
+
+; Print dialog. Help text label
+69043="Yazıcı programı varsayılan girdiden okumalıdır.\nParametreler programa bir metin dizisi olarak geçer."
+
+; Print dialog. Dialog title
+69044="Yazdır "
+
+; Print dialog. Paper type
+69045="A0 (841 x 1189 mm)"
+69046="A1 (594 x 841 mm)"
+69047="A2 (420 x 594 mm)"
+69048="A3 (297 x 420 mm)"
+69049="A4 (210x297 mm, 8.26x11.7 inç)"
+69050="A5 (148 x 210 mm)"
+69051="A6 (105 x 148 mm)"
+69052="A7 (74 x 105 mm)"
+69053="A8 (52 x 74 mm)"
+69054="A9 (37 x 52 mm)"
+69055="B0 (1030 x 1456 mm)"
+69056="B1 (728 x 1030 mm)"
+69057="B2 (515 x 728 mm)"
+69058="B3 (364 x 515 mm)"
+69059="B4 (257 x 364 mm)"
+69060="B5 (182x257 mm, 7.17x10.13 inç)"
+69061="B6 (128 x 182 mm)"
+69062="B7 (91 x 128 mm)"
+69063="B8 (64 x 91 mm)"
+69064="B9 (45 x 64 mm)"
+69065="B10 (32 x 45 mm)"
+69066="C5E (163 x 229 mm)"
+69067="DLE (110 x 220 mm)"
+69068="İcrai (7.5x10 inç, 191x254 mm)"
+69069="Folyo (210 x 330 mm)"
+69070="Ledger (432 x 279 mm)"
+69071="Yasal (8.5x14 inç, 216x356 mm)"
+69072="Mektup (8.5x11 inç, 216x279 mm)"
+69073="Tabloid (279 x 432 mm)"
+69074="US Common #10 Mektup (105 x 241 mm)"
+
+; Print dialog.
+69075="Yerel program"
+69076="Özel yazıcı"
+
+; Print dialog. Fileselector title
+69077="Dışa aktarılacak dosyayı seçin"
+69078="Program seçin"
+
+; Print dialog. Printer connection
+69079="Yerel olarak bağlandı"
+
+; Print dialog. Alternate printer names
+69080="Diğer adlar:"
+
+; Print dialog. Unknown printer location
+69081="Bilinmeyen bölüm"
+
+; Print dialog. Unknown printer
+69082="bilinmeyen"
+
+; Dialog title. When no printer was found
+69083="Yüklü yazıcı yok"
+
+; Dialog help text
+69084="Geçerli bir yazıcı belirlenmedi\n\nÖzel bir yazıcı seçebilir veya\nbir dosyaya yazdırabilirsiniz."
+
+; Column header label when listing plug-ins
+69085="Kullan"
+
+; First time dialog help text
+69086="Farenin orta tuş tıklama etkisi Shift+orta tıklama ya basılarak ayarlanabilinir.\n\nBu etkiyi ayarlamak ister misiniz:"
+
+; Dialog close button
+69087="Kapat"
+
+; Dialog apply button
+69088="Uygula "
+69089="Yazdır "
+
+; Dialog help button
+69090="Yardım "
+
+; Qt library strings (colordialog)
+69100="&Özel renklere ekle"
+69101="&Temel renkler"
+69102="&Özel renkler"
+69103="Özel &renkleri belirle >>"
+69104="&Yeşil:"
+69105="&Kırmızı:"
+69106="Ma&vi"
+69107="&Gönderilen:"
+69108="&Değer"
+69109="Re&nk"
+69110="A&lfa kanalı"
+69111="Renk seç"
+
+; Qt library strings (filedialog)
+69112="%1\nDosya bulunamadı.\nYolu ve dosya adını kontrol edin."
+69113="&Sil"
+69114="&Hayır"
+69115="&Evet"
+69116="&Aç"
+69117="&Yeniden adlandır"
+69118="&Kaydet"
+69119="&Sıralanmamış"
+69120="<qt>%1 %2 silmek istediğinizden emin misiniz?</qt>"
+69121="Tüm Dosyalar (*)"
+69122="Öznitelikler"
+69123="Geri"
+69124="Dosyayı kopyala veya taşı"
+69125="Yeni dizin oluştur"
+69126="Tarih "
+69127="Sil %1"
+69128="Ayrıntılı görünüm"
+69129="Dizin"
+69130="Dizinler"
+69131="Dizin:"
+69132="Hata "
+69133="Dosya &adı:"
+69134="Dosya &tipi:"
+69135="Dosya"
+69136="Dizin bul"
+69137="Erişilemez"
+69138="Liste görünümü"
+69139="İçeri &bak:"
+69140="İsim "
+69141="Yeni dizin %1"
+69142="Yeni dizin 1"
+69143="Yeni dizin "
+69144="Bir dizin yukarı"
+69145="Aç "
+69146="Dosya içeriğini görüntüle"
+69147="Dosya bilgisini göster"
+69148="&Yeniden yükle"
+69149="Salt-okunur"
+69150="Yazılabilir"
+69151="Oku: %1"
+69152="Farklı kaydet"
+69153="Kaydet "
+69154="&Gizli dosyaları göster"
+69155="Boyut "
+69156="Sırala"
+69157="&Tarihe göre sırala"
+69158="&İsme göre sırala"
+69159="&Boyuta göre sırala"
+
+; Qt library strings (filedialog) - Not regular file
+69160="Özel"
+
+; Qt library strings (filedialog)
+69161="Dizine bağ koy"
+69162="Dosyaya bağlantı"
+69163="Özele bağ koy"
+69164="Tip"
+69165="Sadece yazılabilir"
+69166="Yaz: %1"
+69167="dizin"
+69168="dosya"
+69169="bağlantı"
+
+; General message box strings
+69200="Önce bir dosya adı seçmelisiniz"
+69201="Eksik dosya adı"
+69202="Seçilen dosya adı kullanılıyor. Eğer devam\nederseniz, mevcut dosyanın içeriği\nsilinecektir.\n\nDevam etmek istiyor musunuz?"
+69203="Dosya ile değiştir"
+69204="Seçili dosya adı mevcut. Başka bir dosya seçin."
+69205="Geçersiz dosya adı"
+69206="Yazma işlemi başarısız. Veri kaydedilemedi.\n\nDosyanın kaydedileceği dizine yazma\nizniniz olduğunu ve geçerli disk alanının\nolduğunu kontrol edin."
+69207="Kaydetme alanı"
+69208="Belirlenen bölgeye yazma izniniz yok"
+69209="Belirli %1 alana yazma izniniz yok\n\nİsim : %2"
+69210="Erişim engellendi"
+69211="dizin"
+69212="dosya"
+
+; Message box title
+69213="Geçersiz eklenti sürümü"
+
+; Message box help text
+69214="Geçersiz Netscape vekil sunucu eklentisi tespit edildi. Bu düzeltilmeden Opera bu eklentileri kullanamaz. Opera sürümü ile gelen vekil sunucu eklentisini kullanın."
+
+; Message box title
+69215="Eklenti arama"
+
+; Message box help text for delayed plug-in search (after startup)
+69216="Başlangıçta eklentiler kurulmamış. Kurulum şimdi başlatılıyor."
+
+; Message box help text
+69217="Eklenti araması sırasında kritik bir hata oluştu.\n\nŞimdi bir eklenti araması yapmak ister misiniz?"
+
+; Text above a list of directories
+69218="Kayıtlı eklenti dizinleri"
+
+; Help text for setting display resolution (DPI)
+69219="Çözünürlüğü göster"
+
+; Default display resolution value
+69220="Sistem varsayılanları"
+
+; Fast forward 
+69232="Sonraki"
+
+; Fast forward
+69233="Yeni resim"
+69234="Giriş"
+69235="Parola Sihirbazı girişi"
+69236="Göster"
+69237="Resmi göster"
+
+; Menu entry for adding a mailto link to the contact list
+69242="Kişilere ekle..."
+
+67306="Müzik "
+; Page menu string
+69336="Kapat"
+69337="Etkinleştir"
+69338="Geri getir"
+69339="Küçült"
+69340="Tam pencere yap"
+
+; Used in M2 menus (in the show account menu)
+69366="Tüm hesaplar"
+69367="Posta hesapları"
+69368="Haber hesapları"
+
+; General menu string 
+69381="Aktar... "
+
+; m2 submenu string (in hotlist)
+69382="Hesabı göster"
+
+; Submenu that hold all closed window entries
+69384="Kapatılmış Sayfalar"
+
+; Main help entry (F1 action)
+69385="Opera Yardım"
+
+; Contents sub menu in help menu
+69386="İçerik "
+
+; Help topic
+69388="Araç çubukları "
+69389="Menüler"
+69390="Bildirimler"
+69391="Seçenekler "
+
+; On the web menu entry
+69392="Özellikler ve Kullanım"
+69393="Erişilebilirlik "
+69394="Güvenlik ve gizlilik"
+
+; Meta key
+69395="Meta"
+
+; Menu string in transfer panel
+69422="Bitenlerin hepsini sil"
+
+69482="Pencereye Sığdır"
+; Displayed user css file name
+69483="Metin tarayıcı emülasyonu"
+69484="Nostalji (C64)"
+69485="Erişilebilirlik düzeni"
+69486="Sadece nesneleri ve bağlantıları göster"
+69487="Yüksek karşıtlık (B/S)"
+69488="Yüksek karşıtlık (S/B)"
+69489="Bağlantısı olmayan resimleri gizle"
+69490="Sabit boyutlandırılmış nesneleri gizle (etkin)"
+69491="Sekmeleri devreden çıkart"
+69492="Yapısal öğeleri göster"
+69493="Çerçeveyle hata ayıkla"
+
+69639="İşaretle"
+69640="İstenmeyen posta olarak işaretle"
+69641="İstenen posta olarak işaretle"
+69642="Göster"
+69643="Hızlı bakışı göster"
+69644="Haber gruplarını göster"
+69645="Süzgeçten geçirilmiş iletileri göster"
+69646="Sadece Liste"
+69647="Sadece ileti"
+69648="Liste ve ileti aşağıda"
+69649="Liste ve ileti sağda"
+69650="İstenmeyen postaları boşalt"
+69651="Yeni süzgeç"
+69652="Manşetler"
+69653="İfadeleri etkinleştir"
+69654="Yeni ayırıcı"
+69655="Çevrimiçi"
+69656="Meşgul"
+69657="Hemen dönecek"
+69658="Dışarıda"
+69659="Telefonda"
+69660="Yemeğe çıktı"
+69661="Çevrimdışı görün"
+69662="Çevrimdışı"
+69663="Oda listesi..."
+69664="Yeni oda..."
+69665="Odaya katıl"
+69666="Odadan çık"
+69667="Kim bu?"
+69668="Özelden Konuş..."
+69669="Kontrol"
+69670="Takma adı kişilere ekle"
+69671="Op ver"
+69672="Op al"
+69673="Voice ver"
+69674="Voice al"
+69675="Odadan at"
+69681="Araçlar"
+69682="Panolar"
+69683="Araç çubukları"
+69686="Pano yerleşimi"
+69687="Pano seçici yerleşimi"
+69688="Pano çerçevesini göster"
+69689="Bütün Resimler"
+69690="Sadece önbellekteki resimler"
+69691="Resim yok"
+69692="Panolar"
+69693="Haberler"
+69694="Sohbet"
+69695="Sözlük"
+69696="Aç"
+69697="Dizin aç"
+69698="Aktarımları göster"
+69884="Ayır"
+69885="Yeni Sayfa düğmesini göster"
+69886="Opera'yı aç"
+69887="Çerezler..."
+69888="Parola-Sihirbazı..."
+69889="Gelişmiş"
+69896="Opera'yı gizle"
+69944="Sohbet"
+70044="Nedenini söyleyerek at"
+70047="Yasakla"
+70382="İletiyi işaretle ve sonrakini oku"
+; Text for a menu option that allow the user to run a check for new updates
+; without visiting opera.com
+70398="Yeni sürüm için denetle"
+
+; Right click menu item in the links panel.
+70463="Bağlantıyı yer imlerine ekle..."
+
+; Item on the document popup menu
+70464="Yer imlerine ekle..."
+
+; Item on the Document popup menu.
+70465="Onayla"
+
+; Item om the Document background menu.
+70466="Resmi panoya kopyala"
+
+; Item on the Document background menu.
+70467="Resmi masaüstünde kullan"
+
+; Item on the Frame menu
+70468="Aç"
+
+; Item on the File menu
+70469="Al/Aktar"
+
+; Entry on the Toolbars menu.
+70470="Özelleştir..."
+
+; Item on the Feeds menu
+70471="Manşetleri oku"
+
+; Item on the Feeds menu.
+70472="Manşetleri düzenle..."
+
+; Item on the Chat connect menu
+70473="Bağlantıyı tamamen kes"
+
+; Item on the Chat menu
+70474="Bağlan"
+
+; Item on the Tools menu.
+70475="E-Posta ve sohbet hesapları..."
+
+; Item on the ImportExport menu.
+70476="E-Posta hesabı al..."
+
+; Item on the Importexport menu.
+70477="Yer imlerini HTML olarak aktar"
+
+; Item on the Identify as menu.
+70478="Mozilla olarak tanıt"
+70479="Internet Explorer olarak tanıt"
+
+; Item on the Korean encoding menu.
+70480="ISO-2022-KR"
+
+; Menu item on the Pagebar popup menu.
+70481="Düzenle"
+
+; Item on the Closed pages menu
+70483="Engellenen açılır pencereler"
+
+; Item on the Closed pages menu.
+70484="Kapatılmış sayfa geçmişini sil"
+
+; A menu item in the Image link popup menu.
+70486="Resmi tekrar yükle"
+
+; A menu item on the bookmark popup menu.
+70490="Bütün açık sayfaları yer imlerine ekle"
+
+; The "Feeds" main menu item.
+70491="Manşetler"
+
+; Mail popup menu item
+70492="Bu kişiden gelen iletileri göster"
+
+; Help menu item
+70493="Ses"
+
+; Hotclick menu item speak
+70494="Konuş"
+
+70126="Okunmuş olarak işaretle"
+; Mail attachments popup menu entry
+70546="Ekleri kaydet..."
+
+; SVG popup menu
+70692="Yakınlaş"
+70693="Uzaklaş"
+70694="Özgün boyut"
+70695="Yüksek kalite"
+70696="Canlandırmayı başlat"
+70697="Canlandırmayı duraklat"
+70698="Canlandırmayı durdur"
+
+; Browser tools menu entry
+70699="Görünüm..."
+
+; Entry in the browser help menu
+70700="Site sorununu bildir..."
+
+; Entry in the sessions menu
+70701="Oturumları yönet..."
+
+; Entry in the transfers view popup menu
+70702="İndirme işlemi başlayınca bunu arka planda göster"
+
+; Entry in the transfers view menu
+70703="Aktarım başlayınca, işlemi gösterme"
+
+; Option for the image toolbar items/dropdown menus.
+70704="Resimleri göster"
+70705="Önbellekteki resimler"
+70706="Resimleri gösterme"
+
+; Load original image, not a low-quality one served by proxy (typically
+; SlipStream)
+70721="Özgün resmi yükle"
+70722="Özgün resimleri yükle"

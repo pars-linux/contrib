@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xine-ui</Name>
+        <Homepage>http://xine.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xine movie player</Summary>
+        <Summary xml:lang="tr">Xine Medya oynatıcısı</Summary>
+        <Description>GUI for Xine movie player.</Description>
+        <Description xml:lang="tr">Xine Medya oynatıcısı için arayüz.</Description>
+        <Archive sha1sum="1efc1d7fda05a2d19e596472738ecdd65a903222" type="tarbz2">ftp://ftp.ankara.edu.tr/gentoo/distfiles/xine-ui-0.99.5_pre20060716.tar.bz2</Archive>
+        <!-- ftp://ftp.tu-clausthal.de/pub/linux/gentoo/distfiles/xine-ui-0.99.5_pre20060716.tar.bz2    -->
+        <Patches>
+            <!-- Patch level="1" compressionType="bz2">xine-ui-patches-11.tar.bz2</Patch -->
+	    <Patch level="0">xine_desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.8">libpng</Dependency>
+            <Dependency versionFrom="1.1.0">xine-lib</Dependency>
+            <Dependency>lirc</Dependency>
+            <Dependency>aalib</Dependency>
+            <Dependency>libcaca</Dependency>
+            <Dependency versionFrom="7.10.2">curl</Dependency>
+            <Dependency>ncurses</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xine-ui</Name>
+        <RuntimeDependencies>            
+            <Dependency versionFrom="1.2.8">libpng</Dependency>
+            <Dependency versionFrom="1.1.0">xine-lib</Dependency>
+            <Dependency>lirc</Dependency>
+            <Dependency>aalib</Dependency>
+            <Dependency>libcaca</Dependency>
+            <Dependency versionFrom="7.10.2">curl</Dependency>
+            <Dependency>ncurses</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/xine</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-09-18</Date>
+            <Version>0.99.5_pre20060716</Version>
+            <Comment>New Version</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-20</Date>
+            <Version>0.99.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

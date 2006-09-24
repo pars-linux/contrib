@@ -1,0 +1,909 @@
+--- aget-0.4.orig/AUTHORS
++++ aget-0.4/AUTHORS
+@@ -1,10 +1,10 @@
+ Coder & Maintainer:
+ -------------------
+ 
+-Murat Balaban <murat@enderunix.org>
++Murat Balaban <murat -at- enderunix.org>
+ 
+ For questions and comments, and also bug reports,
+-don't hesitate to mail murat@enderunix.org
++don't hesitate to mail murat -at- enderunix.org
+ 
+ http://www.enderunix.org/
+ Fri Nov 22 07:43:40 EET 2002
+--- aget-0.4.orig/Aget.c
++++ aget-0.4/Aget.c
+@@ -1,4 +1,3 @@
+-
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -6,17 +5,15 @@
+ #include <unistd.h>
+ #include <time.h>
+ #include <fcntl.h>
++#include <errno.h>
+ 
+ #include <sys/stat.h>
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ 
+ #include <netinet/in.h>
+-
+ #include <arpa/inet.h>
+ 
+-
+-
+ #include "Head.h"
+ #include "Aget.h"
+ #include "Misc.h"
+@@ -24,20 +21,17 @@
+ #include "Resume.h"
+ #include "Data.h"
+ 
+-
+ extern struct thread_data *wthread;
+ extern struct request *req;
+ extern int fsuggested, nthreads;
+-extern int bwritten;
++extern double bwritten;
+ extern pthread_t hthread;
+-
+-extern int errno;
+-
++extern time_t t_start, t_finish;
+ 
+ void get(struct request *req)
+ {
+ 	int i, ret, fd, diff_sec, nok = 0;
+-	long soffset, foffset;
++	double soffset, foffset;
+ 	char *fmt;
+ 
+ 	if (req->proto == PROTO_HTTP) 
+@@ -50,16 +44,11 @@
+ 	 */
+ 	ret = numofthreads(req->clength);
+ 
+-	if (fsuggested == 0) {
+-		if (ret == 0)
+-			nthreads = 1;
+-		else
+-			nthreads = ret;
+-	}
++	if (!fsuggested)
++		nthreads = ret;
+ 
+ 	wthread = (struct thread_data *)malloc(nthreads * sizeof(struct thread_data));
+-
+-	Log("Downloading %s (%d bytes) from site %s(%s:%d). Number of Threads: %d",
++	Log("Downloading %s (%.f bytes) from site %s(%s:%d). Number of Threads: %d",
+ 			req->url, req->clength, req->host, req->ip, req->port, nthreads);
+ 
+ 	if (strlen(req->lfile) != 0) {
+@@ -98,13 +87,12 @@
+ 		wthread[i].sin.sin_port = htons(req->port);
+ 		wthread[i].fd = dup(fd);
+ 		wthread[i].clength = req->clength;
+-		snprintf(fmt, GETREQSIZ, GETREQ, req->url, req->host, PROGVERSION, soffset);
+-		strncpy(wthread[i].getstr, fmt, GETREQSIZ);
++		snprintf(fmt, GETREQSIZ - 1, GETREQ, req->url, req->host, PROGVERSION, soffset);
++		strncpy(wthread[i].getstr, fmt, GETREQSIZ - 1);
+ 		pthread_create(&(wthread[i].tid), NULL, http_get, &(wthread[i]));
+ 	}
+ 	free(fmt);
+ 
+-
+ 	/* Wait for all of the threads to finish... 
+ 	 * 
+ 	 * TODO: If a thread fails, restart that!
+@@ -115,17 +103,14 @@
+ 			nok++;
+ 	}
+ 
+-	if (nok == nthreads) 
+-		pthread_cancel(hthread);
+-	else
+-		pthread_join(hthread, NULL);
++	pthread_cancel(hthread);
+ 
+ 	/* Get the finish time, derive some stats	*/
+ 	time(&t_finish);
+        	if ((diff_sec = t_finish - t_start) == 0)
+ 		diff_sec = 1;   /* Avoid division by zero       */
+ 
+-	Log("Download completed, job completed in %d seconds. (%d Kb/sec)",
++	Log("Download completed, job completed in %d seconds. (%.f Kb/sec)",
+ 			diff_sec, (req->clength / diff_sec) / 1024);
+         Log("Shutting down...");
+ 	close(fd);
+@@ -138,35 +123,28 @@
+ 	char *fmt;
+ 
+ 	nthreads = h->nthreads;
+-
+ 	fmt = (char *)calloc(GETREQSIZ - 2, sizeof(char));
+-
+ 	wthread = (struct thread_data *)malloc(nthreads * sizeof(struct thread_data));
+ 	memcpy(req, &h->req, sizeof(struct request));
+ 	memcpy(wthread, h->wthread, sizeof(struct thread_data) * nthreads);
+-
+-	Log("Resuming download %s (%d bytes) from site %s(%s:%d). Number of Threads: %d",
++	Log("Resuming download %s (%.f bytes) from site %s(%s:%d). Number of Threads: %d",
+ 			req->url, req->clength, req->host, req->ip, req->port, nthreads);
+-
+ 	if (strlen(req->lfile) != 0) {
+ 		if ((fd = open(req->lfile, O_RDWR, S_IRWXU)) == -1) {
+ 			fprintf(stderr, "get: cannot open file %s for writing: %s\n", req->lfile, strerror(errno));
+ 			exit(1);
+ 		}
+-		
+ 	} else {
+ 		if ((fd = open(req->file, O_RDWR, S_IRWXU)) == -1) {
+ 			fprintf(stderr, "get: cannot open file %s for writing: %s\n", req->lfile, strerror(errno));
+ 			exit(1);
+ 		}
+ 	}
+-
+ 	time(&t_start);
+ 
+-
+ #ifdef DEBUG
+ 	for (i = 0; i < nthreads; i++)
+-		printf("Start: %ld, Finish: %ld, Offset: %ld, Diff: %ld\n",
++		printf("Start: %.f, Finish: %.f, Offset: %.f, Diff: %.f\n",
+ 				wthread[i].soffset,
+ 				wthread[i].foffset,
+ 				wthread[i].offset,
+@@ -176,32 +154,22 @@
+ 	for (i = 0; i < nthreads; i++) {
+ 		wthread[i].soffset = wthread[i].offset;
+ 		wthread[i].fd = dup(fd);
+-		snprintf(fmt, GETREQSIZ, GETREQ, req->url, req->host, PROGVERSION, wthread[i].offset);
++		snprintf(fmt, GETREQSIZ - 1, GETREQ, req->url, req->host, PROGVERSION, wthread[i].offset);
+ 		strncpy(wthread[i].getstr, fmt, GETREQSIZ);
+ 		pthread_create(&(wthread[i].tid), NULL, http_get, &(wthread[i]));
+ 	}
+ 
+-	for (i = 0; i < nthreads; i++)
+-		pthread_join(wthread[i].tid, NULL);
+-
+ 	for (i = 0; i < nthreads; i++) {
+ 		pthread_join(wthread[i].tid, NULL);
+ 		if (wthread[i].status == STAT_OK)
+ 			nok++;
+ 	}
+-
+-	if (nok == nthreads) 
+-		pthread_cancel(hthread);
+-	else
+-		pthread_join(hthread, NULL);
+-
+-
+-
+-       time(&t_finish);
+-       if ((diff_sec = t_finish - t_start) == 0)
++	pthread_cancel(hthread);
++	time(&t_finish);
++	if ((diff_sec = t_finish - t_start) == 0)
+ 		diff_sec = 1;   /* Avoid division by zero       */
+ 
+-	Log("Download completed, job completed in %d seconds. (%d Kb/sec)",
++	Log("Download completed, job completed in %d seconds. (%.f Kb/sec)",
+ 			diff_sec, ((req->clength - h->bwritten) / diff_sec) / 1024);
+         Log("Shutting down...");
+ 	close(fd);
+--- aget-0.4.orig/Data.h
++++ aget-0.4/Data.h
+@@ -15,17 +15,17 @@
+ 	char username[MAXBUFSIZ];	
+ 	char password[MAXBUFSIZ];
+ 	int port;
+-	int clength;			/* Content-length	*/
++	double clength;			/* Content-length	*/
+ 	unsigned char proto;		/* Protocol		*/
+ } request;
+ 
+ typedef struct thread_data {
+ 	struct sockaddr_in sin;
+ 	char getstr[GETREQSIZ];
+-	long soffset;		/* Start offset		*/
+-	long foffset;		/* Finish offset	*/
+-	long offset;		/* Current Offset	*/
+-	long clength;		/* Content Length	*/
++	double soffset;		/* Start offset		*/
++	double foffset;		/* Finish offset	*/
++	double offset;		/* Current Offset	*/
++	double clength;		/* Content Length	*/
+ 	int fd;
+ 	pthread_t tid;		/* Thread ID		*/
+ 	unsigned char status;	/* thread exit status	*/
+--- aget-0.4.orig/Defs.h
++++ aget-0.4/Defs.h
+@@ -22,8 +22,8 @@
+ };
+ 
+ 
+-#define	PROGVERSION  "EnderUNIX Aget v0.4"
++#define	PROGVERSION  "EnderUNIX Aget 0.4"
+ #define	HEADREQ  "HEAD %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: %s\r\n\r\n"
+-#define	GETREQ  "GET %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: %s\r\nRange: bytes=%ld-\r\nConnection: close\r\n\r\n"
++#define	GETREQ  "GET %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: %s\r\nRange: bytes=%.f-\r\nConnection: close\r\n\r\n"
+ 
+ #endif
+--- aget-0.4.orig/Download.c
++++ aget-0.4/Download.c
+@@ -11,6 +11,7 @@
+ #include <time.h>
+ #include <signal.h>
+ #include <pthread.h>
++#include <errno.h>
+ 
+ #include <netinet/in.h>
+ 
+@@ -26,12 +27,7 @@
+ #include "Misc.h"
+ #include "Download.h"
+ 
+-extern sigset_t signal_set;
+-
+-
+-extern int errno;
+-
+-unsigned int bwritten = 0;
++double bwritten = 0;
+ pthread_mutex_t bwritten_mutex = PTHREAD_MUTEX_INITIALIZER;
+ 
+ void * http_get(void *arg) {
+@@ -39,23 +35,22 @@
+ 	int sd;
+ 	char *rbuf, *s;
+ 	int dr, dw, i; 
+-	long foffset;
++	double foffset;
++	int ffound = 0;
+ 	pthread_t tid;
++	sigset_t set;
+ 	tid = pthread_self();
+ 
+ 	/* Block out all signals	*/
+-	pthread_sigmask(SIG_BLOCK, &signal_set, NULL);
+-
++	sigfillset(&set);
++	pthread_sigmask(SIG_BLOCK, &set, NULL);
+ 	/* Set Cancellation Type to Asynchronous	*/
+ 	pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
+ 	
+ 	td = (struct thread_data *)arg;
+-
+ 	foffset = td->foffset;
+-
+ 	rbuf = (char *)calloc(GETRECVSIZ, sizeof(char));
+ 
+-
+ 	if ((sd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+ 		Log("<THREAD #%ld> socket creation failed: %s", tid, strerror(errno));
+ 		pthread_exit((void *)1);
+@@ -86,14 +81,19 @@
+ 	s = rbuf;
+ 	i = 0;
+ 	while(1) {
+-		if (*s == '\n' && *(s - 1) == '\r' && *(s - 2) == '\n' && *(s - 3) == '\r') {
++		if (*s == '\n' && *(s - 1) == '\r' && *(s - 2) == '\n' && *(s - 3) == '\r' && (i < dr)) {
+ 			s++;
+ 			i++;
++			ffound = 1;
+ 			break;
+ 		}
+ 		s++;
+ 		i++;
+ 	}
++	if (!ffound) {
++		Log("Malformed server reply, Server Headers didnot end.\n");
++		exit(1);
++	}
+ 	td->offset = td->soffset;
+ 
+ 	if ((dr - i ) > foffset) 
+@@ -102,11 +102,9 @@
+ 		dw = pwrite(td->fd, s, (dr - i), td->soffset);
+ 	td->offset = td->soffset + dw;
+ 
+-
+ 	pthread_mutex_lock(&bwritten_mutex);
+ 	bwritten += dw;
+ 	pthread_mutex_unlock(&bwritten_mutex);
+-
+ 	while (td->offset < foffset) {
+ 		memset(rbuf, GETRECVSIZ, 0);
+ 		dr = recv(sd, rbuf, GETRECVSIZ, 0);
+@@ -120,13 +118,9 @@
+ 		pthread_mutex_unlock(&bwritten_mutex);
+ 		updateProgressBar(bwritten, td->clength);	
+ 	}
+-
+ 	if (td->offset == td->foffset)
+ 		td->status = STAT_OK;		/* Tell thet download is OK.	*/
+-
+ 	close(sd);
+-
+-/*        printf("<THREAD #%ld> Part %d completed, leaving thread...\n", tid, td->tind);*/
+ 	pthread_exit(NULL);
+ 	return NULL;
+ }
+--- aget-0.4.orig/Head.c
++++ aget-0.4/Head.c
+@@ -10,6 +10,7 @@
+ #include <netdb.h>
+ #include <time.h>
+ #include <pthread.h>
++#include <errno.h>
+ 
+ 
+ #include <sys/types.h>
+@@ -29,10 +30,7 @@
+ #include "Defs.h"
+ #include "Misc.h"
+ 
+-
+-extern int errno;
+-extern int h_errno;
+-
++extern time_t t_start, t_finish;
+ 
+ void http_head_req(struct request *req)
+ {
+@@ -74,7 +72,7 @@
+ 	}
+ 	Log("Head-Request Connection established");
+ 
+-	sprintf(sbuf, HEADREQ, req->url, req->host, PROGVERSION);
++	snprintf(sbuf, HEADREQSIZ -1, HEADREQ, req->url, req->host, PROGVERSION);
+ 	if ((send(sd, sbuf, strlen(sbuf), 0)) == -1) {
+ 		Log("send failed for Head Request: %s", strerror(errno));
+ 		exit(1);
+--- aget-0.4.orig/INSTALL
++++ aget-0.4/INSTALL
+@@ -1,8 +1,8 @@
+-EnderUNIX Aget v0.4 INSTALL
+---------------------------
++EnderUNIX Aget 0.4 INSTALL
++----------------------------
+ 
+-The program is tested on RedHat Linux 7.2 (gcc-2.96), FreeBSD 4.5
+-and Solaris 8. For Solaris, you'll have to use Makefile.Solaris.
++The program is tested on RedHat Linux 9 (gcc-3.2.2), FreeBSD 4.10
++and Solaris 9. For Solaris, you'll have to use Makefile.Solaris.
+ 
+ To compile Aget, type:
+ 
+--- aget-0.4.orig/Makefile
++++ aget-0.4/Makefile
+@@ -1,6 +1,6 @@
+ # EnderUNIX Aget Makefile
+ # http://www.enderunix.org/aget/
+-
++DESTDIR =
+ OBJS = main.o Aget.o Misc.o Head.o Signal.o Download.o Resume.o
+ CFLAGS = -g -Wall -W -pedantic 
+ LDFLAGS = -pthread
+@@ -8,13 +8,13 @@
+ STRIP = strip
+ 
+ all: $(OBJS)
+-	$(CC) -o aget $(OBJS) $(LDFLAGS)
++	$(CC) -g -o aget $(OBJS) $(LDFLAGS)
+ 
+ strip: $(all)
+ 	$(STRIP) aget
+ 	
+ install:
+-	cp -f aget /usr/local/bin/aget
++	cp -f aget $(DESTDIR)/usr/bin
+ 
+ clean: 
+ 	rm -f aget *.o core.* *~
+--- aget-0.4.orig/Misc.c
++++ aget-0.4/Misc.c
+@@ -12,6 +12,9 @@
+ #include "Misc.h"
+ #include "Data.h"
+ 
++time_t  t_start, t_finish;
++extern int fquite;
++
+ void parse_url(char *url, struct request *req)
+ {
+ 	char *s;
+@@ -112,9 +115,9 @@
+ 		return 10;
+ }
+ 
+-int calc_offset(int total, int part, int nthreads)
++double calc_offset(double total, int part, int nthreads)
+ {
+-	return (part * (total / nthreads));
++	return ((double)part * (total / (double)nthreads));
+ }
+ 
+ 
+@@ -129,7 +132,7 @@
+ 	fprintf(stderr, "\t\t-h this screen\n");
+ 	fprintf(stderr, "\t\t-v version info\n");
+ 	fprintf(stderr, "\n");
+-	fprintf(stderr, "http//www.enderunix.org/aget/\n");
++	fprintf(stderr, "http://www.enderunix.org/aget/\n");
+ }
+ 
+ /* reverse a given string	*/
+@@ -157,6 +160,9 @@
+ 	va_list ap;
+ 	char *lfmt;
+ 
++	if (fquite)
++		return;
++
+ 	lfmt = (char *)calloc(7 + strlen(fmt), sizeof(char));
+ 	sprintf(lfmt, "<LOG> %s", fmt);
+ 
+--- aget-0.4.orig/Misc.h
++++ aget-0.4/Misc.h
+@@ -15,7 +15,7 @@
+ 
+ #define	LOGSIZ	1024
+ 
+-int calc_offset(int, int, int);
++double calc_offset(double, int, int);
+ int numofthreads(int);
+ void parse_url(char *, struct request *);
+ void usage();
+@@ -24,7 +24,5 @@
+ void updateProgressBar(float, float);
+ void handleHttpRetcode(char *);
+ 
+-time_t  t_start, t_finish;
+-
+ #endif
+ 
+--- aget-0.4.orig/README
++++ aget-0.4/README
+@@ -1,5 +1,5 @@
+-EnderUNIX Aget v0.4 README
+---------------------------
++EnderUNIX Aget 0.4 README
++---------------------------
+ 
+ This program is a starting point for a very useful project like FlashGet
+ for Win32.  My aim is to provide all the functionality that program has.
+--- aget-0.4.orig/Resume.c
++++ aget-0.4/Resume.c
+@@ -12,7 +12,7 @@
+ extern struct thread_data *wthread;
+ extern struct request *req;
+ extern int nthreads;
+-extern int bwritten;
++extern double bwritten;
+ 
+ 
+ void save_log()
+--- aget-0.4.orig/Signal.c
++++ aget-0.4/Signal.c
+@@ -13,22 +13,24 @@
+ extern int nthreads;
+ extern struct thread_data *wthread;
+ extern struct request *req;
+-extern int bwritten;
++extern double bwritten;
+ extern pthread_mutex_t bwritten_mutex;
+ 
+ void * signal_waiter(void *arg)
+ {
+ 	int signal;
++	sigset_t set;
+ 
+ 	arg = NULL;
+ 
+-	pthread_sigmask(SIG_UNBLOCK, &signal_set, NULL);
++	sigfillset(&set);
++	pthread_sigmask(SIG_BLOCK, &set, NULL);
+ 	
+ 	while(1) {
+ 		#ifdef SOLARIS
+-		sigwait(&signal_set);
++		sigwait(&set);
+ 		#else
+-		sigwait(&signal_set, &signal);
++		sigwait(&set, &signal);
+ 		#endif
+ 		switch(signal) {
+ 			case SIGINT:
+@@ -48,12 +50,12 @@
+ 	printf("^C caught, saving download job...\n");
+ 
+ 	for (i = 0; i < nthreads; i++) {
+-		pthread_cancel(wthread[i].tid);
+-		wthread[i].status &= STAT_INT;		/* Interrupted download	*/
++		if (wthread[i].tid != 0) {
++			pthread_cancel(wthread[i].tid);
++			wthread[i].status &= STAT_INT;		/* Interrupted download	*/
++		}
+ 	}
+-
+ 	save_log();
+-
+ 	exit(0);
+ }
+ 
+--- aget-0.4.orig/Signal.h
++++ aget-0.4/Signal.h
+@@ -1,10 +1,6 @@
+ #ifndef SIGNAL_H
+ #define SIGNAL_H
+ 
+-#include <signal.h>
+-#include <pthread.h>
+-
+-sigset_t signal_set;
+ 
+ void * signal_waiter(void *arg);
+ void sigint_handler(void);
+--- aget-0.4.orig/THANKS
++++ aget-0.4/THANKS
+@@ -2,6 +2,9 @@
+ Sensei, and my EnderUNIX team members...
+ 	<roots at enderunix dot org>
+ 
++Bruno Barrera C. <bruno.barrera -at- igloo.cl>
++	For maintaining	the Aget Debian package.
++
+ Atilim Boy <aboy at trunix dot org>
+ 
+ nikinakof <nikinakof at oramak dot net>
+--- aget-0.4.orig/TODO
++++ aget-0.4/TODO
+@@ -1,12 +1,12 @@
+-EnderUNIX Aget v0.4 TODO:
+--------------------------
++EnderUNIX Aget 0.4 TODO:
++--------------------------
+ 
+ -> HTTP Proxy support
+ -> Constructing libaget.so/libaget.a for IstanbulX project of acikkod.org
+ -> Thread exit status evaluation:
+    If one of the threads fail, the program should retry the failed 
+    later on.
+--> FreeBSD/NetBSD/OpenBSD Port/Package
++-> NetBSD/OpenBSD Port/Package
+ -> Multiple downloads
+ -> FTP Support
+ 
+--- aget-0.4.orig/main.c
++++ aget-0.4/main.c
+@@ -4,6 +4,7 @@
+ #include <string.h>
+ #include <signal.h>
+ #include <pthread.h>
++#include <errno.h>
+ 
+ 
+ #include "Defs.h"
+@@ -12,9 +13,15 @@
+ #include "Aget.h"
+ #include "Signal.h"
+ #include "Resume.h"
+-#include "main.h"
+ 
+-extern int errno;
++char *fullurl;
++int nthreads;
++int fsuggested = 0;
++int fquite = 0;
++struct request *req;		/* Download jobs		*/
++struct thread_data *wthread;	/* Worker Threads		*/
++pthread_t hthread;		/* Helper thread for signals	*/
++
+ 
+ int main(int argc, char **argv)
+ {
+@@ -22,6 +29,7 @@
+ 	extern int optind;
+ 	int c, error = 0, ret;
+ 	struct hist_data h;
++	sigset_t set;
+ 	int retlog;
+ 
+ 	/* Allocate heap for download request	
+@@ -30,13 +38,9 @@
+ 	 */
+ 	req = (struct request *)calloc(1, sizeof(struct request));
+ 
+-	/* Only some signals will be emitted	*/
+-	sigemptyset(&signal_set);
+-	sigaddset(&signal_set, SIGINT);
+-	sigaddset(&signal_set, SIGALRM);
+-
+ 	/* Block out all signals	*/
+-	pthread_sigmask(SIG_BLOCK, &signal_set, NULL);
++	sigfillset(&set);
++	pthread_sigmask(SIG_BLOCK, &set, NULL);
+ 
+ 	/* Create a thread for hadling signals	*/
+ 	if ((ret = pthread_create(&hthread, NULL, signal_waiter, NULL)) != 0) {
+@@ -44,22 +48,23 @@
+ 		exit(-1);
+ 	}
+ 
+-	while (!error && (c = getopt(argc,argv,"p:l:n:hfv")) != -1) {
++	while (!error && (c = getopt(argc,argv,"p:l:n:hvq")) != -1) {
+ 		switch(c) {
++			case 'q': 
++				fquite = 1;
++				break;
+ 			case 'p':
+ 				req->port = atoi(optarg);
+ 				break;
+-			case 'f':
+-				fsuggested = 1;
+-				break;
+ 			case 'l':
+-				strncpy(req->lfile, optarg, MAXBUFSIZ);
++				strncpy(req->lfile, optarg, MAXBUFSIZ - 1);
+ 				break;
+ 			case 'n':
+ 				if ((nthreads = atoi(optarg)) > MAXTHREADS) {
+ 					Log("Error: Maximum # of threads allowed is %d\n", MAXTHREADS);
+ 					nthreads = 0;
+ 				}
++				fsuggested = 1;
+ 				break;
+ 			case 'h':
+ 				printf("%s\n", PROGVERSION);
+@@ -83,12 +88,6 @@
+ 		exit(1);
+ 	}
+ 
+-	if (fsuggested == 1 && nthreads == 0) {
+-		fprintf(stderr, "\nERROR: -f and -n should be used together!, exiting...\n\n");
+-		usage();
+-		exit(1);
+-	}
+-
+ 	if (argc == 2) 		/* If only url is supplied...	*/
+ 		fullurl = strdup(argv[1]);
+ 	else
+@@ -117,6 +116,5 @@
+ 		resume_get(&h);
+ 	else
+ 		get(req);
+-
+ 	return 0;
+ }
+--- aget-0.4.orig/debian/README.debian
++++ aget-0.4/debian/README.debian
+@@ -0,0 +1,14 @@
++aget for Debian
++----------------------
++Aget is a multithreaded HTTP -for now- download accelerator.
++Everybody knows about the famous Flashget for Win32. This program is a 
++starting point of a very useful project like Flashget. The aim is to 
++provide as much functionality as we can.
++
++Tests show that Aget is successfull in realizing its objectives. A file 
++of size 36.347.010 bytes was downloaded in 14 minutes 28 secs via wget; 
++whereas it was downloaded in 3 minutes and 15 seconds via aget.
++Aget is an acronym for two Turkish words "Acele Getir". (Eng.: Get it 
++fast!)
++
++Bruno Barrera C. <bruno@debian.org>, Thu, 20 Mar 2003 21:05:56 -0400
+--- aget-0.4.orig/debian/dirs
++++ aget-0.4/debian/dirs
+@@ -0,0 +1,2 @@
++usr/bin
++usr/share/man/man1
+--- aget-0.4.orig/debian/control
++++ aget-0.4/debian/control
+@@ -0,0 +1,17 @@
++Source: aget
++Section: web
++Priority: optional
++Maintainer: Bruno Barrera C. <bruno@debian.org>
++Standards-Version: 3.6.1
++Build-Depends: debhelper
++
++Package: aget
++Architecture: any
++Depends: ${shlibs:Depends}
++Description: Multithreaded HTTP Download Accelerator
++ Aget fetches HTTP URLs in a manner similar to wget, but segments the
++ retrieval into multiple parts to increase download speed.  It can be
++ many times as fast as wget in some circumstances.
++ .
++ It is the starting point for a project attempting to replicate the
++ functionality of an MS Windows program called Flashget.
+--- aget-0.4.orig/debian/rules
++++ aget-0.4/debian/rules
+@@ -0,0 +1,70 @@
++#!/usr/bin/make -f
++build: build-stamp
++
++build-stamp:
++	
++	dh_testdir
++	
++	$(MAKE)
++	
++	touch build-stamp
++clean:
++	dh_testdir
++	
++	dh_testroot
++	
++	rm -f build-stamp
++	
++	dh_clean
++	
++	$(MAKE) clean
++
++install: build
++	
++	dh_testdir
++	
++	dh_testroot
++	
++	dh_clean -k
++	
++	dh_installdirs
++	
++	$(MAKE) install DESTDIR=`pwd`/debian/tmp
++
++binary-indep: build install
++
++binary-arch: build install
++	
++	dh_testdir
++	
++	dh_testroot
++	
++	dh_installchangelogs
++	
++	dh_installdocs
++	
++	dh_installexamples
++	
++	dh_installman debian/aget.1
++	
++	dh_link
++	
++	dh_strip
++	
++	dh_compress
++		
++	dh_fixperms
++	
++	dh_installdeb
++	
++	dh_shlibdeps
++	
++	dh_gencontrol
++	
++	dh_md5sums
++	
++	dh_builddeb
++
++binary: binary-indep binary-arch
++
++.PHONY: build clean binary-indep binary-arch binary install
+--- aget-0.4.orig/debian/changelog
++++ aget-0.4/debian/changelog
+@@ -0,0 +1,40 @@
++aget (0.4-6) unstable; urgency=high
++
++  * Fixed typo in description. (closes: #299962)
++
++ -- Bruno Barrera C. <bruno@debian.org>  Tue,  5 Apr 2005 20:39:33 -0400
++
++aget (0.4-5) unstable; urgency=low
++
++  * Added -q (quite) option to suppress log messages
++  * Better thread signal handling, support for NPTL (closes: #239164)
++  * Support for files over 2 GB (closes: #249601)
++
++ -- Bruno Barrera C. <bruno.barrera@igloo.cl>  Wed, 14 Jul 2004 10:04:44 -0400
++
++aget (0.4-4) unstable; urgency=low
++
++  * Corrected errno.h library problem. (closes: #222175)
++
++ -- Bruno Barrera C. <bruno.barrera@igloo.cl>  Sat, 29 Nov 2003 12:09:31 -0300
++
++aget (0.4-3) unstable; urgency=low
++
++  * Updated Standards-Version to 3.6.1
++  * Corrected broken dependency. (closes #212790) 
++
++ -- Bruno Barrera C. <bruno.barrera@igloo.cl>  Tue, 30 Sep 2003 00:48:39 -0400
++
++aget (0.4-2) unstable; urgency=low
++  
++  * Updated Standards-Version to 3.6.0 
++  * Corrected the URL that appears when you execute aget with no 
++    arguments. (closes #204420)
++
++ -- Bruno Barrera C. <bruno.barrera@igloo.cl>  Fri,  8 Aug 2003 20:12:03 +0000
++
++aget (0.4-1) unstable; urgency=low
++
++  * Initial release.
++
++ -- Bruno Barrera C. <bruno.barrera@igloo.cl>  Thu, 20 Mar 2003 21:05:56 -0400
+--- aget-0.4.orig/debian/aget.1
++++ aget-0.4/debian/aget.1
+@@ -0,0 +1,44 @@
++.\" 
++.TH "AGET" "1" "" "" ""
++.SH "NAME"
++aget \- A multithreaded HTTP download accelerator
++.SH "SYNOPSIS"
++.B aget
++.I "[options] file ..."
++.SH "DESCRIPTION"
++This manual page documents briefly the
++.BR aget
++commands.
++This manual page was written for the Debian GNU/Linux distribution
++because the original program does not have a manual page.
++.PP 
++.B aget
++fetches HTTP URLs in a manner similar to wget, but segments the
++retrieval into multiple parts to increase download speed.  It can be
++many times as fast as wget in some circumstances.
++
++It is the starting point for a project attempting to replicate the
++functionality of a MS Windows program called Flashget.
++.SH "OPTIONS"
++.TP 
++.B \-p
++port number
++.TP 
++.B \-l
++local file name
++.TP 
++.B \-h
++Show summary of options.
++.TP 
++.B \-v
++Show version of program.
++.TP 
++.B \-n 
++Suggested number of threads
++.TP 
++.B \-f
++force using suggested number of threads
++.TP 
++.SH "AUTHOR"
++This manual page was written by Bruno Barrera C. <bruno@debian.org>,
++for the Debian GNU/Linux system (but may be used by others).
+--- aget-0.4.orig/debian/copyright
++++ aget-0.4/debian/copyright
+@@ -0,0 +1,14 @@
++This package was debianized by Bruno Barrera C. <bruno@debian.org> on
++Thu, 20 Mar 2003 21:05:56 -0400.
++
++It was downloaded from http://www.enderunix.org/aget/
++
++Copyright:
++
++This software is copyright (c) 1998-99 Murat Balaban 
++<murat@EnderUNIX.org>  
++
++You are free to distribute this software under the terms of the GNU 
++General Public License. On Debian systems, the complete text of the GNU 
++General Public License can be found in the file 
++`/usr/share/common-licenses/GPL'.
+--- aget-0.4.orig/debian/watch
++++ aget-0.4/debian/watch
+@@ -0,0 +1,2 @@
++version=2
++http://www.enderunix.org/aget/	aget-(.*)\.tar\.gz	debian	uupdate

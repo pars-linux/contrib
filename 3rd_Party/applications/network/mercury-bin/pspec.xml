@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mercury-bin</Name>
+        <Homepage>http://www.mercury.to/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>mercury</License>
+        <IsA>app:gui</IsA>
+        <Summary>MSN and Jabber client in Java</Summary>
+        <Summary xml:lang="tr">Java ile yazılmış MSN ve Jaber istemcisi</Summary>
+        <Description>MSN and Jabber client in Java</Description>
+        <Description xml:lang="tr">Java ile yazılmış MSN ve Jabber istemcisi</Description>
+        <Archive sha1sum="412a71bb68d6f80ba420a51b77b9cf2875af2f22" type="zip">http://dknapp.ca/mirror/mercury/beta/1.9B03.zip</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jre</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>mercury-bin</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/Mercury</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/Mercury.desktop" permission="0644" owner="root">Mercury.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/Mercury.png" permission="0644" owner="root">Mercury.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2006-09-10</Date>
+            <Version>19_beta03</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-08-21</Date>
+            <Version>18_rc05</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-07-29</Date>
+            <Version>17_beta11</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-18</Date>
+            <Version>17_beta09</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

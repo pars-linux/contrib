@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>frostwire</Name>
+        <Homepage>http://www.frostwire.com/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>FrostWire is a high quality, free peer-to-peer application.</Summary>
+        <Summary xml:lang="tr">FrostWire çok kaliteli ücretsiz bir noktadan noktaya ağ uygulamasıdır.</Summary>
+        <Description>FrostWire is a high quality, free peer-to-peer application.</Description>
+        <Description xml:lang="tr">FrostWire çok kaliteli ücretsiz bir noktadan noktaya ağ uygulamasıdır.</Description>
+        <Archive sha1sum="a841baeb82c8a63ca4a3208936883bf24d70dd7c" type="targz">http://www.peercommons.com/frostwire/4.10.9/FrostWire-4.10.9-2.tar.gz</Archive>
+	<Patches>
+	    <Patch level="0">frostwire_desktop.patch</Patch>
+	</Patches>
+        <BuildDependencies>
+            <Dependency>sun-jre</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>frostwire</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="library">/usr/lib/frostwire</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+	    <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-30</Date>
+            <Version>4.10.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

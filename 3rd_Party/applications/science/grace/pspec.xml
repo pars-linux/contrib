@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+  SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>grace</Name>
+        <Homepage>http://plasma-gate.weizmann.ac.il/Grace/</Homepage>
+        <Packager>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <PartOf>asd</PartOf>
+        <Description>WYSIWYG 2D plotting tool for the X Window System</Description>
+        <Summary>WYSIWYG 2D plotting tool for the X Window System</Summary>
+        <Archive sha1sum="fd9c2ff95228c448bc0af7b055d10b5afac2c18c" type="targz">ftp://plasma-gate.weizmann.ac.il/pub/grace/src/stable/grace-5.1.19.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>lesstif</Dependency>
+            <Dependency>fftw2</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency versionFrom="3.0">netcdf</Dependency>
+            <Dependency versionFrom="1.3.1">t1lib</Dependency>
+            <Dependency versionFrom="3.5">tiff</Dependency>
+            <Dependency versionFrom="0.9.6">libpng</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>grace</Name>
+        <Files>
+           <Path fileType="executable">/usr/bin/</Path>
+           <Path fileType="header">/usr/include/</Path>
+           <Path fileType="library">/usr/lib/</Path>
+           <Path fileType="doc">/usr/share/doc</Path>
+           <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2005-04-06</Date>
+            <Version>5.1.19</Version>
+            <Comment>Initial import</Comment>
+            <Name>A. Murat Eren</Name>
+            <Email>meren@pardus.org.tr</Email>
+        </Update>                                                                            
+    </History>
+</PISI>

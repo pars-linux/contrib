@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gftp</Name>
+        <Homepage>http://www.gftp.org/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Gnome based FTP Client</Summary>
+        <Summary xml:lang="tr">Gnome tabanlı FTP istemcisi</Summary>
+        <Description>Gnome based FTP Client</Description>
+        <Description xml:lang="tr">Gnome tabanlı FTP istemcisi</Description>
+        <Archive sha1sum="c2468f1ff1fe978a5fab3a198e513558f3b48f5a" type="tarbz2">http://www.gftp.org/gftp-2.0.18.tar.bz2</Archive>
+        <Patches>
+            <Patch>gftp_desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gftp</Name>
+        <RuntimeDependencies>
+            <Dependency>glib2</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>ncurses</Dependency>
+            <Dependency>readline</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>openssl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/gftp</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-05-15</Date>
+            <Version>2.0.18</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kino</Name>
+        <Homepage>http://www.kinodv.org/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Kino is a non-linear DV editor for GNU/Linux</Summary>
+        <Summary xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir</Summary>
+        <Description>Kino is a non-linear DV editor for GNU/Linux.</Description>
+        <Description xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir.</Description>
+        <Archive sha1sum="c54a2603b2f13ba9d9eb28e2eef47e092b73ee30" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/kino/kino-0.9.2.tar.gz</Archive>
+	<Patches>
+	    <Patch level="0">Kino_desktop.patch</Patch>
+	</Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.0">libraw1394</Dependency>
+            <Dependency versionFrom="0.4.1">libavc1394</Dependency>
+            <Dependency versionFrom="0.103">libdv</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>audiofile</Dependency>
+            <Dependency>esound</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency>rawrec</Dependency>
+            <Dependency versionFrom="1.0.9">alsa-lib</Dependency>
+            <!-- Dependency versionFrom="0.9.5">libquicktime</Dependency -->
+            <!-- FIXME   ffmpeg? ( media-video/ffmpeg ) _ quicktime? ( || ( >=media-libs/libquicktime-0.9.5 media-video/cinelerra-cvs ) ) _ dvdr? ( media-video/dvdauthor )   -->
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kino</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.103">libdv</Dependency>
+            <Dependency>libglade2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+           <Path fileType="localedata">/usr/share/locale</Path>
+           <Path fileType="header">/usr/include</Path>
+           <Path fileType="man">/usr/share/man</Path>
+           <Path fileType="doc">/usr/share/doc</Path>
+           <Path fileType="config">/etc</Path>
+           <Path fileType="executable">/usr/bin/</Path>
+           <Path fileType="library">/usr/lib/</Path>
+           <Path fileType="data">/usr/share/kino</Path>
+           <Path fileType="data">/usr/share/mime</Path>
+           <Path fileType="data">/usr/share/applications</Path>
+           <Path fileType="data">/usr/share/pixmaps</Path>
+       </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2006-09-20</Date>
+            <Version>0.9.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-20</Date>
+            <Version>0.9.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-30</Date>
+            <Version>0.8.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

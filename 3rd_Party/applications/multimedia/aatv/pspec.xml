@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>aatv</Name>
+	<Homepage>http://n00n.free.fr/aatv/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>app:console</IsA>
+	<Summary>watch TV on a text console rendered by aalib</Summary>
+	<Summary xml:lang="tr">Komut satırında TV izle</Summary>
+	<Description>watch TV on a text console rendered by aalib</Description>
+        <Description xml:lang="tr">Komut satırında TV</Description>
+	<Archive sha1sum="9e26687134c80e2fd3187f9171ac82fb02ee7078" type="targz">http://n00n.free.fr/aatv/aatv-0.2.tar.gz</Archive>
+        <BuildDependencies>
+   	    <Dependency>aalib</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>aatv</Name>
+        <RuntimeDependencies>            
+            <Dependency>aalib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="man">/usr/share/man</Path>
+	</Files>	   
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-06-11</Date>
+	    <Version>0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

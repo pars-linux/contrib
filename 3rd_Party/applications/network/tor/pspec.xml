@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tor</Name>
+        <Homepage>http://tor.eff.org</Homepage>
+        <Packager>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <Summary>Anonymizing overlay network for TCP</Summary>
+        <Description>Anonymizing overlay network for TCP</Description>
+        <Archive sha1sum="d3f0120f5a18658231127281343aafb6c06aed70" type="targz">http://tor.eff.org/dist/tor-0.1.1.23.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libevent</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tor</Name>
+        <RuntimeDependencies>
+            <Dependency>libevent</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-01</Date>
+            <Version>0.1.1.23</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+

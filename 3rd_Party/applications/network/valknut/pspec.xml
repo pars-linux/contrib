@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>valknut</Name>
+        <Homepage>http://dcgui.berlios.de/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Qt based client for DirectConnect</Summary>
+        <Summary xml:lang="tr">Qt tabanlı DirectConnect istemcisi</Summary>
+        <Description>Qt based client for DirectConnect</Description>
+        <Description xml:lang="tr">Valknut DC++</Description>
+        <Archive sha1sum="0172ff77c5273e2f786c46d9c4c19121f37a01f3" type="tarbz2">http://download.berlios.de/dcgui/valknut-0.3.7.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.3.7">dclib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>valknut</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.3.7">dclib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/valknut</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/valknut.desktop" permission="0644" owner="root">valknut.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/valknut/translation/valknut.tr.qm" permission="0644" owner="root">valknut.tr.qm</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-02-25</Date>
+            <Version>0.3.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

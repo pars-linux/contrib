@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>procmail</Name>
+        <Homepage>http://www.procmail.org</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>Artistic GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Mail delivery agent/filter</Summary>
+        <Description>Mail delivery agent/filter</Description>
+        <Archive sha1sum="cd4e44c15559816453fd60349e5a32289f6f2965" type="targz">ftp://ftp.procmail.net/pub/procmail/procmail-3.22.tar.gz</Archive>
+        <Patches>
+            <Patch>procmail-lazy-bindings.diff</Patch>
+            <Patch>procmail-comsat-segfault.diff</Patch>
+            <Patch>procmail-maxprocs-fix.diff</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>postfix</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>procmail</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-06-15</Date>
+            <Version>3.22</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
