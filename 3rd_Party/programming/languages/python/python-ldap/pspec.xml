@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-ldap</Name>
+        <Homepage>http://python-ldap.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>PYTHON</License>
+        <IsA>library</IsA>
+        <Summary>Various LDAP-related Python modules</Summary>
+        <Description>Various LDAP-related Python modules</Description>
+        <Archive sha1sum="bc25275af4690b7438728787bd429e249e428260" type="targz">http://heanet.dl.sourceforge.net/sourceforge/python-ldap/python-ldap-2.2.0.tar.gz</Archive>                 
+        <BuildDependencies>
+            <Dependency>openldap-server</Dependency>
+            <Dependency>cyrus-sasl</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>setup.cfg.patch</Patch>
+        </Patches>
+
+    </Source>
+    
+    <Package>
+        <Name>python-ldap</Name>
+        <RuntimeDependencies>
+            <Dependency>openldap-server</Dependency>
+            <Dependency>cyrus-sasl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>                                  
+    </Package> 
+    
+    <History>
+        <Update release="1">
+            <Date>2006-06-28</Date>
+            <Version>2.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

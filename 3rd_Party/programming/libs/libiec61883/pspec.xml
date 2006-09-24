@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libiec61883</Name>
+	<Homepage>http://www.linux1394.org/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>library</IsA>
+	<Summary>library for capturing video (dv or mpeg2) over the IEEE 1394 bus</Summary>
+	<Summary xml:lang="tr">IEEE 1394 bus üzerinden (dv or mpeg2) görüntü yakalama kütüphanesi</Summary>
+	<Description>library for capturing video (dv or mpeg2) over the IEEE 1394 bus</Description>
+	<Description xml:lang="tr">IEEE 1394 bus üzerinden (dv or mpeg2) görüntü yakalama kütüphanesi</Description>
+	<Archive sha1sum="2791953765d4759dab27a5cc3617fe2ea2a85ca7" type="targz">http://www.linux1394.org/dl/libiec61883-1.0.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.0">libraw1394</Dependency>
+	</BuildDependencies>			    
+    </Source>
+    
+    <Package>
+        <Name>libiec61883</Name>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+ 	    <Path fileType="header">/usr/include</Path>
+	    <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-04-29</Date>
+	    <Version>1.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
