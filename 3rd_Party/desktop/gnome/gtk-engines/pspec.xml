@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk-engines</Name>
+        <Homepage>http://www.gtk.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2.1</License>
+        <IsA>data</IsA>
+        <Summary>GTK+2 standard engines and themes</Summary>
+        <Description>GTK+2 standard engines and themes</Description>
+        <Archive type="tarbz2" sha1sum="cee5d8003489b6f0eec139b87cf82f1f7879573c">ftp://ftp.gnome.org/pub/GNOME/sources/gtk-engines/2.6/gtk-engines-2.6.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtk-engines</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/themes</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-15</Date>
+            <Version>2.6.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

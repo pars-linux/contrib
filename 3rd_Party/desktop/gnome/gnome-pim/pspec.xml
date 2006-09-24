@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>gnome-pim</Name>
+	<Homepage>http://www.gnome.org/gnome-office/gnome-pim.shtml</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>library</IsA>
+	<Summary>A personal information manager package for GNOME.</Summary>
+	<Description>A personal information manager package for GNOME.</Description>
+	<Archive sha1sum="b940e264dd2894a26c8530dd4c6003b8a401857d" type="targz">http://me.in-berlin.de/~jroger/gnome-pim/gnome-pim-1.4.9.tar.gz</Archive>
+        <BuildDependencies>
+   	    <Dependency versionFrom="1.4.1.2">gnome-libs</Dependency>
+            <!-- !amd64?  pda?   configure.in autoconf -->
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>gnome-pim</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.4.1.2">gnome-libs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/mime-info</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/idl</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-09-04</Date>
+	    <Version>1.4.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

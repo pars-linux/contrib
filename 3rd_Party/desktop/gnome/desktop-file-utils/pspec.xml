@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+	<Name>desktop-file-utils</Name>
+	<Homepage>http://www.freedesktop.org/software/desktop-file-utils/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+	<License>GPL-2</License>
+	<IsA>library</IsA>
+	<Summary>Command line utilities to work with desktop menu entries</Summary>
+	<Description>Command line utilities to work with desktop menu entries</Description>
+	<Archive sha1sum="e534223872b928ce4b58518d56a8bd883bb60a82" type="targz">http://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.10.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">desktop-file-utils-0.10-man.patch</Patch>
+            <Patch level="1">desktop-file-utils-0.10-noemacs.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+   	    <Dependency versionFrom="2.0.0">glib2</Dependency>
+	    <Dependency versionFrom="1.6.3">popt</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>desktop-file-utils</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.0.0">glib2</Dependency>
+            <Dependency versionFrom="1.6.3">popt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/emacs</Path>
+	</Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-08-27</Date>
+	    <Version>0.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk-doc</Name>
+        <Homepage>http://www.gtk.org/gtk-doc/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2 FDL-1.1</License>
+        <IsA>library</IsA>
+        <Summary>GTK+ Documentation Generator</Summary>
+        <Summary xml:lang="tr">GTK+ belge üreticisi</Summary>
+        <Description>GTK+ Documentation Generator</Description>
+        <Description xml:lang="tr">GTK+ belge üreticisi</Description>
+        <Archive sha1sum="e864c8a76c6213a70e1429e087ba402872ba6345" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/gtk-doc/1.7/gtk-doc-1.7.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="5.6">perl</Dependency>
+            <Dependency versionFrom="1.3.1">openjade</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency versionFrom="2.3.6">libxml2</Dependency>
+            <Dependency versionFrom="4.1.2">docbook-xml</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+            <Dependency versionFrom="3.0">docbook-sgml-dtd</Dependency>
+            <Dependency versionFrom="1.40">docbook-dsssl</Dependency>
+            <!-- emacs? ( virtual/emacs ) -->
+            <Dependency versionFrom="0.19">pkgconfig</Dependency>
+            <Dependency versionFrom="0.3.5">scrollkeeper</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtk-doc</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.6">perl</Dependency>
+            <Dependency versionFrom="1.3.1">openjade</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency versionFrom="2.3.6">libxml2</Dependency>
+            <Dependency versionFrom="4.1.2">docbook-xml</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+            <Dependency versionFrom="3.0">docbook-sgml-dtd</Dependency>
+            <Dependency versionFrom="1.40">docbook-dsssl</Dependency>
+            <!-- emacs? ( virtual/emacs ) -->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/aclocal</Path> 
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share/sgml</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-08-24</Date>
+            <Version>1.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

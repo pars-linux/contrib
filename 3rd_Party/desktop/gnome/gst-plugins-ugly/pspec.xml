@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gst-plugins-ugly</Name>
+        <Homepage>http://gstreamer.net/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>plugin</IsA>
+        <Summary>Basepack of plugins for gstreamer</Summary>
+        <Summary xml:lang="tr">Gstreamer için temel eklentiler</Summary>
+        <Description>Basepack of plugins for gstreamer</Description>
+        <Description xml:lang="tr">Gstreamer için temel eklentiler</Description>
+        <Archive sha1sum="e31b671dcfab7842a1b546decc7c7a3fcc76790c" type="tarbz2">http://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-0.10.4.tar.bz2</Archive>
+        <BuildDependencies>
+   	    <Dependency versionFrom="0.10.3">gst-plugins-base</Dependency>
+	    <Dependency versionFrom="0.10.3">gstreamer</Dependency>
+	    <Dependency versionFrom="0.3.0">liboil</Dependency>
+	    <Dependency versionFrom="2.6.0">glib2</Dependency>
+	    <Dependency versionFrom="0.11.5">gettext</Dependency>
+	    <Dependency versionFrom="0.9">pkgconfig</Dependency>
+       </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>gst-plugins-ugly</Name>
+        <RuntimeDependencies>            
+            <Dependency versionFrom="0.10.3">gst-plugins-base</Dependency>
+	    <Dependency versionFrom="0.10.3">gstreamer</Dependency>
+            <Dependency versionFrom="0.3.0">liboil</Dependency>
+            <Dependency versionFrom="2.6.0">glib2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+	</Files>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-09-09</Date>
+            <Version>0.10.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-18</Date>
+	    <Version>0.10.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

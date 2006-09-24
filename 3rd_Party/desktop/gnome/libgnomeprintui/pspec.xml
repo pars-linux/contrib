@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgnomeprintui</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2 LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>User interface libraries for gnome print</Summary>
+        <Summary xml:lang="tr">Gnome yazıcısı için kullanıcı arayüzü</Summary>
+        <Description>User interface libraries for gnome print</Description>
+        <Description xml:lang="tr">Gnome yazıcısı için kullanıcı arayüzü.</Description>
+        <Archive sha1sum="7ed05a789245fbee975a2010a0e2414169197ac0" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/libgnomeprintui/2.12/libgnomeprintui-2.12.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.12.1">libgnomeprint</Dependency>
+            <Dependency versionFrom="1.117">libgnomecanvas</Dependency>
+            <Dependency versionFrom="1.1.92">gnome-icon-theme</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency versionFrom="1">gtk-doc</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>libgnomeprintui</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.12.1">libgnomeprint</Dependency>
+            <Dependency versionFrom="1.117">libgnomecanvas</Dependency>
+            <Dependency versionFrom="1.1.92">gnome-icon-theme</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/libgnomeprintui</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-09-09</Date>
+            <Version>2.12.1</Version>
+            <Comment>Dep. reconfigured and gconf support added.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-27</Date>
+            <Version>2.12.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

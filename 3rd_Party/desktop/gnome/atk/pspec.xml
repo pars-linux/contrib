@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>atk</Name>
+        <Homepage>http://developer.gnome.org/projects/gap/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GTK+ and GNOME Accessibility Toolkit</Summary>
+        <Summary xml:lang="tr">GTK+ ve GNOME erişilebilirlik kütüphanesi</Summary>
+        <Description>GTK+ and GNOME Accessibility Toolkit</Description>
+        <Description xml:lang="tr">GTK+ ve GNOME erişilebilirlik kütüphanesi</Description>
+        <Archive sha1sum="8c59f23a90e6b4ddcff0712dcbf1bfdaa9fc35cb" type="tarbz2">http://ftp.gnome.org/pub/gnome/sources/atk/1.12/atk-1.12.2.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">syntax_error.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.5.7">gtk2</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency versionFrom="1">gtk-doc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>atk</Name>
+        <RuntimeDependencies>
+	    <Dependency versionFrom="2.5.7">gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2006-08-26</Date>
+            <Version>1.12.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-01-13</Date>
+            <Version>1.10.3</Version>
+            <Comment>New stable release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2005-10-16</Date>
+            <Version>1.10.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-09-13</Date>
+            <Version>1.8.0</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

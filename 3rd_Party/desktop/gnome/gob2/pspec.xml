@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gob2</Name>
+        <Homepage>http://www.5z.com/jirka/gob.html</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>GObject Builder</Summary>
+        <Summary xml:lang="tr">GObject inşa aracı</Summary>
+        <Description>GOB (GOB2 anyway) is a preprocessor for making GObjects with inline C code so that generated files are not edited. Syntax is inspired by Java and Yacc or Lex. The implementation is intentionally kept simple, and no C actual code parsing is done.</Description>
+        <Description xml:lang="tr">GOB, inline C kodları kullanarak GObject yapabilmenizi sağlar, böyle oluşturulan dosyaları düzenlemek gerekmez. Söz dizimi Java, Yacc veya Lex'den esinlenerek düşünülmüştür. Uygulanması oldukça basittir, varolan C kodlarının işlenmesi gerekmez.</Description>
+        <Archive type="targz" sha1sum="603873f1f9455ee5a03ff5ba7d327489e91b700d">http://ftp.5z.com/pub/gob/gob2-2.0.14.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>flex</Dependency>
+            <Dependency>glib2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gob2</Name>
+        <RuntimeDependencies>
+            <Dependency>glib2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-03</Date>
+            <Version>2.0.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>

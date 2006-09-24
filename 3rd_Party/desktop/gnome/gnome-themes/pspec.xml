@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-themes</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2.1</License>
+        <IsA>data</IsA>
+        <Summary>Gnome Themes</Summary>
+        <Description>A set of GNOME themes, with sets for users with limited or low vision</Description>
+        <Archive type="tarbz2" sha1sum="d3aad9902e40dd4cbbdce943abe3a476803ea916">ftp://ftp.gnome.org/pub/GNOME/sources/gnome-themes/2.14/gnome-themes-2.14.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.0">gtk2</Dependency>
+            <Dependency versionFrom="2.5">gtk-engines</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency versionFrom="0.28">intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnome-themes</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.0">gtk2</Dependency>
+            <Dependency versionFrom="2.5">gtk-engines</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+	    <Path fileType="data">/usr/share/themes</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-15</Date>
+            <Version>2.14.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

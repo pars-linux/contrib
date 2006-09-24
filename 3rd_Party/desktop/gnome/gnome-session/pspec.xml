@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-session</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2 LGPL-2 FDL-1.1</License>
+        <IsA>app:gui</IsA>
+        <Summary>Gnome session manager</Summary>
+        <Summary xml:lang="tr">Gnome oturum yöneticisi</Summary>
+        <Description>Gnome session manager.</Description>
+        <Description xml:lang="tr">Gnome oturum yöneticisi.</Description>
+        <Archive sha1sum="25668704f0926b754793781f080d6148393c1764" type="tarbz2">http://ftp.acc.umu.se/pub/GNOME/sources/gnome-session/2.14/gnome-session-2.14.2.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">gnome-session-2.10.0-schema_defaults.patch</Patch>
+            <Patch level="0">gnome-session-2.12.0-optional-tcp-wrappers.patch</Patch>
+            <Patch level="1">gnome-session-2.10.0-esd_switch.patch</Patch>
+            <Patch level="0">gnome-session-2.14.0-no_libnotify.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.3.1">gtk2</Dependency>
+            <Dependency versionFrom="2.0">gconf</Dependency>
+            <Dependency versionFrom="2.2">libgnomeui</Dependency>
+            <Dependency versionFrom="2.0">gnome-desktop</Dependency>
+            <Dependency>gnome-keyring</Dependency>
+            <Dependency versionFrom="0.2.26">esound</Dependency>
+            <Dependency versionFrom="7.6">tcp-wrappers</Dependency>
+            <Dependency versionFrom="0.10.40">gettext</Dependency>
+            <Dependency versionFrom="0.17">pkgconfig</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>automake1_9</Dependency>
+            <!-- !gnome-base/gnome-core  -->
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnome-session</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.3.1">gtk2</Dependency>
+            <Dependency versionFrom="2.0">gconf</Dependency>
+            <Dependency versionFrom="2.2">libgnomeui</Dependency>
+            <Dependency versionFrom="2.0">gnome-desktop</Dependency>
+            <Dependency>gnome-keyring</Dependency>
+            <Dependency versionFrom="0.2.26">esound</Dependency>
+            <Dependency versionFrom="7.6">tcp-wrappers</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+	    <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/X11/Sessions/Gnome" owner="root" permission="0644">Gnome</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/splash/pardus-splash.png" owner="root" permission="0644">pardus-splash.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-09-10</Date>
+            <Version>2.14.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-28</Date>
+            <Version>2.14.0</Version>
+            <Comment>First release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

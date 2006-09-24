@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgnomecups</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2 LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GNOME cups library</Summary>
+        <Summary xml:lang="tr">GNOME cups kütüphanesi</Summary>
+        <Description>GNOME cups library.</Description>
+        <Description xml:lang="tr">GNOME cups kütüphanesi</Description>
+        <Archive sha1sum="d0bf3a87f9c540bca366f6fefdecdefa145e8e66" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/libgnomecups/0.2/libgnomecups-0.2.2.tar.bz2</Archive>
+        <Patches>
+            <Patch level="0">enablenet.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2">glib2</Dependency>
+            <Dependency>cups</Dependency>
+            <Dependency versionFrom="0.9">pkgconfig</Dependency>
+            <Dependency versionFrom="0.28">intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>libgnomecups</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2">glib2</Dependency>
+            <Dependency>cups</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2006-09-09</Date>
+            <Version>0.2.2</Version>
+            <Comment>Dep. reconfigured, enablenet.patch added and gconf support added.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2003-02-27</Date>
+            <Version>0.2.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
