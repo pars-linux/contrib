@@ -11,7 +11,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "geos-2.2.3"
+WorkDir = "geos-3.0.0rc1"
 
 def setup():
     shelltools.export("WANT_AUTOCONF", "2.5")
