@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>physfs</Name>
+        <Homepage>http://www.icculus.org/physfs/</Homepage>
+        <Packager>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Packager>
+        <License>ZLIB</License>
+        <IsA>library</IsA>
+        <Summary>A library to provide abstract access to various archives.</Summary>
+        <Summary xml:lang="tr">Çeşitli arşivlere soyut erişim sağlayan bir kütüphane</Summary>
+        <Description>PhysicsFS is a library to provide abstract access to various archives. It is intended for use in video games, and the design was somewhat inspired by Quake 3's file subsystem.</Description>
+        <Description xml:lang="tr">PhysicsFS çeşitli arşivlere soyut erişim sağlayan bir kütüphanedir. Video oyunlarında kullanılmak üzere Quake 3'ün dosya altyapısından esinlenerek tasarlanmıştır.</Description>
+        <Archive sha1sum="48803ceb60b44a4d3b7511b7a2d66a020d86e95a" type="targz">http://www.icculus.org/physfs/downloads/physfs-1.0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>zlib</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>physfs</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2006-03-22</Date>
+            <Version>1.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>

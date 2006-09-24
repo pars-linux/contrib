@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>hk-classes</Name>
+        <Homepage>http://hk-classes.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>library</IsA>
+        <Summary>Rapid database application development library for KDE.</Summary>
+        <Summary xml:lang="tr">KDE için hızlı veritabanı geliştirme kütüphanesi</Summary>
+        <Description xml:lang="tr">Veritabanı ve arayüzden bağımsız olarak çalışan ve KDE için hızlı veritabanı geliştirmeyi sağlayan kütüphanedir.</Description>
+        <Description>In combination with hk_kdeclasses (which is part of the knoda package) hk_classes supports the rapid development of database applications for KDE. hk_classes is database and GUI independent.</Description>
+        <Archive sha1sum="a46e2ff289e71e267304a95c3911126cf613d617" type="tarbz2">http://switch.dl.sourceforge.net/sourceforge/hk-classes/hk_classes-0.8.2-test1.tar.bz2</Archive>
+        
+        <BuildDependencies>
+            <Dependency versionFrom="4.17">file</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>mysql-server</Dependency>
+        </BuildDependencies>
+    </Source>
+    
+    <Package>
+        <Name>hk-classes</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+    
+    <History>
+        <Update release="1">
+            <Date>2005-06-17</Date>
+            <Version>0.8.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

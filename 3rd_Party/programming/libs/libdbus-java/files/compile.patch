@@ -1,0 +1,122 @@
+diff -ur libdbus-java-1.7.orig/dbus-java.c libdbus-java-1.7/dbus-java.c
+--- libdbus-java-1.7.orig/dbus-java.c	2006-05-29 13:54:29.000000000 +0300
++++ libdbus-java-1.7/dbus-java.c	2006-06-01 17:19:16.000000000 +0300
+@@ -509,7 +509,7 @@
+       return NULL;
+    }
+    // blocking for timeout ms read of the next available message
+-   dbus_connection_read_write(conn, timeout);
++   dbus_connection_read_write_dispatch(conn, timeout);
+    msg = dbus_connection_pop_message(conn);
+ 
+    // just return
+diff -ur libdbus-java-1.7.orig/Makefile libdbus-java-1.7/Makefile
+--- libdbus-java-1.7.orig/Makefile	2006-05-29 13:54:29.000000000 +0300
++++ libdbus-java-1.7/Makefile	2006-06-01 17:19:38.000000000 +0300
+@@ -11,7 +11,7 @@
+ JAVA?=java
+ JAVAH?=javah
+ JAR?=jar
+-CFLAGS?=`pkg-config --cflags dbus-1` -Os -Wall -Werror
++LCFLAGS?=`pkg-config --cflags dbus-1` -Wall -Werror
+ LDFLAGS?=`pkg-config --libs dbus-1`
+ CC?=gcc
+ LD?=ld
+@@ -71,7 +71,7 @@
+ 	$(JAVAH) -classpath classes:$(CLASSPATH) -d . org.freedesktop.dbus.MethodCall
+ 	touch $@
+ dbus-java.o: dbus-java.c org_freedesktop_dbus_DBusConnection.h org_freedesktop_dbus_DBusErrorMessage.h org_freedesktop_dbus_MethodCall.h
+-	$(CC) $(CFLAGS) -fpic -c $< -o $@
++	$(CC) $(CFLAGS) $(LCFLAGS) -I/opt/sun-jdk/include/ -I/opt/sun-jdk/include/linux -fpic -c $< -o $@
+ 
+ libdbus-java.so: dbus-java.o
+ 	$(LD) $(LDFLAGS) -fpic -shared -o $@ $^
+@@ -85,26 +85,27 @@
+ 	
+ 
+ jar: libdbus-java-$(VERSION).jar
+-doc: doc/dbus-java.dvi doc/dbus-java.ps doc/dbus-java.pdf doc/dbus-java/index.html doc/api/index.html
+-.doc:
+-	-mkdir doc
+-	-mkdir doc/dbus-java
+-	touch .doc
+-doc/dbus-java.dvi: dbus-java.tex .doc
+-	(cd doc; latex ../dbus-java.tex)
+-	(cd doc; latex ../dbus-java.tex)
+-	(cd doc; latex ../dbus-java.tex)
+-doc/dbus-java.ps: doc/dbus-java.dvi .doc
+-	(cd doc; dvips dbus-java.dvi)
+-doc/dbus-java.pdf: doc/dbus-java.dvi .doc
+-	(cd doc; pdflatex ../dbus-java.tex)
+-doc/dbus-java/index.html: dbus-java.tex .doc
+-	latex2html -dir doc/dbus-java dbus-java.tex
+-doc/api/index.html: $(SRCDIR)/*.java $(SRCDIR)/dbus/*.java $(SRCDIR)/Hal/*.java .doc
+-	$(JAVA_HOME)/bin/javadoc -quiet -author -link http://java.sun.com/j2se/1.5.0/docs/api/  -d doc/api $(SRCDIR)/*.java $(SRCDIR)/dbus/*.java $(SRCDIR)/Hal/*.java
+ 
+-%.1: %.sgml
+-	docbook-to-man $< > $@
++#doc: doc/dbus-java.dvi doc/dbus-java.ps doc/dbus-java.pdf doc/dbus-java/index.html doc/api/index.html
++#.doc:
++#	-mkdir doc
++#	-mkdir doc/dbus-java
++#	touch .doc
++#doc/dbus-java.dvi: dbus-java.tex .doc
++#	(cd doc; latex ../dbus-java.tex)
++#	(cd doc; latex ../dbus-java.tex)
++#	(cd doc; latex ../dbus-java.tex)
++#doc/dbus-java.ps: doc/dbus-java.dvi .doc
++#	(cd doc; dvips dbus-java.dvi)
++#doc/dbus-java.pdf: doc/dbus-java.dvi .doc
++#	(cd doc; pdflatex ../dbus-java.tex)
++#doc/dbus-java/index.html: dbus-java.tex .doc
++#	latex2html -dir doc/dbus-java dbus-java.tex
++#doc/api/index.html: $(SRCDIR)/*.java $(SRCDIR)/dbus/*.java $(SRCDIR)/Hal/*.java .doc
++#	$(JAVA_HOME)/bin/javadoc -quiet -author -link http://java.sun.com/j2se/1.5.0/docs/api/  -d doc/api $(SRCDIR)/*.java $(SRCDIR)/dbus/*.java $(SRCDIR)/Hal/*.java
++#
++#%.1: %.sgml
++#	docbook-to-man $< > $@
+ 	
+ testrun: libdbus-java.so libdbus-java-$(VERSION).jar dbus-java-test-$(VERSION).jar
+ 	$(JAVA) $(JFLAGS) $(CPFLAG) libdbus-java-$(VERSION).jar:dbus-java-test-$(VERSION).jar org.freedesktop.dbus.test.test
+@@ -127,7 +128,7 @@
+ 	-rm $(MANPREFIX)/CreateInterface.1 $(MANPREFIX)/ListDBus.1  $(MANPREFIX)/DBusViewer.1
+ 	-rm $(BINPREFIX)/CreateInterface $(BINPREFIX)/ListDBus  $(BINPREFIX)/DBusViewer
+ 
+-install: dbus-java-viewer-$(VERSION).jar libdbus-java-$(VERSION).jar libdbus-java.so doc bin/CreateInterface bin/ListDBus bin/DBusViewer CreateInterface.1 ListDBus.1 DBusViewer.1 changelog
++install: dbus-java-viewer-$(VERSION).jar libdbus-java-$(VERSION).jar libdbus-java.so bin/CreateInterface bin/ListDBus bin/DBusViewer changelog
+ 	install -d $(JARPREFIX)
+ 	install -m 644 libdbus-java-$(VERSION).jar $(JARPREFIX)/dbus-$(VERSION).jar
+ 	install -m 644 dbus-java-viewer-$(VERSION).jar $(JARPREFIX)/dbus-viewer-$(VERSION).jar
+@@ -141,19 +142,19 @@
+ 	install bin/ListDBus $(BINPREFIX)
+ 	install -d $(DOCPREFIX)
+ 	install -m 644 changelog $(DOCPREFIX)
+-	install -m 644 doc/dbus-java.dvi $(DOCPREFIX)
+-	install -m 644 doc/dbus-java.ps $(DOCPREFIX)
+-	install -m 644 doc/dbus-java.pdf $(DOCPREFIX)
+-	install -d $(DOCPREFIX)/dbus-java
+-	install -m 644 doc/dbus-java/*.html $(DOCPREFIX)/dbus-java
+-	install -m 644 doc/dbus-java/*.css $(DOCPREFIX)/dbus-java
+-	install -m 644 doc/dbus-java/*.png $(DOCPREFIX)/dbus-java
+-	install -d $(DOCPREFIX)/api
+-	cp -a doc/api/* $(DOCPREFIX)/api
+-	install -d $(MANPREFIX)
+-	install -m 644 CreateInterface.1 $(MANPREFIX)/CreateInterface.1
+-	install -m 644 ListDBus.1 $(MANPREFIX)/ListDBus.1
+-	install -m 644 DBusViewer.1 $(MANPREFIX)/DBusViewer.1
++#	install -m 644 doc/dbus-java.dvi $(DOCPREFIX)
++#	install -m 644 doc/dbus-java.ps $(DOCPREFIX)
++#	install -m 644 doc/dbus-java.pdf $(DOCPREFIX)
++#	install -d $(DOCPREFIX)/dbus-java
++#	install -m 644 doc/dbus-java/*.html $(DOCPREFIX)/dbus-java
++#	install -m 644 doc/dbus-java/*.css $(DOCPREFIX)/dbus-java
++#	install -m 644 doc/dbus-java/*.png $(DOCPREFIX)/dbus-java
++#	install -d $(DOCPREFIX)/api
++#	cp -a doc/api/* $(DOCPREFIX)/api
++#	install -d $(MANPREFIX)
++#	install -m 644 CreateInterface.1 $(MANPREFIX)/CreateInterface.1
++#	install -m 644 ListDBus.1 $(MANPREFIX)/ListDBus.1
++#	install -m 644 DBusViewer.1 $(MANPREFIX)/DBusViewer.1
+ 
+ dist: .dist
+ .dist: bin dbus-java.c dbus-java.tex Makefile org tmp-session.conf CreateInterface.sgml ListDBus.sgml DBusViewer.sgml changelog

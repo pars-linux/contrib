@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>log4net</Name>
+        <Homepage>http://logging.apache.org/log4net/</Homepage>
+        <Packager>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Packager>
+        <License>Apache</License>
+        <IsA>library</IsA>
+        <Summary>log4net is a tool to help the programmer output log statements to a variety of output targets</Summary>
+        <Description>log4net is a tool to help the programmer output log statements to a variety of output targets</Description>
+        <Archive sha1sum="2ff78910ef6cbef6a21de3604afd09c4481a9b24" type="zip">http://cekirdek.pardus.org.tr/~caglar/iFolder/incubating-log4net-1.2.9-beta.zip</Archive>
+        <BuildDependencies>
+            <Dependency>mono</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>log4net</Name>
+        <RuntimeDependencies>
+            <Dependency>mono</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/lib/pkgconfig/log4net.pc">log4net.pc</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-28</Date>
+            <Version>1.2.9</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
