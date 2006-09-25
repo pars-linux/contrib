@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mm3d</Name>
+        <Homepage>http://www.misfitcode.com/misfitmodel3d/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Misfit Model 3D modeling application</Summary>
+        <Description>Misfit Model 3D is an OpenGL-based 3D model editor that works with triangle-based models.</Description>
+        <Summary xml:lang="tr">Misfit Model 3D modelleme uygulaması</Summary>
+        <Description xml:lang="tr">Misfit Model 3D, üçgen tabanlı modellerle çalışan bir OpenGL tabanlı 3B model düzenleyicisidir.</Description>
+        <Archive sha1sum="6980779c95ef32b32899a9c2c72693399286f01b" type="targz">http://easynews.dl.sourceforge.net/sourceforge/misfitmodel3d/mm3d-1.3.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="2">lua</Dependency>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+        <Patches>
+        <!--
+            <Patch level="1"></Patch>
+        -->
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mm3d</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="2">lua</Dependency>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/mm3d</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/mm3d.desktop">mm3d.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-25</Date>
+            <Version>1.3.0</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
