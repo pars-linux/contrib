@@ -1,0 +1,36 @@
+diff -Nur AutoQ3Dsource/src/dialogs/prgsettings.cpp AutoQ3Dsource2/src/dialogs/prgsettings.cpp
+--- AutoQ3Dsource/src/dialogs/prgsettings.cpp	2005-09-26 10:38:00.000000000 +0300
++++ AutoQ3Dsource2/src/dialogs/prgsettings.cpp	2006-09-25 09:29:13.000000000 +0300
+@@ -39,7 +39,7 @@
+     : QDialog( parent,fl )
+ {
+  	QSettings settings("AutoQ3D","AutoQ3D");
+-	ProgramPath = settings.value("MainWindow/ProgramPath").toString();
++	ProgramPath = settings.value("MainWindow/ProgramPath", "/usr/share/AutoQ3D").toString();
+ 	
+ 	
+     Gene = new QVBoxLayout(this);
+diff -Nur AutoQ3Dsource/src/fgui/cadform.cpp AutoQ3Dsource2/src/fgui/cadform.cpp
+--- AutoQ3Dsource/src/fgui/cadform.cpp	2006-08-13 19:03:00.000000000 +0300
++++ AutoQ3Dsource2/src/fgui/cadform.cpp	2006-09-25 09:29:56.000000000 +0300
+@@ -36,7 +36,7 @@
+ 	DataLV.resize(0);
+ 	DataTV.resize(0);
+ 	QSettings settings("AutoQ3D","AutoQ3D");
+-	ProgramPath = settings.value("MainWindow/ProgramPath").toString()+"/";
++	ProgramPath = settings.value("MainWindow/ProgramPath", "/usr/share/AutoQ3D").toString()+"/";
+ 	
+ 
+ 	ws = new QWorkspace;
+diff -Nur AutoQ3Dsource/src/main.cpp AutoQ3Dsource2/src/main.cpp
+--- AutoQ3Dsource/src/main.cpp	2005-09-27 17:29:00.000000000 +0300
++++ AutoQ3Dsource2/src/main.cpp	2006-09-25 09:27:19.000000000 +0300
+@@ -37,7 +37,7 @@
+     QString progpath;
+     QSettings settings("AutoQ3D","AutoQ3D");
+ 	int language = settings.value("MainWindow/Language").toInt();
+-    	progpath=settings.value("MainWindow/ProgramPath").toString()+"/";
++    	progpath=settings.value("MainWindow/ProgramPath", "/usr/share/AutoQ3D").toString()+"/";
+ 	translator.load("");
+     switch(language){
+     	case 1:
