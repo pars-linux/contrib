@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>AutoQ3D</Name>
+        <Homepage></Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>3D modeling application</Summary>
+        <Description>A complete 3D modeling application for computing aided drafting in three dimensions. AutoQ3D can be used by anyone who wants an easy way to imagine, create, and publish in 3D. It is ideal for you to use as modeling editor for your home additions, game design, math geometrical education or whatever your imagination tells you.</Description>
+        <Archive sha1sum="644535d789f2f07878d0a0ceeaf0903f180b90c9" type="zip">http://autoq3d.ecuadra.com/downloads/AutoQ3Dsource.zip</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">default_program_path.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>AutoQ3D</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/AutoQ3D</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/AutoQ3D.desktop">AutoQ3D.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-25</Date>
+            <Version>1.35</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
