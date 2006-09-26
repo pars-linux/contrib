@@ -7,9 +7,12 @@
 
 from pisi.actionsapi import kde
 
+WorkDir="soundkonverter-0.2.80"
+
 def setup():
     kde.configure("--with-lame \
                    --with-vorbis \
+                   --with-faad \
                    --with-flac \
                    --with-ffmpeg")
 
