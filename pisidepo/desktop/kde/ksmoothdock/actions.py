@@ -5,7 +5,7 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="klineakconfig-0.8-beta2"
+WorkDir="ksmoothdock"
 
 def setup():
     kde.configure()
