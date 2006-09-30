@@ -14,7 +14,7 @@
         <Summary xml:lang="tr">Coğrafi Kaynak Analizi Destek Sistemi</Summary>
         <Description>GRASS is a Geographic Information System (GIS) used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.</Description>
         <Description xml:lang="tr">GRASS, coğrafi veri yönetimi ve analizi, resim işleme, grafik/harita üretimi, uzamsal modelleme ve canlandırma amaçlı kullanılan bir Coğrafi Bilgi Sistemidir (GIS-Geographic Information System).</Description>
-        <Archive sha1sum="ea26163f42805a2571a0a35ac58457bffdbcfc1e" type="targz">http://grass.itc.it/grass61/source/grass-6.1.0.tar.gz</Archive>
+        <Archive sha1sum="5a43dfef82eb3a7eecd52a8d51013c8281f3bd13" type="targz">http://grass.itc.it/grass62/source/grass-6.2.0RC1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.1.4">zlib</Dependency>
             <Dependency versionFrom="2.5.4a">flex</Dependency>
@@ -54,14 +54,14 @@
             <Dependency>tcltk</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/opt/bin</Path>
-            <Path fileType="executable">/opt/grass-6.1.0/bin</Path>
-            <Path fileType="data">/opt/grass-6.1.0</Path>
-            <Path fileType="doc">/opt/grass-6.1.0/docs</Path>
-            <Path fileType="config">/opt/grass-6.1.0/etc</Path>
-            <Path fileType="header">/opt/grass-6.1.0/include</Path>
-            <Path fileType="library">/opt/grass-6.1.0/lib</Path>
-            <Path fileType="man">/opt/grass-6.1.0/man</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/opt/grass-6.2.0RC1/bin</Path>
+            <Path fileType="data">/opt/grass-6.2.0RC1</Path>
+            <Path fileType="doc">/opt/grass-6.2.0RC1/docs</Path>
+            <Path fileType="config">/opt/grass-6.2.0RC1/etc</Path>
+            <Path fileType="header">/opt/grass-6.2.0RC1/include</Path>
+            <Path fileType="library">/opt/grass-6.2.0RC1/lib</Path>
+            <Path fileType="man">/opt/grass-6.2.0RC1/man</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -71,10 +71,18 @@
      <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/grass.desktop" permission="0644" owner="root">grass.desktop</AdditionalFile>
             <AdditionalFile target="/usr/share/pixmaps/grass.png" permission="0644" owner="root">grass.png</AdditionalFile>
+            <AdditionalFile target="/etc/env.d/99grass" permission="0644" owner="root">99grass</AdditionalFile>
     </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2006-09-30</Date>
+            <Version>6.2.0_rc1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-08-29</Date>
             <Version>6.1.0</Version>
