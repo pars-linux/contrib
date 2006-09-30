@@ -16,7 +16,7 @@ def setup():
                          --with-grass=no \
                          --with-libtool \
                          --without-ld-shared \
-                         --enable-static=no \
+                         --enable-static=yes \
                          --enable-shared=yes \
                          --with-pic \
                          --with-libgrass=no \
@@ -39,7 +39,7 @@ def setup():
                          --with-odbc \
                          --with-sqlite \
                          --with-pg \
-                         --without-ogr \
+                         --with-ogr \
                          --with-static-proj4 \
                          --with-geos \
                          --with-php \
