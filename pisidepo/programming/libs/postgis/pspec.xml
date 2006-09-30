@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>postgis</Name>
+        <Homepage>http://postgis.refractions.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Geographic Objects for PostgreSQL</Summary>
+        <Summary xml:lang="tr">PostgreSQL için coğrafi nesneler</Summary>
+        <Description>Geographic Objects for PostgreSQL</Description>
+        <Description xml:lang="tr">PostgreSQL için coğrafi nesneler</Description>
+        <Archive sha1sum="96afd988aeabb92efa0a99b25cc77be29c700dde" type="targz">http://postgis.refractions.net/download/postgis-1.1.4.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">postgis-1.1.1_doc.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="7.4">postgresql-lib</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+            <Dependency>geos</Dependency>
+            <Dependency>proj</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>postgis</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="7.4">postgresql-lib</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+            <Dependency>geos</Dependency>
+            <Dependency>proj</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-30</Date>
+            <Version>1.1.4</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
