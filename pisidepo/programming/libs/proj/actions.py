@@ -18,7 +18,6 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.insinto("/usr/lib", "src/*.o")
     pisitools.insinto("/usr/include", "src/*.h")
     pisitools.dodoc("AUTHOR", "ChangeLog", "COPYING", "NEWS", "README")
 
