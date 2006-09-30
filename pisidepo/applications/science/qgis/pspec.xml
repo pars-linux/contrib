@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qgis</Name>
+        <Homepage>http://www.qgis.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.org</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Quantum GIS (QGIS) is a Geographic Information System (GIS)</Summary>
+        <Summary xml:lang="tr">Coğrafi Bilgi Sistemi (GIS)</Summary>
+        <Description>Quantum GIS (QGIS) is a Geographic Information System (GIS)</Description>
+        <Description xml:lang="tr">Coğrafi Bilgi Sistemi (GIS)</Description>
+        <Archive sha1sum="caee30d335a8774c85288bb339d476cb8bee5625" type="targz">http://mesh.dl.sourceforge.net/sourceforge/qgis/qgis-0.7.4.tar.gz</Archive>
+        <Patches>
+            <Patch level="0">pardus-configure.patch</Patch>
+            <Patch level="1">grass-6.2.0RC1.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.5">gdal</Dependency>
+            <Dependency versionFrom="3.2.1">sqlite</Dependency>
+            <Dependency>geos</Dependency>
+            <Dependency versionFrom="1.6">gsl</Dependency>
+            <Dependency>proj</Dependency>
+            <Dependency versionFrom="6.2">grass</Dependency>
+            <Dependency>postgresql-srv</Dependency>
+            <Dependency>gpsbabel</Dependency>
+            <Dependency>postgis</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qgis</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.5">gdal</Dependency>
+            <Dependency versionFrom="3.2.1">sqlite</Dependency>
+            <Dependency>geos</Dependency>
+            <Dependency versionFrom="1.6">gsl</Dependency>
+            <Dependency>proj</Dependency>
+            <Dependency versionFrom="6.2">grass</Dependency>
+            <Dependency>postgresql-srv</Dependency>
+            <Dependency>gpsbabel</Dependency>
+            <Dependency>postgis</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/qgis.desktop" permission="0644" owner="root">qgis.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/qgis.png" permission="0644" owner="root">qgis.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-28</Date>
+            <Version>0.7.4</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.org</Email>
+        </Update>
+    </History>
+</PISI>
