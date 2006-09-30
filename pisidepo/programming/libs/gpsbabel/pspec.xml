@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gpsbabel</Name>
+        <Homepage>http://www.gpsbabel.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>GPSBabel converts waypoints, tracks, and routes from one format to another</Summary>
+        <Summary xml:lang="tr">GPSBabel, haritacılıkta kullanılan iz ve yolları bir formattan başka bir formata çevirir</Summary>
+        <Description>GPSBabel converts waypoints, tracks, and routes from one format to another</Description>
+        <Description xml:lang="tr">GPSBabel, haritacılıkta kullanılan iz ve yolları bir formattan başka bir formata çevirir</Description>
+        <Archive sha1sum="2b406180a51346de9aefb6be161cea17129911b8" type="targz">http://puzzle.dl.sourceforge.net/sourceforge/gpsbabel/gpsbabel-1.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>expat</Dependency>
+            <Dependency>tetex</Dependency>
+            <Dependency>libusb</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gpsbabel</Name>
+        <RuntimeDependencies>
+            <Dependency>expat</Dependency>
+            <Dependency>tetex</Dependency>
+            <Dependency>libusb</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-09-30</Date>
+            <Version>1.3.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
