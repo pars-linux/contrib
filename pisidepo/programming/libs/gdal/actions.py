@@ -16,7 +16,7 @@ def setup():
                          --with-grass=no \
                          --with-libtool \
                          --without-ld-shared \
-                         --enable-static=yes \
+                         --enable-static=no \
                          --enable-shared=yes \
                          --with-pic \
                          --with-libgrass=no \
@@ -51,6 +51,7 @@ def build():
     autotools.make()
 
 def install():
+    pisitools.dodir("/usr")
     autotools.install()
     pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
     pisitools.doman("man/man1/*")
