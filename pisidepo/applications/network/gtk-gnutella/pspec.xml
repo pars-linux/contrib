@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk-gnutella</Name>
+        <Homepage>http://gtk-gnutella.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK+ Gnutella client</Summary>
+        <Summary xml:lang="tr">GTK+ Gnutella istemcisi</Summary>
+        <Description>gtk-gnutella has been optimized for speed and scalability, with low-memory consumption. It is meant to be left running 24x7, using little CPU and only the configured bandwidth.</Description>
+        <Description xml:lang="tr">gtk-gnutella, sistem kaynaklarını az harcayan hızlı bir dosya paylaşım programıdır. İşlemciyi az, bağlantının da istediğiniz kadarını kullandığı için sürekli açık bırakabilirsiniz.</Description>
+        <Archive sha1sum="28540c4e78f4c3513ac15b95228a98d17ace2091" type="tarbz2">http://surfnet.dl.sourceforge.net/sourceforge/gtk-gnutella/gtk-gnutella-0.96.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>yacc</Dependency>
+            <Dependency>dbus</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtk-gnutella</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>yacc</Dependency>
+            <Dependency>dbus</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gtk-gnutella</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>0.96.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
