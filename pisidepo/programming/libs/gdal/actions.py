@@ -51,14 +51,13 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.dodir("/usr")
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
     pisitools.doman("man/man1/*")
     pisitools.dohtml("html/*")
     pisitools.dohtml("ogr/*")
 
     #prevent file conflict
-    pisitools.removeDir("/usr/lib/perl5")
+    pisitools.removeDir("/usr/lib/perl5/5.8.8")
 
 
