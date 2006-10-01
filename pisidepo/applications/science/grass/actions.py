@@ -50,7 +50,7 @@ def install():
     pisitools.removeDir("/opt/bin")
 
     #change the GISBASE directory to where it should be
-    pisitools.dosed("%s/opt/bin/grass62" % get.installDIR(), "GISBASE=/var/tmp/pisi/grass-6.2.0_rc1-1/install/opt/grass-6.2.0_rc1-1","GISBASE=/opt/grass-6.2.0_rc1-1")
+    pisitools.dosed("%s/opt/bin/grass62" % get.installDIR(), "GISBASE=/var/tmp/pisi/grass-6.2.0_rc1-2/install/opt/grass-6.2.0RC1","GISBASE=/opt/grass-6.2.0RC1")
 
 
     #make a sym link for bin files
