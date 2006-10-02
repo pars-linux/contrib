@@ -25,6 +25,7 @@ def setup():
                          --with-ffmpeg --with-ffmpeg-includes=/usr/include/ffmpeg \
                          --with-opengl \
                          --with-gdal-config=/usr/bin/gdal-config \
+                         --with-postgres=no \
                          --with-fftw \
                          --with-freetype --with-freetype-includes=/usr/include/freetype2 \
                          --with-python \
