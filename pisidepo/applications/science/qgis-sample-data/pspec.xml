@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qgis-sample-data</Name>
+        <Homepage>http://qgis.org/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>QGIS sample data files</Summary>
+        <Summary xml:lang="tr">QGIS örnek veri dosyaları</Summary>
+        <Description>QGIS sample data files</Description>
+        <Description xml:lang="tr">QGIS örnek veri dosyaları</Description>
+        <Archive sha1sum="da76c0f6ea2ef46b20d95bc87b46d24996eaf74e" type="targz">http://qgis.org/uploadfiles/qgis_sample_data.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.7.4">qgis</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qgis-sample-data</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.7.4">qgis</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-03</Date>
+            <Version>0.7.4</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
