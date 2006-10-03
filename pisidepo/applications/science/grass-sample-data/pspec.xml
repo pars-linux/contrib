@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>grass-sample-data</Name>
+        <Homepage>http://grass.itc.it/index.php</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>GRASS sample data files</Summary>
+        <Summary xml:lang="tr">GRASS örnek veri dosyaları</Summary>
+        <Description>GRASS sample data files</Description>
+        <Description xml:lang="tr">GRASS örnek veri dosyaları</Description>
+        <Archive sha1sum="51b1dc9943814c196e703bd90e7c148cba59d0cc" type="targz">http://grass.itc.it/sampledata/spearfish_grass60data-0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>grass</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>grass-sample-data</Name>
+        <RuntimeDependencies>
+            <Dependency>grass</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/opt</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-01</Date>
+            <Version>6.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
