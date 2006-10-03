@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>autostart</Name>
+        <Homepage>http://beta.smileaf.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Autostart for Kde</Summary>
+        <Summary xml:lang="tr">Kde için otomatik başlatıcı</Summary>
+        <Description>Control Center module for editing your ~/.kde/Autostart entries</Description>
+        <Description xml:lang="tr">Kde için otomatik başlatıcı kontrol modulü.</Description>
+        <Archive sha1sum="cf81840776a4e530e0c57e20a343cd3d7caf1905" type="tarbz2">http://beta.smileaf.org/files/autostart-0.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>autostart</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib/kde3</Path>
+            <Path fileType="data">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-03</Date>
+            <Version>0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
