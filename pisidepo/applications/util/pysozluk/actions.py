@@ -5,7 +5,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="PySozluk-1.0.3"
+WorkDir="PySozluk-1.0.4"
 
 def setup():
     pass
