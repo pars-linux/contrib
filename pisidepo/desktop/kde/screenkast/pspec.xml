@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>screenkast</Name>
+        <Homepage>http://beta.smileaf.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Screen capturing program that records your screen-activities, supports commentboxes and exports to all video formats.</Summary>
+        <Summary xml:lang="tr">Kde için ekran kaydedici</Summary>
+        <Description>Screen capturing program that records your screen-activities, supports commentboxes and exports to all video formats.</Description>
+        <Description xml:lang="tr">ekran görüntülerini kaydeden ve başka formatlara çeviren program.</Description>
+        <Archive sha1sum="d2a7f9e59273984c01fc7610a40c1f96d029d022" type="targz">http://heanet.dl.sourceforge.net/sourceforge/screenkast/screenkast-0.1.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>libinstrudeo</Dependency>
+            <Dependency>ftgl</Dependency>
+            <Dependency>libtheora</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>xorg</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>libdts</Dependency>
+            <Dependency>libogg</Dependency>
+            <Dependency>faac</Dependency>
+            <Dependency>faad2</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>libxmlpp</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libdc1394</Dependency>
+            <Dependency>lame</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>screenkast</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>libinstrudeo</Dependency>
+            <Dependency>ftgl</Dependency>
+            <Dependency>libtheora</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>libdts</Dependency>
+            <Dependency>libogg</Dependency>
+            <Dependency>faac</Dependency>
+            <Dependency>faad2</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>libxmlpp</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libdc1394</Dependency>
+            <Dependency>lame</Dependency>
+            <Dependency>xorg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-03</Date>
+            <Version>0.1.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
