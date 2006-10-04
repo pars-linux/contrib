@@ -7,6 +7,7 @@
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import pisitools
 
 def setup():
     shelltools.export("libxmlpp_CFLAGS","-I/usr/include/libxml++-1.0 -I/usr/lib/libxml++-1.0/include")
@@ -18,3 +19,4 @@ def build():
 
 def install():
     kde.install()
+    pisitools.dosym("/usr/kde/3.5/bin/isdvncviewer","/usr/bin/isdvncviewer")
