@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ftgl</Name>
+        <Homepage>http://homepages.paradise.net.nz/henryj/code/#FTGL</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>library to use arbitrary fonts in OpenGL applications</Summary>
+        <Summary xml:lang="tr">library to use arbitrary fonts in OpenGL applications</Summary>
+        <Description xml:lang="tr">library to use arbitrary fonts in OpenGL applications</Description>
+        <Description>library to use arbitrary fonts in OpenGL applications</Description>
+        <Archive sha1sum="61a019ba610351c346cd29cfa1bb12e7517475f5" type="targz">http://opengl.geek.nz/ftgl/ftgl-2.1.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>glut</Dependency>
+            <Dependency>xorg</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="2">2.1.2-ftgl.pc.in.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ftgl</Name>
+        <RuntimeDependencies>
+            <Dependency>glut</Dependency>
+            <Dependency>xorg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-03</Date>
+            <Version>2.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
