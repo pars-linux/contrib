@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>subtitleeditor</Name>
+        <Homepage>http://kitone.free.fr/subtitleeditor/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK+2 tool to edit subtitles</Summary>
+        <Summary xml:lang="tr">GTK+2 ile yapılmış altyazı düzenleme aracı</Summary>
+        <Description>It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
+        <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
+        <Archive type="targz" sha1sum="16c2569943fefe2a16666589fa2a556ab87a6d9a">http://kitone.free.fr/subtitleeditor/files/subtitleeditor-0.11-alpha1.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">gtkmm</Dependency>
+            <Dependency versionFrom="2.4">libglademm</Dependency>
+            <Dependency versionFrom="0.10">gstreamer</Dependency>
+            <Dependency>aspell</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>subtitleeditor</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">gtkmm</Dependency>
+            <Dependency versionFrom="2.4">libglademm</Dependency>
+            <Dependency versionFrom="0.10">gstreamer</Dependency>
+            <Dependency>aspell</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/subtitleeditor</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-10-07</Date>
+            <Version>0.11_alpha1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
