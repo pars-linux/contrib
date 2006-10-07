@@ -100,6 +100,67 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>kbackup</Name>
+            <Homepage>http://www.kde-apps.org/content/show.php?content=44998</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">KBackup is a program that lets you back up any directories or files</Summary>
+            <Summary xml:lang="tr">KBackup, herhangi bir klasörü veya dosyayı yedeklemenize izin veren bir programdır</Summary>
+            <Description xml:lang="en">KBackup is a program that lets you back up any directories or files</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="90c53a7ca6ad669a0807ff00ef0b516b458d14b5">http://www.kde-apps.org/content/files/44998-kbackup-0.5.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3.2">kdebase</Dependency>
+                <Dependency versionFrom="3.2">kdelibs</Dependency>
+            </BuildDependencies>
+            <Version>0.5.1</Version>
+            <Release>1</Release>
+            <SourceURI>desktop/kde/kbackup/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>kbackup</Name>
+            <Summary xml:lang="en">KBackup is a program that lets you back up any directories or files</Summary>
+            <Summary xml:lang="tr">KBackup, herhangi bir klasörü veya dosyayı yedeklemenize izin veren bir programdır</Summary>
+            <Description xml:lang="en">KBackup is a program that lets you back up any directories or files</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3.2">kdebase</Dependency>
+                <Dependency versionFrom="3.2">kdelibs</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/kde/3.5/bin</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-10-07</Date>
+                    <Version>0.5.1</Version>
+                    <Name>Eren Türkay</Name>
+                    <Email>turkay.eren@gmail.com</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-07</Date>
+                <Version>0.5.1</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>cpuinfo</Name>
             <Homepage>http://kde-apps.org/content/show.php?content=33257</Homepage>
             <Packager>
@@ -13516,7 +13577,7 @@
             <Homepage>http://www.qgis.org</Homepage>
             <Packager>
                 <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.org</Email>
+                <Email>muratasenel@gmail.com</Email>
             </Packager>
             <Summary xml:lang="en">Quantum GIS (QGIS) is a Geographic Information System (GIS)</Summary>
             <Summary xml:lang="tr">Coğrafi Bilgi Sistemi (GIS)</Summary>
@@ -13583,7 +13644,7 @@
                     <Date>2006-09-28</Date>
                     <Version>0.7.4</Version>
                     <Name>Murat Şenel</Name>
-                    <Email>muratasenel@gmail.org</Email>
+                    <Email>muratasenel@gmail.com</Email>
                     <Comment>First release</Comment>
                 </Update>
             </History>
@@ -13593,7 +13654,7 @@
                 <Date>2006-09-28</Date>
                 <Version>0.7.4</Version>
                 <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.org</Email>
+                <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
             </Update>
         </History>
@@ -14469,6 +14530,78 @@
             <Update release="1">
                 <Date>2006-09-21</Date>
                 <Version>1.7.2</Version>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>subtitleeditor</Name>
+            <Homepage>http://kitone.free.fr/subtitleeditor/</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <Summary xml:lang="en">A GTK+2 tool to edit subtitles</Summary>
+            <Summary xml:lang="tr">GTK+2 ile yapılmış altyazı düzenleme aracı</Summary>
+            <Description xml:lang="en">It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
+            <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="16c2569943fefe2a16666589fa2a556ab87a6d9a">http://kitone.free.fr/subtitleeditor/files/subtitleeditor-0.11-alpha1.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">desktop.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency versionFrom="2.6">gtk2</Dependency>
+                <Dependency versionFrom="2.6">gtkmm</Dependency>
+                <Dependency versionFrom="2.4">libglademm</Dependency>
+                <Dependency versionFrom="0.10">gstreamer</Dependency>
+                <Dependency>aspell</Dependency>
+            </BuildDependencies>
+            <Version>0.11_alpha1</Version>
+            <Release>1</Release>
+            <SourceURI>applications/multimedia/subtitleeditor/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>subtitleeditor</Name>
+            <Summary xml:lang="en">A GTK+2 tool to edit subtitles</Summary>
+            <Summary xml:lang="tr">GTK+2 ile yapılmış altyazı düzenleme aracı</Summary>
+            <Description xml:lang="en">It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
+            <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <License>GPL-2</License>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.6">gtk2</Dependency>
+                <Dependency versionFrom="2.6">gtkmm</Dependency>
+                <Dependency versionFrom="2.4">libglademm</Dependency>
+                <Dependency versionFrom="0.10">gstreamer</Dependency>
+                <Dependency>aspell</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/subtitleeditor</Path>
+            </Files>
+            <History>
+                <Update release="1">
+                    <Date>2006-10-07</Date>
+                    <Version>0.11_alpha1</Version>
+                    <Name>Uğur Çetin</Name>
+                    <Email>jnmbk@users.sourceforge.net</Email>
+                    <Comment>First release.</Comment>
+                </Update>
+            </History>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-07</Date>
+                <Version>0.11_alpha1</Version>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
                 <Comment>First release.</Comment>
