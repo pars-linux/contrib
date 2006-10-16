@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>twisted</Name>
+        <Homepage>http://www.twistedmatrix.com</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>An asynchronous networking framework written in Python</Summary>
+        <Summary xml:lang="tr">Eş zamanlı olmayan bir ağ oluşturma çatısı</Summary>
+        <Description>An asynchronous networking framework written in Python</Description>
+        <Description xml:lang="tr">Eş zamanlı olmayan bir ağ oluşturma çatısı</Description>
+        <Archive sha1sum="d605333f7ca3e2479a5dd31044e540ee40a54838" type="tarbz2">http://tmrc.mit.edu/mirror/twisted/Twisted/2.4/Twisted-2.4.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.1.0">zopeinterface</Dependency>
+            <Dependency versionFrom="0.5.1">pyopenssl</Dependency>
+            <Dependency>python</Dependency>
+            <Dependency>pyserial</Dependency>
+            <Dependency versionFrom="2.8.4">pygtk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>twisted</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.1.0">zopeinterface</Dependency>
+            <Dependency versionFrom="0.5.1">pyopenssl</Dependency>
+            <Dependency>python</Dependency>
+            <Dependency>pyserial</Dependency>
+            <Dependency versionFrom="2.8.4">pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-15</Date>
+            <Version>2.4.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
