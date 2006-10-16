@@ -1,18 +1,18 @@
 #!/bin/sh
 # Shell wrapper for R executable.
 
-R_HOME_DIR=/usr/lib/R
+R_HOME_DIR="/usr/lib/R"
 if test -n "${R_HOME}" && \
    test "${R_HOME}" != "${R_HOME_DIR}"; then
   echo "WARNING: ignoring environment value of R_HOME"
 fi
 R_HOME="${R_HOME_DIR}"
 export R_HOME
-R_SHARE_DIR=/usr/lib/R/share
+R_SHARE_DIR="${R_HOME_DIR}/share"
 export R_SHARE_DIR
-R_INCLUDE_DIR=/usr/lib/R/include
+R_INCLUDE_DIR="${R_HOME_DIR}/include"
 export R_INCLUDE_DIR
-R_DOC_DIR=/usr/lib/R/doc
+R_DOC_DIR="${R_HOME_DIR}/doc"
 export R_DOC_DIR
 
 # Since this script can be called recursively, we allow R_ARCH to
@@ -75,6 +75,8 @@ Commands:
   Rd2dvi		Convert Rd format to DVI/PDF
   Rd2txt		Convert Rd format to pretty text
   Sd2Rd			Convert S documentation to Rd format
+  Stangle		Extract S/R code from Sweave documentation
+  Sweave		Process Sweave documentation
   config                Obtain configuration information about R
 
 Please use 'R CMD command --help' to obtain further information about
@@ -83,7 +85,7 @@ the usage of 'command'.
 Report bugs to <r-bugs@r-project.org>."
 
 ### We also have this in compiled code -> use that one to always be in sync
-# version="R 2.3.1 (2006-06-01).
+# version="R 2.4.0 (2006-10-03).
 # Copyright (C) 2006 R Development Core Team
 
 # R is free software and comes with ABSOLUTELY NO WARRANTY.
