@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freevo</Name>
+        <Homepage>http://www.freevo.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Digital video jukebox</Summary>
+        <Summary xml:lang="tr">Sayısal vidyo oynatma ortamı</Summary>
+        <Description>Freevo is an open-source home theatre PC platform based on Linux</Description>
+        <Description xml:lang="tr">Linux tabanlı, açık kaynak çoklu ortam platformu</Description>
+        <Archive sha1sum="60c698af516a6b6ebcbd32e78e4977d5115eaf26" type="tarbz2">http://www.pisidepo.org/sources/freevo-8396.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.7.1">pygame</Dependency>
+            <Dependency versionFrom="1.1.5">python-imaging</Dependency>
+            <Dependency versionFrom="2.4.0">twisted</Dependency>
+            <Dependency versionFrom="0.6.0">twisted-web</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency versionFrom="0.4.9">mmpython</Dependency>
+            <Dependency versionFrom="2.2.1">freetype</Dependency>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="0.8.4">PyXML</Dependency>
+            <Dependency versionFrom="0.16">lsdvd</Dependency>
+            <Dependency versionFrom="0.0.5">pylirc</Dependency>
+            <Dependency versionFrom="3.9.8">cdparanoia</Dependency>
+            <Dependency versionFrom="3.97">lame</Dependency>
+            <Dependency>lirc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>freevo</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.7.1">pygame</Dependency>
+            <Dependency versionFrom="1.1.5">python-imaging</Dependency>
+            <Dependency versionFrom="2.4.0">twisted</Dependency>
+            <Dependency versionFrom="0.6.0">twisted-web</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency versionFrom="0.4.9">mmpython</Dependency>
+            <Dependency versionFrom="2.2.1">freetype</Dependency>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="0.8.4">PyXML</Dependency>
+            <Dependency versionFrom="0.16">lsdvd</Dependency>
+            <Dependency versionFrom="0.0.5">pylirc</Dependency>
+            <Dependency versionFrom="3.9.8">cdparanoia</Dependency>
+            <Dependency versionFrom="3.97">lame</Dependency>
+            <Dependency>lirc</Dependency>
+            <Dependency>kaa</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/freevo</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/var/cache</Path>
+            <Path fileType="data">/var/log</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-16</Date>
+            <Version>8396</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
