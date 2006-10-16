@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>twisted-web</Name>
+        <Homepage>http://www.twistedmatrix.com</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>Twisted web server, programmable in Python</Summary>
+        <Summary xml:lang="tr">Python ile programlanabilir, Twisted web sunucusu</Summary>
+        <Description>Twisted web server, programmable in Python</Description>
+        <Description xml:lang="tr">Python ile programlanabilir, Twisted web sunucusu</Description>
+        <Archive sha1sum="d605333f7ca3e2479a5dd31044e540ee40a54838" type="tarbz2">http://tmrc.mit.edu/mirror/twisted/Twisted/2.4/Twisted-2.4.0.tar.bz2</Archive>
+        <Patches>
+            <Patch>twisted-web-0.5.0-root-skip.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">twisted</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>twisted-web</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">twisted</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-15</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
