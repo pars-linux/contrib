@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lsdvd</Name>
+        <Homepage>http://untrepid.com/lsdvd</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Utility for getting info out of DVDs</Summary>
+        <Summary xml:lang="tr">DVD bilgilerini toplamaya yarayan bir araç</Summary>
+        <Description>Utility for getting info out of DVDs</Description>
+        <Description xml:lang="tr">DVD bilgilerini toplamaya yarayan bir araç</Description>
+        <Archive sha1sum="d5c0d32bfb220807ebdc0bfbb17679e7294791f4" type="targz">http://puzzle.dl.sourceforge.net/sourceforge/lsdvd/lsdvd-0.16.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">lsdvd-0.16-types.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.6">libdvdread</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>lsdvd</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.9.6">libdvdread</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-15</Date>
+            <Version>0.16</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
