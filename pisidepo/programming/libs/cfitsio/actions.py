@@ -12,7 +12,9 @@ from pisi.actionsapi import get
 WorkDir = "cfitsio"
 
 def setup():
-    autotools.configure("--prefix=%s/usr" % get.installDIR())
+    autotools.rawConfigure("--prefix=/usr \
+                            --libdir=/usr/lib \
+                            --includedir=/usr/include")
 
 def build():
     autotools.make()
