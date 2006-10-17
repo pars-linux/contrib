@@ -7,7 +7,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="postgis-1.1.4"
+WorkDir="postgis-1.1.5"
 
 def setup():
     autotools.autoconf()
