@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>libjingle</Name>
+        <Homepage>http://tapioca-voip.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <PartOf></PartOf>
+        <Summary>Voice Library</Summary>
+        <Summary xml:lang="tr">Ses Kütüphanesi</Summary>
+        <Description>Google's jabber voice extension library modified by Tapioca</Description>
+        <Description xml:lang="tr">Google jabber ses kütüphanesinin Tapioca tarafından düzenlenmiş hali</Description>
+        <Archive type="targz" sha1sum="4cb5faecdb6515ce8592875e222a72a77a68edd5">
+            http://heanet.dl.sourceforge.net/sourceforge/tapioca-voip/libjingle-0.3.9.tar.gz
+        </Archive>
+        <Patches>
+            <Patch level="1">libjingle-build.diff</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency versionFrom="0.7.1">ortp</Dependency>
+            <Dependency>ilbc</Dependency>
+            <Dependency>speex</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libjingle</Name>
+        <RuntimeDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency versionFrom="0.7.1">ortp</Dependency>
+            <Dependency>ilbc</Dependency>
+            <Dependency>speex</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-06-26</Date>
+            <Version>0.3.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
