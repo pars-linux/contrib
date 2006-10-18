@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import kde
 
+WorkDir="ksniffer-0.2-alpha1"
+
 def setup():
     kde.configure()
 
