@@ -14,5 +14,7 @@ def build():
     shelltools.system("make user")
 
 def install():
-    shelltools.system("make DESTDIR=%s PREFIX=/usr MANDIR=%s user_install" % (get.installDIR(),get.manDIR()))
+    shelltools.system("make DESTDIR=%s PREFIX=/usr MANDIR=/%s user_install" % (get.installDIR(),get.manDIR()))
+    # remove conflict
+    pisitools.remove("/usr/include/linux/i2c-dev.h")
     pisitools.dodoc("doc/lm_sensors-FAQ.html")
