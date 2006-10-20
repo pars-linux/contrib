@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="eet-0.9.10.032"
+WorkDir="eet-0.9.10.035"
 
 def setup():
     autotools.configure()
