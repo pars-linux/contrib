@@ -21,7 +21,8 @@ def setup():
                          --with-edje \
                          --with-edje-exec \
                          --with-x \
-                         --enable-opengl \
+                         --enable-software-x11 \
+                         --enable-opengl-x11 \
                          --enable-fbcon")
 
 def build():
