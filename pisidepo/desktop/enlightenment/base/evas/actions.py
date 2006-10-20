@@ -10,13 +10,19 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="evas-0.9.9.032"
+WorkDir="evas-0.9.9.035"
 
 def setup():
-    shelltools.export("EET_CONFIG", "")
-    shelltools.export("EDB_CONFIG", "")
     autotools.configure("--enable-fontconfig \
                          --enable-software-x11 \
+                         --enable-software-xcb \
+                         --enable-directfb \
+                         --enable-fb \
+                         --enable-buffer \
+                         --enable-software-qtopia \
+                         --enable-gl-x11 \
+                         --enable-xrender-x11 \
+                         --enable-xrender-xcb \
                          --enable-image-loader-gif \
                          --enable-image-loader-png \
                          --enable-image-loader-jpeg \
@@ -24,6 +30,16 @@ def setup():
                          --enable-font-loader-eet \
                          --enable-image-loader-edb \
                          --enable-image-loader-tiff \
+                         --enable-image-loader-xpm \
+                         --enable-image-loader-svg \
+                         --enable-cpu-mmx \
+                         --enable-cpu-sse \
+                         --enable-cpu-altivec \
+                         --enable-cpu-c \
+                         --enable-scale-sample \
+                         --enable-scale-smooth \
+                         --enable-convert-yuv \
+                         --enable-small-dither-mask \
                          --enable-convert-8-rgb-332 \
                          --enable-convert-8-rgb-666 \
                          --enable-convert-8-rgb-232 \
@@ -47,7 +63,9 @@ def setup():
                          --enable-convert-32-rgb-rot-0 \
                          --enable-convert-32-rgb-rot-270 \
                          --enable-convert-32-rgb-rot-90 \
-                         --with-x")
+                         --with-x \
+                         --with-eet-config=/usr/bin/eet-config \
+                         --with-edb-config=/usr/bin/edb-config")
 
 def build():
     autotools.make()
