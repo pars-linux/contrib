@@ -16,6 +16,7 @@ def setup():
                          --enable-dump185 \
                          --disable-bigfile \
                          --enable-gtk \
+                         --disable-test \
                          --enable-ncurses")
 
 def build():
