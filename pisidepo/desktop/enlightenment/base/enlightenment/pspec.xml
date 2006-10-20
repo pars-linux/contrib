@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<!DOCTYPE PISI SYSTEM 'http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd'>
+
 <PISI>
     <Source>
         <Name>enlightenment</Name>
@@ -14,25 +15,24 @@
         <Summary xml:lang="tr">Enlightenment Pencere Yöneticisi</Summary>
         <Description>Enlightenment Window Manager</Description>
         <Description xml:lang="tr">Enlightenment Pencere Yöneticisi</Description>
-        <Archive sha1sum="2f2686cb28750778779f8cb3b763e71e5109d093" type="targz">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.032.tar.gz</Archive>
+        <Archive sha1sum="6b209f63ba86ea91ed43838086cdd5404ee8ab5e" type="targz">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.035.tar.gz</Archive>
         <Patches>
             <Patch>enlightenment-tr.patch</Patch>
         </Patches>
         <BuildDependencies>
             <Dependency versionFrom="0.2.19">esound</Dependency>
             <Dependency versionFrom="2">freetype</Dependency>
-            <Dependency>imlib2</Dependency>
-            <Dependency>gettext</Dependency>
-            <Dependency>edje</Dependency>
-            <Dependency>esmart</Dependency>
-            <Dependency>esmart</Dependency>
-            <Dependency>ewl</Dependency>
-            <Dependency>engrave</Dependency>
-            <Dependency>eterm-bg</Dependency>
-            <Dependency>eclair</Dependency>
-            <Dependency>examine</Dependency>
-            <Dependency>exhibit</Dependency>
-            <Dependency>e17genmenu</Dependency>
+            <Dependency versionFrom="1.2.1">imlib2</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="1.0.5.007">edb</Dependency>
+            <Dependency versionFrom="0.5.0.035">edje</Dependency>
+            <Dependency versionFrom="0.9.10.035">eet</Dependency>
+            <Dependency versionFrom="0.9.1.035">embryo</Dependency>
+            <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+            <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -41,34 +41,37 @@
         <RuntimeDependencies>
             <Dependency versionFrom="0.2.19">esound</Dependency>
             <Dependency versionFrom="2">freetype</Dependency>
-            <Dependency>imlib2</Dependency>
-            <Dependency>gettext</Dependency>
-            <Dependency>edje</Dependency>
-            <Dependency>esmart</Dependency>
-            <Dependency>esmart</Dependency>
-            <Dependency>ewl</Dependency>
-            <Dependency>engrave</Dependency>
-            <Dependency>eterm-bg</Dependency>
-            <Dependency>eclair</Dependency>
-            <Dependency>examine</Dependency>
-            <Dependency>exhibit</Dependency>
-            <Dependency>e17genmenu</Dependency>
+            <Dependency versionFrom="1.2.1">imlib2</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="1.0.5.007">edb</Dependency>
+            <Dependency versionFrom="0.5.0.035">edje</Dependency>
+            <Dependency versionFrom="0.9.10.035">eet</Dependency>
+            <Dependency versionFrom="0.9.1.035">embryo</Dependency>
+            <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+            <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
         </RuntimeDependencies>
         <Files>
-                <Path fileType="config">/etc/X11/Sessions</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="config">/etc/X11/Sessions</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile target="/etc/X11/Sessions/enlightenment" permission="0755" owner="root">enlightenment</AdditionalFile>
-        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2006-10-21</Date>
+            <Version>0.16.999.035</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2006-07-30</Date>
             <Version>0.16.999.032</Version>

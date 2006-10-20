@@ -9,11 +9,11 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="enlightenment-0.16.999.032"
+WorkDir="enlightenment-0.16.999.035"
 
 def setup():
     autotools.configure("--enable-nls \
-                         --disable-rpath \
+                         --enable-rpath \
                          --enable-x \
                          --with-gnu-ld \
                          --enable-libiconv \
@@ -28,11 +28,10 @@ def setup():
                          --with-imlib2 \
                          --enable-evas-config \
                          --enable-ecore-config \
-                         --enable-edje_cc \
+                         --enable-edje-cc \
                          --enable-edje \
                          --enable-eet-config \
-                         --enable-embryo-config \
-                         --enable-profile")
+                         --enable-embryo-config")
 
 def build():
     autotools.make()
