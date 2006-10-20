@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import libtools
 from pisi.actionsapi import get
 
-WorkDir="edje-0.5.0.032"
+WorkDir="edje-0.5.0.035"
 
 def setup():
     autotools.configure("--enable-edje-cc \
@@ -21,8 +21,7 @@ def setup():
                          --with-ecore \
                          --with-ecore-exec \
                          --with-embryo \
-                         --with-embryo-exec \
-                         --with-vim")
+                         --with-embryo-exec")
 
 def build():
     autotools.make()
