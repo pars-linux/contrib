@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>etk</Name>
+        <Homepage>http://www.enlightenment.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Toolkit based on the EFL</Summary>
+        <Summary xml:lang="tr">EFL tabanlı araç takımı</Summary>
+        <Description>Toolkit based on the EFL</Description>
+        <Description xml:lang="tr">EFL tabanlı araç takımı</Description>
+        <Archive sha1sum="ccdff600ce15b2099a7e6836ea01e903cebcc564" type="tarbz2">http://www.pisidepo.org/sources/etk-20060926.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="0.5.0.035">edje</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>etk</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="0.5.0.035">edje</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-21</Date>
+            <Version>20060926</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
