@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>exhibit</Name>
+        <Homepage>http://www.enlightenment.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>E image browser</Summary>
+        <Summary xml:lang="tr">E resim görüntüliyicisi</Summary>
+        <Description>E image browser</Description>
+        <Description xml:lang="tr">E resim görüntüliyicisi</Description>
+        <Archive sha1sum="98e8c7b728906ea54b4e56e73593afb1be73777a" type="tarbz2">
+            http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/exhibit-2006-04-17.tar.bz2
+        </Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.5">edb</Dependency>
+            <Dependency>etk</Dependency>
+            <Dependency versionFrom="0.9.9">evas</Dependency>
+            <Dependency versionFrom="0.9.9">ecore</Dependency>
+            <Dependency versionFrom="0.9.9">eet</Dependency>
+            <Dependency versionFrom="0.3.0">epsilon</Dependency>
+            <Dependency versionFrom="0.1.0">engrave</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>exhibit</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.5">edb</Dependency>
+            <Dependency>etk</Dependency>
+            <Dependency versionFrom="0.9.9">evas</Dependency>
+            <Dependency versionFrom="0.9.9">ecore</Dependency>
+            <Dependency versionFrom="0.9.9">eet</Dependency>
+            <Dependency versionFrom="0.3.0">epsilon</Dependency>
+            <Dependency versionFrom="0.1.0">engrave</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-14</Date>
+            <Version>0.9.8-20050207</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

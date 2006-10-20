@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>e17genmenu</Name>
+        <Homepage>http://www.enlightenment.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Menu editor for enlightenment e17</Summary>
+        <Summary xml:lang="tr">e17 için menu düzenleyicisi</Summary>
+        <Description>Menu editor for enlightenment e17</Description>
+        <Description xml:lang="tr">e17 için menu düzenleyicisi</Description>
+        <Archive sha1sum="bfbfb1caaead9605fbd89e84a8160fce352d6290" type="targz">http://switch.dl.sourceforge.net/sourceforge/e17genmenu/e17genmenu-4.2.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>eet</Dependency>
+            <Dependency>ecore</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>engrave</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>e17genmenu</Name>
+        <RuntimeDependencies>
+            <Dependency>eet</Dependency>
+            <Dependency>ecore</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>engrave</Dependency>
+        </RuntimeDependencies>
+        <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-08-05</Date>
+            <Version>4.2.0</Version>
+            <Comment>sync</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-15</Date>
+            <Version>4.2.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
