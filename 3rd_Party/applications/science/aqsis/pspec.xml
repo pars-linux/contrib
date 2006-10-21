@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>aqsis</Name>
+        <Homepage>http://www.aqsis.org/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>A high-quality RenderMan compliant REYES render engine</Summary>
+        <Description>Aqsis is a Renderman(tm) compliant 3D rendering toolkit. Aqsis is based on the Reyes rendering architecture.</Description>
+        <Archive sha1sum="4e82f223d90967eb477ebe9d598c885904bc4030" type="targz">http://download.aqsis.org/source/tar/aqsis-1_1_0-2006-10-10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.1.6">fltk</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">default_paths.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>aqsis</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.1.6">fltk</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/aqsis</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-21</Date>
+            <Version>1.1.0_20061010</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
