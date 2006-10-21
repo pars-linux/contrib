@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>k3d</Name>
+        <Homepage>http://k3d.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A free 3D modeling, animation, and rendering system</Summary>
+        <Description>K-3D features a robust, object oriented plugin architecture, designed to scale to the needs of professional artists. It is designed from the ground up to generate motion picture quality animation using RenderMan compliant render engines.</Description>
+        <Archive sha1sum="ba2c5f6c12e1dd8e0115c5d8996726659541feb0" type="tarbz2">http://easynews.dl.sourceforge.net/sourceforge/k3d/k3d-0.6.3.1-src.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.1">aqsis</Dependency>
+            <Dependency versionFrom="2.0.16">libsigc++</Dependency>
+            <Dependency versionFrom="2.10.1">glibmm</Dependency>
+            <Dependency versionFrom="0.7.6">gts</Dependency>
+            <Dependency versionFrom="2.6.4">gtkmm</Dependency>
+            <Dependency versionFrom="1.2.0">gtkglext</Dependency>
+            <Dependency versionFrom="1.33.1">boost</Dependency>
+            <Dependency versionFrom="6.2.9.5">imagemagick</Dependency>
+            <Dependency versionFrom="1.2.2">openexr</Dependency>
+            <Dependency versionFrom="1.8.4">plib</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>k3d</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.1">aqsis</Dependency>
+            <Dependency versionFrom="2.0.16">libsigc++</Dependency>
+            <Dependency versionFrom="2.10.1">glibmm</Dependency>
+            <Dependency versionFrom="0.7.6">gts</Dependency>
+            <Dependency versionFrom="2.6.4">gtkmm</Dependency>
+            <Dependency versionFrom="1.2.0">gtkglext</Dependency>
+            <Dependency versionFrom="1.33.1">boost</Dependency>
+            <Dependency versionFrom="6.2.9.5">imagemagick</Dependency>
+            <Dependency versionFrom="1.2.2">openexr</Dependency>
+            <Dependency versionFrom="1.8.4">plib</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/k3d</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-21</Date>
+            <Version>0.6.3.1</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
