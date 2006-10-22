@@ -5,8 +5,6 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="QtCurve-0.38"
-
 def setup():
     kde.configure()
 
