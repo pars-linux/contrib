@@ -5,16 +5,16 @@
         <Name>qcomicbook</Name>
         <Homepage>http://linux.bydg.org/~yogin/</Homepage>
         <Packager>
-            <Name>Furkan Duman</Name>
-            <Email>coderlord@gmail.com</Email>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>An image viewer specifically designed to handle comic books</Summary>
         <Summary xml:lang="tr">Çizgi roman görüntüleyicisi</Summary>
-        <Description>QComicBook is a viewer for comic book archives containing jpeg/png images, which aims at convenience and simplicity.</Description>
-        <Description xml:lang="tr">Çizgi roman görüntüleyicisi</Description>
-        <Archive sha1sum="2437452c298cb5ae5bcde3b511947a93762318d1" type="targz">http://linux.bydg.org/~yogin/qcomicbook-0.3.1.tar.gz</Archive>
+        <Description>QComicBook is a viewer for comic book archives (cbz, cbr, cbt). QComicBook has specific features like page preview, thumbnails view, bookmarks, manga mode for easing comicbook reading.</Description>
+        <Description xml:lang="tr">QComicBook cbz, cbr, cbt biçimindeki çizgi roman arşivlerini görüntülemek için kullanılır. Sayfa ön görünümü, sayfa döşeme, yer imi, mangalar için sayfa sırasını ters gösterme gibi çizgi roman okumayı kolaylaştırıcı özellikleri bulunuyor.</Description>
+        <Archive sha1sum="d6d63141f566e68ecd34ffb2b5a9efec5799898e" type="targz">http://linux.bydg.org/~yogin/qcomicbook-0.3.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>imlib2</Dependency>
             <Dependency>qt</Dependency>
@@ -30,13 +30,23 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share/qcomicbook</Path>
-            <Path fileType="data">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/qcomicbook.desktop">qcomicbook.desktop</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2006-10-22</Date>
+            <Version>0.3.3</Version>
+            <Comment>Version bump + add desktop file.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2006-08-20</Date>
             <Version>0.3.1</Version>
