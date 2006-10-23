@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>K7Z</Name>
+        <Homepage>http://k7z.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE frontend for 7z compressed files</Summary>
+        <Summary xml:lang="tr">7z sıkıştırılmış dosyaları için KDE arayüzü</Summary>
+        <Description>Use K7Z if you want to create/extract a password-protected archive or update an existing archive.</Description>
+        <Description xml:lang="tr">Şifre korumalı 7z arşivleri oluşturmak ve bunları açmak için bu arayüzü kullanabilirsiniz.</Description>
+        <Archive type="binary" sha1sum="d150e92a3a80901cccdc489cd0bb0efc1d50f76c">http://switch.dl.sourceforge.net/sourceforge/k7z/K7Z-0.4.1.7z</Archive>
+        <BuildDependencies>
+            <Dependency>PyQt4</Dependency>
+            <Dependency>p7zip</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>K7Z</Name>
+        <RuntimeDependencies>
+            <Dependency>PyQt4</Dependency>
+            <Dependency>p7zip</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-10-23</Date>
+            <Version>0.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
