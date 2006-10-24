@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "gcompris-8.1"
+WorkDir = "gcompris-8.2BETA1"
 
 def setup():
     autotools.configure("--disable-sdltest \
