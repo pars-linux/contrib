@@ -5,24 +5,34 @@
 #
 #muratasenel@gmail.com
 
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="exhibit"
+WorkDir="exhibit-20060926"
 
 def setup():
-    autotools.system("./autogen.sh --prefix=/usr \
-                                   --with-ecore-prefix=/usr/share/ecore \
-                                   --with-evas-prefix=/usr/share/evas \
-                                   --with-edje-prefix=/usr/share/edje \
-                                   --with-etk-prefix=/usr/share/etk \
-                                   --with-epsilon-prefix=/use/share/epsilon \
-                                   --with-engrave-prefix=/usr/share/engrave")
+    autotools.configure("--with-ecore \
+                         --with-ecore-exec \
+                         --with-evas \
+                         --with-evas-exec \
+                         --with-etk \
+                         --with-etk-exec \
+                         --with-edje \
+                         --with-edje-exec \
+                         --with-eet \
+                         --with-eet-exec \
+                         --with-engrave \
+                         --with-engrave-exec \
+                         --with-enlightenment \
+                         --with-enlightenment-exec \
+                         --with-epsilon \
+                         --with-epsilon-exec")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPING*", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "Changelog", "COPYING*", "NEWS", "INSTALL", "README", "TODO")
