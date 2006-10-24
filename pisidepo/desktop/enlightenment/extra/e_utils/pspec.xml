@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>e_utils</Name>
+        <Homepage>http://www.enlightenment.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Menu editor for enlightenment e17</Summary>
+        <Summary xml:lang="tr">e17 için menu düzenleyicisi</Summary>
+        <Description>Menu editor for enlightenment e17</Description>
+        <Description xml:lang="tr">e17 için menu düzenleyicisi</Description>
+        <Archive sha1sum="8aa373ea44c3121e008808716d007b0025b75ce3" type="tarbz2">http://www.pisidepo.org/sources/e_utils-20060926.tar.bz2</Archive>
+        <Patches>
+            <Patch>Makefile.am.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.10.035">eet</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="0.16.999.035">enlightenment</Dependency>
+            <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>e_utils</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.9.10.035">eet</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="0.16.999.035">enlightenment</Dependency>
+            <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-24</Date>
+            <Version>0.0.1_20060926</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
