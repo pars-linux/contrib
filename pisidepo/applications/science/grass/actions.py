@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "grass-6.2.0RC1"
+WorkDir = "grass-6.2.0RC3"
 
 def setup():
     shelltools.export("GRASS_XTERM", "konsole")
@@ -40,18 +40,18 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.domove("/opt/grass-6.2.0RC1/locale", "/usr/share")
+    pisitools.domove("/opt/grass-6.2.0RC3/locale", "/usr/share")
     pisitools.dodoc("doc/*.txt", "AUTHORS", "CHANGES", "COPYING", "GPL.txt", "README", "SUBMITTING*", "TODO")
 
-    pisitools.domove("/opt/bin/grass62", "/opt/grass-6.2.0RC1/bin")
-    pisitools.domove("/opt/bin/gem", "/opt/grass-6.2.0RC1/bin")
+    pisitools.domove("/opt/bin/grass62", "/opt/grass-6.2.0RC3/bin")
+    pisitools.domove("/opt/bin/gem", "/opt/grass-6.2.0RC3/bin")
     pisitools.removeDir("/opt/bin")
 
     #change the GISBASE directory to where it should be
-    pisitools.dosed("%s/opt/bin/grass62" % get.installDIR(), "GISBASE=/var/tmp/pisi/grass-6.2.0_rc1-2/install/opt/grass-6.2.0RC1","GISBASE=/opt/grass-6.2.0RC1")
+    pisitools.dosed("%s/opt/grass-6.2.0RC3/bin/grass62" % get.installDIR(), "GISBASE=/var/tmp/pisi/%s/install/opt/grass-6.2.0RC3" % get.srcTAG(),"GISBASE=/opt/grass-6.2.0RC3")
 
 
     #make a sym link for bin files
-    pisitools.dosym("/opt/grass-6.2.0RC1/bin/grass62", "/usr/bin/grass")
-    pisitools.dosym("/opt/grass-6.2.0RC1/bin/gem", "/usr/bin/gem")
+    pisitools.dosym("/opt/grass-6.2.0RC3/bin/grass62", "/usr/bin/grass")
+    pisitools.dosym("/opt/grass-6.2.0RC3/bin/gem", "/usr/bin/gem")
 
