@@ -1364,6 +1364,58 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>sofia-sip</Name>
+            <Homepage>http://sofia-sip.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Sip Library</Summary>
+            <Summary xml:lang="tr">Sip kütüphanesi</Summary>
+            <Description xml:lang="en">RFC3261 compliant SIP User-Agent library</Description>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <License>LGPL-2.1</License>
+            <Archive type="targz" sha1sum="9d76ab8e6d2803e1dc0895404c5fa26c6e94d5bc">http://heanet.dl.sourceforge.net/sourceforge/sofia-sip/sofia-sip-1.12.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>openssl</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/libs/sofia-sip/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>sofia-sip</Name>
+            <RuntimeDependencies>
+                <Dependency>openssl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="library">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-10-18</Date>
+                <Version>1.12.3</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>Update</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-26</Date>
+                <Version>1.12.0</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>gamin</Name>
             <Homepage>http://www.gnome.org/~veillard/gamin/</Homepage>
             <Packager>
@@ -1618,6 +1670,59 @@
                 <Version>2.5</Version>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>libjingle</Name>
+            <Homepage>http://tapioca-voip.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Voice Library</Summary>
+            <Summary xml:lang="tr">Ses Kütüphanesi</Summary>
+            <Description xml:lang="en">Google&apos;s jabber voice extension library modified by Tapioca</Description>
+            <Description xml:lang="tr">Google jabber ses kütüphanesinin Tapioca tarafından düzenlenmiş hali</Description>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <License>BSD</License>
+            <Archive type="targz" sha1sum="4cb5faecdb6515ce8592875e222a72a77a68edd5">http://heanet.dl.sourceforge.net/sourceforge/tapioca-voip/libjingle-0.3.9.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">libjingle-build.diff</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>openssl</Dependency>
+                <Dependency versionFrom="0.7.1">ortp</Dependency>
+                <Dependency>ilbc</Dependency>
+                <Dependency>speex</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/libs/libjingle/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>libjingle</Name>
+            <RuntimeDependencies>
+                <Dependency>openssl</Dependency>
+                <Dependency versionFrom="0.7.1">ortp</Dependency>
+                <Dependency>ilbc</Dependency>
+                <Dependency>speex</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-26</Date>
+                <Version>0.3.9</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
                 <Comment>First release.</Comment>
             </Update>
         </History>
@@ -2139,111 +2244,6 @@
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>sofia-sip</Name>
-            <Homepage>http://sofia-sip.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Sip Library</Summary>
-            <Summary xml:lang="tr">Sip kütüphanesi</Summary>
-            <Description xml:lang="en">RFC3261 compliant SIP User-Agent library</Description>
-            <IsA>library</IsA>
-            <PartOf>programming.libs</PartOf>
-            <License>LGPL-2.1</License>
-            <Archive type="targz" sha1sum="9d76ab8e6d2803e1dc0895404c5fa26c6e94d5bc">http://heanet.dl.sourceforge.net/sourceforge/sofia-sip/sofia-sip-1.12.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>openssl</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/libs/sofia-sip/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>sofia-sip</Name>
-            <RuntimeDependencies>
-                <Dependency>openssl</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="library">/usr/libexec</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-10-18</Date>
-                <Version>1.12.3</Version>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-                <Comment>Update</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-26</Date>
-                <Version>1.12.0</Version>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-                <Comment>First release.</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libjingle</Name>
-            <Homepage>http://tapioca-voip.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Voice Library</Summary>
-            <Summary xml:lang="tr">Ses Kütüphanesi</Summary>
-            <Description xml:lang="en">Google&apos;s jabber voice extension library modified by Tapioca</Description>
-            <Description xml:lang="tr">Google jabber ses kütüphanesinin Tapioca tarafından düzenlenmiş hali</Description>
-            <IsA>library</IsA>
-            <PartOf>programming.libs</PartOf>
-            <License>BSD</License>
-            <Archive type="targz" sha1sum="4cb5faecdb6515ce8592875e222a72a77a68edd5">http://heanet.dl.sourceforge.net/sourceforge/tapioca-voip/libjingle-0.3.9.tar.gz</Archive>
-            <Patches>
-                <Patch level="1">libjingle-build.diff</Patch>
-            </Patches>
-            <BuildDependencies>
-                <Dependency>openssl</Dependency>
-                <Dependency versionFrom="0.7.1">ortp</Dependency>
-                <Dependency>ilbc</Dependency>
-                <Dependency>speex</Dependency>
-                <Dependency>pkgconfig</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/libs/libjingle/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libjingle</Name>
-            <RuntimeDependencies>
-                <Dependency>openssl</Dependency>
-                <Dependency versionFrom="0.7.1">ortp</Dependency>
-                <Dependency>ilbc</Dependency>
-                <Dependency>speex</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-26</Date>
-                <Version>0.3.9</Version>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-                <Comment>First release.</Comment>
             </Update>
         </History>
     </SpecFile>
@@ -3292,6 +3292,7 @@
             <BuildDependencies>
                 <Dependency>scons</Dependency>
                 <Dependency>qt</Dependency>
+                <Dependency release="12">wireless-tools</Dependency>
             </BuildDependencies>
             <SourceURI>applications/network/wlassistant/pspec.xml</SourceURI>
         </Source>
@@ -3465,6 +3466,46 @@ terminali</Summary>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
                 <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>tuxpaint-stamps</Name>
+            <Homepage>http://www.newbreedsoftware.com/tuxpaint</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Set of &apos;Rubber Stamp&apos; images which can be used within Tux Paint</Summary>
+            <Summary xml:lang="tr">Tux Paint için damga resimleri seti</Summary>
+            <Description xml:lang="en">Set of &apos;Rubber Stamp&apos; images which can be used within Tux Paint</Description>
+            <Description xml:lang="tr">Tux Paint için damga resimleri seti</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="24c25e60d04823342d60c41db17e10f80ffc6827">ftp://ftp.billsgames.com/unix/x/tuxpaint/testbuilds/source/tuxpaint-stamps-2006.10.15.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>tuxpaint</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/multimedia/tuxpaint-stamps/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>tuxpaint-stamps</Name>
+            <RuntimeDependencies>
+                <Dependency>tuxpaint</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-17</Date>
+                <Version>20061015</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
             </Update>
         </History>
     </SpecFile>
@@ -3813,7 +3854,7 @@ terminali</Summary>
             <IsA>library</IsA>
             <PartOf>applications.multimedia</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="f3499d7c6b1242212d15d05ddbecc392d7f1addd">http://audacious-media-player.org/release/audacious-plugins-1.2.0.tgz</Archive>
+            <Archive type="targz" sha1sum="300888007539fe8bcdb7fd474a7466b7f09371a2">http://audacious-media-player.org/release/audacious-plugins-1.2.2.tgz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.2.0_rc1">audacious</Dependency>
                 <Dependency versionFrom="2.6">gtk2</Dependency>
@@ -3879,6 +3920,13 @@ terminali</Summary>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-10-25</Date>
+                <Version>1.2.2</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
             <Update release="1">
                 <Date>2006-09-24</Date>
                 <Version>1.2.0</Version>
@@ -4315,7 +4363,7 @@ terminali</Summary>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="38f7ab8f13a4e530233d892e76734fc385ca948d">http://audacious-media-player.org/release/audacious-1.2.0-rc3.tgz</Archive>
+            <Archive type="targz" sha1sum="92d3aaa94c27ccfc44db6b4cb499e8ee83b6dfb0">http://audacious-media-player.org/release/audacious-1.2.1.tgz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.6">gtk2</Dependency>
                 <Dependency>musicbrainz</Dependency>
@@ -4381,6 +4429,13 @@ terminali</Summary>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2006-10-25</Date>
+                <Version>1.2.1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
             <Update release="3">
                 <Date>2006-10-17</Date>
                 <Version>1.2.0_rc3</Version>
@@ -4493,46 +4548,6 @@ terminali</Summary>
             <Update release="1">
                 <Date>2006-05-29</Date>
                 <Version>0.991</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>tuxpaint-stamps</Name>
-            <Homepage>http://www.newbreedsoftware.com/tuxpaint</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Set of &apos;Rubber Stamp&apos; images which can be used within Tux Paint</Summary>
-            <Summary xml:lang="tr">Tux Paint için damga resimleri seti</Summary>
-            <Description xml:lang="en">Set of &apos;Rubber Stamp&apos; images which can be used within Tux Paint</Description>
-            <Description xml:lang="tr">Tux Paint için damga resimleri seti</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>applications.multimedia</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="24c25e60d04823342d60c41db17e10f80ffc6827">ftp://ftp.billsgames.com/unix/x/tuxpaint/testbuilds/source/tuxpaint-stamps-2006.10.15.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>tuxpaint</Dependency>
-            </BuildDependencies>
-            <SourceURI>applications/multimedia/tuxpaint-stamps/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tuxpaint-stamps</Name>
-            <RuntimeDependencies>
-                <Dependency>tuxpaint</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-17</Date>
-                <Version>20061015</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
@@ -4836,14 +4851,14 @@ terminali</Summary>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
             </Packager>
-            <Summary xml:lang="en">full featured educational application for children from 2 to 10</Summary>
+            <Summary xml:lang="en">Full featured educational application for children from 2 to 10</Summary>
             <Summary xml:lang="tr">2-10 yaş arası çocuklar için eğitici uygulamalar</Summary>
-            <Description xml:lang="en">full featured educational application for children from 2 to 10</Description>
-            <Description xml:lang="tr">2-10 yaş arası çocuklar için eğitici uygulamalar</Description>
+            <Description xml:lang="en">GCompris is an educational software suite comprising of numerous activities for children aged 2 to 10. Some of the activities are game orientated, but nonetheless still educational</Description>
+            <Description xml:lang="tr">GCompris, 2-10 yaş arası çocuklar için bir çok etkinliği kapsayan eğitim amaçlı bir yazılım paketidir. Bazı etkinlikler, eğitim amaçlı oyunlardan oluşmaktadır.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.games</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="785de4e306872787ef0dd73df9e1d9cb68e6125e">http://kent.dl.sourceforge.net/sourceforge/gcompris/gcompris-8.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="9b39e34b077e73c90e269680860aa5817902aedf">http://puzzle.dl.sourceforge.net/sourceforge/gcompris/gcompris-8.2BETA1.tar.gz</Archive>
             <Patches>
                 <Patch>lang-tr.patch</Patch>
                 <Patch>desktop.patch</Patch>
@@ -4894,6 +4909,13 @@ terminali</Summary>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2006-10-24</Date>
+                <Version>8.2_beta1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
             <Update release="5">
                 <Date>2006-10-16</Date>
                 <Version>8.1</Version>
@@ -5214,43 +5236,6 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>lineakd</Name>
-            <Homepage>http://lineak.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Packager>
-            <Summary xml:lang="en">Kolay erişimli ve İnternet klavyeleri için Linux desteği</Summary>
-            <Description xml:lang="en">LinEAK, Linux altında İnternet, kolay erişim ve çokluortam klavyelerinin kullanımını ve ayarlanmasını mümkün kılan bir araçtır. Klavyeniz lineakd tarafından direkt olarak desteklenmiyorsa klineakconfig klavyenizi ayarlayabilmeniz için size kolay kullanımlı bir arayüz sağlar.</Description>
-            <IsA>app:console</IsA>
-            <PartOf>system.hardware</PartOf>
-            <License>GPL</License>
-            <Archive type="targz" sha1sum="6943bc5849c1a792e2ea0d58211fafeb1e57c201">http://mesh.dl.sourceforge.net/sourceforge/lineak/lineakd-0.8.4.tar.gz</Archive>
-            <SourceURI>applications/hardware/lineakd/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>lineakd</Name>
-            <Files>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include/lineak</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="executable">/usr/sbin</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-04-30</Date>
-                <Version>0.8.4</Version>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-                <Comment>First release.</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>lm_sensors</Name>
             <Homepage>http://www.lm-sensors.org</Homepage>
             <Packager>
@@ -5282,6 +5267,43 @@ terminali</Summary>
                 <Version>2.10.1</Version>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>lineakd</Name>
+            <Homepage>http://lineak.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <Summary xml:lang="en">Kolay erişimli ve İnternet klavyeleri için Linux desteği</Summary>
+            <Description xml:lang="en">LinEAK, Linux altında İnternet, kolay erişim ve çokluortam klavyelerinin kullanımını ve ayarlanmasını mümkün kılan bir araçtır. Klavyeniz lineakd tarafından direkt olarak desteklenmiyorsa klineakconfig klavyenizi ayarlayabilmeniz için size kolay kullanımlı bir arayüz sağlar.</Description>
+            <IsA>app:console</IsA>
+            <PartOf>system.hardware</PartOf>
+            <License>GPL</License>
+            <Archive type="targz" sha1sum="6943bc5849c1a792e2ea0d58211fafeb1e57c201">http://mesh.dl.sourceforge.net/sourceforge/lineak/lineakd-0.8.4.tar.gz</Archive>
+            <SourceURI>applications/hardware/lineakd/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>lineakd</Name>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include/lineak</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="executable">/usr/sbin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-04-30</Date>
+                <Version>0.8.4</Version>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
                 <Comment>First release.</Comment>
             </Update>
         </History>
@@ -5472,7 +5494,7 @@ terminali</Summary>
             <IsA>app:gui</IsA>
             <PartOf>applications.science</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="5a43dfef82eb3a7eecd52a8d51013c8281f3bd13">http://grass.itc.it/grass62/source/grass-6.2.0RC1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="ed9fe43aef0c27dbfb85d5f29ddae09abbbb3794">http://grass.itc.it/grass62/source/grass-6.2.0RC3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.1.4">zlib</Dependency>
                 <Dependency versionFrom="2.5.4a">flex</Dependency>
@@ -5512,13 +5534,13 @@ terminali</Summary>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/opt/grass-6.2.0RC1/bin</Path>
-                <Path fileType="data">/opt/grass-6.2.0RC1</Path>
-                <Path fileType="doc">/opt/grass-6.2.0RC1/docs</Path>
-                <Path fileType="config">/opt/grass-6.2.0RC1/etc</Path>
-                <Path fileType="header">/opt/grass-6.2.0RC1/include</Path>
-                <Path fileType="library">/opt/grass-6.2.0RC1/lib</Path>
-                <Path fileType="man">/opt/grass-6.2.0RC1/man</Path>
+                <Path fileType="executable">/opt/grass-6.2.0RC3/bin</Path>
+                <Path fileType="data">/opt/grass-6.2.0RC3</Path>
+                <Path fileType="doc">/opt/grass-6.2.0RC3/docs</Path>
+                <Path fileType="config">/opt/grass-6.2.0RC3/etc</Path>
+                <Path fileType="header">/opt/grass-6.2.0RC3/include</Path>
+                <Path fileType="library">/opt/grass-6.2.0RC3/lib</Path>
+                <Path fileType="man">/opt/grass-6.2.0RC3/man</Path>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
@@ -5532,6 +5554,13 @@ terminali</Summary>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2006-10-25</Date>
+                <Version>6.2.0_rc3</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
             <Update release="2">
                 <Date>2006-09-30</Date>
                 <Version>6.2.0_rc1</Version>
@@ -6342,6 +6371,7 @@ terminali</Summary>
             <Patches>
                 <Patch>freemind-0.8.0-pardus.patch</Patch>
                 <Patch>freemind-tr-translation.patch</Patch>
+                <Patch>use-firefox.patch</Patch>
             </Patches>
             <BuildDependencies>
                 <Dependency>sun-jdk</Dependency>
@@ -6672,6 +6702,43 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>cpulimit</Name>
+            <Homepage>http://marlon80.interfree.it/cpulimit/</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <Summary xml:lang="en">Limits the CPU usage of a process</Summary>
+            <Summary xml:lang="tr">Bir iş parçacığının işlemci kullanımını kısıtlar</Summary>
+            <Description xml:lang="en">cpulimit is a simple program that attempts to limit the cpu usage of a process (expressed in percentage, not in cpu time). This is useful to control batch jobs, when you don&apos;t want they eat too much cpu. It does not act on the nice value or other priority stuff, but on the real cpu usage.</Description>
+            <Description xml:lang="tr">cpulimit, bir işlem parçacığının işlemci kullanımını veirlen yüzde oranında kısıtlar. Bu sayede çok işlem gücü gerektiren işlemlerin sizi engellemesinden kurtulmuş olursunuz. Bu işlem, iyilik değeri veya öncelikle oynayarak değil, gerçek işlemci kullanımı üzerinden gerçekleştirilir.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>system.util</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="9f020c22d633e3f6289c69844bd7136c1f2704f1">http://marlon80.interfree.it/cpulimit/cpulimit-1.1.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">cpulimit-1.1-makefile.patch</Patch>
+            </Patches>
+            <SourceURI>applications/util/cpulimit/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>cpulimit</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-07-20</Date>
+                <Version>1.1</Version>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>qjoypad</Name>
             <Homepage>http://qjoypad.sourceforge.net/</Homepage>
             <Packager>
@@ -6719,7 +6786,7 @@ terminali</Summary>
             <Description xml:lang="tr">Gnu Source Installer programinin gtk gerektirmeyen
       konsol versiyonudur</Description>
             <IsA>app:console</IsA>
-            <PartOf>applications</PartOf>
+            <PartOf>system.util</PartOf>
             <License>GPL-2</License>
             <Archive type="targz" sha1sum="6aff58daa5ab098a10139a36677a6117ee3c7a85">ftp://ftp.gnu.org/gnu/sourceinstall/sourceinstall-2.1.tar.gz</Archive>
             <BuildDependencies>
@@ -6813,17 +6880,14 @@ terminali</Summary>
                 <Email>gecici90@yahoo.com</Email>
             </Packager>
             <Summary xml:lang="en">Gnu Source Installer gui</Summary>
-            <Summary xml:lang="tr">Gnu Source Installer Grafik Arbirimi</Summary>
-            <Description xml:lang="en">Gnu Source Installer Grafik Arabirimi</Description>
-            <Description xml:lang="tr">Gnu Source Installer programinin grafik arabirimli
-      versiyonudur</Description>
-            <IsA>app:console</IsA>
-            <PartOf>applications</PartOf>
+            <Summary xml:lang="tr">Gnu Source Installer grafik arbirimi</Summary>
+            <IsA>app:gui</IsA>
+            <PartOf>system.util</PartOf>
             <License>GPL-2</License>
             <Archive type="targz" sha1sum="deeff62a5a47771f476cc4ef29ca884bf4ce56b2">ftp://ftp.gnu.org/gnu/sourceinstall/sourceinstall-gtk-2.1.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>autoconf2_59</Dependency>
-                <Dependency>automake1_4</Dependency>
+                <Dependency>libsrcinst</Dependency>
+                <Dependency versionFrom="2.6">gtk2</Dependency>
             </BuildDependencies>
             <SourceURI>applications/util/sourceinstall-gtk/pspec.xml</SourceURI>
         </Source>
@@ -6831,7 +6895,7 @@ terminali</Summary>
             <Name>sourceinstall-gtk</Name>
             <RuntimeDependencies>
                 <Dependency>libsrcinst</Dependency>
-                <Dependency>gtk1</Dependency>
+                <Dependency versionFrom="2.6">gtk2</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -6861,7 +6925,7 @@ terminali</Summary>
             <Description xml:lang="en">Gnu Source Installer Library</Description>
             <Description xml:lang="tr">libsrcins, Gnu Source Installer programinin kullandigi bir kutuphanedir.</Description>
             <IsA>library</IsA>
-            <PartOf>programming.libs</PartOf>
+            <PartOf>system.util</PartOf>
             <License>GPL-2</License>
             <Archive type="targz" sha1sum="ce957a1b8b2fddecd0ab350fa54210e48be76574">ftp://ftp.gnu.org/gnu/sourceinstall/libsrcinst-2.1.tar.gz</Archive>
             <BuildDependencies>
@@ -6890,35 +6954,511 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>ecore</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Ecore/</Homepage>
+            <Name>eclair</Name>
+            <Homepage>http://get-e.org/</Homepage>
             <Packager>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
             </Packager>
-            <Summary xml:lang="en">core event abstraction layer and X abstraction layer (nice convenience library</Summary>
-            <Summary xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Summary>
-            <Description xml:lang="en">core event abstraction layer and X abstraction layer (nice convenience library</Description>
-            <Description xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="f1a8b3f923fd8a08dfcd8e6d34c7d9e25a017266">http://enlightenment.freedesktop.org/files/ecore-0.9.9.035.tar.gz</Archive>
+            <Summary xml:lang="en">EFL powered media player</Summary>
+            <Summary xml:lang="tr">EFL destekli ortam oynatıcı</Summary>
+            <Description xml:lang="en">EFL powered media player</Description>
+            <Description xml:lang="tr">EFL destekli ortam oynatıcı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="637da09ca738d5d171d6777c5255c7dcecd9287c">http://www.pisidepo.org/sources/eclair-20060926.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>openssl</Dependency>
-                <Dependency>curl</Dependency>
-                <Dependency>dbus</Dependency>
+                <Dependency>taglib</Dependency>
                 <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.0.1.20060926">emotion</Dependency>
+                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency versionFrom="3">sqlite</Dependency>
+                <Dependency versionFrom="0.17">pkgconfig</Dependency>
             </BuildDependencies>
-            <SourceURI>desktop/enlightenment/base/ecore/pspec.xml</SourceURI>
+            <SourceURI>desktop/enlightenment/extra/eclair/pspec.xml</SourceURI>
         </Source>
         <Package>
-            <Name>ecore</Name>
+            <Name>eclair</Name>
             <RuntimeDependencies>
-                <Dependency>openssl</Dependency>
-                <Dependency>curl</Dependency>
-                <Dependency>dbus</Dependency>
-                <Dependency versionFrom="0.9.9.0.35">evas</Dependency>
+                <Dependency>taglib</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.0.1.20060926">emotion</Dependency>
+                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency versionFrom="3">sqlite</Dependency>
+                <Dependency versionFrom="3">sqlite</Dependency>
+                <Dependency versionFrom="0.17">pkgconfig</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.0.1.20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-31</Date>
+                <Version>0.0.1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.0.1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>eterm-bg</Name>
+            <Homepage>http://www.eterm.org/download</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Background files for Eterm</Summary>
+            <Summary xml:lang="tr">Eterm için arkaplan dosyaları</Summary>
+            <Description xml:lang="en">Background files for Eterm</Description>
+            <Description xml:lang="tr">Eterm için arkaplan dosyaları</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="26e81a1e91228c971c70ba06e006ef69490ef208">http://paket.dt.gen.tr/paketler/Eterm-bg-0.9.4.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.4">eterm</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/eterm-bg/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>eterm-bg</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.4">eterm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-09-26</Date>
+                <Version>0.9.4</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-30</Date>
+                <Version>0.9.3</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.9.3</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>evidence</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Enlightened file-manager</Summary>
+            <Summary xml:lang="tr">Enlightenment İçin Dosya Yöneticisi</Summary>
+            <Description xml:lang="en">Enlightened file-manager</Description>
+            <Description xml:lang="tr">Enlightenment İçin Dosya Yöneticisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="4e81379c956aa84d380c0413c85c3cc0803bcf7f">http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/evidence-2006-04-17.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.5">pkgconfig</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libogg</Dependency>
+                <Dependency>libpcre</Dependency>
+                <Dependency versionFrom="2">freetype</Dependency>
+                <Dependency versionFrom="1.1.0">xine-lib</Dependency>
+                <Dependency>libao</Dependency>
+                <Dependency versionFrom="1.0.5">edb</Dependency>
+                <Dependency versionFrom="0.9.9">evas</Dependency>
+                <Dependency versionFrom="0.9.9">ecore</Dependency>
+                <Dependency versionFrom="0.9.9">eet</Dependency>
+                <Dependency versionFrom="1.2.0">imlib2</Dependency>
+                <Dependency versionFrom="2.0">gnome-vfs</Dependency>
+                <Dependency versionFrom="2.0">libart_lgpl</Dependency>
+                <Dependency versionFrom="2.0">libgnomecanvas</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/evidence/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>evidence</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.5">pkgconfig</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libogg</Dependency>
+                <Dependency>libpcre</Dependency>
+                <Dependency versionFrom="2">freetype</Dependency>
+                <Dependency versionFrom="1.1.0">xine-lib</Dependency>
+                <Dependency>libao</Dependency>
+                <Dependency versionFrom="1.0.5">edb</Dependency>
+                <Dependency versionFrom="0.9.9">evas</Dependency>
+                <Dependency versionFrom="0.9.9">ecore</Dependency>
+                <Dependency versionFrom="0.9.9">eet</Dependency>
+                <Dependency versionFrom="1.2.0">imlib2</Dependency>
+                <Dependency versionFrom="2.0">gnome-vfs</Dependency>
+                <Dependency versionFrom="2.0">libart_lgpl</Dependency>
+                <Dependency versionFrom="2.0">libgnomecanvas</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/evidence.desktop" permission="0644">evidence.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-13</Date>
+                <Version>0.9.8-20050207</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>etk</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Toolkit based on the EFL</Summary>
+            <Summary xml:lang="tr">EFL tabanlı araç takımı</Summary>
+            <Description xml:lang="en">Toolkit based on the EFL</Description>
+            <Description xml:lang="tr">EFL tabanlı araç takımı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="ccdff600ce15b2099a7e6836ea01e903cebcc564">http://www.pisidepo.org/sources/etk-20060926.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/etk/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>etk</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-21</Date>
+                <Version>20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>evfs</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Enlightenment File Daemon</Summary>
+            <Summary xml:lang="tr">Enlightenment Dosya Sistemi</Summary>
+            <Description xml:lang="en">Enlightenment File Daemon</Description>
+            <Description xml:lang="tr">Enlightenment Dosya Sistemi</Description>
+            <IsA>daemon</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="8d076b566acfcaf0d297ed74f6ef5bf5cdd8f2ca">http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/evfs-2006-04-17.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>samba</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>ecore</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/evfs/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>evfs</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-15</Date>
+                <Version>2006-04-17</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>e_utils</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Menu editor for enlightenment e17</Summary>
+            <Summary xml:lang="tr">e17 için menu düzenleyicisi</Summary>
+            <Description xml:lang="en">Menu editor for enlightenment e17</Description>
+            <Description xml:lang="tr">e17 için menu düzenleyicisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL2</License>
+            <Archive type="tarbz2" sha1sum="8aa373ea44c3121e008808716d007b0025b75ce3">http://www.pisidepo.org/sources/e_utils-20060926.tar.bz2</Archive>
+            <Patches>
+                <Patch>Makefile.am.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.16.999.035">enlightenment</Dependency>
+                <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+                <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/e_utils/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>e_utils</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.16.999.035">enlightenment</Dependency>
+                <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+                <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-24</Date>
+                <Version>0.0.1_20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>examine</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">configuration library for applications based on the EFL</Summary>
+            <Summary xml:lang="tr">EFL tabanlı uygulamalr için yapılandırma kütüphanesi</Summary>
+            <Description xml:lang="en">configuration library for applications based on the EFL</Description>
+            <Description xml:lang="tr">EFL tabanlı uygulamalr için yapılandırma kütüphanesi</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="targz" sha1sum="f37aed44445c326319c0132f279e7911de2d791f">http://paket.dt.gen.tr/paketler/examine-0.0.1-20060708.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.0">eet</Dependency>
+                <Dependency versionFrom="1.0.5">edb</Dependency>
+                <Dependency versionFrom="0.0.4">ewl</Dependency>
+                <Dependency versionFrom="0.9.9">ecore</Dependency>
+                <Dependency>readline</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/examine/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>examine</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.0">eet</Dependency>
+                <Dependency versionFrom="1.0.5">edb</Dependency>
+                <Dependency versionFrom="0.0.4">ewl</Dependency>
+                <Dependency versionFrom="0.9.9">ecore</Dependency>
+                <Dependency>readline</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-07-31</Date>
+                <Version>0.0.1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-13</Date>
+                <Version>0.0.1</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>engrave</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">library for editing the contents of edje files</Summary>
+            <Summary xml:lang="tr">edje dosyalarının içeriklerinin yazılması içi gerekli kütüphane</Summary>
+            <Description xml:lang="en">library for editing the contents of edje files</Description>
+            <Description xml:lang="tr">edje dosyalarının içeriklerinin yazılması içi gerekli kütüphane</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="tarbz2" sha1sum="c2991df34f3495c19e35ec0298f24c0c3e4eab7f">http://www.pisidepo.org/sources/engrave-20060926.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/engrave/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>engrave</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-24</Date>
+                <Version>0.1.0_20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-31</Date>
+                <Version>0.1.0</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.1.0</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>emotion</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Video libraries for e17</Summary>
+            <Summary xml:lang="tr">e17 için vidyo kütüphaneleri</Summary>
+            <Description xml:lang="en">Video libraries for e17</Description>
+            <Description xml:lang="tr">e17 için vidyo kütüphaneleri</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="tarbz2" sha1sum="c21d9488860cd324f4c40cabe629400eb9d186c8">http://www.pisidepo.org/sources/emotion-20060926.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
+                <Dependency versionFrom="1.1.2">xine-lib</Dependency>
+                <Dependency versionFrom="0.10.8">gstreamer</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/emotion/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>emotion</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
+                <Dependency versionFrom="1.1.2">xine-lib</Dependency>
+                <Dependency versionFrom="0.10.8">gstreamer</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -6930,22 +7470,350 @@ terminali</Summary>
         </Package>
         <History>
             <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.9.9.035</Version>
+                <Date>2006-10-20</Date>
+                <Version>0.0.1.20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-31</Date>
+                <Version>0.0.1.004</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.0.1.004</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>elation</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">e17 media player</Summary>
+            <Summary xml:lang="tr">e17 için çoklu otram oynatıcısı</Summary>
+            <Description xml:lang="en">e17 media player</Description>
+            <Description xml:lang="tr">e17 için çoklu ortam oynatıcısı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="066ac5cc61321ed643983ec349d094d129714428">http://nexus.tfh-berlin.de/~t2/source/2.2/e/elation-2006-04-17.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.9">eet</Dependency>
+                <Dependency versionFrom="0.9.9">evas</Dependency>
+                <Dependency versionFrom="0.5.0">edje</Dependency>
+                <Dependency versionFrom="0.9.9">ecore</Dependency>
+                <Dependency versionFrom="0.9.0">embryo</Dependency>
+                <Dependency versionFrom="0.0.1">emotion</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/elation/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>elation</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.9">eet</Dependency>
+                <Dependency versionFrom="0.9.9">evas</Dependency>
+                <Dependency versionFrom="0.5.0">edje</Dependency>
+                <Dependency versionFrom="0.9.9">ecore</Dependency>
+                <Dependency versionFrom="0.9.0">embryo</Dependency>
+                <Dependency versionFrom="0.0.1">emotion</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-14</Date>
+                <Version>2006-04-17</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>eterm</Name>
+            <Homepage>http://www.eterm.org/download</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">A vt102 terminal emulator for X</Summary>
+            <Summary xml:lang="tr">X için A vt 102 terminal emulatörü</Summary>
+            <Description xml:lang="en">A vt102 terminal emulator for X</Description>
+            <Description xml:lang="tr">X için A vt 102 terminal emulatörü</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="d63628098b3aa08c8f2bc1bd756683e5fd227995">http://paket.dt.gen.tr/paketler/Eterm-0.9.4.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.6.1">libast</Dependency>
+                <Dependency>imlib2</Dependency>
+                <Dependency>screen</Dependency>
+                <Dependency versionFrom="2">freetype</Dependency>
+                <Dependency>libpcre</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/eterm/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>eterm</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.6.1">libast</Dependency>
+                <Dependency>imlib2</Dependency>
+                <Dependency>screen</Dependency>
+                <Dependency versionFrom="2">freetype</Dependency>
+                <Dependency>libpcre</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc/</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/Eterm.desktop" permission="0644">Eterm.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-09-24</Date>
+                <Version>0.9.4</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>Version bump</Comment>
             </Update>
             <Update release="2">
                 <Date>2006-07-30</Date>
-                <Version>0.9.9.032</Version>
+                <Version>0.9.3</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.9.3</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>exhibit</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">E image browser</Summary>
+            <Summary xml:lang="tr">E resim görüntüliyicisi</Summary>
+            <Description xml:lang="en">E image browser</Description>
+            <Description xml:lang="tr">E resim görüntüliyicisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="da232d1a53e71df789b6698b8f5943c917626fe7">http://www.pisidepo.org/sources/exhibit-20060926.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="1.0.5.007">edb</Dependency>
+                <Dependency versionFrom="20060926">etk</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+                <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/exhibit/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>exhibit</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="1.0.5.007">edb</Dependency>
+                <Dependency versionFrom="20060926">etk</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+                <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-10-24</Date>
+                <Version>0.9.8_20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-14</Date>
+                <Version>0.9.8-20050207</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>epeg</Name>
+            <Homepage>http://www.enlightenment.org/Libraries/Epeg</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">wicked fast jpeg thumbnail generator</Summary>
+            <Summary xml:lang="tr">Çok hızlı bir jpeg thumbnail geliştirici</Summary>
+            <Description xml:lang="en">wicked fast jpeg thumbnail generator</Description>
+            <Description xml:lang="tr">Çok hızlı bir jpeg thumbnail geliştirici</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.base</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="targz" sha1sum="1e99dfaceb535c251af8cd24aad6e02da0c0fcf1">http://enlightenment.freedesktop.org/files/epeg-0.9.0.007.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>jpeg</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/epeg/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>epeg</Name>
+            <RuntimeDependencies>
+                <Dependency>jpeg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.9.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-30</Date>
+                <Version>0.9.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.9.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>enlightenment</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Enlightenment Window Manager</Summary>
+            <Summary xml:lang="tr">Enlightenment Pencere Yöneticisi</Summary>
+            <Description xml:lang="en">Enlightenment Window Manager</Description>
+            <Description xml:lang="tr">Enlightenment Pencere Yöneticisi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.enlightenment.base</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="6b209f63ba86ea91ed43838086cdd5404ee8ab5e">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.035.tar.gz</Archive>
+            <Patches>
+                <Patch>enlightenment-tr.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency versionFrom="0.2.19">esound</Dependency>
+                <Dependency versionFrom="2">freetype</Dependency>
+                <Dependency versionFrom="1.2.1">imlib2</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="1.0.5.007">edb</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
+                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/enlightenment/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>enlightenment</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.2.19">esound</Dependency>
+                <Dependency versionFrom="2">freetype</Dependency>
+                <Dependency versionFrom="1.2.1">imlib2</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="1.0.5.007">edb</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.9.10.035">eet</Dependency>
+                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
+                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc/X11/Sessions</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.16.999.035</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-30</Date>
+                <Version>0.16.999.032</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>Version bump</Comment>
             </Update>
             <Update release="1">
                 <Date>2006-06-10</Date>
-                <Version>0.9.9.027</Version>
+                <Version>0.16.999.027</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
@@ -7020,6 +7888,138 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>ewl</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">simple-to-use general purpose widget library</Summary>
+            <Summary xml:lang="tr">Kullanımı kolay genel amaçlı alet kütüphanesi</Summary>
+            <Description xml:lang="en">simple-to-use general purpose widget library</Description>
+            <Description xml:lang="tr">Kullanımı kolay genel amaçlı alet kütüphanesi</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.base</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="targz" sha1sum="c003a1b0423a61a28b76aa68bde59e0f333ae6d3">http://enlightenment.freedesktop.org/files/ewl-0.0.4.007.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="1.0.5.007">edb</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/ewl/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ewl</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="1.0.5.007">edb</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.0.4.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-30</Date>
+                <Version>0.0.4.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.0.4.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>epsilon</Name>
+            <Homepage>http://www.enlightenment.org/Libraries/Epsilon</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">nice thumbnail generator</Summary>
+            <Summary xml:lang="tr">Thumbnail geliştirici</Summary>
+            <Description xml:lang="en">nice thumbnail generator</Description>
+            <Description xml:lang="tr">Thumbnail geliştirici</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.base</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="targz" sha1sum="e588451a59ce5948b04e530981d8b164b3984047">http://enlightenment.freedesktop.org/files/epsilon-0.3.0.007.tar.gz</Archive>
+            <Patches>
+                <Patch>epsilon_private.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency versionFrom="1.2.1">imlib2</Dependency>
+                <Dependency versionFrom="1.2.2">imlib2_loaders</Dependency>
+                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency>libpng</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/epsilon/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>epsilon</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="1.2.1">imlib2</Dependency>
+                <Dependency versionFrom="1.2.2">imlib2_loaders</Dependency>
+                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency>libpng</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.3.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-06-30</Date>
+                <Version>0.3.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.3.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>edb</Name>
             <Homepage>http://www.enlightenment.org/Libraries/Edb/</Homepage>
             <Packager>
@@ -7069,6 +8069,136 @@ terminali</Summary>
             <Update release="1">
                 <Date>2006-06-10</Date>
                 <Version>1.0.5.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>esmart</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">A collection of evas smart objects</Summary>
+            <Summary xml:lang="tr">Evas akıllı nesnelerine ait bir koleksiyon</Summary>
+            <Description xml:lang="en">A collection of evas smart objects</Description>
+            <Description xml:lang="tr">Evas akıllı nesnelerine ait bir koleksiyon</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.base</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="targz" sha1sum="d8674ec44466770f0cfab39b16570bdcf677fb54">http://enlightenment.freedesktop.org/files/esmart-0.9.0.007.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+                <Dependency versionFrom="1.2.1">imlib2</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/esmart/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>esmart</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.5.0.035">edje</Dependency>
+                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+                <Dependency versionFrom="1.2.1">imlib2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.9.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-30</Date>
+                <Version>0.9.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>sync</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-15</Date>
+                <Version>0.9.0.007</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>ecore</Name>
+            <Homepage>http://www.enlightenment.org/Libraries/Ecore/</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">core event abstraction layer and X abstraction layer (nice convenience library</Summary>
+            <Summary xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Summary>
+            <Description xml:lang="en">core event abstraction layer and X abstraction layer (nice convenience library</Description>
+            <Description xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.enlightenment.base</PartOf>
+            <License>LGPL-2</License>
+            <Archive type="targz" sha1sum="f1a8b3f923fd8a08dfcd8e6d34c7d9e25a017266">http://enlightenment.freedesktop.org/files/ecore-0.9.9.035.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>openssl</Dependency>
+                <Dependency>curl</Dependency>
+                <Dependency>dbus</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/ecore/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ecore</Name>
+            <RuntimeDependencies>
+                <Dependency>openssl</Dependency>
+                <Dependency>curl</Dependency>
+                <Dependency>dbus</Dependency>
+                <Dependency versionFrom="0.9.9.0.35">evas</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2006-10-21</Date>
+                <Version>0.9.9.035</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="2">
+                <Date>2006-07-30</Date>
+                <Version>0.9.9.032</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-10</Date>
+                <Version>0.9.9.027</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
@@ -7194,284 +8324,6 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>enlightenment</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Enlightenment Window Manager</Summary>
-            <Summary xml:lang="tr">Enlightenment Pencere Yöneticisi</Summary>
-            <Description xml:lang="en">Enlightenment Window Manager</Description>
-            <Description xml:lang="tr">Enlightenment Pencere Yöneticisi</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="6b209f63ba86ea91ed43838086cdd5404ee8ab5e">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.035.tar.gz</Archive>
-            <Patches>
-                <Patch>enlightenment-tr.patch</Patch>
-            </Patches>
-            <BuildDependencies>
-                <Dependency versionFrom="0.2.19">esound</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="1.0.5.007">edb</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.9.10.035">eet</Dependency>
-                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
-                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
-                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
-                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.0.4.007">ewl</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/base/enlightenment/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>enlightenment</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.2.19">esound</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="1.0.5.007">edb</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.9.10.035">eet</Dependency>
-                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
-                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
-                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
-                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.0.4.007">ewl</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="config">/etc/X11/Sessions</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.16.999.035</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Version bump</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-30</Date>
-                <Version>0.16.999.032</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Version bump</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.16.999.027</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>epeg</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Epeg</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">wicked fast jpeg thumbnail generator</Summary>
-            <Summary xml:lang="tr">Çok hızlı bir jpeg thumbnail geliştirici</Summary>
-            <Description xml:lang="en">wicked fast jpeg thumbnail generator</Description>
-            <Description xml:lang="tr">Çok hızlı bir jpeg thumbnail geliştirici</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="1e99dfaceb535c251af8cd24aad6e02da0c0fcf1">http://enlightenment.freedesktop.org/files/epeg-0.9.0.007.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>jpeg</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/base/epeg/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>epeg</Name>
-            <RuntimeDependencies>
-                <Dependency>jpeg</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.9.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-30</Date>
-                <Version>0.9.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.9.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>epsilon</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Epsilon</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">nice thumbnail generator</Summary>
-            <Summary xml:lang="tr">Thumbnail geliştirici</Summary>
-            <Description xml:lang="en">nice thumbnail generator</Description>
-            <Description xml:lang="tr">Thumbnail geliştirici</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="e588451a59ce5948b04e530981d8b164b3984047">http://enlightenment.freedesktop.org/files/epsilon-0.3.0.007.tar.gz</Archive>
-            <Patches>
-                <Patch>epsilon_private.patch</Patch>
-            </Patches>
-            <BuildDependencies>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="1.2.2">imlib2_loaders</Dependency>
-                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency>libpng</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/base/epsilon/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>epsilon</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="1.2.2">imlib2_loaders</Dependency>
-                <Dependency versionFrom="0.9.0.007">epeg</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency>libpng</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.3.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-06-30</Date>
-                <Version>0.3.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.3.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>esmart</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">A collection of evas smart objects</Summary>
-            <Summary xml:lang="tr">Evas akıllı nesnelerine ait bir koleksiyon</Summary>
-            <Description xml:lang="en">A collection of evas smart objects</Description>
-            <Description xml:lang="tr">Evas akıllı nesnelerine ait bir koleksiyon</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="d8674ec44466770f0cfab39b16570bdcf677fb54">http://enlightenment.freedesktop.org/files/esmart-0.9.0.007.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/base/esmart/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>esmart</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.9.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-30</Date>
-                <Version>0.9.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-15</Date>
-                <Version>0.9.0.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>evas</Name>
             <Homepage>http://www.enlightenment.org/Libraries/Evas/</Homepage>
             <Packager>
@@ -7544,776 +8396,45 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>ewl</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
+            <Name>kbackup</Name>
+            <Homepage>http://www.kde-apps.org/content/show.php?content=44998</Homepage>
             <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
             </Packager>
-            <Summary xml:lang="en">simple-to-use general purpose widget library</Summary>
-            <Summary xml:lang="tr">Kullanımı kolay genel amaçlı alet kütüphanesi</Summary>
-            <Description xml:lang="en">simple-to-use general purpose widget library</Description>
-            <Description xml:lang="tr">Kullanımı kolay genel amaçlı alet kütüphanesi</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="c003a1b0423a61a28b76aa68bde59e0f333ae6d3">http://enlightenment.freedesktop.org/files/ewl-0.0.4.007.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="1.0.5.007">edb</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/base/ewl/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>ewl</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="1.0.5.007">edb</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.0.4.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-30</Date>
-                <Version>0.0.4.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.0.4.007</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>e17genmenu</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Menu editor for enlightenment e17</Summary>
-            <Summary xml:lang="tr">e17 için menu düzenleyicisi</Summary>
-            <Description xml:lang="en">Menu editor for enlightenment e17</Description>
-            <Description xml:lang="tr">e17 için menu düzenleyicisi</Description>
+            <Summary xml:lang="en">KBackup is a program that lets you back up any directories or files</Summary>
+            <Summary xml:lang="tr">KBackup, herhangi bir klasörü veya dosyayı yedeklemenize izin veren bir programdır</Summary>
+            <Description xml:lang="en">KBackup is a program that lets you back up any directories or files</Description>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL2</License>
-            <Archive type="targz" sha1sum="bfbfb1caaead9605fbd89e84a8160fce352d6290">http://switch.dl.sourceforge.net/sourceforge/e17genmenu/e17genmenu-4.2.0.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>eet</Dependency>
-                <Dependency>ecore</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>engrave</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/e17genmenu/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>e17genmenu</Name>
-            <RuntimeDependencies>
-                <Dependency>eet</Dependency>
-                <Dependency>ecore</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>engrave</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-            <Provides>
-                <COMAR script="package.py">System.Service</COMAR>
-            </Provides>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-08-05</Date>
-                <Version>4.2.0</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-15</Date>
-                <Version>4.2.0</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>eclair</Name>
-            <Homepage>http://get-e.org/</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">EFL powered media player</Summary>
-            <Summary xml:lang="tr">EFL destekli ortam oynatıcı</Summary>
-            <Description xml:lang="en">EFL powered media player</Description>
-            <Description xml:lang="tr">EFL destekli ortam oynatıcı</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.kde</PartOf>
             <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="637da09ca738d5d171d6777c5255c7dcecd9287c">http://www.pisidepo.org/sources/eclair-20060926.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="90c53a7ca6ad669a0807ff00ef0b516b458d14b5">http://www.kde-apps.org/content/files/44998-kbackup-0.5.1.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>taglib</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.0.1.20060926">emotion</Dependency>
-                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency versionFrom="3">sqlite</Dependency>
-                <Dependency versionFrom="0.17">pkgconfig</Dependency>
+                <Dependency versionFrom="3.2">kdebase</Dependency>
+                <Dependency versionFrom="3.2">kdelibs</Dependency>
             </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/eclair/pspec.xml</SourceURI>
+            <SourceURI>desktop/kde/kbackup/pspec.xml</SourceURI>
         </Source>
         <Package>
-            <Name>eclair</Name>
+            <Name>kbackup</Name>
             <RuntimeDependencies>
-                <Dependency>taglib</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.0.1.20060926">emotion</Dependency>
-                <Dependency versionFrom="0.9.0.007">esmart</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency versionFrom="3">sqlite</Dependency>
-                <Dependency versionFrom="3">sqlite</Dependency>
-                <Dependency versionFrom="0.17">pkgconfig</Dependency>
+                <Dependency versionFrom="3.2">kdebase</Dependency>
+                <Dependency versionFrom="3.2">kdelibs</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-21</Date>
-                <Version>0.0.1.20060926</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Version bump</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-31</Date>
-                <Version>0.0.1</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.0.1</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>elation</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">e17 media player</Summary>
-            <Summary xml:lang="tr">e17 için çoklu otram oynatıcısı</Summary>
-            <Description xml:lang="en">e17 media player</Description>
-            <Description xml:lang="tr">e17 için çoklu ortam oynatıcısı</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="066ac5cc61321ed643983ec349d094d129714428">http://nexus.tfh-berlin.de/~t2/source/2.2/e/elation-2006-04-17.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.5.0">edje</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.0">embryo</Dependency>
-                <Dependency versionFrom="0.0.1">emotion</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/elation/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>elation</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.5.0">edje</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.0">embryo</Dependency>
-                <Dependency versionFrom="0.0.1">emotion</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="executable">/usr/kde/3.5/bin</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
             </Files>
         </Package>
         <History>
             <Update release="1">
-                <Date>2006-06-14</Date>
-                <Version>2006-04-17</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>emotion</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Video libraries for e17</Summary>
-            <Summary xml:lang="tr">e17 için vidyo kütüphaneleri</Summary>
-            <Description xml:lang="en">Video libraries for e17</Description>
-            <Description xml:lang="tr">e17 için vidyo kütüphaneleri</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="tarbz2" sha1sum="c21d9488860cd324f4c40cabe629400eb9d186c8">http://www.pisidepo.org/sources/emotion-20060926.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.10.035">eet</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
-                <Dependency versionFrom="1.1.2">xine-lib</Dependency>
-                <Dependency versionFrom="0.10.8">gstreamer</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/emotion/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>emotion</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.10.035">eet</Dependency>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.9.1.035">embryo</Dependency>
-                <Dependency versionFrom="1.1.2">xine-lib</Dependency>
-                <Dependency versionFrom="0.10.8">gstreamer</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-10-20</Date>
-                <Version>0.0.1.20060926</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Version bump</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-31</Date>
-                <Version>0.0.1.004</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.0.1.004</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>evidence</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Enlightened file-manager</Summary>
-            <Summary xml:lang="tr">Enlightenment İçin Dosya Yöneticisi</Summary>
-            <Description xml:lang="en">Enlightened file-manager</Description>
-            <Description xml:lang="tr">Enlightenment İçin Dosya Yöneticisi</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="4e81379c956aa84d380c0413c85c3cc0803bcf7f">http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/evidence-2006-04-17.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.5">pkgconfig</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libogg</Dependency>
-                <Dependency>libpcre</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency versionFrom="1.1.0">xine-lib</Dependency>
-                <Dependency>libao</Dependency>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="1.2.0">imlib2</Dependency>
-                <Dependency versionFrom="2.0">gnome-vfs</Dependency>
-                <Dependency versionFrom="2.0">libart_lgpl</Dependency>
-                <Dependency versionFrom="2.0">libgnomecanvas</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/evidence/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>evidence</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.5">pkgconfig</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libogg</Dependency>
-                <Dependency>libpcre</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency versionFrom="1.1.0">xine-lib</Dependency>
-                <Dependency>libao</Dependency>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="1.2.0">imlib2</Dependency>
-                <Dependency versionFrom="2.0">gnome-vfs</Dependency>
-                <Dependency versionFrom="2.0">libart_lgpl</Dependency>
-                <Dependency versionFrom="2.0">libgnomecanvas</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/evidence.desktop" permission="0644">evidence.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-13</Date>
-                <Version>0.9.8-20050207</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>examine</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">configuration library for applications based on the EFL</Summary>
-            <Summary xml:lang="tr">EFL tabanlı uygulamalr için yapılandırma kütüphanesi</Summary>
-            <Description xml:lang="en">configuration library for applications based on the EFL</Description>
-            <Description xml:lang="tr">EFL tabanlı uygulamalr için yapılandırma kütüphanesi</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="f37aed44445c326319c0132f279e7911de2d791f">http://paket.dt.gen.tr/paketler/examine-0.0.1-20060708.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.0">eet</Dependency>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency versionFrom="0.0.4">ewl</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency>readline</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/examine/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>examine</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.0">eet</Dependency>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency versionFrom="0.0.4">ewl</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency>readline</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-07-31</Date>
-                <Version>0.0.1</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-13</Date>
-                <Version>0.0.1</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>exhibit</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">E image browser</Summary>
-            <Summary xml:lang="tr">E resim görüntüliyicisi</Summary>
-            <Description xml:lang="en">E image browser</Description>
-            <Description xml:lang="tr">E resim görüntüliyicisi</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="98e8c7b728906ea54b4e56e73593afb1be73777a">http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/exhibit-2006-04-17.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency>etk</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="0.3.0">epsilon</Dependency>
-                <Dependency versionFrom="0.1.0">engrave</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/exhibit/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>exhibit</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency>etk</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="0.3.0">epsilon</Dependency>
-                <Dependency versionFrom="0.1.0">engrave</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-14</Date>
-                <Version>0.9.8-20050207</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>engrave</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">library for editing the contents of edje files</Summary>
-            <Summary xml:lang="tr">edje dosyalarının içeriklerinin yazılması içi gerekli kütüphane</Summary>
-            <Description xml:lang="en">library for editing the contents of edje files</Description>
-            <Description xml:lang="tr">edje dosyalarının içeriklerinin yazılması içi gerekli kütüphane</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>LGPL-2</License>
-            <Archive type="targz" sha1sum="27cf8259993beb65c9274b0a0c41b331dbd1eff0">http://paket.dt.gen.tr/paketler/engrave-0.1.0-20060708.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.3.0">epsilon</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/engrave/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>engrave</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.3.0">epsilon</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-07-31</Date>
-                <Version>0.1.0</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.1.0</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>eterm</Name>
-            <Homepage>http://www.eterm.org/download</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">A vt102 terminal emulator for X</Summary>
-            <Summary xml:lang="tr">X için A vt 102 terminal emulatörü</Summary>
-            <Description xml:lang="en">A vt102 terminal emulator for X</Description>
-            <Description xml:lang="tr">X için A vt 102 terminal emulatörü</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="d63628098b3aa08c8f2bc1bd756683e5fd227995">http://paket.dt.gen.tr/paketler/Eterm-0.9.4.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.6.1">libast</Dependency>
-                <Dependency>imlib2</Dependency>
-                <Dependency>screen</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency>libpcre</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/eterm/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>eterm</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.6.1">libast</Dependency>
-                <Dependency>imlib2</Dependency>
-                <Dependency>screen</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency>libpcre</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="doc">/usr/share/doc/</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/Eterm.desktop" permission="0644">Eterm.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-09-24</Date>
-                <Version>0.9.4</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Version bump</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-30</Date>
-                <Version>0.9.3</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.9.3</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>eterm-bg</Name>
-            <Homepage>http://www.eterm.org/download</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Background files for Eterm</Summary>
-            <Summary xml:lang="tr">Eterm için arkaplan dosyaları</Summary>
-            <Description xml:lang="en">Background files for Eterm</Description>
-            <Description xml:lang="tr">Eterm için arkaplan dosyaları</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="26e81a1e91228c971c70ba06e006ef69490ef208">http://paket.dt.gen.tr/paketler/Eterm-bg-0.9.4.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.4">eterm</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/eterm-bg/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>eterm-bg</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.4">eterm</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-09-26</Date>
-                <Version>0.9.4</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Version bump</Comment>
-            </Update>
-            <Update release="2">
-                <Date>2006-07-30</Date>
-                <Version>0.9.3</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>sync</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-10</Date>
-                <Version>0.9.3</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>evfs</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Enlightenment File Daemon</Summary>
-            <Summary xml:lang="tr">Enlightenment Dosya Sistemi</Summary>
-            <Description xml:lang="en">Enlightenment File Daemon</Description>
-            <Description xml:lang="tr">Enlightenment Dosya Sistemi</Description>
-            <IsA>daemon</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="8d076b566acfcaf0d297ed74f6ef5bf5cdd8f2ca">http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/evfs-2006-04-17.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>samba</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>ecore</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/evfs/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>evfs</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-15</Date>
-                <Version>2006-04-17</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>etk</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Toolkit based on the EFL</Summary>
-            <Summary xml:lang="tr">EFL tabanlı araç takımı</Summary>
-            <Description xml:lang="en">Toolkit based on the EFL</Description>
-            <Description xml:lang="tr">EFL tabanlı araç takımı</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="ccdff600ce15b2099a7e6836ea01e903cebcc564">http://www.pisidepo.org/sources/etk-20060926.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/etk/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>etk</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.035">evas</Dependency>
-                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
-                <Dependency versionFrom="0.5.0.035">edje</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-21</Date>
-                <Version>20060926</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
+                <Date>2006-10-07</Date>
+                <Version>0.5.1</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release.</Comment>
             </Update>
         </History>
     </SpecFile>
@@ -8359,50 +8480,6 @@ terminali</Summary>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kbackup</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=44998</Homepage>
-            <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">KBackup is a program that lets you back up any directories or files</Summary>
-            <Summary xml:lang="tr">KBackup, herhangi bir klasörü veya dosyayı yedeklemenize izin veren bir programdır</Summary>
-            <Description xml:lang="en">KBackup is a program that lets you back up any directories or files</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="90c53a7ca6ad669a0807ff00ef0b516b458d14b5">http://www.kde-apps.org/content/files/44998-kbackup-0.5.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.2">kdebase</Dependency>
-                <Dependency versionFrom="3.2">kdelibs</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/kde/kbackup/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kbackup</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.2">kdebase</Dependency>
-                <Dependency versionFrom="3.2">kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-07</Date>
-                <Version>0.5.1</Version>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-                <Comment>First release.</Comment>
             </Update>
         </History>
     </SpecFile>
@@ -8677,48 +8754,6 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>QtCurve</Name>
-            <Homepage>http://www.kde-look.org/content/show.php?content=40492</Homepage>
-            <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">This is a set of widget styles for KDE, GTK1, and GTK2 based apps.</Summary>
-            <Summary xml:lang="tr">KDE, GTK1 ve GTK2 tabanlı uygulamaların pencere stillerini değiştiren bir uygulama</Summary>
-            <Description xml:lang="en">...</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.kde</PartOf>
-            <License>GPL</License>
-            <Archive type="targz" sha1sum="cd40d28d93d9c2d61d466006833151bb0bbb9293">http://www.cpdrummond.freeuk.com/QtCurve-0.38.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/kde/QtCurve/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>QtCurve</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-16</Date>
-                <Version>0.38</Version>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-                <Comment>First release.</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>tastymenu</Name>
             <Homepage>http://www.kde-apps.org/content/show.php?content=41866</Homepage>
             <Packager>
@@ -8839,7 +8874,7 @@ terminali</Summary>
             <Summary xml:lang="en">KDE için dekoratör</Summary>
             <Description xml:lang="en">KDE için dekoratör</Description>
             <IsA>app:gui</IsA>
-            <PartOf>PartOf</PartOf>
+            <PartOf>desktop.kde</PartOf>
             <License>GPL-2</License>
             <Archive type="targz" sha1sum="e8b4a851c993c3f67f95ad9e0c424ce13231cfc3">http://www.cheetux.org.il/~motyr/deKorator/0.3/SOURCE/dekorator-0.3.tar.gz</Archive>
             <SourceURI>desktop/kde/dekorator/pspec.xml</SourceURI>
@@ -9030,6 +9065,48 @@ terminali</Summary>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
                 <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>QtCurve-Gtk2</Name>
+            <Homepage>http://www.kde-look.org/content/show.php?content=40492</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">This is a set of widget styles for KDE, GTK1, and GTK2 based apps.</Summary>
+            <Summary xml:lang="tr">KDE, GTK1 ve GTK2 tabanlı uygulamaların pencere stillerini değiştiren bir uygulama</Summary>
+            <Description xml:lang="en">...</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <License>GPL</License>
+            <Archive type="targz" sha1sum="0479f5f389966a640bd7b40e325325193e6de983">http://www.cpdrummond.freeuk.com/QtCurve-Gtk2-0.44.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>kdelibs</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/kde/QtCurve-Gtk2/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>QtCurve-Gtk2</Name>
+            <RuntimeDependencies>
+                <Dependency>kdelibs</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-22</Date>
+                <Version>0.44.3</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release</Comment>
             </Update>
         </History>
     </SpecFile>
@@ -9437,6 +9514,96 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>K7Z</Name>
+            <Homepage>http://k7z.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <Summary xml:lang="en">KDE frontend for 7z compressed files</Summary>
+            <Summary xml:lang="tr">7z sıkıştırılmış dosyaları için KDE arayüzü</Summary>
+            <Description xml:lang="en">Use K7Z if you want to create/extract a password-protected archive or update an existing archive.</Description>
+            <Description xml:lang="tr">Şifre korumalı 7z arşivleri oluşturmak ve bunları açmak için bu arayüzü kullanabilirsiniz.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <License>GPL-2</License>
+            <Archive type="binary" sha1sum="d150e92a3a80901cccdc489cd0bb0efc1d50f76c">http://switch.dl.sourceforge.net/sourceforge/k7z/K7Z-0.4.1.7z</Archive>
+            <BuildDependencies>
+                <Dependency>PyQt4</Dependency>
+                <Dependency>p7zip</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/kde/K7Z/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>K7Z</Name>
+            <RuntimeDependencies>
+                <Dependency>PyQt4</Dependency>
+                <Dependency>p7zip</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/kde/3.5/bin</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-23</Date>
+                <Version>0.4.1</Version>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>QtCurve-KDE3</Name>
+            <Homepage>http://www.kde-look.org/content/show.php?content=40492</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">This is a set of widget styles for KDE, GTK1, and GTK2 based apps.</Summary>
+            <Summary xml:lang="tr">KDE, GTK1 ve GTK2 tabanlı uygulamaların pencere stillerini değiştiren bir uygulama</Summary>
+            <Description xml:lang="en">...</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <License>GPL</License>
+            <Archive type="targz" sha1sum="40b6b94a35940a5c76de1c5f808bcc1bcb7ecf69">http://www.cpdrummond.freeuk.com/QtCurve-KDE3-0.44.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>kdelibs</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/kde/QtCurve-KDE3/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>QtCurve-KDE3</Name>
+            <RuntimeDependencies>
+                <Dependency>kdelibs</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/kde/3.5/lib</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-10-22</Date>
+                <Version>0.44.3</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>Update</Comment>
+            </Update>
+            <Update release="1">
+                <Date>2006-06-16</Date>
+                <Version>0.38</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>kiosktool</Name>
             <Homepage>http://extragear.kde.org/apps/kiosktool.php</Homepage>
             <Packager>
@@ -9701,6 +9868,7 @@ terminali</Summary>
     <SpecFile>
         <Source>
             <Name>iceked</Name>
+            <Homepage>http://icecc.sourceforge.net/</Homepage>
             <Packager>
                 <Name>Fethi Aymaz</Name>
                 <Email>fethi@linux-sevenler.org</Email>
@@ -10911,6 +11079,46 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>gst-plugins-farsight</Name>
+            <Homepage>http://projects.collabora.co.uk/darcs/farsight/gst-plugins-farsight</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">GStreamer plugin for Farsight</Summary>
+            <Summary xml:lang="tr">Farsight için GStreamer eklentisi</Summary>
+            <Description xml:lang="en">...</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.gnome</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="e9b97be693c55aac504ac9e7f33b170c96c22649">http://extindt01.indt.org/VoIP/gst-plugins-farsight-0.10.0.1.tar.gz</Archive>
+            <SourceURI>desktop/gnome/gst-plugins-farsight/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gst-plugins-farsight</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.10">gstreamer</Dependency>
+                <Dependency versionFrom="0.10">gst-plugins-base</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>libjingle</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-26</Date>
+                <Version>0.10.0.1</Version>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>jadetex</Name>
             <Homepage>http://jadetex.sourceforge.net/</Homepage>
             <Packager>
@@ -11136,46 +11344,6 @@ terminali</Summary>
                 <Version>0.6.14</Version>
                 <Name>Fethi Aymaz</Name>
                 <Email>fethi@linux-sevenler.org</Email>
-                <Comment>First release.</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>gst-plugins-farsight</Name>
-            <Homepage>http://projects.collabora.co.uk/darcs/farsight/gst-plugins-farsight</Homepage>
-            <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">GStreamer plugin for Farsight</Summary>
-            <Summary xml:lang="tr">Farsight için GStreamer eklentisi</Summary>
-            <Description xml:lang="en">...</Description>
-            <IsA>library</IsA>
-            <PartOf>desktop.gnome</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="e9b97be693c55aac504ac9e7f33b170c96c22649">http://extindt01.indt.org/VoIP/gst-plugins-farsight-0.10.0.1.tar.gz</Archive>
-            <SourceURI>desktop/gnome/gst-plugins-farsight/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>gst-plugins-farsight</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.10">gstreamer</Dependency>
-                <Dependency versionFrom="0.10">gst-plugins-base</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>libjingle</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-26</Date>
-                <Version>0.10.0.1</Version>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
                 <Comment>First release.</Comment>
             </Update>
         </History>
@@ -13110,6 +13278,448 @@ terminali</Summary>
             </Update>
         </History>
     </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>scim-tables</Name>
+            <Homepage>http://www.scim-im.org</Homepage>
+            <Packager>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Tables IME Module</Summary>
+            <Summary xml:lang="tr">IME Modül Tabloları</Summary>
+            <Description xml:lang="en">Scim is an Input Method framework including server, libraries, etc. Scim table module is a Scim module that allows the use and authoring of table based IMEs. A Table IME is one where the developer can specify a table of conversions between input character sequence and output character sequence.</Description>
+            <Description xml:lang="tr">Scim, sunucu, kütüphane v.b. alanlar için bir girdi metodu sistemidir. Scim tablo modülü, tablo tabanlı IME&apos;lerin yönetilmesine ve kullanılmasına izin veren bir Scim modülüdür. Bir IME tablosunda geliştirici,  girdi karakter dizimi ve çıktı karakter dizimi arasındaki dönüşümün tablosunu kendisi belirtebilir.</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.inputmethods</PartOf>
+            <License>GPL-2</License>
+            <Archive type="targz" sha1sum="0764724368eab3975138a69b2f50ad1b753c35f7">http://superb-east.dl.sourceforge.net/sourceforge/scim/scim-tables-0.5.7.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>scim-lib-dev</Dependency>
+                <Dependency>skim</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/freedesktop/inputmethods/scim-tables/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>scim-tables</Name>
+            <Summary xml:lang="en">Table IME Module for Scim.</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>skim</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-amharic</Name>
+            <Summary xml:lang="en">Table IME Module for Amharic language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Amharic.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Amharic.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-arabic</Name>
+            <Summary xml:lang="en">Table IME Module for Arabic language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Arabic.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Arabic.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-bengali</Name>
+            <Summary xml:lang="en">Table IME Module for Bengali language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Bengali-probhat.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Bengali-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Bengali-probhat.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Bengali-inscript.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-hindi</Name>
+            <Summary xml:lang="en">Table IME Module for Hindi language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Hindi-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Hindi-phonetic.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Hindi-inscript.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Hindi-phonetic.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-gujarati</Name>
+            <Summary xml:lang="en">Table IME Module for Gujarati language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Gujarati-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Gujarati-phonetic.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Gujarati-inscript.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Gujarati-phonetic.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-japanese</Name>
+            <Summary xml:lang="en">Table IME Module for Japanese language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/HIRAGANA.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/KATAKANA.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Nippon.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/HIRAGANA.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/KATAKANA.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Nippon.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-kannada</Name>
+            <Summary xml:lang="en">Table IME Module for Kannada language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Kannada-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Kannada-kgp.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Kannada-inscript.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Kannada-kgp.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-korean</Name>
+            <Summary xml:lang="en">Table IME Module for Korean language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Hangul.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/HangulRomaja.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Hanja.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Hangul.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Hangul.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Hanja.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-malayalam</Name>
+            <Summary xml:lang="en">Table IME Module for Malayalam language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Malayalam-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Malayalam-inscript.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-nepali</Name>
+            <Summary xml:lang="en">Table IME Module for Nepali language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Nepali_Rom.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Nepali_Trad.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Nepali.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Nepali.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-punjabi</Name>
+            <Summary xml:lang="en">Table IME Module for Punjabi language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Punjabi-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Punjabi-jhelum.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Punjabi-phonetic.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Punjabi-inscript.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Punjabi-jhelum.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Punjabi-phonetic.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-russian</Name>
+            <Summary xml:lang="en">Table IME Module for Russian language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Yawerty.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Yawerty.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-tamil</Name>
+            <Summary xml:lang="en">Table IME Module for Tamil language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Tamil-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Tamil-phonetic.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Tamil-remington.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Tamil-inscript.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Tamil-phonetic.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Tamil-remington.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-telugu</Name>
+            <Summary xml:lang="en">Table IME Module for Telugu language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Telugu-inscript.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Telugu-inscript.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-thai</Name>
+            <Summary xml:lang="en">Table IME Module for Thai language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Thai.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Thai.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-vietnamese</Name>
+            <Summary xml:lang="en">Table IME Module for Vietnamese language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Viqr.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Viqr.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-chinese</Name>
+            <Summary xml:lang="en">Table IME Module for Chinese language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/Array30.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/CangJie.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/CangJie3.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/CangJie5.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Cantonese.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/CantonHK.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/CNS11643.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Quick.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Stroke5.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Dayi3.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Erbi.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Erbi-QS.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/EZ-Big.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Jyutping.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Simplex.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Wu.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Wubi.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/Ziranma.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/ZhuYin.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/ZhuYin-Big.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/Array30.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/CangJie.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/CangJie3.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/CangJie.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Cantonese.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/CantonHK.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/CNS11643.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Quick.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Stroke5.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Dayi.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Erbi.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Erbi-QS.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/EZ.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Jyutping.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Simplex.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Wu.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Wubi.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/Ziranma.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/ZhuYin.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/ZhuYin.png</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-tables-additional</Name>
+            <Summary xml:lang="en">Table IME Module for Additional language</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+                <Dependency>scim-tables</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/scim/tables/LaTeX.bin</Path>
+                <Path fileType="data">/usr/share/scim/tables/IPA-X-SAMPA.bin</Path>
+                <Path fileType="data">/usr/share/scim/icons/LaTeX.png</Path>
+                <Path fileType="data">/usr/share/scim/icons/IPA-X-SAMPA.png</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-17</Date>
+                <Version>0.5.7</Version>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>skim</Name>
+            <Homepage>http://www.scim-im.org</Homepage>
+            <Packager>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">KDE Panel and utilities for Scim</Summary>
+            <Summary xml:lang="tr">Scim için KDE Paneli ve Araçları</Summary>
+            <Description xml:lang="en">Scim is an Input Method framework including server, libraries, etc. Skim is the KDE Panel and utilities package, which includes the Language toolbar, KDE/Qt based Lookup tables, Setup UIs, etc.</Description>
+            <Description xml:lang="tr">Scim, sunucu, kütüphane v.b. alanlar için bir girdi metodu sistemidir. Skim, dil çubuğu, KDE/Qt tabanlı arama tablosu, ayar arayüzü gibi Scim için gerekli KDE paneli ve araçlarıdır</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop.inputmethods</PartOf>
+            <License>GPL-2</License>
+            <Archive type="tarbz2" sha1sum="6e0ec92ab13b4d5b57ad42b34d5223c0d453fdb0">http://belnet.dl.sourceforge.net/sourceforge/scim/skim-1.4.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>scim-lib-dev</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/freedesktop/inputmethods/skim/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>skim</Name>
+            <Summary xml:lang="en">Core of Skim for users.</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-17</Date>
+                <Version>1.4.5</Version>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>scim</Name>
+            <Homepage>http://www.scim-im.org</Homepage>
+            <Packager>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Smart Common Input Method - framework for Input Methods</Summary>
+            <Summary xml:lang="tr">Smart Common Input Method - Girdi Metodları sistemi</Summary>
+            <Description xml:lang="en">Smart Common Input Method (SCIM) is a framework for Input Methods. It is a modular and flexible approach for authoring and using Input Methods for X11 platform.</Description>
+            <Description xml:lang="tr">Smart Common Input Method (SCIM), X11 platformlar için  Girdi Metodlarının yönetilmesi ve kullanılması için modüler ve esnek Girdi Metodları sistemi</Description>
+            <IsA>library</IsA>
+            <PartOf>desktop.freedesktop.inputmethods</PartOf>
+            <License>LGPL-2.1</License>
+            <Archive type="targz" sha1sum="b9dd07a49abdba6d86385c92f8103ebf6df7f341">http://belnet.dl.sourceforge.net/sourceforge/scim/scim-1.4.5.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">skim.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>xorg-server</Dependency>
+                <Dependency versionFrom="0.20.0">pkgconfig</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/freedesktop/inputmethods/scim/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>scim-core</Name>
+            <Summary xml:lang="en">Core of SCIM for users.</Summary>
+            <RuntimeDependencies>
+                <Dependency>xorg-server</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib/libscim-*</Path>
+                <Path fileType="library">/usr/lib/scim-1.0</Path>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="data">/usr/share/scim</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/etc/X11/Xsession.d/90scim" permission="0644">scim.session</AdditionalFile>
+                <AdditionalFile target="/etc/env.d/03scim" permission="0644">scim.env</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <Package>
+            <Name>scim-lib-dev</Name>
+            <Summary xml:lang="en">Includes and pkgconfig for scim development</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib/pkgconfig</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>scim-immodule-gtk</Name>
+            <Summary xml:lang="en">IM Module for GTK applications</Summary>
+            <RuntimeDependencies>
+                <Dependency>scim-core</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/gtk-2.0</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-16</Date>
+                <Version>1.4.5</Version>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
     <Component>
         <Name>programming.tools</Name>
         <LocalName xml:lang="en">Programming tools</LocalName>
@@ -13235,18 +13845,18 @@ terminali</Summary>
         <Description xml:lang="tr">Enlightenment DR17 masaüstünde çalışan çeşitli uygulama yazılımı ve kütüphanelerini içerir.</Description>
     </Component>
     <Component>
-        <Name>desktop.enlightenment.base</Name>
-        <LocalName xml:lang="en">Enlightenment DR17 desktop base packages</LocalName>
-        <LocalName xml:lang="tr">Enlightenment DR17 Temel Masaüstü Paketleri</LocalName>
-        <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait yazılımlar</Summary>
-        <Description xml:lang="tr">Enlightenment DR17 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
-    </Component>
-    <Component>
         <Name>desktop.enlightenment.extra</Name>
         <LocalName xml:lang="en">Enlightenment DR17 desktop extra packages</LocalName>
         <LocalName xml:lang="tr">Enlightenment DR17 Ek Masaüstü Paketleri</LocalName>
         <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait ek yazılımlar</Summary>
         <Description xml:lang="tr">Enlightenment DR17 masaüstü projesi tarafından dağıtılan ek masaüstü uygulamaları</Description>
+    </Component>
+    <Component>
+        <Name>desktop.enlightenment.base</Name>
+        <LocalName xml:lang="en">Enlightenment DR17 desktop base packages</LocalName>
+        <LocalName xml:lang="tr">Enlightenment DR17 Temel Masaüstü Paketleri</LocalName>
+        <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait yazılımlar</Summary>
+        <Description xml:lang="tr">Enlightenment DR17 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
     </Component>
     <Component>
         <Name>desktop.kde</Name>
@@ -13289,5 +13899,11 @@ terminali</Summary>
         <LocalName xml:lang="tr">Xfce4 Özgür Masaüstü Temel Paketleri</LocalName>
         <Summary xml:lang="tr">Xfce4 temel masaüstü paketleri</Summary>
         <Description xml:lang="tr">Xfce4 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
+    </Component>
+    <Component>
+        <Name>desktop.freedesktop.inputmethods</Name>
+        <LocalName xml:lang="en">Input Methods</LocalName>
+        <Summary xml:lang="en">Input Methods for X11 Applications</Summary>
+        <Description xml:lang="en">Many languages have keyboards that cannot be described easily or at all using the xkb system. For these languages Input Methods are an absolute necessity. Input Methods can also serve for easier input of those languages supported by xkb/traditional input methods, especially in the world of Unicode, to input special characters for special users: various typographical characters for Graphics/DTP, special characters for Mathematics, etc.</Description>
     </Component>
 </PISI>
