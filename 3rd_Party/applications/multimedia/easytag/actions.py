@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-mp4")
+    autotools.configure()
 
 def build():
     autotools.make()
