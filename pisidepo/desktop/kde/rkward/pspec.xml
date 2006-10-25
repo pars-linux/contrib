@@ -14,13 +14,11 @@
         <Summary xml:lang="tr">Veri işleme aracı </Summary>
         <Description>RKWard aims to provide an easily extensible, easy to use IDE/GUI for the R-project. RKWard tries to combine the power of the R-language with the (relative) ease of use of commercial statistics tools.</Description>
         <Description xml:lang="tr">RKWard, R projesi için kolayca genişleyebilir, ve kolay kullanılabilir bir grafik arayüz (geliştirme ortamı) sağlamayı amaçlar. R dilinin gücüyle ticari programların kullanım kolaylığını birleştirmeye çalışır.</Description>
-        <Archive sha1sum="8e04b94ecb7d683d52157c8a725a902bfc2a4e0f"  type="targz">http://switch.dl.sourceforge.net/sourceforge/rkward/rkward-0.3.7.tar.gz</Archive>
-        <Patches>
-            <Patch level="1">rkward-0.3.7-utf8.patch</Patch>
-        </Patches>
+        <Archive sha1sum="0b2a926b9eb7fd7a46a81bbe9fdf92599feb9c99"  
+type="targz">http://switch.dl.sourceforge.net/sourceforge/rkward/rkward-0.4.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>R</Dependency>
-            <Dependency>xorg</Dependency>
+            <Dependency>xorg-server</Dependency>
             <Dependency>kdelibs</Dependency>
             <Dependency>php-cli</Dependency>
         </BuildDependencies>
@@ -31,7 +29,7 @@
         <RuntimeDependencies>
             <Dependency>R</Dependency>
             <Dependency>kdelibs</Dependency>
-            <Dependency>xorg</Dependency>
+            <Dependency>xorg-server</Dependency>
             <Dependency>php-cli</Dependency>
         </RuntimeDependencies> 
         <Files>
@@ -43,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2006-10-25</Date>
+            <Version>0.4.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="3">
             <Date>2006-09-20</Date>
             <Version>0.3.7</Version>
