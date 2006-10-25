@@ -7,6 +7,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir="enterminus-20060926"
+
 def setup():
     autotools.configure()
 
