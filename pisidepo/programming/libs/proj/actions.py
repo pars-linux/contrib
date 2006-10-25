@@ -8,7 +8,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "proj-4.5.0b2"
+WorkDir = "proj-4.5.0"
 
 def setup():
     autotools.configure()
