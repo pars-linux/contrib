@@ -7,7 +7,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="audacious-plugins-1.2.0"
+WorkDir="audacious-plugins-1.2.2"
 
 def setup():
     autotools.configure("--enable-ipv6 \
