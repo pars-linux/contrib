@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scilab</Name>
+        <Homepage>http://www.scilab.org/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>scilab</License>
+        <IsA>app:gui</IsA>
+        <Summary>Scientific software package for numerical computations (Matlab lookalike)</Summary>
+        <Summary xml:lang="tr">Rakamsal hesaplama için (MatLab benzeri) bilimsel yazılım paketi</Summary>
+        <Description>Scientific software package for numerical computations (Matlab lookalike)</Description>
+        <Description xml:lang="tr">Rakamsal hesaplama için (MatLab benzeri) bilimsel yazılım paketi</Description>
+        <Archive sha1sum="841dfe0837cd44a0608e70fe2c49023312481fd0" type="targz">http://www.scilab.org/download/stable/scilab-4.0-src.tar.gz</Archive>
+        <Patches>
+            <Patch>scilab.desktop.patch</Patch>
+            <Patch level="1">scilab-4.0-configure-gfortran.patch</Patch>
+            <Patch>scilab-4.0-makefile.in.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.8.18">gtk2</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency>tcl</Dependency>
+            <Dependency versionFrom="1.5">Xaw3d</Dependency>
+            <Dependency versionFrom="3.09.1">ocaml</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>scilab</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.8.18">gtk2</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency>tcl</Dependency>
+            <Dependency versionFrom="1.5">Xaw3d</Dependency>
+            <Dependency versionFrom="3.09.1">ocaml</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-25</Date>
+            <Version>4.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
