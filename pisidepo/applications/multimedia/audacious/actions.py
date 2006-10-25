@@ -7,13 +7,11 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="audacious-1.2.0-rc3"
+WorkDir="audacious-1.2.1"
 
 def setup():
     autotools.configure("--enable-ipv6 \
                          --enable-chardet \
-                         --enable-gconf \
-                         --enable-gnome-vfs \
                          --enable-esd \
                          --enable-mp3 \
                          --enable-lirc \
