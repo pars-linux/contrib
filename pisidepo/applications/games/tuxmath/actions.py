@@ -10,10 +10,6 @@ from pisi.actionsapi import get
 
 WorkDir="tuxmath"
 
-def setup():
-    pisitools.dosed("Makefile","DATA_PREFIX=/usr/share/tuxmath/","DATA_PREFIX=%s/usr/share/tuxmath" % get.installDIR())
-    pisitools.dosed("Makefile","BIN_PREFIX=/usr/local/bin/","BIN_PREFIX=%s/usr/bin" % get.installDIR())
-
 def build():
     autotools.make()
 
@@ -21,7 +17,6 @@ def install():
     pisitools.dodir("/usr/share/tuxmath")
     pisitools.dodir("/usr/bin")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
     pisitools.dodoc("docs/*.txt")
 
     pisitools.removeDir("/usr/share/tuxmath/CVS")
