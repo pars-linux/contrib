@@ -2147,7 +2147,7 @@
             <IsA>library</IsA>
             <PartOf>programming.libs</PartOf>
             <License>MIT</License>
-            <Archive type="targz" sha1sum="99143c27f37485aa03563bff38870dbca88bce41">http://dl.maptools.org/dl/proj/proj-4.5.0b2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="891960e1c15f462fa4b56e4ee778184afec3d39a">ftp://ftp.remotesensing.org/proj/proj-4.5.0.tar.gz</Archive>
             <SourceURI>programming/libs/proj/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -2162,6 +2162,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2006-10-25</Date>
+                <Version>4.5.0</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>Version bump</Comment>
+            </Update>
             <Update release="4">
                 <Date>2006-09-30</Date>
                 <Version>4.5.0_beta2</Version>
@@ -2311,6 +2318,56 @@
             <Update release="1">
                 <Date>2006-05-08</Date>
                 <Version>0.3.3</Version>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+                <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>sisctrl</Name>
+            <Homepage>http://www.winischhofer.at/linuxsisvga.shtml/</Homepage>
+            <Packager>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Tool for setting/changing some driver parameters during runtime on a 300, 315, 330 or 340 series or XGI</Summary>
+            <Summary xml:lang="tr">SiS ekran kartları için ayar programı</Summary>
+            <Description xml:lang="en">Tool for setting/changing some driver parameters during runtime on a 300, 315, 330 or 340 series or XGI</Description>
+            <Description xml:lang="tr">SiS ekran kartları için ayar programı</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>system.admin</PartOf>
+            <License>GPL</License>
+            <Archive type="targz" sha1sum="572eba9624e385a3148f9d20207cdb6e3d346cbf">http://www.winischhofer.net/sis/sisctrl-0.0.20051202.tar.gz</Archive>
+            <Patches>
+                <Patch>sisctrl-0.0.20050618-no-xv.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency>pkgconfig</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>glib2</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/admin/sisctrl/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>sisctrl</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>glib2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-04-02</Date>
+                <Version>0.0.20051202</Version>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
                 <Comment>First release.</Comment>
@@ -3471,46 +3528,6 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>tuxpaint-stamps</Name>
-            <Homepage>http://www.newbreedsoftware.com/tuxpaint</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Set of &apos;Rubber Stamp&apos; images which can be used within Tux Paint</Summary>
-            <Summary xml:lang="tr">Tux Paint için damga resimleri seti</Summary>
-            <Description xml:lang="en">Set of &apos;Rubber Stamp&apos; images which can be used within Tux Paint</Description>
-            <Description xml:lang="tr">Tux Paint için damga resimleri seti</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>applications.multimedia</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="24c25e60d04823342d60c41db17e10f80ffc6827">ftp://ftp.billsgames.com/unix/x/tuxpaint/testbuilds/source/tuxpaint-stamps-2006.10.15.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>tuxpaint</Dependency>
-            </BuildDependencies>
-            <SourceURI>applications/multimedia/tuxpaint-stamps/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tuxpaint-stamps</Name>
-            <RuntimeDependencies>
-                <Dependency>tuxpaint</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-17</Date>
-                <Version>20061015</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>sonik</Name>
             <Homepage>http://sonik.sourceforge.net</Homepage>
             <Packager>
@@ -4222,79 +4239,6 @@ terminali</Summary>
                 <Version>0.2.10</Version>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>tuxpaint</Name>
-            <Homepage>http://www.tuxpaint.org/</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Drawing program designed for young children</Summary>
-            <Summary xml:lang="tr">Çocuklar için hazırlanmış çizim programı</Summary>
-            <Description xml:lang="en">Drawing program designed for young children</Description>
-            <Description xml:lang="tr">Çocuklar için hazırlanmış çizim programı</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>applications.multimedia</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="37eb954ea79356a5c201a437ae333b3177b4ba79">http://switch.dl.sourceforge.net/sourceforge/tuxpaint/tuxpaint-0.9.15b.tar.gz</Archive>
-            <Patches>
-                <Patch>lang-tr.patch</Patch>
-                <Patch>pardus-makefile.patch</Patch>
-            </Patches>
-            <BuildDependencies>
-                <Dependency>libpng</Dependency>
-                <Dependency>sdl-ttf</Dependency>
-                <Dependency>sdl-mixer</Dependency>
-                <Dependency>sdl-image</Dependency>
-                <Dependency>libsdl</Dependency>
-                <Dependency>netpbm</Dependency>
-                <Dependency>gettext</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-            </BuildDependencies>
-            <SourceURI>applications/multimedia/tuxpaint/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tuxpaint</Name>
-            <RuntimeDependencies>
-                <Dependency>libpng</Dependency>
-                <Dependency>sdl-ttf</Dependency>
-                <Dependency>sdl-mixer</Dependency>
-                <Dependency>sdl-image</Dependency>
-                <Dependency>libsdl</Dependency>
-                <Dependency>netpbm</Dependency>
-                <Dependency>gettext</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-                <Path fileType="data">/usr/share/icons</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-09-22</Date>
-                <Version>0.9.15_beta1</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>Build from source, not rpm</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-19</Date>
-                <Version>0.9.15_beta1</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
             </Update>
         </History>
@@ -5310,99 +5254,6 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>pyPdf</Name>
-            <Homepage>http://pybrary.net/pyPdf/</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">A Pure-Python library built as a PDF toolkit</Summary>
-            <Summary xml:lang="tr">A Pure-Python library built as a PDF toolkit</Summary>
-            <Description xml:lang="en">A Pure-Python library built as a PDF toolkit. It is capable of:extracting document information (title, author, ...),splitting documents page by page,merging documents page by page,cropping pages,merging multiple pages into a single page.</Description>
-            <IsA>app:console</IsA>
-            <PartOf>applications.text</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="d4da94f7ac20cb258821636e3e4e13922a21e298">http://pybrary.net/pyPdf/pyPdf-1.6.tar.gz</Archive>
-            <SourceURI>applications/doc/pyPdf/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pyPdf</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-12</Date>
-                <Version>1.6</Version>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-                <Comment>First release.</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>asymptote</Name>
-            <Homepage>http://asymptote.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Asymptote vector graphics framework</Summary>
-            <Summary xml:lang="tr">Asymptote vector graphics framewor</Summary>
-            <Description xml:lang="en">Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing</Description>
-            <Description xml:lang="tr">Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>applications.text</PartOf>
-            <License>GPL-2</License>
-            <Archive type="targz" sha1sum="aef7145c98911b950f324c08373eb30c7c75fb8a">http://superb-west.dl.sourceforge.net/sourceforge/asymptote/asymptote-1.13.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>readline</Dependency>
-                <Dependency>boehm-gc</Dependency>
-                <Dependency>fftw3</Dependency>
-                <Dependency>texinfo</Dependency>
-                <Dependency>ghostscript</Dependency>
-                <Dependency>tetex</Dependency>
-            </BuildDependencies>
-            <SourceURI>applications/doc/asymptote/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>asymptote</Name>
-            <RuntimeDependencies>
-                <Dependency>readline</Dependency>
-                <Dependency>fftw3</Dependency>
-                <Dependency>texinfo</Dependency>
-                <Dependency>ghostscript</Dependency>
-                <Dependency>tetex</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share/asymptote</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-09-06</Date>
-                <Version>1.13</Version>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-                <Comment>version bump</Comment>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-12</Date>
-                <Version>1.06</Version>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-                <Comment>First release.</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>antiword</Name>
             <Homepage>http://www.winfield.demon.nl</Homepage>
             <Packager>
@@ -6146,6 +5997,63 @@ terminali</Summary>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
                 <Comment>First release.</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>scilab</Name>
+            <Homepage>http://www.scilab.org/</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">Scientific software package for numerical computations (Matlab lookalike)</Summary>
+            <Summary xml:lang="tr">Rakamsal hesaplama için (MatLab benzeri) bilimsel yazılım paketi</Summary>
+            <Description xml:lang="en">Scientific software package for numerical computations (Matlab lookalike)</Description>
+            <Description xml:lang="tr">Rakamsal hesaplama için (MatLab benzeri) bilimsel yazılım paketi</Description>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.science</PartOf>
+            <License>scilab</License>
+            <Archive type="targz" sha1sum="841dfe0837cd44a0608e70fe2c49023312481fd0">http://www.scilab.org/download/stable/scilab-4.0-src.tar.gz</Archive>
+            <Patches>
+                <Patch>scilab.desktop.patch</Patch>
+                <Patch level="1">scilab-4.0-configure-gfortran.patch</Patch>
+                <Patch>scilab-4.0-makefile.in.patch</Patch>
+            </Patches>
+            <BuildDependencies>
+                <Dependency versionFrom="2.8.18">gtk2</Dependency>
+                <Dependency>vte</Dependency>
+                <Dependency>tcl</Dependency>
+                <Dependency versionFrom="1.5">Xaw3d</Dependency>
+                <Dependency versionFrom="3.09.1">ocaml</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/science/scilab/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>scilab</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.8.18">gtk2</Dependency>
+                <Dependency>vte</Dependency>
+                <Dependency>tcl</Dependency>
+                <Dependency versionFrom="1.5">Xaw3d</Dependency>
+                <Dependency versionFrom="3.09.1">ocaml</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-25</Date>
+                <Version>4.0</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
             </Update>
         </History>
     </SpecFile>
@@ -7040,7 +6948,7 @@ terminali</Summary>
             <IsA>app:gui</IsA>
             <PartOf>desktop.enlightenment.extra</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="26e81a1e91228c971c70ba06e006ef69490ef208">http://paket.dt.gen.tr/paketler/Eterm-bg-0.9.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="26e81a1e91228c971c70ba06e006ef69490ef208">http://www.pisidepo.org/sources/Eterm-bg-0.9.4.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="0.9.4">eterm</Dependency>
             </BuildDependencies>
@@ -7074,83 +6982,6 @@ terminali</Summary>
             <Update release="1">
                 <Date>2006-06-10</Date>
                 <Version>0.9.3</Version>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-                <Comment>First release</Comment>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>evidence</Name>
-            <Homepage>http://www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <Summary xml:lang="en">Enlightened file-manager</Summary>
-            <Summary xml:lang="tr">Enlightenment İçin Dosya Yöneticisi</Summary>
-            <Description xml:lang="en">Enlightened file-manager</Description>
-            <Description xml:lang="tr">Enlightenment İçin Dosya Yöneticisi</Description>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <License>GPL-2</License>
-            <Archive type="tarbz2" sha1sum="4e81379c956aa84d380c0413c85c3cc0803bcf7f">http://gsmp.tfh-berlin.de/mirror/t2-source/7.0/e/evidence-2006-04-17.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.5">pkgconfig</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libogg</Dependency>
-                <Dependency>libpcre</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency versionFrom="1.1.0">xine-lib</Dependency>
-                <Dependency>libao</Dependency>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="1.2.0">imlib2</Dependency>
-                <Dependency versionFrom="2.0">gnome-vfs</Dependency>
-                <Dependency versionFrom="2.0">libart_lgpl</Dependency>
-                <Dependency versionFrom="2.0">libgnomecanvas</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/evidence/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>evidence</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.5">pkgconfig</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libogg</Dependency>
-                <Dependency>libpcre</Dependency>
-                <Dependency versionFrom="2">freetype</Dependency>
-                <Dependency versionFrom="1.1.0">xine-lib</Dependency>
-                <Dependency>libao</Dependency>
-                <Dependency versionFrom="1.0.5">edb</Dependency>
-                <Dependency versionFrom="0.9.9">evas</Dependency>
-                <Dependency versionFrom="0.9.9">ecore</Dependency>
-                <Dependency versionFrom="0.9.9">eet</Dependency>
-                <Dependency versionFrom="1.2.0">imlib2</Dependency>
-                <Dependency versionFrom="2.0">gnome-vfs</Dependency>
-                <Dependency versionFrom="2.0">libart_lgpl</Dependency>
-                <Dependency versionFrom="2.0">libgnomecanvas</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/evidence.desktop" permission="0644">evidence.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-13</Date>
-                <Version>0.9.8-20050207</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
@@ -7670,6 +7501,52 @@ terminali</Summary>
             <Update release="1">
                 <Date>2006-06-14</Date>
                 <Version>0.9.8-20050207</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>enterminus</Name>
+            <Homepage>www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <Summary xml:lang="en">An EFL Based Terminal</Summary>
+            <Summary xml:lang="tr">EFL tabanlı terminal</Summary>
+            <Description xml:lang="en">An EFL Based Terminal</Description>
+            <Description xml:lang="tr">EFL tabanlı terminal</Description>
+            <IsA>AS IS</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <License>as-is</License>
+            <Archive type="tarbz2" sha1sum="bd61ad5867ac887d67adc7bb544eb4ffaba2f8d7">http://www.pisidepo.org/sources/enterminus-20060926.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency>imlib2</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/enterminus/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>enterminus</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.035">evas</Dependency>
+                <Dependency>imlib2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-25</Date>
+                <Version>0.1_20060926</Version>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
                 <Comment>First release</Comment>
@@ -8952,13 +8829,10 @@ terminali</Summary>
             <IsA>app:gui</IsA>
             <PartOf>desktop.kde</PartOf>
             <License>GPL-2</License>
-            <Archive type="targz" sha1sum="8e04b94ecb7d683d52157c8a725a902bfc2a4e0f">http://switch.dl.sourceforge.net/sourceforge/rkward/rkward-0.3.7.tar.gz</Archive>
-            <Patches>
-                <Patch level="1">rkward-0.3.7-utf8.patch</Patch>
-            </Patches>
+            <Archive type="targz" sha1sum="0b2a926b9eb7fd7a46a81bbe9fdf92599feb9c99">http://switch.dl.sourceforge.net/sourceforge/rkward/rkward-0.4.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>R</Dependency>
-                <Dependency>xorg</Dependency>
+                <Dependency>xorg-server</Dependency>
                 <Dependency>kdelibs</Dependency>
                 <Dependency>php-cli</Dependency>
             </BuildDependencies>
@@ -8969,7 +8843,7 @@ terminali</Summary>
             <RuntimeDependencies>
                 <Dependency>R</Dependency>
                 <Dependency>kdelibs</Dependency>
-                <Dependency>xorg</Dependency>
+                <Dependency>xorg-server</Dependency>
                 <Dependency>php-cli</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -8980,6 +8854,13 @@ terminali</Summary>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2006-10-25</Date>
+                <Version>0.4.0</Version>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+                <Comment>Version bump.</Comment>
+            </Update>
             <Update release="3">
                 <Date>2006-09-20</Date>
                 <Version>0.3.7</Version>
@@ -13720,6 +13601,55 @@ terminali</Summary>
             </Update>
         </History>
     </SpecFile>
+    <Package>
+        <Name>e_utils</Name>
+        <Summary xml:lang="en">Menu editor for enlightenment e17</Summary>
+        <Summary xml:lang="tr">e17 için menu düzenleyicisi</Summary>
+        <Description xml:lang="en">Menu editor for enlightenment e17</Description>
+        <Description xml:lang="tr">e17 için menu düzenleyicisi</Description>
+        <IsA>app:gui</IsA>
+        <PartOf>desktop.enlightenment.extra</PartOf>
+        <License>GPL2</License>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.9.10.035">eet</Dependency>
+            <Dependency versionFrom="0.9.9.035">ecore</Dependency>
+            <Dependency versionFrom="0.16.999.035">enlightenment</Dependency>
+            <Dependency versionFrom="0.1.0_20060926">engrave</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            <Dependency versionFrom="0.9.9.035">evas</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <History>
+            <Update release="1">
+                <Date>2006-10-24</Date>
+                <Version>0.0.1_20060926</Version>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+                <Comment>First release</Comment>
+            </Update>
+        </History>
+        <Distribution>Pardus</Distribution>
+        <DistributionRelease>1.1</DistributionRelease>
+        <Architecture>Any</Architecture>
+        <InstalledSize>567308</InstalledSize>
+        <PackageSize>380341</PackageSize>
+        <PackageHash>cb08175fbbe90f9cb88715d4a0a90074a4e9e03a</PackageHash>
+        <PackageURI>desktop/enlightenment/extra/e_utils/e_utils-0.0.1_20060926-1.pisi</PackageURI>
+        <PackageFormat>1.1</PackageFormat>
+        <Source>
+            <Name>e_utils</Name>
+            <Homepage>http://www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+        </Source>
+    </Package>
     <Component>
         <Name>programming.tools</Name>
         <LocalName xml:lang="en">Programming tools</LocalName>
