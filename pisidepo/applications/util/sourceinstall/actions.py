@@ -3,8 +3,6 @@
 #
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
-#
-# Hakan Sonmez
 
 from pisi.actionsapi import autotools
 

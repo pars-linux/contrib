@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Eren Türkay <turkay.eren@gmail.com>
+# Licensed under the GNU General Public License, version 2.
+# See the file http://www.gnu.org/copyleft/gpl.txt.
 
 WorkDir="hamachi-0.9.9.9-20-lnx"
 
