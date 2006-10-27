@@ -6,18 +6,34 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 WorkDir="tuxmath"
 
 def setup():
-    pass
+    pisitools.dosed("Makefile","DATA_PREFIX=/usr/share/tuxmath/","DATA_PREFIX=%s/usr/share/tuxmath" % get.installDIR())
+    pisitools.dosed("Makefile","BIN_PREFIX=/usr/local/bin/","BIN_PREFIX=%s/usr/bin" % get.installDIR())
 
 def build():
     autotools.make()
 
 def install():
-    pisitools.dodir("/usr/share/tuxmax")
+    pisitools.dodir("/usr/share/tuxmath")
     pisitools.dodir("/usr/bin")
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("docs/*.txt")
+
+    pisitools.removeDir("/usr/share/tuxmath/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/cities/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/tux/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/status/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/status/.xvpics")
+    pisitools.removeDir("/usr/share/tuxmath/images/ufos/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/backgrounds/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/backgrounds/CVS/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/images/comets/CVS")
+    pisitools.removeDir("/usr/share/tuxmath/sounds/CVS")
+
 
