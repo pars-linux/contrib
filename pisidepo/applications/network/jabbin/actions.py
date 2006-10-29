@@ -15,7 +15,6 @@ def setup():
     shelltools.export("QTDIR", "%s" % get.qtDIR())
 
 def build():
-
     shelltools.system("%s/bin/qmake -o Makefile jabbin.pro" % get.qtDIR())
     autotools.make()
 
