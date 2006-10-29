@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>jabbin</Name>
+        <Homepage>http://www.jabbin.com/int/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Jabbin is an Open Source Jabber client program that allows free PC to PC calls using the VoIP system over the Jabber network</Summary>
+        <Summary xml:lang="tr">Jabber ağı üzerinden sesli görüşme yapabilmenizi sağlayan, açık kaynak kodlu bir Jabber istemcisidir</Summary>
+        <Description>Jabbin is an Open Source Jabber client program that allows free PC to PC calls using the VoIP system over the Jabber network</Description>
+        <Description xml:lang="tr">Jabber ağı üzerinden sesli görüşme yapabilmenizi sağlayan, açık kaynak kodlu bir Jabber istemcisidir</Description>
+        <Archive sha1sum="0ab4b4b8bcfccef892927b12bd8a52d02b86b4dd" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/jabbin/jabbin-2.0beta.tar.bz2</Archive>
+        <Patches>
+            <Patch>jabbin.desktop.patch</Patch>
+            <Patch>qca-tls.cpp.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="3.3.7">qt</Dependency>
+            <Dependency versionFrom="1.0">qca</Dependency>
+            <Dependency versionFrom="2.6.8">rsync</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>jabbin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.3.7">qt</Dependency>
+            <Dependency versionFrom="1.0">qca</Dependency>
+            <Dependency versionFrom="2.6.8">rsync</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/jabbin.png">jabbin.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-29</Date>
+            <Version>2.0_beta2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
