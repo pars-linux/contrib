@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="soundkonverter-0.2.80"
+WorkDir="soundkonverter-0.2.90"
 
 def setup():
     kde.configure("--with-lame \
