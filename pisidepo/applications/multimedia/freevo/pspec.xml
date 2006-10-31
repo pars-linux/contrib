@@ -14,7 +14,7 @@
         <Summary xml:lang="tr">Sayısal vidyo oynatma ortamı</Summary>
         <Description>Freevo is an open-source home theatre PC platform based on Linux</Description>
         <Description xml:lang="tr">Linux tabanlı, açık kaynak çoklu ortam platformu</Description>
-        <Archive sha1sum="60c698af516a6b6ebcbd32e78e4977d5115eaf26" type="tarbz2">http://www.pisidepo.org/sources/freevo-8396.tar.bz2</Archive>
+        <Archive sha1sum="570a01bb5fdc3ad47bb1f68a4c0ec8ef5ed5bccc" type="targz">http://heanet.dl.sourceforge.net/sourceforge/freevo/freevo-1.6.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.7.1">pygame</Dependency>
             <Dependency versionFrom="1.1.5">python-imaging</Dependency>
@@ -29,8 +29,9 @@
             <Dependency versionFrom="0.0.5">pylirc</Dependency>
             <Dependency versionFrom="3.9.8">cdparanoia</Dependency>
             <Dependency versionFrom="3.97">lame</Dependency>
+            <Dependency>elementtree</Dependency>
             <Dependency>lirc</Dependency>
-	    <Dependency>pysqlite</Dependency>
+            <Dependency>pysqlite</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -51,8 +52,8 @@
             <Dependency versionFrom="3.9.8">cdparanoia</Dependency>
             <Dependency versionFrom="3.97">lame</Dependency>
             <Dependency>lirc</Dependency>
-            <Dependency>kaa</Dependency>
-	    <Dependency>pysqlite</Dependency>
+            <Dependency>elementtree</Dependency>
+            <Dependency>pysqlite</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc/freevo</Path>
@@ -70,6 +71,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2006-10-31</Date>
+            <Version>1.6.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-10-16</Date>
             <Version>8396</Version>

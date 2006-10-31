@@ -6,3 +6,4 @@ def postInstall():
     os.system("chmod 777 /var/cache/freevo")
     os.system("chmod 777 /var/log/freevo")
     os.system("freevo setup")
+    os.system("freevo plugins -a")
