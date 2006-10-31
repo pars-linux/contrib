@@ -6,6 +6,7 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import kde
+from pisi.actionsapi import pisitools
 
 def setup():
     kde.configure()
@@ -15,3 +16,4 @@ def build():
 
 def install():
     kde.install()
+    pisitools.domo("po/tr.po","tr","ksubtile.mo")
