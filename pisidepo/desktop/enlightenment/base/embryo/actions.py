@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="embryo-0.9.1.035"
+WorkDir="embryo-0.9.1.036"
 
 def setup():
 
