@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import libtools
 from pisi.actionsapi import get
 
-WorkDir="edje-0.5.0.035"
+WorkDir="edje-0.5.0.036"
 
 def setup():
     autotools.configure("--enable-edje-cc \
