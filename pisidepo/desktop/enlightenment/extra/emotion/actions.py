@@ -11,7 +11,6 @@ from pisi.actionsapi import get
 WorkDir="emotion-20060926"
 
 def setup():
-
     autotools.configure("--with-eet \
                         --with-eet-exec \
                         --with-evas \
