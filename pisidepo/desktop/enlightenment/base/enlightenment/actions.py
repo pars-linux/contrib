@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="enlightenment-0.16.999.035"
+WorkDir="enlightenment-0.16.999.036"
 
 def setup():
     autotools.configure("--enable-nls \
