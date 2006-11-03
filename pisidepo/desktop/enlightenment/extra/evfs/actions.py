@@ -6,13 +6,12 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="evfs"
+WorkDir="evfs-20060926"
 
 def setup():
-    shelltools.system("./autogen.sh --prefix=/usr --enable-samba --enable-threads")
+    autotools.configure("--prefix=/usr --enable-samba --enable-threads")
 
 def build():
     autotools.make()
