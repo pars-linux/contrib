@@ -14,7 +14,7 @@ def setup():
     autotools.configure("--enable-compat185 \
                          --enable-dump185 \
                          --disable-bigfile \
-                         --enable-gtk \
+                         --disable-gtk \
                          --disable-test \
                          --enable-ncurses")
 
