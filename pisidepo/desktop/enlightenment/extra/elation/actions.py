@@ -4,16 +4,13 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="elation"
+WorkDir="elation-20060926"
 
 def setup():
-
-    shelltools.system("./autogen.sh")
     autotools.configure()
 
 def build():
