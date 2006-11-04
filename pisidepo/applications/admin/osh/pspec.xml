@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>osh</Name>
+        <Homepage>http://geophile.com/osh/</Homepage>
+        <Packager>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Object Shell Environment for command choreography</Summary>
+        <Description>Osh is not a shell. It is an executable implementing a language that supports the composition of commands through piping. The objects piped from one command to the next can be Python primitives (numbers, lists, maps, etc.), other useful types such as dates/times, or database rows; or represent various OS resources such as files, directories, and processes. Conversions between objects and strings simplify integration with the Unix environment. The commands included with osh manipulate objects, access databases, and execute commands remotely, including parallel execution on nodes in a cluster. In a single osh invocation, all commands run in a single process. Multithreading is used only when executing commands on a cluster.</Description>
+        <Archive sha1sum="c87d81a74221f1a12ac6ddc956f88bba5ab02f69" type="targz">http://geophile.com/osh/osh-0.7.1.tar.gz</Archive>
+
+        <Patches>
+            <Patch>setup-fix-remove-archive.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>osh</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="executable">/usr/share/osh/test</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-05</Date>
+            <Version>0.7.1</Version>
+            <Comment>First release</Comment>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
