@@ -38,5 +38,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.domo("po/tr.po","tr","enlightenment.mo")
+    pisitools.dosym("/usr/share/xsessions/enlightenment.desktop", "%s/share/apps/kdm/sessions/enlightenment.desktop" % get.kdeDIR())
+    pisitools.rename("%s/share/apps/kdm/sessions/enlightenment.desktop" % get.kdeDIR(), "E17.desktop")
     pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README*", "docs/README*")
 
