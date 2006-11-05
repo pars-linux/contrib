@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>beryl</Name>
+        <Homepage>http://beryl-project.org</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>OpenGL composite manager for Xgl and AIGLX</Summary>
+        <Summary xml:lang="tr">AiGLX ve XGL için OpenGL pencere yöneticisi</Summary>
+        <Description>This is a fork of the compiz window manager driven to add bleeding edge features and plugins that may not fall quite inline with the overall plans for compiz.</Description>
+        <Description xml:lang="tr">Beryl, compiz pencere yöneticisinin bir koludur. Amacı, compiz'in planları dışındaki yeni özellikleri içeren bir pencere yöneticisi oluşturmaktır.</Description>
+        <Archive sha1sum="2bd0fd8ae2ec564ac338cb781d41d035754f2402" type="tarbz2">http://ugur.jnmbk.googlepages.com/beryl.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.1.1">xorg-server</Dependency>
+            <Dependency versionFrom="2.8.0">gtk2</Dependency>
+            <Dependency>libXcomposite</Dependency>
+            <Dependency>libXdamage</Dependency>
+            <Dependency>libXrandr</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency>libwnck</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>beryl</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.1.1">xorg-server</Dependency>
+            <Dependency versionFrom="2.8.0">gtk2</Dependency>
+            <Dependency>libXcomposite</Dependency>
+            <Dependency>libXdamage</Dependency>
+            <Dependency>libXrandr</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency>libwnck</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/beryl</Path>
+            <Path fileType="data">/usr/share/emerald</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/mime-info</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-05</Date>
+            <Version>0.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
