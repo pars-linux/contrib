@@ -8,4 +8,3 @@ from pisi.actionsapi import pisitools
 
 def install():
     pisitools.insinto("/usr/share/pilonga", "*.tcl")
-    pisitools.dodoc("README", "TODO")
