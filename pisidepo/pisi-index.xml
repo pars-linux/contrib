@@ -64,10 +64,7 @@
             <Summary xml:lang="tr">ebuild&apos;den pisi yapma aracı</Summary>
             <Description xml:lang="en">Pilonga automatically downloads and converts ebuild files to pisi files. Can be used by typing &quot;pilonga packagename&quot; in the console.</Description>
             <Description xml:lang="tr">Pilonga ebuild dosyalarından pisi kaynağı üretir. Konsoldan &quot;pilonga paketadı&quot; şeklinde kullanılabilir.</Description>
-            <Archive type="targz" sha1sum="1e6ddb5e9f4d87fb34cf0f709ecb38eef9ddba80">http://switch.dl.sourceforge.net/sourceforge/pilonga/pilonga-1.1.tar.gz</Archive>
-            <Patches>
-                <Patch level="1">fixd1.patch</Patch>
-            </Patches>
+            <Archive type="targz" sha1sum="74872ff1106d675b15c1a26a32c07e1cf7edf1c3">http://switch.dl.sourceforge.net/sourceforge/pilonga/pilonga-1.2.tar.gz</Archive>
             <SourceURI>programming/tools/pilonga/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -85,6 +82,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-11-06</Date>
+                <Version>1.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-09-24</Date>
                 <Version>1.1</Version>
@@ -283,6 +287,47 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>elementtree</Name>
+            <Homepage>http://effbot.org/zone/element-index.htm</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <License>ElementTree</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">A light-weight XML object model for Python</Summary>
+            <Summary xml:lang="tr">Python için XML nesne modeli</Summary>
+            <Description xml:lang="en">A light-weight XML object model for Python</Description>
+            <Description xml:lang="tr">Python için XML nesne modeli</Description>
+            <Archive type="targz" sha1sum="7d1f6fb534f177623a0482ef192a6170fd21fb1c">http://effbot.org/downloads/elementtree-1.2.6-20050316.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.4.4">python</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/python/elementtree/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>elementtree</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.4.4">python</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-31</Date>
+                <Version>1.2.6_20050316</Version>
+                <Comment>First release</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>mmpython</Name>
             <Homepage>http://sourceforge.net/projects/mmpython</Homepage>
             <Packager>
@@ -333,73 +378,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>kaa</Name>
-            <Homepage>http://www.freevo.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <License>GPL-2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.languages.python</PartOf>
-            <Summary xml:lang="en">Kaa is Freevo Media Framework</Summary>
-            <Summary xml:lang="tr">Freevo çoklu ortam modülleri</Summary>
-            <Description xml:lang="en">Kaa is Freevo Media Framework</Description>
-            <Description xml:lang="tr">Freevo çoklu ortam modülleri</Description>
-            <Archive type="targz" sha1sum="eb7199900dc93596077285a3981718a0c11245f8">http://www.pisidepo.org/sources/kaa-1922.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="1.7.1">pygame</Dependency>
-                <Dependency versionFrom="1.1.5">python-imaging</Dependency>
-                <Dependency versionFrom="2.2.0">Twisted</Dependency>
-                <Dependency versionFrom="0.5.0">TwistedWeb</Dependency>
-                <Dependency>mplayer</Dependency>
-                <Dependency versionFrom="0.4.9">mmpython</Dependency>
-                <Dependency versionFrom="2.2.1">freetype</Dependency>
-                <Dependency versionFrom="1.2.11">libsdl</Dependency>
-                <Dependency versionFrom="0.8.4">PyXML</Dependency>
-                <Dependency versionFrom="0.16">lsdvd</Dependency>
-                <Dependency versionFrom="0.0.5">pylirc</Dependency>
-                <Dependency versionFrom="3.9.8">cdparanoia</Dependency>
-                <Dependency versionFrom="3.97">lame</Dependency>
-                <Dependency>lirc</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/languages/python/kaa/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kaa</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="1.7.1">pygame</Dependency>
-                <Dependency versionFrom="1.1.5">python-imaging</Dependency>
-                <Dependency versionFrom="2.2.0">Twisted</Dependency>
-                <Dependency versionFrom="0.5.0">TwistedWeb</Dependency>
-                <Dependency>mplayer</Dependency>
-                <Dependency versionFrom="0.4.9">mmpython</Dependency>
-                <Dependency versionFrom="2.2.1">freetype</Dependency>
-                <Dependency versionFrom="1.2.11">libsdl</Dependency>
-                <Dependency versionFrom="0.8.4">PyXML</Dependency>
-                <Dependency versionFrom="0.16">lsdvd</Dependency>
-                <Dependency versionFrom="0.0.5">pylirc</Dependency>
-                <Dependency versionFrom="3.9.8">cdparanoia</Dependency>
-                <Dependency versionFrom="3.97">lame</Dependency>
-                <Dependency>lirc</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-16</Date>
-                <Version>1922</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>lsdvd</Name>
             <Homepage>http://untrepid.com/lsdvd</Homepage>
             <Packager>
@@ -437,47 +415,6 @@
             <Update release="1">
                 <Date>2006-10-15</Date>
                 <Version>0.16</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>elementtree</Name>
-            <Homepage>http://effbot.org/zone/element-index.htm</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <License>ElementTree</License>
-            <IsA>library</IsA>
-            <PartOf>programming.languages.python</PartOf>
-            <Summary xml:lang="en">A light-weight XML object model for Python</Summary>
-            <Summary xml:lang="tr">Python için XML nesne modeli</Summary>
-            <Description xml:lang="en">A light-weight XML object model for Python</Description>
-            <Description xml:lang="tr">Python için XML nesne modeli</Description>
-            <Archive type="targz" sha1sum="7d1f6fb534f177623a0482ef192a6170fd21fb1c">http://effbot.org/downloads/elementtree-1.2.6-20050316.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="2.4.4">python</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/languages/python/elementtree/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>elementtree</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="2.4.4">python</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-31</Date>
-                <Version>1.2.6_20050316</Version>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
@@ -594,6 +531,87 @@
             <Update release="1">
                 <Date>2006-06-23</Date>
                 <Version>1.029</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>ExtUtils-Depends</Name>
+            <Homepage>http://search.cpan.org/~rmcfarla/ExtUtils-Depends-0.205</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.perl</PartOf>
+            <Summary xml:lang="en">A library for easily build XS extensions that depend on XS extensions</Summary>
+            <Summary xml:lang="tr">XS uzantılarına bağımlı XS uzantılarını kolayca oluşturabilmek için bir kütüphane</Summary>
+            <Description xml:lang="en">This module tries to make it easy to build Perl extensions that use functions and typemaps provided by other perl extensions.</Description>
+            <Archive type="targz" sha1sum="58a2a648731060ba333517d7a93eaf47a87a291a">http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/Gtk2-Perl/ExtUtils-Depends-0.205.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>perl</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/perl/ExtUtils-Depends/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ExtUtils-Depends</Name>
+            <RuntimeDependencies>
+                <Dependency>perl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-05</Date>
+                <Version>0.205</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>ExtUtils-PkgConfig</Name>
+            <Homepage>http://search.cpan.org/~rmcfarla/ExtUtils-PkgConfig-1.07/</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.perl</PartOf>
+            <Summary xml:lang="en">A library which converts Perl XS code into C code</Summary>
+            <Summary xml:lang="tr">Perl XS kodunu C koduna çeviren bir kütüphane</Summary>
+            <Description xml:lang="en">The pkg-config program retrieves information about installed libraries, usually for the purposes of compiling against and linking to them.</Description>
+            <Description xml:lang="tr">Pkg-config programı, genellikle derleme ve bağlantı oluşturma amaçları için kurulmuş olan kütüphanelerin bilgilerini getirir.</Description>
+            <Archive type="targz" sha1sum="5bc9a7e9a5e21d3325c693950e2d9ba2aa6147a8">http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/Gtk2-Perl/ExtUtils-PkgConfig-1.07.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>perl</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/perl/ExtUtils-PkgConfig/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ExtUtils-PkgConfig</Name>
+            <RuntimeDependencies>
+                <Dependency>perl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-05</Date>
+                <Version>1.07</Version>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
@@ -768,6 +786,172 @@
             <Update release="1">
                 <Date>2006-06-23</Date>
                 <Version>2.34</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>Config-Tiny</Name>
+            <Homepage>http://search.cpan.org/~adamk/Config-Tiny-2.10</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>Artistic</License>
+            <License>GPL</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.perl</PartOf>
+            <Summary xml:lang="en">A module for reading and writing .ini style files with as little code as possible</Summary>
+            <Summary xml:lang="tr">Mümkün olan en küçük kod ile .ini şeklindeki dosyaları okumaya ve yazmaya yarayan bir modül</Summary>
+            <Description xml:lang="en">...</Description>
+            <Archive type="targz" sha1sum="ed266c1ee567eeecf454285e3d256acba250c754">http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/Config-Tiny-2.10.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>perl</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/perl/Config-Tiny/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>Config-Tiny</Name>
+            <RuntimeDependencies>
+                <Dependency>perl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-06</Date>
+                <Version>2.10</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>XML-Writer</Name>
+            <Homepage>http://search.cpan.org/~josephw/XML-Writer-0.600/</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>Artistic</License>
+            <License>GPL</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.perl</PartOf>
+            <Summary xml:lang="en">XML Writer Perl Module</Summary>
+            <Summary xml:lang="tr">XML Yazıcı Perl Modülü</Summary>
+            <Description xml:lang="en">XML::Writer is a simple Perl module for writing XML documents</Description>
+            <Archive type="targz" sha1sum="4b8f6b255f8d61097d86be98bad5e16e1fd46b38">http://search.cpan.org/CPAN/authors/id/J/JO/JOSEPHW/XML-Writer-0.601.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>perl</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/perl/XML-Writer/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>XML-Writer</Name>
+            <RuntimeDependencies>
+                <Dependency>perl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-06</Date>
+                <Version>0.601</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>Algorithm-Diff</Name>
+            <Homepage>http://search.cpan.org/~tyemq/Algorithm-Diff-1.1901/</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>Artistic</License>
+            <License>GPL-2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.perl</PartOf>
+            <Summary xml:lang="en">Compute intelligent differences between two files / lists</Summary>
+            <Summary xml:lang="tr">İki dosya veya liste arasındaki farkı hesaplar</Summary>
+            <Description xml:lang="en">This is a module for computing the difference between two files, two strings, or any other two lists of things.  It uses an intelligent algorithm similar to (or identical to) the one used by the Unix &quot;diff&quot; program.</Description>
+            <Archive type="targz" sha1sum="f687d21fc0d42e6a065e465f326c97cd3f980639">http://search.cpan.org/CPAN/authors/id/T/TY/TYEMQ/Algorithm-Diff-1.1902.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>unzip</Dependency>
+                <Dependency>perl</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/perl/Algorithm-Diff/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>Algorithm-Diff</Name>
+            <RuntimeDependencies>
+                <Dependency>unzip</Dependency>
+                <Dependency>unzip</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-06</Date>
+                <Version>1.1902</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>Algorithm-Annotate</Name>
+            <Homepage>http://search.cpan.org/~clkao/Algorithm-Annotate-0.10/</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>Artistic</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.perl</PartOf>
+            <Summary xml:lang="en">Represent a series of changes in annotate form</Summary>
+            <Description xml:lang="en">A perl module for representing a series of changes in annotate form</Description>
+            <Archive type="targz" sha1sum="7d6c94c4911d6472e0007dfb64210960a5255169">http://search.cpan.org/CPAN/authors/id/C/CL/CLKAO/Algorithm-Annotate-0.10.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>perl</Dependency>
+                <Dependency versionFrom="1.15">Algorithm-Diff</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/perl/Algorithm-Annotate/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>Algorithm-Annotate</Name>
+            <RuntimeDependencies>
+                <Dependency>perl</Dependency>
+                <Dependency versionFrom="1.15">Algorithm-Diff</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-06</Date>
+                <Version>0.10</Version>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
@@ -1295,60 +1479,6 @@
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>fltk-cvs</Name>
-            <Homepage>http://www.fltk.org</Homepage>
-            <Packager>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Packager>
-            <License>LGPL-2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.libs</PartOf>
-            <Summary xml:lang="en">FLTK (pronounced &quot;fulltick&quot;) is a cross-platform C++ GUI toolkit</Summary>
-            <Summary xml:lang="tr">FLTK, platformlar arası C++ kullanıcı arayüzü için bir araç takımı</Summary>
-            <Description xml:lang="en">FLTK (pronounced &quot;fulltick&quot;) is a cross-platform C++ GUI toolkit</Description>
-            <Description xml:lang="tr">FLTK, platformlar arası C++ kullanıcı arayüzü için bir araç takımı</Description>
-            <Archive type="tarbz2" sha1sum="3f750510c39f4047c8844714459d014a7bf6c2a1">http://gd.tuwien.ac.at/hci/fltk/snapshots/fltk-2.0.x-r4886.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>libpng</Dependency>
-                <Dependency>jpeg</Dependency>
-                <Dependency>groff</Dependency>
-                <Dependency>xorg</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">makefile.patch</Patch>
-            </Patches>
-            <SourceURI>programming/libs/fltk-cvs/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>fltk-cvs</Name>
-            <RuntimeDependencies>
-                <Dependency>libpng</Dependency>
-                <Dependency>jpeg</Dependency>
-                <Dependency>xorg</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Conflicts>
-                <Package>fltk</Package>
-            </Conflicts>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-09-07</Date>
-                <Version>4886</Version>
-                <Comment>First release.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
             </Update>
         </History>
     </SpecFile>
@@ -2304,6 +2434,41 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>fakeroot</Name>
+            <Homepage>http://fakeroot.alioth.debian.org/</Homepage>
+            <Packager>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Packager>
+            <License>GPL</License>
+            <IsA>app:console</IsA>
+            <PartOf>system.devel</PartOf>
+            <Summary xml:lang="en">Fakeroot provides a fake root environment by means of LD_PRELOAD and SYSV IPC (or TCP) trickery.</Summary>
+            <Description xml:lang="en">Fakeroot provides a fake root environment by means of LD_PRELOAD and SYSV IPC (or TCP) trickery. This can only be used for mundane tasks.</Description>
+            <Archive type="targz" sha1sum="2b5b90f812c0d99617936e49c740fdfdc5766220">http://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.5.10.tar.gz</Archive>
+            <SourceURI>system/devel/fakeroot/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fakeroot</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-10-30</Date>
+                <Version>1.5.10</Version>
+                <Comment>First release</Comment>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xarchiver</Name>
             <Homepage>http://xarchiver.xfce.org/</Homepage>
             <Packager>
@@ -2419,6 +2584,44 @@
                 <Comment>First release.</Comment>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>osh</Name>
+            <Homepage>http://geophile.com/osh/</Homepage>
+            <Packager>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>app:console</IsA>
+            <PartOf>system.admin</PartOf>
+            <Summary xml:lang="en">Object Shell Environment for command choreography</Summary>
+            <Description xml:lang="en">Osh is not a shell. It is an executable implementing a language that supports the composition of commands through piping. The objects piped from one command to the next can be Python primitives (numbers, lists, maps, etc.), other useful types such as dates/times, or database rows; or represent various OS resources such as files, directories, and processes. Conversions between objects and strings simplify integration with the Unix environment. The commands included with osh manipulate objects, access databases, and execute commands remotely, including parallel execution on nodes in a cluster. In a single osh invocation, all commands run in a single process. Multithreading is used only when executing commands on a cluster.</Description>
+            <Archive type="targz" sha1sum="c87d81a74221f1a12ac6ddc956f88bba5ab02f69">http://geophile.com/osh/osh-0.7.1.tar.gz</Archive>
+            <Patches>
+                <Patch>setup-fix-remove-archive.patch</Patch>
+            </Patches>
+            <SourceURI>applications/admin/osh/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>osh</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="executable">/usr/share/osh/test</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-05</Date>
+                <Version>0.7.1</Version>
+                <Comment>First release</Comment>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -2615,7 +2818,7 @@
             <Summary xml:lang="en">Console-based MSN Client</Summary>
             <Summary xml:lang="tr">Konsol tabanlı MSN istemcisi</Summary>
             <Description xml:lang="en">Console-based MSN Client</Description>
-            <Archive type="targz" sha1sum="ec220279fa78a8a1a728692e5483f9fb9c8d24f6">http://internap.dl.sourceforge.net/sourceforge/tmsnc/tmsnc-0.3.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2162df4aa47a56932c2982b1928a941a03d1dcc0">http://easynews.dl.sourceforge.net/sourceforge/tmsnc/tmsnc-0.3.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>openssl</Dependency>
                 <Dependency versionFrom="5.4">ncurses</Dependency>
@@ -2634,6 +2837,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-11-06</Date>
+                <Version>0.3.2</Version>
+                <Comment>Versin bump</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-08-10</Date>
                 <Version>0.3.1</Version>
@@ -2645,39 +2855,56 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>pytapioca</Name>
-            <Homepage>http://tapioca-voip.sourceforge.net</Homepage>
+            <Name>jabbin</Name>
+            <Homepage>http://www.jabbin.com/int/</Homepage>
             <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
-            <IsA>library</IsA>
+            <License>GPL</License>
+            <IsA>app:gui</IsA>
             <PartOf>applications.network</PartOf>
-            <Summary xml:lang="en">PyTapioca</Summary>
-            <Description xml:lang="en">PyTapioca</Description>
-            <Archive type="targz" sha1sum="e2d131799adf56188341925d055eb7f173a7b9f4">http://heanet.dl.sourceforge.net/sourceforge/tapioca-voip/pytapioca-0.3.9.tar.gz</Archive>
+            <Summary xml:lang="en">Jabbin is an Open Source Jabber client program that allows free PC to PC calls using the VoIP system over the Jabber network</Summary>
+            <Summary xml:lang="tr">Jabber ağı üzerinden sesli görüşme yapabilmenizi sağlayan, açık kaynak kodlu bir Jabber istemcisidir</Summary>
+            <Description xml:lang="en">Jabbin is an Open Source Jabber client program that allows free PC to PC calls using the VoIP system over the Jabber network</Description>
+            <Description xml:lang="tr">Jabber ağı üzerinden sesli görüşme yapabilmenizi sağlayan, açık kaynak kodlu bir Jabber istemcisidir</Description>
+            <Archive type="tarbz2" sha1sum="0ab4b4b8bcfccef892927b12bd8a52d02b86b4dd">http://heanet.dl.sourceforge.net/sourceforge/jabbin/jabbin-2.0beta.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>tapiocad</Dependency>
+                <Dependency versionFrom="3.3.7">qt</Dependency>
+                <Dependency versionFrom="1.0">qca</Dependency>
+                <Dependency versionFrom="2.6.8">rsync</Dependency>
             </BuildDependencies>
-            <SourceURI>applications/network/pytapioca/pspec.xml</SourceURI>
+            <Patches>
+                <Patch>jabbin.desktop.patch</Patch>
+                <Patch>qca-tls.cpp.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/jabbin/pspec.xml</SourceURI>
         </Source>
         <Package>
-            <Name>pytapioca</Name>
+            <Name>jabbin</Name>
             <RuntimeDependencies>
-                <Dependency>tapiocad</Dependency>
+                <Dependency versionFrom="3.3.7">qt</Dependency>
+                <Dependency versionFrom="1.0">qca</Dependency>
+                <Dependency versionFrom="2.6.8">rsync</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/pixmaps/jabbin.png" permission="0644">jabbin.png</AdditionalFile>
+            </AdditionalFiles>
         </Package>
         <History>
             <Update release="1">
-                <Date>2006-06-26</Date>
-                <Version>0.3.9</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
+                <Date>2006-10-29</Date>
+                <Version>2.0_beta2</Version>
+                <Comment>First release</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -2725,6 +2952,44 @@
                 <Comment>First release.</Comment>
                 <Name>Fethi Aymaz</Name>
                 <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>pytapioca</Name>
+            <Homepage>http://tapioca-voip.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>library</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">PyTapioca</Summary>
+            <Description xml:lang="en">PyTapioca</Description>
+            <Archive type="targz" sha1sum="e2d131799adf56188341925d055eb7f173a7b9f4">http://heanet.dl.sourceforge.net/sourceforge/tapioca-voip/pytapioca-0.3.9.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>tapiocad</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/network/pytapioca/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pytapioca</Name>
+            <RuntimeDependencies>
+                <Dependency>tapiocad</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-06-26</Date>
+                <Version>0.3.9</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -2903,7 +3168,7 @@
             <Summary xml:lang="tr">GTK+ Gnutella istemcisi</Summary>
             <Description xml:lang="en">gtk-gnutella has been optimized for speed and scalability, with low-memory consumption. It is meant to be left running 24x7, using little CPU and only the configured bandwidth.</Description>
             <Description xml:lang="tr">gtk-gnutella, sistem kaynaklarını az harcayan hızlı bir dosya paylaşım programıdır. İşlemciyi az, bağlantının da istediğiniz kadarını kullandığı için sürekli açık bırakabilirsiniz.</Description>
-            <Archive type="tarbz2" sha1sum="28540c4e78f4c3513ac15b95228a98d17ace2091">http://surfnet.dl.sourceforge.net/sourceforge/gtk-gnutella/gtk-gnutella-0.96.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="59baec3659ad40bb07ba50b29b942facf584043f">http://surfnet.dl.sourceforge.net/sourceforge/gtk-gnutella/gtk-gnutella-0.96.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>libxml2</Dependency>
@@ -2933,6 +3198,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-10-31</Date>
+                <Version>0.96.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-07-20</Date>
                 <Version>0.96.1</Version>
@@ -3571,61 +3843,6 @@ terminali</Summary>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>jabbin</Name>
-            <Homepage>http://www.jabbin.com/int/</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <License>GPL</License>
-            <IsA>app:gui</IsA>
-            <PartOf>applications.network</PartOf>
-            <Summary xml:lang="en">Jabbin is an Open Source Jabber client program that allows free PC to PC calls using the VoIP system over the Jabber network</Summary>
-            <Summary xml:lang="tr">Jabber ağı üzerinden sesli görüşme yapabilmenizi sağlayan, açık kaynak kodlu bir Jabber istemcisidir</Summary>
-            <Description xml:lang="en">Jabbin is an Open Source Jabber client program that allows free PC to PC calls using the VoIP system over the Jabber network</Description>
-            <Description xml:lang="tr">Jabber ağı üzerinden sesli görüşme yapabilmenizi sağlayan, açık kaynak kodlu bir Jabber istemcisidir</Description>
-            <Archive type="tarbz2" sha1sum="0ab4b4b8bcfccef892927b12bd8a52d02b86b4dd">http://heanet.dl.sourceforge.net/sourceforge/jabbin/jabbin-2.0beta.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.3.7">qt</Dependency>
-                <Dependency versionFrom="1.0">qca</Dependency>
-                <Dependency versionFrom="2.6.8">rsync</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>jabbin.desktop.patch</Patch>
-                <Patch>qca-tls.cpp.patch</Patch>
-            </Patches>
-            <SourceURI>applications/network/jabbin/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>jabbin</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.3.7">qt</Dependency>
-                <Dependency versionFrom="1.0">qca</Dependency>
-                <Dependency versionFrom="2.6.8">rsync</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/pixmaps/jabbin.png" permission="0644">jabbin.png</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-10-29</Date>
-                <Version>2.0_beta2</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -4687,7 +4904,7 @@ terminali</Summary>
                 <Email>jnmbk@users.sourceforge.net</Email>
             </Packager>
             <License>GPL</License>
-            <IsA>app:gui</IsA>
+            <IsA>data</IsA>
             <PartOf>applications.games</PartOf>
             <Summary xml:lang="en">OpenTTD için senaryo paketi</Summary>
             <Description xml:lang="en">Microprose&apos;nin ürettiği &quot;Transport Tycoon Deluxe&quot; oyununun birçok yeniliklerle birlikte geliştirilmiş taklidi. En büyük yeniliklerden biri, internet üzerindeki sunucularda diğer oyuncularla birlikte aynı harita üzerinde oynayabilme özelliğidir. Oyunu çalıştırabilmeniz için özgün TTD veri dosyalarına ihtiyaç vardır. Oyunun sitesinden ve forumundan yardım alabilirsiniz.</Description>
@@ -4824,7 +5041,7 @@ terminali</Summary>
                 <Email>jnmbk@users.sourceforge.net</Email>
             </Packager>
             <License>as-is</License>
-            <IsA>app:gui</IsA>
+            <IsA>data</IsA>
             <PartOf>applications.games</PartOf>
             <Summary xml:lang="en">OpenTTD için gerekli veri dosyaları</Summary>
             <Description xml:lang="en">OpenTTD&apos;yi çalıştırmak için bu veri dosyalarını kurmanız gerekiyor.</Description>
@@ -6101,59 +6318,6 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>fet</Name>
-            <Homepage>http://www.lalescu.ro/liviu/fet/</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <License>GPL-2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>applications.science</PartOf>
-            <Summary xml:lang="en">FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
-            <Summary xml:lang="tr">FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
-            <Description xml:lang="en">FET is a probabilistic program for automatically generating the timetable of a school, high-school or university.</Description>
-            <Description xml:lang="tr">FET is a probabilistic program for automatically generating the timetable of a school, high-school or university</Description>
-            <Archive type="tarbz2" sha1sum="a3dcea9a262c9ffcb0b1e57b10aca88b554ae776">http://www.lalescu.ro/liviu/fet/download/fet-4.2.3.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>qt4</Dependency>
-                <Dependency>fontconfig</Dependency>
-                <Dependency>xorg</Dependency>
-            </BuildDependencies>
-            <SourceURI>applications/science/fet/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>fet</Name>
-            <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
-                <Dependency>fontconfig</Dependency>
-                <Dependency>xorg</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/share/fet</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-                <Path fileType="data">/usr/share/fet</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/pixmaps/fet.png" permission="0755">fet.png</AdditionalFile>
-                <AdditionalFile target="/usr/share/applications/fet.desktop" permission="0755">fet.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-08-24</Date>
-                <Version>4.2.3</Version>
-                <Comment>First release.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>scilab</Name>
             <Homepage>http://www.scilab.org/</Homepage>
             <Packager>
@@ -6209,6 +6373,59 @@ terminali</Summary>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>fet</Name>
+            <Homepage>http://www.lalescu.ro/liviu/fet/</Homepage>
+            <Packager>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.science</PartOf>
+            <Summary xml:lang="en">FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
+            <Summary xml:lang="tr">FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
+            <Description xml:lang="en">FET is a probabilistic program for automatically generating the timetable of a school, high-school or university.</Description>
+            <Description xml:lang="tr">FET is a probabilistic program for automatically generating the timetable of a school, high-school or university</Description>
+            <Archive type="tarbz2" sha1sum="a3dcea9a262c9ffcb0b1e57b10aca88b554ae776">http://www.lalescu.ro/liviu/fet/download/fet-4.2.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>qt4</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>xorg</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/science/fet/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fet</Name>
+            <RuntimeDependencies>
+                <Dependency>qt4</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>xorg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/share/fet</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/fet</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/pixmaps/fet.png" permission="0755">fet.png</AdditionalFile>
+                <AdditionalFile target="/usr/share/applications/fet.desktop" permission="0755">fet.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-08-24</Date>
+                <Version>4.2.3</Version>
+                <Comment>First release.</Comment>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -6777,7 +6994,7 @@ terminali</Summary>
             <Summary xml:lang="en">Limits the CPU usage of a process</Summary>
             <Summary xml:lang="tr">Bir iş parçacığının işlemci kullanımını kısıtlar</Summary>
             <Description xml:lang="en">cpulimit is a simple program that attempts to limit the cpu usage of a process (expressed in percentage, not in cpu time). This is useful to control batch jobs, when you don&apos;t want they eat too much cpu. It does not act on the nice value or other priority stuff, but on the real cpu usage.</Description>
-            <Description xml:lang="tr">cpulimit, bir işlem parçacığının işlemci kullanımını veirlen yüzde oranında kısıtlar. Bu sayede çok işlem gücü gerektiren işlemlerin sizi engellemesinden kurtulmuş olursunuz. Bu işlem, iyilik değeri veya öncelikle oynayarak değil, gerçek işlemci kullanımı üzerinden gerçekleştirilir.</Description>
+            <Description xml:lang="tr">cpulimit, bir işlem parçacığının işlemci kullanımını verilen yüzde oranında kısıtlar. Bu sayede yüksek işlemci gücü gerektiren işlemlerin sizi engellemesinden kurtulmuş olursunuz. Bu işlem, iyilik değeri veya öncelikle oynayarak değil, gerçek işlemci kullanımı üzerinden gerçekleştirilir.</Description>
             <Archive type="targz" sha1sum="9f020c22d633e3f6289c69844bd7136c1f2704f1">http://marlon80.interfree.it/cpulimit/cpulimit-1.1.tar.gz</Archive>
             <Patches>
                 <Patch level="1">cpulimit-1.1-makefile.patch</Patch>
@@ -7389,6 +7606,59 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>enterminus</Name>
+            <Homepage>www.enlightenment.org</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <License>as-is</License>
+            <IsA>AS IS</IsA>
+            <PartOf>desktop.enlightenment.extra</PartOf>
+            <Summary xml:lang="en">An EFL Based Terminal</Summary>
+            <Summary xml:lang="tr">EFL tabanlı terminal</Summary>
+            <Description xml:lang="en">An EFL Based Terminal</Description>
+            <Description xml:lang="tr">EFL tabanlı terminal</Description>
+            <Archive type="tarbz2" sha1sum="bd61ad5867ac887d67adc7bb544eb4ffaba2f8d7">http://sunner.elcomnet.ru/~stas/enterminus-20060926.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.9.9.036">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.036">evas</Dependency>
+                <Dependency>imlib2</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/extra/enterminus/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>enterminus</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.9.9.036">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.036">evas</Dependency>
+                <Dependency>imlib2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2006-11-03</Date>
+                <Version>0.1_20060926</Version>
+                <Comment>Link and dep. fix</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-10-25</Date>
+                <Version>0.1_20060926</Version>
+                <Comment>First release</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>emotion</Name>
             <Homepage>http://www.enlightenment.org</Homepage>
             <Packager>
@@ -7656,59 +7926,6 @@ terminali</Summary>
             <Update release="1">
                 <Date>2006-06-14</Date>
                 <Version>0.9.8-20050207</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>enterminus</Name>
-            <Homepage>www.enlightenment.org</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <License>as-is</License>
-            <IsA>AS IS</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
-            <Summary xml:lang="en">An EFL Based Terminal</Summary>
-            <Summary xml:lang="tr">EFL tabanlı terminal</Summary>
-            <Description xml:lang="en">An EFL Based Terminal</Description>
-            <Description xml:lang="tr">EFL tabanlı terminal</Description>
-            <Archive type="tarbz2" sha1sum="bd61ad5867ac887d67adc7bb544eb4ffaba2f8d7">http://sunner.elcomnet.ru/~stas/enterminus-20060926.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.9.036">ecore</Dependency>
-                <Dependency versionFrom="0.9.9.036">evas</Dependency>
-                <Dependency>imlib2</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/enlightenment/extra/enterminus/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>enterminus</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.036">ecore</Dependency>
-                <Dependency versionFrom="0.9.9.036">evas</Dependency>
-                <Dependency>imlib2</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-11-03</Date>
-                <Version>0.1_20060926</Version>
-                <Comment>Link and dep. fix</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-10-25</Date>
-                <Version>0.1_20060926</Version>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
@@ -8751,6 +8968,9 @@ terminali</Summary>
             <BuildDependencies>
                 <Dependency versionFrom="3.4.0">kdebase</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">kmetabar-fix.patch</Patch>
+            </Patches>
             <SourceURI>desktop/kde/kmetabar/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -8760,13 +8980,18 @@ terminali</Summary>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/kde/3.5/lib</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
                 <Path fileType="data">/usr/kde/3.5/share</Path>
             </Files>
-            <Provides>
-                <COMAR script="package.py">System.Package</COMAR>
-            </Provides>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2006-11-06</Date>
+                <Version>0.2_beta2</Version>
+                <Comment>Fix compile errors</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-05-10</Date>
                 <Version>0.2_beta2</Version>
@@ -8928,7 +9153,7 @@ terminali</Summary>
             <Summary xml:lang="tr">Alternatif KDE menüsü</Summary>
             <Description xml:lang="en">KBFX is an alternative to the classical K-Menu button and it&apos;s menu. It improves the user experience by enabling the user to set a bigger (and thus more visible) start button and by finally replacing the Win95-like K-Menu. But if you still want the old menu, because you&apos;re used to it, it is still available as an option in kbfx.</Description>
             <Description xml:lang="tr">KBFX, Pardus menüsüne bir alternatiftir. Menüyü ve menü düğmesini istediğiniz gibi değiştirebilmenizi sağlar. İsterseniz kbfx ayarlarından menüyü eski haline çevirebilirsiniz.</Description>
-            <Archive type="tarbz2" sha1sum="0d2db653d31393b2092f0d2d323f3fa670a40ee8">http://osdn.dl.sourceforge.net/sourceforge/kbfx/kbfx-0.4.9.2rc2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8dc09787817f97de20abe80a1105627da3a5871f">http://osdn.dl.sourceforge.net/sourceforge/kbfx/kbfx-0.4.9.2rc3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>kdelibs</Dependency>
             </BuildDependencies>
@@ -8945,12 +9170,19 @@ terminali</Summary>
                 <Path fileType="data">/usr/kde/3.5/share</Path>
             </Files>
             <AdditionalFiles>
-                <AdditionalFile target="/usr/kde/3.5/share/icons/crystalsvg/48x48/actions/normal.png" permission="0644">normal.png</AdditionalFile>
-                <AdditionalFile target="/usr/kde/3.5/share/icons/crystalsvg/48x48/actions/hover.png" permission="0644">hover.png</AdditionalFile>
-                <AdditionalFile target="/usr/kde/3.5/share/icons/crystalsvg/48x48/actions/pressed.png" permission="0644">pressed.png</AdditionalFile>
+                <AdditionalFile target="/usr/kde/3.5/share/apps/kbfx/skins/default/normal.png" permission="0644">normal.png</AdditionalFile>
+                <AdditionalFile target="/usr/kde/3.5/share/apps/kbfx/skins/default/hover.png" permission="0644">hover.png</AdditionalFile>
+                <AdditionalFile target="/usr/kde/3.5/share/apps/kbfx/skins/default/pressed.png" permission="0644">pressed.png</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2006-11-06</Date>
+                <Version>0.4.9.2_rc3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="3">
                 <Date>2006-09-23</Date>
                 <Version>0.4.9.2_rc2</Version>
@@ -9133,7 +9365,7 @@ terminali</Summary>
             <Summary xml:lang="tr">KDE için koleksiyon yönetim uygulaması</Summary>
             <Description xml:lang="en">Tellico is a KDE application for organizing your collections. It provides default templates for books, bibliographies, videos, music, video games, coins, stamps, trading cards, comic books, and wines.</Description>
             <Description xml:lang="tr">Tellico, koleksiyonlarınızı düzenlemek için kullanabileceğiniz bir KDE uygulamasıdır. Öntanımlı olarak; kitaplar, biyografiler, videolar, müzikler, oyunlar gibi bir çok şemayı destekler.</Description>
-            <Archive type="targz" sha1sum="56171c93a0b0dada43b2f3f07f776489a6b3b6bb">http://www.periapsis.org/tellico/download/tellico-1.2.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2bdf1f60781d3051a6172a1b76addd9570f6f978">http://www.periapsis.org/tellico/download/tellico-1.2.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.6">libxml2</Dependency>
                 <Dependency versionFrom="1.0.19">libxslt</Dependency>
@@ -9160,6 +9392,13 @@ terminali</Summary>
             </Provides>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2006-11-06</Date>
+                <Version>1.2.5</Version>
+                <Comment>Version bump</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2006-09-08</Date>
                 <Version>1.2.2</Version>
@@ -9486,6 +9725,48 @@ terminali</Summary>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>kdiff3</Name>
+            <Homepage>http://kdiff3.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Packager>
+            <License>GPL</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <Summary xml:lang="en">Advanced Diff tool</Summary>
+            <Description xml:lang="en">KDiff3 is a file and directory diff and merge tool which compares and merges two or three text input files or directories, shows the differences line by line and character by character(!), provides an automatic merge-facility, has an editor for comfortable solving of merge-conflicts, provides networktransparency via KIO, has options to highlight or hide changes in white-space or comments, supports Unicode, UTF-8 and other file encodings, prints differences, supports version control keyword and history merging.</Description>
+            <Archive type="targz" sha1sum="e92778473d7267ea1c38855979840e74b261b31b">http://kent.dl.sourceforge.net/sourceforge/kdiff3/kdiff3-0.9.91.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>kdelibs</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/kde/kdiff3/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>kdiff3</Name>
+            <RuntimeDependencies>
+                <Dependency>kdelibs</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/kde/3.5/bin</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+                <Path fileType="library">/usr/kde/3.5/lib</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-05</Date>
+                <Version>0.9.91</Version>
+                <Comment>First release</Comment>
+                <Name>Rajeev J Sebastian</Name>
+                <Email>rajeev.sebastian@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>kumula-base</Name>
             <Homepage>http://www.kumula.org</Homepage>
             <Packager>
@@ -9800,6 +10081,46 @@ terminali</Summary>
                 <Comment>First revision</Comment>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>metabar</Name>
+            <Homepage>http://www.kde-apps.org/content/show.php?content=21168</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>GPL</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <Summary xml:lang="en">A sidebar plugin for konqueror</Summary>
+            <Summary xml:lang="tr">Konqueror için kenar çubuğu eklentisi</Summary>
+            <Description xml:lang="en">...</Description>
+            <Archive type="targz" sha1sum="e1490357ff7a9c52079790b3f267003444625449">http://optusnet.dl.sourceforge.net/sourceforge/metabar/metabar-0.8.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="3.3.0">kdebase</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/kde/metabar/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>metabar</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="3.3.0">kdebase</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/kde/3.5/lib</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-06</Date>
+                <Version>0.8</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -13835,6 +14156,69 @@ terminali</Summary>
             </Update>
         </History>
     </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>beryl</Name>
+            <Homepage>http://beryl-project.org</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.freedesktop</PartOf>
+            <Summary xml:lang="en">OpenGL composite manager for Xgl and AIGLX</Summary>
+            <Summary xml:lang="tr">AiGLX ve XGL için OpenGL pencere yöneticisi</Summary>
+            <Description xml:lang="en">This is a fork of the compiz window manager driven to add bleeding edge features and plugins that may not fall quite inline with the overall plans for compiz.</Description>
+            <Description xml:lang="tr">Beryl, compiz pencere yöneticisinin bir koludur. Amacı, compiz&apos;in planları dışındaki yeni özellikleri içeren bir pencere yöneticisi oluşturmaktır.</Description>
+            <Archive type="tarbz2" sha1sum="978ddc4d4d52f8230cbfb3ec8a7c77563134871c">http://repo.pardus-linux.nl/beryl.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="1.1.1">xorg-server</Dependency>
+                <Dependency versionFrom="2.8.0">gtk2</Dependency>
+                <Dependency>libXcomposite</Dependency>
+                <Dependency>libXdamage</Dependency>
+                <Dependency>libXrandr</Dependency>
+                <Dependency>startup-notification</Dependency>
+                <Dependency>libwnck</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/freedesktop/beryl/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>beryl</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="1.1.1">xorg-server</Dependency>
+                <Dependency versionFrom="2.8.0">gtk2</Dependency>
+                <Dependency>libXcomposite</Dependency>
+                <Dependency>libXdamage</Dependency>
+                <Dependency>libXrandr</Dependency>
+                <Dependency>startup-notification</Dependency>
+                <Dependency>libwnck</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/beryl</Path>
+                <Path fileType="data">/usr/share/emerald</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="data">/usr/share/mime-info</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-11-05</Date>
+                <Version>0.1.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+        </History>
+    </SpecFile>
     <Component>
         <Name>programming.tools</Name>
         <LocalName xml:lang="en">Programming tools</LocalName>
@@ -13866,6 +14250,20 @@ terminali</Summary>
         <LocalName xml:lang="tr">Programlama Kütüphaneleri</LocalName>
         <Summary xml:lang="tr">Uygulamaların kullandığı kütüphaneler</Summary>
         <Description xml:lang="tr">Pardus ile birlikte gelen uygulamaların kullandığı kütüphaneleri içerir.</Description>
+    </Component>
+    <Component>
+        <Name>system</Name>
+        <LocalName xml:lang="en">System applications</LocalName>
+        <LocalName xml:lang="tr">Sistem Programları</LocalName>
+        <Summary xml:lang="tr">Pardus sisteminin temel bileşenleri</Summary>
+        <Description xml:lang="tr">Taban sistem, geliştirme sistemi ve diğer önemli sistem araçlarını içerir</Description>
+    </Component>
+    <Component>
+        <Name>system.devel</Name>
+        <LocalName xml:lang="en">Development tools</LocalName>
+        <LocalName xml:lang="tr">Geliştirme Araçları</LocalName>
+        <Summary xml:lang="tr">Paket derleme ve geliştirme için gerekli araçları/uygulamaları barındırır</Summary>
+        <Description xml:lang="tr">...</Description>
     </Component>
     <Component>
         <Name>applications</Name>
@@ -14016,23 +14414,16 @@ terminali</Summary>
         <Description xml:lang="tr">Xfce4 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
     </Component>
     <Component>
+        <Name>desktop.freedesktop</Name>
+        <LocalName xml:lang="en">Free desktop</LocalName>
+        <LocalName xml:lang="tr">Özgür Masaüstü</LocalName>
+        <Summary xml:lang="tr">X11 ve diğer temel masaüstü sistemi yazılımları</Summary>
+        <Description xml:lang="tr">...</Description>
+    </Component>
+    <Component>
         <Name>desktop.freedesktop.inputmethods</Name>
         <LocalName xml:lang="en">Input Methods</LocalName>
         <Summary xml:lang="en">Input Methods for X11 Applications</Summary>
         <Description xml:lang="en">Many languages have keyboards that cannot be described easily or at all using the xkb system. For these languages Input Methods are an absolute necessity. Input Methods can also serve for easier input of those languages supported by xkb/traditional input methods, especially in the world of Unicode, to input special characters for special users: various typographical characters for Graphics/DTP, special characters for Mathematics, etc.</Description>
-    </Component>
-    <Component>
-        <Name>system</Name>
-        <LocalName xml:lang="en">System applications</LocalName>
-        <LocalName xml:lang="tr">Sistem Programları</LocalName>
-        <Summary xml:lang="tr">Pardus sisteminin temel bileşenleri</Summary>
-        <Description xml:lang="tr">Taban sistem, geliştirme sistemi ve diğer önemli sistem araçlarını içerir</Description>
-    </Component>
-    <Component>
-        <Name>system.devel</Name>
-        <LocalName xml:lang="en">Development tools</LocalName>
-        <LocalName xml:lang="tr">Geliştirme Araçları</LocalName>
-        <Summary xml:lang="tr">Paket derleme ve geliştirme için gerekli araçları/uygulamaları barındırır</Summary>
-        <Description xml:lang="tr">...</Description>
     </Component>
 </PISI>
