@@ -14,6 +14,9 @@
         <Summary xml:lang="tr">Kmetabar, metabar'in gelistirilmiş bir versiyonudur</Summary>
         <Description>...</Description>
         <Archive sha1sum="ee7ab90f7c87fa5e1a456fe0d7293c3d01a0c078" type="tarbz2">http://www.kde-apps.org/content/files/28725-kmetabar-0.2-beta2.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">kmetabar-fix.patch</Patch>
+        </Patches>
         <BuildDependencies>
             <Dependency versionFrom="3.4.0">kdebase</Dependency>
         </BuildDependencies>
@@ -22,16 +25,21 @@
         <Name>kmetabar</Name>
         <Files>
             <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
         </Files>
         <RuntimeDependencies>
             <Dependency versionFrom="3.4.0">kdebase</Dependency>
         </RuntimeDependencies>
-        <Provides>
-            <COMAR script="package.py">System.Package</COMAR>
-        </Provides>
     </Package>
     <History>
+        <Update release="2">
+            <Date>2006-11-06</Date>
+            <Version>0.2_beta2</Version>
+            <Comment>Fix compile errors</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-05-10</Date>
             <Version>0.2_beta2</Version>
