@@ -14,6 +14,7 @@ items = ["beryl-core", "beryl-plugins", "beryl-settings", "beryl-manager", "emer
 "emerald-themes"]
 
 def setup():
+    pisitools.dosed("emerald/misc/Makefile.am", "gnome", "Tulliana-2.0")
     for item in items:
         shelltools.cd(item)
         shelltools.system("./autogen.sh --prefix=/usr")
@@ -30,4 +31,3 @@ def install():
         shelltools.cd(item)
         autotools.install()
         shelltools.cd("..")
-    pisitools.dosym("/usr/share/icons/Tulliana-2.0", "/usr/share/icons/gnome")
