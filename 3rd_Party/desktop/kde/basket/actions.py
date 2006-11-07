@@ -8,7 +8,7 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
-WorkDir = "basket-0.6.0Beta2"
+WorkDir = "basket-0.6.0"
 
 def setup():
     kde.configure()
