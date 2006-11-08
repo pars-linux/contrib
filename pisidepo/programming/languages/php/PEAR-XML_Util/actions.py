@@ -10,4 +10,4 @@ WorkDir="XML_Util-1.1.1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/XML","Util.php")
-    pisitools.insinto("/usr/share/php5/PEAR/XML/examples","examples/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/XML_Util","examples/*")

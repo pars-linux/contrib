@@ -12,5 +12,5 @@ def install():
     items = ['Serializer.php', 'Unserializer.php']
     for item in items:
         pisitools.insinto("/usr/share/php5/PEAR/XML", item)
-    pisitools.insinto("/usr/share/php5/PEAR/XML/doc","doc/*")
-    pisitools.insinto("/usr/share/php5/PEAR/XML/examples","examples/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/XML_Serializer","doc/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/XML_Serializer/examples","examples/*")

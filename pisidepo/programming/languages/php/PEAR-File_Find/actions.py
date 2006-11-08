@@ -10,4 +10,4 @@ WorkDir="File_Find-1.3.0"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/File","Find.php")
-    pisitools.insinto("/usr/share/php5/PEAR/File/tests","tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/File_Find","tests/*")
