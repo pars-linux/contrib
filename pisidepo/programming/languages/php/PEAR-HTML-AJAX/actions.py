@@ -13,5 +13,5 @@ def install():
     items = ['AJAX', 'js']
     for item in items:
         pisitools.insinto("/usr/share/php5/PEAR/HTML/%s" % item, "%s/*" % item)
-    pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_AJAX", "docs/*"
+    pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_AJAX", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_AJAX/examples", "examples/*")
