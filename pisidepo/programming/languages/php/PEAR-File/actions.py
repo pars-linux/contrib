@@ -11,4 +11,4 @@ WorkDir="File-1.2.2"
 def install():
     pisitools.insinto("/usr/share/php5/PEAR","File.php")
     pisitools.insinto("/usr/share/php5/PEAR/File","File/*")
-    pisitools.insinto("/usr/share/php5/PEAR/File/tests","tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/File","tests/*")

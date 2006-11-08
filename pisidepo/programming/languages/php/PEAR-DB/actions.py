@@ -11,5 +11,5 @@ WorkDir="DB-1.7.6"
 def install():
     pisitools.insinto("/usr/share/php5/PEAR","DB.php")
     pisitools.insinto("/usr/share/php5/PEAR/DB","DB/*")
-    pisitools.insinto("/usr/share/php5/PEAR/DB/doc","doc/*")
-    pisitools.insinto("/usr/share/php5/PEAR/DB/tests","tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/DB","doc/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/DB","tests/*")

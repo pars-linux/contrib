@@ -11,5 +11,5 @@ WorkDir="XML_Parser-1.2.7"
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/XML","Parser.php")
     pisitools.insinto("/usr/share/php5/PEAR/XML/Parser","Parser/Simple.php")
-    pisitools.insinto("/usr/share/php5/PEAR/XML/examples","examples/*")
-    pisitools.insinto("/usr/share/php5/PEAR/XML/tests","tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/XML_Parser/examples","examples/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/XML_Parser","tests/*")

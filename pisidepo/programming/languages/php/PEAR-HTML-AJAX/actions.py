@@ -10,6 +10,8 @@ WorkDir="HTML_AJAX-0.5.0"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML","AJAX.php")
-    items = ['AJAX', 'docs', 'examples', 'js']
+    items = ['AJAX', 'js']
     for item in items:
         pisitools.insinto("/usr/share/php5/PEAR/HTML/%s" % item, "%s/*" % item)
+    pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_AJAX", "docs/*"
+    pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_AJAX/examples", "examples/*")

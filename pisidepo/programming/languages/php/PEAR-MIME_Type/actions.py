@@ -11,4 +11,4 @@ WorkDir="MIME_Type-1.0.0"
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/MIME","Type.php")
     pisitools.insinto("/usr/share/php5/PEAR/MIME/Type","Parameter.php")
-    pisitools.insinto("/usr/share/php5/PEAR/docs/MIME_Type","example.php")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/MIME_Type","example.php")
