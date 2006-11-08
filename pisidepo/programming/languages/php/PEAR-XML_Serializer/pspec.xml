@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>PEAR-XML_Serializer</Name>
+        <Homepage>http://pear.php.net/package/XML_Serializer</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>PHP</License>
+        <IsA>library</IsA>
+        <Summary>A simple class for reading and writing xml files</Summary>
+        <Summary xml:lang="tr">Xml dosyalarını okumak ve yazmak için kolay bir sınıf</Summary>
+        <Archive type="targz" sha1sum="133ff6bd30803dd6dc6459437079a27a419351df">
+            http://download.pear.php.net/package/XML_Serializer-0.18.0.tgz
+        </Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-XML_Serializer</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency versionFrom="1.1.1">PEAR-XML_Util</Dependency>
+            <Dependency versionFrom="1.2.7">PEAR-XML_Parser</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR/XML</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/XML/doc</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/XML/examples</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-11-08</Date>
+            <Version>1.18.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
