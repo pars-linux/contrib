@@ -1,12 +1,11 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 #
-# Licensed under the GNU General Public License, version 2.
-# See the file http://www.gnu.org/copyleft/gpl.txt.
+#Ertugrul Erata ertugrulerata at gmail.com
+#
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
+
 
 def setup():
     autotools.configure()
@@ -19,4 +18,5 @@ def install():
     autotools.install()
     pisitools.removeDir("/usr/share/xfce4/doc/fr")
     pisitools.removeDir("/usr/share/xfce4/doc/he")
-    pisitools.domo("po/tr.po","tr","xfce4-appfinder.mo")
+    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+    pisitools.domo("po/tr.po","tr","xfce-mcs-plugins.mo")

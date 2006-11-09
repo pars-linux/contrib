@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce-mcs-plugins</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce mcs plugins</Summary>
+        <Summary xml:lang="tr">Xfce mcs plugins</Summary>
+        <Description>Xfce mcs plugins</Description>
+        <Description xml:lang="tr">Xfce için mcs plugins </Description>
+        <Archive sha1sum="933c1d5a9b043dfbe793522574788a0c9615c9aa"  type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.2/src/xfce-mcs-plugins-4.3.99.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce-mcs-plugins</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/xfce4/doc</Path>
+        </Files>
+    </Package>
+    <Package>
+        <Name>xfce-mcs-plugins-locales</Name>
+          <RuntimeDependencies>
+            <Dependency>xfce-mcs-manager</Dependency>
+          </RuntimeDependencies>
+       <Files>
+          <Path fileType="localedata">/usr/share/locale</Path>
+      </Files>
+     </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2006-11-09</Date>
+            <Version>4.3.99.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+         </Update>
+        <Update release="2">
+            <Date>2006-05-08</Date>
+            <Version>4.3.99.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+         </Update>
+         <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

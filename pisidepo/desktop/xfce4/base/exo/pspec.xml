@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>exo</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Libraries for Xfce 4</Summary>
+        <Summary xml:lang="tr">Libraries for Xfce 4</Summary>
+        <Description xml:lang="tr">Libraries for Xfce 4</Description>
+        <Description>Libraries for Xfce 4</Description>
+        <Archive sha1sum="5c7fc1bebf831ef34da0d29eda4314665e1f5dc2" type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.2/src/exo-0.3.1.12rc2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.6.4">glib2</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>URI</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4util</Dependency>
+            <Dependency versionFrom="4.2.2">libxfcegui4</Dependency>
+            <Dependency>pygtk</Dependency>
+            <Dependency versionFrom="4.2.2">xfce-mcs-manager</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>exo</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6.4">glib2</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>URI</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.2.2">libxfce4util</Dependency>
+            <Dependency versionFrom="4.2.2">libxfcegui4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="library">/usr/libexec</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/pygtk</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>exo-locales</Name>
+        <RuntimeDependencies>
+            <Dependency>exo</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2006-11-09</Date>
+            <Version>0.3.1.12_rc2</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-17</Date>
+            <Version>0.3.1.10_rc1</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>0.3.1.8_beta2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
