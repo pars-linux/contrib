@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xdebug</Name>
+        <Homepage>http://www.xdebug.org</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>Xdebug</License>
+        <IsA>plugin</IsA>
+        <Summary>A PHP debugging and profiling extension</Summary>
+        <Description>The Xdebug extension helps you debugging your script by providing a lot of valuable debug information.</Description>
+        <Summary xml:lang="tr">PHP hata ayıklama ve profilleme eklentisi</Summary>
+        <Description xml:lang="tr">Xdebug eklentisi birçok değerli hata ayıklama bilgisi sunarak betiklerinizin hatalarını ayıklamada size yardımcı olur.</Description>
+        <Archive sha1sum="6481f458297a0edab39c08ed181fb3bbe0b29520" type="targz">http://pecl.php.net/get/xdebug-2.0.0RC1.tgz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="5.2.0">mod_php</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>xdebug-default-config.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xdebug</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.2.0">mod_php</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/php</Path>
+            <Path fileType="library">/usr/lib/php</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-09</Date>
+            <Version>2.0.0_rc1</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
