@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>antlr</Name>
+        <Homepage>http://www.antlr.org</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>ANTLR</License>
+        <IsA>app:console</IsA>
+        <Summary>A parser generator for C++, C#, Java, and Python</Summary>
+        <Description>ANTLR, ANother Tool for Language Recognition, (formerly PCCTS) is a language tool that provides a framework for constructing recognizers, compilers, and translators from grammatical descriptions containing Java, C#, C++, or Python actions.</Description>
+        <Archive sha1sum="802655c343cc7806aaf1ec2177a0e663ff209de1" type="targz">http://www.antlr.org/download/antlr-2.7.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.5.0.08">sun-jdk</Dependency>
+            <Dependency versionFrom="1.1.18">mono</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>antlr</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.5.0.08">sun-jdk</Dependency>
+            <Dependency versionFrom="1.1.18">mono</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/antlr-*</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-09</Date>
+            <Version>2.7.7</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
