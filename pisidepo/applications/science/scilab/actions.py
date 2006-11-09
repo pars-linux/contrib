@@ -32,13 +32,13 @@ def install():
     shelltools.copytree("examples/", "%s/usr/share/scilab-4.0/examples" % get.installDIR())
 
     for files in ("Blpr", "BEpsf", "Blatexpr2", "Blatexprs", "Blatexpr", "scilab"):
-        pisitools.dosed("%s/usr/share/scilab-4.0/bin/%s" % (get.installDIR(), files),"/var/tmp/pisi/scilab-4.0-1/work/scilab-4.0","/usr/share/scilab-4.0")
+        pisitools.dosed("%s/usr/share/scilab-4.0/bin/%s" % (get.installDIR(), files),"%s/scilab-4.0" % get.workDIR(),"/usr/share/scilab-4.0")
 
     for h in ("eng", "fr"):
-        pisitools.dosed("%s/usr/share/scilab-4.0/man/%s/*.h*" % (get.installDIR(), h),"/var/tmp/pisi/scilab-4.0-1/work/scilab-4.0","/usr/share/scilab-4.0")
+        pisitools.dosed("%s/usr/share/scilab-4.0/man/%s/*.h*" % (get.installDIR(), h),"%s/scilab-4.0" % get.workDIR(),"/usr/share/scilab-4.0")
 
     for docs in ("Blatdoc", "Blatdocs"):
-        pisitools.dosed("%s/usr/share/scilab-4.0/util/%s" % (get.installDIR(), docs),"/var/tmp/pisi/scilab-4.0-1/work/scilab-4.0","/usr/share/scilab-4.0")
+        pisitools.dosed("%s/usr/share/scilab-4.0/util/%s" % (get.installDIR(), docs),"%s/scilab-4.0" % get.workDIR(),"/usr/share/scilab-4.0")
 
     pisitools.dodoc("ACKNOWLEDGEMENTS", "CHANGES", "README_Unix", "RELEASE_NOTES")
 
