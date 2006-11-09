@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-panel</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>xfce4 panel</Summary>
+        <Summary xml:lang="tr">Xfce4 paneli</Summary>
+        <Description>xfce4 panel</Description>
+        <Description xml:lang="tr">Xfce4 panel</Description>
+        <Archive sha1sum="90964826b6206d30b0dd86527e100b932c2f62d8"  type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.2/src/xfce4-panel-4.3.99.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>pango</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>xfce4-panel</Name>
+       <RuntimeDependencies>
+           <Dependency>startup-notification</Dependency>
+           <Dependency>xfce-mcs-plugins</Dependency>
+           <Dependency>xfce-mcs-manager</Dependency>
+           <Dependency>libxfce4mcs</Dependency>
+           <Dependency>libxfcegui4</Dependency>
+           <Dependency>libxfce4util</Dependency>
+           <Dependency>xorg-server</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>libxml2</Dependency>
+           <Dependency>pango</Dependency> 
+       </RuntimeDependencies> 
+            <Files>
+               <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="config">/etc</Path>
+               <Path fileType="header">/usr/include</Path>
+               <Path fileType="library">/usr/lib</Path>
+               <Path fileType="localedata">/usr/share/locale/tr</Path>
+               <Path fileType="data">/usr/share/xfce4/doc</Path>
+               <Path fileType="data">/usr/share/icons</Path>
+               <Path fileType="data">/usr/share/applications</Path>
+               <Path fileType="data">/usr/share/xfce4/panel-plugins</Path>
+           </Files>
+    </Package>
+
+    <Package>
+       <Name>xfce4-panel-locales</Name>
+        <RuntimeDependencies>
+              <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies> 
+            <Files>
+               <Path fileType="localedata">/usr/share/locale/</Path>
+            </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2006-11-09</Date>
+            <Version>4.3.99.2</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+         <Update release="2">
+            <Date>2006-09-13</Date>
+            <Version>4.3.99.1</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>

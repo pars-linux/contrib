@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>xfwm4</Name>
+    <Homepage>http://xfce.sourceforge.net</Homepage>
+    <Packager>
+        <Name>Ertuğrul Erata</Name>
+        <Email>ertugrulerata@gmail.com</Email>
+    </Packager>
+    <License>GPL-2</License>
+    <IsA>app:gui</IsA>
+    <Summary>Xfce4 window manager</Summary>
+    <Summary xml:lang="tr">Xfce4 pencere yöneticisi</Summary>
+    <Description>Xfce4 window manager</Description>
+    <Description xml:lang="tr">Xfce 4 pencere yöneticisi</Description>
+    <Archive sha1sum="497f87c8f5bb6def0897325af91e6f5f5d1763a8"  type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.2/src/xfwm4-4.3.99.2.tar.bz2</Archive>
+    <BuildDependencies>
+        <Dependency>xorg-server</Dependency>
+        <Dependency>libxfce4mcs</Dependency>
+        <Dependency>libxfce4util</Dependency>
+        <Dependency>libxfcegui4</Dependency>
+        <Dependency>xfce-mcs-manager</Dependency>
+        <Dependency>startup-notification</Dependency>
+        <Dependency>gtk2</Dependency>
+        <Dependency>glib2</Dependency>
+        <Dependency>pango</Dependency>
+        <Dependency>cairo</Dependency>
+        <Dependency>atk</Dependency>
+    </BuildDependencies>
+    </Source>
+
+    <Package>
+     <Name>xfwm4</Name>
+     <RuntimeDependencies>
+        <Dependency>startup-notification</Dependency>
+        <Dependency>xfce-mcs-manager</Dependency>
+        <Dependency>libxfce4mcs</Dependency>
+        <Dependency>libxfcegui4</Dependency>
+        <Dependency>libxfce4util</Dependency>
+        <Dependency>xorg-server</Dependency>
+        <Dependency>gtk2</Dependency>
+        <Dependency>glib2</Dependency>
+        <Dependency>pango</Dependency>
+        <Dependency>cairo</Dependency>
+        <Dependency>atk</Dependency>
+     </RuntimeDependencies> 
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/themes</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/xfwm4</Path>
+            <Path fileType="localedata">/usr/share/locale/tr</Path>
+        </Files>
+    </Package>
+
+    <Package>
+       <Name>xfwm4-locales</Name>
+        <RuntimeDependencies>
+             <Dependency>xfwm4</Dependency>
+        </RuntimeDependencies>
+       <Files>
+              <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+   </Package>
+
+    <History>
+        <Update release="3">
+           <Date>2006-11-09</Date>
+           <Version>4.3.99.2</Version>
+           <Comment>Version Bump.</Comment>
+           <Name>Ertuğrul Erata</Name>
+           <Email>ertugrulerata@gmail.com</Email>
+       </Update>
+        <Update release="2">
+           <Date>2006-09-13</Date>
+           <Version>4.3.99.1</Version>
+           <Comment>First release.</Comment>
+           <Name>Ertuğrul Erata</Name>
+           <Email>ertugrulerata@gmail.com</Email>
+       </Update>
+        <Update release="1">
+            <Date>2006-05-08</Date>
+            <Version>4.2.3.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

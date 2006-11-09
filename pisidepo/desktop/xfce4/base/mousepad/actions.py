@@ -1,11 +1,11 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 #
-# Licensed under the GNU General Public License, version 2.
-# See the file http://www.gnu.org/copyleft/gpl.txt.
+#Ertugrul Erata ertugrulerata at gmail.com
+#
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
 
 def setup():
@@ -17,3 +17,4 @@ def build():
 
 def install():
     autotools.install()
+    pisitools.domo("po/tr.po","tr","mousepad.mo")

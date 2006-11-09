@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-dev-tools</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>"Xfce4 developper tools</Summary>
+        <Summary xml:lang="tr">"Xfce4 geliştirme araçları</Summary>
+        <Description>"Xfce4 developper tools</Description>
+        <Description xml:lang="tr">"Xfce4 geliştirme araçları</Description>
+        <Archive sha1sum="a633772bff4c3bca8e5a76691561193423e14422"  type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.1/src/xfce4-dev-tools-4.3.99.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xorg</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+       <Name>xfce4-dev-tools</Name>
+       <RuntimeDependencies>
+           <Dependency>xfce4-panel</Dependency>
+           <Dependency>alsa-lib</Dependency>
+           <Dependency>xorg</Dependency>
+           <Dependency>atk</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
+       </RuntimeDependencies> 
+            <Files>
+               <Path fileType="executable">/usr/bin</Path>
+               <Path fileType="data">/usr/share/xfce4</Path>
+           </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-09-17</Date>
+            <Version>4.3.99.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>

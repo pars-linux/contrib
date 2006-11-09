@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfdesktop</Name>
+        <Homepage>http://xfce.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce 4 desktop manager</Summary>
+        <Summary xml:lang="tr">Xfce 4 masaüstü yöneticisi</Summary>
+        <Description>Xfce 4 desktop manager</Description>
+        <Description xml:lang="tr">Xfce 4 masaüstü yöneticisi</Description>
+        <Archive sha1sum="0b8bd2b3fcc861b7c589060ced8a1aae6f5bad17"  type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.2/src/xfdesktop-4.3.99.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4mcs</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
+        </BuildDependencies>
+       <Patches>
+       <Patch>menu.patch</Patch>
+       </Patches>
+    </Source>
+
+    <Package>
+       <Name>xfdesktop</Name>
+       <RuntimeDependencies>
+           <Dependency>xfce4-panel</Dependency>
+           <Dependency>libxfce4util</Dependency>
+           <Dependency>libxfcegui4</Dependency>
+           <Dependency>libxfce4mcs</Dependency>
+           <Dependency>xorg-server</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency>glib2</Dependency>
+           <Dependency>pango</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>atk</Dependency>
+       </RuntimeDependencies>
+       <Files>
+           <Path fileType="executable">/usr/bin</Path>
+           <Path fileType="library">/usr/lib</Path>
+           <Path fileType="config">/etc</Path>
+           <Path fileType="localedata">/usr/share/locale/tr</Path>
+           <Path fileType="man">/usr/share/man</Path>
+           <Path fileType="data">/usr/share/applications</Path>
+           <Path fileType="data">/usr/share/icons</Path>
+           <Path fileType="data">/usr/share/pixmaps</Path>
+           <Path fileType="data">/usr/share/xfce4</Path>
+       </Files>
+   </Package>
+
+   <Package>
+        <Name>xfdesktop-locales</Name>
+         <RuntimeDependencies>
+           <Dependency>xfdesktop</Dependency>
+        </RuntimeDependencies>
+       <Files>
+         <Path fileType="localedata">/usr/share/locale</Path>
+       </Files>
+     </Package>
+
+   <History>
+       <Update release="3">
+           <Date>2006-11-09</Date>
+           <Version>4.3.99.2</Version>
+           <Comment>Version Bump.</Comment>
+           <Name>Ertuğrul Erata</Name>
+           <Email>ertugrulerata@gmail.com</Email>
+       </Update>
+       <Update release="2">
+           <Date>2006-09-13</Date>
+           <Version>4.3.99.1</Version>
+           <Comment>Version Bump.</Comment>
+           <Name>Ertuğrul Erata</Name>
+           <Email>ertugrulerata@gmail.com</Email>
+       </Update>
+       <Update release="1">
+           <Date>2006-05-08</Date>
+           <Version>4.2.3</Version>
+           <Comment>First release.</Comment>
+           <Name>Ertuğrul Erata</Name>
+           <Email>ertugrulerata@gmail.com</Email>
+       </Update>
+   </History>
+</PISI>
