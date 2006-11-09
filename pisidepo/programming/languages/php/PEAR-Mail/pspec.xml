@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>PEAR-Mail</Name>
+        <Homepage>http://pear.php.net/package/Mail</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>PHP</License>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Class that provides multiple interfaces for sending emails</Summary>
+        <Summary xml:lang="tr">Email yollamak için bir çok arayüzü sağlayan sınıf</Summary>
+        <Archive type="targz" sha1sum="6c46636e0df3c0a813df3cbda1fd5afac987069d">
+            http://download.pear.php.net/package/Mail-1.1.14.tgz
+        </Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-Mail</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.1.0">PEAR-Net_SMTP</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-11-09</Date>
+            <Version>1.1.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
