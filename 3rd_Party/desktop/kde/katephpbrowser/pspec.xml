@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>katephpbrowser</Name>
+        <Homepage>http://protoeditor.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>plugin</IsA>
+        <Summary>Kate PHP browser plugin</Summary>
+        <Description>Kate plugin for browsing PHP source structures.</Description>
+        <Summary xml:lang="tr">Kate için PHP tarayıcı eklentisi</Summary>
+        <Description xml:lang="tr">PHP kaynak kod yapılarını dolaşmak için Kate eklentisi.</Description>
+        <Archive sha1sum="1856b7b3dfcd15eceb5a83891df0258e2bb952d0" type="targz">http://easynews.dl.sourceforge.net/sourceforge/protoeditor/katephpbrowser-0.1beta.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.7.7">antlr</Dependency>
+            <Dependency versionFrom="3.5.5">kdebase</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>katephpbrowser</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.5.5">kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-09</Date>
+            <Version>0.1_beta1</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
