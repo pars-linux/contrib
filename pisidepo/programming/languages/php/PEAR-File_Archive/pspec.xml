@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>PEAR-File_Archive</Name>
+        <Homepage>http://pear.php.net/package/File_Archive</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>library</IsA>
+        <Summary>Lets you manipulate easily the tar, gz, tgz, bz2, tbz, zip, ar (or deb) files</Summary>
+        <Summary xml:lang="tr">Kolaylıkla tar, gz, tgz, bz2, tbz, zip, ar (veya deb) dosyaları yapmanıza izin verir</Summary>
+        <Archive type="targz" sha1sum="b7a67dd239eb4e94acf2d5dd02a95711b37f302e">
+            http://download.pear.php.net/package/File_Archive-1.5.3.tgz
+        </Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-File_Archive</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR-Mail_Mime</Dependency>
+            <Dependency>PEAR-Mail</Dependency>
+            <Dependency versionFrom="1.5.0">PEAR-Cache_Lite</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-11-10</Date>
+            <Version>1.5.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
