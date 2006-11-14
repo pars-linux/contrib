@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>SilverCity</Name>
+        <Homepage>http://silvercity.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>A lexical analyser for many languages</Summary>
+        <Description>A lexical analyser for many languages</Description>
+        <Archive sha1sum="45f033b8d5777383fdd64e8f4cb796b6b90aa2e1" type="targz">http://kent.dl.sf.net/sourceforge/silvercity/SilverCity-0.9.6.tar.gz</Archive>
+        <Patches>
+            <Patch>0.9.6-api-fix.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>SilverCity</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-14</Date>
+            <Version>0.9.6</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Update>
+    </History>
+</PISI>
