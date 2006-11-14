@@ -6,8 +6,6 @@
 
 from pisi.actionsapi import autotools
 
-WorkDir="subtitleeditor-0.11-alpha1"
-
 def setup():
     autotools.configure()
 
