@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>clearsilver</Name>
+        <Homepage>http://www.clearsilver.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Packager>
+        <License>CS-1.0</License>
+        <IsA>library</IsA>
+        <Summary>Clearsilver is a fast, powerful, and language-neutral HTML template system.</Summary>
+        <Description>Clearsilver is a fast, powerful, and language-neutral HTML template system.</Description>
+        <Archive sha1sum="0e965010a9a3a7e1c11f4adb85cfc38a687cd9aa" type="targz">http://www.clearsilver.net/downloads/clearsilver-0.10.3.tar.gz</Archive>
+        <Patches>
+            <Patch>0.10.3-missing-csr.patch</Patch>
+            <Patch level="1">0.10.3-PyObject_DEL.patch</Patch>
+            <Patch level="1">0.10.3-static.cgi.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency>perl</Dependency>
+            <Dependency>zlib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>clearsilver</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency>perl</Dependency>
+            <Dependency>zlib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-14</Date>
+            <Version>0.10.3</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Update>
+    </History>
+</PISI>
