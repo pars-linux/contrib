@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>opera</Name>
+        <Homepage>http://www.opera.com</Homepage>
+        <Packager>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Packager>
+        <License>EULA</License>
+        <IsA>app:gui</IsA>
+        <Summary>Opera web browser</Summary>
+        <Summary xml:lang="tr">Opera internet tarayıcısı</Summary>
+        <Archive sha1sum="e628942af8e7aae976750c69f8f98ca3513c267d" type="targz">ftp://ftp.ankara.edu.tr/opera/linux/902/final/en/i386/shared/opera-9.02-20060919.5-shared-qt.i386-en.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>opera</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>macromedia-flash</Dependency>
+        </RuntimeDependencies>
+        <Files>
+             <Path fileType="executable">/usr/bin</Path>
+             <Path fileType="library">/usr/lib</Path>
+             <Path fileType="doc">/usr/share/doc</Path>
+             <Path fileType="man">/usr/share/man/man1</Path>
+             <Path fileType="data">/usr/share/opera</Path>
+             <Path fileType="data">/usr/share/applications</Path>
+             <Path fileType="data">/usr/share/pixmaps</Path>
+             <Path fileType="config">/etc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/opera.desktop" permission="0644" owner="root">opera.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/opera/locale/ouw902_de.lng" permission="0644" owner="root">langs/ouw902_de.lng</AdditionalFile>
+            <AdditionalFile target="/usr/share/opera/locale/ouw902_it.lng" permission="0644" owner="root">langs/ouw902_it.lng</AdditionalFile>
+            <AdditionalFile target="/usr/share/opera/locale/ouw902_nl.lng" permission="0644" owner="root">langs/ouw902_nl.lng</AdditionalFile>
+            <AdditionalFile target="/usr/share/opera/locale/ouw902_tr.lng" permission="0644" owner="root">langs/ouw902_tr.lng</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-17</Date>
+            <Version>9.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
