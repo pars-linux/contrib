@@ -14,7 +14,6 @@ def setup():
                          --enable-csv=yes \
                          --enable-filters=yes \
                          --with-cet=all \
-                         --enable-efence=yes \
                          --with-zlib=system \
                          --with-expathdr=/usr/include \
                          --with-libexpat=/usr/lib \
