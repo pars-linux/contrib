@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="audacious-1.2.1"
-
 def setup():
     autotools.configure("--enable-ipv6 \
                          --enable-chardet \
