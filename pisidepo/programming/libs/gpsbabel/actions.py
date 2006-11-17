@@ -6,8 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-
-WorkDir="gpsbabel-1.3.1"
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-shapefile=yes \
@@ -15,9 +14,11 @@ def setup():
                          --enable-csv=yes \
                          --enable-filters=yes \
                          --with-cet=all \
+                         --enable-efence=yes \
                          --with-zlib=system \
                          --with-expathdr=/usr/include \
-                         --with-libexpat=/usr/lib")
+                         --with-libexpat=/usr/lib \
+                         --with-doc=/usr/share/doc/%s" % get.srcTAG())
 
 def build():
     autotools.make()
