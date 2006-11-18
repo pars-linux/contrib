@@ -16,7 +16,7 @@ def setup():
                          --enable-python \
                          --enable-perl \
                          --enable-ruby \
-                         --enable-csharp")
+                         --disable-csharp")
 
 def build():
     autotools.make()
