@@ -9,4 +9,5 @@ from pisi.actionsapi import pisitools
 
 def install():
     pythonmodules.install()
-    pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README")
+    pisitools.insinto("/usr/share/trac/contrib", "contrib/*")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README", "contrib/README")
