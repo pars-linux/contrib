@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>convertlit</Name>
+        <Homepage>http://www.convertlit.com</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>CLit converts MS ebook .lit files to .opf (xml+html+png+jpg)</Summary>
+        <Description>CLit converts MS ebook .lit files to .opf (xml+html+png+jpg)</Description>
+        <Archive sha1sum="0789baf84d3f5f2d14882d5c209726e0f79e2643" type="targz">http://www.kyz.uklinux.net/downloads/open_c-lit-1.8.tar.gz</Archive>
+        <Patches>
+            <Patch>convertlit-1.8-respectflags.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.39">libtommath</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>convertlit</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.39">libtommath</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-18</Date>
+            <Version>1.8</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Update>
+    </History>
+</PISI>
