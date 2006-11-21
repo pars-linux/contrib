@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>veusz</Name>
+        <Homepage>http://www.stsci.edu/resources/software_hardware/numarray</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Numarray is an array processing package designed to efficiently manipulate large multi-dimensional arrays</Summary>
+        <Description>Numarray is an array processing package designed to efficiently manipulate large multi-dimensional arrays</Description>
+        <Archive sha1sum="16833f3593dea998096c245948860e5bfbfc654a" type="targz">http://download.gna.org/veusz/veusz-0.9.tar.gz</Archive>
+        <Patches>
+            <Patch>veusz.desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency versionFrom="1.5.2">numarray</Dependency>
+            <Dependency versionFrom="1.0">pyfits</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>veusz</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency versionFrom="1.5.2">numarray</Dependency>
+            <Dependency versionFrom="1.0">pyfits</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-22</Date>
+            <Version>0.9</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.</Email>
+        </Update>
+    </History>
+</PISI>
