@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>PEAR-MDB2_Driver_mysql</Name>
+        <Homepage>http://pear.php.net/package/MDB2_Driver_mysql</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>MDB2 MySQL Driver</Summary>
+        <Summary xml:lang="tr">MDB2 MySQL Sürücüsü</Summary>
+        <Archive type="targz" sha1sum="e851af65003af099bccf4c85a27bc333e916f3f0">
+            http://download.pear.php.net/package/MDB2_Driver_mysql-1.3.0.tgz
+        </Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-MDB2_Driver_mysql</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency versionFrom="2.3.1">PEAR-MDB2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-11-22</Date>
+            <Version>1.3.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
