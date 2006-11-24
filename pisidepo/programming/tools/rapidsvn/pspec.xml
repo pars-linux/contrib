@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rapidsvn</Name>
+        <Homepage>http://rapidsvn.tigris.org/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>GUI frontend to the Subversion revision system.</Summary>
+        <Summary xml:lang="tr">Subversion sisteminin grafik arayüz ön ucu</Summary>
+        <Description> Frontend for the Subversion revision system written in Qt</Description>
+        <Description xml:lang="tr"> Subversion sürüm kontrol sistemi  yazılmış bir arayüz.</Description>
+        <Archive sha1sum="71a57ffb4f7944191df51c4a2a87f1c971567543" type="targz">http://rapidsvn.org/download/rapidsvn-0.9.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>doxygen</Dependency>
+            <Dependency>subversion</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>rapidsvn</Name>
+        <RuntimeDependencies>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>subversion</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2005-11-24</Date>
+            <Version>0.9.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
