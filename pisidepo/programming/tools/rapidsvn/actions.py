@@ -25,4 +25,4 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.insinto("/usr/share/pixmaps","res/bitmaps/rapidsvn_32x32.xpm","rapidsvn.xmp")
+    pisitools.insinto("/usr/share/pixmaps","src/res/bitmaps/rapidsvn_32x32.xpm","rapidsvn.xpm")
