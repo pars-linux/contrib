@@ -16,10 +16,16 @@
         <Description>A library for porting blocked I/O OSS/ALSA audio applications to JACK</Description>
         <Description xml:lang="tr">Bloklanmış I/O OSS/ALSA ses uygulamaları için kütüphane</Description>
         <Archive type="targz" sha1sum="3be3e1c5825f1792200bc19f47fb10d79528e80a">http://belnet.dl.sourceforge.net/sourceforge/bio2jack/bio2jack-0.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.102">jack-audio-connection-kit</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>bio2jack</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.102">jack-audio-connection-kit</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
