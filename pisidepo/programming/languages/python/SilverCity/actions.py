@@ -16,6 +16,6 @@ def install():
                     "#!/usr/home/sweetapp/bin/python", \
                     "#!/usr/bin/env python")
 
-    shelltools.chmod("%s/usr/lib/python2.4/site-packages/SilverCity/default.css" % get.installDIR(), 0644)
+    pisitools.chmod("%s/usr/lib/%s/site-packages/SilverCity/default.css" % (get.installDIR(), get.curPYTHON()), 0644)
 
     pisitools.dodoc("LICENSE.txt", "README.txt")
