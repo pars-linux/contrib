@@ -6,11 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import kde
 
 
 def setup():
     shelltools.export("libxmlpp_CFLAGS","-I/usr/include/libxml++-1.0 -I/usr/lib/libxml++-1.0/include")
     shelltools.export("libxmlpp_LIBS","-L/usr/lib -lxml++-1.0")
+    shelltools.export("QTDIR","/usr/qt/3/")
     shelltools.system("/usr/bin/autoreconf")
     shelltools.system("/usr/bin/libtoolize --copy --force")
     autotools.configure()

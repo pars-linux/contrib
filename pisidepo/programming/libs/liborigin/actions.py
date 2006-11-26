@@ -14,3 +14,4 @@ def build():
 def install():
     pisitools.dolib("liborigin.so")
     pisitools.dobin("opj2dat")
+    pisitools.insinto("/usr/include","OPJFile.h")
