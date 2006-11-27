@@ -22,6 +22,8 @@
              <Dependency>qt</Dependency>
              <Dependency>liborigin</Dependency>
              <Dependency>qwtplot3d</Dependency>
+             <Dependency>sip</Dependency>
+             <Dependency>gsl</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -31,13 +33,21 @@
             <Dependency>qt</Dependency>
             <Dependency>liborigin</Dependency>
             <Dependency>qwtplot3d</Dependency>
+            <Dependency>sip</Dependency>
+            <Dependency>gsl</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="executable">/usr/share/qtiplot</Path>
+            <Path fileType="data">/usr/share/sip</Path>
+            <Path fileType="localedata">/usr/share/qtiplot/translations</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/pixmaps/qtiplot.png" permission="0755" owner="root">qtiplot.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/qtiplot.desktop" permission="0755" owner="root">qtiplot.desktop</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>

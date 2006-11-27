@@ -7,6 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 
 def setup():
@@ -19,4 +20,8 @@ def build():
 
 
 def install():
-    autotools.install()
+    pisitools.dobin("qtiplot/qtiplot","/usr/share/qtiplot")
+    pisitools.dosym("/usr/share/qtiplot/qtiplot","/usr/bin/qtiplot")
+    pisitools.insinto("/usr/share/qtiplot/translations","qtiplot/translations/qtiplot_*.ts")
+    pisitools.insinto("/usr/share/qtiplot", "manual/docbook-en")
+    pisitools.insinto("/usr/share/sip/qti", "qtiplot/src/qti.sip")
