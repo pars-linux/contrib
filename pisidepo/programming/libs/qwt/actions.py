@@ -13,7 +13,7 @@ WorkDir="qwt-5.0.0rc1"
 
 def setup():
     shelltools.export("QTDIR","/usr/qt/3/")
-    shelltools.system("/usr/qt/3/bin/qmake")
+    shelltools.system("qmake")
 
 def build():
     autotools.make()
