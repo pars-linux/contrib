@@ -12,9 +12,15 @@ from pisi.actionsapi import get
 WorkDir="qwt-5.0.0rc1"
 
 def setup():
-    shelltools.system("qmake")
+    shelltools.system("qmake qwt.pro")
+
+    shelltools.cd("designer")
+    shelltools.system("qmake qwtplugin.pro")
 
 def build():
+    autotools.make()
+
+    shelltools.cd("designer")
     autotools.make()
 
 def install():
@@ -22,3 +28,4 @@ def install():
     pisitools.insinto("/usr/include/","include/*")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "doc/html")
+    pisitool.insinto("%s/plugins/designer" % get.qtDIR(),"designer/plugins/designer/*.so")
