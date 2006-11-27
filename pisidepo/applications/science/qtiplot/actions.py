@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 
 
 def setup():
-    shelltools.system("qmake qtiplot")
+    shelltools.system("qmake qtiplot.pro")
     shelltools.system("/usr/qt/3/bin/qmake")
 
 def build():
