@@ -28,4 +28,4 @@ def install():
     pisitools.insinto("/usr/include/","include/*")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "doc/html")
-    pisitool.insinto("%s/plugins/designer" % get.qtDIR(),"designer/plugins/designer/*.so")
+    pisitools.insinto("%s/plugins/designer" % get.qtDIR(),"designer/plugins/designer/*.so")
