@@ -12,12 +12,10 @@ from pisi.actionsapi import get
 WorkDir="qwt-5.0.0rc1"
 
 def setup():
-    shelltools.export("QTDIR","/usr/qt/3/")
     shelltools.system("qmake")
 
 def build():
     autotools.make()
-
 
 def install():
     pisitools.insinto("/usr/lib/","lib/*")
