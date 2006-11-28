@@ -20,5 +20,5 @@ def build():
 
 def install():
     pisitools.dobin("hamachi")
-    pisitools.dosbin("tuncfg/tuncfg")
+    pisitools.dosbin("tuncfg/tuncfg","/sbin")
     pisitools.dodoc("README","LICENSE")
