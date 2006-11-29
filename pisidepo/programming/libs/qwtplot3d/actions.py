@@ -12,8 +12,7 @@ from pisi.actionsapi import get
 WorkDir="qwtplot3d"
 
 def setup():
-    shelltools.export("QTDIR","/usr/qt/3/")
-    shelltools.system("/usr/qt/3/bin/qmake")
+    shelltools.system("qmake")
 
 def build():
     autotools.make()
