@@ -16,11 +16,11 @@ def setup():
 
 def build():
     autotools.make()
+    shelltools.system("lrelease qtiplot/translations/qtiplot_*.ts -qm")
 
 
 def install():
     pisitools.dobin("qtiplot/qtiplot","/usr/share/qtiplot")
     pisitools.dosym("/usr/share/qtiplot/qtiplot","/usr/bin/qtiplot")
-    pisitools.insinto("/usr/share/qtiplot/translations","qtiplot/translations/qtiplot_*.ts")
-    pisitools.insinto("/usr/share/qtiplot", "manual/docbook-en")
+    pisitools.insinto("/usr/share/qtiplot/translations","qtiplot/translations/qtiplot_*.qm")
     pisitools.insinto("/usr/share/sip/qti", "qtiplot/src/qti.sip")
