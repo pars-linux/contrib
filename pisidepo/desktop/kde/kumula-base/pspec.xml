@@ -14,34 +14,39 @@
         <Summary xml:lang="tr">KDE businnes software suite</Summary>
         <Description>Kumula is designed to become a complete software suite for business needs. Started as software for consultants, it is flexible enough to be used by almost any class of business.</Description>
         <Description xml:lang="tr">Kumula is designed to become a complete software suite for business needs. Started as software for consultants, it is flexible enough to be used by almost any class of business.</Description>
-	<Archive sha1sum="ac6719523dd4908b58a2a9d4a4e9055a3434098c" type="targz">http://ertugrulerata.googlepages.com/11997-kumula-base-1.0.tar.gz</Archive>
-    </Source>
+        <Archive sha1sum="ac6719523dd4908b58a2a9d4a4e9055a3434098c" type="targz">http://ertugrulerata.googlepages.com/11997-kumula-base-1.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>PyQt</Dependency>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>Reportlab</Dependency>
+            <Dependency>mysql-server</Dependency>
+            <Dependency>qt-sql-mysql</Dependency>
+        </BuildDependencies>
+        </Source>
     <Package>
         <Name>kumula-base</Name>
         <RuntimeDependencies>
             <Dependency>PyQt</Dependency>
             <Dependency>python-imaging</Dependency>
+            <Dependency>Reportlab</Dependency>
             <Dependency>mysql-server</Dependency>
             <Dependency>qt-sql-mysql</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/opt/kumula/bin/</Path>
-	    <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/opt/kumula/lib</Path>
             <Path fileType="data">/opt/kumula/graphics</Path>
             <Path fileType="localedata">/opt/kumula/i18n</Path>
             <Path fileType="doc">/opt/kumula/doc</Path>
             <Path fileType="data">/opt/kumula/sql</Path>
-	    <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
-	<AdditionalFiles>
+        <AdditionalFiles>
             <AdditionalFile target="/usr/bin/kumula" permission="0755">kumula</AdditionalFile>
             <AdditionalFile target="/usr/share/icons/kumula.png" permission="0644">kumula.png</AdditionalFile>
             <AdditionalFile target="/usr/share/applications/kumula.desktop" permission="0644">kumula.desktop</AdditionalFile>
         </AdditionalFiles>
-        <Provides>
-            <COMAR script="package.py">System.Package</COMAR>
-        </Provides>
     </Package>
     <History>
         <Update release="1">
