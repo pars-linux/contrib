@@ -10,12 +10,6 @@ from pisi.actionsapi import get
 
 WorkDir="kumula"
 
-def setup():
-    pass
-
-def build():
-    pass
-
 
 def install():
     pisitools.dobin("bin/*", "opt/kumula/bin")

@@ -17,5 +17,5 @@ def build():
 
 def install():
     kde.install()
-    pisitools.domove("/bin","/usr/kde/3.5/bin/")
+    pisitools.domove("/bin","/usr/kde/3.5/")
     pisitools.domove("/share/","/usr/kde/3.5/share")
