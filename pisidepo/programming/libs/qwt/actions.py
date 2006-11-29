@@ -25,7 +25,7 @@ def build():
 
 def install():
     pisitools.insinto("/usr/lib/","lib/*")
-    pisitools.insinto("/usr/include/","include/*")
+    pisitools.insinto("/usr/include/qwt","include/*")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "doc/html")
     pisitools.insinto("%s/plugins/designer" % get.qtDIR(),"designer/plugins/designer/*.so")
