@@ -11,4 +11,4 @@ from pisi.actionsapi import get
 WorkDir = "pisidepo"
 
 def install():
-    pisitools.insinto("/usr/kde/3.5/share/apps/kdm/themes",  "*")
+    pisitools.insinto("/usr/kde/3.5/share/apps/kdm/themes/pisidepo-org",  "*")
