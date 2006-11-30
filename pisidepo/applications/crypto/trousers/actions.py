@@ -16,12 +16,6 @@ def build():
     autotools.make()
 
 def install():
-    #pisitools.dosbin("src/tcsd/tcsd")
-    #pisitools.dolib_a("src/tddl/*.a")
-    #pisitools.dolib("src/tspi/libtspi.*")
-    #pisitools.insinto("/usr/include/","src/include/tss")
-    #pisitools.insinto("/usr/include/","src/include/trousers")
-    #autotools.install()
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.insinto("/etc","/dist/tcsd.conf")
     pisitools.dobin("tools/ps_convert","/usr/share/doc/%s/tools" % get.srcTAG())
