@@ -5,6 +5,7 @@ import os
 def postInstall():
     os.system("/usr/sbin/groupadd tss")
     os.system("/usr/sbin/useradd -r tss -g tss")
+    os.system("/bin/chown tss:tss /etc/tcsd.conf")
     os.system("/bin/chown tss:tss /sbin/tcsd")
     os.system("/usr/bin/mkdir /var/lib/tpm")
     os.system("/usr/bin/chown tss:tss /var/lib/tpm")
