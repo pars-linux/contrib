@@ -8,7 +8,7 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "pisidepo"
+WorkDir = "pisidepo_yukleme_ekrani"
 
 def install():
-    pisitools.insinto("/usr/kde/3.5/share/apps/ksplash/Themes/pisidepo-org",  "*")
+    pisitools.insinto("/usr/kde/3.5/share/apps/ksplash/Themes/pisidepo_yukleme_ekrani",  "*")
