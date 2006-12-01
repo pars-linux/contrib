@@ -18,6 +18,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.insinto("/etc","/dist/tcsd.conf")
+    pisitools.chmod("%s/etc/tcsd.conf" % get.installDIR(), 0600)
     pisitools.dobin("tools/ps_convert","/usr/share/doc/%s/tools" % get.srcTAG())
     pisitools.dobin("tools/ps_inspect","/usr/share/doc/%s/tools" % get.srcTAG())
     pisitools.dodoc("README","AUTHORS","ChangeLog","NICETOHAVES","TODO")
