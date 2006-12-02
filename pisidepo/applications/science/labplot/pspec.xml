@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>labplot</Name>
+        <Homepage>http://labplot.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>LabPlot is a KDE application for data plotting and function analysis.</Summary>
+        <Summary xml:lang="tr">Veri analizi ve çizim programı</Summary>
+        <Description>LabPlot is a KDE application for data plotting and function analysis. It support both 2D and 3D plots and tries to emulate most of the functions supported by programs like Microcal Origin or SPSS Sigmaplot.</Description>
+        <Description xml:lang="tr">Verileri analiz etmeye ve onlardan iki ve üç boyutlu grafikler oluşturan program</Description>
+        <Archive sha1sum="6be3c7696af24edd7b6e4ac479f715188456c3d7"  type="tarbz2">http://switch.dl.sourceforge.net/sourceforge/labplot/LabPlot-1.5.1.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>gsl</Dependency>
+            <Dependency>arts</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>jasper</Dependency>
+            <Dependency>liborigin</Dependency>
+            <Dependency>qwtplot3d</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>labplot</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>gsl</Dependency>
+            <Dependency>arts</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>jasper</Dependency>
+            <Dependency>liborigin</Dependency>
+            <Dependency>qwtplot3d</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/apps/LabPlot</Path>
+            <Path fileType="localedata">/usr/share/locale/</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/mimelnk</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-12-01</Date>
+            <Version>0.8.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
