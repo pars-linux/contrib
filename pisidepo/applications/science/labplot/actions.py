@@ -12,7 +12,7 @@ from pisi.actionsapi import get
 WorkDir="LabPlot-1.5.1.4"
 
 def setup():
-    autotools.configure("--enable-system-qwtplot3d --disable-KexiDB")
+    autotools.configure("--enable-system-qwtplot3d --disable-KexiDB --disable-texvc --disable-ocaml --disable-qsa")
 
 
 def build():
