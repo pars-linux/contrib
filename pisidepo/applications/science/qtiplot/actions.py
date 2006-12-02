@@ -12,7 +12,7 @@ from pisi.actionsapi import get
 
 def setup():
     shelltools.system("qmake qtiplot.pro")
-    shelltools.system("/usr/qt/3/bin/qmake")
+    shelltools.system("qmake")
 
 def build():
     autotools.make()
