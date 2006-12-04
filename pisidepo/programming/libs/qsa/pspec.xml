@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qsa</Name>
+        <Homepage>http://www.trolltech.com/products/qt/addon/qsa</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>library</IsA>
+        <Summary>Qt Script for Applications (QSA) is a cross-platform application-scripting toolkit based on Qt.</Summary>
+        <Summary xml:lang="tr">Qt Script for Applications (QSA) is a cross-platform application-scripting toolkit based on Qt.</Summary>
+        <Description>Qt Script for Applications is a cross-platform toolkit that allows developers to make their Qt/C++ applications scriptable using an interpreted scripting language, Qt Script (based on ECMAScript/JavaScript).</Description>
+        <Description xml:lang="tr">Qt Script for Applications is a cross-platform toolkit that allows developers to make their Qt/C++ applications scriptable using an interpreted scripting language, Qt Script (based on ECMAScript/JavaScript).</Description>
+        <Archive sha1sum="3f79e43d819e868febaac40235470523ecbc0f58" type="targz">ftp://ftp.trolltech.com/qsa/source/qsa-x11-free-1.1.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+        <Patches>
+          <Patch level="1">pardus_enum.patch</Patch>
+          <Patch level="1">pardus_qmake.patch</Patch>
+    </Patches>
+    </Source>
+    <Package>
+       <Name>qsa</Name>
+       <RuntimeDependencies>
+           <Dependency>qt</Dependency>
+           <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+           <Files>
+               <Path fileType="library">/usr/qt/3/lib</Path>
+               <Path fileType="library">/usr/qt/3/include</Path>
+               <Path fileType="data">/usr/share/doc</Path>
+           </Files>
+    </Package>
+    <Package>
+        <Name>qsa-designer-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>qt-designer</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/qt/3/plugins</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2006-12-02</Date>
+            <Version>1.1.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+</History>
+</PISI>
