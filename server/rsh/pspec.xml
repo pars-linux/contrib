@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>rsh</Name>
+        <Homepage>ftp://ftp.uk.linux.org/pub/linux/Networking/netkit</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>daemon</IsA>
+        <Summary>Netkit's Remote Shell Suite: rexec{,d} rlogin{,d} rsh{,d}</Summary>
+        <Description>Programs that allow users to run commands on remote machines, to log in to other machines, and to copy files between machines (rsh, rexec, rlogin, and rcp)</Description>
+        <Archive sha1sum="022185bf31af23abbb6d4f34621f94d9d0c4b6ea" type="targz">ftp://ftp.uk.linux.org/pub/linux/Networking/netkit/netkit-rsh-0.17.tar.gz</Archive>
+        <Patches>
+            <Patch>netkit-rsh-0.17-bigfile.diff</Patch>
+            <Patch>netkit-rsh-0.17-checkdir.diff</Patch>
+            <Patch>netkit-rsh-0.17.diff</Patch>
+            <Patch level="1">netkit-rsh-0.17-nostrip.diff</Patch>
+            <Patch>netkit-rsh-0.17-null.diff</Patch>
+            <Patch>netkit-rsh-0.17-pam.diff</Patch>
+            <Patch>netkit-rsh-0.17-pam-env.diff</Patch>
+            <Patch level="1">netkit-rsh-0.17-realloc-assign.diff</Patch>
+            <Patch>netkit-rsh-0.17-revers.diff</Patch>
+            <Patch>netkit-rsh-0.17-rexec-netrc.diff</Patch>
+            <Patch>netkit-rsh-0.17-rexec-NPTL-signals.diff</Patch>
+            <Patch>netkit-rsh-0.17-varargs.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>rsh</Name>
+        <PartOf>applications.network</PartOf>
+        <IsA>app:console</IsA>
+        <Summary>Netkit's Remote Shell Suite: rcp, rexec rlogin and rsh</Summary>
+        <Description>Programs that allow users to run commands on remote machines, to log in to other machines, and to copy files between machines</Description>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man/man1</Path>
+            <Path fileType="man">/usr/share/man/man5</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>rsh-server</Name>
+        <RuntimeDependencies>
+            <Dependency>xinetd</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man/man8</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/pam.d/rexec">rexec.pam</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/pam.d/rlogin">rlogin.pam</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/pam.d/rsh">rsh.pam</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xinetd.d/rexec">rexec-xinetd</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xinetd.d/rlogin">rlogin-xinetd</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xinetd.d/rsh">rsh-xinetd</AdditionalFile>
+        </AdditionalFiles>
+    </Package> 
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-01</Date>
+            <Version>0.17</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

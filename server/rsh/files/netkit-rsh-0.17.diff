@@ -1,0 +1,1908 @@
+--- configure
++++ configure
+@@ -62,7 +62,7 @@
+ 
+ BINDIR="$EXECPREFIX/bin"
+ SBINDIR="$EXECPREFIX/sbin"
+-MANDIR="$PREFIX/man"
++MANDIR="$PREFIX/share/man"
+ 
+ echo "Directories: $BINDIR $SBINDIR $MANDIR "
+ 
+--- rcp/rcp.c
++++ rcp/rcp.c
+@@ -262,9 +262,9 @@
+ 					nospace();
+ 				(void)snprintf(bp, len, "%s -t %s", cmd, targ);
+ 				host = thost;
+-					rem = rcmd(&host, port, pwd->pw_name,
++					rem = rcmd_af(&host, port, pwd->pw_name,
+ 					    tuser ? tuser : pwd->pw_name,
+-					    bp, 0);
++					    bp, 0, PF_UNSPEC);
+ 				if (rem < 0)
+ 					exit(1);
+ #ifdef IP_TOS
+@@ -325,7 +325,8 @@
+ 		if (!(bp = malloc(len)))
+ 			nospace();
+ 		(void)snprintf(bp, len, "%s -f %s", cmd, src);
+-			rem = rcmd(&host, port, pwd->pw_name, suser, bp, 0);
++			rem = rcmd_af(&host, port, pwd->pw_name, suser, bp, 0,
++				      PF_UNSPEC);
+ 		(void)free(bp);
+ 		if (rem < 0) {
+ 			++errs;
+--- rexec/rexec.1
++++ rexec/rexec.1
+@@ -30,14 +30,17 @@
+ .\" SUCH DAMAGE.
+ .\"
+ .\"
+-.TH REXEC 1 "August 15, 1999"
++.TH REXEC 1 "February 14, 1997"
+ .SH NAME
+-rexec -- remote execution client for an exec server
++rexec \-\- remote execution client for an exec server
+ .SH SYNOPSIS
+ .B rexec 
+ [  
+-.B \-a \-c \-d \-h \-n \-s
+-] [--] host command
++.B \-abcdhns \-l 
++username 
++.B \-p 
++password
++] host command
+ .SH DESCRIPTION
+ .B Rexec
+ calls the 
+@@ -54,87 +57,123 @@
+ for details of the protocol.
+ .SH OPTIONS
+ .B Rexec
+-accepts the following options:
++accepts several options, but only three are likely to be very useful:
+ .\"
+ .LP
+-\fB\-a\fP
++\fB\-l username\fP
+ .IP
++Set the log-in name on the remote host to username.
++.\"
++.LP
++\fB\-p password\fP
++.IP
++Provide the password for the remote account.  The command line argument
++will be blanked after being parsed, to prevent it from being
++seen with 
++.B ps(1).
++However, it is still not very secure to type the password on the 
++command line.  In particular, be sure that the shell's history file
++is protected.
++.TP
++\fB\-n\fP
++Explicitly prompt for name and password, even if provided in
++the environment, in the $HOME/.netrc file, or in the environmental
++variables REXEC_USER and REXEC_PASS.
++.PP
++Other options that might be useful with non-standard remote exec
++daemons, or to debug connections:
++.TP
++\fB\-a\fP
+ Do not set up an auxiliary channel for standard error from command;
+ the remote standard error and output are then both returned on the
+ local standard output.  By default, 
+ .B rexec
+ asks that a separate channel be set up for diagnostic output
+ from the remote command.
+-.\"
+-.LP
++.TP
++\fB\-b\fP
++Use signal handling as in BSD rsh(1).  Only the signals 
++SIGINT, SIGQUIT, and SIGTERM are echoed to the remote process.
++They do not remain raised locally, so rexec waits for the
++remote command to shutdown its side of the socket.  Also, CNTRL-Z will
++only suspend execution locally--the remote command may continue to run.
++.TP
+ \fB\-c\fP
+-.IP
+ Do not close remote standard input when local standard input closes.
+ Normally the standard input to the remote command is closed when
+ the local standard input is closed.
+-.\"
+-.LP
++.TP
+ \fB\-d\fP
+-.IP
+ Turn on debugging information. In particular the command sent to the
+ remote host will be echoed.
+-.\"
+-.LP
++.TP
+ \fB\-h\fP
+-.IP
+ Print a usage message.
+-.\"
+-.LP
+-\fB\-n\fP
+-.IP
+-Explicitly prompt for name and password.  Otherwise,
+-$HOME/.netrc will be scanned for login information.
+-.\"
+-.LP
++.TP
+ \fB\-s\fP
+-.IP
+ Do not echo signals received by the rexec onto the remote
+ process.  Normally, signals which can be trapped are passed
+ on to the remote process; then, when you type CNTRL-C, the remote
+ process terminates as well.
+-.\"
+-.LP
+-\fB\--\fP
++.SH USERNAME AND PASSWORD
++.B Rexec(1)
++searches for the username and password in the following order:
+ .IP
+-Signals end of options to
+-.B rexec
+-to allow option switches in ``command.''
+-.PP
+-The only option that is very useful is -n; 
+-even then, if you have not
+-set up a password in $HOME/.netrc, you should still be prompted.
++1. If -n is given on the command line, the user will always be
++prompted for both, even if they are also given on the command line.
++.IP
++2. The command line will be parsed
++.IP
++3. If the environmental variables REXEC_USER or REXEC_PASS are
++defined, they will define the username or password.
++.IP
++4. The $HOME/.netrc file will be searched.  See
++.B ftp(1)
++for a description of this file's format.
++.IP
++5. Finally, the user will be prompted if either the username or password 
++remains undefined.
++
++.SH SECURITY
++Users of this command should be aware that 
++.B rexec(3)
++transmits their password to the remote host clear text, not
++encrypted.  If the network is not secure to the remote host, the
++password can be comprimised.
++
++.SH SIGNALS
++Without the -b option,
++all signals which can be handled are echoed to the remote process.
++Afterwards, however, they remain raised in the local process.  
++Typically, this means that 
++.B rexec(1)
++will exit after receiving a fatal signal, even if the remote
++process has arranged to handle or ignore it.
++
++Differing operating systems use differing signal numbers; for example
++AIX and SunOS use 18 for SIGTSTP (^Z), while Linux uses 20.  Therefore, 
++it may have a different effect remotely than
++locally.  In particular, typing CNTL-Z may not suspend the execution
++of the remote process.
+ .SH EXAMPLE
+ .PP
+-rexec othermachine -- cat ">remote_file; date" <local_file
++rexec othermachine cat ">remote_file; date" <local_file
+ .PP
+ will send local_file to the othermachine as remote_file.
+ 
+ .SH BUGS
+-When a signal is received locally, the signal is passed to the remote
+-command using
+-blocking i/o.  Even though it is only one byte, this may result
+-in delay in teminating the local command if communications are slow.
+-Also, the signal remains raised in the local rexec procedure, so
+-typically the remote command cannot ask for further user input
+-after the signal is sent.
+-.PP
+-It is annoying to have to use the ``--'' flag to include options in
+-the remote command without quoting them.  This is because the GNU
+-getopt(3) routine is being called.  This behavior may be corrected 
+-by setting the POSIXLY_CORRECT environtmental variable.
+ .PP
+-Please send bug reports or system incompatibilities to the author.
++Please send bug reports, system incompatibilities,
++and job offers to the author.
+ .SH "SEE ALSO"
+-rexec(3), rexecd(8)
++rexec(3), rexecd(8), rsh(1)
+ .SH AUTHOR
+ .PP
+ Michael Sadd 
+ .br
+-sadd@msc.cornell.edu
++mas22@cornell.edu
+ .br
+-http://www.msc.cornell.edu/~sadd/
++http://www.tc.cornell.edu/~sadd/
++
++Thanks to Orange Gopher (2/10/97) and Johannes Plass
++(plass@dipmza.physik.uni-mainz.de, Oct. 17 1996) for useful suggestions.
+--- rexec/rexec.c
++++ rexec/rexec.c
+@@ -1,33 +1,36 @@
+ 
+ /*
+ 
+-  rexec.c -- Copyright 1996 by Michael Sadd (sadd@msc.cornell.edu)
++  rexec.c -- Copyright 1996 by Michael Sadd (mas22@cornell.edu)
+ 
+-  Version 1.1  Sept. 12 1996
++  Version 1.5 Jul. 29, 1999
+ 
+   Permission is given to freely distribute this program
+   provided this source is included and this copyright notice and
+   header remain.
+ 
+-  This program calls the system rexec subroutine to 
++  This program calls the system rexec subroutine to
+   act as a rexec client.
+ 
+   Please report bugs and system incompatibilities to me.
+ 
+   I have compiled this under Linux 2.0.18, libc5.3.12 and gcc2.7.2, as well
+   as under AIX 3.2 and 4.1 using gcc.  It is meant for Linux, however,
+-  and should be portable to other systems.  Please let me know if there
++  but should be portable to other systems.  Please let me know if there
+   are problems.
+-  
+-  Usage: rexec [ -a -c -d -h -n -s ] [--] host command
++
++  Usage: rexec [ -acdhns ] -l username -p password host command
++     -l username: Sets the login name for the remote host.
++     -p password: Sets the password for the remote host.
++     -n: Explicitly prompt for name and password.  Otherwise,
++         $HOME/.netrc will be scanned for login information.
+      -a: Do not set up an auxiliary channel for standard error from command;
+          the remote standard error and output are then both returned on the
+          local standard output.
++     -b: Use BSD rsh style signal handling.
+      -c: Do not close remote standard input when local standard input closes.
+      -d: Turn on debugging information.
+      -h: Print this usage message.
+-     -n: Explicitly prompt for name and password.  Otherwise,
+-         $HOME/.netrc will be scanned for login information.
+      -s: Do not echo signals received by the rexec onto the remote
+          process.  Normally, signals which can be trapped are passed
+          on to the remote process; then, when you type CNTRL-C, the remote
+@@ -37,9 +40,9 @@
+ 
+   Example:
+ 
+-  ~/bin@athens% rexec othermachine -- cat ">remote_file; date" <local_file 
++  ~/bin@athens% rexec othermachine -- cat ">remote_file; date" <local_file
+   Fri Sep 13 02:25:20 EDT 1996
+-  
++
+   Here my password and user name are set up in $HOME/.netrc.
+ 
+   The only option that is very useful is -n; even then, if you haven't
+@@ -47,18 +50,17 @@
+ 
+   */
+ 
+-#include "../version.h"
+ 
+-#include <sys/types.h>
+-#include <sys/socket.h>
+-#include <sys/time.h>
+-#include <netinet/in.h>
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
+ #include <netdb.h>
++#include <sys/time.h>
++#include <sys/socket.h>
++#include <sys/types.h>
+ #include <unistd.h>
+ #include <errno.h>
++#include <netinet/in.h>
+ #include <pwd.h>
+ #include <signal.h>
+ #ifndef FD_SETSIZE
+@@ -69,7 +71,7 @@
+ #define MAX_PORT IPPORT_RESERVED
+ #define EXTRA_PORT_LOW IPPORT_USERRESERVED
+ #define EXTRA_PORT_MAX (EXTRA_PORT_LOW + 10000)
+-#define BUFLEN 512
++#define BUFLEN BUFSIZ
+ #ifndef EAGAIN
+ #ifdef EWOULDBLOCK
+ #define EAGAIN EWOULDBLOCK
+@@ -79,27 +81,37 @@
+ #endif
+ #ifdef _PASSWORD_LEN
+ #define USERLEN _PASSWORD_LEN
+-#else 
++#else
+ #define USERLEN 256
+ #endif
++#ifndef SA_RESTART
++#define SA_RESTART 0
++#endif
++
++typedef void (*SIGHANDLER_T)(int);
+ 
+ void parse_options(char *argv[], int argc, int *debug, int *extra_error,
+ 		   int *close_on_stdin, int *prompt, int *pass_sig,
+-		   char **host, char **command);
++		   char **host, char **command, char **user_name,
++		   char **passwd);
+ void usage(char *name);
+ int echo_fd(int fd_to, int fd_from, char *prog_name, int debug);
+-void set_signals(void);
++void set_signal(int sig, SIGHANDLER_T handler);
+ void echo_sig(int sig);
++void safe_write_error(const char *message);
+ 
+ /* These need to be global for signal passing. */
+-int aux_sock; /* Socket for auxiliary channel. */
++int aux_sock=-1; /* Socket for auxiliary channel. */
+ int extra_error = 1; /* Setup special channel for standard error? */
++int bsd = 0; /* BSD compatible signals? */
++int bsd_signals[] = {SIGINT,SIGQUIT,SIGTERM};
++int debug = 0;  /* Turn on debugging info? */
++char *progname;
+ 
+ int main(int argc, char *argv[])
+ {
+-  
++
+   /* Program options and parameters. */
+-  int debug = 0;  /* Turn on debugging info? */
+   int prompt = 0; /* Prompt for name and password? */
+   int close_on_stdin = 1; /* Close socket on stdin, not on remote host. */
+   int pass_sig = 1; /* Should we pass signals to the remote process? */
+@@ -112,9 +124,14 @@
+   int sock; /* Rexec socket. */
+   int *p_to_aux_sock; /* Pointer to socket for auxiliary channel. */
+   int sock_open, stdin_open, aux_open, shut_down; /* Open file descriptor flags. */
++  struct addrinfo hints, *res;
++  int gaierr;
++  sa_family_t af = AF_INET;
+ 
++
++  progname=argv[0];
+   parse_options(argv, argc, &debug, &extra_error, &close_on_stdin, &prompt,
+-		&pass_sig, &host, &command);
++		&pass_sig, &host, &command, &user_name, &passwd);
+ 
+   service = getservbyname("exec","tcp");
+   if ( (port_exec = service->s_port) >= MAX_PORT )
+@@ -127,79 +144,29 @@
+     }
+     port_exec = htons(DEFAULT_PORT);
+   }
+-  
+-  if ( extra_error )
+-  {
+-    int port_extra; /* Auxiliary port number. */
+-    struct sockaddr_in aux_name; /* Auxilliary socket name for bind. */
+-    int found_port = 0;
+ 
+-    if (debug)
+-      fprintf(stderr,"%s: Attempting to allocate channel for remote "
+-	      "standard error\n", argv[0]);
+-    
+-    if ( (aux_sock = socket(PF_INET, SOCK_STREAM , 0)) < 0)
+-    {
+-      fprintf(stderr,"%s: Error in socket call: ",argv[0]);
+-      perror(NULL);
+-      exit(1);
+-    }
+-
+-    aux_name.sin_family = AF_INET;
+-    aux_name.sin_addr.s_addr = htonl(INADDR_ANY);
++  memset(&hints, 0, sizeof(hints));
++  hints.ai_flags = AI_CANONNAME;
++  hints.ai_socktype = SOCK_STREAM;
++  if ((gaierr = getaddrinfo(host, NULL, &hints, &res))) {
++    fprintf(stderr, "%s: Couldn't look up address for %s: %s",
++            argv[0], host, gai_strerror(gaierr));
++    exit(1);
++  }
++  af = res->ai_family;
++  freeaddrinfo(res);
+ 
+-    for ( port_extra = EXTRA_PORT_LOW; port_extra < EXTRA_PORT_MAX; 
+-	  ++port_extra)
+-    {
+-      aux_name.sin_port = htons(port_extra);
+-      found_port = (bind(aux_sock, (struct sockaddr *) &aux_name, 
+-			 sizeof(aux_name)) == 0);
+-      if ( found_port )
+-	break;
+-      switch (errno)
+-      {
+-      case EADDRNOTAVAIL:
+-      case EADDRINUSE:
+-      case EACCES:
+-	if (debug) 
+-	{
+-	  fprintf(stderr,"%s: Error from bind for port No. %d: ",argv[0],
+-		  port_extra);
+-	  perror(NULL);
+-	  fprintf(stderr,"Will try next port...\n");
+-	}
+-	break;
+-      default:
+-	fprintf(stderr,"%s: Error binding to socket for aux. channel: ",
+-		argv[0]);
+-	perror(NULL);
+-	exit(1);
+-	break;
+-      }
+-    }
+-    
+-    if ( ! found_port )
+-    {
+-      fprintf(stderr,"%s: Could not find available port for auxiliary ",
+-	      argv[0]);
+-      fprintf(stderr,"channel in port range %d to %d.\n",EXTRA_PORT_LOW,
+-	      EXTRA_PORT_MAX);
+-      exit(1);
+-    }
++  /* Non-zero  p_to_aux_sock is signal to rexec(3) to establish
++     auxilliary socket for standard error and signal passing. */
++  if ( extra_error )
+     p_to_aux_sock = &aux_sock;
+-    /* listen here? */
+-
+-    if (pass_sig)
+-      set_signals();
+-
+-  }
+   else /* else we just want standard error directed as standar out--no aux */
+     p_to_aux_sock = NULL;
+ 
+-  if (prompt)
++  if (prompt || user_name == NULL || prompt == NULL)
+   {
+     FILE *term_in,*term_out;
+-    
++
+     if ( ( term_in = fopen("/dev/tty","r+")) == NULL)
+     {
+       term_in = stdin;
+@@ -207,21 +174,55 @@
+     }
+     else
+       term_out = term_in;
+-    fprintf(term_out,"Username at %s: ",host);
+-    user_name = fgets(user_buf,USERLEN,term_in);
+-    user_name[strlen(user_name)-1] = '\0'; /* Hopefully fgets always adds
+-					      a newline. */
+-    passwd = getpass("Password: ");
++
++    if (prompt || user_name == NULL)
++      {
++	fprintf(term_out,"Username at %s: ",host);
++	user_name = fgets(user_buf,USERLEN,term_in);
++	user_name[strlen(user_name)-1] = '\0'; /* Hopefully fgets always adds
++						  a newline. */
++      }
++    if (prompt || passwd == NULL)
++      passwd = getpass("Password: ");
+   }
+ 
+-  if ( (sock = rexec(&host, port_exec, user_name, passwd, command, 
+-		     p_to_aux_sock)) < 0 )
+- {
+-    fprintf(stderr,"%s: Error in rexec system call: ",argv[0]);
+-    perror(NULL);
++  if ( user_name == NULL )
++    user_name = getenv("REXEC_USER");
++  if ( passwd == NULL )
++    passwd = getenv("REXEC_PASS");
++
++  if ( (sock = rexec_af (&host, port_exec, user_name, passwd, command,
++		     p_to_aux_sock, af)) < 0 )
++  {
++    fprintf(stderr,"%s: Error in rexec system call,\n",argv[0]);
++    fprintf(stderr,"%s: (The following system error may itself be in error)\n",argv[0]);
++    perror(argv[0]);
+     exit(1);
+   }
+ 
++  /* Check to see if auxilliary socket really set. */
++  if ( extra_error && ( p_to_aux_sock == NULL ) ) {
++    extra_error = 0;
++    if (debug) {
++      fprintf(stderr,"%s: Separate channel for standard error not opened.\n",
++              progname);
++    }
++  }
++
++  if ( pass_sig && p_to_aux_sock )
++  {
++    int sig;
++
++    if (bsd)
++    {
++      for (sig = 0; sig < sizeof(bsd_signals)/sizeof(int); ++sig)
++	set_signal(bsd_signals[sig],echo_sig);
++    } else {
++      for (sig = 1; sig < NSIG; ++sig)
++	set_signal(sig,echo_sig);
++    }
++  }
++
+   sock_open = stdin_open = aux_open = 1;
+   shut_down = 0;
+   while (sock_open || ( aux_open && extra_error )) /* echo stdin -> remote host
+@@ -229,6 +230,7 @@
+ 	                           until the remote host closes the socket. */
+   {
+     fd_set read_set;
++    int select_ret;
+ 
+     FD_ZERO(&read_set);
+     if (stdin_open)
+@@ -239,8 +241,13 @@
+       FD_SET(aux_sock, &read_set);
+ 
+ 
+-    /* Using an infinit timeout in select (last parameter = NULL). */
+-    if ( select(FD_SETSIZE, &read_set, NULL, NULL, NULL) < 0 )
++    /* Using an infinite timeout in select (last parameter = NULL). */
++    do {
++      errno =0;
++      select_ret=select(FD_SETSIZE, &read_set, NULL, NULL, NULL);
++    } while ( errno == EINTR );
++
++    if ( select_ret < 0 )
+     {
+       fprintf(stderr,"%s: Error in select system call: ",argv[0]);
+       perror(NULL);
+@@ -256,7 +263,7 @@
+     if ( extra_error && FD_ISSET(aux_sock, &read_set) )
+       aux_open = echo_fd(STDERR_FILENO, aux_sock, argv[0], debug);
+ 
+-    if ( ! stdin_open && close_on_stdin && ! shut_down ) 
++    if ( ! stdin_open && close_on_stdin && ! shut_down )
+     {
+       if (shutdown(sock, 1) <0)
+       {
+@@ -273,11 +280,14 @@
+ }
+ 
+ 
+-#define OPTIONS "dahncs"
++#define OPTIONS "+dahncbsl:p:"
++extern char *optarg;
++extern int optopt;
+ 
+ void parse_options(char *argv[], int argc, int *debug, int *extra_error,
+ 		   int *close_on_stdin, int *prompt, int *pass_sig,
+-		   char **host, char **command)
++		   char **host, char **command, char **user_name,
++		   char **passwd)
+ {
+   int opt;
+   int len = 0,ind;
+@@ -285,6 +295,20 @@
+   while ((opt = getopt(argc, argv, OPTIONS)) > 0)
+     switch (opt)
+     {
++    case 'l':
++      if (optarg != NULL)
++	*user_name=strcpy((char *)malloc((strlen(optarg)+1)*sizeof(char)),optarg);
++      break;
++    case 'p':
++      if ( optarg!= NULL )
++      {
++        int passlen = strlen(optarg);
++
++	*passwd=strcpy((char *)malloc((passlen+1)*sizeof(char)),optarg);
++        for (ind = 0; ind < passlen; ++ind)
++          optarg[ind] = '\0';
++      }
++      break;
+     case 'd':
+       *debug = 1;
+       break;
+@@ -300,11 +324,14 @@
+     case 'c':
+       *close_on_stdin = 0;
+       break;
++    case 'b':
++      bsd = 1;
++      break;
+     case 's':
+       *pass_sig = 0;
+       break;
+     default:
+-      /* fprintf(stderr,"%s: Unknown option -%c\n",argv[0],(char)optopt);*/
++      /*fprintf(stderr,"%s: Unknown option -%c\n",argv[0],(char)optopt);*/
+       usage(argv[0]);
+       break;
+     }
+@@ -314,12 +341,25 @@
+     usage(argv[0]);
+   }
+   *host = argv[optind++];
++  if ( strcmp(argv[optind],"-l" ) == 0 )
++  {
++    if ( (optind += 2 ) >= argc )
++    {
++      fprintf(stderr,"%s: Require a remote command to execute.\n",argv[0]);
++      usage(argv[0]);
++    }
++    *user_name=argv[optind-1];
++  }
+   for ( ind = optind; ind < argc; ++ind)
+     len += strlen(argv[ind])+1;
+   *command = (char *) malloc((len+1)*sizeof(char));
+   **command = '\0';
+-  for ( ind = optind; (ind < argc) && strcat(*command," "); ++ind)
++  for ( ind = optind; ind < argc; ++ind) {
++    if ( ind > optind ) {
++      (void)strcat(*command," ");
++    }
+     (void) strcat(*command, argv[ind]);
++  }
+ 
+   if (*debug)
+   {
+@@ -327,17 +367,20 @@
+     fprintf(stderr,"%s: Command to execute = %s\n", argv[0], *command);
+   }
+ }
+-      
++
+ void usage(char *name)
+ {
+-  fprintf(stderr,"Usage: %s [ -a -c -d -h -n ] [--] host command\n", name);
+-  fprintf(stderr,"\t-a: Do not set up an auxiliary channel for standard error\n");
+-  fprintf(stderr,"\t-c: Do not close remote standard in when local input closes\n");
+-  fprintf(stderr,"\t-d: Turn on debugging information.\n");
+-  fprintf(stderr,"\t-h: Print this usage message.\n");
+-  fprintf(stderr,"\t-n: Explicitly prompt for name and password.\n");
+-  fprintf(stderr,"\t-s: Do not echo signals to the remote process. \n");
+-  fprintf(stderr,"\t--: Signals end of options to allow options in `command`\n");
++  fprintf(stderr,"Usage: %s [ -abcdhns ] -l username -p password  host command\n", name);
++  fprintf(stderr,
++	  "     -l username: Sets the login name for the remote host.\n"
++	  "     -p password: Sets the password for the remote host.\n"
++	  "     -n: Explicitly prompt for name and password.\n"
++	  "     -a: Do not set up an auxiliary channel for standard error.\n"
++	  "     -b: Use BSD-rsh type signal handling.\n"
++	  "     -c: Do not close remote standard in when local input closes\n"
++	  "     -d: Turn on debugging information.\n"
++	  "     -h: Print this usage message.\n"
++	  "     -s: Do not echo signals to the remote process. \n");
+   exit(1);
+ }
+ 
+@@ -345,10 +388,8 @@
+    zero on end of file. */
+ int echo_fd(int fd_to, int fd_from, char *prog_name, int debug)
+ {
+-  int sock_read;
+-  char buffer[BUFLEN];
+-
+-  (void)debug;
++  int sock_read, sock_send;
++  char buffer[BUFLEN],*write_buf;
+ 
+   if ( (sock_read = read(fd_from, buffer, BUFLEN)) < 0 )
+   {
+@@ -356,38 +397,121 @@
+     perror(NULL);
+     exit(1);
+   }
+-  
+-  if ( sock_read )
+-    write(fd_to, buffer, sock_read);
++
++  for(write_buf=buffer,sock_send=sock_read; sock_send; )
++  {
++    int ch =  write(fd_to, write_buf, sock_send);
++    if (ch < 0 ) {
++      if ( errno == EAGAIN )
++	continue;
++      perror(progname);
++      exit(1);
++    }
++    sock_send -= ch;
++    write_buf += ch;
++    if (debug && sock_send)
++      fprintf(stderr,"%s: sent only %d of %d bytes received.\n",progname,ch,
++	      sock_read);
++  }
+ 
+   return sock_read;
+ }
+ 
+ 
+-void set_signals(void)
++void set_signal(int sig, SIGHANDLER_T handler)
+ {
+-  int sig;
+ 
+-  for (sig = 1; sig < NSIG; ++sig)
+-    signal(sig, echo_sig);
++  switch (sig)
++  {
++    struct sigaction action;
++
++  case SIGKILL:
++  case SIGSTOP:
++    return;
++    break;
++  default:
++    if ( sigaction(sig, NULL, &action) < 0 )
++    {
++      perror(progname);
++      exit(1);
++    }
++    if ( action.sa_handler != SIG_IGN )
++    {
++      action.sa_handler = handler;
++      action.sa_flags = SA_RESTART;
++      (void) sigemptyset(&(action.sa_mask));
++      if ( sigaction(sig, &action, NULL) < 0 )
++      {
++	perror(progname);
++	exit(1);
++      }
++    }
++  }
++
+ }
+ 
++
++#define SAFEMSGSIZ 512
++
+ void echo_sig(int sig)
+ {
+   char sigch = (char) sig;
++  static char safe_msg[SAFEMSGSIZ];
++  int saved_errno = errno;
++
++  if (debug) {
++    sprintf(safe_msg,"rexec: echo_sig: received signal %d\n",sig);
++    safe_write_error(safe_msg);
++  }
++
++  if ( (aux_sock > 0) && (write(aux_sock, &sigch, 1) < 1) && debug ) {
++    sprintf(safe_msg,"Error: Signal %d was not properly sent to the remote "
++	    "process.\n",sig);
++    safe_write_error(safe_msg);
++  }
++
+ 
+-  if (extra_error)
+-    write(aux_sock, &sigch, 1);
++  if ( sig == SIGTSTP ) {
++    sprintf(safe_msg,"%s: The stop signal does not translate correctly to all"
++	    " remote hosts.\nDepending on the host, your remote process may "
++	    "still be running.\n",progname);
++    safe_write_error(safe_msg);
++  }
++
++
++  if ( ! bsd ) {
++    sigset_t sig_mask;
++
++    set_signal(sig,SIG_DFL);
++    (void)sigemptyset(&sig_mask);
++    (void)sigaddset(&sig_mask, sig);
++    if ( sigprocmask( SIG_UNBLOCK, &sig_mask, NULL) < 0 ) {
++      perror(progname);
++      exit(1);
++    }
++
++    kill(getpid(), sig);     /*    raise(sig), but more prortable. */
++
++    set_signal(sig, echo_sig);
++  }
++
++  errno = saved_errno;
+ 
+-  raise(sig);
+ }
+ 
++void safe_write_error(const char *message) {
++
++  int msg_len = strlen(message);
++  /* Ignore error condition--If this doesn't work, not much can be done. */
++  (void) write(STDERR_FILENO, message, msg_len);
++
++}
+ 
+ /*
+ void set_no_blocking(int fd)
+ {
+   int old_flag = fcntl(fd, F_GETFD, 0);
+-  
++
+   if (old_flag < 0)
+   {
+     perror("Error in fcntl(fd, F_GETFD, 0):");
+@@ -401,3 +525,66 @@
+ 
+ }
+ */
++/*
++
++    int port_extra;
++    struct sockaddr_storage aux_name;
++    int found_port = 0;
++
++    if (debug)
++      fprintf(stderr,"%s: Attempting to allocate channel for remote "
++	      "standard error\n", argv[0]);
++
++    if ( (aux_sock = socket(af, SOCK_STREAM , 0)) < 0)
++    {
++      fprintf(stderr,"%s: Error in socket call: ",argv[0]);
++      perror(NULL);
++      exit(1);
++    }
++
++    memset(&aux_name, 0, sizeof(aux_name));
++    ((struct sockaddr *)&aux_name)->sa_family = af;
++
++    for ( port_extra = EXTRA_PORT_LOW; port_extra < EXTRA_PORT_MAX;
++	  ++port_extra)
++    {
++      if (af == AF_INET6)
++        ((struct sockaddr_in6 *)&aux_name)->sin6_port = htons(port_extra);
++      else
++        ((struct sockaddr_in *)&aux_name)->sin_port = htons(port_extra);
++      if ( found_port = (bind(aux_sock, (struct sockaddr *) &aux_name,
++		 sizeof(aux_name)) == 0) )
++	break;
++      switch (errno)
++      {
++      case EADDRNOTAVAIL:
++      case EADDRINUSE:
++      case EACCES:
++	if (debug)
++	{
++	  fprintf(stderr,"%s: Error from bind for port No. %d: ",argv[0],
++		  port_extra);
++	  perror(NULL);
++	  fprintf(stderr,"Will try next port...\n");
++	}
++	break;
++      default:
++	fprintf(stderr,"%s: Error binding to socket for aux. channel: ",
++		argv[0]);
++	perror(NULL);
++	exit(1);
++	break;
++      }
++    }
++
++    if ( ! found_port )
++    {
++      fprintf(stderr,"%s: Could not find available port for auxiliary ",
++	      argv[0]);
++      fprintf(stderr,"channel in port range %d to %d.\n",EXTRA_PORT_LOW,
++	      EXTRA_PORT_MAX);
++      exit(1);
++    }
++    p_to_aux_sock = &aux_sock;
++
++*/
+--- rexec/rexec_af.c
++++ rexec/rexec_af.c
+@@ -0,0 +1,185 @@
++/*
++ * Copyright (c) 1980, 1993
++ *	The Regents of the University of California.  All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 4. Neither the name of the University nor the names of its contributors
++ *    may be used to endorse or promote products derived from this software
++ *    without specific prior written permission.
++ *
++ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++
++#if defined(LIBC_SCCS) && !defined(lint)
++static char sccsid[] = "@(#)rexec.c	8.1 (Berkeley) 6/4/93";
++#endif /* LIBC_SCCS and not lint */
++
++#include <sys/types.h>
++#include <sys/socket.h>
++
++#include <netinet/in.h>
++
++#include <alloca.h>
++#include <stdio.h>
++#include <netdb.h>
++#include <errno.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++
++int	rexecoptions;
++char	ahostbuf[NI_MAXHOST];
++
++int
++rexec_af(ahost, rport, name, pass, cmd, fd2p, af)
++	char **ahost;
++	int rport;
++	const char *name, *pass, *cmd;
++	int *fd2p;
++	sa_family_t af;
++{
++	struct sockaddr_storage sa2, from;
++	struct addrinfo hints, *res0;
++	const char *orig_name = name;
++	const char *orig_pass = pass;
++	u_short port = 0;
++	int s, timo = 1, s3;
++	char c;
++	int gai;
++	char servbuff[NI_MAXSERV];
++
++	snprintf(servbuff, sizeof(servbuff), "%d", ntohs(rport));
++	servbuff[sizeof(servbuff) - 1] = '\0';
++
++	memset(&hints, 0, sizeof(hints));
++	hints.ai_family = af;
++	hints.ai_socktype = SOCK_STREAM;
++	hints.ai_flags = AI_CANONNAME;
++	gai = getaddrinfo(*ahost, servbuff, &hints, &res0);
++	if (gai){
++		/* XXX: set errno? */
++		return -1;
++	}
++
++	if (res0->ai_canonname){
++		strncpy(ahostbuf, res0->ai_canonname, sizeof(ahostbuf));
++		ahostbuf[sizeof(ahostbuf)-1] = '\0';
++		*ahost = ahostbuf;
++	}
++	else{
++		*ahost = NULL;
++	}
++	ruserpass(res0->ai_canonname, &name, &pass);
++retry:
++	s = socket(res0->ai_family, res0->ai_socktype, 0);
++	if (s < 0) {
++		perror("rexec: socket");
++		return (-1);
++	}
++	if (connect(s, res0->ai_addr, res0->ai_addrlen) < 0) {
++		if (errno == ECONNREFUSED && timo <= 16) {
++			(void) close(s);
++			sleep(timo);
++			timo *= 2;
++			goto retry;
++		}
++		perror(res0->ai_canonname);
++		return (-1);
++	}
++	if (fd2p == 0) {
++		(void) write(s, "", 1);
++		port = 0;
++	} else {
++		char num[32];
++		int s2, sa2len;
++
++		s2 = socket(res0->ai_family, res0->ai_socktype, 0);
++		if (s2 < 0) {
++			(void) close(s);
++			return (-1);
++		}
++		listen(s2, 1);
++		sa2len = sizeof (sa2);
++		if (getsockname(s2, (struct sockaddr *)&sa2, &sa2len) < 0) {
++			perror("getsockname");
++			(void) close(s2);
++			goto bad;
++		}
++		port = 0;
++		if (!getnameinfo((struct sockaddr *)&sa2, sa2len,
++				 NULL, 0, servbuff, sizeof(servbuff),
++				 NI_NUMERICSERV))
++			port = atoi(servbuff);
++		(void) sprintf(num, "%u", port);
++		(void) write(s, num, strlen(num)+1);
++		{ int len = sizeof (from);
++		  s3 = accept(s2, (struct sockaddr *)&from, &len);
++		  close(s2);
++		  if (s3 < 0) {
++			perror("accept");
++			port = 0;
++			goto bad;
++		  }
++		}
++		*fd2p = s3;
++	}
++	(void) write(s, name, strlen(name) + 1);
++	/* should public key encypt the password here */
++	(void) write(s, pass, strlen(pass) + 1);
++	(void) write(s, cmd, strlen(cmd) + 1);
++
++	/* We don't need the memory allocated for the name and the password
++	   in ruserpass anymore.  */
++	if (name != orig_name)
++	  free ((char *) name);
++	if (pass != orig_pass)
++	  free ((char *) pass);
++
++	if (read(s, &c, 1) != 1) {
++		perror(*ahost);
++		goto bad;
++	}
++	if (c != 0) {
++		while (read(s, &c, 1) == 1) {
++			(void) write(2, &c, 1);
++			if (c == '\n')
++				break;
++		}
++		goto bad;
++	}
++	freeaddrinfo(res0);
++	return (s);
++bad:
++	if (port)
++		(void) close(*fd2p);
++	(void) close(s);
++	freeaddrinfo(res0);
++	return (-1);
++}
++
++int
++rexec(ahost, rport, name, pass, cmd, fd2p)
++	char **ahost;
++	int rport;
++	const char *name, *pass, *cmd;
++	int *fd2p;
++{
++	return rexec_af(ahost, rport, name, pass, cmd, fd2p, AF_INET);
++}
+--- rexecd/Makefile
++++ rexecd/Makefile
+@@ -31,11 +31,7 @@
+ 	install -m$(MANMODE) rexecd.8 $(INSTALLROOT)$(MANDIR)/man8/in.rexecd.8
+ 	ln -sf in.rexecd.8 $(INSTALLROOT)$(MANDIR)/man8/rexecd.8
+ ifeq ($(USE_PAM),1)
+-	@echo
+-	@echo You have chosen to use PAM as the authentication method
+-	@echo You should copy the rexec.pam file provided to /etc/pam.d
+-	@echo or if you know what you are doing, tailor it to your needs
+-	@echo
++	install -m644 rexec.pam $(INSTALLROOT)/etc/pam.d/rexec
+ endif	
+ 
+ clean:
+--- rexecd/rexec.pam
++++ rexecd/rexec.pam
+@@ -1,8 +1,7 @@
+ #%PAM-1.0
+-#auth       required    /lib/security/pam_securetty.so
+-auth       required     /lib/security/pam_pwdb.so shadow nullok
+-auth       required     /lib/security/pam_nologin.so
+-auth       required     /lib/security/pam_listfile.so onerr=succeed item=user sense=deny file=/etc/ftpusers
+-auth       required     /lib/security/pam_shells.so
+-account    required     /lib/security/pam_pwdb.so
+-
++auth     requisite      pam_nologin.so
++auth     include        common-auth
++account  include        common-account
++password include        common-password 
++session  required       pam_loginuid.so
++session  include        common-session
+--- rexecd/rexecd.c
++++ rexecd/rexecd.c
+@@ -32,7 +32,7 @@
+  *
+  *
+  * 1-14-99 Karl R. Hakimian <hakimian@eecs.wsu.edu>
+- * 
++ *
+  * While the headers in this file claim only the purest decent from
+  * their BSD roots, this program has had unspeakable things done to it
+  * over the years. I have tried to clean things up and get them working
+@@ -112,7 +112,7 @@
+  */
+ 
+ static void fatal(const char *);
+-static void doit(struct sockaddr_in *fromp);
++static void doit(struct sockaddr *fromp);
+ static void getstr(char *buf, int cnt, const char *err);
+ 
+ static const char *remote = NULL;
+@@ -120,17 +120,23 @@
+ int
+ main(int argc, char **argv)
+ {
+-	struct sockaddr_in from;
++	struct sockaddr_storage from;
+ 	socklen_t fromlen;
+ 
+ 	(void)argc;
+ 
+ 	fromlen = sizeof(from);
+- 
++
+ 	if (getpeername(0, (struct sockaddr *)&from, &fromlen) < 0) {
+ 		fprintf(stderr, "rexecd: getpeername: %s\n", strerror(errno));
+ 		return 1;
+ 	}
++	if (((struct sockaddr *)&from)->sa_family == AF_INET6 &&
++	  IN6_IS_ADDR_V4MAPPED(&((struct sockaddr_in6 *)&from)->sin6_addr)) {
++		((struct sockaddr *)&from)->sa_family = AF_INET;
++		((struct sockaddr_in *)&from)->sin_addr.s_addr =
++		  ((struct sockaddr_in6 *)&from)->sin6_addr.s6_addr32[3];  
++	}
+ 
+ 	openlog(argv[0], LOG_PID, LOG_DAEMON);
+ 
+@@ -142,19 +148,19 @@
+ 	remote = hosts_info(&from_host);
+ #else
+ 	{
+-	struct hostent *h = gethostbyaddr((const char *)&from.sin_addr,
+-					  sizeof(struct in_addr),
+-					  AF_INET);
+-	if (!h || !h->h_name) {
++	char hbuf[NI_MAXHOST];
++
++	if (getnameinfo((struct sockaddr *)&from, fromlen,
++			hbuf, sizeof(hbuf), NULL, 0, NI_NAMEREQD)) {
+ 		write(0, "\1Where are you?\n", 16);
+ 		return 1;
+ 	}
+ 	/* Be advised that this may be utter nonsense. */
+-	remote = strdup(h->h_name);
++	remote = strdup(hbuf);
+ 	}
+ #endif
+ 	syslog(allow_severity, "connect from %.128s", remote);
+-	doit(&from);
++	doit((struct sockaddr *)&from);
+ 	return 0;
+ }
+ 
+@@ -221,7 +227,7 @@
+ 
+ 
+ static void
+-doit(struct sockaddr_in *fromp)
++doit(struct sockaddr *fromp)
+ {
+ 	char cmdbuf[ARG_MAX+1];
+ 	char user[16], pass[16];
+@@ -273,7 +279,7 @@
+  We must connect back to the client here if a port was provided. KRH
+ */
+ 	if (port != 0) {
+-		s = socket(AF_INET, SOCK_STREAM, 0);
++		s = socket(fromp->sa_family, SOCK_STREAM, 0);
+ 		if (s < 0)
+ 			exit(1);
+ 
+@@ -283,8 +289,11 @@
+ 			exit(1);
+ #endif
+ 		alarm(60);
+-		fromp->sin_port = htons(port);
+-		if (connect(s, (struct sockaddr *)fromp, sizeof (*fromp)) < 0)
++		if (fromp->sa_family == AF_INET6)
++			((struct sockaddr_in6 *)fromp)->sin6_port = htons(port);
++		else
++			((struct sockaddr_in *)fromp)->sin_port = htons(port);
++		if (connect(s, fromp, sizeof(struct sockaddr_storage)) < 0)
+ 			exit(1);
+ 		alarm(0);
+ 	}
+@@ -300,6 +309,7 @@
+        PAM_password = pass;
+        pam_error = pam_start("rexec", PAM_username, &PAM_conversation,&pamh);
+        PAM_BAIL;
++       pam_set_item (pamh, PAM_TTY, "tty");
+        pam_error = pam_authenticate(pamh, 0);
+        PAM_BAIL;
+        pam_error = pam_acct_mgmt(pamh, 0);
+@@ -420,7 +430,7 @@
+ 	else cp2 = theshell;
+ 
+ 	/*
+-	 * Close all fds, in case libc has left fun stuff like 
++	 * Close all fds, in case libc has left fun stuff like
+ 	 * /etc/shadow open.
+ 	 */
+ 	for (ifd = getdtablesize()-1; ifd > 2; ifd--) close(ifd);
+@@ -453,4 +463,3 @@
+ 		}
+ 	} while (c != 0);
+ }
+-
+--- rlogin/Makefile
++++ rlogin/Makefile
+@@ -12,6 +12,7 @@
+ install: $(PROG)
+ 	install -s -o root -m$(SUIDMODE) $(PROG) $(INSTALLROOT)$(BINDIR)
+ 	install -m $(MANMODE) $(PROG).1 $(INSTALLROOT)$(MANDIR)/man1
++	install -m $(MANMODE) rhosts.5 $(INSTALLROOT)$(MANDIR)/man5
+ 
+ clean:
+ 	rm -f *.o $(PROG)
+--- rlogin/rhosts.5
++++ rlogin/rhosts.5
+@@ -0,0 +1,30 @@
++.\" Copyright (c) 1995 Peter Tobias <tobias@et-inf.fho-emden.de>
++.\" This file may be distributed under the GNU General Public License.
++.TH RHOSTS 5 "29 Jan 1995" "Linux" "Linux Programmer's Manual"
++.SH NAME
++$HOME/.rhosts \- grants or denies password-free \fBr\fP-command access
++to a specific user account
++.SH DESCRIPTION
++The \fB.rhosts\fP file allows or denies a user who has an account on the
++local host to use the \fBr\fP-commands (e.g. \fBrlogin\fP, \fBrsh\fP or
++\fBrcp\fP) without supplying a password.
++.PP
++The file uses the following format:
++.TP
++\fIhostname\fP \fI[username]\fP
++.PP
++Such an entry grants password-free \fBr\fP-command access for the user with
++the login name \fIusername\fP from the remote host \fIhostname\fP.
++If no user name is specified, the user must have the same login name on
++the remote host and the local host. For security reasons you should always
++use the FQDN of the hostname and not the short hostname.
++.PP
++Netgroups can be specified by preceeding the netgroup by an @ sign.
++.PP
++The \fB.rhosts\fP file must have permissions 600 (that is, readable and
++writable only by the owner).
++.PP
++.SH FILES
++$HOME/.rhosts
++.SH "SEE ALSO"
++.BR hosts.equiv "(5), " rshd "(8), " rlogind (8)
+--- rlogin/rlogin.c
++++ rlogin/rlogin.c
+@@ -279,7 +279,8 @@
+ 	/* will use SIGUSR1 for window size hack, so hold it off */
+ 	omask = sigblock(sigmask(SIGURG) | sigmask(SIGUSR1));
+ 
+-	rem = rcmd(&host, sp->s_port, pw->pw_name, user, term, 0);
++	rem = rcmd_af (&host, sp->s_port, pw->pw_name, user, term, 0,
++			PF_UNSPEC);
+ 
+ 	if (rem < 0) exit(1);
+ 
+--- rlogind/Makefile
++++ rlogind/Makefile
+@@ -3,27 +3,23 @@
+ include ../MCONFIG
+ include ../MRULES
+ 
+-OBJS = rlogind.o network.o auth.o
+-# logwtmp.o
++OBJS = rlogind.o network.o auth.o sockconv.o
+ 
+-ifeq ($(USE_PAM),1)
+-OBJS += sockconv.o
+ CFLAGS += -DUSE_PAM
+-LIBS += -ldl -lpam -lpam_misc
+-endif
++LIBS += -ldl -lpam
++
++LIBS += -lutil $(LIBTERMCAP)
+ 
+ rlogind: $(OBJS)
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+-rlogind.o: pathnames.h logwtmp.h rlogind.h ../version.h
+-logwtmp.o: logwtmp.h
+-auth.o network.o: rlogind.h
++$(OBJS): pathnames.h logwtmp.h
+ 
+ install: rlogind
+ 	install -s -m$(DAEMONMODE) rlogind $(INSTALLROOT)$(SBINDIR)/in.rlogind
+ 	install -m$(MANMODE) rlogind.8 $(INSTALLROOT)$(MANDIR)/man8/in.rlogind.8
+ 	ln -sf in.rlogind.8 $(INSTALLROOT)$(MANDIR)/man8/rlogind.8
++	install -m 644 rlogin.pam $(INSTALLROOT)/etc/pam.d/rlogin
+ 
+ clean:
+ 	rm -f *.o rlogind
+-
+--- rlogind/auth.c
++++ rlogind/auth.c
+@@ -31,12 +31,14 @@
+  * SUCH DAMAGE.
+  */
+ 
++#include <stdio.h>
+ #include <sys/types.h>
+ #include <pwd.h>
+ 
+ #include "rlogind.h"
+ 
+ #ifdef USE_PAM
++#include <grp.h>
+ 
+ /*
+  * Modifications for Linux-PAM: Al Longyear <longyear@netcom.com>
+@@ -122,7 +124,7 @@
+     pam_set_item(pamh, PAM_USER, localuser);
+     pam_set_item(pamh, PAM_RUSER, remoteuser);
+     pam_set_item(pamh, PAM_RHOST, host);
+-    pam_set_item(pamh, PAM_TTY, "tty");   /* ? */
++    pam_set_item(pamh, PAM_TTY, "rlogin");   /* we don't have a tty yet! */
+ 	
+     network_confirm();
+     retval = attempt_auth();
+@@ -158,18 +160,14 @@
+     pwd = getpwnam(localuser);
+     if (pwd==NULL) {
+         syslog(LOG_ERR, "user returned by PAM does not exist\n");
+-	/* don't print this - it tells people which accounts exist */
+-	/*fprintf(stderr, "rlogind: internal error\n");*/
+ 	return -1;
+     }
+     if (setgid(pwd->pw_gid) != 0) {
+         syslog(LOG_ERR, "cannot assume gid for user returned by PAM\n");
+-	fprintf(stderr, "rlogind: internal error\n");
+ 	return -1;
+     }
+     if (initgroups(localuser, pwd->pw_gid) != 0) {
+         syslog(LOG_ERR, "initgroups failed for user returned by PAM\n");
+-	fprintf(stderr, "rlogind: internal error\n");
+ 	return -1;
+     }
+     retval = pam_setcred(pamh, PAM_ESTABLISH_CRED);
+@@ -194,6 +192,7 @@
+ #define _check_rhosts_file  __check_rhosts_file
+ #endif
+ extern int _check_rhosts_file;
++extern sa_family_t from_af;
+ 
+ 
+ void auth_checkoptions(void) {}
+@@ -236,7 +235,7 @@
+ 
+     _check_rhosts_file = use_rhosts;
+ 
+-    return ruserok(host, pwd->pw_uid==0, remoteuser, localuser);
++    return ruserok_af(host, pwd->pw_uid==0, remoteuser, localuser, from_af);
+ }
+ 
+ #endif /* PAM */
+--- rlogind/network.c
++++ rlogind/network.c
+@@ -88,44 +88,62 @@
+ 	return(0);
+ }
+ 
++sa_family_t from_af;
++static socklen_t fromlen;
+ 
+ static char *
+-find_hostname(const struct sockaddr_in *fromp, int *hostokp)
++find_hostname(const struct sockaddr *fromp, int *hostokp)
+ {
+-	struct hostent *hop;
++	struct addrinfo hints, *res, *res0;
++	char naddr[NI_MAXHOST];
++	char raddr[NI_MAXHOST];
++	char hbuf[NI_MAXHOST];
+ 	char *hname;
+ 	int hostok = 0;
+ 
+-	hop = gethostbyaddr((const char *)&fromp->sin_addr, 
+-			    sizeof(struct in_addr), fromp->sin_family);
+-	if (hop == NULL) {
+-		hname = strdup(inet_ntoa(fromp->sin_addr));
++	if (getnameinfo(fromp, fromlen, hbuf, sizeof(hbuf), NULL, 0,
++			NI_NAMEREQD)) {
++		if (getnameinfo(fromp, fromlen, hbuf, sizeof(hbuf), NULL, 0,
++				NI_NUMERICHOST))
++			strcpy(hbuf, "???");
++		hname = strdup(hbuf);
+ 		hostok = 1;
+ 	} 
+-	else if (check_all || local_domain(hop->h_name)) {
++	else if (check_all || local_domain(hbuf)) {
+ 		/*
+ 		 * If name returned by gethostbyaddr is in our domain,
+ 		 * attempt to verify that we haven't been fooled by someone
+ 		 * in a remote net; look up the name and check that this
+ 		 * address corresponds to the name.
+ 		 */
+-		hname = strdup(hop->h_name);
+-		hop = gethostbyname(hname);
+-		if (hop) {
+-		    for (; hop->h_addr_list[0]; hop->h_addr_list++) {
+-			if (!memcmp(hop->h_addr_list[0], &fromp->sin_addr,
+-				    sizeof(fromp->sin_addr))) {
++		hname = strdup(hbuf);
++		memset(&hints, 0, sizeof(hints));
++		hints.ai_family = from_af;
++		hints.ai_socktype = SOCK_STREAM;
++		hints.ai_flags = AI_CANONNAME;
++		if (getaddrinfo(hbuf, NULL, &hints, &res0) == 0) {
++		    if (getnameinfo(fromp, fromlen, naddr, sizeof(naddr),
++					NULL, 0, NI_NUMERICHOST))
++			strcpy(naddr, "???");
++		    for (res = res0; res; res = res->ai_next) {
++			if (res->ai_family != from_af)
++				continue;
++			if (getnameinfo(res->ai_addr, res->ai_addrlen,
++					raddr, sizeof(raddr), NULL, 0,
++					NI_NUMERICHOST) == 0
++			    && strcmp(naddr, raddr) == 0) {
++				free(hname);
++				hname = strdup(res->ai_canonname
++						? res->ai_canonname : hbuf);
+ 				hostok = 1;
+ 				break;
+ 			}
+ 		    }
+-		    /* not clear if this is worthwhile */
+-		    free(hname);
+-		    hname = strdup(hop->h_name);
++		    freeaddrinfo(res0);
+ 		}
+ 	} 
+ 	else {
+-		hname = strdup(hop->h_name);
++		hname = strdup(hbuf);
+ 		hostok = 1;
+ 	}
+ 
+@@ -145,29 +163,38 @@
+ char * 
+ network_init(int f, int *hostokp)
+ {
+-	struct sockaddr_in from, *fromp;
+-	socklen_t fromlen;
++	struct sockaddr_storage from;
++	struct sockaddr *fromp;
+ 	int on = 1;
+ 	char c;
+ 	char *hname;
+ 	int port;
+ 
+-	from.sin_family = AF_INET;
+ 	fromlen = sizeof (from);
+ 	if (getpeername(f, (struct sockaddr *)&from, &fromlen) < 0) {
+ 		syslog(LOG_ERR,"Can't get peer name of remote host: %m");
+ 		fatal(STDERR_FILENO, "Can't get peer name of remote host", 1);
+ 	}
++	fromp = (struct sockaddr *)&from;
++	if (fromp->sa_family == AF_INET6 &&
++	  IN6_IS_ADDR_V4MAPPED(&((struct sockaddr_in6 *)fromp)->sin6_addr)) {
++		fromp->sa_family = AF_INET;
++		((struct sockaddr_in *)fromp)->sin_addr.s_addr =
++		  ((struct sockaddr_in6 *)fromp)->sin6_addr.s6_addr32[3];
++	}
++	from_af = fromp->sa_family;
+ 	if (keepalive &&
+ 	    setsockopt(f, SOL_SOCKET, SO_KEEPALIVE, &on, sizeof(on)) < 0)
+ 		syslog(LOG_WARNING, "setsockopt (SO_KEEPALIVE): %m");
+ #ifdef IP_TOS
++	if (from_af == AF_INET)
++	{
+ 	#define IPTOS_LOWDELAY          0x10
+ 	on = IPTOS_LOWDELAY;
+ 	if (setsockopt(f, IPPROTO_IP, IP_TOS, &on, sizeof(on)) < 0)
+ 		syslog(LOG_WARNING, "setsockopt (IP_TOS): %m");
++	}
+ #endif
+-	fromp = &from;
+ 
+ 	alarm(60);
+ 	read(f, &c, 1);
+@@ -178,16 +205,24 @@
+ 	alarm(0);
+ 
+ 	hname = find_hostname(fromp, hostokp);
+-
+-	port = ntohs(fromp->sin_port);
+-	if (fromp->sin_family != AF_INET ||
++	if (from_af == AF_INET6)
++		port = ntohs(((struct sockaddr_in6 *)fromp)->sin6_port);
++	else
++		port = ntohs(((struct sockaddr_in *)fromp)->sin_port);
++	if ((from_af != AF_INET && from_af != AF_INET6) ||
+ 	    port >= IPPORT_RESERVED || port < IPPORT_RESERVED/2) {
++	    char hbuf[MAXHOSTNAMELEN];
++
++	    if (getnameinfo(fromp, fromlen, hbuf, sizeof(hbuf), NULL, 0,
++				NI_NUMERICHOST))
++		strcpy(hbuf, "???");
+ 	    syslog(LOG_NOTICE, "Connection from %s on illegal port",
+-		   inet_ntoa(fromp->sin_addr));
++				hbuf);
+ 	    fatal(f, "Permission denied", 0);
+ 	}
+ 
+ #ifdef IP_OPTIONS
++	if (from_af == AF_INET)
+ 	{
+ 	    u_char optbuf[BUFSIZ/3], *cp;
+ 	    char lbuf[BUFSIZ];
+--- rlogind/rlogin.pam
++++ rlogind/rlogin.pam
+@@ -0,0 +1,10 @@
++#%PAM-1.0
++auth     requisite      pam_nologin.so
++auth     [user_unknown=ignore success=ok ignore=ignore auth_err=die default=bad] pam_securetty.so
++auth     sufficient     pam_rhosts.so
++auth     include        common-auth
++auth     required       pam_mail.so
++account  include        common-account
++password include        common-password
++session  required       pam_loginuid.so
++session  include        common-session
+--- rsh/rsh.c
++++ rsh/rsh.c
+@@ -163,7 +163,8 @@
+ 		exit(1);
+ 	}
+ 
+-	rem = rcmd(&host, sp->s_port, pw->pw_name, user, args, &rfd2);
++	rem = rcmd_af(&host, sp->s_port, pw->pw_name, user, args, &rfd2,
++		      PF_UNSPEC);
+ 
+ 	if (rem < 0)
+ 		exit(1);
+--- rshd/Makefile
++++ rshd/Makefile
+@@ -6,9 +6,8 @@
+ OBJS = rshd.o
+ 
+ ifeq ($(USE_PAM),1)
+-# ?
+-CFLAGS += # -DUSE_PAM
+-LIBS += -ldl # -lpam -lpam_misc
++CFLAGS += -DUSE_PAM
++LIBS += -ldl -lpam -lpam_misc
+ endif
+ 
+ rshd: $(OBJS)
+@@ -18,6 +17,7 @@
+ 	install -s -m$(DAEMONMODE) rshd $(INSTALLROOT)$(SBINDIR)/in.rshd
+ 	install -m$(MANMODE) rshd.8 $(INSTALLROOT)$(MANDIR)/man8/in.rshd.8
+ 	ln -sf in.rshd.8 $(INSTALLROOT)$(MANDIR)/man8/rshd.8
++	install -m644 rsh.pam $(INSTALLROOT)/etc/pam.d/rsh
+ 
+ clean:
+ 	rm -f *.o rshd
+--- rshd/rsh.pam
++++ rshd/rsh.pam
+@@ -0,0 +1,7 @@
++#%PAM-1.0
++auth     required       pam_rhosts.so
++auth     required       pam_nologin.so
++account  include        common-account 
++password include        common-password
++session  required       pam_loginuid.so
++session  include        common-session
+--- rshd/rshd.c
++++ rshd/rshd.c
+@@ -97,6 +97,8 @@
+ static int paranoid = 0;
+ static int sent_null;
+ static int allow_root_rhosts=0;
++static sa_family_t from_af;
++static socklen_t fromlen;
+ 
+ char	username[20] = "USER=";
+ char	homedir[64] = "HOME=";
+@@ -107,7 +109,7 @@
+ extern	char	**environ;
+ 
+ static void error(const char *fmt, ...);
+-static void doit(struct sockaddr_in *fromp);
++static void doit(struct sockaddr *fromp);
+ static void getstr(char *buf, int cnt, const char *err);
+ 
+ extern int _check_rhosts_file;
+@@ -275,26 +277,32 @@
+     return pwd;
+ #else
+     if (pwd->pw_uid==0 && !allow_root_rhosts) return NULL;
+-    if (ruserok(hostname, pwd->pw_uid==0, remuser, locuser) < 0) {
++    if (ruserok_af(hostname, pwd->pw_uid==0, remuser, locuser, from_af) < 0) {
+ 	return NULL;
+     }
+     return pwd;
+ #endif
+ }
+ 
+-static const char *findhostname(struct sockaddr_in *fromp,
++static const char *findhostname(struct sockaddr *fromp,
+ 				const char *remuser, const char *locuser,
+-				const char *cmdbuf) 
++				const char *cmdbuf)
+ {
+-	struct hostent *hp;
+ 	const char *hostname;
+-
+-	hp = gethostbyaddr((char *)&fromp->sin_addr, sizeof (struct in_addr),
+-			   fromp->sin_family);
++	char hbuf[NI_MAXHOST];
++	char naddr[NI_MAXHOST];
++	char raddr[NI_MAXHOST];
++	struct addrinfo hints, *res, *res0;
++	int gaierr;
++
++	if ((gaierr = getnameinfo(fromp, fromlen, hbuf, sizeof(hbuf),
++					NULL, 0, 0))) {
++		error("getnameinfo: %s\n", gai_strerror(gaierr));
++		exit(1);
++	}
+ 
+ 	errno = ENOMEM; /* malloc (thus strdup) may not set it */
+-	if (hp) hostname = strdup(hp->h_name);
+-	else hostname = strdup(inet_ntoa(fromp->sin_addr));
++	hostname = strdup(hbuf);	/* not free */
+ 
+ 	if (hostname==NULL) {
+ 	    /* out of memory? */
+@@ -302,34 +310,44 @@
+ 	    exit(1);
+ 	}
+ 
+-	/*
+-	 * Attempt to confirm the DNS. 
+-	 */
+-#ifdef	RES_DNSRCH
+-	_res.options &= ~RES_DNSRCH;
+-#endif
+-	hp = gethostbyname(hostname);
+-	if (hp == NULL) {
+-	    syslog(LOG_INFO, "Couldn't look up address for %s", hostname);
+-	    fail("Couldn't get address for your host (%s)\n", 
+-		 remuser, inet_ntoa(fromp->sin_addr), locuser, cmdbuf);
+-	} 
+-	while (hp->h_addr_list[0] != NULL) {
+-	    if (!memcmp(hp->h_addr_list[0], &fromp->sin_addr,
+-			sizeof(fromp->sin_addr))) {
+-		return hostname;
+-	    }
+-	    hp->h_addr_list++;
++	memset(&hints, 0, sizeof(hints));
++	hints.ai_family = from_af;
++	hints.ai_socktype = SOCK_STREAM;
++	hints.ai_flags = AI_CANONNAME;
++	if ((gaierr = getaddrinfo(hbuf, NULL, &hints, &res0))) {
++		syslog(LOG_INFO, "Couldn't look up address for %s: %s",
++			hbuf, gai_strerror(gaierr));
++		fail("Couldn't get address for your host (%s)\n",
++			remuser, hbuf, locuser, cmdbuf);
++	} else {
++		if (getnameinfo(fromp, fromlen, naddr, sizeof(naddr),
++				NULL, 0, NI_NUMERICHOST))
++			strcpy(naddr, "???");
++		for (res = res0; res; res = res->ai_next) {
++			if (res->ai_family != from_af)
++				continue;
++			if (getnameinfo(res->ai_addr, res->ai_addrlen,
++					raddr, sizeof(raddr), NULL, 0,
++					NI_NUMERICHOST) == 0
++			    && strcmp(naddr, raddr) == 0) {
++				break;	/* match */
++			}
++		}
++		if (res) {
++			freeaddrinfo(res0);
++			return hostname;
++		}
+ 	}
+ 	syslog(LOG_NOTICE, "Host addr %s not listed for host %s",
+-	       inet_ntoa(fromp->sin_addr), hp->h_name);
+-	fail("Host address mismatch for %s\n", 
+-	     remuser, inet_ntoa(fromp->sin_addr), locuser, cmdbuf);
++		naddr, res0->ai_canonname ? res0->ai_canonname : "???");
++	freeaddrinfo(res0);
++	fail("Host address mismatch for %s\n",
++		remuser, naddr, locuser, cmdbuf);
+ 	return NULL; /* not reachable */
+ }
+ 
+ static void
+-doit(struct sockaddr_in *fromp)
++doit(struct sockaddr *fromp)
+ {
+ 	char cmdbuf[ARG_MAX+1];
+ 	const char *theshell, *shellname;
+@@ -350,7 +368,7 @@
+ 
+ 	if (port != 0) {
+ 		int lport = IPPORT_RESERVED - 1;
+-		sock = rresvport(&lport);
++		sock = rresvport_af(&lport, from_af);
+ 		if (sock < 0) {
+ 		    syslog(LOG_ERR, "can't get stderr port: %m");
+ 		    exit(1);
+@@ -359,9 +377,11 @@
+ 		    syslog(LOG_ERR, "2nd port not reserved\n");
+ 		    exit(1);
+ 		}
+-		fromp->sin_port = htons(port);
+-		if (connect(sock, (struct sockaddr *)fromp,
+-			    sizeof(*fromp)) < 0) {
++		if (from_af == AF_INET6)
++			((struct sockaddr_in6 *)fromp)->sin6_port = htons(port);
++		else
++			((struct sockaddr_in *)fromp)->sin_port = htons(port);
++		if (connect(sock, fromp, fromlen) < 0) {
+ 		    syslog(LOG_INFO, "connect second port: %m");
+ 		    exit(1);
+ 		}
+@@ -384,7 +404,7 @@
+ 	setpwent();
+ 	pwd = doauth(remuser, hostname, locuser);
+ 	if (pwd == NULL) {
+-		fail("Permission denied.\n", 
++		fail("Permission denied.\n",
+ 		     remuser, hostname, locuser, cmdbuf);
+ 	}
+ 
+@@ -416,15 +436,15 @@
+ 			exit(1);
+ 		}
+ 		if (pid) {
+-			close(0); 
++			close(0);
+ 			close(1);
+-			close(2); 
++			close(2);
+ 			close(pv[1]);
+ 			stderr_parent(sock, pv[0], pid);
+ 			/* NOTREACHED */
+ 		}
+ 		setpgrp();
+-		close(sock); 
++		close(sock);
+ 		close(pv[0]);
+ 		dup2(pv[1], 2);
+ 		close(pv[1]);
+@@ -479,7 +499,7 @@
+ 	}
+ 
+ 	/*
+-	 * Close all fds, in case libc has left fun stuff like 
++	 * Close all fds, in case libc has left fun stuff like
+ 	 * /etc/shadow open.
+ 	 */
+ 	for (ifd = getdtablesize()-1; ifd > 2; ifd--) close(ifd);
+@@ -489,18 +509,24 @@
+ 	exit(1);
+ }
+ 
+-static void network_init(int fd, struct sockaddr_in *fromp)
++static void network_init(int fd, struct sockaddr *fromp)
+ {
+ 	struct linger linger;
+-	socklen_t fromlen;
+ 	int on=1;
+ 	int port;
+ 
+-	fromlen = sizeof(*fromp);
++	fromlen = sizeof(struct sockaddr_storage);
+ 	if (getpeername(fd, (struct sockaddr *) fromp, &fromlen) < 0) {
+ 		syslog(LOG_ERR, "getpeername: %m");
+ 		_exit(1);
+ 	}
++	if (fromp->sa_family == AF_INET6 &&
++	  IN6_IS_ADDR_V4MAPPED(&((struct sockaddr_in6 *)fromp)->sin6_addr)) {
++		fromp->sa_family = AF_INET;
++		((struct sockaddr_in *)fromp)->sin_addr.s_addr =
++		  ((struct sockaddr_in6 *)fromp)->sin6_addr.s6_addr32[3];
++	}
++	from_af = fromp->sa_family;
+ 	if (keepalive &&
+ 	    setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, (char *)&on,
+ 	    sizeof(on)) < 0)
+@@ -511,12 +537,13 @@
+ 	    sizeof (linger)) < 0)
+ 		syslog(LOG_WARNING, "setsockopt (SO_LINGER): %m");
+ 
+-	if (fromp->sin_family != AF_INET) {
++	if (from_af != AF_INET && from_af != AF_INET6) {
+ 	    syslog(LOG_ERR, "malformed \"from\" address (af %d)\n",
+-		   fromp->sin_family);
++		   from_af);
+ 	    exit(1);
+ 	}
+ #ifdef IP_OPTIONS
++	if (from_af == AF_INET)
+       {
+ 	u_char optbuf[BUFSIZ/3], *cp;
+ 	char lbuf[BUFSIZ+1], *lp;
+@@ -528,7 +555,7 @@
+ 		ipproto = ip->p_proto;
+ 	else
+ 		ipproto = IPPROTO_IP;
+-	if (!getsockopt(0, ipproto, IP_OPTIONS, (char *)optbuf, &optsize) &&
++	if (!getsockopt(fd, ipproto, IP_OPTIONS, (char *)optbuf, &optsize) &&
+ 	    optsize != 0) {
+ 		lp = lbuf;
+ 
+@@ -543,9 +570,9 @@
+ 		syslog(LOG_NOTICE,
+ 		       "Connection received from %s using IP options"
+ 		       " (ignored): %s",
+-		       inet_ntoa(fromp->sin_addr), lbuf);
++		       inet_ntoa(((struct sockaddr_in *)fromp)->sin_addr),lbuf);
+ 
+-		if (setsockopt(0, ipproto, IP_OPTIONS, NULL, optsize) != 0) {
++		if (setsockopt(fd, ipproto, IP_OPTIONS, NULL, optsize) != 0) {
+ 			syslog(LOG_ERR, "setsockopt IP_OPTIONS NULL: %m");
+ 			exit(1);
+ 		}
+@@ -556,10 +583,18 @@
+ 	/*
+ 	 * Check originating port for validity.
+ 	 */
+-	port = ntohs(fromp->sin_port);
++	if (from_af == AF_INET6)
++		port = ntohs(((struct sockaddr_in6 *)fromp)->sin6_port);
++	else
++		port = ntohs(((struct sockaddr_in *)fromp)->sin_port);
+ 	if (port >= IPPORT_RESERVED || port < IPPORT_RESERVED/2) {
++		char hbuf[MAXHOSTNAMELEN];
++
++		if (getnameinfo(fromp, fromlen, hbuf, sizeof(hbuf),
++				NULL, 0, NI_NUMERICHOST))
++			strcpy(hbuf, "???");
+ 	    syslog(LOG_NOTICE|LOG_AUTH, "Connection from %s on illegal port",
+-		   inet_ntoa(fromp->sin_addr));
++					hbuf);
+ 	    exit(1);
+ 	}
+ }
+@@ -568,7 +603,7 @@
+ main(int argc, char *argv[])
+ {
+ 	int ch;
+-	struct sockaddr_in from;
++	struct sockaddr_storage from;
+ 	_check_rhosts_file=1;
+ 
+ 	openlog("rshd", LOG_PID | LOG_ODELAY, LOG_DAEMON);
+@@ -611,11 +646,7 @@
+                                "pam_rhosts_auth in /etc/pam.conf");
+ #endif /* USE_PAM */
+ 
+-	network_init(0, &from);
+-	doit(&from);
++	network_init(0, (struct sockaddr *)&from);
++	doit((struct sockaddr *)&from);
+ 	return 0;
+ }
+-
+-
+-
+-
