@@ -1,7 +1,7 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 #
-# Copyright 2005,2006 TUBITAK/UEKAE
+# Copyright 2006 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "squid-2.5.STABLE14"
+WorkDir = "squid-2.6.STABLE5"
 
 def setup():
     shelltools.export("WANT_AUTOCONF", "2.1")
@@ -45,8 +45,6 @@ def setup():
                          --enable-poll \
                          --enable-ssl \
                          --host=%s" %  get.HOST())
-
-#    pisitools.dosed("include/autoconf.h", "#define SQUID_MAXFD", "#define SQUID_MAXFD 8192")
 
 def build():
     autotools.make()
