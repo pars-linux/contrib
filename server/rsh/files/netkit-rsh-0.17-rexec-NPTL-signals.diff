@@ -1,0 +1,18 @@
+--- rexec/rexec.c
++++ rexec/rexec.c
+@@ -442,6 +442,15 @@
+ void set_signal(int sig, SIGHANDLER_T handler)
+ {
+ 
++  /* Skipping signals used by NPTL. See
++   * https://listman.redhat.com/archives/phil-list/2003-April/msg00051.htm.
++   * We are not really supposed to use __SIGRTMIN, so this is somewhat
++   * kludgy. But for lack of a better solution (i.e. an "official"
++   * __SIGRTMIN), we use this.
++   */
++  if ( sig >= __SIGRTMIN && sig < SIGRTMIN )
++    return;
++
+   switch (sig)
+   {
+     struct sigaction action;

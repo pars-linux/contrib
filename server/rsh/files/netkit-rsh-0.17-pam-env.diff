@@ -1,0 +1,21 @@
+--- rshd/rshd.c
++++ rshd/rshd.c
+@@ -504,6 +504,18 @@
+ 		exit(1);
+ 	}
+ 	environ = envinit;
++	/* duplicate environ from pam_environment */
++	{
++	  const char *const *penv=
++	    (const char *const *)pam_getenvlist(pamh);
++
++	  if(penv!=NULL)
++	    while(*penv!=NULL) {
++	      putenv(*penv);
++	      penv++;
++	    }
++	  pam_misc_drop_env(penv);
++	}
+ 
+ 	strncat(homedir, pwd->pw_dir, sizeof(homedir)-6);
+ 	homedir[sizeof(homedir)-1] = 0;
