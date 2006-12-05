@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk1</Name>
+        <Homepage>http://www.gtk.org/</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>The GIMP Toolkit version 1 </Summary>
+        <Summary xml:lang="tr">GIMP araçları versiyon 1</Summary>
+        <Archive sha1sum="a5adcb909257da01ae4d4761e1d41081d06e4d7c" type="targz">ftp://ftp.gtk.org/pub/gtk/v1.2/gtk+-1.2.10.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">gtk-cvs.dif</Patch>
+            <Patch level="1">cflags-gtk-config.dif</Patch>
+            <Patch>gtk+-1.2.10-gettext.patch</Patch>
+            <Patch level="1">gtk+-1.2.10-nolibtool.patch</Patch>
+            <Patch>gtk-autoconf.patch</Patch>
+            <Patch level="1">gtk-filesel-dirchanged-fix.patch</Patch>
+            <Patch level="1">gtk-filesel-navigation-buttons.patch</Patch>
+            <Patch level="1">gtk-fix-dnd-crash.patch</Patch>
+            <Patch>gtk.patch</Patch>
+            <Patch level="1">gtkrc.tr.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>intltool</Dependency>
+            <Dependency versionFrom="1.2">glib1</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtk1</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2">glib1</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="data">/usr/share/themes</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="info">/usr/share/info</Path>
+        </Files>
+   </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2006-10-28</Date>
+            <Version>1.2.10</Version>
+            <Comment>Bugfix #2131 and default font setted to dejavu</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-06-30</Date>
+            <Version>1.2.10</Version>
+            <Comment>Unnecessary docs removed</Comment>
+            <Name>Gürer Özen</Name>
+            <Email>gurer@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-03-04</Date>
+            <Version>1.2.10</Version>
+            <Comment>Default font changed to Bitstream</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-09-09</Date>
+            <Version>1.2.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
