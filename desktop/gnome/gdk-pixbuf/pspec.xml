@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gdk-pixbuf</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GNOME image library</Summary>
+        <Summary xml:lang="tr">GNOME resim kitaplığı</Summary>
+        <Archive sha1sum="495324afb5abebc14567ffd5a6cd72333bcc7f5b" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/gdk-pixbuf-0.22.0.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">gdk-pixbuf-0.22.0-bmp_reject_corrupt.patch</Patch>
+            <Patch>gdk-pixbuf-0.22.0-bmp_secure.patch</Patch>
+            <Patch level="1">gdk-pixbuf-0.22.0-loaders.patch</Patch>
+            <Patch level="1">gdk-pixbuf-0.22.0-m4.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>gtk1</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gdk-pixbuf</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk1</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="doc">/usr/share/gnome/html</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+   </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-02-05</Date>
+            <Version>0.22.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
