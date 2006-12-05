@@ -1,0 +1,540 @@
+diff -u xmms-1.2.10/Input/mpg123.orig/dct36_3dnow.s xmms-1.2.10/Input/mpg123/dct36_3dnow.s
+--- xmms-1.2.10/Input/mpg123.orig/dct36_3dnow.s	2005-09-12 19:20:45.000000000 +0200
++++ xmms-1.2.10/Input/mpg123/dct36_3dnow.s	2005-09-12 19:22:08.000000000 +0200
+@@ -120,9 +120,16 @@
+ 
+ 	movq 24(%eax),%mm0
+ 	movq 48(%eax),%mm1
+-	movd COS9+12,%mm2
++	pushl %ebx
++	call .LL4
++.LL4:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL4],%ebx
++	pushl %ebx
++	movl COS9@GOT(%ebx),%ebx
++	movd 12(%ebx),%mm2
+ 	punpckldq %mm2,%mm2
+-	movd COS9+24,%mm3
++	movd 24(%ebx),%mm3
+ 	punpckldq %mm3,%mm3
+ 	pfmul %mm2,%mm0
+ 	pfmul %mm3,%mm1
+@@ -132,41 +139,44 @@
+ 	pi2fd %mm7,%mm7
+ 	popl %eax
+ 	movq 8(%eax),%mm2
+-	movd COS9+4,%mm3
++	movd 4(%ebx),%mm3
+ 	punpckldq %mm3,%mm3
+ 	pfmul %mm3,%mm2
+ 	pfadd %mm0,%mm2
+ 	movq 40(%eax),%mm3
+-	movd COS9+20,%mm4
++	movd 20(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	pfadd %mm3,%mm2
+ 	movq 56(%eax),%mm3
+-	movd COS9+28,%mm4
++	movd 28(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	pfadd %mm3,%mm2
+ 	movq (%eax),%mm3
+ 	movq 16(%eax),%mm4
+-	movd COS9+8,%mm5
++	movd 8(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfadd %mm4,%mm3
+ 	movq 32(%eax),%mm4
+-	movd COS9+16,%mm5
++	movd 16(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfadd %mm4,%mm3
+ 	pfadd %mm1,%mm3
+ 	movq 64(%eax),%mm4
+-	movd COS9+32,%mm5
++	movd 32(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfadd %mm4,%mm3
+ 	movq %mm2,%mm4
+ 	pfadd %mm3,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+0,%mm5
++	popl %ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq (%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -192,7 +202,14 @@
+ 	movq %mm3,%mm4
+ 	pfsub %mm2,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+32,%mm5
++	pushl %ebx
++	call .LL5
++.LL5:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL5],%ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 32(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -220,7 +237,14 @@
+ 	pfsub %mm3,%mm2
+ 	movq 56(%eax),%mm3
+ 	pfsub %mm3,%mm2
+-	movd COS9+12,%mm3
++	pushl %ebx
++	call .LL6
++.LL6:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL6],%ebx
++	pushl %ebx
++	movl COS9@GOT(%ebx),%ebx
++	movd 12(%ebx),%mm3
+ 	punpckldq %mm3,%mm3
+ 	pfmul %mm3,%mm2
+ 	movq 16(%eax),%mm3
+@@ -228,7 +252,7 @@
+ 	pfsub %mm4,%mm3
+ 	movq 64(%eax),%mm4
+ 	pfsub %mm4,%mm3
+-	movd COS9+24,%mm4
++	movd 24(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	movq 48(%eax),%mm4
+@@ -238,7 +262,10 @@
+ 	movq %mm2,%mm4
+ 	pfadd %mm3,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+4,%mm5
++	popl %ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 4(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -264,7 +291,14 @@
+ 	movq %mm3,%mm4
+ 	pfsub %mm2,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+28,%mm5
++	pushl %ebx
++	call .LL7
++.LL7:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL7],%ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 28(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -289,41 +323,51 @@
+ 	movd %mm5,2048(%ebx)
+ 
+ 	movq 8(%eax),%mm2
+-	movd COS9+20,%mm3
++	pushl %ebx
++	call .LL8
++.LL8:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL8],%ebx
++	pushl %ebx
++	movl COS9@GOT(%ebx),%ebx
++	movd 20(%ebx),%mm3
+ 	punpckldq %mm3,%mm3
+ 	pfmul %mm3,%mm2
+ 	pfsub %mm0,%mm2
+ 	movq 40(%eax),%mm3
+-	movd COS9+28,%mm4
++	movd 28(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	pfsub %mm3,%mm2
+ 	movq 56(%eax),%mm3
+-	movd COS9+4,%mm4
++	movd 4(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	pfadd %mm3,%mm2
+ 	movq (%eax),%mm3
+ 	movq 16(%eax),%mm4
+-	movd COS9+32,%mm5
++	movd 32(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfsub %mm4,%mm3
+ 	movq 32(%eax),%mm4
+-	movd COS9+8,%mm5
++	movd 8(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfsub %mm4,%mm3
+ 	pfadd %mm1,%mm3
+ 	movq 64(%eax),%mm4
+-	movd COS9+16,%mm5
++	movd 16(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfadd %mm4,%mm3
+ 	movq %mm2,%mm4
+ 	pfadd %mm3,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+8,%mm5
++	popl %ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 8(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -349,7 +393,14 @@
+ 	movq %mm3,%mm4
+ 	pfsub %mm2,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+24,%mm5
++	pushl %ebx
++	call .LL9
++.LL9:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL9],%ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 24(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -373,41 +424,51 @@
+ 	psrlq $32,%mm5
+ 	movd %mm5,1920(%ebx)
+ 	movq 8(%eax),%mm2
+-	movd COS9+28,%mm3
++	pushl %ebx
++	call .LL0
++.LL0:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL0],%ebx
++	pushl %ebx
++	movl COS9@GOT(%ebx),%ebx
++	movd 28(%ebx),%mm3
+ 	punpckldq %mm3,%mm3
+ 	pfmul %mm3,%mm2
+ 	pfsub %mm0,%mm2
+ 	movq 40(%eax),%mm3
+-	movd COS9+4,%mm4
++	movd 4(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	pfadd %mm3,%mm2
+ 	movq 56(%eax),%mm3
+-	movd COS9+20,%mm4
++	movd 20(%ebx),%mm4
+ 	punpckldq %mm4,%mm4
+ 	pfmul %mm4,%mm3
+ 	pfsub %mm3,%mm2
+ 	movq (%eax),%mm3
+ 	movq 16(%eax),%mm4
+-	movd COS9+16,%mm5
++	movd 16(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfsub %mm4,%mm3
+ 	movq 32(%eax),%mm4
+-	movd COS9+32,%mm5
++	movd 32(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfadd %mm4,%mm3
+ 	pfadd %mm1,%mm3
+ 	movq 64(%eax),%mm4
+-	movd COS9+8,%mm5
++	movd 8(%ebx),%mm5
+ 	punpckldq %mm5,%mm5
+ 	pfmul %mm5,%mm4
+ 	pfsub %mm4,%mm3
+ 	movq %mm2,%mm4
+ 	pfadd %mm3,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+12,%mm5
++	popl %ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 12(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -433,7 +494,14 @@
+ 	movq %mm3,%mm4
+ 	pfsub %mm2,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+20,%mm5
++	pushl %ebx
++	call .LL1
++.LL1:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL1],%ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 20(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+@@ -467,7 +535,14 @@
+ 	movq 64(%eax),%mm3
+ 	pfadd %mm3,%mm4
+ 	movq %mm7,%mm5
+-	punpckldq tfcos36+16,%mm5
++	pushl %ebx
++	call .LL2
++.LL2:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL2],%ebx
++	movl tfcos36@GOT(%ebx),%ebx
++	punpckldq 16(%ebx),%mm5
++	popl %ebx
+ 	pfmul %mm5,%mm4
+ 	movq %mm4,%mm5
+ 	pfacc %mm5,%mm5
+diff -u xmms-1.2.10/Input/mpg123.orig/dct64_3dnow.s xmms-1.2.10/Input/mpg123/dct64_3dnow.s
+--- xmms-1.2.10/Input/mpg123.orig/dct64_3dnow.s	2005-09-12 19:20:46.000000000 +0200
++++ xmms-1.2.10/Input/mpg123/dct64_3dnow.s	2005-09-12 19:22:08.000000000 +0200
+@@ -30,7 +30,14 @@
+ 	/ femms
+ 
+ 	// 1
+-	movl mpg123_pnts,%eax
++	pushl %ebx
++	call .LL4
++.LL4:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL4],%ebx
++	movl mpg123_pnts@GOT(%ebx),%eax
++	movl (%eax), %eax
++	popl %ebx
+ 	movq 0(%edi),%mm0
+         movq %mm0,%mm1
+ 	movd 124(%edi),%mm2
+@@ -129,7 +136,14 @@
+ 	movd %mm5,64(%ebx)
+ 	
+ 	// 2
+-	movl mpg123_pnts+4,%eax
++	pushl %ebx
++	call .LL5
++.LL5:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL5],%ebx
++	movl mpg123_pnts@GOT(%ebx),%ebx
++	movl 4(%ebx), %eax
++	popl %ebx
+ 	/ 0, 14	
+ 	movq 0(%ebx),%mm0
+ 	movq %mm0,%mm1
+@@ -232,7 +246,14 @@
+ 	movd %mm5,96(%esi)
+ 
+ 	// 3
+-	movl mpg123_pnts+8,%eax
++	pushl %ebx
++	call .LL6
++.LL6:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL6],%ebx
++	movl mpg123_pnts@GOT(%ebx),%ebx
++	movl 8(%ebx), %eax
++	popl %ebx
+ 	movq 0(%eax),%mm0
+ 	movq 8(%eax),%mm1
+ 	movq 0(%esi),%mm2
+@@ -333,7 +354,14 @@
+ 	movd %mm6,112(%ebx)
+ 	
+ 	// 4
+-	movl mpg123_pnts+12,%eax
++	pushl %ebx
++	call .LL7
++.LL7:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL7],%ebx
++	movl mpg123_pnts@GOT(%ebx),%ebx
++	movl 12(%ebx), %eax
++	popl %ebx
+ 	movq 0(%eax),%mm0
+ 	movq 0(%ebx),%mm1
+ 	/ 0
+@@ -443,7 +471,14 @@
+ 	/ 1.0 | -1.0
+ 	movd %eax,%mm1
+ 	pi2fd %mm1,%mm1
+-	movl mpg123_pnts+16,%eax
++	pushl %ebx
++	call .LL8
++.LL8:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL8],%ebx
++	movl mpg123_pnts@GOT(%ebx),%ebx
++	movl 16(%ebx), %eax
++	popl %ebx
+ 	movd 0(%eax),%mm2
+ 	punpckldq %mm2,%mm1
+ 	/ 1.0 | cos0
+diff -u xmms-1.2.10/Input/mpg123.orig/dct64_MMX.s xmms-1.2.10/Input/mpg123/dct64_MMX.s
+--- xmms-1.2.10/Input/mpg123.orig/dct64_MMX.s	2005-09-12 19:20:46.000000000 +0200
++++ xmms-1.2.10/Input/mpg123/dct64_MMX.s	2005-09-12 19:22:08.000000000 +0200
+@@ -54,7 +54,11 @@
+ 	fstps    (%edx)
+ 	movl 276(%esp),%edi
+ 	flds    4(%eax)
+-	movl $costab,%ebx
++	call .LL4
++.LL4:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL4],%ebx
++	movl costab@GOT(%ebx),%ebx
+ 	fadds 120(%eax)
+ 	orl %ecx,%ecx
+ 	fstps   4(%edx)
+diff -u xmms-1.2.10/Input/mpg123.orig/decode_3dnow.s xmms-1.2.10/Input/mpg123/decode_3dnow.s
+--- xmms-1.2.10/Input/mpg123.orig/decode_3dnow.s	2005-09-12 19:20:47.000000000 +0200
++++ xmms-1.2.10/Input/mpg123/decode_3dnow.s	2005-09-12 19:22:08.000000000 +0200
+@@ -51,7 +51,7 @@
+ 	movl 56(%esp),%esi
+ 	movl 52(%esp),%edi
+ 	movl 0(%esi),%esi
+-	movl 48(%esp),%ebx
++	movl 48(%esp),%eax
+ 	addl %edi,%esi
+ 	movl %esi,16(%esp)
+ 
+@@ -65,17 +65,24 @@
+ ///	call do_equalizer_3dnow
+ ///	addl $8,%esp
+ ///.L25:
+-	testl %ebx,%ebx
++	call .LL4
++.LL4:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL4],%ebx
++	testl %eax,%eax
+ 	jne .L26
+-	decl bo.42
+-	movl $buffs.40,%ecx
+-	andl $15,bo.42
++	movl bo.42@GOT(%ebx),%ecx
++	decl (%ecx)
++	andl $15,(%ecx)
++	movl buffs.40@GOT(%ebx),%ecx
+ 	jmp .L27
+ .L26:
+ 	addl $2,16(%esp)
+-	movl $buffs.40+2176,%ecx
++	movl buffs.40@GOT(%ebx),%ecx
++	addl $2176,%ecx
+ .L27:
+-	movl bo.42,%edx
++	movl bo.42@GOT(%ebx),%eax
++	movl (%eax),%edx
+ 	testb $1,%dl
+ 	je .L28
+ 	movl %edx,36(%esp)
+@@ -112,7 +119,14 @@
+ 	addl $12,%esp
+ 	movl %esi,20(%esp)
+ .L29:
+-	movl $mpg123_decwin+64,%edx
++	pushl %ebx
++	call .LL5
++.LL5:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL5],%ebx
++	movl mpg123_decwin@GOT(%ebx),%edx
++	addl $64,%edx
++	popl %ebx
+ 	movl $16,%ecx
+ 	subl 20(%esp),%edx
+ 	movl 16(%esp),%edi
+diff -u xmms-1.2.10/Input/mpg123.orig/decode_MMX.s xmms-1.2.10/Input/mpg123/decode_MMX.s
+--- xmms-1.2.10/Input/mpg123.orig/decode_MMX.s	2005-09-12 19:20:47.000000000 +0200
++++ xmms-1.2.10/Input/mpg123/decode_MMX.s	2005-09-12 19:22:08.000000000 +0200
+@@ -41,9 +41,16 @@
+         call dct64_MMX
+         addl $12,%esp
+ 	leal 1(%ebx), %ecx
+-        subl %ebp,%ebx                
+-
+-	leal mpg123_decwins(%ebx,%ebx,1), %edx
++        subl %ebp,%ebx
++        
++        pushl %ebx
++        call .LL4
++.LL4:
++		popl %ebx
++		addl $_GLOBAL_OFFSET_TABLE_+[.- .LL4],%ebx
++		movl mpg123_decwins@GOT(%ebx),%edx
++		popl %ebx
++		leal (%edx,%ebx,2), %edx
+ .L3: 
+         movq  (%edx),%mm0
+         pmaddwd (%esi),%mm0
+diff -u xmms-1.2.10/Input/mpg123.orig/decode_i586.s xmms-1.2.10/Input/mpg123/decode_i586.s
+--- xmms-1.2.10/Input/mpg123.orig/decode_i586.s	2005-09-12 19:20:47.000000000 +0200
++++ xmms-1.2.10/Input/mpg123/decode_i586.s	2005-09-12 19:22:08.000000000 +0200
+@@ -45,20 +45,26 @@
+ 	pushl %edi
+ 	pushl %esi
+ 	pushl %ebx
++	call .LL4
++.LL4:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL4],%ebx
+ 	movl 32(%esp),%eax
+ 	movl 40(%esp),%esi
+ 	xorl %edi,%edi
+-	movl bo,%ebp
++	movl bo@GOT(%ebx),%ecx
++	movl (%ecx),%ebp
+ 	cmpl %edi,36(%esp)
+ 	jne .L48
+ 	decl %ebp
+ 	andl $15,%ebp
+-	movl %ebp,bo
+-	movl $buffs,%ecx
++	movl %ebp,(%ecx)
++	movl buffs@GOT(%ebx),%ecx
+ 	jmp .L49
+ .L48:
+ 	addl $2,%esi
+-	movl $buffs+2176,%ecx
++	movl buffs@GOT(%ebx),%ecx
++	addl $2176,%ecx
+ .L49:
+ 	testl $1,%ebp
+ 	je .L50
+@@ -88,7 +94,14 @@
+ 	addl $12,%esp
+ 	movl 16(%esp),%edx
+ 	leal 0(,%edx,4),%edx
+-	movl $mpg123_decwin+64,%eax
++	pushl %ebx
++	call .LL5
++.LL5:
++	popl %ebx
++	addl $_GLOBAL_OFFSET_TABLE_+[.- .LL5],%ebx
++	movl mpg123_decwin@GOT(%ebx),%eax
++	addl $64,%eax
++	popl %ebx
+ 	movl %eax,%ecx
+ 	subl %edx,%ecx
+ 	movl $16,%ebp

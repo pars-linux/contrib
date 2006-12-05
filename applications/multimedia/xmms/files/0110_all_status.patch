@@ -1,0 +1,73 @@
+--- xmms/main.c	2004-07-21 23:45:54.610293784 -0400
++++ xmms/main.c	2004-07-21 23:42:29.518472480 -0400
+@@ -2406,58 +2406,25 @@
+ 
+ 	mainwin_vis_set_active_vis(MAINWIN_VIS_ACTIVE_MAINWIN);
+ 	mainwin_set_shape_mask();
+-	if (cfg.show_wm_decorations)
+-	{
+-		if (!pposition_broken && cfg.player_x != -1 && cfg.save_window_position)
+-			dock_set_uposition(mainwin, cfg.player_x, cfg.player_y);
+-		gtk_widget_show(mainwin);
+-		if (pposition_broken && cfg.player_x != -1 && cfg.save_window_position)
+-			dock_set_uposition(mainwin, cfg.player_x, cfg.player_y);
+-		return;
+-	}
++
++	if (!pposition_broken && cfg.player_x != -1 &&
++	    cfg.save_window_position && cfg.show_wm_decorations)
++		dock_set_uposition(mainwin, cfg.player_x, cfg.player_y);
++	gtk_widget_show(mainwin);
++	if (pposition_broken && cfg.player_x != -1 && cfg.save_window_position)
++		dock_set_uposition(mainwin, cfg.player_x, cfg.player_y);
++	gtk_widget_set_usize(mainwin, PLAYER_WIDTH, PLAYER_HEIGHT);
++	gdk_flush();
++	draw_main_window(TRUE);
++
+ 	if (!nullmask)
+ 		/* Startup */
+ 		return;
+-	gdk_pixmap_unref(nullmask);
+-	nullmask = NULL;
+-	gdk_window_set_hints(mainwin->window, 0, 0,
+-			     PLAYER_WIDTH, PLAYER_HEIGHT,
+-			     PLAYER_WIDTH, PLAYER_HEIGHT,
+-			     GDK_HINT_MIN_SIZE | GDK_HINT_MAX_SIZE);
+-	gdk_window_resize(mainwin->window, PLAYER_WIDTH, PLAYER_HEIGHT);
+-	draw_main_window(TRUE);
+-	gdk_window_raise(mainwin->window);
+ }
+ 
+ void mainwin_real_hide(void)
+ {
+-	GdkGC *gc;
+-	GdkColor pattern;
+-
+-/*  	if (!cfg.player_visible) */
+-/*  		return; */
+-
+-	if (cfg.player_shaded)
+-	{
+-		svis_clear_data(mainwin_svis);
+-		vis_clear_data(playlistwin_vis);
+-	}
+-	if (cfg.show_wm_decorations)
+-		gtk_widget_hide(mainwin);
+-	else
+-	{
+-		nullmask = gdk_pixmap_new(mainwin->window, 20, 20, 1);
+-		gc = gdk_gc_new(nullmask);
+-		pattern.pixel = 0;
+-		gdk_gc_set_foreground(gc, &pattern);
+-		gdk_draw_rectangle(nullmask, gc, TRUE, 0, 0, 20, 20);
+-		gdk_gc_destroy(gc);
+-		gtk_widget_shape_combine_mask(mainwin, nullmask, 0, 0);
+-
+-		gdk_window_set_hints(mainwin->window, 0, 0, 0, 0, 0, 0, GDK_HINT_MIN_SIZE | GDK_HINT_MAX_SIZE);
+-		gdk_window_resize(mainwin->window, 0, 0);
+-
+-	}
++	gtk_widget_hide(mainwin);
+ 	mainwin_vis_set_active_vis(MAINWIN_VIS_ACTIVE_PLAYLISTWIN);
+ 	cfg.player_visible = FALSE;
+ }

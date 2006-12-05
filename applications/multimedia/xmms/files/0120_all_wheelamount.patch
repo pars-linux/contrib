@@ -1,0 +1,151 @@
+diff -Naurp xmms-1.2.10.orig/xmms/main.c xmms-1.2.10/xmms/main.c
+--- xmms-1.2.10.orig/xmms/main.c	2005-05-27 00:53:55.000000000 +0000
++++ xmms-1.2.10/xmms/main.c	2005-05-27 02:04:23.000000000 +0000
+@@ -366,6 +366,10 @@ static void read_config(void)
+ 	cfg.snap_distance = 10;
+ 	cfg.pause_between_songs_time = 2;
+ 
++	/** Added by Tatu Lahtela */
++        cfg.mousewheel_scroll_amount = 10;
++	/* end */
++
+ 	cfg.vis_type = VIS_ANALYZER;
+ 	cfg.analyzer_mode = ANALYZER_NORMAL;
+ 	cfg.analyzer_type = ANALYZER_BARS;
+@@ -466,6 +470,9 @@ static void read_config(void)
+ 		xmms_cfg_read_boolean(cfgfile, "xmms", "random_skin_on_play", &cfg.random_skin_on_play);
+ 		xmms_cfg_read_boolean(cfgfile, "xmms", "pause_between_songs", &cfg.pause_between_songs);
+ 		xmms_cfg_read_int(cfgfile, "xmms", "pause_between_songs_time", &cfg.pause_between_songs_time);
++		/** Added by Tatu Lahtela */
++		xmms_cfg_read_int(cfgfile, "xmms", "mousewheel_scroll_amount", &cfg.mousewheel_scroll_amount);
++		/* end */
+ 		xmms_cfg_read_int(cfgfile, "xmms", "mouse_wheel_change", &cfg.mouse_change);
+ 		xmms_cfg_read_boolean(cfgfile, "xmms", "show_wm_decorations", &cfg.show_wm_decorations);
+ 		if (xmms_cfg_read_int(cfgfile, "xmms", "url_history_length", &length))
+@@ -643,6 +650,9 @@ void save_config(void)
+ 	xmms_cfg_write_boolean(cfgfile, "xmms", "random_skin_on_play", cfg.random_skin_on_play);
+ 	xmms_cfg_write_boolean(cfgfile, "xmms", "pause_between_songs", cfg.pause_between_songs);
+ 	xmms_cfg_write_int(cfgfile, "xmms", "pause_between_songs_time", cfg.pause_between_songs_time);
++	/** Added by Tatu Lahtela */
++	xmms_cfg_write_int(cfgfile, "xmms", "mousewheel_scroll_amount", cfg.mousewheel_scroll_amount);
++	/* end */
+ 	xmms_cfg_write_int(cfgfile, "xmms", "mouse_wheel_change", cfg.mouse_change);
+ 	xmms_cfg_write_boolean(cfgfile, "xmms", "show_wm_decorations", cfg.show_wm_decorations);
+ 	xmms_cfg_write_string(cfgfile, "xmms", "eqpreset_default_file", cfg.eqpreset_default_file);
+diff -Naurp xmms-1.2.10.orig/xmms/main.h xmms-1.2.10/xmms/main.h
+--- xmms-1.2.10.orig/xmms/main.h	2005-05-27 00:53:54.000000000 +0000
++++ xmms-1.2.10/xmms/main.h	2005-05-27 02:04:23.000000000 +0000
+@@ -61,6 +61,7 @@ typedef struct
+ 	gboolean playlist_transparent;
+         gchar *gentitle_format;
+ 	GList *skin_dirs;
++        gint mousewheel_scroll_amount;
+ }
+ Config;
+ 
+diff -Naurp xmms-1.2.10.orig/xmms/playlistwin.c xmms-1.2.10/xmms/playlistwin.c
+--- xmms-1.2.10.orig/xmms/playlistwin.c	2005-05-27 00:53:51.000000000 +0000
++++ xmms-1.2.10/xmms/playlistwin.c	2005-05-27 02:04:23.000000000 +0000
+@@ -1273,9 +1273,25 @@ static void playlistwin_press(GtkWidget 
+ 		grab = FALSE;
+ 	}
+ 	else if (event->button == 4) /* Scrollwheel up */
+-		playlistwin_scroll(-3);
++	  /** Added by Tatu Lahtela */
++	  if ( cfg.mousewheel_scroll_amount ) {
++	    playlistwin_scroll(-1*cfg.mousewheel_scroll_amount );
++	  }
++	  else {
++	    playlistwin_scroll(-10);
++	  }
++	/* end */
++
+ 	else if(event->button == 5) /* Scrollwheel down */
+-		playlistwin_scroll(3);
++	  /** Added by Tatu Lahtela */
++	  if ( cfg.mousewheel_scroll_amount ) {
++	    playlistwin_scroll(cfg.mousewheel_scroll_amount ) ;
++	      //playlistwin_scroll(10);
++	      }
++	  else {
++		playlistwin_scroll(10);
++	  }
++	/* end */
+ 	else
+ 	{
+ 		handle_press_cb(playlistwin_wlist, widget, event);
+diff -Naurp xmms-1.2.10.orig/xmms/prefswin.c xmms-1.2.10/xmms/prefswin.c
+--- xmms-1.2.10.orig/xmms/prefswin.c	2005-05-27 00:53:49.000000000 +0000
++++ xmms-1.2.10/xmms/prefswin.c	2005-05-27 02:06:59.000000000 +0000
+@@ -37,6 +37,9 @@ static GtkWidget *prefswin_options_sd_en
+ static GtkWidget *prefswin_options_font_entry, *prefswin_options_font_browse;
+ static GtkWidget *prefswin_options_fontset, *prefswin_mainwin_font_entry;
+ static GtkWidget *prefswin_mainwin_xfont, *prefswin_options_mouse_spin;
++/** Added by Tatu Lahtela */
++static GtkWidget *prefswin_options_mousewheel;
++/* end */
+ static gboolean updating_ilist = FALSE, updating_glist = FALSE, updating_vlist = FALSE, updating_elist = FALSE;
+ 
+ static GtkWidget *prefswin_title_entry;
+@@ -351,6 +354,10 @@ void prefswin_apply_changes(void)
+ 	cfg.pause_between_songs_time = CLAMP(atoi(gtk_entry_get_text(GTK_ENTRY(prefswin_options_pbs_entry))), 0, 1000);
+ 	cfg.mouse_change = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(prefswin_options_mouse_spin));
+ 
++	/** Added by Tatu Lahtela */
++        cfg.mousewheel_scroll_amount =  gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(prefswin_options_mousewheel));
++	/* end */
++
+ 	set_current_output_plugin(selected_oplugin);
+ 
+ 	equalizerwin_set_doublesize(cfg.doublesize && cfg.eq_doublesize_linked);
+@@ -711,6 +718,12 @@ void create_prefs_window(void)
+ 	GtkWidget *options_font_hbox, *options_font_vbox;
+ 	GtkWidget *options_mouse_box, *options_mouse_label;
+ 	GtkObject *options_mouse_adj;
++      
++	/** Added by Tatu Lahtela */
++	GtkWidget *options_mousewheel_scroll_box, *options_mousewheel_scroll_label;
++	GtkObject *options_mousewheel_scroll_adj;
++	/* end */
++
+ 	GtkWidget *prefswin_title_desc, *prefswin_title_label, *prefswin_moreinfo_label, *opt;
+ 
+ 	char *titles[1];
+@@ -1035,6 +1048,7 @@ void create_prefs_window(void)
+ 			     _("Recommended if you want to load playlists "
+ 			       "that were created in MS Windows"), NULL);
+ 
++	
+ 	options_mouse_box = gtk_hbox_new(FALSE, 5);
+ 	options_mouse_label = gtk_label_new(_("Mouse Wheel adjusts Volume by (%)"));
+ 	gtk_box_pack_start(GTK_BOX(options_mouse_box), options_mouse_label, FALSE, FALSE, 0);
+@@ -1051,7 +1065,17 @@ void create_prefs_window(void)
+ 			     _("Store information such as song title and "
+ 			       "length to playlists"), NULL);
+ 
+-	
++	/** Added by Tatu Lahtela */
++	options_mousewheel_scroll_box = gtk_hbox_new(FALSE, 5);
++	options_mousewheel_scroll_label = gtk_label_new(_("Mouse Wheel scrolls playlist by (lines)"));
++	gtk_box_pack_start(GTK_BOX(options_mousewheel_scroll_box), options_mousewheel_scroll_label, FALSE, FALSE, 0);
++	options_mousewheel_scroll_adj = gtk_adjustment_new(cfg.mousewheel_scroll_amount, 1, 100, 1, 1, 1);
++	prefswin_options_mousewheel = gtk_spin_button_new(GTK_ADJUSTMENT(options_mousewheel_scroll_adj), 1, 0);
++	gtk_widget_set_usize(prefswin_options_mousewheel, 45, -1);
++	gtk_box_pack_start(GTK_BOX(options_mousewheel_scroll_box), prefswin_options_mousewheel, FALSE, FALSE, 0);
++	gtk_table_attach_defaults(GTK_TABLE(options_table), options_mousewheel_scroll_box, 0, 1, 9, 10);
++	/* end */
++
+ 	gtk_notebook_append_page(GTK_NOTEBOOK(prefswin_notebook), prefswin_options_vbox, gtk_label_new(_("Options")));
+ 
+ 	/*
+@@ -1391,7 +1415,9 @@ void show_prefs_window(void)
+ 	sprintf(temp, "%u", cfg.pause_between_songs_time);
+ 	gtk_entry_set_text(GTK_ENTRY(prefswin_options_pbs_entry), temp);
+ 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(prefswin_options_mouse_spin), cfg.mouse_change);
+-
++	/** Added by Tatu Lahtela */
++	gtk_spin_button_set_value(GTK_SPIN_BUTTON(prefswin_options_mousewheel), cfg.mousewheel_scroll_amount);
++	/* end */
+  	gtk_widget_show_all(prefswin);
+ 	gtk_widget_grab_default(prefswin_ok);
+ 

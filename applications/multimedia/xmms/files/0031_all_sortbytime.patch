@@ -1,0 +1,106 @@
+diff -Naur xmms-1.2.10-20041012/xmms/playlist.c xmms-1.2.10-20041012.sorttime/xmms/playlist.c
+--- xmms-1.2.10-20041012/xmms/playlist.c	2004-10-13 01:03:03.721158764 -0700
++++ xmms-1.2.10-20041012.sorttime/xmms/playlist.c	2004-10-18 19:33:34.530124073 -0700
+@@ -1539,6 +1539,18 @@
+ 	PL_UNLOCK();
+ }
+ 
++static int playlist_sort_by_length_cmpfunc(PlaylistEntry * a, PlaylistEntry * b)
++{
++	return (a->length - b->length);
++}
++
++void playlist_sort_by_length(void)
++{
++	PL_LOCK();
++	playlist = g_list_sort(playlist, (GCompareFunc) playlist_sort_by_length_cmpfunc);
++	PL_UNLOCK();
++}
++
+ static GList* playlist_sort_selected(GList *list, GCompareFunc cmpfunc)
+ {
+ 	GList *list1, *list2;
+@@ -1619,6 +1631,13 @@
+ 	PL_UNLOCK();
+ }
+ 
++void playlist_sort_selected_by_length(void)
++{
++	PL_LOCK();
++	playlist = playlist_sort_selected(playlist, (GCompareFunc) playlist_sort_by_length_cmpfunc);
++	PL_UNLOCK();
++}
++
+ void playlist_reverse(void)
+ {
+ 	PL_LOCK();
+diff -Naur xmms-1.2.10-20041012/xmms/playlist.h xmms-1.2.10-20041012.sorttime/xmms/playlist.h
+--- xmms-1.2.10-20041012/xmms/playlist.h	2004-10-13 01:03:03.722158599 -0700
++++ xmms-1.2.10-20041012.sorttime/xmms/playlist.h	2004-10-18 19:34:50.756974699 -0700
+@@ -69,10 +69,12 @@
+ void playlist_sort_by_filename(void);
+ void playlist_sort_by_path(void);
+ void playlist_sort_by_date(void);
++void playlist_sort_by_length(void);
+ void playlist_sort_selected_by_title(void);
+ void playlist_sort_selected_by_filename(void);
+ void playlist_sort_selected_by_path(void);
+ void playlist_sort_selected_by_date(void);
++void playlist_sort_selected_by_length(void);
+ void playlist_reverse(void);
+ void playlist_random(void);
+ void playlist_remove_dead_files(void);
+diff -Naur xmms-1.2.10-20041012/xmms/playlistwin.c xmms-1.2.10-20041012.sorttime/xmms/playlistwin.c
+--- xmms-1.2.10-20041012/xmms/playlistwin.c	2004-10-13 01:03:03.725158106 -0700
++++ xmms-1.2.10-20041012.sorttime/xmms/playlistwin.c	2004-10-18 19:33:34.539122640 -0700
+@@ -84,8 +84,10 @@
+ {
+ 	PLAYLISTWIN_SORT_BYTITLE, PLAYLISTWIN_SORT_BYFILENAME,
+ 	PLAYLISTWIN_SORT_BYPATH, PLAYLISTWIN_SORT_BYDATE,
++	PLAYLISTWIN_SORT_BYLENGTH,
+ 	PLAYLISTWIN_SORT_SEL_BYTITLE, PLAYLISTWIN_SORT_SEL_BYFILENAME,
+ 	PLAYLISTWIN_SORT_SEL_BYPATH, PLAYLISTWIN_SORT_SEL_BYDATE,
++	PLAYLISTWIN_SORT_SEL_BYLENGTH,
+ 	PLAYLISTWIN_SORT_RANDOMIZE, PLAYLISTWIN_SORT_REVERSE
+ };
+ 
+@@ -100,6 +102,8 @@
+ 					PLAYLISTWIN_SORT_BYPATH, "<Item>"},
+ 	{N_("/Sort List/By Date"), NULL, playlistwin_sort_menu_callback,
+ 					PLAYLISTWIN_SORT_BYDATE, "<Item>"},
++	{N_("/Sort List/By Playlength"), NULL, playlistwin_sort_menu_callback,
++					PLAYLISTWIN_SORT_BYLENGTH, "<Item>"},
+ 	{N_("/Sort Selection"), NULL, NULL, 0, "<Branch>"},
+ 	{N_("/Sort Selection/By Title"), NULL, playlistwin_sort_menu_callback,
+ 					PLAYLISTWIN_SORT_SEL_BYTITLE, "<Item>"},
+@@ -109,6 +113,8 @@
+ 					PLAYLISTWIN_SORT_SEL_BYPATH, "<Item>"},
+ 	{N_("/Sort Selection/By Date"), NULL, playlistwin_sort_menu_callback,
+ 					PLAYLISTWIN_SORT_SEL_BYDATE, "<Item>"},
++	{N_("/Sort Selection/By Playlength"), NULL, playlistwin_sort_menu_callback,
++					PLAYLISTWIN_SORT_SEL_BYLENGTH, "<Item>"},
+ 	{"/-", NULL, NULL, 0, "<Separator>"},
+ 	{N_("/Randomize List"), NULL, playlistwin_sort_menu_callback,
+ 					PLAYLISTWIN_SORT_RANDOMIZE, "<Item>"},
+@@ -1754,6 +1760,10 @@
+ 			playlist_sort_by_date();
+ 			playlistwin_update_list();
+ 			break;
++		case PLAYLISTWIN_SORT_BYLENGTH:
++			playlist_sort_by_length();
++			playlistwin_update_list();
++			break;
+ 		case PLAYLISTWIN_SORT_SEL_BYTITLE:
+ 			playlist_sort_selected_by_title();
+ 			playlistwin_update_list();
+@@ -1770,6 +1780,10 @@
+ 			playlist_sort_selected_by_date();
+ 			playlistwin_update_list();
+ 			break;
++		case PLAYLISTWIN_SORT_SEL_BYLENGTH:
++			playlist_sort_selected_by_length();
++			playlistwin_update_list();
++			break;
+ 		case PLAYLISTWIN_SORT_REVERSE:
+ 			playlist_reverse();
+ 			playlistwin_update_list();
