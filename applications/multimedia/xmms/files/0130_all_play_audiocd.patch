@@ -1,0 +1,210 @@
+diff -Naurp xmms-1.2.10.orig/xmms/main.c xmms-1.2.10/xmms/main.c
+--- xmms-1.2.10.orig/xmms/main.c	2005-05-27 02:08:16.000000000 +0000
++++ xmms-1.2.10/xmms/main.c	2005-05-27 02:08:59.000000000 +0000
+@@ -255,7 +255,7 @@ static gint mainwin_vis_menu_entries_num
+ enum
+ {
+ 	MAINWIN_GENERAL_ABOUT, MAINWIN_GENERAL_PLAYFILE, MAINWIN_GENERAL_PLAYDIRECTORY,
+-	MAINWIN_GENERAL_PLAYLOCATION, MAINWIN_GENERAL_FILEINFO,
++	MAINWIN_GENERAL_PLAYLOCATION, MAINWIN_GENERAL_PLAYAUDIOCD, MAINWIN_GENERAL_FILEINFO,
+ 	MAINWIN_GENERAL_SHOWMWIN, MAINWIN_GENERAL_SHOWPLWIN,
+ 	MAINWIN_GENERAL_SHOWEQWIN, MAINWIN_GENERAL_PREV, MAINWIN_GENERAL_PLAY,
+ 	MAINWIN_GENERAL_PAUSE, MAINWIN_GENERAL_STOP, MAINWIN_GENERAL_NEXT,
+@@ -271,9 +271,11 @@ GtkItemFactoryEntry mainwin_general_menu
+ {
+ 	{N_("/About XMMS"), NULL, mainwin_general_menu_callback, MAINWIN_GENERAL_ABOUT, "<Item>"},
+ 	{N_("/-"), NULL, NULL, 0, "<Separator>"},
+-	{N_("/Play File"), "L", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYFILE, "<Item>"},
+-	{N_("/Play Directory"), "<shift>L", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYDIRECTORY, "<Item>"},	
+-	{N_("/Play Location"), "<control>L", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYLOCATION, "<Item>"},
++	{N_("/Play"), NULL, NULL, 0, "<Branch>"},
++	{N_("/Play/Play File"), "L", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYFILE, "<Item>"},
++	{N_("/Play/Play Directory"), "<shift>L", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYDIRECTORY, "<Item>"},	
++	{N_("/Play/Play Location"), "<control>L", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYLOCATION, "<Item>"},
++	{N_("/Play/Play AudioCD"), "<control>C", mainwin_general_menu_callback, MAINWIN_GENERAL_PLAYAUDIOCD, "<Item>"},
+ 	{N_("/View File Info"), "<control>3" , mainwin_general_menu_callback, MAINWIN_GENERAL_FILEINFO, "<Item>"},
+ 	{N_("/-"), NULL, NULL, 0, "<Separator>"},
+ 	{N_("/Main Window"), "<alt>W", mainwin_general_menu_callback, MAINWIN_GENERAL_SHOWMWIN, "<ToggleItem>"},
+@@ -322,6 +324,20 @@ static void make_xmms_dir(void)
+ 	g_free(filename);
+ }
+ 
++#ifndef CDDA_DIRECTORY
++# ifdef HAVE_SYS_CDIO_H
++#  ifdef __FreeBSD__
++#   define CDDA_DIRECTORY "/cdrom"
++#  elif defined __OpenBSD__
++#   define CDDA_DIRECTORY "/cdrom"
++#  else
++#   define CDDA_DIRECTORY "/cdrom/cdrom0"
++#  endif
++# else
++#   define CDDA_DIRECTORY "/mnt/cdrom"
++# endif
++#endif
++
+ static void read_config(void)
+ {
+ 	ConfigFile *cfgfile;
+@@ -384,6 +400,8 @@ static void read_config(void)
+ 	cfg.mouse_change = 8;
+ 	
+ 	cfg.gentitle_format = NULL;
++	
++	cfg.cdda_directory = CDDA_DIRECTORY;
+ 
+ 	filename = g_strconcat(g_get_home_dir(), "/.xmms/config", NULL);
+ 	cfgfile = xmms_cfg_open_file(filename);
+@@ -447,6 +465,7 @@ static void read_config(void)
+ 		xmms_cfg_read_boolean(cfgfile, "xmms", "equalizer_autoload", &cfg.equalizer_autoload);
+ 		xmms_cfg_read_boolean(cfgfile, "xmms", "easy_move", &cfg.easy_move);
+ 		xmms_cfg_read_float(cfgfile, "xmms", "equalizer_preamp", &cfg.equalizer_preamp);
++		xmms_cfg_read_string(cfgfile, "xmms", "cdda_directory", &cfg.cdda_directory);
+ 		for (i = 0; i < 10; i++)
+ 		{
+ 			gchar eqtext[18];
+@@ -657,6 +676,7 @@ void save_config(void)
+ 	xmms_cfg_write_boolean(cfgfile, "xmms", "show_wm_decorations", cfg.show_wm_decorations);
+ 	xmms_cfg_write_string(cfgfile, "xmms", "eqpreset_default_file", cfg.eqpreset_default_file);
+ 	xmms_cfg_write_string(cfgfile, "xmms", "eqpreset_extension", cfg.eqpreset_extension);
++	xmms_cfg_write_string(cfgfile, "xmms", "cdda_directory", cfg.cdda_directory);
+ 	for (i = 0; i < 10; i++)
+ 	{
+ 		str = g_strdup_printf("equalizer_band%d", i);
+@@ -2679,6 +2699,12 @@ void mainwin_general_menu_callback(gpoin
+ 	case MAINWIN_GENERAL_PLAYLOCATION:
+ 		mainwin_show_add_url_window();
+ 		break;
++	case MAINWIN_GENERAL_PLAYAUDIOCD:
++		if (cfg.cdda_directory != NULL)
++		{
++			mainwin_add_dir_handler(cfg.cdda_directory);
++		}
++		break;
+ 	case MAINWIN_GENERAL_FILEINFO:
+ 		playlist_fileinfo_current();
+ 		break;
+diff -Naurp xmms-1.2.10.orig/xmms/main.h xmms-1.2.10/xmms/main.h
+--- xmms-1.2.10.orig/xmms/main.h	2005-05-27 02:08:16.000000000 +0000
++++ xmms-1.2.10/xmms/main.h	2005-05-27 02:08:59.000000000 +0000
+@@ -59,9 +59,10 @@ typedef struct
+ 	gboolean pause_between_songs, show_wm_decorations;
+ 	gint mouse_change;
+ 	gboolean playlist_transparent;
+-        gchar *gentitle_format;
++	gchar *gentitle_format;
+ 	GList *skin_dirs;
+-        gint mousewheel_scroll_amount;
++	gint mousewheel_scroll_amount;
++	gchar *cdda_directory;
+ }
+ Config;
+ 
+diff -Naurp xmms-1.2.10.orig/xmms/prefswin.c xmms-1.2.10/xmms/prefswin.c
+--- xmms-1.2.10.orig/xmms/prefswin.c	2005-05-27 02:08:16.000000000 +0000
++++ xmms-1.2.10/xmms/prefswin.c	2005-05-27 02:08:59.000000000 +0000
+@@ -20,6 +20,7 @@
+ #include "xmms.h"
+ #include "libxmms/util.h"
+ #include "libxmms/titlestring.h"
++#include "libxmms/dirbrowser.h"
+ 
+ static GtkWidget *prefswin, *prefswin_notebook, *prefswin_ok;
+ static GtkWidget *prefswin_audio_ie_cbox;
+@@ -45,6 +46,8 @@ static gboolean updating_ilist = FALSE, 
+ static GtkWidget *prefswin_title_entry;
+ static GtkTooltips *prefswin_tooltips;
+ 
++static GtkWidget *prefswin_audiocd_cddadirectory;
++
+ extern MenuRow *mainwin_menurow;
+ 
+ extern PButton *playlistwin_shade, *playlistwin_close, *equalizerwin_close;
+@@ -353,6 +356,7 @@ void prefswin_apply_changes(void)
+ 	cfg.gentitle_format = g_strdup(gtk_entry_get_text(GTK_ENTRY(prefswin_title_entry)));
+ 	cfg.pause_between_songs_time = CLAMP(atoi(gtk_entry_get_text(GTK_ENTRY(prefswin_options_pbs_entry))), 0, 1000);
+ 	cfg.mouse_change = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(prefswin_options_mouse_spin));
++	cfg.cdda_directory = g_strdup(gtk_entry_get_text(GTK_ENTRY(prefswin_audiocd_cddadirectory)));
+ 
+ 	/** Added by Tatu Lahtela */
+         cfg.mousewheel_scroll_amount =  gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(prefswin_options_mousewheel));
+@@ -594,6 +598,21 @@ void prefswin_ip_toggled(GtkToggleButton
+ 	gtk_clist_select_row(clist, sel, 0);
+ }
+ 
++static void prefswin_audiocd_browse_handler(gchar *dir)
++{
++	gtk_entry_set_text(GTK_ENTRY(prefswin_audiocd_cddadirectory), dir);
++}
++
++static gint prefswin_audiocd_browse_cb(GtkWidget * w, gpointer data)
++{
++	GtkWidget *prefswin_audiocd_browser;
++	prefswin_audiocd_browser = xmms_create_dir_browser(_("Select directory to add:"), gtk_entry_get_text(GTK_ENTRY(prefswin_audiocd_cddadirectory)), GTK_SELECTION_SINGLE, prefswin_audiocd_browse_handler);
++	gtk_signal_connect(GTK_OBJECT(prefswin_audiocd_browser), "destroy", GTK_SIGNAL_FUNC(gtk_widget_destroyed), &prefswin_audiocd_browser);
++	gtk_window_set_transient_for(GTK_WINDOW(prefswin_audiocd_browser), GTK_WINDOW(prefswin));
++	gtk_widget_show(prefswin_audiocd_browser);
++	return (TRUE);
++}
++
+ static GtkWidget * prefswin_option_new(gboolean * cfg)
+ {
+ 	struct option_info *info;
+@@ -708,6 +727,10 @@ void create_prefs_window(void)
+ 
+ 	GtkWidget *prefswin_title_frame, *prefswin_title_vbox;
+ 	GtkWidget *prefswin_title_hbox, *prefswin_title_vbox2;
++	
++	GtkWidget *prefswin_audiocd_frame, *prefswin_audiocd_vbox;
++	GtkWidget *prefswin_audiocd_hbox, *prefswin_audiocd_browse;
++	GtkWidget *prefswin_audiocd_label;
+ 
+ 	GtkWidget *options_table;
+ 	GtkWidget *options_giop, *options_giod, *options_giol, *options_rt;
+@@ -1170,7 +1193,31 @@ void create_prefs_window(void)
+ 	gtk_misc_set_alignment(GTK_MISC(prefswin_moreinfo_label), 0.0, 0.5);
+ 
+ 	gtk_notebook_append_page(GTK_NOTEBOOK(prefswin_notebook), prefswin_title_vbox, gtk_label_new(_("Title")));
+-
++	
++	/*
++	 * Audio CD page
++	 */
++	prefswin_audiocd_vbox = gtk_vbox_new(FALSE, 0);
++	
++	prefswin_audiocd_frame = gtk_frame_new(_("Audio CD directory"));
++	gtk_box_pack_start(GTK_BOX(prefswin_audiocd_vbox), prefswin_audiocd_frame, FALSE, FALSE, 0);
++	gtk_container_border_width(GTK_CONTAINER(prefswin_audiocd_frame), 5);
++	
++	prefswin_audiocd_hbox = gtk_hbox_new(FALSE, 10);
++	gtk_container_add(GTK_CONTAINER(prefswin_audiocd_frame), prefswin_audiocd_hbox);
++	gtk_container_border_width(GTK_CONTAINER(prefswin_audiocd_hbox), 5);
++	
++	prefswin_audiocd_label = gtk_label_new(_("Directory:"));
++	gtk_box_pack_start(GTK_BOX(prefswin_audiocd_hbox), prefswin_audiocd_label, FALSE, FALSE, 0);
++	
++	prefswin_audiocd_cddadirectory = gtk_entry_new();
++	gtk_box_pack_start(GTK_BOX(prefswin_audiocd_hbox), prefswin_audiocd_cddadirectory, TRUE, TRUE, 0);
++	
++	prefswin_audiocd_browse = gtk_button_new_with_label(_("Browse"));
++	gtk_signal_connect(GTK_OBJECT(prefswin_audiocd_browse), "clicked", GTK_SIGNAL_FUNC(prefswin_audiocd_browse_cb), NULL);
++	gtk_box_pack_start(GTK_BOX(prefswin_audiocd_hbox), prefswin_audiocd_browse, TRUE, TRUE, 0);
++	
++	gtk_notebook_append_page(GTK_NOTEBOOK(prefswin_notebook), prefswin_audiocd_vbox, gtk_label_new(_("Audio CD")));
+ 
+ 	/* 
+ 	 * OK, Cancel & Apply 
+@@ -1415,9 +1462,13 @@ void show_prefs_window(void)
+ 	sprintf(temp, "%u", cfg.pause_between_songs_time);
+ 	gtk_entry_set_text(GTK_ENTRY(prefswin_options_pbs_entry), temp);
+ 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(prefswin_options_mouse_spin), cfg.mouse_change);
++
+ 	/** Added by Tatu Lahtela */
+ 	gtk_spin_button_set_value(GTK_SPIN_BUTTON(prefswin_options_mousewheel), cfg.mousewheel_scroll_amount);
+ 	/* end */
++
++	gtk_entry_set_text(GTK_ENTRY(prefswin_audiocd_cddadirectory), cfg.cdda_directory);
++
+  	gtk_widget_show_all(prefswin);
+ 	gtk_widget_grab_default(prefswin_ok);
+ 

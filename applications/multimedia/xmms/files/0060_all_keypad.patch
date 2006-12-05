@@ -1,0 +1,58 @@
+--- xmms/xmms/main.c	2004-05-22 18:26:47.000000000 -0400
++++ xmms-1/xmms/main.c	2004-11-27 10:52:10.000000000 -0500
+@@ -112,6 +112,7 @@
+ void mainwin_options_menu_callback(gpointer cb_data, guint action, GtkWidget * w);
+ void mainwin_volume_motioncb(gint pos);
+ static void set_timer_mode_menu_cb(TimerMode mode);
++static void mainwin_jump_to_file(void);
+ 
+ enum
+ {
+@@ -1404,22 +1405,47 @@
+ 	{
+ 	case GDK_Up:
+ 	case GDK_KP_Up:
++	case GDK_KP_8:
+ 		mainwin_set_volume_diff(2);
+ 		break;
+ 	case GDK_Down:
+ 	case GDK_KP_Down:
++	case GDK_KP_2:
+ 		mainwin_set_volume_diff(-2);
+ 		break;
+ 	case GDK_Left:
+ 	case GDK_KP_Left:
++	case GDK_KP_7:
+ 		if(playlist_get_current_length() != -1)
+ 			input_seek(CLAMP(input_get_time() - 5000, 0, playlist_get_current_length()) / 1000);
+ 		break;
+ 	case GDK_Right:
+ 	case GDK_KP_Right:
++	case GDK_KP_9:
+ 		if(playlist_get_current_length() != -1)
+ 			input_seek(CLAMP(input_get_time() + 5000, 0, playlist_get_current_length()) / 1000);
+ 		break;
++	case GDK_KP_0:
++		mainwin_eject_pushed();
++		break;
++	case GDK_KP_1:
++		playlist_set_position((((get_playlist_position() - 10) >= 0) ? get_playlist_position() - 10 : 0));
++		break;
++	case GDK_KP_3:
++		playlist_set_position((((get_playlist_position() + 10) < get_playlist_length()) ? (get_playlist_position() + 10) : (get_playlist_length() - 1)));
++		break;
++	case GDK_KP_4:
++		playlist_prev();
++		break;
++	case GDK_KP_5:
++		mainwin_play_pushed();
++		break;
++	case GDK_KP_6:
++		playlist_next();
++		break;
++	case GDK_KP_Decimal:
++		mainwin_jump_to_file();
++		break;
+ 	default:
+ 	     break;
+ 			
