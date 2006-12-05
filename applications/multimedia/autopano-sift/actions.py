@@ -19,3 +19,4 @@ def install():
     pisitools.insinto("/usr/bin","bin/*.exe")
     pisitools.insinto("/usr/bin/","bin/autopano-complete.sh")
     pisitools.insinto("/usr/lib/","bin/ICSharpCode.SharpZipLib.dll")
+    pisitools.doman("../doc/*.1")
