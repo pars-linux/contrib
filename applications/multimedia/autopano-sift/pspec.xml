@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>autopano-sift</Name>
+        <Homepage>http://user.cs.tu-berlin.de/~nowozin/autopano-sift/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>apps:gui</IsA>
+        <Summary>autopano-sift</Summary>
+        <Summary xml:lang="tr">autopano-sift</Summary>
+        <Description>autopano-sift</Description>
+        <Description xml:lang="tr">autopano-sift</Description>
+        <Archive sha1sum="ecb83cb6a5b3cb43217aa0bfb93b6c8d10d1ca09" type="targz">http://user.cs.tu-berlin.de/~nowozin/autopano-sift/autopano-sift-2.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk-sharp</Dependency>
+            <Dependency>mono</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="2">autopano_pkgconfig.patch</Patch>
+            <Patch level="2">autopano_pkgconfig2.patch</Patch>
+            <Patch level="2">autopano_pkgconfig3.patch</Patch>
+        </Patches>
+    </Source>
+    <Package>
+        <Name>autopano-sift</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk-sharp</Dependency>
+            <Dependency>mono</Dependency>
+            <Dependency>libsift</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-12-04</Date>
+            <Version>2.4</Version>
+            <Comment>First release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
