@@ -15,7 +15,7 @@ def setup():
         
 def build():
     autotools.make()
-	    
+        
 def install():
     shelltools.chmod("%s/qsvn-0.4.0/images/qsvn.png" % get.workDIR(), 0755)
     pisitools.dodir("/usr/share/qsvn")

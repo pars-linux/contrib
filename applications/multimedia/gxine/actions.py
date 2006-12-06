@@ -11,12 +11,12 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--with-dbus \
-           		 --with-x \
-			 --with-pic \
-			 --with-gnu-ld \
-			 --enable-ffjs=/usr/lib/MozillaFirefox/libmozjs.so \
-			 --disable-mozjs \
-			 --disable-libjs")
+                    --with-x \
+             --with-pic \
+             --with-gnu-ld \
+             --enable-ffjs=/usr/lib/MozillaFirefox/libmozjs.so \
+             --disable-mozjs \
+             --disable-libjs")
                          #--without-browser-plugin \ with this option will be no /usr/lib/gxine/ files
 
 def build():

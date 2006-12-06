@@ -13,9 +13,9 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--enable-ipv6 \
                          --disable-esdtest \
-			 --enable-mad \
-			 --enable-ogg \
-			 --enable-vorbis")
+             --enable-mad \
+             --enable-ogg \
+             --enable-vorbis")
 
 def build():
     autotools.make()

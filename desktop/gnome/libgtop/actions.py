@@ -13,8 +13,8 @@ def setup():
     autotools.autoconf()
     autotools.configure("--enable-static \
                          --enable-gdbm   \
-			 --with-libgtop-inodedb \
-			 --with-x")
+             --with-libgtop-inodedb \
+             --with-x")
 
 def build():
     autotools.make()

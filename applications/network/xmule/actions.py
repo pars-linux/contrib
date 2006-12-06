@@ -15,7 +15,7 @@ def setup():
     autotools.configure("--enable-debug \
                          --enable-optimize \
                          --enable-nls \
-			 --disable-gtk")
+             --disable-gtk")
 def build():
     autotools.make()
 

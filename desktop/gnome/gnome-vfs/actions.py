@@ -12,13 +12,13 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--disable-schemas-install \
                         --disable-howl \
-			--disable-gnutls \
-			--enable-http-neon \
-			--enable-openssl \
-			--enable-samba \
-			--enable-hal \
+            --disable-gnutls \
+            --enable-http-neon \
+            --enable-openssl \
+            --enable-samba \
+            --enable-hal \
                         --enable-ipv6 \
-			--disable-avahi")
+            --disable-avahi")
 
 def build():
     autotools.make()

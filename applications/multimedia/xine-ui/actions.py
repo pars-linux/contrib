@@ -12,14 +12,14 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--enable-lirc     \
                          --enable-nls      \
-			 --enable-vdr      \
-			 --with-x          \
-			 --enable-aalib    \
+             --enable-vdr      \
+             --with-x          \
+             --enable-aalib    \
                          --enable-libcaca  \
-			 --enable-curl     \
-			 --enable-readline \
-			 --enable-ncurses  \
-			 --enable-debug")
+             --enable-curl     \
+             --enable-readline \
+             --enable-ncurses  \
+             --enable-debug")
 
 def build():
     autotools.make()

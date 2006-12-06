@@ -14,12 +14,12 @@ def setup():
     autotools.autoconf()
     autotools.configure("--disable-vanity        \
                          --disable-gtk           \
-			 --enable-dbus           \
+             --enable-dbus           \
                          --enable-gnome          \
-			 --enable-lirc           \
-			 --with-x                \
-			 --enable-debug          \
- 		         --enable-nautilus       \
+             --enable-lirc           \
+             --with-x                \
+             --enable-debug          \
+                  --enable-nautilus       \
                          --disable-mozilla")
 #                        MOZILLA_PLUGINDIR=/usr/lib/MozillaFirefox/include \
 #                        --enable-nvtv          \
@@ -34,9 +34,9 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-	#fixme: why does it need write access here, probably need to set up a fake
-	#home in /var/tmp like other pkgs do
-#	addpredict "/root/.gconfd"
-#	addpredict "/root/.gconf"
-#	addpredict "/root/.gnome2"
+    #fixme: why does it need write access here, probably need to set up a fake
+    #home in /var/tmp like other pkgs do
+#    addpredict "/root/.gconfd"
+#    addpredict "/root/.gconf"
+#    addpredict "/root/.gnome2"
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")

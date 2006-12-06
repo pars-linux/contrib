@@ -16,11 +16,11 @@ def setup():
     libtools.libtoolize("--force")
     autotools.configure("--disable-schemas-install \
                          --disable-scrollkeeper \
-			 --enable-vfs-methods \
-			 --enable-alsa  \
-			 --enable-eds  \
-			 --enable-aboutme \
-			 --enable-gstreamer=0.10")
+             --enable-vfs-methods \
+             --enable-alsa  \
+             --enable-eds  \
+             --enable-aboutme \
+             --enable-gstreamer=0.10")
 
 def build():
     autotools.make("-j1")

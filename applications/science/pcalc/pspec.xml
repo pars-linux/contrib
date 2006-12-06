@@ -2,53 +2,53 @@
 <!DOCTYPE PSPEC SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-	<Name>pcalc</Name>
-	<Homepage>http://ibiblio.org/pub/Linux/apps/math/calc/pcalc.lsm</Homepage>
+    <Name>pcalc</Name>
+    <Homepage>http://ibiblio.org/pub/Linux/apps/math/calc/pcalc.lsm</Homepage>
         <Packager>
             <Name>Fethi Aymaz</Name>
             <Email>fethi@linux-sevenler.org</Email>
         </Packager>
-	<License>GPL-2</License>
-	<IsA>app:gui</IsA>
-	<Summary>the programmers calculator</Summary>
-	<Summary xml:lang="tr">proğramcı hesapmakinası</Summary>
-	<Description>the programmers calculator</Description>
+    <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>the programmers calculator</Summary>
+        <Summary xml:lang="tr">proğramcı hesapmakinası</Summary>
+        <Description>the programmers calculator</Description>
         <Description xml:lang="tr">proğramcı hesapmakinası</Description>
-	<Archive sha1sum="196df4ee3b7b90a293df55481ccd0737ae29aa00" type="targz">http://ibiblio.org/pub/Linux/apps/math/calc/pcalc-000.tar.gz</Archive>
-	<Patches>
-	    <Patch level="1">pcalc-1.0.0-duplicated-case.patch</Patch>
-	    <Patch level="1">pcalc-1.0.0-error-handler.patch</Patch>
-	    <Patch>pcalc-1.0.0-flex.patch</Patch>
-	    <!--Patch level="1">pcalc-1.0.0-input-overflow-check.patch</Patch
-	    nedense gentoodan aldigim sadece bu patchi uygulatamadim-->
-	    <Patch level="1">pcalc-1.0.0-operator-updates.patch</Patch>
-	    <Patch level="1">pcalc-1.0.0-static-vars.patch</Patch>
-	    <Patch>pcalc-1.0.0-string-overflow-checks.patch</Patch>
-	    <Patch level="1">pcalc-1.0.0-tmpfile.patch</Patch>
+    <Archive sha1sum="196df4ee3b7b90a293df55481ccd0737ae29aa00" type="targz">http://ibiblio.org/pub/Linux/apps/math/calc/pcalc-000.tar.gz</Archive>
+    <Patches>
+        <Patch level="1">pcalc-1.0.0-duplicated-case.patch</Patch>
+        <Patch level="1">pcalc-1.0.0-error-handler.patch</Patch>
+        <Patch>pcalc-1.0.0-flex.patch</Patch>
+        <!--Patch level="1">pcalc-1.0.0-input-overflow-check.patch</Patch
+        nedense gentoodan aldigim sadece bu patchi uygulatamadim-->
+        <Patch level="1">pcalc-1.0.0-operator-updates.patch</Patch>
+        <Patch level="1">pcalc-1.0.0-static-vars.patch</Patch>
+        <Patch>pcalc-1.0.0-string-overflow-checks.patch</Patch>
+        <Patch level="1">pcalc-1.0.0-tmpfile.patch</Patch>
             <Patch level="1">pcalc-1.0.0-usage.patch</Patch>
         </Patches>
         <BuildDependencies>
-   	    <Dependency>flex</Dependency>
-	    <Dependency>bison</Dependency>
+           <Dependency>flex</Dependency>
+        <Dependency>bison</Dependency>
         </BuildDependencies>
     </Source>
     <Package>
         <Name>pcalc</Name>
         <RuntimeDependencies>
             <Dependency>flex</Dependency>
-	    <Dependency>bison</Dependency>
+        <Dependency>bison</Dependency>
         </RuntimeDependencies>
         <Files>
-	    <Path fileType="executable">/usr/bin</Path>
-	    <Path fileType="doc">/usr/share/doc</Path>
-	    <Path fileType="data">/usr/share/pcalc</Path>
+        <Path fileType="executable">/usr/bin</Path>
+        <Path fileType="doc">/usr/share/doc</Path>
+        <Path fileType="data">/usr/share/pcalc</Path>
         </Files>
     </Package>
 
     <History>
         <Update release="1">
             <Date>2006-05-23</Date>
-	    <Version>0.0.1</Version>
+        <Version>0.0.1</Version>
             <Comment>First release.</Comment>
             <Name>Fethi Aymaz</Name>
             <Email>fethi@linux-sevenler.org</Email>
