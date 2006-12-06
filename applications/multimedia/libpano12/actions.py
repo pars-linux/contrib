@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure()
+    autotools.configure("--with-java=/opt/sun-jdk")
 
 def build():
     autotools.make()
