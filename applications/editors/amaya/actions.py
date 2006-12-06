@@ -27,17 +27,13 @@ def install():
 
     pisitools.dodir("/usr/share")
 
-    #run the scripts to install the files to the installation dir
+    # run the scripts to install the files to the installation dir
     shelltools.system("./script_install %s/Amaya/Pardus/bin %s/usr/share" % (get.workDIR(), get.installDIR()))
     shelltools.system("./script_install_gnomekde %s/Amaya/Pardus/bin %s/usr/share" % (get.workDIR(), get.installDIR()))
 
-    #make symbolic link for executable files
+    # make symbolic link for executable files
     pisitools.dosym("/usr/share/Amaya-9.52/wx/bin/amaya", "/usr/bin/amaya")
     pisitools.dosym("/usr/share/Amaya-9.52/wx/bin/print", "/usr/bin/print")
 
-    #remove redundant dirs and files
+    # remove redundant dirs and files
     pisitools.removeDir("/usr/share/bin")
-
-
-
-
