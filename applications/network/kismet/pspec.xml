@@ -32,9 +32,22 @@
             <Path fileType="config">/etc</Path>
             <Path fileType="data">/usr/share/kismet</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/conf.d/kismet" permission="0644" owner="root">kismet.confd</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+             <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
    </Package>
 
    <History>
+        <Update release="2">
+            <Date>2006-12-06</Date>
+            <Version>200604</Version>
+            <Comment>Service script and configuration file</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2006-12-06</Date>
             <Version>200604</Version>
