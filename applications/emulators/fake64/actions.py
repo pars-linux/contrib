@@ -15,8 +15,6 @@ def build():
     autotools.make()
 
 def install():
-#   autotools.install()
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-#   pisitools.domove("/usr/fake64/", "/usr/share/")
-#   pisitools.dosym("/usr/share/fake64/bin/romloader", "/usr/bin/fake64")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README", "TODO")
