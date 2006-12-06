@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-shared --enable-static=no --with-unicode --enable-desktop=no")
+    autotools.configure("--prefix=/usr --enable-shared --disable-static --with-unicode --disable-desktop")
 
 def build():
     autotools.make()
