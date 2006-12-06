@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-#WorkDir = "cinepaint-0.21-1"
+WorkDir = "cinepaint-0.21-1"
 
 def setup():
     autotools.configure("--with-openexr-prefix=/usr")
