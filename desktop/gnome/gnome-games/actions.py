@@ -23,10 +23,10 @@ def install():
     # Documentation install for each of the games
 #    for game in \
 #    $(find . -maxdepth 1 -type d ! -name po ! -name libgames-support); do
-#    	docinto ${game}
-#	for doc in AUTHORS ChangeLog NEWS README TODO; do
-#		[ -s ${game}/${doc} ] && dodoc ${game}/${doc}
-#	done
+#        docinto ${game}
+#    for doc in AUTHORS ChangeLog NEWS README TODO; do
+#        [ -s ${game}/${doc} ] && dodoc ${game}/${doc}
+#    done
 #    done
     
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")

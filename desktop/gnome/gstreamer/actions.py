@@ -13,7 +13,7 @@ def setup():
     autotools.configure("--with-configdir=/etc/gstreamer \
                         --disable-tests  \
                         --disable-examples \
-			--disable-docs-build")
+            --disable-docs-build")
 
 def build():
     autotools.make()

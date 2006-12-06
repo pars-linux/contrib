@@ -12,7 +12,7 @@ from pisi.actionsapi import shelltools
 
 def setup():
     autotools.configure()
-			
+            
 def build():
     autotools.make()
 
