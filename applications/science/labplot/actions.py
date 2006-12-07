@@ -8,7 +8,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 from pisi.actionsapi import kde
 
-WorkDir="LabPlot-1.5.1.4"
+WorkDir="LabPlot-1.5.1.5"
 
 def setup():
     kde.configure("--enable-system-qwtplot3d --enable-qsa --disable-KexiDB  --enable-ocaml --enable-texvc ")
