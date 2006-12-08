@@ -16,7 +16,7 @@ def install():
     pythonmodules.install()
 
     pisitools.insinto("/usr/share/veusz/examples", "examples/*")
-    pisitools.insinto("/usr/share/pixmaps", "images/icon.png", "veusz.png")
+    pisitools.insinto("/usr/share/pixmaps", "windows/icons/veusz.png")
     pisitools.insinto("usr/share/applications", "veusz.desktop")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README", "Documents/*.txt", "Documents/*.pdf")
