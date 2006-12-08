@@ -1,7 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#
-# Eren Türkay <turkay.eren@gmail.com>
 
 import os
 
