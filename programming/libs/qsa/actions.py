@@ -30,6 +30,7 @@ def build():
 
 def install():
     pisitools.insinto("/usr/qt/3/include","src/qsa/*.h")
+    pisitools.insinto("/usr/qt/3/include","src/ide/qsworkbench.h")
     pisitools.insinto("/usr/qt/3/lib","lib/libqsa.so*")
     pisitools.insinto("/usr/qt/3/plugins/designer","plugins/designer/libqseditorplugin.so")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
