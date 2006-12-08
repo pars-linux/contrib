@@ -5,41 +5,35 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "scilab-4.1-rc1"
+
 def setup():
-    autotools.configure("--prefix=%s/usr \
-                         --with-local-xaw \
-                         --with-pvm \
-                         --with-tk \
-                         --with-addedf2c \
-                         --with-ocaml \
-                         --with-java \
-                         --with-atlas-library=/usr/lib \
-                         --with-x" % get.installDIR())
+    pisitools.dosed("Makefile.in", "DESTDIR=", "DESTDIR=%s" % get.installDIR())
+    autotools.rawConfigure("--prefix=/usr \
+                            --bindir=/usr/bin \
+                            --datadir=/usr/share \
+                            --docdir=/usr/share/doc \
+                            --with-local-xaw \
+                            --with-pvm \
+                            --with-tk \
+                            --with-addedf2c \
+                            --with-ocaml \
+                            --with-java \
+                            --with-atlas-library=/usr/lib \
+                            --with-x")
 
 def build():
     autotools.make("all")
 
 def install():
-    pisitools.dodir("/usr/share/pixmaps")
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
 
-    shelltools.copy("%s/usr/share/scilab-4.0/X11_defaults/scilab.xpm" % get.installDIR(), "%s/usr/share/pixmaps/" % get.installDIR())
+    pisitools.dosym("/usr/share/scilab-4.1-rc1/bin/scilab", "/usr/bin/scilab")
+    pisitools.dosym("/usr/share/scilab-4.1-rc1/bin/intersci", "/usr/bin/intersci")
+    pisitools.dosym("/usr/share/scilab-4.1-rc1/bin/intersci-n", "/usr/bin/intersci-n")
+
+    pisitools.insinto("/usr/share/pixmaps/", "X11_defaults/scilab.xpm")
     pisitools.insinto("/usr/share/applications", "scilab.desktop")
-    shelltools.copytree("examples/", "%s/usr/share/scilab-4.0/examples" % get.installDIR())
-
-    for files in ("Blpr", "BEpsf", "Blatexpr2", "Blatexprs", "Blatexpr", "scilab"):
-        pisitools.dosed("%s/usr/share/scilab-4.0/bin/%s" % (get.installDIR(), files),"%s/scilab-4.0" % get.workDIR(),"/usr/share/scilab-4.0")
-
-    for h in ("eng", "fr"):
-        pisitools.dosed("%s/usr/share/scilab-4.0/man/%s/*.h*" % (get.installDIR(), h),"%s/scilab-4.0" % get.workDIR(),"/usr/share/scilab-4.0")
-
-    for docs in ("Blatdoc", "Blatdocs"):
-        pisitools.dosed("%s/usr/share/scilab-4.0/util/%s" % (get.installDIR(), docs),"%s/scilab-4.0" % get.workDIR(),"/usr/share/scilab-4.0")
-
-    pisitools.dodoc("ACKNOWLEDGEMENTS", "CHANGES", "README_Unix", "RELEASE_NOTES")
-
-
