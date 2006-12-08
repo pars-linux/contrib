@@ -1,0 +1,50 @@
+--- Makefile.in.orig	2006-11-09 16:11:39.000000000 +0200
++++ Makefile.in	2006-12-08 19:42:05.000000000 +0200
+@@ -262,31 +262,31 @@
+ DOCNAME=$(SCIBASE)
+ 
+ install:
+-	@if test `pwd`/..  != $(PREFIX)/lib ; then \
+-		install -d $(PREFIX)/lib/$(SCIBASE); \
+-		( for file in $(INSTBINDISTFILES) @PVMINST1@; do tar cf - $${file}  | (cd $(PREFIX)/lib/$(SCIBASE); tar xf -); done); \
+-		(cd $(PREFIX)/lib/$(SCIBASE);touch .binary; make postinstall PREFIX=$(PREFIX) ) \
++	@if test `pwd`/..  != $(DESTDIR)$(PREFIX)/share ; then \
++		install -d $(DESTDIR)$(PREFIX)/share/$(SCIBASE); \
++		( for file in $(INSTBINDISTFILES) @PVMINST1@; do tar cf - $${file}  | (cd $(DESTDIR)$(PREFIX)/share/$(SCIBASE); tar xf -); done); \
++		(cd $(DESTDIR)$(PREFIX)/share/$(SCIBASE);touch .binary; make postinstall PREFIX=$(PREFIX) ) \
+ 	fi
+-	install -d $(PREFIX)/share/doc/$(DOCNAME)/
++	install -d $(DESTDIR)$(PREFIX)/share/doc/$(DOCNAME)/
+ 	install ACKNOWLEDGEMENTS CHANGES README_Unix Version.incl \
+-		licence.txt license.txt  $(PREFIX)/share/doc/$(DOCNAME)
+-	install -d $(PREFIX)/bin 
+-	$(RM)  $(PREFIX)/bin/scilab
+-	ln -fs $(PREFIX)/lib/$(SCIBASE)/bin/scilab $(PREFIX)/bin/scilab
+-	$(RM)  $(PREFIX)/bin/intersci
+-	ln -fs $(PREFIX)/lib/$(SCIBASE)/bin/intersci $(PREFIX)/bin/intersci
+-	$(RM)  $(PREFIX)/bin/intersci-n
+-	ln -fs $(PREFIX)/lib/$(SCIBASE)/bin/intersci-n $(PREFIX)/bin/intersci-n
++		licence.txt license.txt  $(DESTDIR)$(PREFIX)/share/doc/$(DOCNAME)
++	install -d $(DESTDIR)$(PREFIX)/bin 
++	$(RM)  $(DESTDIR)$(PREFIX)/bin/scilab
++	ln -fs $(DESTDIR)$(PREFIX)/share/$(SCIBASE)/bin/scilab $(PREFIX)/bin/scilab
++	$(RM)  $(DESTDIR)$(PREFIX)/bin/intersci
++	ln -fs $(DESTDIR)$(PREFIX)/share/$(SCIBASE)/bin/intersci $(PREFIX)/bin/intersci
++	$(RM)  $(DESTDIR)$(PREFIX)/bin/intersci-n
++	ln -fs $(DESTDIR)$(PREFIX)/share/$(SCIBASE)/bin/intersci-n $(PREFIX)/bin/intersci-n
+ 
+ # DESTDIR is the final destination of the file 
+ # it can be different from $(PREFIX)/lib
+ # when we use package builders for rpm or deb files 
+ 
+-DESTDIR=$(PREFIX)/lib
++DESTDIR=
+ 
+ postinstall: 
+-	@echo "creating Path.incl SCIDIR=$(DESTDIR)/$(SCIBASE)"
+-	@echo "SCIDIR=$(DESTDIR)/$(SCIBASE)"  > Path.incl
++	@echo "creating Path.incl SCIDIR=$(DESTDIR)/share/$(SCIBASE)"
++	@echo "SCIDIR=$(PREFIX)/share/$(SCIBASE)"  > Path.incl
+ 	@cd scripts; make
+ 	@cd examples ; make distclean > /dev/null
+ 	@cp contrib/loader.sce contrib-loader.sce 
