@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>herrie</Name>
+        <Homepage>http://g-rave.nl/projects/herrie/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>app:console</IsA>
+        <Summary>Herrie is a minimalistic music player that uses the command line</Summary>
+        <Summary xml:lang="tr">Herrie, komut satırı kullanan bir müzik oynatıcısıdır</Summary>
+        <Description>Herrie has a split-screen file manager and playlist interface and supports a number of file formats (MP3, Ogg Vorbis, wave, FLAC, etc)</Description>
+        <Description xml:lang="tr">Herrie, ikiye ayrılmış dosya yöneticisi ve çalma listesi sunan ve çeşitli dosya türlerini (MP3, Ogg Vorbis, wave, FLAC, v.b.) çalabilen konsol tabanlı bir müzik oynatıcısıdır</Description>
+        <Archive sha1sum="f4f9abf8493bb333bfab9eb6666d53a7dc915ce3" type="targz">http://www.il.fontys.nl/~ed/projects/herrie/distfiles/herrie-1.0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.8.6">libao</Dependency>
+            <Dependency versionFrom="0.15.1b">libid3tag</Dependency>
+            <Dependency versionFrom="0.15.1b">libmad</Dependency>
+            <Dependency versionFrom="1.0.15">libsndfile</Dependency>
+            <Dependency versionFrom="1.1.2">libvorbis</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>herrie</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.8.6">libao</Dependency>
+            <Dependency versionFrom="0.15.1b">libid3tag</Dependency>
+            <Dependency versionFrom="0.15.1b">libmad</Dependency>
+            <Dependency versionFrom="1.0.15">libsndfile</Dependency>
+            <Dependency versionFrom="1.1.2">libvorbis</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-12-09</Date>
+            <Version>1.0.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
