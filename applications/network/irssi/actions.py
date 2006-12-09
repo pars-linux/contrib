@@ -8,6 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir="irssi-0.8.10"
+
 def setup():
     autotools.configure("--enable-ipv6")
 
@@ -15,6 +17,6 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
     #fix conflict with pilot-link
     pisitools.remove("/usr/lib/perl5/5.8.8/i686-linux/perllocal.pod")

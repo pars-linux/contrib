@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
 <PISI>
     <Source>
         <Name>irssi</Name>
@@ -14,11 +15,25 @@
         <Summary xml:lang="tr">Komut satiri irc istemcisi</Summary>
         <Description>A modular textUI IRC client with IPv6 support</Description>
         <Description xml:lang="tr">Komut satırında çalışan, IPv6 destekli, modüler bir IRC istemcisi</Description>
-        <Archive sha1sum="055eef31ed7a52e30d9a63d803306570c7cd3393" type="tarbz2">http://irssi.org/files/irssi-0.8.10.tar.bz2</Archive>
+        <Archive sha1sum="c27c3aa19f7e54e4295c9e78f522194b296e9f7f" type="tarbz2">
+            http://ideico.mirror.irssi.org/irssi-0.8.10a.tar.bz2
+        </Archive>
+        <Patches>
+            <Patch>irssi-0.8.10-dcc-segv.patch</Patch>
+            <Patch>irssi-0.8.10-line-split.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.0">pkgconfig</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>irssi</Name>
+        <RuntimeDependencies>
+            <Dependency>ncurses</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>perl</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
@@ -31,6 +46,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2006-12-09</Date>
+            <Version>0.8.10a</Version>
+            <Comment>Version bump, dependency fix and patches.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2006-08-01</Date>
             <Version>0.8.10</Version>
