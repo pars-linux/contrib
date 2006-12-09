@@ -12,7 +12,7 @@ WorkDir="Text_Diff-0.2.1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Text", "Diff*")
-    # i don't know why chmod of string.php is not readable for users instead of root?
+    # set permission
     shelltools.chmod("%s/usr/share/php5/PEAR/Text/Diff/Engine/string.php" % get.installDIR())
     pisitools.insinto("/usr/share/php5/PEAR/doc/Text_Diff", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Text_Diff", "tests/*")
