@@ -4,12 +4,9 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
-
-WorkDir="evas-0.9.9.036"
 
 def setup():
     autotools.configure("--enable-fontconfig \
@@ -64,7 +61,9 @@ def setup():
                          --enable-convert-32-rgb-rot-90 \
                          --with-x \
                          --with-eet-config=/usr/bin/eet-config \
-                         --with-edb-config=/usr/bin/edb-config")
+                         --with-edb-config=/usr/bin/edb-config \
+                         --with-qtdir=%s \
+                         --with-freetype" % get.qtDIR())
 
 def build():
     autotools.make()
