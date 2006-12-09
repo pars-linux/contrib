@@ -8,12 +8,12 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="enlightenment-0.16.999.036"
-
 def setup():
     autotools.configure("--enable-nls \
                          --enable-rpath \
                          --enable-x \
+                         --enable-files \
+                         --enable-favorites \
                          --with-gnu-ld \
                          --enable-libiconv \
                          --enable-libintl \
@@ -37,8 +37,11 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.domo("po/tr.po","tr","enlightenment.mo")
+
     pisitools.dosym("/usr/share/xsessions/enlightenment.desktop", "%s/share/apps/kdm/sessions/enlightenment.desktop" % get.kdeDIR())
     pisitools.rename("%s/share/apps/kdm/sessions/enlightenment.desktop" % get.kdeDIR(), "E17.desktop")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README*", "docs/README*")
 
