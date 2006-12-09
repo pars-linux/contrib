@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="ecore-0.9.9.036"
-
 def setup():
     autotools.configure("--enable-ecore-txt \
                          --enable-ecore-x \
