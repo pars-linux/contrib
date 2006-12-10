@@ -5,6 +5,7 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
@@ -15,3 +16,4 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("TODO", "README", "ChangeLog", "NEWS")
