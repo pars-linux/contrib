@@ -12,11 +12,18 @@ from pisi.actionsapi import get
 WorkDir="Amaya"
 
 def setup():
+    # Create a subdirectory for your Pardus
     shelltools.makedirs("%s/Amaya/Pardus" % get.workDIR())
     shelltools.cd("%s/Amaya/Pardus" % get.workDIR())
 
     shelltools.system("ln -s ../configure")
-    autotools.configure("--prefix=/usr")
+    autotools.configure("--prefix=/usr \
+                         --with-wx \
+                         --with-mesa \
+                         --without-gtk \
+                         --enable-svg \
+                         --enable-generic-xml \
+                         --with-graphiclibs")
 
 def build():
     shelltools.cd("%s/Amaya/Pardus" % get.workDIR())
@@ -24,7 +31,6 @@ def build():
 
 def install():
     shelltools.cd("%s/Amaya/Pardus" % get.workDIR())
-
     pisitools.dodir("/usr/share")
 
     # run the scripts to install the files to the installation dir
@@ -32,8 +38,8 @@ def install():
     shelltools.system("./script_install_gnomekde %s/Amaya/Pardus/bin %s/usr/share" % (get.workDIR(), get.installDIR()))
 
     # make symbolic link for executable files
-    pisitools.dosym("/usr/share/Amaya-9.52/wx/bin/amaya", "/usr/bin/amaya")
-    pisitools.dosym("/usr/share/Amaya-9.52/wx/bin/print", "/usr/bin/print")
+    pisitools.dosym("/usr/share/Amaya-%s/wx/bin/amaya" % get.srcVERSION(), "/usr/bin/amaya")
+    pisitools.dosym("/usr/share/Amaya-%s/wx/bin/print" % get.srcVERSION(), "/usr/bin/print")
 
     # remove redundant dirs and files
     pisitools.removeDir("/usr/share/bin")
