@@ -17,25 +17,33 @@
     <Archive sha1sum="7c4c196d482f27a6dc8a12fa69a7d597153dcdd1" type="targz">http://peter.nxbone.net/testing/unix/linux/x86/MilkyTracker_linux_x86_2006_08_27.tgz</Archive>
     <BuildDependencies>
             <Dependency versionFrom="3.0">kdelibs</Dependency>
-        </BuildDependencies>
+    </BuildDependencies>
     </Source>
     <Package>
         <Name>milkytracker</Name>
-        <RuntimeDependencies>
-            <Dependency versionFrom="3.0">kdelibs</Dependency>
-        </RuntimeDependencies>
+            <RuntimeDependencies>
+                <Dependency>milkytracker-xi</Dependency>
+            </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/bin</Path>
-        <Path fileType="data">/usr/share/applications</Path>
-        <Path fileType="data">/opt</Path>
+	    <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/opt</Path>
         </Files>
     <AdditionalFiles>
         <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/milkytracker.desktop">milkytracker.desktop</AdditionalFile>
+	<AdditionalFile owner="root" permission="0755" target="/usr/bin/milkytracker">milkytracker</AdditionalFile>
         </AdditionalFiles>
    </Package>
 
    <History>
-        <Update release="1">
+	<Update release="2">
+ 	    <Date>2006-12-10</Date>
+	    <Version>0.90.50</Version>
+	    <Comment>First release.</Comment>
+            <Name>Rasim AKAR</Name>
+	    <Email>rasimakar@pardusdepo.com</Email>
+        </Update>
+	<Update release="1">
             <Date>2006-12-03</Date>
         <Version>0.90.50</Version>
             <Comment>First release.</Comment>
