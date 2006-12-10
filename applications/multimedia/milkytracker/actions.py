@@ -11,4 +11,3 @@ WorkDir = ""
 
 def install():
     pisitools.insinto("/opt/MilkyTracker_linux_x86_2006_08_27",  "*")
-    pisitools.dosym("/opt/MilkyTracker_linux_x86_2006_08_27/milkytracker.linux-x86",  "/usr/bin/milkytracker")
