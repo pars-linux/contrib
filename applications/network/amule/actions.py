@@ -12,7 +12,6 @@ WorkDir = "aMule-2.1.3"
 
 def setup():
     autotools.configure()
-#    "--prefix=/usr --disable-gtk2 --with-gtk")
 
 def build():
     autotools.make()
