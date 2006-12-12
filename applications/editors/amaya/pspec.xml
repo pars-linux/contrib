@@ -16,7 +16,6 @@
         <Description xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Description>
         <Archive sha1sum="63e3728c152b9e250466769cd5f769312fd84fb0" type="targz">http://www.w3.org/Amaya/Distribution/amaya-fullsrc-9.53.tgz</Archive>
         <Patches>
-            <Patch level="1">unix-thot.rc.patch</Patch>
             <Patch level="1">script_install_gnomekde.in.patch</Patch>
         </Patches>
         <BuildDependencies>
@@ -39,9 +38,19 @@
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2006-12-12</Date>
+            <Version>9.53</Version>
+            <Comment>Set language according to local</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2006-12-10</Date>
             <Version>9.53</Version>
