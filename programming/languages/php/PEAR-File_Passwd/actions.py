@@ -10,4 +10,4 @@ WorkDir="File_Passwd-1.1.6"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/File", "Pass*")
-    pisitools.insinto("/usr/share/php5/tests/File_Passwd", "tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/File_Passwd", "tests/*")
