@@ -15,7 +15,3 @@ def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML/QuickForm", "Page.php")
     pisitools.insinto("/usr/share/php5/PEAR/HTML/QuickForm", "Controller.php")
     pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_QuickForm_Controller", "examples/*")
-    # set permissions
-    items = ['*', '*/*']
-    for item in items:
-        shelltools.chmod("%s/usr/share/php5/PEAR/doc/HTML_QuickForm_Controller/%s" % (get.installDIR(), item))
