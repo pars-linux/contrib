@@ -14,8 +14,3 @@ def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML/Template", "Sigma.php")
     pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_Template_Sigma", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/HTML_Template_Sigma", "tests/*")
-    # set permissions
-    items = ['*','*/*','*/*/*']
-    for item in items:
-        shelltools.chmod("%s/usr/share/php5/PEAR/doc/HTML_Template_Sigma/%s" % (get.installDIR(), item))
-        shelltools.chmod("%s/usr/share/php5/PEAR/tests/HTML_Template_Sigma/%s" % (get.installDIR(), item))
