@@ -5,8 +5,6 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
 WorkDir="HTML_Template_Sigma-1.1.5"
 
