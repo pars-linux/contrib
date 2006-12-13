@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>mcabber</Name>
+        <Homepage>http://www.lilotux.net/~mikael/mcabber</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Mcabber is a small Jabber console client, maintained by Mikael BERTHE.</Summary>
+        <Summary xml:lang="tr">Mikael BERTHE tarafından yapılan, konsol üzerinden çalışan küçük bir jabber istemcisi</Summary>
+        <Archive type="tarbz2" sha1sum="86b65ce63f0e5e600225dbdbf02404b27045ea7c">
+            http://www.lilotux.net/~mikael/mcabber/files/mcabber-0.8.3.tar.bz2
+        </Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.7">openssl</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>ncurses</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>mcabber</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.9.7">openssl</Dependency>
+            <Dependency>glib2</Dependency>
+            <Dependency>ncurses</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-12-13</Date>
+            <Version>0.8.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
