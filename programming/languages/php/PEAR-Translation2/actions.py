@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="Translation2-2.0.0beta11"
+WorkDir="Translation2-2.0.0beta12"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "Translation2.php")
