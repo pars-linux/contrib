@@ -7,8 +7,6 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="baghira-release"
-
 def setup(): 
     kde.configure()
 
