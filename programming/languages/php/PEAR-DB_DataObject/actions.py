@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="DB_DataObject-1.8.4"
+WorkDir="DB_DataObject-1.8.5"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/DB", "DataObject*")
