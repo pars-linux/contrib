@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="XML_Util-1.1.1"
+WorkDir="XML_Util-1.1.4"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/XML","Util.php")
