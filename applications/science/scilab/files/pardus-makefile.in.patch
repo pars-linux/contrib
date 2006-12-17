@@ -27,11 +27,11 @@
 +		licence.txt license.txt  $(DESTDIR)$(PREFIX)/share/doc/$(DOCNAME)
 +	install -d $(DESTDIR)$(PREFIX)/bin 
 +	$(RM)  $(DESTDIR)$(PREFIX)/bin/scilab
-+	ln -fs $(DESTDIR)$(PREFIX)/share/$(SCIBASE)/bin/scilab $(PREFIX)/bin/scilab
++	ln -fs $(PREFIX)/share/$(SCIBASE)/bin/scilab $(DESTDIR)$(PREFIX)/bin/scilab
 +	$(RM)  $(DESTDIR)$(PREFIX)/bin/intersci
-+	ln -fs $(DESTDIR)$(PREFIX)/share/$(SCIBASE)/bin/intersci $(PREFIX)/bin/intersci
++	ln -fs $(PREFIX)/share/$(SCIBASE)/bin/intersci $(DESTDIR)$(PREFIX)/bin/intersci
 +	$(RM)  $(DESTDIR)$(PREFIX)/bin/intersci-n
-+	ln -fs $(DESTDIR)$(PREFIX)/share/$(SCIBASE)/bin/intersci-n $(PREFIX)/bin/intersci-n
++	ln -fs $(PREFIX)/share/$(SCIBASE)/bin/intersci-n $(DESTDIR)$(PREFIX)/bin/intersci-n
  
  # DESTDIR is the final destination of the file 
  # it can be different from $(PREFIX)/lib
