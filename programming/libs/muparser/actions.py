@@ -7,7 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="muParser"
+WorkDir="muparser"
 
 def setup():
     autotools.configure("--enable-shared")
