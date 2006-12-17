@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "scilab-4.1-rc1"
-
 def setup():
     pisitools.dosed("Makefile.in", "DESTDIR=", "DESTDIR=%s" % get.installDIR())
     autotools.rawConfigure("--prefix=/usr \
@@ -30,10 +28,6 @@ def build():
 
 def install():
     autotools.install()
-
-    pisitools.dosym("/usr/share/scilab-4.1-rc1/bin/scilab", "/usr/bin/scilab")
-    pisitools.dosym("/usr/share/scilab-4.1-rc1/bin/intersci", "/usr/bin/intersci")
-    pisitools.dosym("/usr/share/scilab-4.1-rc1/bin/intersci-n", "/usr/bin/intersci-n")
 
     pisitools.insinto("/usr/share/pixmaps/", "X11_defaults/scilab.xpm")
     pisitools.insinto("/usr/share/applications", "scilab.desktop")
