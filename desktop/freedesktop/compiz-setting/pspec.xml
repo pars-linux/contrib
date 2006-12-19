@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compiz-settings</Name>
+	<Homepage>http://forum.go-compiz.org</Homepage>
+	<Packager>
+	    <Name>Kenan Pelit</Name>
+	    <Email>kpelit@gmail.com</Email>
+	</Packager>
+	<License>X11</License>
+	<IsA>library</IsA>
+	<Summary>Settings for compiz 3D</Summary>
+	<Description>Settings for compiz 3D</Description>
+	<Archive sha1sum="be83f427c983e1430afc26b93530e010e046c550" type="targz">http://compiz.biz/compiz-settings/compiz-settings_0.03.tar.gz</Archive>
+	<BuildDependencies>
+	    <Dependency versionFrom="0.3.4">compiz</Dependency>
+	    <Dependency>gconf</Dependency>
+	</BuildDependencies>
+	</Source>
+	
+	<Package>
+	    <Name>compiz-settings</Name>
+	    <RuntimeDependencies>
+	        <Dependency versionFrom="0.3.4">compiz</Dependency>
+	        <Dependency>gconf</Dependency>
+	    </RuntimeDependencies>
+	    <Files>
+	        <Path fileType="config">/etc</Path>
+	        <Path fileType="data">/usr/share/</Path>
+	        <Path fileType="library">/usr/lib</Path>
+	        <Path fileType="doc">/usr/share/doc</Path>
+	    </Files>
+	</Package>
+	
+	<History>
+	<Update release="1">
+	<Date>2006-12-16</Date>
+	<Version>0.03.0</Version>
+	<Comment>First release</Comment>
+	<Name>Kenan Pelit</Name>
+	<Email>kpelit@gmail.com</Email>
+	</Update>
+	</History>
+</PISI> 
