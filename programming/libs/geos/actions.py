@@ -10,12 +10,18 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "geos-3.0.0rc2"
+WorkDir = "geos-3.0.0rc3"
 
 def setup():
     shelltools.export("WANT_AUTOCONF", "2.5")
     libtools.libtoolize("--copy --force")
-    autotools.configure("--with-pic --disable-static")
+    autotools.configure("--with-pic \
+                         --disable-static \
+                         --enable-inline \
+                         --enable-cassert \
+                         --enable-swig \
+                         --enable-python \
+                         --enable-ruby")
 
 def build():
     autotools.make()
