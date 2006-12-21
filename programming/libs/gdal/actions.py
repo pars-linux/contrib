@@ -8,9 +8,10 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "gdal-1.3.2"
+WorkDir = "gdal-1.4.0beta2"
 
 def setup():
+    pisitools.dosed("GDALmake.opt.in", "@datadir@", "@datadir@/gdal")
     autotools.configure("--with-libz \
                          --with-grass=no \
                          --with-libtool \
@@ -51,12 +52,7 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
-    pisitools.doman("man/man1/*")
-    pisitools.dohtml("html/*")
-    pisitools.dohtml("ogr/*")
 
-    #prevent file conflict
-    pisitools.removeDir("/usr/lib/perl5/5.8.8")
+    pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
 
 
