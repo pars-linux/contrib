@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>yaz</Name>
+        <Homepage>http://www.indexdata.dk/yaz/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary xml:lang="en">C/C++ Z39.50v3 library</Summary>
+        <Description xml:lang="en">YAZ is a programmers’ toolkit supporting the development of Z39.50/SRW/SRU clients and servers.</Description>
+        <Summary xml:lang="tr">C/C++ Z39.50v3 kütüphanesi</Summary>
+        <Description xml:lang="tr">YAZ Z39.50/SRW/SRU istemci ve sunucular geliştirmek için bir programlama kütüphanesidir.</Description>
+        <Archive type="targz" sha1sum="0ff5e791a7d642af3e44af30c4daac7e408155c3">http://ftp.indexdata.dk/pub/yaz/yaz-2.1.42.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libxml2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>yaz</Name>
+        <RuntimeDependencies>
+            <Dependency>libxml2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include/yaz</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-26</Date>
+            <Version>2.1.42</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>
