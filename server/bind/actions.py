@@ -10,8 +10,6 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="bind-9.3.2-P1"
-
 def setup():
     for e in ("bin/named/named.8", "bin/check/named-checkconf.8", "bin/rndc/rndc.8"):
         pisitools.dosed(e, "/etc/named.conf", "/etc/bind/named.conf")
