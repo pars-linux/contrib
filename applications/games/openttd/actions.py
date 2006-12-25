@@ -7,8 +7,11 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir = "openttd-0.5.0-RC1"
+
 def setup():
-    pass
+    #dummy configure enables freetype
+    autotools.rawConfigure()
 
 def build():
     autotools.make("BINARY_DIR=usr/share/openttd \
@@ -24,3 +27,6 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "media/openttd.128.png")
     pisitools.doexe("openttd", "/usr/share/openttd")
     pisitools.dodoc("docs/*", "*.txt")
+    #remove unneeded Readmes
+    pisitools.remove("/usr/share/doc/openttd-0.5.0_rc1-6/Readme_*")
+
