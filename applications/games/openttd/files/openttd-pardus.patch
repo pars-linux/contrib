@@ -1,0 +1,30 @@
+#This patch sets DejaVu Sans as default font, YTL as default currency, and Turkish for town names
+#default language is already taken from envifonment variables
+diff -Naur openttd-0.5.0-RC1-orig/settings.c openttd-0.5.0-RC1/settings.c
+--- settings.c	2006-12-20 22:43:52.000000000 +0200
++++ settings.c	2006-12-25 20:17:26.000000000 +0200
+@@ -1193,9 +1193,9 @@
+ 	  SDTG_STR("savegame_format",  SLE_STRB, S, 0, _savegame_format,       NULL,    STR_NULL, NULL),
+ 	 SDTG_BOOL("rightclick_emulate",         S, 0, _rightclick_emulate,   false,    STR_NULL, NULL),
+ #ifdef WITH_FREETYPE
+-	  SDTG_STR("small_font",       SLE_STRB, S, 0, _freetype.small_font,   NULL,    STR_NULL, NULL),
+-	  SDTG_STR("medium_font",      SLE_STRB, S, 0, _freetype.medium_font,  NULL,    STR_NULL, NULL),
+-	  SDTG_STR("large_font",       SLE_STRB, S, 0, _freetype.large_font,   NULL,    STR_NULL, NULL),
++	  SDTG_STR("small_font",       SLE_STRB, S, 0, _freetype.small_font,   "DejaVu Sans",    STR_NULL, NULL),
++	  SDTG_STR("medium_font",      SLE_STRB, S, 0, _freetype.medium_font,  "DejaVu Sans",    STR_NULL, NULL),
++	  SDTG_STR("large_font",       SLE_STRB, S, 0, _freetype.large_font,   "DejaVu Sans",    STR_NULL, NULL),
+ 	  SDTG_VAR("small_size",       SLE_UINT, S, 0, _freetype.small_size,   6, 0, 72, 0, STR_NULL, NULL),
+ 	  SDTG_VAR("medium_size",      SLE_UINT, S, 0, _freetype.medium_size, 10, 0, 72, 0, STR_NULL, NULL),
+ 	  SDTG_VAR("large_size",       SLE_UINT, S, 0, _freetype.large_size,  16, 0, 72, 0, STR_NULL, NULL),
+@@ -1242,9 +1242,9 @@
+ 	SDT_GENERAL("diff_custom", SDT_INTLIST, SL_ARR, (SLE_FILE_I16 | SLE_VAR_I32), 0, 0, GameOptions, diff, 17, 0, 0, 0, 0, NULL, STR_NULL, NULL, 0, 3),
+ 	SDT_GENERAL("diff_custom", SDT_INTLIST, SL_ARR, (SLE_FILE_I16 | SLE_VAR_I32), 0, 0, GameOptions, diff, 18, 0, 0, 0, 0, NULL, STR_NULL, NULL, 4, SL_MAX_VERSION),
+ 	    SDT_VAR(GameOptions, diff_level,SLE_UINT8, 0, 0, 9, 0,  9, 0, STR_NULL, NULL),
+-	  SDT_OMANY(GameOptions, currency,  SLE_UINT8, N, 0, 0, CUSTOM_CURRENCY_ID, "GBP|USD|EUR|YEN|ATS|BEF|CHF|CZK|DEM|DKK|ESP|FIM|FRF|GRD|HUF|ISK|ITL|NLG|NOK|PLN|ROL|RUR|SIT|SEK|YTL|SKK|BRR|custom", STR_NULL, NULL),
++	  SDT_OMANY(GameOptions, currency,  SLE_UINT8, N, 0, 24, CUSTOM_CURRENCY_ID, "GBP|USD|EUR|YEN|ATS|BEF|CHF|CZK|DEM|DKK|ESP|FIM|FRF|GRD|HUF|ISK|ITL|NLG|NOK|PLN|ROL|RUR|SIT|SEK|YTL|SKK|BRR|custom", STR_NULL, NULL),
+ 	  SDT_OMANY(GameOptions, units,     SLE_UINT8, N, 0, 1,     2, "imperial|metric|si", STR_NULL, NULL),
+-	  SDT_OMANY(GameOptions, town_name, SLE_UINT8, 0, 0, 0,    20, "english|french|german|american|latin|silly|swedish|dutch|finnish|polish|slovakish|norwegian|hungarian|austrian|romanian|czech|swiss|danish|turkish|italian|catalan", STR_NULL, NULL),
++	  SDT_OMANY(GameOptions, town_name, SLE_UINT8, 0, 0, 18,    20, "english|french|german|american|latin|silly|swedish|dutch|finnish|polish|slovakish|norwegian|hungarian|austrian|romanian|czech|swiss|danish|turkish|italian|catalan", STR_NULL, NULL),
+ 	  SDT_OMANY(GameOptions, landscape, SLE_UINT8, 0, 0, 0,     3, "normal|hilly|desert|candy", STR_NULL, NULL),
+ 	    SDT_VAR(GameOptions, snow_line, SLE_UINT8, 0, 0, 1, 0, 56, 0, STR_NULL, NULL),
+ 	SDT_CONDOMANY(GameOptions,autosave, SLE_UINT8, 0, 22,             N, 0, 0, 0, "", STR_NULL, NULL),
