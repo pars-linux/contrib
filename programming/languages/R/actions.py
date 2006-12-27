@@ -13,7 +13,7 @@ def define_global():
 
 def setup():
     define_global()
-    autotools.configure("-enable-R-profiling --enable-R-shlib --enable-shared --enable-BLAS-shlib --with-blas --enable-mbcs --enable-utf8 --with-tcltk --with-tcl-config=/usr/lib/tclConfig.sh --with-tk-config=/usr/lib/tkConfig.sh --with-system-pcre --with-system-zlib --with-system-bzlib --with-jpeglib --with-png --with-readline --with-x")
+    autotools.configure("-enable-R-profiling --enable-R-shlib --enable-shared --enable-BLAS-shlib --with-blas --with-lapack --enable-mbcs --enable-utf8 --with-tcltk --with-tcl-config=/usr/lib/tclConfig.sh --with-tk-config=/usr/lib/tkConfig.sh --with-system-pcre --with-system-zlib --with-system-bzlib --with-jpeglib --with-png --with-readline --with-x")
 
 def build():
     define_global()
