@@ -11,5 +11,5 @@ from pisi.actionsapi import get
 WorkDir = "."
 
 def install():
-    shelltools.system('unrar x XI%20-%20instruments.rar')
+    shelltools.system('unrar x Xi_instruments.rar')
     pisitools.insinto("/opt/MilkyTracker_linux_x86_2006_08_27/XI - instruments",  "instrumentos/*")
