@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="Net_DNSBL-1.2.0beta1"
+WorkDir="Net_DNSBL-1.2.1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net", "Net/*")
