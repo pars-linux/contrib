@@ -21,14 +21,9 @@ def setup():
                          --with-lapack \
                          --enable-mbcs \
                          --enable-utf8 \
-                         --with-tcltk \
-                         --with-tcl-config=/usr/lib/tclConfig.sh \
-                         --with-tk-config=/usr/lib/tkConfig.sh \
+                         --with-tcltk=no \
                          --with-system-pcre \
                          --with-system-zlib \
-                         --with-jpeglib \
-                         --with-png \
-                         --with-readline \
                          --with-x")
 
 def build():
