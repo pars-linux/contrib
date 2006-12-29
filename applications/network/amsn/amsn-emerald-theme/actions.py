@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="Emerald-1.0"
+WorkDir="Emerald-2.0"
 
 def install():
-    pisitools.insinto("/usr/share/amsn/skins/Emerald-1.0", "*")
+    pisitools.insinto("/usr/share/amsn/skins/Emerald-2.0", "*")
