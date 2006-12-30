@@ -15,9 +15,9 @@
         <Summary xml:lang="tr">Fluxbox, X11 pencere yöneticisi</Summary>
     <Archive sha1sum="fb9dc0913b2362e714a63e1bddff1960fd5c2c54" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/fluxbox/fluxbox-1.0rc2.tar.bz2</Archive>
     <BuildDependencies>
-            <Dependency>kdmtheme</Dependency>
             <Dependency>freetype</Dependency>
             <Dependency>imlib2</Dependency>
+            <Dependency versionFrom="1.2">glib1</Dependency>
     </BuildDependencies>
     </Source>
     
@@ -26,13 +26,16 @@
         <RuntimeDependencies>
             <Dependency>xorg-server</Dependency>
             <Dependency>kdmtheme</Dependency>
+            <Dependency versionFrom="1.2">glib1</Dependency>
+            <Dependency>imlib2</Dependency>
+            <Dependency>freetype</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
-        <Path fileType="man">/usr/share/man</Path>
-        <Path fileType="data">/usr/share/fluxbox</Path>
-        <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/fluxbox</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
     </Files>
         <AdditionalFiles>
             <AdditionalFile target="/etc/X11/Sessions/fluxbox" permission="0755" owner="root">fluxbox</AdditionalFile>
