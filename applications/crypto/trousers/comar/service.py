@@ -6,8 +6,6 @@ serviceType="server"
 serviceDesc = _({"en": "TrouSers",
                  "tr": "TrouSers"})
 
-
-
 def unlink():
     try:
         os.unlink("/var/run/tcsd.pid")
@@ -31,4 +29,4 @@ def stop():
         fail("Unable to stop service")
 
 def status():
-    return checkDaemon("--pidfile /var/run/tcsd.pid")
+    return checkDaemon("/var/run/tcsd.pid")
