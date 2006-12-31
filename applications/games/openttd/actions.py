@@ -5,9 +5,10 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "openttd-0.5.0-RC1"
+WorkDir = "openttd-0.5.0-RC2-source"
 
 def setup():
     #dummy configure enables freetype
@@ -28,5 +29,5 @@ def install():
     pisitools.doexe("openttd", "/usr/share/openttd")
     pisitools.dodoc("docs/*", "*.txt")
     #remove unneeded Readmes
-    pisitools.remove("/usr/share/doc/openttd-0.5.0_rc1-6/Readme_*")
+    pisitools.remove("/usr/share/doc/%s/Readme_*" % get.srcTAG())
 
