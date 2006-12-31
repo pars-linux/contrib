@@ -9,6 +9,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir="hugin-0.7-beta1"
+
 def setup():
     autotools.configure("--prefix=/usr --enable-shared --disable-static --with-unicode --disable-desktop")
 
