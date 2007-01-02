@@ -12,7 +12,11 @@ def unlink():
     except:
         pass
 
+def load_modul():
+    run("/sbin/modprobe", tpm)
+
 def start():
+    load_modul()
     ret = run("/sbin/start-stop-daemon --start --chuid tss --quiet --background \
                 --pidfile /var/run/tcsd.pid --exec /usr/sbin/tcsd")
     if ret == 0:
