@@ -14,12 +14,9 @@
         <Summary xml:lang="tr">Coğrafi Bilgi Sistemi (GIS)</Summary>
         <Description>Quantum GIS (QGIS) is a Geographic Information System (GIS)</Description>
         <Description xml:lang="tr">Coğrafi Bilgi Sistemi (GIS)</Description>
-        <Archive sha1sum="caee30d335a8774c85288bb339d476cb8bee5625" type="targz">http://mesh.dl.sourceforge.net/sourceforge/qgis/qgis-0.7.4.tar.gz</Archive>
-        <Patches>
-            <Patch level="0">pardus-configure.patch</Patch>
-            <Patch level="1">grass-6.2.0RC1.patch</Patch>
-        </Patches>
+        <Archive sha1sum="3a75e510a7ae0f0f44c5504667384388f2d5b0b9" type="targz">http://download.qgis.org/qgis/src/qgis-0.8.0.tar.gz</Archive>
         <BuildDependencies>
+            <Dependency version="4.2.2">qt4</Dependency>
             <Dependency versionFrom="1.2.5">gdal</Dependency>
             <Dependency versionFrom="3.2.1">sqlite</Dependency>
             <Dependency>geos</Dependency>
@@ -37,6 +34,7 @@
     <Package>
         <Name>qgis</Name>
         <RuntimeDependencies>
+            <Dependency version="4.2.2">qt4</Dependency>
             <Dependency versionFrom="1.2.5">gdal</Dependency>
             <Dependency versionFrom="3.2.1">sqlite</Dependency>
             <Dependency>geos</Dependency>
@@ -60,11 +58,17 @@
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/qgis.desktop" permission="0644" owner="root">qgis.desktop</AdditionalFile>
-            <AdditionalFile target="/usr/share/pixmaps/qgis.png" permission="0644" owner="root">qgis.png</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-01-02</Date>
+            <Version>0.8.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-09-28</Date>
             <Version>0.7.4</Version>
