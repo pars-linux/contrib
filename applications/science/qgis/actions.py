@@ -8,15 +8,15 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="qgis-0.7.4"
-
 def setup():
-    autotools.configure("--enable-gpx \
+    autotools.configure("--disable-static \
+                         --enable-gpx \
                          --enable-georef \
                          --enable-spit \
-                         --with-qtdir=/usr/qt/3 \
+                         --with-qtdir=/usr/qt/4 \
                          --with-x \
-                         --with-grass=/opt/grass-6.2.0RC1 \
+                         --with-python \
+                         --with-grass=/opt/grass-6.2.1 \
                          --with-geos=/usr/bin/geos-config \
                          --with-gdal=/usr/bin/gdal-config \
                          --with-projdir=/usr \
@@ -29,4 +29,7 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    pisitools.insinto("/usr/share/pixmaps", "images/icons/qgis-icon.png", "qgis.png")
+
     pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README", "TODO")
