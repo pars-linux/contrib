@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-static --enable-shared")
 
 def build():
     autotools.make()
