@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="Invisibility"
+WorkDir=""
 
 def install():
     pisitools.insinto("/usr/share/amsn/plugins/Invisibility", "*")
