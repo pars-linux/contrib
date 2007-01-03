@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>smartmontools</Name>
+        <Homepage>http://smartmontools.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>daemon</IsA>
+        <Summary>Programs to control and monitor storage systems using the Self-Monitoring</Summary>
+        <Summary xml:lang="tr">Hard disk kontrol ve durumunu gösteren programlar</Summary>
+        <Description>The smartmontools package contains two utility programs (smartctl and smartd) to control and monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (SMART) built into most modern ATA and SCSI hard disks.</Description>
+        <Description xml:lang="tr">smartctl ve smartd adlı ATA ve SCSI diskleri kontrol ve durumlarını gösterir iki program.</Description>
+        <Archive sha1sum="d6e88f576e26836b929c570290644b0580645602" type="targz">http://kent.dl.sourceforge.net/sourceforge/smartmontools/smartmontools-5.37.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>smartmontools</Name>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+       <AdditionalFiles>
+            <AdditionalFile permission="0644" target="/etc/conf.d/smartd">smartd.conf</AdditionalFile>
+       </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-01-03</Date>
+            <Version>5.37</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-09</Date>
+            <Version>5.33</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
