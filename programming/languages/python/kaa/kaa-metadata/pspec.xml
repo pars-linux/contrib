@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kaa-metadata</Name>
+        <Homepage>http://freevo.sourceforge.net/cgi-bin/freevo-2.0/Kaa</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>A powerful media metadata parser</Summary>
+        <Description>It can extract metadata (such as id3 tags, for example) from a wide range of media files</Description>
+        <Archive sha1sum="dc2578fee62ee296241d00d6d95322bb71d194b3" type="targz">http://mesh.dl.sourceforge.net/sourceforge/freevo/kaa-metadata-0.6.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.1.2">kaa-base</Dependency>
+            <Dependency versionFrom="2.6.27">libxml2</Dependency>
+            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kaa-metadata</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.1.2">kaa-base</Dependency>
+            <Dependency versionFrom="2.6.27">libxml2</Dependency>
+            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-04</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
