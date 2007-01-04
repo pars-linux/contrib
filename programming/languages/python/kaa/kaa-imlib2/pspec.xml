@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kaa-imlib2</Name>
+        <Homepage>http://freevo.sourceforge.net/cgi-bin/freevo-2.0/Kaa</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Imlib2 wrapper for python.</Summary>
+        <Description>Imlib2 wrapper for python.</Description>
+        <Archive sha1sum="73bd783f70983143828d92ed97a709f536725c87" type="targz">http://switch.dl.sourceforge.net/sourceforge/freevo/kaa-imlib2-0.2.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.1.2">kaa-base</Dependency>
+            <Dependency versionFrom="1.3.0">imlib2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kaa-imlib2</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.1.2">kaa-base</Dependency>
+            <Dependency versionFrom="1.3.0">imlib2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-04</Date>
+            <Version>0.2.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
