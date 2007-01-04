@@ -13,7 +13,7 @@ def unlink():
         pass
 
 def load_modul():
-    run("/sbin/modprobe", tpm)
+    run("/sbin/modprobe tpm")
 
 def start():
     load_modul()
