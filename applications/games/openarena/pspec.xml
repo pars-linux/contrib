@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>openarena</Name>
+        <Homepage>http://openarena.ws/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Open-source replacement content for Quake 3 Arena, effectively creating a free stand-alone game</Summary>
+        <Description>Open-source replacement content for Quake 3 Arena, effectively creating a free stand-alone game</Description>
+        <Archive sha1sum="02a424117fea5409f55c3dba6211b54afbcd72a5" type="targz">http://openarena.ws/rel/060/oa060.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="0.0.8">openal</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>openarena</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="0.0.8">openal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/openarena.desktop">openarena.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-07</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
