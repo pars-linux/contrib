@@ -24,3 +24,4 @@ def install():
     pisitools.dodir("%s/share/icons/hicolor/32x32/actions" % get.kdeDIR())
 
     autotools.rawInstall()
+
