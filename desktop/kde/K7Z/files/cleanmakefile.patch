@@ -1,0 +1,30 @@
+diff -Naur K7Z-0.6-orig/Build/Makefile K7Z-0.6/Build/Makefile
+--- K7Z-0.6-orig/Build/Makefile	2007-01-05 12:42:30.000000000 +0200
++++ K7Z-0.6/Build/Makefile	2007-01-06 09:38:44.000000000 +0200
+@@ -56,8 +56,6 @@
+ 	@echo "Only root can run 'make install'.  Others should instead run: 'make install-user'"
+ 	@echo "Before using this unstable script, please thoroughly read the Installation section of the README."
+ 	@echo ""
+-	make uninstall
+-	make clean
+ 	make all
+ 	mkdir -p $(KDEDIR)/share/apps/K7Z/
+ 	cp -r ../Doc/ $(KDEDIR)/share/apps/K7Z/
+@@ -68,17 +66,12 @@
+ 	mkdir -p $(KDEDIR)/bin/
+ 	ln -fs $(KDEDIR)/share/apps/K7Z/Source/K7Z.pyw $(KDEDIR)/bin/K7Z.pyw
+ 	mkdir -p $(KDEDIR)/share/apps/konqueror/servicemenus/
+-	cp -u ../Desktop/Context/Live/* $(KDEDIR)/share/apps/konqueror/servicemenus/
+-	rm -f ~$(USER)/.kde/share/apps/konqueror/servicemenus/K7Z*
+ 	mkdir -p $(KDEDIR)/share/applnk/Utilities/File/
+ 	cp ../Desktop/KMenu/* $(KDEDIR)/share/applnk/Utilities/File/
+ 	mkdir -p $(KDEDIR)/share/icons/hicolor/32x32/actions/
+ 	ln -fs $(KDEDIR)/share/apps/K7Z/Source/Images/actions/ark* $(KDEDIR)/share/icons/hicolor/32x32/actions/
+ 	mkdir -p $(KDEDIR)/share/icons/hicolor/32x32/apps/
+ 	ln -fs $(KDEDIR)/share/apps/K7Z/Source/Images/apps/K7Z* $(KDEDIR)/share/icons/hicolor/32x32/apps/
+-	@echo ""
+-	@echo "Finished.  To run K7Z, enter: K7Z.pyw &"
+-	@echo ""
+ 
+ Install.CurrentUser :
+ 	@echo ""
