@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>fceultra</Name>
+        <Homepage>http://fceultra.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>NES and Famicom emulator</Summary>
+        <Summary xml:lang="tr">NES ve Famicom emülatörü</Summary>
+        <Description>FCE Ultra is a NES (Nintendo Entertainment System) and Famicom (Family Computer) emulator for a variety of different platforms, based on Bero's FCE. Game compatibility is very high, provided you provide non-corrupt ROM/disk images.</Description>
+        <Description xml:lang="tr">FCE emülatörünün üzerinde inşa edilmiş olan bu NES (Nintendo Entertainment System) ve Famicom (Family Computer) emülatörü pek çok oyunu sorunsuzca çalıştırabilmektedir.</Description>
+        <Archive type="tarbz2" sha1sum="713faaad9f7d4b5e8dd1cb8a172e2f1ced85c1ec">http://switch.dl.sourceforge.net/sourceforge/fceultra/fceu-0.98.12.src.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>glut</Dependency>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fceultra</Name>
+        <RuntimeDependencies>
+            <Dependency>glut</Dependency>
+            <Dependency>libsdl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-01-06</Date>
+            <Version>0.98.12</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
