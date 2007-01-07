@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freedroidrpg</Name>
+        <Homepage>http://freedroid.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A modification of the classical Freedroid engine into an RPG</Summary>
+        <Description>A modification of the classical Freedroid engine into an RPG</Description>
+        <Archive sha1sum="4c764aff4f9b167df7f3910fb129e3578ee74689" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/freedroid/freedroidrpg-0.10.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="1.2.6">sdl-net</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.7">sdl-mixer</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>freedroidrpg</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="1.2.6">sdl-net</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.7">sdl-mixer</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/freedroidrpg.desktop">freedroidrpg.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/freedroidrpg.png">freedroidrpg.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-07</Date>
+            <Version>0.10.0</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
