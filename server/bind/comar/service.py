@@ -1,14 +1,14 @@
+import os
+from comar.service import *
+
 serviceType = "server"
 serviceDesc = _({"en": "BIND Daemon",
                  "tr": "BIND DNS Sunucusu"})
 serviceConf = "named"
 
-import os
-from comar.service import *
-
 def start():
     ret = run("/sbin/start-stop-daemon --start --quiet --exec /usr/sbin/named --p /var/run/named/named.pid -u named -n \
-              -- %s %s" % (config.get("OPTION", ""), config.get("CPU", "")))
+              -- %s %s" % (config.get("CPU", ""), config.get("OPTIONS", "")))
     if ret == 0:
         notify("System.Service.changed", "started")
     else:
