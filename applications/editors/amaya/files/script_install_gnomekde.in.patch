@@ -1,13 +1,14 @@
---- Amaya/batch/script_install_gnomekde.in.orig	2006-12-06 11:25:48.000000000 +0200
-+++ Amaya/batch/script_install_gnomekde.in	2006-12-10 13:40:22.000000000 +0200
-@@ -56,25 +56,28 @@
+--- Amaya/batch/script_install_gnomekde.in.orig	2006-12-12 10:25:07.000000000 +0200
++++ Amaya/batch/script_install_gnomekde.in	2007-01-10 22:49:21.000000000 +0200
+@@ -57,27 +57,32 @@
    exit
  fi
  
 -# --- creating /usr/bin/amaya-version
--$ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> usr/bin/amaya-@APP_VER@
 +# --- creating /usr/bin/amaya
-+$ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> usr/bin/amaya
+ $ECHO "#!/bin/sh" >> /usr/bin/amaya
+ $ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> /usr/bin/amaya
+ $CHMOD /usr/bin/amaya
  
 -# --- creating amaya-version.desktop
 -$ECHO "--> Creating $GNOMEKDEDIR/applications/amaya-@APP_VER@.desktop file"
@@ -29,11 +30,13 @@
 +$ECHO "Name=Amaya" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Comment=Edit the Web" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Comment[fr]=Editez le Web" >> $GNOMEKDEDIR/applications/amaya.desktop
++$ECHO "Comment[nl]=Bewerk het web" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Comment[tr]=Web Düzenleyicisi" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "GenericName=Edit the Web" >> $GNOMEKDEDIR/applications/amaya.desktop
++$ECHO "GenericName[nl]=Bewerk het web" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "GenericName[tr]=Web Düzenleyicisi" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Categories=Application;Network;Development;" >> $GNOMEKDEDIR/applications/amaya.desktop
-+$ECHO "Exec=amaya %u" >> $GNOMEKDEDIR/applications/amaya.desktop
++$ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Icon=amaya.png" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Terminal=false" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Type=Application" >> $GNOMEKDEDIR/applications/amaya.desktop
