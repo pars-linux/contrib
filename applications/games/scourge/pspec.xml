@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scourge</Name>
+        <Homepage>http://scourge.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A graphical rogue-like adventure game</Summary>
+        <Description>A graphical rogue-like adventure game</Description>
+        <Archive sha1sum="de3e257e47c5fc4ce66429489efb35b080fbb28d" type="targz">http://belnet.dl.sourceforge.net/sourceforge/scourge/scourge-0.17.src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.2.1_20061127">freetype</Dependency>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="1.2.6">sdl-net</Dependency>
+            <Dependency versionFrom="1.2.7">sdl-mixer</Dependency>
+            <Dependency versionFrom="2.6.3.0">wxGTK</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>scourge</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.2.1_20061127">freetype</Dependency>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="1.2.6">sdl-net</Dependency>
+            <Dependency versionFrom="1.2.7">sdl-mixer</Dependency>
+            <Dependency versionFrom="2.6.3.0">wxGTK</Dependency>
+            <Dependency versionFrom="0.17">scourge-data</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-14</Date>
+            <Version>0.17</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
