@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>PyOpenGL</Name>
+        <Homepage>http://pyopengl.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>OpenGL bindings for Python</Summary>
+        <Summary xml:lang="tr">Python için OpenGL bağımlılıkları</Summary>
+        <Description>PyOpenGL is the cross platform Python binding to OpenGL and related APIs.</Description>
+        <Description xml:lang="tr">PyOpenGL, OpenGL ve onunla ilgili kitaplıklar için platform bağımsız bir Python bağımlılığıdır.</Description>
+        <Archive type="targz" sha1sum="f7f2b1179c3a7c2171d785d8d7567482412d749d">http://switch.dl.sourceforge.net/sourceforge/pyopengl/PyOpenGL-3.0.0a5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>setuptools</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>PyOpenGL</Name>
+        <RuntimeDependencies>
+            <Dependency>glut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-01-14</Date>
+            <Version>3.0.0_alpha5</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
