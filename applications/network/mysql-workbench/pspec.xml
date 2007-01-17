@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mysql-workbench</Name>
+        <Homepage>http://www.mysql.com/products/tools/workbench/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>MySQL Database Modelling Tool</Summary>
+        <Description>MySQL Workbench is a database modeling tool for MySQL. You can use it to design and create new database schemas, document existing databases and even perform complex migrations to MySQL.</Description>
+        <Summary xml:lang="tr">MySQL Veritabanı Modelleme Aracı</Summary>
+        <Description xml:lang="tr">MySQL Workbench, MySQL için bir veritabanı modelleme aracıdır. Yeni veritabanı şemaları oluşturmak ve tasarlamak, mevcut veritabanlarını belgelendirmek ve hatta karmaşık göç işlemlerini gerçekleştirebilirsiniz.</Description>
+        <Archive sha1sum="0a845bc22d9b269081fa7b26c5762e8a6b07191c" type="targz">ftp://ftp.sunet.se/pub/unix/databases/relational/mysql/Downloads/MySQLGUITools/mysql-gui-tools-5.0r8.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>mysql-client</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.6">libxml2</Dependency>
+            <Dependency versionFrom="2.0">libsigc++</Dependency>
+            <Dependency versionFrom="2.4">glibmm</Dependency>
+            <Dependency versionFrom="2.4">gtkmm</Dependency>
+            <Dependency versionFrom="2.5">libglade2</Dependency>
+            <Dependency versionFrom="0.15">pkgconfig</Dependency>
+            <Dependency versionFrom="5.0">lua</Dependency>
+            <Dependency>glut</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>termcap.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mysql-workbench</Name>
+        <RuntimeDependencies>
+            <Dependency>mysql-client</Dependency>
+            <Dependency version="5.0_p8">mysql-gui-common</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.6">libxml2</Dependency>
+            <Dependency versionFrom="2.0">libsigc++</Dependency>
+            <Dependency versionFrom="2.4">glibmm</Dependency>
+            <Dependency versionFrom="2.4">gtkmm</Dependency>
+            <Dependency versionFrom="2.5">libglade2</Dependency>
+            <Dependency versionFrom="5.0">lua</Dependency>
+            <Dependency>glut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-01-16</Date>
+            <Version>1.1.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>
