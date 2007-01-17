@@ -11,7 +11,7 @@ from pisi.actionsapi import shelltools
 
 def setup():
     shelltools.cd('mysql-gui-common')
-    autotools.configure()
+    autotools.configure('--enable-grt --enable-canvas')
 
 def build():
     shelltools.cd('mysql-gui-common')
