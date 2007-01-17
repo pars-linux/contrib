@@ -7,6 +7,7 @@
 WorkDir='mysql-gui-tools-5.0r8'
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
 def setup():
@@ -24,3 +25,4 @@ def build():
 def install():
     shelltools.cd('mysql-administrator')
     autotools.install()
+    pisitools.dodoc('COPYING', 'ChangeLog')
