@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>xcircuit</Name>
+        <Homepage>http://bach.ece.jhu.edu/tim/programs/xcircuit/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <PartOf>application.science</PartOf>
+        <IsA>app:sci</IsA>
+        <Summary>Program for drawing publishable-quality electrical circuit schematic diagrams and related figures, and produce circuit netlists through schematic capture.</Summary>
+        <Summary xml:lang="tr">Şematik diagramlar, elektik devreleri, figürler çizmeye yarayan bir program.</Summary>
+        <Archive sha1sum="cf3eda5c788376a09cca6a35ee120a3f12a08c33" type="targz">http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.4.26.tgz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="8.4">tcltk</Dependency>
+            <Dependency versionFrom="0.98">nasm</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+      <Name>xcircuit</Name>
+      <Files>
+          <Path fileType="data">/usr/share</Path>
+          <Path fileType="doc">/usr/share/doc</Path>
+          <Path fileType="executable">/usr/bin</Path>
+      </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-01-16</Date>
+            <Version>3.4.26</Version>
+            <Comment>Yeni paket</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
