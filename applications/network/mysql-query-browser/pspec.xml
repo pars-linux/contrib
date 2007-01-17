@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mysql-query-browser</Name>
+        <Homepage>http://www.mysql.com/products/tools/query-browser/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>MySQL Visual Query Tool</Summary>
+        <Description>MySQL Query Browser is the easiest visual tool for creating, executing, and optimizing SQL queries for your MySQL Database Server. The MySQL Query Browser gives you a complete set of drag-and-drop tools to visually build, analyze and manage your queries.</Description>
+        <Summary xml:lang="tr">MySQL Görsel Sorgu Aracı</Summary>
+        <Description xml:lang="tr">MySQL Query Browser, MySQL veritabanı sunucunuz için SQL sorgusu oluşturma, yapma ve optimize etmek için görsel bir araçtır. Sorgularınızı sürükle-bırak yöntemiyle oluşturabilir, analiz edebilir ve yönetebilirsiniz.</Description>
+        <Archive sha1sum="84bc961d8e6fe38280c7057cc8509e3ec00937fd" type="targz">ftp://ftp.sunet.se/pub/unix/databases/relational/mysql/Downloads/MySQLGUITools/mysql-gui-tools-5.0r8-linux-i386.tar.gz</Archive>
+        <Patches>
+            <Patch>license.patch</Patch>
+            <Patch>pathfix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mysql-query-browser</Name>
+        <Files>
+            <Path fileType="executable">/opt/mysql-query-browser/bin</Path>
+            <Path fileType="library">/opt/mysql-query-browser/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/opt/mysql-query-browser/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/opt/mysql-query-browser/bin/mysql-query-browser">mysql-query-browser</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/share/applications/MySQLQueryBrowser.desktop">MySQLQueryBrowser.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-01-17</Date>
+            <Version>1.2.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>

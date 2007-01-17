@@ -1,0 +1,13 @@
+#!/bin/sh
+# Georgi D. Sotirov
+
+PRG="$0"
+
+LIBPREFIX=/opt/mysql-query-browser/lib
+export MQB_DIR=/opt/mysql-query-browser
+export LD_LIBRARY_PATH=$LIBPREFIX:$LD_LIBRARY_PATH
+export GDK_PIXBUF_MODULE_FILE=$LIBPREFIX/gdk-pixbuf.loaders
+export PANGO_RC_FILE=$LIBPREFIX/pangorc
+export GTK_EXE_PREFIX=$LIBPREFIX
+
+$PRG-bin $args
