@@ -4,16 +4,16 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import kde
+from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    kde.configure()
+    autotools.configure()
 
 def build():
-    kde.make()
+    autotools.make()
 
 def install():
-    kde.install()
+    autotools.install()
     pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README")
     pisitools.dohtml("doc/en/index.html")
