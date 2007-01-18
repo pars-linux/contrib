@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PerlQt</Name>
+        <Homepage>http://perlqt.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>PerlQt allows use of the Qt toolkit from Perl.</Summary>
+        <Summary xml:lang="tr">Qt araçları için Perl bağlayıcıları</Summary>
+        <Archive sha1sum="ead88bf6d6d67cbc191e1b2f3c3ce39ed7dbc22a" type="targz">http://switch.dl.sourceforge.net/sourceforge/perlqt/PerlQt-3.009-b2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>kdelibs</Dependency>       
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>PerlQt</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="man">/usr/kde/3.5/man</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-18</Date>
+            <Version>3.009</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
