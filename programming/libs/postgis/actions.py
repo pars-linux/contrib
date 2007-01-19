@@ -16,9 +16,9 @@ def setup():
                             --with-geos-libdir=/usr/lib \
                             --with-proj \
                             --with-proj-libdir=/usr/lib \
-                            --with-docdir=/usr/share/doc \
+                            --with-docdir=/usr/share/doc/%s \
                             --datadir=/usr/share/postgresql/contrib \
-                            --libdir=/usr/lib/postgresql")
+                            --libdir=/usr/lib/postgresql" % get.srcTAG())
 
 def build():
     autotools.make()
