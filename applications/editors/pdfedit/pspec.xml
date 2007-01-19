@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>pdfedit</Name>
+        <Homepage>http://pdfedit.petricek.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>PDF editor</Summary>
+        <Summary xml:lang="tr">PDF düzenleyici</Summary>
+        <Description>Complete editing of pdf documents is made possible with PDFedit. You can change either raw pdf objects (for advanced users) or use predefined gui functions. Functions can be easily added as everything is based on a script.</Description>
+        <Description xml:lang="tr">PDFedit ile artık pdf belgelerinizi düzenleyebilirsiniz. Gelişmiş kullanıcılar ham pdf nesnelerini değiştirebilirken sıradan kullanıcılar arayüzü kullanarak işini görebilirler. Herşey betik üzerine kurulduğundan kolayca yeni özellike eklenebilir.</Description>
+        <Archive type="tarbz2" sha1sum="b6d482e3932b19a38d8e030686a9b4edd6cf62dc">http://ovh.dl.sourceforge.net/sourceforge/pdfedit/pdfedit-0.2.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pdfedit</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pdfedit</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/pdfedit.desktop">pdfedit.desktop</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-01-19</Date>
+            <Version>0.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
