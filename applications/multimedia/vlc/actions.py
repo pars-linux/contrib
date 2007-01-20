@@ -61,8 +61,6 @@ def install():
 
     pisitools.removeDir("/usr/share/doc/vlc")
 
-    pisitools.insinto("/usr/share/applications/", "debian/vlc.desktop")
-
     #Firefox plugins compile clean up --enable-mozilla=firefox --with-mozilla-sdk-path=/usr/lib/MozillaFirefox
     pisitools.removeDir("/usr/lib/mozilla") 
 
