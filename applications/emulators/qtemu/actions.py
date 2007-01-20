@@ -16,7 +16,9 @@ def build():
 
 def install():
     shelltools.system("lrelease-qt4 translations/qtemu_de.ts")
+    shelltools.system("lrelease-qt4 translations/qtemu_tr.ts")
     pisitools.insinto("/usr/share/qtemu", "qtemu")
     pisitools.insinto("/usr/share/qtemu/translations", "translations/qtemu_de.qm")
+    pisitools.insinto("/usr/share/qtemu/translations", "translations/qtemu_tr.qm")
     pisitools.insinto("/usr/share/qtemu", "help")
 
