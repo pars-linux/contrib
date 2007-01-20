@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vamps</Name>
+        <Homepage>http://vamps.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>console</IsA>
+        <Summary>Vamps was written to make cheap backups of DVDs under Linux</Summary>
+        <Description>Vamps was written to make cheap backups of DVDs under Linux</Description>
+        <Archive sha1sum="b25e68508f43bee37156fd83cde09a519e0db778" type="targz">http://belnet.dl.sourceforge.net/sourceforge/vamps/vamps-0.99.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>vamps</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-20</Date>
+            <Version>0.99.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
