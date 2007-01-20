@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>k9copy</Name>
+        <Homepage>http://k9copy.sourceforge.net/index.php</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>K9Copy is a small utility which allows the copy of DVD on Linux</Summary>
+        <Description>K9Copy is a small utility which allows the copy of DVD on Linux</Description>
+        <Archive sha1sum="8ae41196385c65c2f35c9e0c450e21ab1e7ebbd9" type="targz">http://switch.dl.sourceforge.net/sourceforge/k9copy/k9copy-1.1.0-beta2.tar.gz</Archive>
+        <Patches>
+            <Patch>k9copy.desktop.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
+            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
+            <Dependency versionFrom="0.1.10">libdvdnav</Dependency>
+            <Dependency versionFrom="7.0">dvd+rw-tools</Dependency>
+            <Dependency versionFrom="0.99.2">vamps</Dependency>
+            <Dependency versionFrom="0.12.17">k3b</Dependency>
+            <Dependency versionFrom="0.0_20061209">mplayer</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>k9copy</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
+            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
+            <Dependency versionFrom="0.1.10">libdvdnav</Dependency>
+            <Dependency versionFrom="7.0">dvd+rw-tools</Dependency>
+            <Dependency versionFrom="0.99.2">vamps</Dependency>
+            <Dependency versionFrom="0.12.17">k3b</Dependency>
+            <Dependency versionFrom="0.0_20061209">mplayer</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-20</Date>
+            <Version>1.1.0_beta2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
