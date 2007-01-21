@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "GeoIP-1.4.0"
+WorkDir = "GeoIP-1.4.1"
 
 def setup():
     autotools.configure("--enable-shared")
