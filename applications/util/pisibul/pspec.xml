@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>pisibul</Name>
+        <Homepage>http://pisibul.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A small, fast tool for searching pisi source files</Summary>
+        <Summary xml:lang="tr">Küçük ve hızlı bir pisi bulma aracı</Summary>
+        <Description>There are many source packages which don't exist in official repository of Pardus. With pisibul you can perform fast and efficient searches among all source packages. Pisibul can update itself automaticly by downloading latest database of packages in source repositories.</Description>
+        <Description xml:lang="tr">Pardus'un svn depolarnda, resmi ikili depoda olmayan pek çok paket bulunmaktadr. Pisibul ile Pardus svn depolarndaki kaynak pisi paketleri arasnda  hzl ve verimli aramalar yapabilirsiniz. Pisibul, depolarn güncel halini otomatik olarak indirip kendini güncelleyebilir.
+</Description>
+        <Archive type="tarbz2" sha1sum="3750b32d72894a5538a86b5a8f530153227a4db7">http://mesh.dl.sourceforge.net/sourceforge/pisibul/pisibul-0.2_beta1.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>pisibul</Name>
+        <RuntimeDependencies>
+            <Dependency>PyQt4</Dependency>
+            <Dependency>pysqlite</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pisibul</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-01-21</Date>
+            <Version>0.2_beta1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
