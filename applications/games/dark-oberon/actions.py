@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir = "dark-oberon-1.0.2-RC1"
+
 def build():
     autotools.make("SOUND=1")
 
