@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE PISI
-      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
         <Name>gtkwave</Name>
@@ -9,11 +8,14 @@
             <Name>Ayan Öztürk</Name>
             <Email>ayanozturk@gmail.com</Email>
         </Packager>
-        <License>GPL-2 MIT</License>
+        <License>GPL-2</License>
+        <License>MIT</License>
         <PartOf>applications.science</PartOf>
         <IsA>app:gui</IsA>
         <Summary>A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files</Summary>
         <Summary xml:lang="tr">LXT, LXT2, VZT, GHW ve VCD/EVCD dosyaları için görüntüleyici</Summary>
+        <Description>A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files</Description>
+        <Description xml:lang="tr">LXT, LXT2, VZT, GHW ve VCD/EVCD dosyaları için görüntüleyici</Description>
         <Archive sha1sum="9f91415615200f2f72cbadaf8564b1641ed90f9e" type="targz">http://home.nc.rr.com/gtkwave/gtkwave-current.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
@@ -30,6 +32,9 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="doc">/usr/share/man</Path>
         </Files>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
     </Package>
 
     <History>
