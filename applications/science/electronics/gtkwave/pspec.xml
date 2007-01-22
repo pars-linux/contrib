@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtkwave</Name>
+        <Homepage>http://home.nc.rr.com/gtkwave/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2 MIT</License>
+        <PartOf>applications.science</PartOf>
+        <IsA>app:gui</IsA>
+        <Summary>A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files</Summary>
+        <Summary xml:lang="tr">LXT, LXT2, VZT, GHW ve VCD/EVCD dosyaları için görüntüleyici</Summary>
+        <Archive sha1sum="9f91415615200f2f72cbadaf8564b1641ed90f9e" type="targz">http://home.nc.rr.com/gtkwave/gtkwave-current.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>usegtk2.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gtkwave</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>3.0.20</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
