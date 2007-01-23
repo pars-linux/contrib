@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>torrent</Name>
+        <Homepage>http://www.shiftygames.com/torrent/torrent.html</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <PartOf>applications.games</PartOf>
+        <IsA>app:gui</IsA>
+        <Summary>Match rising tiles to score as many points as possible before the tiles touch the top of the board</Summary>
+        <Summary xml:lang="tr">Yükselen parçaları eşleştirerek oynanan bir oyun.</Summary>
+        <Description xml:lang="tr">Yükselen parçaları eşleştirerek oynanan bir oyun.</Description>
+        <Description>Match rising tiles to score as many points as possible before the tiles touch the top of the board</Description>
+        <Archive sha1sum="9cd8c6629f38344674c34f67091f3ded5152b287" type="targz">http://www.shiftygames.com/torrent/torrent-0.8.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.4">libsdl</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2">sdl-image</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>torrent</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/torrent</Path>
+            <Path fileType="doc">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-23</Date>
+            <Version>0.8.2</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
