@@ -7,6 +7,8 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
+WorkDir = "koverartist"
+
 def setup():
     kde.configure()
 
