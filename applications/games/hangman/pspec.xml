@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>hangman</Name>
+        <Homepage>http://www.shiftygames.com/hangman/hangman.html</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <PartOf>applications.games</PartOf>
+        <IsA>app:gui</IsA>
+        <Summary>The classic word guessing game</Summary>
+        <Summary xml:lang="tr">Klasik kelime tahmin oyunu.</Summary>
+        <Description xml:lang="tr">Klasik kelime tahmin oyunu.</Description>
+        <Description>The classic word guessing game</Description>
+        <Archive sha1sum="70fe78f2c0e4c725895ec68d50cf0d5f96ee9323" type="targz">http://www.shiftygames.com/hangman/hangman-0.9.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.4">libsdl</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2">sdl-image</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>hangman</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.4">libsdl</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2">sdl-image</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+            <Dependency>miscfiles</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/hangman</Path>
+            <Path fileType="doc">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-23</Date>
+            <Version>0.9.2</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
