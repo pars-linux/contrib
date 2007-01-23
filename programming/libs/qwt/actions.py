@@ -9,13 +9,13 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="qwt-5.0.0rc1"
+WorkDir="qwt-5.0.0"
 
 def setup():
     shelltools.system("qmake qwt.pro")
 
     shelltools.cd("designer")
-    shelltools.system("qmake qwtplugin.pro")
+    shelltools.system("qmake designer.pro")
 
 def build():
     autotools.make()
