@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>uzakdiyarlar</Name>
+        <Homepage>http://www.uzakdiyarlar.com/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Summary>Çok oyunculu rol kesme oyunu</Summary>
+        <Archive type="zip" sha1sum="d7467c062b16c0012b64c49bb65e73c3ef17e747">http://heanet.dl.sourceforge.net/sourceforge/uzakdiyarlar/ud1.0b1.zip</Archive>
+        <Patches>
+            <Patch level="1">area-lst.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>uzakdiyarlar</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/ud">ud</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-01-23</Date>
+            <Version>1.0_beta1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
