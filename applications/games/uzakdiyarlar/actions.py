@@ -25,7 +25,3 @@ def install():
     pisitools.dodir("/usr/share/uzakdiyarlar/gods")
     pisitools.dodir("/usr/share/uzakdiyarlar/player")
     pisitools.dodir("/usr/share/uzakdiyarlar/log")
-
-    shelltools.system("chmod 0777 %s/usr/share/uzakdiyarlar/log" % get.installDIR())
-    shelltools.system("chmod 0777 %s/usr/share/uzakdiyarlar/player" % get.installDIR())
-    shelltools.system("chmod 0755 %s/usr/share/uzakdiyarlar/area/*" % get.installDIR())
