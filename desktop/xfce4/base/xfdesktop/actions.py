@@ -6,18 +6,15 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-static=no")
 
 def build():
     autotools.make()
 
-
 def install():
     autotools.install()
-    pisitools.removeDir("/usr/share/xfce4/doc/fr")
-    pisitools.removeDir("/usr/share/xfce4/doc/he")
+    pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
+    pisitools.insinto("etc/xdg/xfce4/desktop", "menu.xml.tr")
+    # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-    pisitools.domo("po/tr.po","tr","xfdesktop.mo")
-    pisitools.insinto("/etc/xdg/xfce4/desktop/","menu.xml.tr")
