@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 def setup():
     autotools.configure("--enable-static=no \
                                      --with-browser=firefox \
-                                     --with-terminal=konsole")
+                                     --with-terminal=Terminal")
 
 def build():
     autotools.make()
