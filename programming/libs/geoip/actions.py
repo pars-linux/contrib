@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright © 2006 TUBITAK/UEKAE
+# Copyright 2006 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
@@ -19,4 +19,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "GeoIP.spec", "GeoIP.spec.in", "READMEwin32.txt", "NEWS", "README", "TODO")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README", "TODO")
