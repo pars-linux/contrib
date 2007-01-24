@@ -1,21 +1,20 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 #
-#Ertugrul Erata ertugrulerata at gmail.com
-#
+# Licensed under the GNU General Public License, version 2
+# See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="exo-0.3.1.12rc2"
-
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-static=no")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    pisitools.insinto("/usr/libexec","exo-helper/exo-helper-0.3")
-    pisitools.removeDir("/usr/share/xfce4/doc/ja")
+    pisitools.dodoc("TODO", "THANKS", "README", "NEWS", "AUTHOR", "ChangeLog")
+    # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
