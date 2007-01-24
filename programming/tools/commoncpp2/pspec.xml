@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>commoncpp2</Name>
+        <Homepage>http://www.gnu.org/software/commoncpp/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <PartOf>programming.tools</PartOf>
+        <IsA>app:console</IsA>
+        <Summary>GNU Common C++ is a C++ framework.</Summary>
+        <Summary xml:lang="tr">Bir C++ çalışma alanı sağlar.</Summary>
+        <Description>GNU Common C++ is a C++ framework offering portable support for threading, sockets, file access, daemons, persistence, serial I/O, XML parsing, and system services</Description>
+        <Description xml:lang="tr">Soketler, dosya erişimi, XML, sistem servisleri için taşınabilir destek sağlayan bir çalışma alanı sağlar.</Description>
+        <Archive sha1sum="aa529ef1f7b886c320fe455a12ff355d80bc7890" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/gnutelephony/commoncpp2-1.5.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.3.6">doxygen</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>commoncpp2</Name>
+        <RuntimeDependencies>
+            <Dependency>libgcrypt</Dependency>
+            <Dependency>gnutls</Dependency>
+            <Dependency>zlib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="data">/usr/include</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-24</Date>
+            <Version>1.5.1</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
