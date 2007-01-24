@@ -9,12 +9,9 @@
             <Email>ertugrulerata@gmail.com</Email>
         </Packager>
         <License>GPL-2</License>
-        <IsA>app:gui</IsA>
         <Summary>Xfce4 utilities</Summary>
         <Summary xml:lang="tr">Xfce4 yardımcı uygulamaları</Summary>
-        <Description>Xfce 4 utilities</Description>
-        <Description xml:lang="tr">Xfce yardımcı uygulamaları</Description>
-        <Archive sha1sum="59622477cd60c08b72fe5113a87654a07d13a4f5"  type="tarbz2">http://www.xfce.org/archive/xfce-4.3.99.2/src/xfce-utils-4.3.99.2.tar.bz2</Archive>
+        <Archive sha1sum="181dadd737a7ff4f7085729318d3b7a3aebb9a69"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.0/src/xfce-utils-4.4.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xorg-server</Dependency>
             <Dependency>libxfce4mcs</Dependency>
@@ -41,30 +38,25 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="library">/usr/lib</Path>
             <Path fileType="config">/etc</Path>
-            <Path fileType="localedata">/usr/share/locale/tr</Path>
-            <Path fileType="data">/usr/share/icons</Path>
-            <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/xfce4</Path>
-            <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/xfce4/doc</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/etc/X11/Sessions/xfce4" permission="0755" owner="root">xfce4</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
-    <Package>
-        <Name>xfce-utils-locales</Name>
-        <RuntimeDependencies>
-            <Dependency>xfce-utils</Dependency>
-        </RuntimeDependencies>
-        <Files>
-            <Path fileType="localedata">/usr/share/locale</Path>
-        </Files>
-     </Package>
-
     <History>
+        <Update release="4">
+            <Date>2007-01-24</Date>
+            <Version>4.4.0</Version>
+            <Comment>Version bump to stable</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2006-11-09</Date>
             <Version>4.3.99.2</Version>
