@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE PISI
-      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
         <Name>notification-daemon-xfce</Name>
@@ -10,40 +9,33 @@
             <Email>ertugrulerata@gmail.com</Email>
         </Packager>
         <License>GPL-2</License>
-        <IsA>app:gui</IsA>
-        <Summary>Xfce4 media player</Summary>
-        <Summary xml:lang="tr">Xfce4 media player</Summary>
-        <Description xml:lang="tr">Xfce4 media player</Description>
-        <Description>Xfce4 media player</Description>
+        <Summary>Notification-daemon-xfce is a port of Gnome’s notification-daemon for the Xfce desktop.</Summary>
+        <Summary xml:lang="tr">Xfce4 uyarı sistemi</Summary>
         <Archive sha1sum="6edc6a21df03514880abe892befe4a7a58437107" type="tarbz2">http://goodies.xfce.org/releases/notification-daemon-xfce/notification-daemon-xfce-0.3.6.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>dbus</Dependency>
-            <Dependency>hal</Dependency>
+            <Dependency versionFrom="4.3.90">libxfce4util</Dependency>
+            <Dependency versionFrom="4.3.90">libxfcegui4</Dependency>
             <Dependency>libsexy</Dependency>
-            <Dependency>libnotify</Dependency>
-            <Dependency>libwnck</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>notification-daemon-xfce</Name>
         <RuntimeDependencies>
-            <Dependency>dbus</Dependency>
-            <Dependency>hal</Dependency>
+            <Dependency versionFrom="4.3.90">libxfce4util</Dependency>
+            <Dependency versionFrom="4.3.90">libxfcegui4</Dependency>
             <Dependency>libsexy</Dependency>
-            <Dependency>libnotify</Dependency>
-            <Dependency>libwnck</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="library">/usr/libexec</Path>
-            <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share/icons</Path>
-            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
+    
     <History>
         <Update release="1">
             <Date>2006-11-17</Date>
