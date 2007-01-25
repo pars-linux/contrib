@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="evfs-20060926"
-
 def setup():
     autotools.configure("--prefix=/usr --enable-samba --enable-threads")
 
@@ -19,3 +17,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPING", "NEWS", "README", "TODO")
+
