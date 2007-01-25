@@ -16,7 +16,8 @@ def setup():
     autotools.configure("--with-gnutls \
                          --with-openssl \
                          --enable-debug \
-                         --with-ipv6")
+                         --with-ipv6 \
+                         --disable-static")
 
 def build():
     autotools.make()
