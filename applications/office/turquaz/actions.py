@@ -32,3 +32,4 @@ def install():
 #   shelltools.system("chmod 777 -R %s/opt/TurquazLinux08Beta5/database" % get.installDIR())
 
     pisitools.dodoc("install.txt", "yukleme.txt", "lisans/*")
+
