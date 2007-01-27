@@ -8,7 +8,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-WorkDir = "mlt++-%s" % get.srcVERSION()
+#WorkDir = "mlt++-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure()
