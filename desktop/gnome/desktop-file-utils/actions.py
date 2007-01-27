@@ -18,5 +18,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.doman("desktop-file-install.8", "desktop-file-validate.1", "desktop-menu-tool.1")
+    pisitools.doman("man/*.8")
+    pisitools.doman("man/*.1")
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")

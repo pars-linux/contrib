@@ -12,18 +12,16 @@
         <IsA>library</IsA>
         <Summary>Command line utilities to work with desktop menu entries</Summary>
         <Description>Command line utilities to work with desktop menu entries</Description>
-    <Archive sha1sum="e534223872b928ce4b58518d56a8bd883bb60a82" type="targz">http://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.10.tar.gz</Archive>
-        <Patches>
-            <Patch level="1">desktop-file-utils-0.10-man.patch</Patch>
-            <Patch level="1">desktop-file-utils-0.10-noemacs.patch</Patch>
-        </Patches>
+        <Archive sha1sum="79baee7f390665fcaa2a663aa1e48ce6f7fb9a8e" type="targz">http://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.12.tar.gz</Archive>
         <BuildDependencies>
-           <Dependency versionFrom="2.0.0">glib2</Dependency>
-        <Dependency versionFrom="1.6.3">popt</Dependency>
-            <Dependency>pkgconfig</Dependency>
+            <Dependency versionFrom="2.0.0">glib2</Dependency>
+            <Dependency versionFrom="1.6.3">popt</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>desktop-file-utils-0.10-man.patch</Patch>
+        </Patches>
     </Source>
-    
+
     <Package>
         <Name>desktop-file-utils</Name>
         <RuntimeDependencies>
@@ -32,16 +30,23 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-        <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="data">/usr/share/emacs</Path>
-    </Files>
+        </Files>
     </Package>
-    
+
     <History>
+        <Update release="2">
+            <Date>2006-08-27</Date>
+            <Version>0.12</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-08-27</Date>
-        <Version>0.10</Version>
+            <Version>0.10</Version>
             <Comment>First release.</Comment>
             <Name>Fethi Aymaz</Name>
             <Email>fethi@linux-sevenler.org</Email>
