@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgeda</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Summary>This library provides functions needed for the gEDA core suite</Summary>
+        <Summary xml:lang="tr">Bu kitaplık gEDA için gerekli olan fonksiyonları sağlar.</Summary>
+        <Archive sha1sum="eaa691ce88a60f85925bff3f8ee8c9dc5d8a76d6" type="targz">http://www.geda.seul.org/devel/20061020/libgeda-20061020.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="0.5.1">libstroke</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libgeda</Name>
+        <Files>
+            <Path fileType="header">/usr/include/libgeda</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-28</Date>
+            <Version>20061020</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
