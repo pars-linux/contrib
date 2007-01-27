@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freehdl</Name>
+        <Homepage>http://freehdl.seul.org/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Summary>A free VHDL simulator.</Summary>
+        <Summary xml:lang="tr">Bir VHDL simulatörü.</Summary>
+        <Archive sha1sum="7e4e55b6d6212ffa1786067d3fbcc2ec8165d439" type="targz">http://cran.mit.edu/~enaroska/freehdl-0.0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.4.3">gcc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>freehdl</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2">guile</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/include/freehdl</Path>
+            <Path fileType="data">/usr/share/freehdl</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-28</Date>
+            <Version>0.0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
