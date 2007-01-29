@@ -14,3 +14,5 @@ def build():
 
 def install():
     kde.install()
+
+    pisitools.domo("po/tr.po", "tr", "kdenlive.mo")
