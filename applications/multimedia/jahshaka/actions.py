@@ -6,7 +6,6 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir = 'jahshaka'
@@ -15,7 +14,6 @@ def setup():
     autotools.configure('--disable-debug')
 
 def build():
-    shelltools.export("QTDIR", "%s" % get.qtDIR())
     autotools.make()
 
 def install():
