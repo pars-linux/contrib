@@ -12,6 +12,7 @@ def setup():
     autotools.configure("--enable-ipv6 \
                          --enable-chardet \
                          --enable-esd \
+                         --enable-xspf \
                          --enable-mp3 \
                          --enable-lirc \
                          --enable-adplug \
@@ -25,6 +26,8 @@ def setup():
                          --enable-jack \
                          --enable-arts \
                          --enable-sid \
+                         --with-sidplay2=/usr \
+                         --with-sidbuilders=/usr \
                          --enable-musepack \
                          --enable-alsa \
                          --enable-amidiplug \
