@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>amaya</Name>
+        <Homepage>http://www.w3.org/Amaya/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Summary>
+        <Summary xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Summary>
+        <Description>Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Description>
+        <Description xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Description>
+        <Archive sha1sum="c977873ab21420f3ffbe1de456a61fe4ddea91f4" type="targz">http://www.w3.org/Amaya/Distribution/amaya-sources-9.53.tgz</Archive>
+        <Patches>
+            <Patch>script_install_gnomekde.in.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>imlib2</Dependency>
+            <Dependency>raptor</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>amaya</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>imlib2</Dependency>
+            <Dependency>raptor</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2006-12-12</Date>
+            <Version>9.53</Version>
+            <Comment>Set language according to local</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-12-10</Date>
+            <Version>9.53</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-09-23</Date>
+            <Version>9.52</Version>
+            <Comment>Patch fix</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-09-21</Date>
+            <Version>9.52</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-31</Date>
+            <Version>9.51</Version>
+            <Comment>tr lang support with installation and doc path settings patch added</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-22</Date>
+            <Version>9.51</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
