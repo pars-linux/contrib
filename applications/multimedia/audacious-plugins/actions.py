@@ -13,7 +13,11 @@ def setup():
                          --enable-chardet \
                          --enable-esd \
                          --enable-mp3 \
+                         --enable-pulse \
                          --enable-lirc \
+                         --enable-coreaudio \
+                         --enable-null \
+                         --enable-wavpack \
                          --enable-adplug \
                          --enable-vorbis \
                          --enable-aac \
@@ -26,6 +30,8 @@ def setup():
                          --enable-jack \
                          --enable-arts \
                          --enable-sid \
+                         --with-sidplay2=/usr \
+                         --with-sidbuilders=/usr \
                          --enable-musepack \
                          --enable-alsa \
                          --enable-paranormal \
