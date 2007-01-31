@@ -11,8 +11,9 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.dobin("src/herrie")
+    pisitools.dobin("herrie")
     pisitools.domo("lang/nl.po", "nl", "herrie.mo")
+    pisitools.domo("lang/tr.po", "tr", "herrie.mo")
 
     pisitools.doman("herrie.1")
-    pisitools.dodoc("COPYING", "ChangeLog", "TODO", "README")
+    pisitools.dodoc("COPYING", "ChangeLog", "README")
