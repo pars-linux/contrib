@@ -1,14 +1,14 @@
-diff -Nuar herrie-1.2.orig/lang/tr.po herrie-1.2/lang/tr.po
---- herrie-1.2.orig/lang/tr.po	1970-01-01 02:00:00.000000000 +0200
-+++ herrie-1.2/lang/tr.po	2007-01-31 09:28:19.000000000 +0200
-@@ -0,0 +1,179 @@
+diff -Nuar herrie-1.3.orig/lang/tr.po herrie-1.3/lang/tr.po
+--- herrie-1.3.orig/lang/tr.po	1970-01-01 02:00:00.000000000 +0200
++++ herrie-1.3/lang/tr.po	2007-01-31 11:11:47.000000000 +0200
+@@ -0,0 +1,220 @@
 +# translation of tr.po to Türkçe
 +# Eren Türkay <turkay.eren@gmail.com>, 2007.
 +msgid ""
 +msgstr ""
 +"Project-Id-Version: tr\n"
 +"Report-Msgid-Bugs-To: \n"
-+"POT-Creation-Date: 2007-01-01 01:47+0100\n"
++"POT-Creation-Date: 2007-01-22 22:22+0000\n"
 +"PO-Revision-Date: 2007-01-31 08:54+0200\n"
 +"Last-Translator: Eren Türkay <turkay.eren@gmail.com>\n"
 +"Language-Team: Türkçe <yerellestirme@kde.org>\n"
@@ -17,167 +17,208 @@ diff -Nuar herrie-1.2.orig/lang/tr.po herrie-1.2/lang/tr.po
 +"Content-Transfer-Encoding: 8bit\n"
 +"X-Generator: KBabel 1.11.4\n"
 +
++#: audio_output_ao.c:88 audio_output_sdl.c:111
++msgid "Cannot open the audio device."
++msgstr "Ses aygıtı açılamıyor"
++
 +#: audio_output_oss.c:61
 +#, c-format
 +msgid "Cannot open audio device \"%s\".\n"
 +msgstr "Ses aygıtı \"%s\" açılamadı.\n"
 +
-+#: gui_browser.c:103
++#: audio_output_sdl.c:79
++msgid "Cannot intialize SDL audio subsystem.\n"
++msgstr "SDL ses sistemi başlatılamıyor\n"
++
++#: gui_browser.c:112
 +msgid "Unable to open initial directory."
 +msgstr "Başlangıç dizini açılamıyor."
 +
-+#: gui_browser.c:208
++#: gui_browser.c:217
 +msgid "Unable to enter the parent directory."
 +msgstr "Üst dizine girilemiyor."
 +
-+#: gui_browser.c:223
++#: gui_browser.c:232
 +msgid "Unable to enter the selected directory."
 +msgstr "Seçilen dizine girilemiyor."
 +
-+#: gui_browser.c:303
++#: gui_browser.c:313
 +msgid "Change directory"
 +msgstr "Dizin değiştir"
 +
-+#: gui_browser.c:318
-+msgid "Unable to enter the directory."
-+msgstr "Dizine girilemiyor."
++#: gui_browser.c:351
++msgid "Unable to display the file or directory."
++msgstr "Dosya veya dizin gösterilemiyor"
 +
-+#: gui_input.c:115
++#: gui_input.c:108
 +msgid "Search for"
 +msgstr "Ara"
 +
-+#: gui_input.c:137
-+msgid "Quit herrie?"
-+msgstr "Herrie'den Çık?"
++#: gui_input.c:132
++#, c-format
++msgid "Quit %s?"
++msgstr "%s uygulamasından çık?"
 +
-+#: gui_input.c:303 herrie.c:64
++#: gui_input.c:168
++msgid "Jump to position"
++msgstr "Spring naar positie"
++
++#: gui_input.c:217
++msgid "Bad time format."
++msgstr "Ongeldig tijdformaat."
++
++#: gui_input.c:391 main.c:61 main.c:67
 +msgid "yes"
 +msgstr "evet"
 +
-+#: gui_input.c:303 herrie.c:66
++#: gui_input.c:391 main.c:63 main.c:69
 +msgid "no"
 +msgstr "hayır"
 +
-+#: gui_playq.c:126
-+msgid "Idle"
-+msgstr "Boş"
-+
-+#: gui_playq.c:129
++#: gui_playq.c:77 gui_playq.c:88
 +msgid "Unknown artist"
 +msgstr "Bilinmeyen sanatçı"
 +
-+#: gui_playq.c:131
++#: gui_playq.c:79 gui_playq.c:93
 +msgid "Unknown song"
 +msgstr "Bilinmeyen parça"
 +
-+#: gui_playq.c:132
-+#, c-format
-+msgid "Playing %s - %s"
-+msgstr "Çalınıyor: %s - %s"
++#: gui_playq.c:109
++msgid "Idle"
++msgstr "Boş"
 +
-+#: gui_playq.c:313
++#: gui_playq.c:112
++msgid "Paused"
++msgstr "Gepauzeerd"
++
++#: gui_playq.c:114
++msgid "Playing"
++msgstr "Çalınıyor"
++
++#: gui_playq.c:344
 +msgid "Remove all songs from the playlist?"
 +msgstr "Tüm parçaları listeden sil?"
 +
-+#: gui_playq.c:324
++#: gui_playq.c:355
 +msgid "Randomize the playlist?"
 +msgstr "Parça listesini karıştır?"
 +
-+#: gui_playq.c:373
++#: gui_playq.c:404
 +msgid "The song is already at the top of the playlist."
 +msgstr "Parça zaten parça listesinin en üstünde."
 +
-+#: gui_playq.c:392
++#: gui_playq.c:423
 +msgid "The song is already at the bottom of the playlist."
 +msgstr "Parça zaten parça listesinin en altında."
 +
-+#: gui_vfslist.c:227
++#: gui_vfslist.c:225
 +msgid "There are no songs."
 +msgstr "Hiç parça yok"
 +
-+#: gui_vfslist.c:284
++#: gui_vfslist.c:282
 +msgid "You are at the first song."
 +msgstr "İlk parçadasınız."
 +
-+#: gui_vfslist.c:303
++#: gui_vfslist.c:301
 +msgid "You are at the last song."
 +msgstr "Son parçadasınız."
 +
-+#: gui_vfslist.c:541
++#: gui_vfslist.c:539
 +msgid "No search pattern."
 +msgstr "Arama kalıbı yok"
 +
-+#: gui_vfslist.c:560
++#: gui_vfslist.c:558
 +msgid "Search wrapped to top."
 +msgstr "Arama üste kaydırıldı."
 +
-+#: gui_vfslist.c:565
++#: gui_vfslist.c:563
 +msgid "Not found."
 +msgstr "Bulunamadı"
 +
-+#: herrie.c:61
++#: main.c:58
 +msgid "audio output"
 +msgstr "ses çıkışı"
 +
-+#: herrie.c:62
++#: main.c:59
 +msgid "support for audioscrobbler"
 +msgstr "audioscrobbler desteği"
 +
-+#: herrie.c:68
++#: main.c:65
++msgid "support for http streams"
++msgstr "http akımları desteği"
++
++#: main.c:71
 +msgid "supported audio file formats"
 +msgstr "desteklenen ses dosyası biçimleri"
 +
-+#: herrie.c:80
++#: main.c:83
 +msgid "usage"
 +msgstr "kullanım"
 +
-+#: playq.c:101
++#: playq.c:121
 +#, c-format
 +msgid "Failed to open \"%s\" for playback."
 +msgstr "Tekrarlamak içn \"%s\" açılamadı."
 +
-+#: scrobbler.c:299
++#: playq.c:297
++#, c-format
++msgid "Repeat: %s"
++msgstr "Tekrarla: %s"
++
++#: playq.c:298
++msgid "on"
++msgstr "aç"
++
++#: playq.c:298
++msgid "off"
++msgstr "kapat"
++
++#: scrobbler.c:295
 +msgid "Successfully authorized at AudioScrobbler."
 +msgstr "AudioScrobbler'de başarıyla yetkilendirildi."
 +
-+#: scrobbler.c:306
++#: scrobbler.c:302
 +msgid "Failed to authorize at AudioScrobbler."
 +msgstr "AudioScrobbler'de yetkilendirme başarısız."
 +
-+#: scrobbler.c:322
++#: scrobbler.c:318
 +msgid "Successfully sent 1 song to AudioScrobbler."
 +msgstr "1 parça başarıyla AudioScrobbler'e gönderildi."
 +
-+#: scrobbler.c:326
++#: scrobbler.c:322
 +#, c-format
 +msgid "Successfully sent %d songs to AudioScrobbler."
 +msgstr "%d parça başarıyla AudioScrobbler'e gönerildi."
 +
-+#: scrobbler.c:332
++#: scrobbler.c:328
 +msgid "Invalid AudioScrobbler username/password."
 +msgstr "Geçersiz AudioScrobbler kullanıcı adı/şifresi"
 +
-+#: scrobbler.c:335
++#: scrobbler.c:331
 +msgid "Failed to submit songs to AudioScrobbler."
 +msgstr "Parçalar AudioScrobbler'e gönderilemedi."
 +
-+#: vfs.c:68
++#: vfs.c:70
 +#, c-format
 +msgid "Unknown user: %s\n"
 +msgstr "Geçersiz kullanıcı: %s\n"
 +
-+#: vfs.c:77
++#: vfs.c:82
 +#, c-format
 +msgid "Unable to chroot in %s\n"
 +msgstr "%s içerisinde chroot başarısız\n"
 +
-+#: vfs.c:86
++#: vfs.c:90
 +#, c-format
 +msgid "Unable to change to group %d\n"
 +msgstr "%d grubuna değiştirme başarısız\n"
 +
-+#: vfs.c:91
++#: vfs.c:94
 +#, c-format
 +msgid "Unable to change to user %d\n"
 +msgstr "%d kullanıcısına değiştirme başarısız\n"
 +
++#: vfs_http.c:141
++#, c-format
++msgid "Connection with \"%s\" lost."
++msgstr "\"%s\" ile olan bağlantı kaybedildi."
