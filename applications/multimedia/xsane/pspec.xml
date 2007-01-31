@@ -14,18 +14,21 @@
         <Summary xml:lang="tr">Grafiksel tarayıcı önucu</Summary>
         <Description>Graphical scanning frontend</Description>
         <Description xml:lang="tr">Grafiksel tarayıcı önucu</Description>
-        <Archive sha1sum="22725e8a956955b75ac6791f69a3e9a4ae744ac7" type="targz">ftp://ftp3.sane-project.org/pub/sane/xsane/xsane-0.991.tar.gz</Archive>
+        <Archive sha1sum="60a8ee245d26f343c040138dc76fd582be6bf2b0" type="targz">http://www.xsane.org/download/xsane-0.992.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>jpeg</Dependency>
-            <Dependency>libpng</Dependency>
-            <Dependency>tiff</Dependency>
-            <Dependency>gimp</Dependency>
+            <Dependency versionFrom="1.0.18">sane-backends</Dependency>
+            <Dependency versionFrom="2.10.6">gtk2</Dependency>
+            <Dependency versionFrom="1.15">lcms</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>xsane</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.18">sane-backends</Dependency>
+            <Dependency versionFrom="2.10.6">gtk2</Dependency>
+            <Dependency versionFrom="1.15">lcms</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
@@ -33,7 +36,7 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share/sane/xsane</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/xsane.desktop">xsane.desktop</AdditionalFile>
@@ -41,6 +44,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-02-01</Date>
+            <Version>0.992</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-05-29</Date>
             <Version>0.991</Version>
