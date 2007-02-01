@@ -8,7 +8,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-WorkDir = "aMule-2.1.3"
+WorkDir = "aMule-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure()
