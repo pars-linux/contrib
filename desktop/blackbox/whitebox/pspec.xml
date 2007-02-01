@@ -2,21 +2,21 @@
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-    <Name>whitebox</Name>
-    <Homepage>http://whitebox.sourceforge.net/</Homepage>
+        <Name>whitebox</Name>
+        <Homepage>http://whitebox.sourceforge.net/</Homepage>
         <Packager>
-            <Name>Fethi Aymaz</Name>
-            <Email>fethi@linux-sevenler.org</Email>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
         </Packager>
-    <License>GPL-2</License>
+        <License>GPL-2</License>
         <IsA>devel</IsA>
         <Summary>Configuration editor for blackbox type window managers. Not all features work with all window managers.</Summary>
         <Summary xml:lang="tr">Blackbox tipi masaüstü ortamlari ayarlari icin düzenleyici.Tüm masaustu icin her özellik calismayabilir</Summary>
         <Description>Configuration editor for blackbox type window managers. Not all features work with all window managers.</Description>
         <Description xml:lang="tr">Blackbox tipi masaüstü ortamlari ayarlari icin düzenleyici.Tüm masaustu icin her özellik calismayabilir</Description>
-    <Archive sha1sum="c19098d17100f0c632031bb3d59bfc2bd6682a6d" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/whitebox/whiteBOX-0.5.tar.bz2</Archive>
-    <!-- http://mkeadle.org/distfiles/${PN}-pixmaps.tbz -->
-    <!-- http://heanet.dl.sourceforge.net/sourceforge/whitebox/bbkeys.diff -->
+        <Archive sha1sum="c19098d17100f0c632031bb3d59bfc2bd6682a6d" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/whitebox/whiteBOX-0.5.tar.bz2</Archive>
+        <!-- http://mkeadle.org/distfiles/${PN}-pixmaps.tbz -->
+        <!-- http://heanet.dl.sourceforge.net/sourceforge/whitebox/bbkeys.diff -->
         <!-- Patches>
             <Patch>bbkeys.diff</Patch>
         </Patches -->
@@ -24,20 +24,21 @@
             <Dependency>gtk1</Dependency>
             <Dependency>blackbox</Dependency>
             <Dependency versionFrom="0.22">gdk-pixbuf</Dependency>
-    </BuildDependencies>
+        </BuildDependencies>
     </Source>
+
     <Package>
         <Name>whitebox</Name>
         <RuntimeDependencies>
             <Dependency>blackbox</Dependency>
-        <Dependency versionFrom="0.22">gdk-pixbuf</Dependency>
+            <Dependency versionFrom="0.22">gdk-pixbuf</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-        <Path fileType="doc">/usr/share/doc</Path>
-        <Path fileType="man">/usr/share/man/</Path>
-        <Path fileType="data">/usr/share/whiteBOX</Path>
-    </Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man/</Path>
+            <Path fileType="data">/usr/share/whiteBOX</Path>
+        </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/share/whiteBOX/pixmaps/arrowdn.xpm" permission="0644" owner="root">arrowdn.xpm</AdditionalFile>
             <AdditionalFile target="/usr/share/whiteBOX/pixmaps/arrowup.xpm" permission="0644" owner="root">arrowup.xpm</AdditionalFile>
@@ -48,7 +49,7 @@
     <History>
         <Update release="1">
             <Date>2006-05-18</Date>
-        <Version>0.5</Version>
+            <Version>0.5</Version>
             <Comment>First release.</Comment>
             <Name>Fethi Aymaz</Name>
             <Email>fethi@linux-sevenler.org</Email>
