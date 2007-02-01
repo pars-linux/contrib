@@ -15,13 +15,12 @@ def setup():
     autotools.configure("--enable-debug \
                          --enable-optimize \
                          --enable-nls \
-             --disable-gtk")
+                         --disable-gtk")
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-
     pisitools.insinto("/usr/share/pixmaps/", "xmule.xpm")
     pisitools.insinto("/usr/share/applications/", "xmule.desktop")
     pisitools.dodoc("ChangeLog", "ChangeLog-UNSTABLE", "docs/*")
