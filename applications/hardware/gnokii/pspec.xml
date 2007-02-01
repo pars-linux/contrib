@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>gnokii</Name>
+        <Homepage>http://www.gnokii.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <IsA>app:gui</IsA>
+        <Summary>User space driver and tools for use with mobile phones</Summary>
+        <Summary>Cep telefonlarını kullanmak için kullanıcı sürücüsü ve araçları</Summary>
+        <Archive type="tarbz2" sha1sum="df3c5a4fd96d84e81feee8ded2bdf112269e78f3">http://www.gnokii.org/download/gnokii/gnokii-0.6.14.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">gnokiirc.patch</Patch>
+        </Patches>
+        <BuildDependencies>
+            <Dependency>bluez-libs</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnokii</Name>
+        <RuntimeDependencies>
+            <Dependency>bluez-libs</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-02-01</Date>
+            <Version>0.6.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
