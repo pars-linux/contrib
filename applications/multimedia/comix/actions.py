@@ -10,7 +10,10 @@ from pisi.actionsapi import pisitools
 
 def install():
      pythonmodules.run("install.py install --no-mime --installdir /usr 1>/dev/null")
+
+     pisitools.dobin("mime/comicthumb")
+
      pisitools.insinto("/usr/share/mime/packages/", "mime/comix.xml")
      pisitools.insinto("/etc/gconf/schemas/", "mime/comicbook.schemas")
-     pisitools.dobin("mime/comicthumb")
+
      pisitools.dodoc("ChangeLog", "COPYING", "README")
