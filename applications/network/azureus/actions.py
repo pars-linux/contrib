@@ -10,16 +10,11 @@ from pisi.actionsapi import pisitools
 WorkDir = "azureus"
 
 def setup():
-   # patch removed
     pisitools.dosed('azureus', 'JAVA_PROGRAM_DIR=""', 'JAVA_PROGRAM_DIR="/opt/sun-jre/bin/"')
     pisitools.dosed('azureus', '#PROGRAM_DIR="/home/username/apps/azureus"', 'PROGRAM_DIR="/usr/share/azureus"')
-
-def build():
-    pass
 
 def install():
      pisitools.dodir("/usr/share/azureus")
      pisitools.insinto("/usr/share/azureus", "*")
-     pisitools.insinto("/usr/share/azureus", "/plugins")
      pisitools.dosym("/usr/share/azureus/azureus", "/usr/bin/azureus")
      pisitools.insinto("/usr/share/pixmaps/", "Azureus.png")
