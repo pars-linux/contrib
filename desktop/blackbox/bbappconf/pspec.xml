@@ -2,36 +2,35 @@
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-    <Name>bbappconf</Name>
-    <Homepage>http://bbtools.windsofstorm.net/</Homepage>
+        <Name>bbappconf</Name>
+        <Homepage>http://bbtools.windsofstorm.net/</Homepage>
         <Packager>
-            <Name>Fethi Aymaz</Name>
-            <Email>fethi@linux-sevenler.org</Email>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
         </Packager>
-    <License>GPL-2</License>
+        <License>GPL-2</License>
         <IsA>devel</IsA>
         <Summary>utility that allows you to specify window properties in blackbox</Summary>
         <Summary xml:lang="tr">Blackbox masaustu ortaminda pencere ayarlari yapmaya yarayan arac</Summary>
         <Description>utility that allows you to specify window properties in blackbox</Description>
         <Description xml:lang="tr">Blackbox masaustu ortaminda pencere ayarlari yapmaya yarayan arac</Description>
-    <Archive sha1sum="13b5746f7977eea1c1175ec39ceec66926151f18" type="targz">http://bbtools.windsofstorm.net/sources/bbappconf-0.0.2.tar.gz</Archive>
+        <Archive sha1sum="13b5746f7977eea1c1175ec39ceec66926151f18" type="targz">http://bbtools.windsofstorm.net/sources/bbappconf-0.0.2.tar.gz</Archive>
         <Patches>
             <Patch level="1">bbappconf-0.0.2-fix-sigsegv.diff</Patch>
         </Patches>
         <BuildDependencies>
-            <!-- Dependency>xorg</Dependency -->
             <Dependency>blackbox</Dependency> 
-    </BuildDependencies>
+        </BuildDependencies>
     </Source>
     
     <Package>
         <Name>bbappconf</Name>
         <RuntimeDependencies>
-        <Dependency>blackbox</Dependency>
+            <Dependency>blackbox</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-         <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/bbtools</Path>
         </Files>
     </Package>
@@ -39,7 +38,7 @@
     <History>
         <Update release="1">
             <Date>2006-05-18</Date>
-        <Version>0.0.2</Version>
+            <Version>0.0.2</Version>
             <Comment>First release.</Comment>
             <Name>Fethi Aymaz</Name>
             <Email>fethi@linux-sevenler.org</Email>
