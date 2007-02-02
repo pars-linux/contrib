@@ -10,7 +10,12 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--prefix=/usr --exec-prefix=/usr --enable-threadsafe --enable-debug --enable-release")
+    autotools.configure("--prefix=/usr \
+                         --exec-prefix=/usr \
+                         --enable-threadsafe \
+                         --enable-debug \
+                         --enable-release")
+
     #-ljpeg -lpng -ltiff -lz -lbz2 -lGL -lGLU \
     #--disable-jpeg --disable-png --disable-tiff --disable-zlib --disable-bz2lib
     #--disable-static --disable-shared --with-xcursor=no --with-xft=yes
