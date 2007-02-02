@@ -12,12 +12,6 @@ from pisi.actionsapi import get
 WorkDir = "FrostWire-4.10.9"
 NoStrip = "/"
 
-def setup():
-    pass
-
-def build():
-    pass
-
 def install():
     pisitools.insinto("/usr/lib/", "usr/lib/*")
     pisitools.insinto("/usr/share/", "usr/share/*")
