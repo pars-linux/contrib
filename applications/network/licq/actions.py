@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright © 2006 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
@@ -10,64 +9,42 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-
-
 def setup():
-    autotools.configure("--with-ssl --with-qt-dir=%s" % get.qtDIR())
+    autotools.configure()
+    shelltools.cd("plugins/qt-gui")
+    autotools.configure("--with-kde")
+
+    # Optional Plugins
+    li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
+    for name in li:
+        shelltools.cd("../%s" % name)
+        autotools.configure()
 
 def build():
     autotools.make()
 
-def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "INSTALL", "ChangeLog", "doc/*")
-
-#
-    shelltools.cd("plugins/rms")
-    autotools.configure()
-    autotools.make()
-    autotools.install()
-    shelltools.cd("../../")
- 
-#
+    # Plugins
     shelltools.cd("plugins/qt-gui")
-    autotools.configure("--with-kde")
     autotools.make()
-    autotools.install()
-    shelltools.cd("../../")
- 
-# 
-    shelltools.cd("plugins/msn")
-    autotools.configure()
-    autotools.make()
-    autotools.install()
-    shelltools.cd("../../")
 
-#    
-    shelltools.cd("plugins/osd")
-    shelltools.system("./build")
-    autotools.configure("--prefix=/usr")
-    autotools.make()
-    autotools.install()
-    shelltools.cd("../../")
+    # Optional Plugins
+    li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
+    for name in li:
+        shelltools.cd("../%s" % name)
+        autotools.make()
 
-#
-    shelltools.cd("plugins/console")
-    autotools.configure()
-    autotools.make()
+def install():
+    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "INSTALL", "ChangeLog", "doc/*")
     autotools.install()
-    shelltools.cd("../../")
+    shelltools.cd("plugins/qt-gui")
+    autotools.install()
 
-#
-    shelltools.cd("plugins/auto-reply")
-    autotools.configure()
-    autotools.make()
-    autotools.install()
-    shelltools.cd("../../")
+    # Optional Plugins
+    li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
+    for name in li:
+        shelltools.cd("../%s" % name)
+        autotools.install()
 
-#    
-    shelltools.cd("plugins/email")
-    autotools.configure()
-    autotools.make()
-    autotools.install()
-    shelltools.cd("../../")
+    # Licq-web plugin
+    pisitools.dodir("/var/www/localhost/htdocs")
+    shelltools.copytree("../licqweb/", "%s/var/www/localhost/htdocs/licqweb/" % get.installDIR())
