@@ -5,49 +5,158 @@
     <Name>licq</Name>
     <Homepage>http://www.licq.org/</Homepage>
         <Packager>
-            <Name>Fethi Aymaz</Name>
-            <Email>fethi@linux-sevenler.org</Email>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
-        <Summary>ICQ Client with v8 support</Summary>
-        <Summary xml:lang="tr">v8 destekli ICQ istemcisi</Summary>
-        <Description>ICQ Client with v8 support</Description>
-        <Description xml:lang="tr">v8 destekli ICQ istemcisi</Description>
-        <Archive sha1sum="c31dc3e995be13b4d7957715b77f2d3338d14eab" type="tarbz2">http://mesh.dl.sourceforge.net/sourceforge/licq/licq-1.3.2.tar.bz2</Archive>
-        <Patches>
-            <Patch>1.3.0-suse_bool.patch</Patch>
-            <Patch>1.3.2-email_typo.patch</Patch>
-            <Patch level="1">licq-1.3.2-gcc41.patch</Patch>
-        </Patches>
+        <Summary>Multi-threaded / multi-protocol ICQ clone</Summary>
+        <Summary xml:lang="tr">Çoklı iş parçacıklı / çoklu protokol bir ICQ istemcisi</Summary>
+        <Description>Licq is a multi-threaded ICQ (originally; now it supports AOL and MSN as well) clone written mostly in C++. It uses an extensive plugin system to manage many different functions.</Description>
+        <Description xml:lang="tr">Licq, çoğu C++ da yazılmış, çoklu iş parçacıklı bir ICQ (orjinali öyleydi; artık AOL ve MSN de destekliyor) istemcisidir. Çeşitli fonksiyonlar için kullanılan, genişleyebilen bir eklenti sistemi bulunuyor.</Description>
+        <Archive sha1sum="08485a4a445aae64f6065724527d28a4cb074038" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/licq/licq-1.3.4.tar.bz2</Archive>
         <BuildDependencies>
-        <Dependency>kdelibs</Dependency>
-        <Dependency>qt</Dependency>
-        <Dependency>cdk</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>cdk</Dependency>
             <Dependency>xosd</Dependency>
+            <Dependency>gpgme</Dependency>
         </BuildDependencies>
     </Source>
     
     <Package>
         <Name>licq</Name>
         <RuntimeDependencies>
-            <Dependency>qt</Dependency>
             <Dependency>kdelibs</Dependency>
-            <Dependency>cdk</Dependency>
-            <Dependency>xosd</Dependency>
+            <Dependency>gpgme</Dependency>
         </RuntimeDependencies> 
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include</Path>
-            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include/licq</Path>
+            <Path fileType="library">/usr/lib/licq</Path>
+            <Path fileType="data">/usr/share</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share/licq</Path>
+            <Path fileType="localedata">/usr/share/locale/de/LC_MESSAGES/licq.mo</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-msn</Name>
+        <Summary>Licq MSN plugin</Summary>
+        <Summary xml:lang="tr">Licq MSN eklentisi</Summary>
+        <Description>Licq MSN plugin.</Description>
+        <Description xml:lang="tr">Licq MSN eklentisi.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="data">/usr/lib/licq/protocol_msn.la</Path>
+            <Path fileType="data">/usr/lib/licq/protocol_msn.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-osd</Name>
+        <Summary>Licq OSD plugin</Summary>
+        <Summary xml:lang="tr">Licq görüntü üzerine yazı eklentisi</Summary>
+        <Description>On Screen Display (OSD) plugin display messages on the screen transparently as soon as they are received.</Description>
+        <Description xml:lang="tr">Görüntü Üzerine Yazı (OSD) eklentisi gelen mesajların anında ekranda saydam olarak gözükmesini sağlar.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+            <Dependency>xosd</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_osd.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_osd.so</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-rms</Name>
+        <Summary>Licq remote management (RMS) plugin</Summary>
+        <Summary xml:lang="tr">Licq uzaktan yönetim (RMS) eklentisi</Summary>
+        <Description>This plugin opens a TCP server on the Licq box which allows you to telnet in and perform commands and get information. It works with the new licqweb web interface. It acts much like the FIFO only it is two way. Currently it supports viewing/changing status, viewing the user list, viewing groups, sending messages/urls, and dumping the network log.</Description>
+        <Description xml:lang="tr">This plugin opens a TCP server on the Licq box which allows you to telnet in and perform commands and get information. It works with the new licqweb web interface. It acts much like the FIFO only it is two way. Currently it supports viewing/changing status, viewing the user list, viewing groups, sending messages/urls, and dumping the network log.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_rms.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_rms.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-console</Name>
+        <Summary>Licq console plugin</Summary>
+        <Summary xml:lang="tr">Licq konsol eklentisi</Summary>
+        <Description>This is a console interface plugin for Licq using ncurses. It features multiple command windows, and much of the basic icq functionality.</Description>
+        <Description xml:lang="tr">This is a console interface plugin for Licq using ncurses. It features multiple command windows, and much of the basic icq functionality.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+            <Dependency>cdk</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_console.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_console.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-forwarder</Name>
+        <Summary>Licq e-mail forwarder plugin</Summary>
+        <Summary xml:lang="tr">Licq e-posta yönlendirme eklentisi</Summary>
+        <Description>A simple plugin to forward incoming ICQ events to either an email address or another ICQ account. This is great for forwarding a secondary ICQ account or forwarding to a pager/mobile phone. Also included in the main distribution.</Description>
+        <Description xml:lang="tr">A simple plugin to forward incoming ICQ events to either an email address or another ICQ account. This is great for forwarding a secondary ICQ account or forwarding to a pager/mobile phone. Also included in the main distribution.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_forwarder.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_forwarder.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-autoreply</Name>
+        <Summary>Licq Autoresponder Plugin</Summary>
+        <Summary xml:lang="tr">Licq otomatik yanıtlama eklentisi</Summary>
+        <Description>Plugin to automatically respond to any incoming event with the output of a given program, which can be passed user arguments, or event the message text itself. Often used in conjunction with "fortune" to send people fortunes.</Description>
+        <Description xml:lang="tr">Plugin to automatically respond to any incoming event with the output of a given program, which can be passed user arguments, or event the message text itself. Often used in conjunction with "fortune" to send people fortunes.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_autoreply.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_autoreply.so</Path>
+        </Files>
+    </Package>
+    
+    <Package>
+        <Name>licq-web</Name>
+        <Summary>Licq web interface plugin</Summary>
+        <Summary xml:lang="tr">Licq web arayüz eklentisi</Summary>
+        <Description>licqweb is a Web frontend for licq. It interfaces with the Remote Management Service plugin and uses AJAX to provide real-time communication. It is useful for people who use IMs from multiple locations and want a 'centralised' application that means no more logging off and on, consolidates chat history to the one location, and prevents problems where messages are missed because another IM client received them.</Description>
+        <Description xml:lang="tr">licqweb is a Web frontend for licq. It interfaces with the Remote Management Service plugin and uses AJAX to provide real-time communication. It is useful for people who use IMs from multiple locations and want a 'centralised' application that means no more logging off and on, consolidates chat history to the one location, and prevents problems where messages are missed because another IM client received them.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+            <Dependency>licq-rms</Dependency>
+            <Dependency>apache</Dependency>
+            <Dependency>mod_php</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="data">/var/www/localhost/htdocs/licqweb</Path>
         </Files>
     </Package>
     
     <History>
+        <Update release="2">
+            <Date>2007-02-02</Date>
+            <Version>1.3.4</Version>
+            <Comment>Version bump, split some plugins, package cleanup.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2006-03-09</Date>
             <Version>1.3.2</Version>
