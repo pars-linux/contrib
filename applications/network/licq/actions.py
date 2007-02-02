@@ -22,8 +22,6 @@ def setup():
 
 def build():
     autotools.make()
-
-    # Plugins
     shelltools.cd("plugins/qt-gui")
     autotools.make()
 
