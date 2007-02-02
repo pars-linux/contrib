@@ -9,16 +9,13 @@ from pisi.actionsapi import pisitools
 
 def setup():
     pass
-    ### applied in new file in pisidepo
+    ### applied in new file in contrib
     # comment out every rootcommand
     # find . -name '*.cfg' -exec \
     # sed -i "{}" -e 's-^\(rootcommand\)-!!! \1-i' \;
     # weird tarball...
     # find . -exec chmod a+r '{}' \;
     ###
-    
-def build():
-    pass
 
 def install():
     pisitools.dodir("/usr/share/fluxbox/fluxmod/styles")
