@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>ganttproject</Name>
+        <Homepage>http://ganttproject.biz/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Gantt diagram creator</Summary>
+        <Summary xml:lang="tr">Gantt diyagramı oluşturucusu</Summary>
+        <Description>GanttProject is a project scheduling application written in Java.</Description>
+        <Description xml:lang="tr">GanttProject, Java ile yazılmış bir proje zamanlama uygulamasıdır.</Description>
+        <Archive type="zip" sha1sum="00fe203da035a26a6a7a57a4bc8722504d5e76a1">http://mesh.dl.sourceforge.net/sourceforge/ganttproject/ganttproject-2.0.3-src.zip</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>gp_home.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ganttproject</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/ganttproject.desktop">ganttproject.desktop</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-02-02</Date>
+            <Version>2.0.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
