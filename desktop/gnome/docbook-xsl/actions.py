@@ -10,15 +10,11 @@ from pisi.actionsapi import get
 
 def setup():
     pass
-    
+
 def build():
-    pass    
+    pass
 
 def install():
-    for i in ['common', 'eclipse', 'fo', 'html', 'htmlhelp', \
-              'images', 'javahelp', 'lib', 'manpages', 'params', \
-              'profiling', 'slides', 'template', 'website', 'xhtml']:
-        pisitools.insinto('/usr/share/sgml/docbook/xsl-stylesheets-1.70.1', i)
-
-    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog", "NEWS", "README", "RELEASE-NOTES.txt", "TODO", "VERSION")
+    pisitools.insinto("/usr/share/sgml/docbook/xsl-stylesheets-1.72.0", "*")
+    pisitools.dodoc("AUTHORS", "BUGS", "COPYING", "NEWS", "README", "RELEASE-NOTES.txt", "TODO", "VERSION")
     pisitools.dohtml("doc")
