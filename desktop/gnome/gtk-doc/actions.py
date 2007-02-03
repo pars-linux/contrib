@@ -12,10 +12,8 @@ from pisi.actionsapi import get
 
 def setup():
     #checking for DocBook XML DTD V4.1.2 in XML catalog... not found
-    pisitools.dosed("configure", "4.1.2", "4.4")
-
+    pisitools.dosed("configure", "4.1.2", "4.5")
     autotools.configure()
-
 
 def build():
     autotools.make()
