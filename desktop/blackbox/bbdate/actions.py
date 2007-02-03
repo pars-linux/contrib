@@ -10,6 +10,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure()
+
 def build():
     autotools.make()
 
