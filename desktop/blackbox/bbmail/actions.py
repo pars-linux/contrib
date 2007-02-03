@@ -7,10 +7,9 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "bbmail-0.8.3"
-
 def setup():
     autotools.configure()
+
 def build():
     autotools.make()
 
