@@ -11,12 +11,19 @@ from pisi.actionsapi import get
 WorkDir="irssi-0.8.10"
 
 def setup():
-    autotools.configure("--enable-ipv6")
+    autotools.configure("--enable-ipv6 \
+                         --enable-ssl \
+                         --disable-glibtest \
+                         --with-socks \
+                         --with-textui \
+                         --with-bot \
+                         --with-proxy \
+                         --with-terminfo \
+                         --with-modules \
+                         --without-perl-staticlib")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    #fix conflict with pilot-link
-    pisitools.remove("/usr/lib/perl5/5.8.8/i686-linux/perllocal.pod")
