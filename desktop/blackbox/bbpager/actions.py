@@ -7,10 +7,9 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "bbpager-0.3.1"
-
 def setup():
     autotools.configure()
+
 def build():
     autotools.make()
 
