@@ -11,28 +11,26 @@
         <License>GPL-2</License>
         <IsA>devel</IsA>
         <Summary>Background manager for blackbox/fluxbox/openbox</Summary>
-        <Summary xml:lang="tr">Blackbox/Fluxbox/Openbox icin Arkaplan yöneticisi</Summary>
-        <Description>Background manager for blackbox/fluxbox/openbox</Description>
-        <Description xml:lang="tr">Blackbox/Fluxbox/Openbox icin Arkaplan yöneticisi</Description>
+        <Summary xml:lang="tr">Blackbox/Fluxbox/Openbox için Arkaplan yöneticisi</Summary>
         <Archive sha1sum="7e1d9a5509600c61ae147e3df4b1ce18856df06a" type="targz">http://heanet.dl.sourceforge.net/sourceforge/bbrb/bbrb-0.4.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk1</Dependency>
-            <Dependency>imlib</Dependency> 
+            <Dependency>imlib2</Dependency> 
         </BuildDependencies>
     </Source>
 
     <Package>
-           <Name>bbrb</Name>
-           <RuntimeDependencies>
-               <Dependency>xv</Dependency>
-               <Dependency>blackbox</Dependency>
-               <Dependency>eterm</Dependency>
-           </RuntimeDependencies>
-           <Files>
-               <Path fileType="executable">/usr/bin</Path>
-               <Path fileType="doc">/usr/share/doc</Path>
-               <Path fileType="data">/</Path>
-       </Files>
+        <Name>bbrb</Name>
+        <RuntimeDependencies>
+            <Dependency>libXv</Dependency>
+            <Dependency>blackbox</Dependency>
+            <Dependency>eterm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>    
+        </Files>
     </Package> 
 
     <History>
