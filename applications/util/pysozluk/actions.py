@@ -5,14 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="PySozluk-1.1.0"
-
-def setup():
-    pass
-
-def build():
-    pass
+WorkDir="PySozluk-%s" % get.srcVERSION()
 
 def install():
     pisitools.dobin("pysozluk")
@@ -24,5 +19,5 @@ def install():
     pisitools.insinto("/usr/share/pysozluk", "pysozluk.py")
     pisitools.insinto("/usr/share/applications", "pysozluk.desktop")
     pisitools.insinto("/usr/share/pixmaps", "pysozluk.png")
-    pisitools.dodoc("README")
+    pisitools.dodoc("README", "license.txt")
 
