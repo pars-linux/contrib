@@ -1,13 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright © 2006 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
 def setup():
     autotools.configure()
@@ -16,5 +14,6 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "ChangeLog-old", "COPYING", "INSTALL", "NEWS", "README", "README.html", "THANKS", "TODO")
+    autotools.install()
+    pisitools.dodoc("ChangeLog", "ChangeLog-old", "COPYING", "README", "THANKS", "TODO", "docs/USERS-GUIDE")
+    pisitools.dohtml("README.html")
