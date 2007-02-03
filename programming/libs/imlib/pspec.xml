@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>imlib</Name>
+        <Homepage>http://freshmeat.net/projects/imlib/</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Image loading and rendering library</Summary>
+        <Archive sha1sum="c9a732a354fbb3c7e1a426e5d19fc92d73f8f720" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/imlib/1.9/imlib-1.9.15.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>tiff</Dependency>
+            <Dependency>giflib</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>jpeg</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>imlib-1.9.15-gdk_flag.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>imlib</Name>
+        <RuntimeDependencies>
+            <Dependency>tiff</Dependency>
+            <Dependency>giflib</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>jpeg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-03</Date>
+            <Version>1.9.15</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
