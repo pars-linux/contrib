@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "bbtime-0.1.5"
-
 def setup():
     autotools.configure()
 
