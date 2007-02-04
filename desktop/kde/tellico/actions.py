@@ -7,7 +7,7 @@
 from pisi.actionsapi import kde
 
 def setup():
-    kde.configure("--enable-libkcddb --enable-libkcal")
+    kde.configure()
 
 def build():
     kde.make()
