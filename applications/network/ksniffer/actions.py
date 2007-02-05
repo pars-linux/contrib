@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import kde
+from pisi.actionsapi import pisitools
 
-WorkDir="ksniffer-0.2-alpha1"
+WorkDir="ksniffer-0.2rc1"
 
 def setup():
     kde.configure()
@@ -15,4 +16,5 @@ def build():
     kde.make()
 
 def install():
-    kde.install() 
+    kde.install()
+    pisitools.dodoc("TODO", "README", "VERSION", "AUTHORS")
