@@ -17,3 +17,4 @@ def install():
     pisitools.dobin("uqm", "/usr/share/uqm")
     pisitools.insinto("/usr/share/uqm/content", "content/version")
     pisitools.dodoc("README", "COPYING", "AUTHORS", "doc/users/manual.txt")
+
