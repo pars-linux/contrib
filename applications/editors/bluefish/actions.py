@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 
 
 def setup():
-    autotools.configure()
+    autotools.configure("--without-libgnomeui --without-gnome-vfs")
 
 def build():
     autotools.make()
