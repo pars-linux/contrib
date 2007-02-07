@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
-
 <PISI>
     <Source>
         <Name>gnokii</Name>
@@ -14,14 +13,14 @@
         <IsA>app:gui</IsA>
         <Summary>User space driver and tools for use with mobile phones</Summary>
         <Summary>Cep telefonlarını kullanmak için kullanıcı sürücüsü ve araçları</Summary>
-        <Archive type="tarbz2" sha1sum="df3c5a4fd96d84e81feee8ded2bdf112269e78f3">http://www.gnokii.org/download/gnokii/gnokii-0.6.14.tar.bz2</Archive>
-        <Patches>
-            <Patch level="1">gnokiirc.patch</Patch>
-        </Patches>
+        <Archive sha1sum="df3c5a4fd96d84e81feee8ded2bdf112269e78f3" type="tarbz2">http://www.gnokii.org/download/gnokii/gnokii-0.6.14.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>bluez-libs</Dependency>
             <Dependency>xorg-server</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnokiirc.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -41,9 +40,9 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
+    <History>
         <Update release="1">
             <Date>2007-02-01</Date>
             <Version>0.6.14</Version>
