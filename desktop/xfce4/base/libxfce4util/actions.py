@@ -16,5 +16,4 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.removeDir("/usr/share/gtk-doc")
     pisitools.dodoc("README", "NEWS", "TODO", "THANKS", "ChangeLog", "AUTHORS")
