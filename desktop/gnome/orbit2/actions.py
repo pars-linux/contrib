@@ -7,16 +7,17 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
 WorkDir = 'ORBit2-2.14.5'
 
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-static=no")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
+    # remove gtk-doc directory, it is created although --enable-gtk-doc is default no... damn!
+    pisitools.removeDir("/usr/share/gtk-doc")
