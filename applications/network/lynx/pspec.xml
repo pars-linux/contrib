@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
-
 <PISI>
     <Source>
         <Name>lynx</Name>
@@ -9,17 +8,13 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <IsA>app:console</IsA>
         <License>GPL-2</License>
+        <IsA>app:console</IsA>
         <Summary>A console-based web browser</Summary>
         <Summary xml:lang="tr">Konsol tabanlı bir web tarayıcısı</Summary>
         <Description>An excellent console-based web browser with ssl support</Description>
         <Description xml:lang="tr">Mükemmel bir konsol tabanlı, ssl destekli web tarayıcısı</Description>
-        <Archive type="tarbz2" sha1sum="c70866f67c1365b55e0c9c0c569190f5919d28d4">ftp://lynx.isc.org/lynx2.8.5/lynx2-8-5.tar.bz2</Archive>
-        <Patches>
-            <Patch level="1">lynx-2.8.5-darwin.patch</Patch>
-            <Patch level="1">lynx-2.8.5-tab_to.patch</Patch>
-        </Patches>
+        <Archive sha1sum="c70866f67c1365b55e0c9c0c569190f5919d28d4" type="tarbz2">ftp://lynx.isc.org/lynx2.8.5/lynx2-8-5.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>ncurses</Dependency>
             <Dependency>zlib</Dependency>
@@ -27,6 +22,10 @@
             <Dependency versionFrom="0.9.6">openssl</Dependency>
             <Dependency>bzip2</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">lynx-2.8.5-darwin.patch</Patch>
+            <Patch level="1">lynx-2.8.5-tab_to.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -38,9 +37,9 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
+    <History>
         <Update release="1">
             <Date>2006-06-13</Date>
             <Version>2.8.5</Version>
