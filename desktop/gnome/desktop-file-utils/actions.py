@@ -7,17 +7,14 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-static=no")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.doman("man/*.8")
-    pisitools.doman("man/*.1")
-    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
