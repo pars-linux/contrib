@@ -19,5 +19,3 @@ def build():
 def install():
     autotools.install()
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
-    # remove gtk-doc directory, it is created although --enable-gtk-doc is default no... damn!
-    pisitools.removeDir("/usr/share/gtk-doc")
