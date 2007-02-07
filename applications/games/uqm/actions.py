@@ -10,6 +10,10 @@ from pisi.actionsapi import shelltools
 
 WorkDir = "%s-%s/sc2" % (get.srcNAME(), get.srcVERSION())
 
+def setup():
+    pisitools.dosed("build.vars", "pardusCFLAGS", get.CFLAGS())
+    pisitools.dosed("build.vars", "pardusLDFLAGS", get.LDFLAGS())
+
 def build():
     shelltools.system("sh build.sh uqm")
 
