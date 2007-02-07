@@ -8,29 +8,31 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL</License>
+        <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>Kmetabar is version of the metabar</Summary>
         <Summary xml:lang="tr">Kmetabar, metabar'in gelistirilmiş bir versiyonudur</Summary>
         <Archive sha1sum="ee7ab90f7c87fa5e1a456fe0d7293c3d01a0c078" type="tarbz2">http://www.kde-apps.org/content/files/28725-kmetabar-0.2-beta2.tar.bz2</Archive>
-        <Patches>
-            <Patch level="1">kmetabar-fix.patch</Patch>
-        </Patches>
         <BuildDependencies>
             <Dependency versionFrom="3.4.0">kdebase</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">kmetabar-fix.patch</Patch>
+        </Patches>
     </Source>
+    
     <Package>
         <Name>kmetabar</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.4.0">kdebase</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/kde/3.5/lib</Path>
             <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
         </Files>
-        <RuntimeDependencies>
-            <Dependency versionFrom="3.4.0">kdebase</Dependency>
-        </RuntimeDependencies>
     </Package>
+    
     <History>
         <Update release="2">
             <Date>2006-11-06</Date>
