@@ -16,7 +16,6 @@ def build():
 def install():
     autotools.install()
     pisitools.dodoc("README*", "NEWS", "HACKING", "ChangeLog", "AUTHORS")
-    pisitools.removeDir("/usr/share/gtk-doc")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
     pisitools.remove("/usr/share/icons/hicolor/48x48/apps/xfce-filemanager.png")
