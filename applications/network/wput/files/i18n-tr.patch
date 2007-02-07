@@ -1,0 +1,778 @@
+diff -Nuar wput.orig/po/tr.po wput/po/tr.po
+--- wput.orig/po/tr.po	1970-01-01 02:00:00.000000000 +0200
++++ wput/po/tr.po	2007-02-07 07:20:27.000000000 +0200
+@@ -0,0 +1,774 @@
++# translation of tr.po to Türkçe
++# Copyright (C) YEAR Hagen Fritsch
++# This file is distributed under the same license as the wput package.
++#
++# Necmettin Begiter <nbegiter@gmx.com.tr>, 2007.
++msgid ""
++msgstr ""
++"Project-Id-Version: tr\n"
++"Report-Msgid-Bugs-To: http://sourceforge.net/tracker/?group_id=141519\n"
++"POT-Creation-Date: 2006-04-12 18:02+0200\n"
++"PO-Revision-Date: 2007-02-06 11:20+0200\n"
++"Last-Translator: Necmettin Begiter <nbegiter@gmx.com.tr>\n"
++"Language-Team: Türkçe <tr@li.org>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Generator: KBabel 1.11.4\n"
++
++#: src/wput.c:151
++msgid "Resuming in background. Logging output to 'wput-log'.\n"
++msgstr "Arkaplanda devam ediliyor. Çıktılar 'wput-log' günlüğüne kaydediliyor.\n"
++
++#: src/wput.c:153 src/wput.c:664
++msgid "Unable to open logfile"
++msgstr "Günlük dosyası açılamadı"
++
++#: src/wput.c:161 src/wput.c:171 src/wput.c:181 src/wput.c:341 src/wput.c:708
++#: src/ftp.c:726 src/ftp.c:766 src/ftplib.c:269 src/ftplib.c:861
++#: src/ftplib.c:872 src/utils.c:282 src/utils.c:309 src/queue.c:254
++#: src/queue.c:261 src/queue.c:302 src/queue.c:378 src/queue.c:414
++#: src/queue.c:448
++msgid "Warning: "
++msgstr "Uyarı: "
++
++#: src/wput.c:162
++msgid ""
++"background-mode might not work correctly, if the input-pipe needs to read "
++"from stdin (like cat -).\n"
++msgstr "eğer giriş kısmının standart girişten (stdin) (örneğin 'cat') okunması gerekirse arkaplan modu düzgün çalışmayabilir.\n"
++
++#: src/wput.c:172
++msgid "reading urls from stdin, while running in background-mode is not reliable.\n"
++msgstr "arkaplan modunda çalışırken, adresleri standart girişten (stdin) okumak güvenilir değildir.\n"
++
++#: src/wput.c:182
++msgid "Ignoring request to turn proxy-usage on, since no proxy is configured.\n"
++msgstr "Herhangi bir proxy ayarlanmadığı için proxy kullanımını açma isteği gözardı ediliyor.\n"
++
++#: src/wput.c:211
++msgid "Nothing done. Try `wput --help'.\n"
++msgstr "Hiçbirşey yapılmadı. 'wput --help' komutunu deneyin.\n"
++
++#: src/wput.c:213
++#, c-format
++msgid "FINISHED --%s--\n"
++msgstr "BİTEN --%s--\n"
++
++#: src/wput.c:217
++#, c-format
++msgid "Transfered %s bytes in %d file at %s\n"
++msgstr "%s bayt %d dosyada %s kadar sürede aktarıldı.\n"
++
++#: src/wput.c:218
++#, c-format
++msgid "Transfered %s bytes in %d files at %s\n"
++msgstr "%s bayt %d dosyada %s katar sürede aktarıldı.\n"
++
++#: src/wput.c:227
++#, c-format
++msgid "Skipped %d file.\n"
++msgstr "%d dosya atlandı.\n"
++
++#: src/wput.c:227
++#, c-format
++msgid "Skipped %d files.\n"
++msgstr "%d dosya atlandı.\n"
++
++#: src/wput.c:229
++#, c-format
++msgid "Transmission of %d file failed.\n"
++msgstr "%d dosyanın aktarımı başarısız oldu.\n"
++
++#: src/wput.c:229
++#, c-format
++msgid "Transmission of %d files failed.\n"
++msgstr "%d dosyanın aktarımı başarısız oldu.\n"
++
++#: src/wput.c:301 src/ftp.c:217 src/ftp.c:238 src/ftp.c:345 src/ftp.c:383
++#: src/ftp.c:403 src/ftp.c:730 src/socketlib.c:122 src/socketlib.c:256
++#: src/socketlib.c:421 src/socketlib.c:441 src/socketlib.c:466
++#: src/socketlib.c:485 src/socketlib.c:505 src/socketlib.c:558
++#: src/socketlib.c:613 src/ftplib.c:278 src/ftplib.c:284 src/ftplib.c:600
++#: src/ftplib.c:645 src/queue.c:358 src/queue.c:458
++msgid "Error: "
++msgstr "Hata: "
++
++#: src/wput.c:302 src/wput.c:342 src/ftp.c:727 src/ftp.c:731
++#, c-format
++msgid "`%s' could not be resolved. "
++msgstr "'%s' çözülemedi. "
++
++#: src/wput.c:303
++msgid "Exiting.\n"
++msgstr "Çıkıyor.\n"
++
++#: src/wput.c:343
++msgid "Disabling proxy support.\n"
++msgstr "Proxy desteği kapatılıyor.\n"
++
++#: src/wput.c:437
++#, c-format
++msgid "netrc file '%s' cannot be read. skipping\n"
++msgstr "netrc dosyası '%s' okunamıyor. Atlıyor\n"
++
++#: src/wput.c:467
++#, c-format
++msgid "password_file '%s' cannot be read. skipping\n"
++msgstr "Parola dosyası '%s' okunamıyor. Atlıyor\n"
++
++#: src/wput.c:470
++msgid ""
++"Warning: You are using a wput password file. This is deprecated!\n"
++"         Please consider switch to the widely used netrc-files.\n"
++msgstr ""
++"Uyarı: Bir wput parola dosyası kullanıyorsunuz. Bu özellik artık kullanılmamalı.\n"
++"         Daha fazla kullanılan netrc dosyalarına geçmeyi düşünmelisiniz.\n"
++
++#: src/wput.c:514
++#, c-format
++msgid "Fatal error while opening '%s': %s\n"
++msgstr "'%s'yi açarken ölümcül bir hata oluştu: %s\n"
++
++#: src/wput.c:547
++#, c-format
++msgid "%s#%d: Option '%s' not recognized\n"
++msgstr "%s#%d: '%s' seçeneği bilinmiyor\n"
++
++#: src/wput.c:548
++#, c-format
++msgid "%s#%d: Unknow value '%s' for '%s'\n"
++msgstr "%s#%d: Bilinmeyen değer '%s' ('%s' için)\n"
++
++#: src/wput.c:659
++#, c-format
++msgid "Option %s should not appear here :|\n"
++msgstr "%s seçeneği burada olmamalı :|\n"
++
++#: src/wput.c:709
++msgid ""
++"You supplied an input-pipe. This is only to be used as fallback, if no "
++"filename can be found from the URL. This might not be the desired behavour. "
++"TODO\n"
++msgstr "Bir giriş borusu belirttiniz. Bu sadece adreste hiç dosya bulunamazsa kullanılmalıdır. Olmasını istediğiniz şey bu olmasa gerek. TODO\n"
++
++#: src/wput.c:717
++#, c-format
++msgid "wput version: %s\n"
++msgstr "wput sürüm: %s\n"
++
++#: src/wput.c:721
++#, c-format
++msgid ""
++"Usage: wput [options] [file]... [url]...\n"
++"  url        ftp://[username[:password]@]hostname[:port][/[path/][file]]\n"
++"\n"
++"Startup:\n"
++"  -V, --version         Display the version of wput and exit.\n"
++"  -h, --help            Print this help-screen\n"
++msgstr ""
++"Kullanım: wput [seçenekler] [dosya]... [adres]...\n"
++"  adres        ftp://[kullanıcı adı[:parola]@]sunucu[:[/yol/][dosya]]\n"
++"\n"
++"Başlama:\n"
++"  -V, --version         wput'un sürümünü göster ve çık.\n"
++"  -h, --help            Bu yardım ekranını göster\n"
++
++#: src/wput.c:728
++#, c-format
++msgid "  -b, --background      go to background after startup\n"
++msgstr "  -b, --background      başladıktan sonra arkaplanda devam et\n"
++
++#: src/wput.c:733
++#, c-format
++msgid ""
++"Logging and input file:\n"
++"  -o,  --output-file=FILE      log messages to FILE\n"
++"  -a,  --append-output=FILE    append log messages to FILE\n"
++"  -q,  --quiet                 quiet (no output)\n"
++"  -v,  --verbose               be verbose\n"
++"  -d,  --debug                 debug output\n"
++"  -nv, --less-verbose          be less verbose\n"
++"  -i,  --input-file=FILE       read the URLs from FILE\n"
++"  -s,  --sort                  sorts all input URLs by server-ip and path\n"
++"       --basename=PATH         snip PATH off each file when appendig to an "
++"URL\n"
++"  -I,  --input-pipe=COMMAND    take the output of COMMAND as data-source\n"
++"  -R,  --remove-source-files   unlink files upon successful upload\n"
++"\n"
++msgstr ""
++"Günlük tutma ve giriş dosyası:\n"
++"  -o,  --output-file=DOSYA     mesajları DOSYAya yaz (dosya varsa içini boşalt)\n"
++"  -a,  --append-output=DOSYA   mesajları DOSYAya ekle\n"
++"  -q,  --quiet                 sessiz çalış (günlük mesajlarını gösterme)\n"
++"  -v,  --verbose               tüm günlük mesajlarını göster\n"
++"  -d,  --debug                 herşeyi göster\n"
++"  -nv, --less-verbose          daha az günlük mesajı göser\n"
++"  -i,  --input-file=DOSYA      adresleri DOSYAdan oku\n"
++"  -s,  --sort                  tüm giriş adreslerini sunucu IPsine ve yola göre sırala\n"
++"       --basename=YOL          bir adrese eklerken dosyaların YOLlarını sil (tüm yolunu değil, sadece burada belirtilen yolunu)\n "
++"  -I,  --input-pipe=KOMUT      KOMUTun çıktısını veri kaynağı olarak kullan\n"
++"  -R,  --remove-source-files   başarılı bir şekilde yüklenen dosyaların bağlarını çöz\n"
++"\n"
++
++#: src/wput.c:749
++#, c-format
++msgid ""
++"Upload:\n"
++"       --bind-address=ADDR     bind to ADDR (hostname or IP) on local host\n"
++"  -t,  --tries=NUMBER          set retry count to NUMBER (-1 means "
++"infinite)\n"
++"  -nc, --dont-continue         do not resume partially-uploaded files\n"
++"  -u,  --reupload              do not skip already completed files\n"
++"       --skip-larger           do not upload files if remote size is larger\n"
++"       --skip-existing         do not upload files that exist remotely\n"
++"  -N,  --timestamping          don't re-upload files unless newer than "
++"remote\n"
++"  -T,  --timeout=10th-SECONDS  set various timeouts to 10th-SECONDS\n"
++"  -w,  --wait=10th-SECONDS     wait 10th-SECONDS between uploads. (default: "
++"0)\n"
++"       --random-wait           wait from 0...2*WAIT secs between uploads.\n"
++"       --waitretry=SECONDS     wait SECONDS between retries of an upload\n"
++"  -l,  --limit-rate=RATE       limit upload rate to RATE\n"
++"  -nd, --no-directories        do not create any directories\n"
++"  -Y,  --proxy=http/socks/off  set proxy type or turn off\n"
++"       --proxy-user=NAME       set the proxy-username to NAME\n"
++"       --proxy-pass=PASS       set the proxy-password to PASS\n"
++"\n"
++msgstr ""
++"Yükleme:\n"
++"       --bind-address=ADRES    yerel sunucudaki ADRESe (sunucu adı veya IP) bağlan\n"
++"  -t,  --tries=SAYI            tekrar deneme SAYIsını ayarla (-1 sonsuz demektir)\n"
++"  -nc, --dont-continue         hepsi yüklenmeyen dosyalara devam etme\n"
++"  -u,  --reupload              zaten yüklenmiş olan dosyaları atlama\n"
++"       --skip-larger           eğer uzaktaki dosya daha büyükse kaynak dosyayı yükleme\n"
++"       --skip-existing         uzakta zaten var olan dosyaları yükleme\n"
++"  -N,  --timestamping          kaynak dosya uzaktaki dosyadan daha yeni değilse yeniden yükleme\n"
++"  -T,  --timeout=1/10 SANİYE   çeşitli zaman aşımı sürelerini saniyenin onda birinin belirtilen katı olarak ayarla (örneğin -T=10 ise bir saniye)\n"
++"  -w,  --wait=1/10 SANİYE      yüklemeler arasında saniyenin onda birinin belirtilen katı kadar süre bekle. (varsayılan:0) (örneğin -w=20 ise iki saniye)\n"
++"       --random-wait           yüklemeler arasında 0 ila 2*BEKLEME saniye bekle (rasgele).\n"
++"       --waitretry=SANİYE      bir yüklemeyi tekrar denemek için SANİYE kadar süre bekle\n"
++"  -l,  --limit-rate=HIZ        yükleme HIZını belirle\n"
++"  -nd, --no-directories        dizin oluşturma\n"
++"  -Y,  --proxy=http/socks/off  proxy tipini belirle veya proxy kapat (off)\n"
++"       --proxy-user=AD         proxy kullanıcı ADını ayarla\n"
++"       --proxy-pass=PAROLA     proxy PAROLAsını belirle\n"
++"\n"
++
++#: src/wput.c:768
++#, c-format
++msgid ""
++"FTP-Options:\n"
++"  -p,  --port-mode             no-passive, turn on port mode ftp (def. "
++"pasv)\n"
++"  -A,  --ascii                 force ASCII  mode-transfer\n"
++"  -B,  --binary                force BINARY mode-transfer\n"
++msgstr ""
++"FTP-Seçenekleri:\n"
++"  -p,  --port-mode             pasif olmayan ftp kullan, port türü ftp'yi aç (varsayılan ftp modu pasiftir)\n"
++"  -A,  --ascii                 ASCII mod aktarıma zorla\n"
++"  -B,  --binary                İKİLİ mod aktarıma zorla\n"
++
++#: src/wput.c:775
++#, c-format
++msgid "       --force-tls             force the useage of TLS\n"
++msgstr "       --force-tls             TLS kullanmaya zorla\n"
++
++#: src/wput.c:780
++#, c-format
++msgid ""
++"\n"
++"See wput(1) for more detailed descriptions of the options.\n"
++"Report bugs and suggestions via SourceForge at\n"
++"http://sourceforge.net/tracker/?group_id=141519\n"
++msgstr ""
++"\n"
++"Seçeneklerin daha detaylı açıklamaları için wput(1)'e bakın.\n"
++"Hata ve önerileri\n"
++"http://sourceforge.net/tracker/?group_id=141519\n"
++"adresine raporlayın.\n"
++
++#: src/ftp.c:169
++msgid "Remote file size is bigger than local size. Restarting at 0\n"
++msgstr "Uzaktaki dosya yerel dosyadan daha büyük. 0 noktasından tekrar başlanıyor\n"
++
++#: src/ftp.c:173
++msgid "Remote file size is equal to local size. Restarting at 0\n"
++msgstr "Uzaktaki dosyanın boyutu yerel dosya ile aynı. 0 noktasından tekrar başlanıyor\n"
++
++#: src/ftp.c:177
++msgid "Remote file size is smaller than local size. Restarting at 0.\n"
++msgstr "Uzaktaki dosya yerel dosyadan daha küçük. 0 noktasından tekrar başlanıyor\n"
++
++#: src/ftp.c:218
++msgid "Cannot open local source file to read\n"
++msgstr "Okuma amacıyla yerel kaynak dosya açılamadı\n"
++
++#: src/ftp.c:239
++#, c-format
++msgid "opening the input-pipe failed: %s\n"
++msgstr "Giriş borusunu açma başarısız oldu: %s\n"
++
++#: src/ftp.c:282
++msgid "Disabling resuming due to ascii-mode transfer\n"
++msgstr "ASCII mod aktarımdan dolayı dosyaya devam edebilme özelliği kapatılıyor\n"
++
++#: src/ftp.c:346
++#, c-format
++msgid "local file could not be read: %s\n"
++msgstr "Yerel dosya okunamadı: %s\n"
++
++#: src/ftp.c:384
++msgid "Error encountered during uploading data\n"
++msgstr "Veriyi gönderirken bir hatayla karşılaşıldı\n"
++
++#: src/ftp.c:404
++#, c-format
++msgid "Error encountered during uploading data (%s)\n"
++msgstr "Veriyi gönderirken bir hatayla karşılaşıldı (%s)\n"
++
++#: src/ftp.c:460
++#, c-format
++msgid "Removing source file `%s'\n"
++msgstr "Kaynak dosya '%s' kaldırılıyor\n"
++
++#: src/ftp.c:488
++#, c-format
++msgid "-- Skipping file: `%s'\n"
++msgstr "-- Dosya atlanıyor: '%s'\n"
++
++#: src/ftp.c:538
++msgid "Skipping all files from this account...\n"
++msgstr "Bu hesaptaki tüm dosyalar atlanıyor...\n"
++
++#: src/ftp.c:571
++msgid "Failed to change to target directory. Skipping this file/dir.\n"
++msgstr "Hedef dizine geçme işlemi başarısız oldu. Bu dosya/dizin atlanıyor.\n"
++
++#: src/ftp.c:612
++msgid "Skipping this file due to resume/upload/skip rules.\n"
++msgstr "Bu dosya devam etme/gönderme/atlama kuralları gereği atlanıyor.\n"
++
++#: src/ftp.c:613
++#, c-format
++msgid "-- Skipping file: %s\n"
++msgstr "-- Dosya atlanıyor: %s\n"
++
++#: src/ftp.c:635
++msgid "Unable to set transfer mode. Assuming binary\n"
++msgstr "Aktarım modu ayarlanamadı. İkili olduğu varsayılacak\n"
++
++#: src/ftp.c:648
++#, c-format
++msgid "Send Failed (%s) "
++msgstr "Gönderme Başarısız (%s) "
++
++#: src/ftp.c:650
++msgid "Skipping this file\n"
++msgstr "Bu dosya atlanıyor\n"
++
++#: src/ftp.c:728
++msgid "Assuming the proxy to do the task.\n"
++msgstr "Görevi yerine getirmek için proxy varsayılıyor.\n"
++
++#: src/ftp.c:732
++msgid "Skipping this URL.\n"
++msgstr "Bu adres atlanıyor.\n"
++
++#: src/ftp.c:767
++msgid ""
++"URL: # or ? functions unimplemented. Assuming they are part of the "
++"filename.\n"
++msgstr "Adresler için # ve ? fonksiyonları tanımlanmamıştır. Onların dosya adının bir parçası olduğu varsayılıyor.\n"
++
++#: src/socketlib.c:92
++msgid "client: can't open stream socket"
++msgstr "istemci: akış soketi açılamıyor"
++
++#: src/socketlib.c:112
++msgid "server: can't open new socket"
++msgstr "sunucu: yeni soket açılamıyor"
++
++#: src/socketlib.c:123
++msgid "server: can't bind local address\n"
++msgstr "sunucu: yerel adres bağlanamıyor\n"
++
++#: src/socketlib.c:161
++msgid "error accepting the incoming connection"
++msgstr "gelen bağlantının kabul edilmesinde hata"
++
++#: src/socketlib.c:174
++msgid "TLS handshake failed.\n"
++msgstr "TLS anlaşması başarısız.\n"
++
++#: src/socketlib.c:232
++#, c-format
++msgid "Receive-Warning: read() timed out. Read '%s' so far.\n"
++msgstr "Alma-Uyarısı: read() süresini aştı. Şu ana kadar '%s' okundu.\n"
++
++#: src/socketlib.c:237
++#, c-format
++msgid "Receive-Error: read() failed. Read '%s' so far. (errno: %s (%d))\n"
++msgstr "Alma-Hatası: read() başarısız oldu. Şu ana kadar '%s' okundu. (hatanum: %s %d))\n"
++
++#: src/socketlib.c:257
++msgid "recv() timed out. No data received\n"
++msgstr "recv() süresini aştı. Hiç veri alınması\n"
++
++#: src/socketlib.c:420 src/socketlib.c:440 src/socketlib.c:465
++#: src/ftplib.c:348 src/ftplib.c:379 src/ftplib.c:450 src/ftplib.c:483
++#: src/ftplib.c:516 src/ftplib.c:571 src/ftplib.c:731 src/ftplib.c:824
++#: src/ftplib.c:894
++msgid "failed.\n"
++msgstr "başarısız oldu.\n"
++
++#: src/socketlib.c:422
++msgid "Connection to proxy cannot be established.\n"
++msgstr "Proxy bağlantısı sağlanamadı.\n"
++
++#: src/socketlib.c:435
++#, c-format
++msgid "read() failed: %d (%d: %s)\n"
++msgstr "read() başarısız oldu: %d (%d: %s)\n"
++
++#: src/socketlib.c:442
++#, c-format
++msgid "Proxy version mismatch (%d)\n"
++msgstr "Proxy sürüm uyumsuzluğu (%d)\n"
++
++#: src/socketlib.c:460
++msgid "Proxy authentication failure\n"
++msgstr "Proxy doğrulama hatası\n"
++
++#: src/socketlib.c:467
++#, c-format
++msgid "Proxy method mismatch (%d)\n"
++msgstr "Proxy metod uyumsuzluğu (%d)\n"
++
++#: src/socketlib.c:486
++#, c-format
++msgid "Proxy discarded listen-request. Error-Code: %d\n"
++msgstr "Proxy dinleme isteğini gözardı etti. Hata-Kodu: %d\n"
++
++#: src/socketlib.c:487
++msgid "Disabling listen-tries for proxy\n"
++msgstr "Proxy için dinleme denemeleri kapatılıyor\n"
++
++#: src/socketlib.c:493
++#, c-format
++msgid "Proxy is listening on %s:%d for incoming connections\n"
++msgstr "Proxy gelen bağlantılar için %s:%d dinliyor\n"
++
++#: src/socketlib.c:506
++#, c-format
++msgid "Proxy encountered an error while accepting. Error-Code: %d\n"
++msgstr "Proxy kabul ederken bir hatayla karşılaştır. Hata-Kodu: %d\n"
++
++#: src/socketlib.c:524
++#, c-format
++msgid "Using SOCKS5-Proxy %s:%d... "
++msgstr "SOCKS5-Proxy %s:%d kullanılıyor... "
++
++#: src/socketlib.c:556
++msgid "Proxy connection established.\n"
++msgstr "Proxy bağlantısı kuruldu.\n"
++
++#: src/socketlib.c:559
++#, c-format
++msgid "Connection through proxy failed. Error-code: %d\n"
++msgstr "Proxy üzerinden bağlanma başarısız oldu. Hata-kodu: %d\n"
++
++#: src/socketlib.c:614
++#, c-format
++msgid ""
++"Connection could not be established.\n"
++"Proxy states '%s'"
++msgstr ""
++"Bağlantı kuruluamadı.\n"
++"Proxy durumu '%s'"
++
++#: src/ftplib.c:93
++msgid "Receive-Error: Connection broke down.\n"
++msgstr "Alma-Hatası: Bağlantı kesildi.\n"
++
++#: src/ftplib.c:104
++#, c-format
++msgid "Receive-Error: Invalid FTP-answer (%d bytes): %s\n"
++msgstr "Alma-Hatası: Geçersiz FTP cevabı (%d bayt): %s\n"
++
++#: src/ftplib.c:106
++msgid "Reconnecting to be sure, nothing went wrong\n"
++msgstr "Emin olmak için tekrar bağlanılıyor, yanlış giden birşey yok\n"
++
++#: src/ftplib.c:190
++#, c-format
++msgid "Connecting to %s:%d... "
++msgstr "%s:%d bağlanma... "
++
++#: src/ftplib.c:200
++msgid "failed!\n"
++msgstr "başarısız oldu!\n"
++
++#: src/ftplib.c:203
++msgid "connected"
++msgstr "bağlandı"
++
++#: src/ftplib.c:215
++#, c-format
++msgid "Connection failed (%s)\n"
++msgstr "Bağlantı başarısız (%s)\n"
++
++#: src/ftplib.c:236
++msgid "TLS encryption is explicitly required, but could not be established.\n"
++msgstr "TLS şifreleme özellikle gerekli, ancak sağlanamadı.\n"
++
++#: src/ftplib.c:253
++#, c-format
++msgid "Logging in as %s ... "
++msgstr "%s olarak oturum açılıyor... "
++
++#: src/ftplib.c:270
++msgid "remote server requires a password, but none set. Using an empty one.\n"
++msgstr "uzak sunucu bir parola istiyor, ancak belirlenmiş bir parola yok. Boş bir parola kullanılıyor.\n"
++
++#: src/ftplib.c:279
++msgid "Server requires account login, which is not supported.\n"
++msgstr "Sunucu hesap oturumu açılmasını gerektiriyor, ancak bu desteklenmiyor.\n"
++
++#: src/ftplib.c:285
++#, c-format
++msgid "Login-Sequence failed (%s)\n"
++msgstr "Oturum açma işlemi başarısız oldu (%s)\n"
++
++#: src/ftplib.c:289
++msgid "Logged in!\n"
++msgstr "Oturum açıldı!\n"
++
++#: src/ftplib.c:306
++#, c-format
++msgid "failed (%s).\n"
++msgstr "başarısız oldu (%s).\n"
++
++#: src/ftplib.c:307
++msgid "encrypted!"
++msgstr "şifreli!"
++
++#: src/ftplib.c:314
++msgid "Setting data protection level to private ... "
++msgstr "Veri koruma seviyesi özele ayarlanıyor... "
++
++#: src/ftplib.c:330 src/ftplib.c:382 src/ftplib.c:512 src/ftplib.c:574
++#: src/ftplib.c:678 src/ftplib.c:723 src/ftplib.c:827 src/ftplib.c:869
++#: src/ftplib.c:897
++msgid "done.\n"
++msgstr "tamam.\n"
++
++#: src/ftplib.c:365
++#, c-format
++msgid "done (%s).\n"
++msgstr "tamam (%s).\n"
++
++#: src/ftplib.c:384
++#, c-format
++msgid "Connection cancelled (%s)\n"
++msgstr "Bağlanma iptâl edildi (%s)\n"
++
++#: src/ftplib.c:445
++#, c-format
++msgid "done (modified on %d.%d.%d at %d:%d:%d)\n"
++msgstr "tamam (değiştirilme: %d.%d.%d %d:%d:%d)\n"
++
++#: src/ftplib.c:479
++#, c-format
++msgid "done (%s bytes)\n"
++msgstr "tamam (%s bayt)\n"
++
++#: src/ftplib.c:530 src/ftplib.c:546
++#, c-format
++msgid " failed (%s).\n"
++msgstr "başarısız (%s).\n"
++
++#: src/ftplib.c:601
++#, c-format
++msgid "Cannot initiate data-connection (%s)\n"
++msgstr "Veri bağlantısı başlatıladı (%s)\n"
++
++#: src/ftplib.c:646
++#, c-format
++msgid "listing directory failed (%s)\n"
++msgstr "dizin içeriği alınamadı (%s)\n"
++
++#: src/ftplib.c:675
++msgid ""
++"failed.\n"
++"Server seems not to support resuming. Restarting at 0\n"
++msgstr ""
++"başarısız.\n"
++"Görünüşe göre sunucu dosyada kalınan yerden devam edilmesini desteklemiyor. Sıfırdan başlanıyor\n"
++
++#: src/ftplib.c:695
++msgid "[not done, but should be allright]\n"
++msgstr "[yapılamadı, ama sorun çıkmayacaktır]\n"
++
++#: src/ftplib.c:727
++#, c-format
++msgid "failed (%s). (disabling resuming)\n"
++msgstr "başarısız (%s). (kalınan yerden devam etme kapatılıyor)\n"
++
++#: src/ftplib.c:734
++msgid "Trying to switch PORT/PASV mode\n"
++msgstr "PORT/PASV modunu değiştirmeye çalışılıyor\n"
++
++#: src/ftplib.c:738
++#, c-format
++msgid "failed (%d %s). (skipping)\n"
++msgstr "başarısız (%d %s). atlanıyor)\n"
++
++#: src/ftplib.c:839
++msgid "connection failed.\n"
++msgstr "bağlanılamadı.\n"
++
++#: src/ftplib.c:857
++msgid "Trying to listen on proxy server... "
++msgstr "Proxy sunucusunu dinlemeye çalışıyor... "
++
++#: src/ftplib.c:860
++msgid "failed. Falling back to listen locally\n"
++msgstr "başarısız. Yerel dinlemeye dönülüyor\n"
++
++#: src/ftplib.c:863
++msgid ""
++"Unless FXP is enabled remotely, your control-connection should be from the "
++"same IP-address, as your PORT bind-request. So you should consider PASV-mode "
++"or reconnect without a proxy.\n"
++msgstr "Uzak sistemde FXP açlmadığı sürece, kontrol amaçlı bağlantınızın da, PORT bağlanma istediğiniz gibi, aynı IP adresinden olması gerekir. O yüzden PASV modu veya proxy olmadan tekrar bağlanmayı düşünmelisiniz.\n"
++
++#: src/ftplib.c:873
++msgid "Using port-mode. Unable to use the http-proxy for this connection\n"
++msgstr "Port modu kullanılıyor. Bu bağlantı için http-proxy kullanılamadı\n"
++
++#: src/ftplib.c:885
++msgid "Cannot determine local IP address"
++msgstr "Yerel IP adresi belirlenemedi"
++
++#: src/utils.c:245
++#, c-format
++msgid "parse-error in escaped character: %c is not a hexadecimal character\n"
++msgstr "Kaçılan karakterde ayrıştırma hatası: %c onaltılık bir karakter değil\n"
++
++#: src/utils.c:269
++#, c-format
++msgid "Waiting %d seconds... "
++msgstr "%d saniye bekliyor... "
++
++#: src/utils.c:283
++#, c-format
++msgid "No http-header found. Assuming socks-proxy $host:$port for `%s'\n"
++msgstr "http başlığı bulunamadı. '%s' için socks-proxy $host:$port varsayılıyor\n"
++
++#: src/utils.c:310
++#, c-format
++msgid "No port specified. Assuming default port %d.\n"
++msgstr "Port belirtilmedi. Varsayılan port %d geçerli kabul ediliyor.\n"
++
++#: src/queue.c:255
++#, c-format
++msgid "Error encountered but ignored during stat of `%s'.\n"
++msgstr "'%s'nin durum kontrolünde bir hatayla karşılaşıldı ancak gözardı edildi.\n"
++
++#: src/queue.c:262
++#, c-format
++msgid "Error encountered but ignored during opendir of `%s'.\n"
++msgstr "'%s' dizininin açılması sırasında bir hatayla karşılaşıldı ama gözardı edildi.\n"
++
++#: src/queue.c:303
++msgid "Seems as though there are two equivalent entries to upload.\n"
++msgstr "Görünüşe göre göndermek için birbirinin eşi iki giriş yapılmış.\n"
++
++#: src/queue.c:359
++#, c-format
++msgid "the url `%s' could not be parsed\n"
++msgstr "'%s' adresi ayrıştırılamadı\n"
++
++#: src/queue.c:379
++msgid ""
++"Neither a remote location nor a local filename has been specified. Assuming "
++"you want to upload the current working directory to the remote server.\n"
++msgstr "Ne bir uzak bağlantı ne de yerel dosya adı belirtilmedi. Uzaktaki sunucuya şu andaki çalışma dizinini göndermek istediğiniz varsayılıyor.\n"
++
++#: src/queue.c:415
++msgid ""
++"No local file specified and no file found from URL.\n"
++"Assuming the current working directory is to be uploaded to the remote "
++"server.\n"
++msgstr ""
++"Yerel dosya belirtilmedi ve adreste dosya bulunamadı.\n"
++"Şu andaki çalışma dizininin uzak sunucuya gönderileceği varsayılıyor.\n"
++
++#: src/queue.c:449
++#, c-format
++msgid "File `%s' does not exist. Assuming you supply its input using the -I flag.\n"
++msgstr "'%s' dosyası yok. İçeriğini -I bayrağıyla vereceğiniz varsayılıyor.\n"
++
++#: src/queue.c:459
++#, c-format
++msgid "File `%s' does not exist. Don't know what to do about this URL.\n"
++msgstr "'%s' dosyası yok. Bu adresle ne yapılacağı belirlenemedi.\n"
++
++#: src/progress.c:328
++#, c-format
++msgid "Length: %s"
++msgstr "Uzunluk: %s"
++
++#: src/progress.c:332
++#, c-format
++msgid " [%s to go]\n"
++msgstr " [%s kaldı]\n"
++
++#: src/progress.c:339
++msgid ""
++"%* [ skipped %dK ]\n"
++"%* %dK "
++msgstr ""
++"%* [ atlanan %dK ]\n"
++"%* %dK"
++
++#: src/ftp-ls.c:957
++msgid "Unsupported listing type, trying Unix listing parser.\n"
++msgstr "Desteklenmeyen listeleme tipi, Unix listeleme ayrıştırıcısı deneniyor.\n"
++
++#: src/ftp-ls.c:1003 src/ftp-ls.c:1005
++#, c-format
++msgid "Index of /%s on %s:%d"
++msgstr "/%s dizininin içeriği (%s:%d'deki)"
++
++#: src/ftp-ls.c:1028
++#, c-format
++msgid "time unknown       "
++msgstr "süre bilinmiyor      "
++
++#: src/ftp-ls.c:1032
++#, c-format
++msgid "File        "
++msgstr "Dosya       "
++
++#: src/ftp-ls.c:1035
++#, c-format
++msgid "Directory   "
++msgstr "Dizin       "
++
++#: src/ftp-ls.c:1038
++#, c-format
++msgid "Link        "
++msgstr "Bağ         "
++
++#: src/ftp-ls.c:1041
++#, c-format
++msgid "Not sure    "
++msgstr "Emin olunamıyor "
++
++#: src/ftp-ls.c:1059
++#, c-format
++msgid " (%s bytes)"
++msgstr " (%s bayt)"
++
