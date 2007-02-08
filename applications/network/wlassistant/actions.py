@@ -7,9 +7,6 @@
 from pisi.actionsapi import scons
 from pisi.actionsapi import pisitools
 
-def setup():
-    pass
-
 def build():
     scons.make()
 
@@ -18,3 +15,4 @@ def install():
     pisitools.domove("/bin", "/usr/")
     pisitools.domove("/share", "/usr/")
     pisitools.dodoc("doc/*")
+
