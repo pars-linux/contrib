@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgnome</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Essential Gnome Libraries</Summary>
+        <Summary xml:lang="tr">Gerekli Gnome Kütüphaneleri</Summary>
+        <Archive sha1sum="d37ea79c703a43f6c1284c713ef1f3272b9fda33" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/libgnome/2.16/libgnome-2.16.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libgnome</Name>
+        <RuntimeDependencies>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-08</Date>
+            <Version>2.16.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
