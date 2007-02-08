@@ -15,3 +15,4 @@ def build():
 
 def install():
     autotools.install()
+
