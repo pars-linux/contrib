@@ -12,3 +12,4 @@ def build():
 
 def install():
     pisitools.dobin("cpulimit")
+
