@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-vfs</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Gnome Virtual Filesystem</Summary>
+        <Summary xml:lang="tr">Gnome Sanal Dosya Sistemi</Summary>
+        <Archive sha1sum="a4c97179e2c4abf8cfcf236e56f7d328feaef89b" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/gnome-vfs/2.16/gnome-vfs-2.16.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gconf</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>neon</Dependency>
+            <Dependency>gnome-mime-data</Dependency>
+            <Dependency>shared-mime-info</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>openssl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnome-vfs</Name>
+        <RuntimeDependencies>
+            <Dependency>gconf</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>neon</Dependency>
+            <Dependency>gnome-mime-data</Dependency>
+            <Dependency>shared-mime-info</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>openssl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-08</Date>
+            <Version>2.16.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
