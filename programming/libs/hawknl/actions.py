@@ -22,3 +22,4 @@ def install():
     pisitools.dodir("/usr/include")
     autotools.rawInstall("LIBDIR=%s/usr/lib INCDIR=%s/usr/include" % (get.installDIR(), get.installDIR()))
     pisitools.dodoc("samples/*")
+
