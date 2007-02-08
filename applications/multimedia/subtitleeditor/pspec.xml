@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
-
 <PISI>
     <Source>
         <Name>subtitleeditor</Name>
@@ -16,9 +15,6 @@
         <Description>It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
         <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
         <Archive type="targz" sha1sum="0d5cfdcb991fc2073ae5b81028fda8f67d14051c">http://kitone.free.fr/subtitleeditor/files/subtitleeditor-0.12.4.tar.gz</Archive>
-        <Patches>
-            <Patch level="1">desktop.patch</Patch>
-        </Patches>
         <BuildDependencies>
             <Dependency versionFrom="2.6">gtk2</Dependency>
             <Dependency versionFrom="2.6">gtkmm</Dependency>
@@ -26,6 +22,9 @@
             <Dependency versionFrom="0.10">gstreamer</Dependency>
             <Dependency>aspell</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">desktop.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -69,3 +68,4 @@
         </Update>
     </History>
 </PISI>
+
