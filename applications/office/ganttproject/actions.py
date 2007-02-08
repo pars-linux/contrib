@@ -19,3 +19,4 @@ def install():
     pisitools.insinto("/usr/share/ganttproject", "dist-bin/*")
     pisitools.insinto("/usr/share/pixmaps", "../ganttproject/data/resources/icons/ganttproject.png")
     pisitools.remove("/usr/share/ganttproject/ganttproject.*")
+
