@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
@@ -15,13 +15,13 @@
         <Description>KMess is a MSN Messenger compatible chat client for Linux. It enables Linux users to chat with friends online who are using MSN Messenger in Windows or Mac OS. The strength of KMess is it's integration with the KDE desktop environment, focus on MSN Messenger specific features and an easy-to-use interface.</Description>
         <Description xml:lang="tr">KMess, Linux için MSN Messenger uyumlu bir sohbet istemcisidir. Linux kullanıcılarının Windows veya Mac OS kullanan arkadaşlarıyla sohbet etmesini mümkün kılar. KMess'in en güçlü yanları KDE ile uyum içinde çalışması, MSN Messenger'ın özellikleri üzerine yoğunlaşması ve kolay kullanımıdır.</Description>
         <Archive sha1sum="c1c8255f1ee24c345e4e85b4c113771cb669b37d" type="targz">http://switch.dl.sourceforge.net/sourceforge/kmess/kmess-1.5pre1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch level="1">turkish.patch</Patch>
             <Patch level="1">use-firefox.patch</Patch>
         </Patches>
-        <BuildDependencies>
-            <Dependency>kdelibs</Dependency>
-        </BuildDependencies>
     </Source>
 
     <Package>
@@ -58,3 +58,4 @@
         </Update>
     </History>
 </PISI>
+
