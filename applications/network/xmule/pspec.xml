@@ -12,26 +12,22 @@
         <IsA>app:gui</IsA>
         <Summary>wxWidgets based client for the eDonkey/eMule/lMule network</Summary>
         <Summary xml:lang="tr">xmule bir eMule p2p istemcisidir</Summary>
-        <Description>wxWidgets based client for the eDonkey/eMule/lMule network.</Description>
-        <Description xml:lang="tr">xmule bir eMule p2p istemcisidir.</Description>
         <Archive sha1sum="2d7b058094fd89912179a9675d26c9a31d638506" type="tarbz2">http://www.xmule.ws/files/releases/xmule-1.13.7-rc1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency>zlib</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch level="0">xmule_desktop.patch</Patch>
             <Patch level="0">SearchDlg_debug.patch</Patch>
         </Patches>
-        <BuildDependencies>
-        <Dependency versionFrom="2.6.2">wxGTK</Dependency>
-            <!-- Dependency>crypto</Dependency -->
-            <Dependency>gettext</Dependency>
-            <Dependency>zlib</Dependency>
-    </BuildDependencies>
     </Source>
-    
+
     <Package>
         <Name>xmule</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.6.2">wxGTK</Dependency>
-            <!-- Dependency>crypto</Dependency -->
+            <Dependency>wxGTK</Dependency>
         </RuntimeDependencies>
         <Conflicts>
             <Package>amule</Package>
