@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
-
 <PISI>
     <Source>
         <Name>visualboyadvance</Name>
@@ -16,13 +15,13 @@
         <Description>An emulator for Gameboy and GameboyAdvance systems.</Description>
         <Description xml:lang="tr">Gameboy ve GameboyAdvance sistemleri için bir emülatör.</Description>
         <Archive type="targz" sha1sum="04d82406079563fd17cda07f72488185e9152f51">http://switch.dl.sourceforge.net/sourceforge/vba/VisualBoyAdvance-src-1.7.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch>1.7.2-homedir.patch</Patch>
             <Patch level="1">1.7.2-gcc34.patch</Patch>
         </Patches>
-        <BuildDependencies>
-            <Dependency>libsdl</Dependency>
-        </BuildDependencies>
     </Source>
 
     <Package>
@@ -50,3 +49,4 @@
         </Update>
     </History>
 </PISI>
+
