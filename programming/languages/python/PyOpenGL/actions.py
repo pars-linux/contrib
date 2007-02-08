@@ -11,3 +11,4 @@ WorkDir = "%s-3.0.0a5" % get.srcNAME()
 
 def install():
     pythonmodules.install()
+
