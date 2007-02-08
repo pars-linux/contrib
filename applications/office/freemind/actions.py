@@ -19,3 +19,4 @@ def install():
     pisitools.dosym("/usr/share/freemind/freemind.sh", "/usr/bin/freemind")
     pisitools.remove("/usr/share/freemind/freemind.bat")
     pisitools.remove("/usr/share/freemind/Freemind.exe")
+
