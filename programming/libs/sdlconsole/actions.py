@@ -17,3 +17,4 @@ def install():
     autotools.install()
     pisitools.dodoc("AUTHORS", "COPYING", "README")
     pisitools.dohtml("docs/index.html")
+
