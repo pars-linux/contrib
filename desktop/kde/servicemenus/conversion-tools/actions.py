@@ -6,11 +6,16 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 WorkDir = "conversion_tools"
 
 def install():
-    pisitools.insinto("/usr/kde/3.5/share/apps/konqueror/servicemenus", "conver/Conversions.desktop")
-    pisitools.insinto("/usr/kde/3.5/share/apps/konqueror/servicemenus", "conver_submenus/Conversions_submenus.desktop")
-    pisitools.dobin("conver/conver.sh", "/usr/kde/3.5/share/apps/konqueror/servicemenus")
-    pisitools.dobin("conver_submenus/conver_submenus.sh", "/usr/kde/3.5/share/apps/konqueror/servicemenus")
+    pisitools.dosed("conver/Conversions.desktop", "~/.kde/share/apps/konqueror/servicemenus", "/usr/bin")
+    pisitools.dosed("conver_submenus/Conversions_submenus.desktop", "~/.kde/share/apps/konqueror/servicemenus", "/usr/bin")
+
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "conver/Conversions.desktop")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "conver_submenus/Conversions_submenus.desktop")
+
+    pisitools.dobin("conver/conver.sh")
+    pisitools.dobin("conver_submenus/conver_submenus.sh")
