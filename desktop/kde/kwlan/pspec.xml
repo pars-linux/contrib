@@ -12,10 +12,10 @@
         <IsA>app:gui</IsA>
         <Summary>Network manager for kde</Summary>
         <Summary xml:lang="tr">KDE için ağ yöneticisi</Summary>
-        <Archive type="tarbz2" sha1sum="f8c10bfe20bfb6b7459be9936d42a0d2d40aef4d">http://home.arcor.de/tom.michel/downloads/kwlan-0.5.8.tar.bz2
-        </Archive>
+        <Archive type="tarbz2" sha1sum="efc2f6d7bb6b4c961a631da3e829c11c7d36c8c1">http://home.arcor.de/tom.michel/downloads/kwlan-0.6.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs</Dependency>
+            <Dependency>wpa_supplicant</Dependency>
         </BuildDependencies>
     </Source>
 	
@@ -23,6 +23,7 @@
         <Name>kwlan</Name>
         <RuntimeDependencies>
             <Dependency>kdelibs</Dependency>
+            <Dependency>wpa_supplicant</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="data">/usr/share/apps</Path>
@@ -30,10 +31,18 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 	
     <History>
+        <Update release="2">
+            <Date>2007-02-09</Date>
+            <Version>0.6.0</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-12-16</Date>
             <Version>0.5.8</Version>
@@ -43,3 +52,4 @@
         </Update>
     </History>
 </PISI>
+
