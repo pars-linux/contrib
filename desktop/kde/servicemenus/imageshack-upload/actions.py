@@ -6,11 +6,13 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
 
 WorkDir = "imageshack_upload"
 
 def install():
-    pisitools.insinto("/usr/kde/3.5/share/apps/konqueror/servicemenus", "imageshack.desktop")
-    pisitools.insinto("/usr/kde/3.5/share/icons", "imageshack.png")
-    pisitools.dobin("imageshack_upload", "/usr/bin")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "imageshack.desktop")
+    pisitools.insinto("%s/share/icons" % get.kdeDIR(), "imageshack.png")
+    pisitools.dobin("imageshack_upload")
     pisitools.dodoc("README")
