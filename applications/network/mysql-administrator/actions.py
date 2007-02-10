@@ -4,7 +4,7 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-WorkDir='mysql-gui-tools-5.0r8'
+WorkDir='mysql-gui-tools-5.0r9'
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
