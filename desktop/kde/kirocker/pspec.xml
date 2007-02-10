@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kirocker</Name>
+        <Homepage>http://kde-apps.org/content/show.php?content=52869</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>It is a Kicker applet that displays what you listen to in Amarok</Summary>
+        <Summary xml:lang="tr">Kirocker amarokda ne dinlediğinizi panelde gösteren bir uygulamadır</Summary>
+        <Description>You then always know what you are listening to, and watch its cover: it is always visible on your panel</Description>
+        <Description xml:lang="tr">Amarokta ne dinlediğinizi ve albüm kapaklarını her zaman panelde gösteren bir uygulama</Description>
+        <Archive sha1sum="4e252ab542aaeefcd5c7e5f181b9e73db9989a5b" type="targz">http://kde-apps.org/content/files/52869-kirocker-1.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kirocker</Name>
+        <RuntimeDependencies>
+            <Dependency>amarok</Dependency>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/kde/3.5/share/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-10</Date>
+            <Version>1.4</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
