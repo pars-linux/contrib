@@ -11,12 +11,12 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>MySQL Server Administration Graphical User Interface</Summary>
-        <Description>MySQL Administrator is a powerful visual administration tool that makes it easy to administer and monitor your MySQL environment and gain significantly better visibility into how your databases are operating. MySQL Administrator integrates database management and maintenance into a single, seamless environment, with a clear and intuitive graphical user interface.</Description>
         <Summary xml:lang="tr">MySQL Sunucu Yönetim Grafik Arayüzü</Summary>
+        <Description>MySQL Administrator is a powerful visual administration tool that makes it easy to administer and monitor your MySQL environment and gain significantly better visibility into how your databases are operating. MySQL Administrator integrates database management and maintenance into a single, seamless environment, with a clear and intuitive graphical user interface.</Description>
         <Description xml:lang="tr">MySQL Administrator güçlü bir görsel yönetim aracıdır. MySQL ortamınızı kolayca yönetmenizi ve gözlemlemenizi, veritabanlarınızın nasıl işlediğini daha iyi görmenizi sağlar. MySQL Administrator, veritabanı yönetimi ve bakımını tek bir arayüzde entegre ediyor.</Description>
-        <Archive sha1sum="0a845bc22d9b269081fa7b26c5762e8a6b07191c" type="targz">ftp://ftp.sunet.se/pub/unix/databases/relational/mysql/Downloads/MySQLGUITools/mysql-gui-tools-5.0r8.tar.gz</Archive>
+        <Archive sha1sum="b00ed02505281203f30bdc0a5faf1c41a47873d2" type="targz">ftp://ftp.sunet.se/pub/unix/databases/relational/mysql/Downloads/MySQLGUITools/mysql-gui-tools-5.0r9.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>mysql-client</Dependency>
+            <Dependency releaseFrom="20">mysql-client</Dependency>
             <Dependency versionFrom="2.6">gtk2</Dependency>
             <Dependency versionFrom="2.6">glib2</Dependency>
             <Dependency versionFrom="2.6">libxml2</Dependency>
@@ -31,8 +31,8 @@
     <Package>
         <Name>mysql-administrator</Name>
         <RuntimeDependencies>
-            <Dependency>mysql-client</Dependency>
-            <Dependency version="5.0_p8">mysql-gui-common</Dependency>
+            <Dependency releaseFrom="20">mysql-client</Dependency>
+            <Dependency version="5.0_p9">mysql-gui-common</Dependency>
             <Dependency versionFrom="2.6">gtk2</Dependency>
             <Dependency versionFrom="2.6">glib2</Dependency>
             <Dependency versionFrom="2.6">libxml2</Dependency>
@@ -50,8 +50,15 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-02-10</Date>
+            <Version>1.2.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="1">
-            <Date>2006-01-16</Date>
+            <Date>2007-01-16</Date>
             <Version>1.2.8</Version>
             <Comment>First release.</Comment>
             <Name>Doruk Fişek</Name>
