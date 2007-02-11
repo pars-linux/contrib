@@ -9,6 +9,7 @@
             <Email>ayanozturk@gmail.com</Email>
         </Packager>
         <License>GPL-2</License>
+        <IsA>app:gui</IsA>
         <Summary>geda is a core metapackage which compiles all the necessary components you would need for a minimal gEDA/gaf system</Summary>
         <Summary xml:lang="tr">gEDA/gaf sistemi için gerekli olan temel bileşenleri bir araya getirir.</Summary>
         <Archive sha1sum="970fe10bc4d8b714dc04a37fcb27f2bbd0d50c3f" type="targz">http://www.geda.seul.org/devel/20061020/geda-gattrib-20061020.tar.gz</Archive>
@@ -21,14 +22,14 @@
 
     <Package>
         <Name>geda</Name>
-        <Files>
-            <Path fileType="executable">/usr/bin</Path>
-        </Files>
         <RuntimeDependencies>
             <Dependency versionFrom="2.4">gtk2</Dependency>
             <Dependency versionFrom="1.6.3">guile</Dependency>
             <Dependency versionFrom="20061020">libgeda</Dependency>
         </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+        </Files>
     </Package>
 
     <History>
