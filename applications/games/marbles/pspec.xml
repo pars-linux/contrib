@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>marbles</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php?content=36755</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Marbles is a simple game</Summary>
+        <Summary xml:lang="tr">Marbles basit bir oyundur</Summary>
+        <Description>The objective is to take out as big groups of marbles as possible</Description>
+        <Description xml:lang="tr">Bilyeleri büyük gruplar halinde atmak marbles de mümkündür</Description>
+        <Archive sha1sum="f1d92b24cad6e557181eedd07c5079f45d4da4d3" type="tarbz2">http://www.kde-apps.org/content/files/36755-marbles-1.0.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>marbles</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/marbles">marbles</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/marbles.desktop">marbles.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-11</Date>
+            <Version>1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
