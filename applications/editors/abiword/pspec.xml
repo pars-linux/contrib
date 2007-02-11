@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>abiword</Name>
+        <Homepage>http://www.abisource.com/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Fully featured yet light and fast cross platform word processor</Summary>
+        <Summary xml:lang="tr">Hızlı ve her sistemde çalışabilen bir kelime işlemci</Summary>
+        <Archive sha1sum="10c256686fbd74236d7160ef154368f168e2b661" type="targz">http://www.abisource.com/downloads/abiword/2.4.6/source/abiword-2.4.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>wv</Dependency>
+            <Dependency>fribidi</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>libxml2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>abiword</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>wv</Dependency>
+            <Dependency>fribidi</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>libxml2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-11</Date>
+            <Version>2.4.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
