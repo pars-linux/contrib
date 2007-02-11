@@ -19,6 +19,10 @@ def setup():
     shelltools.system("ln -s ../configure")
     autotools.configure("--prefix=/usr \
                          --with-wx \
+                         --enable-bookmarks \
+                         --enable-templates \
+                         --with-gl \
+                         --with-dav \
                          --with-mesa \
                          --without-gtk \
                          --enable-svg \

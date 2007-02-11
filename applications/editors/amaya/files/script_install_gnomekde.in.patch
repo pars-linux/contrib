@@ -1,13 +1,14 @@
---- Amaya/batch/script_install_gnomekde.in.orig	2006-12-12 10:25:07.000000000 +0200
-+++ Amaya/batch/script_install_gnomekde.in	2007-01-10 22:49:21.000000000 +0200
-@@ -57,27 +57,32 @@
+--- Amaya/batch/script_install_gnomekde.in.orig	2007-01-15 18:21:07.000000000 +0200
++++ Amaya/batch/script_install_gnomekde.in	2007-02-11 20:41:05.000000000 +0200
+@@ -58,28 +58,33 @@
    exit
  fi
  
 -# --- creating /usr/bin/amaya-version
 +# --- creating /usr/bin/amaya
- $ECHO "#!/bin/sh" >> /usr/bin/amaya
- $ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> /usr/bin/amaya
+ $RM /usr/bin/amaya
+ $ECHO "#!/bin/sh" > /usr/bin/amaya
+ $ECHO "env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya \${1+"\$@"}" >> /usr/bin/amaya
  $CHMOD /usr/bin/amaya
  
 -# --- creating amaya-version.desktop
@@ -27,7 +28,7 @@
 +$ECHO "--> Creating $GNOMEKDEDIR/applications/amaya.desktop file"
 +$ECHO "[Desktop Entry]" > $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Encoding=UTF-8" >> $GNOMEKDEDIR/applications/amaya.desktop
-+$ECHO "Name=Amaya" >> $GNOMEKDEDIR/applications/amaya.desktop
++$ECHO "Name=Amaya @APP_VER@" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Comment=Edit the Web" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Comment[fr]=Editez le Web" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Comment[nl]=Bewerk het web" >> $GNOMEKDEDIR/applications/amaya.desktop
@@ -36,16 +37,15 @@
 +$ECHO "GenericName[nl]=Bewerk het web" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "GenericName[tr]=Web Düzenleyicisi" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Categories=Application;Network;Development;" >> $GNOMEKDEDIR/applications/amaya.desktop
-+$ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/$AMAYA_INSTALLDIR/$AMAYAGUI/bin/amaya %u" >> $GNOMEKDEDIR/applications/amaya.desktop
++$ECHO "Exec=env XLIB_SKIP_ARGB_VISUALS=1 $PREFIX/bin/amaya %u" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Icon=amaya.png" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Terminal=false" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "Type=Application" >> $GNOMEKDEDIR/applications/amaya.desktop
 +$ECHO "MimeType=text/html;text/xml;application/xhtml+xml;application/xml" >> $GNOMEKDEDIR/applications/amaya.desktop
  
--# --- creating amaya-version.png
+ # --- creating amaya-version.png
 -$ECHO "--> Creating $GNOMEKDEDIR/pixmaps/amaya-@APP_VER@.png"
 -$CP $AMAYA_SOURCEBINDIR/../../resources/bundle/logo.png $GNOMEKDEDIR/pixmaps/amaya-@APP_VER@.png
-+# --- creating amaya.png
 +$ECHO "--> Creating $GNOMEKDEDIR/pixmaps/amaya.png"
 +$CP $AMAYA_SOURCEBINDIR/../../resources/bundle/logo.png $GNOMEKDEDIR/pixmaps/amaya.png
  
