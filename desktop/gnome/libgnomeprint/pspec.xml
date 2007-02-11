@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgnomeprint</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Gnome printer library</Summary>
+        <Summary xml:lang="tr">Gnome yazıcı kütüphanesi</Summary>
+        <Archive sha1sum="9e7fb75b18d162a274a7cf77f64d84b2741174a5" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/libgnomeprint/2.12/libgnomeprint-2.12.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>cups</Dependency>
+            <Dependency>libgnomecups</Dependency>
+            <Dependency>intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libgnomeprint</Name>
+        <RuntimeDependencies>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>cups</Dependency>
+            <Dependency>libgnomecups</Dependency>
+            <Dependency>intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/libgnomeprint</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-11</Date>
+            <Version>2.12.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
