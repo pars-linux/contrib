@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>keepassx</Name>
+        <Homepage>http://keepass.info/index.html</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Today you need to remember many passwords.</Summary>
+        <Summary xml:lang="tr">Today you need to remember many passwords.</Summary>
+        <Description>Today you need to remember many passwords..</Description>
+        <Description xml:lang="tr">Today you need to remember many passwords.</Description>
+        <Archive sha1sum="bae4b984d32f2bb6220d17a135e3322c4df73fcb"  type="targz">http://switch.dl.sourceforge.net/sourceforge/keepassx/KeePassX-0.2.2.tar.gz</Archive>
+        <BuildDependencies>
+             <Dependency>qt4</Dependency>
+             <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>keepassx</Name>
+        <RuntimeDependencies>
+             <Dependency>qt4</Dependency>
+             <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/keepass.desktop" permission="0755" >keepass.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-03</Date>
+            <Version>0.2.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
