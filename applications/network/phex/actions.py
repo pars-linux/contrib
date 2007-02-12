@@ -8,7 +8,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "phex_3.0.0.99"
+WorkDir = "%s_%s" % (get.srcNAME(), get.srcVERSION())
 
 def install():
     pisitools.dodir("/usr/share/pixmaps")
