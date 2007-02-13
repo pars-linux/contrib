@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>docbook-xsl</Name>
+        <Homepage>http://wiki.docbook.org/topic/DocBookXslStylesheets</Homepage>
+        <Packager>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Packager>
+        <License>as-is</License>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>XSL Stylesheets for Docbook</Summary>
+        <Summary xml:lang="tr">Docbook için XSL Stylesheets (Biçemyaprakları)</Summary>
+        <Description>XSL Stylesheets for Docbook</Description>
+        <Description xml:lang="tr">Docbook için XSL Stylesheets (Biçemyaprakları)</Description>
+        <Archive sha1sum="d2b4411652b14842ff77fc51fd675408f76e8147" type="tarbz2">http://mesh.dl.sourceforge.net/sourceforge/docbook/docbook-xsl-1.72.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxml2</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>docbook-xsl</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/sgml</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/build-docbook-catalog">build-docbook-catalog-1.2</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+    
+    <History>
+        <Update release="3">
+            <Date>2007-02-02</Date>
+            <Version>1.72.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-31</Date>
+            <Version>1.70.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-03-31</Date>
+            <Version>1.69.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
