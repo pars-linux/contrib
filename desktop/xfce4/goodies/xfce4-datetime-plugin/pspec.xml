@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-datetime-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>This plugin shows the date and time in the panel, and a calendar appears when you left-click on it.</Summary>
+        <Summary xml:lang="tr">Bu eklenti panel içerisinde tarihi gösterir ve üzerine sol tuş ile tıkladığınızda takvimi açar</Summary>
+        <Archive sha1sum="f18d788a907c251a6b586a15b1deb4eac0a0cb95" type="targz">http://goodies.xfce.org/releases/xfce4-datetime-plugin/xfce4-datetime-plugin-0.5.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-datetime-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-13</Date>
+            <Version>0.5.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
