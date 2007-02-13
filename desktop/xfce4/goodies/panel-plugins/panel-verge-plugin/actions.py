@@ -4,9 +4,11 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir="%s-%s" % (get.srcNAME()[6:], get.srcVERSION())
 
 def setup():
     autotools.configure()
