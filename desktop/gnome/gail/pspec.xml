@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gail</Name>
+        <Homepage>http://developer.gnome.org/projects/gap/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Accessibility support for Gtk+ and libgnomecanvas</Summary>
+        <Summary xml:lang="tr">Gtk+ ve libgnomecanvas için erişilebilirlik desteği</Summary>
+        <Archive sha1sum="2eab714213c23e11a6de74967c9d9c463516bb70" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/gail/1.9/gail-1.9.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>atk</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gail</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.12">atk</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-14</Date>
+            <Version>1.9.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
