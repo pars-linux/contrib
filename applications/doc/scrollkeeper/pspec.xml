@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scrollkeeper</Name>
+        <Homepage>http://scrollkeeper.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2.1</License>
+        <License>FDL-1.1</License>
+        <IsA>library</IsA>
+        <Summary>Cataloging system for documentation on open systems</Summary>
+        <Summary xml:lang="tr">Açık sistemlerde, belgeleme için bir kataloglama sistemi</Summary>
+        <Archive sha1sum="0462799a2d96f46dec76f2fd057e2dfe8d7cb94d" type="targz">http://mesh.dl.sourceforge.net/sourceforge/scrollkeeper/scrollkeeper-0.3.14.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>docbook-xml</Dependency>
+            <Dependency>intltool</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">scrollkeeper-0.3.14-nls.patch</Patch>
+            <Patch level="1">configure.patch</Patch>
+            <Patch level="1">scrollkeeper-0.3.14-gentoo.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>scrollkeeper</Name>
+        <RuntimeDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>docbook-xml</Dependency>
+            <Dependency>intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="data">/var</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-15</Date>
+            <Version>0.3.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
