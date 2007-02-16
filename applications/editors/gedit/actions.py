@@ -16,5 +16,3 @@ def build():
 def install():
     autotools.install()
     pisitools.dodoc("NEWS", "TODO", "README", "BUGS", "AUTHORS", "ChangeLog")
-    # delete scrollkeeper database, it will be updated by comar script
-    pisitools.removeDir("/var")
