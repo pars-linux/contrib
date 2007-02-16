@@ -1,0 +1,20 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Licensed under the GNU General Public License, version 2
+# See the file http://www.gnu.org/copyleft/gpl.txt
+
+from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
+
+def setup():
+    autotools.configure("--disable-scrollkeeper")
+
+def build():
+    autotools.make()
+
+def install():
+    autotools.install()
+    pisitools.dodoc("NEWS", "TODO", "README", "BUGS", "AUTHORS", "ChangeLog")
+    # delete scrollkeeper database, it will be updated by comar script
+    pisitools.removeDir("/var")

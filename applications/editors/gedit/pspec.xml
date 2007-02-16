@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gedit</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A text editor for the GNOME desktop</Summary>
+        <Summary xml:lang="tr">GNOME masaüstü için metin düzenleme yazılımı</Summary>
+        <Archive sha1sum="02e653ed0f8eaf5e147e24d8e4e5291eb94814e3" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/gedit/2.16/gedit-2.16.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gtksourceview</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gedit</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gtksourceview</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-15</Date>
+            <Version>2.16.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
