@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gthumb</Name>
+        <Homepage>http://gthumb.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Image viewer for Gnome Desktop</Summary>
+        <Summary xml:lang="tr">Gnome Masaüstü için Resim göstericisi</Summary>
+        <Archive sha1sum="1f1f278ef1d978ae7478f4fb13d8bf99d267e05d" type="targz">http://ftp.gnome.org/pub/gnome/sources/gthumb/2.8/gthumb-2.8.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libexif</Dependency>
+            <Dependency>libgphoto2</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">gthumb-2.8.1-as-needed.patch</Patch>
+            <Patch level="1">gthumb-2.8.1-noexif_fixes.patch</Patch>
+            <Patch level="1">gthumb-2.8.1-respect-zoom-pref.patch</Patch>
+            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gthumb</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libexif</Dependency>
+            <Dependency>libgphoto2</Dependency>
+            <Dependency>jpeg</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-13</Date>
+            <Version>2.8.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
