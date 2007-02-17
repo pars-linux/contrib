@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnomebaker</Name>
+        <Homepage>http://gnomebaker.sf.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>GTK2/Gnome cd burning application.</Summary>
+        <Summary xml:lang="tr">GTK2/Gnome cd yazma uygulaması.</Summary>
+        <Archive sha1sum="27be843a1d5a33848bb37cd549984ea9b7ecfd52" type="targz">http://mesh.dl.sourceforge.net/sourceforge/gnomebaker/gnomebaker-0.6.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>XML-Parser</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>dvd+rw-tools</Dependency>
+            <Dependency>cdrdao</Dependency>
+            <Dependency>cdrtools</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gnomebaker</Name>
+        <RuntimeDependencies>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>XML-Parser</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>dvd+rw-tools</Dependency>
+            <Dependency>cdrdao</Dependency>
+            <Dependency>cdrtools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-17</Date>
+            <Version>0.6.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
