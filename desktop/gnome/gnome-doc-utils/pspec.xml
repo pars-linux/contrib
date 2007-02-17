@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-doc-utils</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>A collection of documentation utilities for the Gnome project</Summary>
+        <Summary xml:lang="tr">Gnome projesi için döküman araçları takımı</Summary>
+        <Archive sha1sum="d134ae18e4fd3a4de3aa6879a67fb93e23e860db" type="tarbz2">ftp://ftp.gnome.org/pub/gnome/sources/gnome-doc-utils/0.8/gnome-doc-utils-0.8.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>docbook-xml</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnome-doc-utils</Name>
+        <RuntimeDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>intltool</Dependency>
+            <Dependency>docbook-xml</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+	    <COMAR script="package.py">System.Package</COMAR>
+	</Provides>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-02-15</Date>
+            <Version>0.8.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-28</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
