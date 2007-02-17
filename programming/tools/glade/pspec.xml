@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>glade</Name>
+        <Homepage>http://glade.gnome.org/</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GTK Form Designer</Summary>
+        <Summary xml:lang="tr">GTK Form Tasarımcısı</Summary>
+        <Archive sha1sum="a4641fcea36358e485f0a6019ccc068a415b57f7" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/glade3/3.1/glade3-3.1.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.8.0">glib2</Dependency>
+            <Dependency versionFrom="2.10.0">gtk2</Dependency>
+            <Dependency versionFrom="2.4">libxml2</Dependency>
+            <!-- Dependency versionFrom="0.12">devhelp</Dependency -->
+            <Dependency versionFrom="2.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.0">libbonoboui</Dependency>
+            <Dependency versionFrom="2.10.0">pygtk</Dependency>
+            <Dependency>gettext</Dependency>
+            <Dependency versionFrom="0.35">intltool</Dependency>
+            <Dependency versionFrom="0.19">pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>glade</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.8.0">glib2</Dependency>
+            <Dependency versionFrom="2.10.0">gtk2</Dependency>
+            <Dependency versionFrom="2.4">libxml2</Dependency>
+            <!--Dependency versionFrom="0.12">devhelp</Dependency -->
+            <Dependency versionFrom="2.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.0">libbonoboui</Dependency>
+            <Dependency versionFrom="2.10.0">pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-16</Date>
+            <Version>3.1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
