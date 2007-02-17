@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dolphin</Name>
+        <Homepage>http://enzosworld.gmxhome.de/</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE file manager focused on usability</Summary>
+        <Summary xml:lang="tr">Kullanışlılığı hedef almış bir KDE dosya yöneticisi</Summary>
+        <Description>Dolphin is a KDE-based file manager focusing on file management and usability. This approach allows to optimize the user interface for the task of file management rather then be a universal viewer for everything. Features include breadcrumb navigation, split view, network transparency and undo/redo functionality.</Description>
+        <Description xml:lang="tr">Dolphin, KDE masaüstü ortamı için kullanışlılığı ön planda tutan bir dosya sistemi tarayıcısıdır. Bu yaklaşım, uygulamanın arayüzünün her şeye yanıt veren bir gezginden ziyade dosya sisteminde gezinti görevi için optimize edilmesine olanak sağlamıştır. Dosya sisteminde gezinti için ihtiyaç duyulan özelliklerin en önemlileri bünyesinde yer almaktadır.</Description>
+        <Archive type="targz" sha1sum="d477b3e67eda7d692427c5de0d440216aa5a007d">http://enzosworld.gmxhome.de/download/dolphin-0.8.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>dolphin</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-14</Date>
+            <Version>0.8.2</Version>
+            <Comment>Initial version</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
