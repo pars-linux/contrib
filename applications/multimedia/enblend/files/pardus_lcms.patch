@@ -1,0 +1,24 @@
+diff -Nuar enblend-3.0.orig/configure.in enblend-3.0/configure.in
+--- enblend-3.0.orig/configure.in	2007-01-27 06:54:39.000000000 +0200
++++ enblend-3.0/configure.in	2007-02-17 11:20:33.000000000 +0200
+@@ -33,7 +33,7 @@
+ AC_CHECK_HEADER(boost/random/mersenne_twister.hpp,,AC_MSG_WARN([boost header files are required to compile enblend.]))
+ AC_CHECK_HEADER(boost/static_assert.hpp,,AC_MSG_WARN([boost header files are required to compile enblend.]))
+ AC_CHECK_HEADER(boost/pool/pool.hpp,,AC_MSG_WARN([boost header files are required to compile enblend.]))
+-AC_CHECK_HEADER(lcms.h,,AC_MSG_WARN([lcms header files are required to compile enblend.]))
++AC_CHECK_HEADER(lcms/lcms.h,,AC_MSG_WARN([lcms header files are required to compile enblend.]))
+ AC_CHECK_HEADER(xmi.h,,AC_MSG_WARN([xmi header files are required to compile enblend.]))
+ AC_CHECK_HEADER(GL/glew.h,,AC_MSG_WARN([glew header files are required to compile enblend.]))
+ AC_CHECK_HEADER(GL/glut.h,,AC_MSG_WARN([glut header files are required to compile enblend.]))
+diff -Nuar enblend-3.0.orig/src/enblend.cc enblend-3.0/src/enblend.cc
+--- enblend-3.0.orig/src/enblend.cc	2007-01-27 22:05:39.000000000 +0200
++++ enblend-3.0/src/enblend.cc	2007-02-17 11:20:57.000000000 +0200
+@@ -75,7 +75,7 @@
+ #endif
+ 
+ #include <boost/random/mersenne_twister.hpp>
+-#include <lcms.h>
++#include <lcms/lcms.h>
+ 
+ // Globals
+ 
