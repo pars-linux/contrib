@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geany</Name>
+        <Homepage>http://geany.uvena.de/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Fast and lightweight programming tool using GTK2</Summary>
+        <Summary xml:lang="tr">GTK2 kullanan hızlı ve hafif bir programlama aracı</Summary>
+        <Archive sha1sum="f379a35bbbbaa95dcff5d2e4302663837c33cf31" type="tarbz2">http://mesh.dl.sourceforge.net/sourceforge/geany/geany-0.10.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geany</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>libpng</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-18</Date>
+            <Version>0.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
