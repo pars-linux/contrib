@@ -27,4 +27,6 @@ def install():
     pisitools.insinto("/usr/share/applications", "assets/scourge.desktop")
     pisitools.insinto("/usr/share/pixmaps", "assets/scourge.png")
 
+    pisitools.rename("/usr/bin/tools", "scourge-tools")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README")
