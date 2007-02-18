@@ -12,9 +12,6 @@ from pisi.actionsapi import get
 
 import os
 
-WorkDir = "freedroidrpg-%s" % get.srcVERSION()
-NoStrip = "/"
-
 def fixperms(d):
     for root, dirs, files in os.walk(d):
         for name in dirs:
