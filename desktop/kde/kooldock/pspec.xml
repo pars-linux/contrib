@@ -1,47 +1,49 @@
 <?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
-   <Source>
-       <Name>kooldock</Name>
-       <Homepage>http://ktown.kde.cl/kooldock</Homepage>
-       <Packager>
-           <Name>Mert Uzbaşlı</Name>
-           <Email>mert@bunalmis.com</Email>
-       </Packager>
-       <License>GPL-2</License>
-       <IsA>app:gui</IsA>
-       <Summary>A kool dock for KDE.</Summary>
-       <Description>A kool dock for KDE. It attemps to resemble the Mac OSX dock.</Description>
-       <Summary xml:lang="tr">KDE için Mac OSX paneline benzeyen bir panel.</Summary>
-       <Description xml:lang="tr">KDE için Mac OSX paneline benzeyen bir panel.</Description>
-       <Archive sha1sum="aec5817a2920cc12fd07973f538da73b61f28587" type="targz">ftp://ftp.freenet.de/pub/.disk3/ftp.snt.utwente.nl/pub/os/linux/gentoo/distfiles/kooldock-0.3.tar.gz</Archive>
-       <Patches>
-           <Patch>kooldock-0.3-configure.patch</Patch>
-           <Patch>kooldock-0.3-fix-left-segfault.patch</Patch>
-           <Patch>turkish.patch</Patch>
-       </Patches>
-   </Source>
-   <Package>
-   <Name>kooldock</Name>
-       <RuntimeDependencies>
-           <Dependency versionFrom="3.2">kdebase</Dependency>
-           <Dependency versionFrom="3.2">kdelibs</Dependency>
-           <Dependency versionFrom="3.3">qt</Dependency>
-       </RuntimeDependencies>
-       <Files>
-           <Path fileType="executable">/usr/bin</Path>
-           <Path fileType="data">/usr/share</Path>
-           <Path fileType="doc">/usr/share/doc</Path>
-           <Path fileType="localedata">/usr/share/locale</Path>
-       </Files>
-   </Package>
-   <History>
-       <Update release="1">
-           <Date>2005-05-28</Date>
-           <Version>0.3</Version>
-           <Comment>First release</Comment>
-           <Name>Mert Uzbaşlı</Name>
-           <Email>mert@bunalmis.com</Email>
-       </Update>
-   </History>
+    <Source>
+        <Name>kooldock</Name>
+        <Homepage>http://ktown.kde.cl/kooldock</Homepage>
+        <Packager>
+            <Name>Mert Uzbaşlı</Name>
+            <Email>mert@bunalmis.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A kool dock for KDE.</Summary>
+        <Summary xml:lang="tr">KDE için Mac OSX paneline benzeyen bir panel.</Summary>
+        <Description>A kool dock for KDE. It attemps to resemble the Mac OSX dock.</Description>
+        <Description xml:lang="tr">KDE için Mac OSX paneline benzeyen bir panel.</Description>
+        <Archive sha1sum="aec5817a2920cc12fd07973f538da73b61f28587" type="targz">ftp://ftp.freenet.de/pub/.disk3/ftp.snt.utwente.nl/pub/os/linux/gentoo/distfiles/kooldock-0.3.tar.gz</Archive>
+        <Patches>
+            <Patch>kooldock-0.3-configure.patch</Patch>
+            <Patch>kooldock-0.3-fix-left-segfault.patch</Patch>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+    <Name>kooldock</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.2">kdebase</Dependency>
+            <Dependency versionFrom="3.2">kdelibs</Dependency>
+            <Dependency versionFrom="3.3">qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2005-05-28</Date>
+            <Version>0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Mert Uzbaşlı</Name>
+            <Email>mert@bunalmis.com</Email>
+        </Update>
+    </History>
 </PISI>
