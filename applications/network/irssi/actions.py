@@ -6,9 +6,6 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
-
-WorkDir="irssi-0.8.10"
 
 def setup():
     autotools.configure("--enable-ipv6 \
@@ -27,3 +24,4 @@ def build():
 
 def install():
     autotools.install()
+    pisitools.rename("/usr/bin/irssi", "irssi-bin")
