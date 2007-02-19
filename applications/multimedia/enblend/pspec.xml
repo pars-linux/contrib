@@ -11,14 +11,20 @@
         <License>GPL-2</License>
         <IsA>app:console</IsA>
         <Summary>Enblend is a tool for compositing images</Summary>
-        <Summary xml:lang="tr">Enblend, resimleri birleştirmek için araçtır.</Summary>
+        <Summary xml:lang="tr">Enblend is a tool for compositing images</Summary>
         <Description>Enblend is a tool for compositing images</Description>
-        <Description xml:lang="tr">Enblend, resimleri birleştirmek için araçtır.</Description>
-        <Archive sha1sum="c622cde8614f7e2b3bdfcf7f34a5c75f4e7fee04" type="targz">http://ovh.dl.sourceforge.net/sourceforge/enblend/enblend-2.5.tar.gz</Archive>
+        <Description xml:lang="tr">Enblend is a tool for compositing images</Description>
+        <Archive sha1sum="98f001a4eddb3fd1f9ab7def00d8655d4fb726ea" type="targz">http://switch.dl.sourceforge.net/sourceforge/enblend/enblend-3.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>boost</Dependency>
             <Dependency>tiff</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>libxmi</Dependency>
+            <Dependency>lcms</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">enblend-3.0_lcms.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -26,6 +32,9 @@
         <RuntimeDependencies>
             <Dependency>boost</Dependency>
             <Dependency>tiff</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>libxmi</Dependency>
+            <Dependency>lcms</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -34,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-02-16</Date>
+            <Version>3.0</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-12-04</Date>
             <Version>2.5</Version>
