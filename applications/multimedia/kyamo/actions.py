@@ -7,7 +7,7 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
-WorkDir="0.40a4-2"
+WorkDir="kyamo-0.40a4-2"
 
 def setup():
     kde.configure()
