@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir = "irssi-0.8.11-rc1"
+
 def setup():
     autotools.configure("--enable-ipv6 \
                          --enable-ssl \
