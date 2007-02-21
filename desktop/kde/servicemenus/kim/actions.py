@@ -1,0 +1,16 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Licensed under the GNU General Public License, version 2.
+# See the file http://www.gnu.org/copyleft/gpl.txt.
+
+from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "kim"
+
+def install():
+    pisitools.insinto("/usr/bin", "src/bin/kim*")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "src/kim*.desktop")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
