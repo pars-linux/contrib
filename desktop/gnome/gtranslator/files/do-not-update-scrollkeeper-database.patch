@@ -1,0 +1,11 @@
+diff -Nuar gtranslator-1.1.7.orig/help/C/Makefile.in gtranslator-1.1.7/help/C/Makefile.in
+--- gtranslator-1.1.7.orig/help/C/Makefile.in	2007-02-24 00:14:13.000000000 +0200
++++ gtranslator-1.1.7/help/C/Makefile.in	2007-02-24 00:14:49.000000000 +0200
+@@ -418,7 +418,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
