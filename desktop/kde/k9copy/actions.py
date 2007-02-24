@@ -7,8 +7,6 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
-WorkDir = "k9copy-1.1.0-beta2"
-
 def setup():
     kde.configure()
 
@@ -17,4 +15,5 @@ def build():
 
 def install():
     kde.install()
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README", "TODO")
