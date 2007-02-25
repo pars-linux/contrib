@@ -18,6 +18,7 @@ def build():
 
 def install():
     autotools.install()
+
     pisitools.domo("po/tr.po", "tr", "wput.mo")
     pisitools.insinto("/etc", "doc/wputrc")
     pisitools.dodoc("doc/*","TODO","ChangeLog")
