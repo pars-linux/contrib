@@ -11,4 +11,5 @@ def install():
     pisitools.insinto("/usr/bin", "src/kpaste")
     pisitools.insinto("/usr/share/pixmaps", "src/kpaste.png")
     pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "src/kpaste.desktop")
+
     pisitools.dodoc("AUTHORS", "README")
