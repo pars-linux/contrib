@@ -7,8 +7,6 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import perlmodules
 
-WorkDir = "Curses-1.15"
-
 def setup():
     perlmodules.configure()
 
