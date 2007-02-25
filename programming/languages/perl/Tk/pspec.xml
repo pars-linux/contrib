@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>Tk</Name>
+        <Homepage>http://search.cpan.org/~ni-s/</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>library</IsA>
+        <Summary>A Perl module for Tkinter</Summary>
+        <Summary xml:lang="tr">Tkinter için bir Perl modülü</Summary>
+	<Archive sha1sum="af983302f8519c31ac105b45b07cf878f2a95de7" type="targz">mirrors://cpan/authors/id/S/SR/SREZIC/Tk-804.027_500.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">xorg.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>Tk</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-25</Date>
+            <Version>804.027_500</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
