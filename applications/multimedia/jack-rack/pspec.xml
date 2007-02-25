@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>jack-rack</Name>
+        <Homepage>http://jack-rack.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>JACK Rack is an effects "rack" for the JACK low latency audio API.</Summary>
+        <Summary xml:lang="tr">JACK rack; JACK, düşük gecikme süreli ses API'si için efektlerdir</Summary>
+        <Archive sha1sum="d6754e486da88fd1421f7c7e598400608111b1b4" type="tarbz2">mirrors://sourceforge/jack-rack/jack-rack-1.4.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>ladspa-sdk</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>liblrdf</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>jack-rack</Name>
+        <RuntimeDependencies>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>ladspa-sdk</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>liblrdf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-25</Date>
+            <Version>1.4.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
