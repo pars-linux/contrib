@@ -12,4 +12,5 @@ def build():
 
 def install():
     pythonmodules.install()
+    
     pisitools.dodoc("docs/anatomy.txt", "docs/manual/*", "ChangeLog", "BUGS", "ANNOUNCE")
