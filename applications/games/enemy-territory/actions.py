@@ -17,6 +17,7 @@ def install():
     pisitools.insinto("/opt/enemy-territory/etmain", "etmain/*")
     pisitools.insinto("/opt/enemy-territory/pb", "pb/*")
     pisitools.insinto("/opt/enemy-territory/Docs", "Docs/*")
+    pisitools.insinto("/opt/enemy-territory", "openurl.sh")
     
     pisitools.dobin("bin/Linux/x86/et", "/opt/enemy-territory")
     pisitools.dobin("bin/Linux/x86/etded.x86", "/opt/enemy-territory")
@@ -24,5 +25,5 @@ def install():
     pisitools.dosym("/opt/enemy-territory/et", "/usr/bin/et")
     
     pisitools.insinto("/usr/share/pixmaps", "ET.xpm")
-    pisitools.insinto("/opt/enemy-territory", "openurl.sh")
+    
     pisitools.dodoc("CHANGES", "README")
