@@ -30,4 +30,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("CHANGES","COPYHEADER","PROBLEMS","README","docs/*","lynx_help/*.txt")
