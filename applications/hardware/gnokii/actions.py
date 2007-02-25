@@ -18,6 +18,7 @@ def build():
 
 def install():
     autotools.install()
+
     pisitools.insinto("/etc", "Docs/sample/gnokiirc")
     pisitools.dodoc("Docs/*")
     pisitools.doman("Docs/man/*")
