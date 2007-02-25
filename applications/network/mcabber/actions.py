@@ -16,5 +16,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "mcabberrc.example", "NEWS", "README", "TODO")
     pisitools.insinto("/usr/share/mcabber/themes", "contrib/themes/*")
