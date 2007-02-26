@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 WorkDir = 'jahshaka'
 
 def setup():
-    autotools.configure('--disable-debug')
+    autotools.configure('--enable-openalframework')
 
 def build():
     autotools.make()
