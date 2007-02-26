@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freeverb3</Name>
+        <Homepage>http://freeverb3.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Freeverb3 is a sound processing library</Summary>
+        <Summary xml:lang="tr">Freeverb3, ses işleme kitaplıkları</Summary>
+        <Description>This library's oversampling feature may provide higher quality of audio processing</Description>
+        <Description xml:lang="tr">Freeverb3 kitaplığının örnekleme özelliği yüksek kaliteli ses işleme imkanı sunabilmektedir</Description>
+        <Archive sha1sum="45920642f9d93be545be187bcea81974971076a8" type="targz">mirrors://sourceforge/freeverb3/freeverb3-1.6.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.10.6">gtk2</Dependency>
+            <Dependency versionFrom="3.1.2">fftw3</Dependency>
+            <Dependency versionFrom="0.1.2">libsamplerate</Dependency>
+            <Dependency versionFrom="1.0.15">libsndfile</Dependency>
+            <Dependency>audacious</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>configure.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>freeverb3</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.10.6">gtk2</Dependency>
+            <Dependency versionFrom="3.1.2">fftw3</Dependency>
+            <Dependency versionFrom="0.1.2">libsamplerate</Dependency>
+            <Dependency versionFrom="1.0.15">libsndfile</Dependency>
+            <Dependency>audacious</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-27</Date>
+            <Version>1.6.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
