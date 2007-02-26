@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="prokyon3-0.9.6RC1"
-
 def setup():
     autotools.configure("--with-x \
                          --with-qtdir=%s \
