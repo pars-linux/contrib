@@ -7,8 +7,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir = 'ORBit2-2.14.5'
+WorkDir = "ORBit2-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure("--enable-static=no")
