@@ -11,7 +11,8 @@ def setup():
                    --with-vorbis \
                    --with-faad \
                    --with-flac \
-                   --with-ffmpeg")
+                   --with-ffmpeg \
+                   --without-mp4v2")
 
 def build():
     kde.make()
