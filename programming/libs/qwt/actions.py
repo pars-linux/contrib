@@ -14,18 +14,20 @@ from pisi.actionsapi import get
 def setup():
     shelltools.system("qmake qwt.pro")
 
-    shelltools.cd("designer")
-    shelltools.system("qmake designer.pro")
+    #shelltools.cd("designer")
+    #shelltools.system("qmake designer.pro")
 
 def build():
     autotools.make()
 
-    shelltools.cd("designer")
-    autotools.make()
+    #shelltools.cd("designer")
+    #autotools.make()
 
 def install():
     pisitools.insinto("/usr/lib/","lib/*")
     pisitools.insinto("/usr/include/qwt","include/*")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "doc/html")
+    pisitools.doman("doc/man/man3/*.3")
+
     pisitools.insinto("%s/plugins/designer" % get.qtDIR(),"designer/plugins/designer/*.so")
