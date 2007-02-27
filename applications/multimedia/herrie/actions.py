@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.rawConfigure()
@@ -15,8 +16,10 @@ def build():
 
 def install():
     pisitools.dobin("herrie")
-    pisitools.domo("lang/nl.po", "nl", "herrie.mo")
-    pisitools.domo("lang/tr.po", "tr", "herrie.mo")
-
     pisitools.doman("herrie.1")
+    
+    locales = ['nl','tr']
+    for locale in locales:
+        pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale)
+
     pisitools.dodoc("COPYING", "ChangeLog", "README")
