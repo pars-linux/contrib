@@ -4,14 +4,14 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "gdal-1.4.0beta2"
-
 def setup():
     pisitools.dosed("GDALmake.opt.in", "@datadir@", "@datadir@/gdal")
+
     autotools.configure("--with-libz \
                          --with-grass=no \
                          --with-libtool \
@@ -54,5 +54,3 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
-
-
