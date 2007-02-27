@@ -14,8 +14,10 @@
         <Summary xml:lang="tr">ConvertLit için kullanıcı grafik arayüzü</Summary>
         <Description>Litconverter is a GUI for ConvertLit program running on a console in order to convert MS Reader's .lit files to html.</Description>
         <Description xml:lang="tr">MS Reader'ın .lit dosyalarını HTML'ye dönüştüren konsol programı ConvertLit için kullanıcı grafik arayüzü.</Description>
-        <Archive sha1sum="f6725635df78621829190a287b6b3e9cf4458562" type="targz">http://kde-apps.org/CONTENT/content-files/50822-litconverter-0.2.tar.gz</Archive>
+        <Archive sha1sum="88b5e495f02ee2bd1b37a75d65b0d89f1262e1b4" type="targz">http://www.kde-apps.org/CONTENT/content-files/50822-litconverter-1.0.tar.gz</Archive>
         <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>PyQt4</Dependency>
             <Dependency versionFrom="1.8">convertlit</Dependency>
         </BuildDependencies>
     </Source>
@@ -23,6 +25,8 @@
     <Package>
         <Name>litconverter</Name>
         <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>PyQt4</Dependency>
             <Dependency versionFrom="1.8">convertlit</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -37,10 +41,17 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-02-28</Date>
+            <Version>1.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-01-01</Date>
             <Version>0.2</Version>
-            <Comment>First release</Comment>
+            <Comment>Version bump</Comment>
             <Name>Murat Şenel</Name>
             <Email>muratasenel@gmail.com</Email>
         </Update>
