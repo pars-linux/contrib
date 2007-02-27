@@ -7,8 +7,6 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 
-WorkDir = "freevo-1.7.0-rc2"
-
 def install():
     pisitools.dodir("/etc/freevo")
     pisitools.dodir("/var/cache/freevo")
