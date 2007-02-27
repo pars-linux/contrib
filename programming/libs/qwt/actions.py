@@ -14,14 +14,9 @@ from pisi.actionsapi import get
 def setup():
     shelltools.system("qmake qwt.pro")
 
-    #shelltools.cd("designer")
-    #shelltools.system("qmake designer.pro")
-
 def build():
     autotools.make()
 
-    #shelltools.cd("designer")
-    #autotools.make()
 
 def install():
     pisitools.insinto("/usr/lib/","lib/*")
