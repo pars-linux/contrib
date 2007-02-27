@@ -19,6 +19,6 @@ def install():
     
     locales = ['nl','tr']
     for locale in locales:
-        pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale)
+        pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale, "herrie.mo")
 
     pisitools.dodoc("COPYING", "ChangeLog", "README")
