@@ -6,8 +6,8 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="openttd-0.4.8-RC1-scenarios"
+WorkDir="."
 
 def install():
-    pisitools.insinto("/usr/share/openttd/scenario", "*")
+    pisitools.insinto("/usr/share/openttd/scenario", "*.scn")
 
