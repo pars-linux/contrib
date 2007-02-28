@@ -25,7 +25,7 @@ def build():
 
 def install():
     pisitools.insinto("%s/lib/" % get.qtDIR(),"lib/*")
-    pisitools.insinto("%s/include/qwt" % get.qtDIR() ,"include/*")
+    pisitools.insinto("%s/include/qwt" % get.qtDIR() ,"src/*.h")
 
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "doc/html")
@@ -35,6 +35,6 @@ def install():
 
     shelltools.cd("../qwt-5.0.1-qt4")
     pisitools.insinto("/usr/qt/4/lib/","lib/*")
-    pisitools.insinto("/usr/qt/4/include/qwt","include/*")
+    pisitools.insinto("/usr/qt/4/include/qwt","src/*.h")
 
     pisitools.insinto("/usr/qt/4/plugins/designer","designer/plugins/designer/*.so")
