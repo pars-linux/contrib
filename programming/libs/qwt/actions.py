@@ -19,8 +19,9 @@ def build():
 
 
 def install():
-    pisitools.insinto("/usr/lib/","lib/*")
-    pisitools.insinto("/usr/include/qwt","include/*")
+    pisitools.insinto("%s/lib/" % get.qtDIR(),"lib/*")
+    pisitools.insinto("%s/include/qwt" % get.qtDIR() ,"include/*")
+
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "doc/html")
     pisitools.doman("doc/man/man3/*.3")
