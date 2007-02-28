@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tilda</Name>
+        <Homepage>http://tilda.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A drop down Terminal like Yakuake</Summary>
+        <Summary xml:lang="tr">Yakuake benzeri yukarıdan aşağı doğru kayan Terminal</Summary>
+        <Archive sha1sum="1e50215f6077be5b71dc87d4cf7d33cff7baf2b3" type="targz">mirrors://sourceforge/tilda/tilda-0.9.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>vte</Dependency>
+            <Dependency>libconfuse</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tilda</Name>
+        <RuntimeDependencies>
+            <Dependency>vte</Dependency>
+            <Dependency>libconfuse</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-28</Date>
+            <Version>0.9.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
