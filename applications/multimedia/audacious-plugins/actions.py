@@ -8,44 +8,53 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "audacious-plugins-1.3.0-rc2"
+
 def setup():
-    autotools.configure("--enable-ipv6 \
+    autotools.configure("--enable-nls \
+                         --enable-rpath \
+                         --enable-ipv6 \
                          --enable-chardet \
+                         --disable-gconf \
                          --enable-esd \
                          --enable-mp3 \
-                         --enable-pulse \
+                         --enable-rocklight \
                          --enable-lirc \
-                         --enable-coreaudio \
-                         --enable-null \
-                         --enable-wavpack \
+                         --enable-evdevplug \
+                         --enable-statusicon \
+                         --enable-aosd \
                          --enable-adplug \
                          --enable-vorbis \
+                         --enable-wavpack \
                          --enable-aac \
-                         --enable-notify \
                          --enable-sndfile \
                          --enable-modplug \
                          --enable-flac \
+                         --enable-musepack \
                          --enable-wma \
-                         --enable-oss \
                          --enable-jack \
                          --enable-arts \
                          --enable-sid \
-                         --with-sidplay2=/usr \
-                         --with-sidbuilders=/usr \
-                         --enable-musepack \
+                         --enable-oss \
                          --enable-alsa \
-                         --enable-paranormal \
                          --enable-amidiplug \
                          --enable-amidiplug-alsa \
                          --enable-amidiplug-flysn \
                          --enable-amidiplug-dummy \
                          --enable-timidity \
+                         --enable-mms \
+                         --enable-paranormal \
                          --enable-xspf \
-                         --disable-xmltest")
+                         --disable-xmltest \
+                         --enable-projectm \
+                         --enable-tta \
+                         --with-sidplay2=/usr \
+                         --with-sidbuilders=/usr")
+
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("ChangeLog", "COPYING", "AUTHORS", "INSTALL", "NEWS")
 
+    pisitools.dodoc("ChangeLog", "COPYING", "AUTHORS", "INSTALL", "NEWS")
