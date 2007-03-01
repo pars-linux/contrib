@@ -13,7 +13,7 @@ def setup():
                          --enable-chardet \
                          --enable-notify \
                          --enable-mplayer \
-                         --enable-sap \
+                         --enable-cube \
                          --enable-iris")
 def build():
     autotools.make()
@@ -25,4 +25,3 @@ def install():
     pisitools.removeDir("/usr/include")
 
     pisitools.dodoc("ChangeLog", "COPYING", "AUTHORS", "INSTALL", "NEWS")
-
