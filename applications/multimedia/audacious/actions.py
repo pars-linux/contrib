@@ -8,36 +8,22 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "audacious-1.3.0-rc2"
+
 def setup():
     autotools.configure("--enable-ipv6 \
                          --enable-chardet \
-                         --enable-esd \
+                         --enable-rpath \
+                         --disable-gconf \
+                         --enable-mcs \
                          --enable-xspf \
-                         --enable-mp3 \
-                         --enable-lirc \
-                         --enable-adplug \
-                         --enable-vorbis \
-                         --enable-aac \
-                         --enable-sndfile \
-                         --enable-modplug \
-                         --enable-flac \
-                         --enable-wma \
-                         --enable-oss \
-                         --enable-jack \
-                         --enable-arts \
-                         --enable-sid \
-                         --with-sidplay2=/usr \
-                         --with-sidbuilders=/usr \
-                         --enable-musepack \
-                         --enable-alsa \
-                         --enable-amidiplug \
-                         --enable-timidity \
-                         --with-dev-dsp=/dev/sound/dsp \
-                         --with-dev-mixer=/dev/sound/mixer")
+                         --disable-xmltest \
+                         --enable-samplerate \
+                         --enable-nls")
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("ABOUT-NLS", "ChangeLog", "COPYING", "AUTHORS", "INSTALL", "NEWS", "README")
 
+    pisitools.dodoc("ABOUT-NLS", "ChangeLog", "COPYING", "AUTHORS", "INSTALL", "NEWS", "README")
