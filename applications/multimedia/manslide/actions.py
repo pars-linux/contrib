@@ -7,9 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
-WorkDir="Manslide-%s" % get.srcVERSION()
+WorkDir="Manslide-1.4"
 
 def setup():
     shelltools.system("/usr/bin/qmake-qt4 Manslide.pro")
