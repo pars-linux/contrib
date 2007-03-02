@@ -1,7 +1,8 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 #
-#Ertugrul Erata ertugrulerata at gmail.com
-#
+# Licensed under the GNU General Public License, version 2
+# See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
@@ -14,6 +15,7 @@ def build():
 
 def install():
     autotools.install()
+    
     pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
     pisitools.insinto("etc/xdg/xfce4/desktop", "menu.xml.tr")
     # conflict
