@@ -1,11 +1,10 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 #
-#Ertugrul Erata ertugrulerata at gmail.com
-#
+# Licensed under the GNU General Public License, version 2.
+# See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import get
-from pisi.actionsapi import pisitools
 
 WorkDir="xarchiver-0.4.2rc2"
 
@@ -18,4 +17,3 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.domo("po/tr.po","tr","xarchiver.mo")
