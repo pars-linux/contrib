@@ -25,9 +25,9 @@ def start():
         fail("Unable to start service")
 
 def stop():
-    ret = run("/sbin/start-stop-daemon --stop --quiet --pidfile /var/run/tcsd.pid")
-    os.unlink("/var/run/tcsd.pid")
+    ret = run("/sbin/start-stop-daemon --stop --user tss --quiet --pidfile /var/run/tcsd.pid")
     if ret == 0:
+        unlink()
         notify("System.Service.changed", "stopped")
     else:
         fail("Unable to stop service")
