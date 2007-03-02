@@ -12,13 +12,13 @@ def unlink():
     except:
         pass
 
-def load_modul():
+def load_module():
     run("/sbin/modprobe tpm")
 
 def start():
-    load_modul()
+    load_module()
     ret = run("/sbin/start-stop-daemon --start --chuid tss --quiet --background \
-                --pidfile /var/run/tcsd.pid --exec /usr/sbin/tcsd")
+                -m --pidfile /var/run/tcsd.pid --exec /usr/sbin/tcsd")
     if ret == 0:
         notify("System.Service.changed", "started")
     else:
@@ -26,8 +26,8 @@ def start():
 
 def stop():
     ret = run("/sbin/start-stop-daemon --stop --quiet --pidfile /var/run/tcsd.pid")
+    os.unlink("/var/run/tcsd.pid")
     if ret == 0:
-        unlink()
         notify("System.Service.changed", "stopped")
     else:
         fail("Unable to stop service")
