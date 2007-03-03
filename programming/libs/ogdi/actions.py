@@ -13,7 +13,7 @@ def setup():
     shelltools.export("TOPDIR", "%s/%s" % (get.workDIR(),get.srcDIR()))
     autotools.configure("--with-zlib \
                          --with-proj \
-                         --without-expat")
+                         --with-expat")
 
 def build():
     shelltools.export("LD_LIBRARY_PATH", "%s/%s/bin/linux" % (get.workDIR(),get.srcDIR()))
