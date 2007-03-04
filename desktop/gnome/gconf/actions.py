@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 WorkDir="GConf-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--enable-debug=yes --enable-static=no")
+    autotools.configure("--enable-static=no")
 
 def build():
     autotools.make()
