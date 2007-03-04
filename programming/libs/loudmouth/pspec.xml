@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>loudmouth</Name>
+        <Homepage>http://loudmouth.imendio.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2-1</License>
+        <IsA>library</IsA>
+        <Summary>Lightweight C Jabber library</Summary>
+        <Summary xml:lang="tr">Hafif bir C jabber kütüphanesi</Summary>
+        <Archive sha1sum="540c92192c66b2e7440fb7124d67faef43143471" type="tarbz2">mirrors://gnome/loudmouth/1.2/loudmouth-1.2.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>loudmouth</Name>
+        <RuntimeDependencies>
+            <Dependency>openssl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-04</Date>
+            <Version>1.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
