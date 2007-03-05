@@ -15,16 +15,16 @@
         <Description>You then always know what you are listening to, and watch its cover: it is always visible on your panel.This is to offer the full-screen mode</Description>
         <Description xml:lang="tr">Amarok'ta ne dinlediğinizi ve albüm kapaklarını her zaman panelde gösteren bir uygulama.İstenirse tam ekran modu sunar.</Description>
         <Archive sha1sum="b1aaf848daddba8a12c89c48b68f3fce6013c0ee" type="targz">http://slaout.linux62.org/kirocker/kirocker-2.2.tar.gz</Archive>
-        <BuildDependencies>
-            <Dependency>kdelibs</Dependency>
-        </BuildDependencies>
+        <Patches>
+            <Patch>tr.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>kirocker</Name>
         <RuntimeDependencies>
             <Dependency>amarok</Dependency>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>kdebase</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="data">/usr/kde/3.5/share/</Path>
@@ -34,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-03-05</Date>
+            <Version>2.2</Version>
+            <Comment>Turkish translation</Comment>
+            <Name>Gökmen GÖKSEL</Name>
+            <Email>gokmen@pardus.org.tr</Email>
+        </Update>
         <Update release="4">
             <Date>2007-03-03</Date>
             <Version>2.2</Version>
