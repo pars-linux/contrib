@@ -10,7 +10,7 @@ from pisi.actionsapi import shelltools
 
 
 def setup():
-    shelltools.system("/usr/bin/qmake-qt4 fet.pro")
+    shelltools.system("qmake-qt4 fet.pro")
 
 def build():
     autotools.make()
