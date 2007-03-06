@@ -4,8 +4,6 @@
 # Copyright 2005 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
-#
-# Ertuğrul Erata <ertugrulerata@gmail.com>
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import autotools
