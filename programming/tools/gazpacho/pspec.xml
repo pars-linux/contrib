@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gazpacho</Name>
+        <Homepage>http://gazpacho.sicem.biz</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>Gazpacho is a glade-like gtk interface designer.</Summary>
+        <Archive sha1sum="2d8a3bd0c8f358e4d39fb767c4cafbcdb7788b4a" type="targz">mirrors://gnome/gazpacho/0.7/gazpacho-0.7.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>kiwi</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gazpacho</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>kiwi</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/gazpacho</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-06</Date>
+            <Version>0.7.0</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
