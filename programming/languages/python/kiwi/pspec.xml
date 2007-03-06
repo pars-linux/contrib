@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kiwi</Name>
+        <Homepage>http://www.async.com.br/projects/kiwi</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>a Python Framework</Summary>
+        <Description>Kiwi is a pure Python framework and set of enhanced PyGTK widgets</Description>
+        <Archive sha1sum="5df905a19034107ef815f50be97dd190e4b876cb" type="targz">http://ftp.gnome.org/pub/gnome/sources/kiwi/1.9/kiwi-1.9.13.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kiwi</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/gazpacho</Path>
+            <Path fileType="data">/usr/share/kiwi</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-06</Date>
+            <Version>1.9.13</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
