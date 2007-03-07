@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import autotools
 
-WorkDir="hugin-0.7_beta3"
+WorkDir="hugin-0.7_beta4"
 
 def setup():
     autotools.configure("--enable-shared \
