@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sqliteman</Name>
+        <Homepage>http://sqliteman.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Lightweight but powerfull Sqlite3 manager</Summary>
+        <Summary xml:lang="tr">Küçük ama güçlü bir Sqlite3 yöneticisi</Summary>
+        <Description>The best developer's and/or admin's GUI tool for Sqlite3 in the world. No joking here (or just a bit only) - it contains the most complete feature set of all tools available.</Description>
+        <Description xml:lang="tr">Bu araç geliştirici ve yöneticiler için dünyadaki en iyi Sqlite3 arayüzüdür. Varolan bütün araçları bir araya getirir.</Description>
+        <Archive type="targz" sha1sum="3802462ca3c9c4f215af89b9cb286ac46366f299">mirrors://sourceforge/sqliteman/sqliteman-0.99-20070301.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>qt4-sql-sqlite</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>sqliteman</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>qt4-sql-sqlite</Dependency>
+            <Dependency>sqlite</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-03-08</Date>
+            <Version>0.99_20070301</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
