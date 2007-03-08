@@ -18,5 +18,6 @@ def build():
 
 def install():
     pisitools.dobin("sqliteman/sqliteman/sqliteman")
+    pisitools.insinto("/usr/share/pixmaps", "sqliteman/sqliteman/icons/sqliteman.png")
     pisitools.dodoc("AUTHORS", "README", "VERSION", "COPYING")
 
