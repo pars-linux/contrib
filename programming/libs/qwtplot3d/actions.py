@@ -31,4 +31,4 @@ def install():
 
     shelltools.cd("../qwtplot3d-qt4")
     pisitools.insinto("/usr/qt/4/lib/","lib/*")
-    pisitools.insinto("/usr/qt/4/lib/","include/*")
+    pisitools.insinto("/usr/qt/4/include/","include/*")
