@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>reportlab</Name>
+        <Homepage>http://reportlab.org/rl_toolkit.html</Homepage>
+        <Packager>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Open Source PDF library is suitable for web publishers, developers or creative design professionals who need to quickly and easily create or automate complex (even data-driven) documents</Summary>
+        <Description>Reportlab is a library for quickly generating PDFs. At the low-level, Reportlab graphics can be used for programmatic drawing including pie-charts, plots, etc. At the high-level Platypus API may be used for automatic layout based on a sequence of logical story elements such as paragraphs, images, and layout hints. 
+        </Description>
+        <Archive sha1sum="e057689131e000ba3105949bceb9c375715354b6" type="targz">http://reportlab.org/ftp/ReportLab_2_0.tgz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>reportlab</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-09</Date>
+            <Version>2.0</Version>
+            <Comment>First release</Comment>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
