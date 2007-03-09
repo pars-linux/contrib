@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir="xfprint-4.4.0"
+
 def setup():
     autotools.configure("--enable-static=no \
                                   --enable-cups \
