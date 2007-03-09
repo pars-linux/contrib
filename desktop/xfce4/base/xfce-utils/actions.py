@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir="xfce-utils-4.4.0"
+
 def setup():
     autotools.configure("--enable-static=no \
                                      --with-browser=firefox \
