@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tango-icon-theme</Name>
+        <Homepage>http://www.tango-project.org</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>CCAS</License>
+        <IsA>data</IsA>
+        <Summary>Tango Icon theme</Summary>
+        <Description>Tango is a project to create a new cross-desktop and cross-platform icon theme, using a standard style guide, and the new Icon Naming Specification.</Description>
+        <Archive sha1sum="ef3e7e29739130a5be6b03fe395f3cc20377b7aa" type="targz">http://tango-project.org/releases/tango-icon-theme-0.7.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>hicolor-icon-theme</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tango-icon-theme</Name>
+        <RuntimeDependencies>
+            <Dependency>hicolor-icon-theme</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-09</Date>
+            <Version>0.7.2</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
