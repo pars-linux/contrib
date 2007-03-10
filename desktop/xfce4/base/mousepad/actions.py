@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir="mousepad-0.2.12"
+
 def setup():
     autotools.configure("--enable-static=no")
 
