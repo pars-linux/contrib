@@ -6,7 +6,9 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="amaroK-0.2"
+WorkDir="."
 
 def install():
     pisitools.insinto("/usr/share/amsn/plugins/amaroK", "*")
+    
+    pisitools.remove("/usr/share/amsn/plugins/amaroK/pisiBuildState")
