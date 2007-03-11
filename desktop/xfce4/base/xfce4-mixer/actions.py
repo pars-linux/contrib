@@ -1,13 +1,10 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 #
-# Licensed under the GNU General Public License, version 2.
-# See the file http://www.gnu.org/copyleft/gpl.txt.
+#Ertugrul Erata ertugrulerata at gmail.com
+#
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-
-WorkDir="xfce4-mixer-4.4.0"
 
 def setup():
     autotools.configure()
