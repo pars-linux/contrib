@@ -7,8 +7,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="xfwm4-4.4.1"
-
 def setup():
     autotools.configure("--enable-static=no")
 
