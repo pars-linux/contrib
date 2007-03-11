@@ -7,8 +7,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="xfdesktop-4.4.0"
-
 def setup():
     autotools.configure("--enable-static=no")
 
@@ -19,5 +17,6 @@ def install():
     autotools.install()
     
     pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
+    pisitools.insinto("etc/xdg/xfce4/desktop", "menu.xml.tr")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
