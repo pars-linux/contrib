@@ -10,10 +10,8 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--enable-static=no \
-                         --bindir=/usr/bin \
                          --disable-qt \
-                         --disable-gtk \
-                         --datadir=/usr/share ")
+                         --disable-gtk")
 
 def build():
     autotools.make()
