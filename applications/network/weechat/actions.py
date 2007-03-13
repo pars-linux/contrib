@@ -21,5 +21,6 @@ def build():
 def install():
     autotools.install()
     pisitools.dobin("src/gui/curses", "/usr/bin/weechat-curses")
+    pisitools.dosym("/usr/bin/weechat-curses", "/usr/bin/weechat")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
