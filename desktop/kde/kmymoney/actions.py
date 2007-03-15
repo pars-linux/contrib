@@ -7,7 +7,7 @@
 
 from pisi.actionsapi import kde
 
-WorkDir = "kmymoney2-0.8.5"
+WorkDir = "kmymoney2-0.8.6"
 
 def setup():
     kde.configure()
