@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "audacious-plugins-1.3.0-rc2"
-
 def setup():
     autotools.configure("--enable-nls \
                          --enable-rpath \
@@ -48,6 +46,7 @@ def setup():
                          --disable-xmltest \
                          --enable-projectm \
                          --enable-tta \
+                         --enable-lame \
                          --with-sidplay2=/usr \
                          --with-sidbuilders=/usr")
 
