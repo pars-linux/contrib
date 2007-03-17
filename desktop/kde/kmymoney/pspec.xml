@@ -12,10 +12,17 @@
         <IsA>app:gui</IsA>
         <Summary>Personal Finances Manager for KDE</Summary>
         <Summary xml:lang="tr">KDE için kisişel finans yöneticisi</Summary>
+        <Description>Useful Personal Finances Manager for KDE</Description>
+        <Description xml:lang="tr">KDE için kullanışlı bir kisişel finans yöneticisi.</Description>
         <Archive sha1sum="4a7efc6ccb8a637611563e0cff6a365882a06f0f" type="targz">mirrors://sourceforge/kmymoney2/kmymoney2-0.8.6.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libxml2</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>mime.patch</Patch>
+            <Patch>desktop.patch</Patch>
+            <Patch>turkish.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -26,11 +33,16 @@
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
             <Path fileType="library">/usr/kde/3.5/lib</Path>
             <Path fileType="data">/usr/kde/3.5/man</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
-            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/kde/3.5/share/apps/kmymoney2/templates/tr_TR/default_accounts.kmt" permission="0755" owner="root">default_accounts.kmt</AdditionalFile>
+            <AdditionalFile target="/usr/kde/3.5/share/apps/kmymoney2/html/home_tr.html" permission="0755" owner="root">home_tr.html</AdditionalFile>
+            <AdditionalFile target="/usr/kde/3.5/share/apps/kmymoney2/html/whats_new_tr.html" permission="0755" owner="root">whats_new_tr.html</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
