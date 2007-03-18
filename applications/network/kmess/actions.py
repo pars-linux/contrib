@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="kmess-1.5pre1"
+WorkDir="kmess-1.5pre2"
 
 def setup():
     kde.configure()
