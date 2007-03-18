@@ -9,6 +9,10 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.aclocal()
+    autotools.autoreconf("--install --force")
+    autotools.automake("--add-missing")
+
     autotools.configure("--disable-static")
 
 def build():
