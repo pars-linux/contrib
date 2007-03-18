@@ -19,6 +19,9 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    pisitools.doman("jacklaunch.1")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "WORKING", "README")
 
     pisitools.remove("/usr/lib/libjackasyn.a")
