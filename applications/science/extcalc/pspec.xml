@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>extcalc</Name>
+        <Homepage>http://extcalc-linux.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Extcalc is a scientfic graphic calculator for Linux</Summary>
+        <Summary xml:lang="tr">Extcalc bilimsel grafik hesap makinesidir.</Summary>
+        <Description> Extcalc is designed to use the full performance of a modern Computer for mathematical calculations.</Description>
+        <Description xml:lang="tr">Excalc yüksek  performanslı modern bilgisayarların matematik hesapları yapması için geliştirilmiştir</Description>
+        <Archive sha1sum="5e996396c87664b403fb0f27d8cd6ceea97ba091" type="targz">http://ovh.dl.sourceforge.net/sourceforge/extcalc-linux/extcalc-0.7.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.3.0">qt</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>tr.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>extcalc</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.3.0">qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-14</Date>
+            <Version>0.7.0</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
