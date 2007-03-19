@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>valknut</Name>
+        <Homepage>http://sourceforge.net/projects/wxdcgui/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Valknut is a program the uses the Direct Connect protocol.</Summary>
+        <Summary xml:lang="tr">Valknut programı ile DC protokolünü kullanabilirsiniz.</Summary>
+        <Description>Valknut is a program the uses the Direct Connect protocol. It is compatible with other DC clients, such as the original DC from Neomodus, DC++ and derivatives. Valknut also interoperates with all common DC hub software.</Description>
+        <Description xml:lang="tr">Valknut programı ile DC protokolünü kullanabilirsiniz.Diğer DC clientleri ile aynı özelliktedir.Valknut ile tüm DC hublarına bağlanabilirsiniz.</Description>
+        <Archive sha1sum="dbcb5a5da0caae8a89110483c73bd41540a06f8c" type="tarbz2">http://belnet.dl.sourceforge.net/sourceforge/wxdcgui/valknut-0.3.8.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4.22">libxml2</Dependency>
+            <Dependency versionFrom="0.3.8">dclib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>valknut</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4.22">libxml2</Dependency>
+            <Dependency versionFrom="0.3.8">dclib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/share/applications/valknut.desktop">valknut.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-14</Date>
+            <Version>0.3.8.1</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
