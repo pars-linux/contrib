@@ -12,8 +12,10 @@
         <IsA>app:console</IsA>
         <Summary>802.11 layer2 wireless network detector, sniffer, and intrusion detection system.</Summary>
         <Summary xml:lang="tr">802.11 layer2 wireless ağ bulma, izleme ve açık arama sistemi</Summary>
-        <Archive sha1sum="e48ce08e96328bfdac98152df6b5759c27ed9169" type="targz">http://www.kismetwireless.net/code/kismet-2006-04-R1.tar.gz</Archive>
+        <Archive sha1sum="d09256e744ec0ca924f80863feaba8e548d4b4bf" type="targz">http://www.kismetwireless.net/code/kismet-2007-01-R1b.tar.gz</Archive>
         <BuildDependencies>
+            <Dependency>libpcap</Dependency>
+            <Dependency>wireless-tools</Dependency>
             <Dependency>ncurses</Dependency>
         </BuildDependencies>
     </Source>
@@ -21,6 +23,8 @@
     <Package>
         <Name>kismet</Name>
         <RuntimeDependencies>
+            <Dependency>libpcap</Dependency>
+            <Dependency>wireless-tools</Dependency>
             <Dependency>ncurses</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -39,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-03-20</Date>
+            <Version>200701</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2006-12-06</Date>
             <Version>200604</Version>
