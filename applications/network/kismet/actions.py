@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 WorkDir="kismet-2007-01-R1b"
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-gpsmap")
 
 def build():
     autotools.make()
