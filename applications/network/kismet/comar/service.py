@@ -1,8 +1,8 @@
+from comar.service import *
+
 serviceType = "local"
 serviceDesc = _({"en": "KISMET Server",
                  "tr": "KISMET Sunucusu"})
-
-from comar.service import *
 
 def check_config():
     if not os.path.exists("/etc/kismet.conf"):
@@ -14,6 +14,7 @@ def start():
     ret = run("/sbin/start-stop-daemon --start --quiet --pidfile /var/run/kismet_server.pid \
                --background --make-pidfile --exec /usr/bin/kismet_server \
                -- %s" % config.get("KISMET_SERVER_OPTIONS", ""))
+
     if ret == 0:
         notify("System.Service.changed", "started")
     else:
@@ -21,6 +22,7 @@ def start():
 
 def stop():
     ret = run("/sbin/start-stop-daemon --stop --quiet --pidfile /var/run/kismet_server.pid")
+
     if ret == 0:
         notify("System.Service.changed", "stopped")
     else:
