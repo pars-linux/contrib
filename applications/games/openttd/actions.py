@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "%s-%s-source" % (get.srcNAME(), get.srcVERSION())
+WorkDir = "0.5.1-RC1"
 
 def setup():
     #dummy configure enables freetype
