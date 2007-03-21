@@ -30,11 +30,7 @@ def setup():
                           -DQT_MOC_EXECUTABLE=/usr/qt/3/bin/moc \
                           -DQT_UIC_EXECUTABLE=/usr/qt/3/bin/uic \
                           -DQT_INCLUDE_DIR:PATH=/usr/qt/3/include \
-                          -DQT_QMAKE_EXECUTABLE:PATH=/usr/qt/3/bin/qmake \
-                          -DDOCUMENTATION_HTML_HELP=ON \
-                          -DBUILD_DOCUMENTATION=ON \
-                          -DBUILD_EXAMPLES=ON \
-                          -DVTK_DATA_ROOT:PATH=/usr/share/VTK/data" % get.installDIR())
+                          -DQT_QMAKE_EXECUTABLE:PATH=/usr/qt/3/bin/qmake" % get.installDIR())
 
 
 def build():
@@ -43,3 +39,14 @@ def build():
 
 def install():
     cmaketools.install()
+
+    #remove compiled py
+    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/*.pyc")
+    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/qt/*.pyc")
+    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/gtk/*.pyc")
+    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/tk/*.pyc")
+    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/util/*.pyc")
+    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/wx/*.pyc")
+
+    #add examples
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "Examples")
