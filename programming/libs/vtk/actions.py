@@ -8,6 +8,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import cmaketools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
 
 WorkDir="VTK"
 
@@ -41,12 +42,7 @@ def install():
     cmaketools.install()
 
     #remove compiled py
-    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/*.pyc")
-    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/qt/*.pyc")
-    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/gtk/*.pyc")
-    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/tk/*.pyc")
-    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/util/*.pyc")
-    pisitools.remove("/usr/lib/python2.4/site-packages/vtk/wx/*.pyc")
+    pythonmodules.fixCompiledPy()
 
     #add examples
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "Examples")
