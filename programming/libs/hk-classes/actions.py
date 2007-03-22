@@ -7,12 +7,12 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir ="hk_classes-0.8.2-test1"
+WorkDir ="hk_classes-0.8.3"
 def setup():
-    autotools.configure()
-
+    autotools.configure("--with-mysql \
+                         --with-postgres \
+                         --with-odbc")
 def build():
     autotools.make()
 
