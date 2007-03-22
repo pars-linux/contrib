@@ -8,7 +8,7 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import kde
 
-WorkDir ="knoda-0.8.2-test1"
+WorkDir ="knoda-0.8.3"
 
 def setup():
     kde.configure("--with-hk_classes-dir=/usr/lib/hk_classes \
