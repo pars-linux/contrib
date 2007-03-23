@@ -9,5 +9,5 @@ from pisi.actionsapi import pythonmodules
 
 def install():
     pythonmodules.install()
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "README", "TODO")
 
