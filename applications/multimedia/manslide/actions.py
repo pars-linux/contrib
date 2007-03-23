@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir="Manslide-1.4"
+WorkDir="Manslide-1.5"
 
 def setup():
     shelltools.system("/usr/bin/qmake-qt4 Manslide.pro")
@@ -25,3 +25,6 @@ def install():
     pisitools.insinto("/usr/share/manslide/Effects","Effects/*")
     pisitools.insinto("/usr/share/manslide/Interface","Interface/*")
     pisitools.insinto("/usr/share/manslide/","*.qm")
+
+    pisitools.removeDir("usr/share/manslide/Effects/Film/.svn")
+    pisitools.removeDir("usr/share/manslide/Effects/Fire/.svn")
