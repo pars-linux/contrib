@@ -26,7 +26,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    #no static libs
-    pisitools.remove("/usr/lib/*.a")
+    # no static libs
+    pisitools.remove("/usr/lib/*.a")
 
     pisitools.dodoc("CS_LICENSE", "LICENSE", "INSTALL", "README*")
