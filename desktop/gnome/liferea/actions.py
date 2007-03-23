@@ -14,9 +14,8 @@ def setup():
                                   --disable-sm \
                                   --disable-nm \
                                   --disable-lua \
-                                  --enable-gtkhtml2 \
                                   --disable-xulrunner \
-                                  --disable-gecko \
+                                  --with-gecko=firefox \
                                   --enable-gnutls \
                                   --enable-libnotify")
 
