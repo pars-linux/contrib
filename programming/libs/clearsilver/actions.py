@@ -16,7 +16,7 @@ def setup():
                          --enable-apache \
                          --enable-wdb \
                          --enable-python \
-                         --enable-perl \
+                         --disable-perl \
                          --disable-ruby \
                          --disable-csharp")
 
