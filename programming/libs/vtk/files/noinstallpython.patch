@@ -1,0 +1,10 @@
+diff -Nuar VTK.orig/Wrapping/Python/PythonInstall.cmake.in VTK/Wrapping/Python/PythonInstall.cmake.in
+--- VTK.orig/Wrapping/Python/PythonInstall.cmake.in	2005-08-24 22:28:38.000000000 +0300
++++ VTK/Wrapping/Python/PythonInstall.cmake.in	2007-03-23 20:27:31.000000000 +0200
+@@ -13,6 +13,3 @@
+ ENDIF(WIN32)
+ 
+ # Run python on setup.py to install the python modules.
+-EXEC_PROGRAM("${PYTHON_EXECUTABLE}" "${VTK_BINARY_DIR}/Wrapping/Python" ARGS
+-  "setup.py" "install" @VTK_PYTHON_SETUP_BUILD_TYPE@ @VTK_PYTHON_SETUP_ARGS@
+-  )
