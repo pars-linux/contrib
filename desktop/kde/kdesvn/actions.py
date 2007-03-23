@@ -6,21 +6,20 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
-from pisi.actionsapi import kde
-from pisi.actionsapi import shelltools
+from pisi.actionsapi import cmaketools
 
 
 
 def setup():
-    shelltools.system("cmake -DCMAKE_INSTALL_PREFIX=%s" % (get.kdeDIR()))
+    cmaketools.configure(installPrefix = "%s" % (get.kdeDIR()))
 
 
 def build():
-    kde.make()
+    cmaketools.make()
 
 
 def install():
-    kde.install()
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
     #remove files conflicts kdesvn
     pisitools.remove("/usr/kde/3.5/share/services/svn+file.protocol")
     pisitools.remove("/usr/kde/3.5/share/services/svn+http.protocol")
