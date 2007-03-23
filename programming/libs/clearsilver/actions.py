@@ -11,11 +11,13 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--enable-compression \
                          --enable-remote-debugger \
+                         --with-zlib \
                          --enable-gettext \
+                         --enable-apache \
                          --enable-wdb \
                          --enable-python \
                          --enable-perl \
-                         --enable-ruby \
+                         --disable-ruby \
                          --disable-csharp")
 
 def build():
@@ -24,11 +26,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    #install ruby files
-    pisitools.insinto("/usr/lib/ruby/1.8/i686-linux", "ruby/ext/hdf/*.so")
-    pisitools.insinto("/usr/lib/ruby/1.8", "ruby/lib/*.rb")
-
     pisitools.dodoc("CS_LICENSE", "LICENSE", "INSTALL", "README*")
-
-    #no static libs
-    pisitools.remove("/usr/lib/*.a")
