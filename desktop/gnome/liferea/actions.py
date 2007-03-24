@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.autoheader()
-    autotools.autoconf()
     autotools.configure("--with-x  \
                                   --disable-sm \
                                   --disable-nm \
@@ -25,6 +23,7 @@ def build():
 
 def install():
     autotools.install()
+    
     pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
