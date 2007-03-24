@@ -10,11 +10,13 @@ from pisi.actionsapi import get
 
 WorkDir="tuxmath"
 
+def setup():
+    pisitools.dosed("Makefile", "INSTALL_DIR=", "INSTALL_DIR=%s" % get.installDIR())
+
 def build():
     autotools.make()
 
 def install():
-    pisitools.dodir("/usr/share/tuxmath")
     pisitools.dodir("/usr/bin")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dodoc("docs/*.txt")
@@ -30,5 +32,3 @@ def install():
     pisitools.removeDir("/usr/share/tuxmath/images/backgrounds/CVS/CVS")
     pisitools.removeDir("/usr/share/tuxmath/images/comets/CVS")
     pisitools.removeDir("/usr/share/tuxmath/sounds/CVS")
-
-
