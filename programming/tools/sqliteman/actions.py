@@ -4,20 +4,19 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import autotools
+from pisi.actionsapi import cmaketools
+from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 
 WorkDir = "sqliteman-0.99"
 
 def setup():
-    shelltools.system("cmake .")
+    cmaketools.configure(installPrefix = "%s/usr" % get.installDIR())
 
 def build():
-    autotools.make()
+    cmaketools.make()
 
 def install():
-    pisitools.dobin("sqliteman/sqliteman/sqliteman")
-    pisitools.insinto("/usr/share/pixmaps", "sqliteman/sqliteman/icons/sqliteman.png")
+    cmaketools.install()
     pisitools.dodoc("AUTHORS", "README", "VERSION", "COPYING")
 
