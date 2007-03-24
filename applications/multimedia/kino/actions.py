@@ -12,11 +12,12 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure('--disable-debug \
                          --disable-dependency-tracking \
-			 --enable-quicktime')
-    
+                         --enable-quicktime')
+
 def build():
     autotools.make()
-    
+
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("README", "ABOUT-NLS", "BUGS", "AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "TODO", "README_jogshuttle")
