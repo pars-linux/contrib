@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PyQwt5</Name>
+        <Homepage>http://pyqwt.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>PyQwt is a set of Python bindings for the Qwt C++ class library which extends the Qt framework with widgets for scientific and engineering applications.</Summary>
+        <Archive sha1sum="b290bdffcdc7a56511f291ae004ed3436daa8285"  type="targz">http://switch.dl.sourceforge.net/sourceforge/pyqwt/PyQwt5-20061017.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>sip</Dependency>
+            <Dependency>PyQt</Dependency>
+            <Dependency>qwt-qt4</Dependency>
+            <Dependency>numpy</Dependency>
+            <Dependency>numeric</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>PyQwt5</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>sip</Dependency>
+            <Dependency>PyQt</Dependency>
+            <Dependency>qwt-qt4</Dependency>
+            <Dependency>numpy</Dependency>
+            <Dependency>numeric</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/sip</Path>
+        </Files>
+    </Package>
+
+    <History>
+       <Update release="1">
+            <Date>2007-03-20</Date>
+            <Version>20061017</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
