@@ -45,6 +45,12 @@ def install():
     #add examples
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "Examples")
 
+    #remove Win32 examples
+    pisitools.removeDir("/usr/share/doc/%s/Examples/GUI/Win32" % get.srcTAG())
+
+    #remove Win32 header
+    pisitools.remove("/usr/include/vtk-5.0/vtkWin32Header.h")
+
     #install python modul
     shelltools.cd("Wrapping/Python")
     pythonmodules.install()
