@@ -20,6 +20,7 @@ def setup():
                           -DVTK_USE_SYSTEM_TIFF=ON \
                           -DVTK_USE_SYSTEM_ZLIB=ON \
                           -DVTK_USE_SYSTEM_EXPAT=ON \
+                          -DVTK_USE_SYSTEM_FREETYPE=ON \
                           -DVTK_WRAP_PYTHON=ON \
                           -DPYTHON_INCLUDE_PATH=/usr/include/python2.4 \
                           -DVTK_USE_GUISUPPORT=ON \
