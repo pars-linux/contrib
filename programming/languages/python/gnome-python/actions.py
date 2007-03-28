@@ -8,13 +8,13 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-glibtest --disable-gtktest")
+    autotools.configure()
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
+    
     pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "NEWS", "README")
-
 
