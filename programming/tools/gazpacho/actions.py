@@ -10,4 +10,4 @@ from pisi.actionsapi import get
 
 def install():
     pythonmodules.install()
-    pisitools.rename("/usr/share/doc/gazpacho", get.srcTAG())
+#   pisitools.rename("/usr/share/doc/gazpacho", get.srcTAG())
