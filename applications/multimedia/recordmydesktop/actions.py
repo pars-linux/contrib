@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import autotools
 
-WorkDir="recordmydesktop-0.3.3.1"
+WorkDir="recordmydesktop-0.3.4"
 
 def setup():
     autotools.configure()
