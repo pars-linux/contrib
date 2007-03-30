@@ -4,12 +4,11 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import get
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
 def setup():
-    kde.configure("--with-qt-dir=%s" % get.qtDIR())
+    kde.configure()
 
 def build():
     kde.make()
