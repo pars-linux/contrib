@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-build</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>The Gnome Build Framework</Summary>
+        <Summary xml:lang="tr">Gnome Derleme Ortamı</Summary>
+        <Archive sha1sum="554120b0751d6500d85a131a311c0196c5e39640" type="tarbz2">mirrors://gnome/gnome-build/0.1/gnome-build-0.1.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>libglade2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnome-build</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>libglade2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-03-29</Date>
+            <Version>0.1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
