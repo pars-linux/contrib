@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>anjuta</Name>
+        <Homepage>http://anjuta.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Versatile Integrated Development Environment (IDE) for C and C++ on GNU/Linux</Summary>
+        <Summary xml:lang="tr">C ve C++ için çok yönlü bir geliştirme ortamı (IDE)</Summary>
+        <Archive sha1sum="bbe310b5877fc1f6464f63dc667e3ee8df89eb52" type="tarbz2">mirrors://sourceforge/anjuta/anjuta-2.1.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>gnome-build</Dependency>
+            <Dependency>libpcre</Dependency>
+            <Dependency>libwnck</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>binutils</Dependency>
+            <Dependency>autogen</Dependency>
+            <Dependency>graphviz</Dependency>
+            <Dependency>gtksourceview</Dependency>
+            <Dependency>subversion</Dependency>
+            <Dependency>valgrind</Dependency>
+            <Dependency>glade</Dependency>
+            <Dependency>gdb</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>anjuta</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>gnome-build</Dependency>
+            <Dependency>libpcre</Dependency>
+            <Dependency>libwnck</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>binutils</Dependency>
+            <Dependency>autogen</Dependency>
+            <Dependency>graphviz</Dependency>
+            <Dependency>gtksourceview</Dependency>
+            <Dependency>subversion</Dependency>
+            <Dependency>valgrind</Dependency>
+            <Dependency>glade</Dependency>
+            <Dependency>gdb</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-03-30</Date>
+            <Version>2.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
