@@ -16,18 +16,23 @@
         <Description xml:lang="tr">Twinkle SIP protokolünü kullanan bir internet telefonu yazılımıdır.Doğrudan IP telefonundan IP telefonuna bağlanmak için veya SIP vekil sunucu ile çağrılarınızı yönlendirmek için kullanılabilir.</Description>
         <Archive sha1sum="47cf0a078d93be124bcdf3990d5504855069e018" type="targz">http://www.xs4all.nl/~mfnboer/twinkle/download/twinkle-1.0.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>commoncpp2</Dependency>
-            <Dependency>ccrtp</Dependency>
+            <Dependency versionFrom="1.5.1">commoncpp2</Dependency>
+            <Dependency versionFrom="1.5.1">ccrtp</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>audiocheck.patch</Patch>
+            <Patch>conf.patch</Patch>
+            <Patch>incoming.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>twinkle</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="1.3.0">commoncpp2</Dependency>
+            <Dependency versionFrom="1.5.1">commoncpp2</Dependency>
+            <Dependency versionFrom="1.5.1">ccrtp</Dependency>
             <Dependency>libgcrypt</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency>ccrtp</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
