@@ -14,29 +14,27 @@
         <Summary xml:lang="tr">MySQL Görsel Sorgu Aracı</Summary>
         <Description>MySQL Query Browser is the easiest visual tool for creating, executing, and optimizing SQL queries for your MySQL Database Server. The MySQL Query Browser gives you a complete set of drag-and-drop tools to visually build, analyze and manage your queries.</Description>
         <Description xml:lang="tr">MySQL Query Browser, MySQL veritabanı sunucunuz için SQL sorgusu oluşturma, yapma ve optimize etmek için görsel bir araçtır. Sorgularınızı sürükle-bırak yöntemiyle oluşturabilir, analiz edebilir ve yönetebilirsiniz.</Description>
-        <Archive sha1sum="716f7901aaca1b819af1e3d00a1a873baaba6f92" type="targz">ftp://ftp.sunet.se/pub/unix/databases/relational/mysql/Downloads/MySQLGUITools/mysql-gui-tools-5.0r9-linux-i386.tar.gz</Archive>
-        <Patches>
-            <Patch>license.patch</Patch>
-            <Patch>pathfix.patch</Patch>
-        </Patches>
+        <Archive sha1sum="0e42f227fd30699c1edb56b0e06b86f96ace9336" type="targz">ftp://ftp.sunet.se/pub/unix/databases/relational/mysql/Downloads/MySQLGUITools/mysql-gui-tools-5.0r11.tar.gz</Archive>
     </Source>
 
     <Package>
         <Name>mysql-query-browser</Name>
         <Files>
-            <Path fileType="executable">/opt/mysql-query-browser/bin</Path>
-            <Path fileType="library">/opt/mysql-query-browser/lib</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/opt/mysql-query-browser/share</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0755" target="/opt/mysql-query-browser/bin/mysql-query-browser">mysql-query-browser</AdditionalFile>
-            <AdditionalFile owner="root" permission="0755" target="/usr/share/applications/MySQLQueryBrowser.desktop">MySQLQueryBrowser.desktop</AdditionalFile>
-        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-04-01</Date>
+            <Version>1.2.11</Version>
+            <Comment>Version bump, switch from binary packaging to source compilation.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2007-01-23</Date>
             <Version>1.2.9</Version>
