@@ -4,17 +4,26 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
+WorkDir='mysql-gui-tools-5.0r11'
+
+from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
-WorkDir='mysql-gui-tools-5.0'
-MyDir='/opt/mysql-query-browser'
+def setup():
+    shelltools.cd('mysql-gui-common')
+    autotools.configure()
+    shelltools.cd('../mysql-query-browser')
+    pisitools.dosed('configure', 'gtkhtml=libgtkhtml-3.0', 'gtkhtml=libgtkhtml-3.14')  # fix gtkhtml version check
+    autotools.configure()
+
+def build():
+    shelltools.cd('mysql-gui-common')
+    autotools.make()
+    shelltools.cd('../mysql-query-browser')
+    autotools.make()
 
 def install():
-    pisitools.dodoc("COPYING")
-    pisitools.dobin("mysql-query-browser-bin", "%s/bin" % MyDir)
-    shelltools.copytree("lib/", "%s%s/lib/" % (get.installDIR(), MyDir))
-    pisitools.insinto("%s/share/mysql-gui" % MyDir, "share/mysql-gui/MySQLIcon_QueryBrowser*")
-    pisitools.insinto("%s/share/mysql-gui/query-browser/" % MyDir, "share/mysql-gui/query-browser/*")
-    shelltools.copytree("share/mysql-gui/common/", "%s%s/share/mysql-gui/" % (get.installDIR(), MyDir))
+    shelltools.cd('mysql-query-browser')
+    autotools.install()
+    pisitools.dodoc('COPYING', 'ChangeLog')
