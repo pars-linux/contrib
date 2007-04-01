@@ -8,13 +8,11 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--enable-static=no \
-                         --with-largefile \
-                         --enable-jack")
+    autotools.configure("--enable-static=no")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    pisitools.dodoc('AUTHORS', 'README', 'NEWS')
+    pisitools.dodoc('README', 'NEWS')
