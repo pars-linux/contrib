@@ -15,10 +15,26 @@
         <Description>MySQL Query Browser is the easiest visual tool for creating, executing, and optimizing SQL queries for your MySQL Database Server. The MySQL Query Browser gives you a complete set of drag-and-drop tools to visually build, analyze and manage your queries.</Description>
         <Description xml:lang="tr">MySQL Query Browser, MySQL veritabanı sunucunuz için SQL sorgusu oluşturma, yapma ve optimize etmek için görsel bir araçtır. Sorgularınızı sürükle-bırak yöntemiyle oluşturabilir, analiz edebilir ve yönetebilirsiniz.</Description>
         <Archive sha1sum="0e42f227fd30699c1edb56b0e06b86f96ace9336" type="targz">http://mysql.easynet.be/Downloads/MySQLGUITools/mysql-gui-tools-5.0r11.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="20">mysql-client</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.6">libxml2</Dependency>
+            <Dependency versionFrom="2.0">libsigc++</Dependency>
+            <Dependency versionFrom="2.4">glibmm</Dependency>
+            <Dependency versionFrom="2.4">gtkmm</Dependency>
+            <Dependency versionFrom="2.5">libglade2</Dependency>
+            <Dependency versionFrom="0.15">pkgconfig</Dependency>
+            <Dependency versionFrom="3.14">gtkhtml3</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>mysql-query-browser</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.0_p11">mysql-gui-common</Dependency>
+            <Dependency versionFrom="3.0">gtkhtml3</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
