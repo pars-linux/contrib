@@ -5,15 +5,20 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import cmaketools
+
+def setup():
+    cmaketools.configure()
 
 def build():
-    autotools.make()
+    cmaketools.make()
 
 def install():
-    autotools.install()
+    cmaketools.install()
 
-    pisitools.dobin("build/src/klogshow")
+    pisitools.dobin("src/klogshow")
+    pisitools.insinto("/usr/share/applications","src/klogshow.desktop")
+    pisitools.insinto("/usr/share/pixmaps","src/images/klogshow.png")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
+    pisitools.dodoc("CHANGELOG", "COPYING", "INSTALL")
