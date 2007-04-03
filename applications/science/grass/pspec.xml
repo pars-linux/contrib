@@ -17,20 +17,13 @@
         <Description xml:lang="tr">GRASS, coğrafi veri yönetimi ve analizi, resim işleme, grafik/harita üretimi, uzamsal modelleme ve canlandırma amaçlı kullanılan bir Coğrafi Bilgi Sistemidir (GIS-Geographic Information System).</Description>
         <Archive sha1sum="bbd179b9145d735873a13f40a25784b64762387b" type="targz">http://grass.itc.it/grass62/source/grass-6.2.1.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="1.1.4">zlib</Dependency>
-            <Dependency versionFrom="2.5.4a">flex</Dependency>
-            <Dependency versionFrom="1.35">bison</Dependency>
-            <Dependency versionFrom="5.3">ncurses</Dependency>
-            <Dependency versionFrom="1.8.0">gdbm</Dependency>
             <Dependency versionFrom="4.4.9">proj</Dependency>
-            <Dependency>jpeg</Dependency>
             <Dependency>gdal</Dependency>
             <Dependency>mysql-lib</Dependency>
-            <Dependency versionFrom="1.2.2">libpng</Dependency>
             <Dependency versionFrom="2.3">readline</Dependency>
             <Dependency versionFrom="3.5.7">tiff</Dependency>
-            <Dependency versionFrom="2.0">freetype</Dependency>
             <Dependency>tcltk</Dependency>
+            <Dependency>python-tk</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>readline-configure.patch</Patch>
@@ -40,20 +33,13 @@
     <Package>
         <Name>grass</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="1.1.4">zlib</Dependency>
-            <Dependency versionFrom="2.5.4a">flex</Dependency>
-            <Dependency versionFrom="1.35">bison</Dependency>
-            <Dependency versionFrom="5.3">ncurses</Dependency>
-            <Dependency versionFrom="1.8.0">gdbm</Dependency>
             <Dependency versionFrom="4.4.9">proj</Dependency>
-            <Dependency>jpeg</Dependency>
             <Dependency>gdal</Dependency>
             <Dependency>mysql-lib</Dependency>
-            <Dependency versionFrom="1.2.2">libpng</Dependency>
             <Dependency versionFrom="2.3">readline</Dependency>
             <Dependency versionFrom="3.5.7">tiff</Dependency>
-            <Dependency versionFrom="2.0">freetype</Dependency>
             <Dependency>tcltk</Dependency>
+            <Dependency>python-tk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -78,6 +64,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2007-04-03</Date>
+            <Version>6.2.1</Version>
+            <Comment>Remove system.base deps and add python-tk dep</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2006-12-22</Date>
             <Version>6.2.1</Version>
