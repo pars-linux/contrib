@@ -13,7 +13,8 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.insinto("/usr/bin", "miniracer")
+    pisitools.dobin("miniracer")
+
     pisitools.insinto("/usr/share/MiniRacer", "engine.glx")
     pisitools.insinto("/usr/share/MiniRacer/data", "data/pak0.pak")
     pisitools.insinto("/usr/share/MiniRacer/data", "data/config.cfg")
