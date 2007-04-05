@@ -7,10 +7,11 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
-from pisi.actionsapi import pythonmodules
 
 WorkDir = "imaj.at-%s" % get.srcVERSION()
 
 def install():
-    pythonmodules.run('install.py')
-    pisitools.dodoc('ReadME')
+    pisitools.dobin("imaj.at.upload.py")
+    pisitools.dobin("sendss.py")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "*.desktop")
+
