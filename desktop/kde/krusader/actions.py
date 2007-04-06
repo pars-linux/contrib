@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import kde
 
-WorkDir = "krusader-1.70.1"
+WorkDir = "krusader-1.80.0-beta2"
 
 def setup():
     kde.configure()
