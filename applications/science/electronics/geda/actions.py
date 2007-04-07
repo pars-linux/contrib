@@ -6,11 +6,10 @@
 
 from pisi.actionsapi import autotools
 
-WorkDir = "geda-gattrib-20061020"
+WorkDir = "geda-gattrib-20070216"
 
 def setup():
-    autotools.configure("--disable-dependency-tracking \
-                         --with-docdir=/usr/share/doc \
+    autotools.configure("--with-docdir=/usr/share/doc \
                          --with-pcbconfdir=/usr/share/pcb \
                          --with-pcbm4dir=/usr/share/pcb/m4")
 
