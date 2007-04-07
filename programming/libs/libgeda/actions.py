@@ -7,13 +7,12 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "libgeda-20061020"
+WorkDir = "libgeda-20070216"
 
 def setup():
     autotools.configure("--disable-static \
                          --disable-shared \
-                         --disable-gdgeda \
-                         --disable-dependency-tracking")
+                         --disable-gdgeda ")
 
 def build():
     autotools.make()
