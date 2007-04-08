@@ -5,20 +5,27 @@
         <Name>sturmbahnfahrer</Name>
         <Homepage>http://www.sturmbahnfahrer.com/</Homepage>
         <Packager>
-            <Name>Serkan Avcı</Name>
-            <Email>killer@wolke7.net</Email>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
         </Packager>
         <License>GPL-2</License>
+        <Icon>sturmbahnfahrer</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Sturmbahnfahrer:Simulated obstacle course for automobiles</Summary>
-        <Summary xml:lang="tr">Sturmbahnfahrer:Simulated obstacle course for automobiles</Summary>
-        <Description>Sturmbahnfahrer:Simulated obstacle course for automobiles</Description>
-        <Description xml:lang="tr">Sturmbahnfahrer:Simulated obstacle course for automobiles</Description>
-        <Archive sha1sum="9f59162ebb6b3db484cd364d8ba6e04717ad3b39" type="targz">http://www.stolk.org/sturmbahnfahrer/download/sturmbahnfahrer-1.2.tar.gz</Archive>
+        <Summary>Simulated obstacle course for automobiles</Summary>
+        <Summary xml:lang="tr">Engelli arazide araba simülasyonu</Summary>
+        <Description>Sturmbahnfahrer... for expert drivers only. If you want to master it, try to have the laws of physics work with you, not against you.</Description>
+        <Description xml:lang="tr">Sturmbahnfahrer uzmanlar içindir. Eğer üstesinden gelmek istiyorsanız fizik kurallarına sadık kalmalısınız.</Description>
+        <Archive sha1sum="76a960e9ec1ff86f7100eb3c6c3ea255e5d3b45e" type="targz">http://www.stolk.org/sturmbahnfahrer/download/sturmbahnfahrer-1.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>ode</Dependency>
             <Dependency>plib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>glut</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">ode.patch</Patch>
+            <Patch level="1">destdir.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -26,13 +33,15 @@
         <RuntimeDependencies>
             <Dependency>ode</Dependency>
             <Dependency>plib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>glut</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/games</Path>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/sturmbahnfahrer</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
-            <Path fileType="data">/usr/share/games/sturmbahnfahrer</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/sturmbahnfahrer.desktop" permission="0644" owner="root">sturmbahnfahrer.desktop</AdditionalFile>
@@ -41,6 +50,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-04-08</Date>
+            <Version>1.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="1">
             <Date>2006-08-08</Date>
             <Version>1.2</Version>
