@@ -7,7 +7,7 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
-WorkDir="rl_accel-0.60-20070308/rl_accel"
+WorkDir="rl_accel-0.60-20070408/rl_accel"
 
 def install():
     pythonmodules.install()
