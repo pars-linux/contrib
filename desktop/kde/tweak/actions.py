@@ -6,6 +6,9 @@
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir="tweaK-%s" % get.srcVERSION()
 
 def setup():
     kde.configure()
