@@ -9,6 +9,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "ogdi-3.2.0.beta1"
+
 def setup():
     shelltools.export("TOPDIR", "%s/%s" % (get.workDIR(),get.srcDIR()))
     autotools.configure("--with-zlib \
