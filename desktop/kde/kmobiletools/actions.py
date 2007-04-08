@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import kde
 
+WorkDir="kmobiletools-0.5.0-beta2"
+
 def setup():
     kde.configure()
 
