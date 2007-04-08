@@ -7,9 +7,10 @@
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 
+WorkDir="bioclipse"
+
 def install():
     pisitools.dodir("/opt/bioclipse")
-    shelltools.cd("bioclipse")
     pisitools.insinto("/opt/bioclipse", "*")
 
 
