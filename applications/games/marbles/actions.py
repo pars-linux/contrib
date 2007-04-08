@@ -7,7 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="marbles-1.0.0"
+WorkDir="marbles-1.0.0-1"
 
 def setup():
     autotools.configure()
