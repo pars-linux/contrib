@@ -7,6 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 WorkDir = "libgeotiff-1.2.3"
 
@@ -17,12 +18,13 @@ def setup():
                          --with-proj")
 
 def build():
+    shelltools.export("LDFLAGS", "")
     autotools.make()
 
 def install():
     autotools.install()
+    
     pisitools.dodoc("ChangeLog", "Doxyfile", "HOWTO-RELEASE", "LICENSE", "README*", "docs/manual.txt")
     pisitools.dohtml("docs/*")
     pisitools.remove("/usr/share/doc/%s/README.WIN" % get.srcTAG())
-
 
