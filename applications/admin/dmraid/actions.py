@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "dmraid/1.0.0.rc11"
+WorkDir = "dmraid/1.0.0.rc13"
 
 def setup():
     autotools.configure("--disable-static_link")
