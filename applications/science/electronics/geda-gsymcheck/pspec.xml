@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geda-gsymcheck</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>gsymcheck is the symbol checker for the gEDA/gaf system.</Summary>
+        <Summary xml:lang="tr">gsymcheck gEDA için sembol kontrol aracıdır.</Summary>
+        <Archive sha1sum="a1ccd05b484eecfa167edb973a89c6ee269f5760" type="targz">http://www.geda.seul.org/devel/20070216/geda-gsymcheck-20070216.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+            <Dependency versionFrom="20070216">geda-symbols</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geda-gsymcheck</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+            <Dependency versionFrom="20070216">geda-symbols</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/gEDA</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-09</Date>
+            <Version>20070216</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
