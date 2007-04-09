@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geda-gschem</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>gschem is the schematic capture program/tool which is part of gEDA.</Summary>
+        <Summary xml:lang="tr">gEDA gschem bir devra şeması çizim ve düzenleme aracıdır.</Summary>
+        <Archive sha1sum="7aaa669f8e25f89f99259f0bfb39efee2f932a86" type="targz">http://www.geda.seul.org/devel/20070216/geda-gschem-20070216.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+            <Dependency versionFrom="20070216">geda-symbols</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geda-gschem</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+            <Dependency versionFrom="20070216">geda-symbols</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/gEDA</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-09</Date>
+            <Version>20070216</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
