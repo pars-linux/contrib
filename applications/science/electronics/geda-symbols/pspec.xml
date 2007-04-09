@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geda-symbols</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Schematic symbols for gEDA, which are abstract representations of the physical components used in electronic circuits.</Summary>
+        <Summary xml:lang="tr">gEDA için fiziksel devre elemanları sembolleri.</Summary>
+        <Archive sha1sum="26c04131ea0791492ade3a5b9d687eecc8767a46" type="targz">http://www.geda.seul.org/devel/20070216/geda-symbols-20070216.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geda-symbols</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20061020">libgeda</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gEDA</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-06</Date>
+            <Version>20070216</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
