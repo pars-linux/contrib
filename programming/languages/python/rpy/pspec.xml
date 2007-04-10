@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rpy</Name>
+        <Homepage>http://rpy.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>RPy is a very simple, yet robust, Python interface to the R Programming Language.</Summary>
+        <Archive sha1sum="f3d19253f4f6bd903794b2f9d66ce55a7aa510d1" type="targz">mirrors://sourceforge/rpy/rpy-1.0-RC2.tar.gz</Archive>
+       <BuildDependencies>
+           <Dependency>numeric</Dependency>
+           <Dependency>R</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+       <Name>rpy</Name>
+       <RuntimeDependencies>
+           <Dependency>R</Dependency>
+           <Dependency>numeric</Dependency>
+       </RuntimeDependencies>
+            <Files>
+               <Path fileType="library">/usr/lib</Path>
+            </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-20</Date>
+            <Version>1.0_rc2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
