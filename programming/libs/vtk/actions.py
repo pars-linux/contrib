@@ -14,7 +14,6 @@ WorkDir="VTK"
 
 def setup():
     cmaketools.configure("-DBUILD_SHARED_LIBS=ON \
-                          -DVTK_WRAP_PYTHON=ON \
                           -DVTK_USE_SYSTEM_JPEG=ON \
                           -DVTK_USE_SYSTEM_PNG=ON \
                           -DVTK_USE_SYSTEM_TIFF=ON \
