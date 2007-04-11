@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+   <Source>
+        <Name>Dia</Name>
+	<Homepage>http://live.gnome.org/Dia</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Diagramming tool</Summary>
+	<Summary xml:lang="tr">Diyagram Çizme Aracı</Summary>
+	<Description>Dia is an editor for semi-structured diagrams like UML, ER, flowcharts etc, somewhat inspired by Visio.</Description>
+	<Description xml:lang="tr">Dia, Visio'dan esinlenilerek geliştirilmiş, UML, ER ve akış şeması gibi yarı yapılandırılmış diyagramlar çizmek için bir editördür</Description>
+	<Archive type="tarbz2" sha1sum="e3d8f16f50dbbd03c1ce0235dba28c3e9612bb6e">http://ftp.gnome.org/pub/gnome/sources/dia/0.96/dia-0.96.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+	    <Dependency>libxml2</Dependency>
+	    <Dependency>fontconfig</Dependency>
+	    <Dependency>freetype</Dependency>
+	    <Dependency>libart_lgpl</Dependency>
+	    <Dependency>libpng</Dependency>
+	    <Dependency>libxslt</Dependency>
+	    <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>Dia</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+	    <Dependency>libxml2</Dependency>
+	    <Dependency>fontconfig</Dependency>
+	    <Dependency>freetype</Dependency>
+	    <Dependency>libart_lgpl</Dependency>
+	    <Dependency>libpng</Dependency>
+	    <Dependency>libxslt</Dependency>
+	    <Dependency>pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+	    <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/</Path>
+	    <Path fileType="data">/usr/lib</Path>
+	    <Path fileType="doc">/usr/share/help</Path>
+	    <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+   </Package>
+
+   <History>
+       <Update release="1">
+           <Date>2007-04-11</Date>
+           <Version>0.96.1</Version>
+           <Comment>Initial version</Comment>
+           <Name>Michael Austin</Name>
+           <Email>tuxedup@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
