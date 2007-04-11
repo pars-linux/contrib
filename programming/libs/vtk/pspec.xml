@@ -17,6 +17,7 @@
              <Dependency>netcdf</Dependency>
              <Dependency>tcl</Dependency>
              <Dependency>tcltk</Dependency>
+             <Dependency>tiff</Dependency>
              <Dependency>qt</Dependency>
         </BuildDependencies>
     <Patches>
@@ -30,18 +31,30 @@
             <Dependency>netcdf</Dependency>
             <Dependency>tcl</Dependency>
             <Dependency>tcltk</Dependency>
+            <Dependency>tiff</Dependency>
             <Dependency>qt</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="config">/etc/env.d</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/qt/3/plugins</Path>
             <Path fileType="data">/usr/share/doc</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/env.d/40VTK" owner="root" permission="0644">40VTK</AdditionalFile>
+        </AdditionalFiles>
        </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-04-11</Date>
+            <Version>5.0.3</Version>
+            <Comment>fix missing deps,VTK_ROOT and VTK_DATA_ROOT defined.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-04-10</Date>
             <Version>5.0.3</Version>
