@@ -12,8 +12,7 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--with-audacious \
                          --with-uade123 \
-                         --without-xmms \
-                         --with-uadecore")
+                         --without-xmms")
 
 def build():
     autotools.make()
