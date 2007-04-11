@@ -11,7 +11,7 @@ def setup():
     autotools.configure("--with-python \
                                   --with-gnomeprint \
                                   --with-gnome \
-                                  --with-cairo)
+                                  --with-cairo")
 
 def build():
     autotools.make()
