@@ -13,14 +13,14 @@
         <IsA>app:gui</IsA>
         <Summary>Xfce 4 desktop manager</Summary>
         <Summary xml:lang="tr">Xfce4 masaüstü yöneticisi</Summary>
-        <Archive sha1sum="f59d12cbc4980ce83b3739efc785c47fba09249c"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.0/src/xfdesktop-4.4.0.tar.bz2</Archive>
+        <Archive sha1sum="46324ad37bb782ec7a5da11c619d9e76a0f54133"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.1/src/xfdesktop-4.4.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xorg-server</Dependency>
-            <Dependency>libxfce4util</Dependency>
-            <Dependency>libxfcegui4</Dependency>
-            <Dependency>libxfce4mcs</Dependency>
-            <Dependency>xfce4-panel</Dependency>
-            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
+            <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>glib2</Dependency>
             <Dependency>pango</Dependency>
@@ -29,18 +29,16 @@
             <Dependency>Thunar</Dependency>
             <Dependency>gamin</Dependency>
         </BuildDependencies>
-       <Patches>
-            <Patch>menu.patch</Patch>
-       </Patches>
     </Source>
 
     <Package>
         <Name>xfdesktop</Name>
         <RuntimeDependencies>
-            <Dependency>xfce4-panel</Dependency>
-            <Dependency>libxfce4util</Dependency>
-            <Dependency>libxfcegui4</Dependency>
-            <Dependency>libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
+            <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
             <Dependency>xorg-server</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>glib2</Dependency>
@@ -65,8 +63,6 @@
             <Path fileType="data">/usr/share</Path>
         </Files>
         <AdditionalFiles>
-            <!-- delete this in 4.4.1, it'll come with this xml file -->
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/desktop/xfce-registered-categories.xml.tr">xfce-registered-categories.xml.tr</AdditionalFile>
             <!-- wallpapers -->
             <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/aqua-sphere-xfce.jpg">wallpapers/aqua-sphere-xfce.jpg</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/park.jpg">wallpapers/park.jpg</AdditionalFile>
@@ -93,6 +89,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-04-11</Date>
+            <Version>4.4.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-01-24</Date>
             <Version>4.4.0</Version>
@@ -123,4 +126,3 @@
         </Update>
     </History>
 </PISI>
-

@@ -17,6 +17,5 @@ def install():
     autotools.install()
     
     pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
-    pisitools.insinto("etc/xdg/xfce4/desktop", "menu.xml.tr")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
