@@ -1,0 +1,14 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# Licensed under the GNU General Public License, version 2.
+# See the file http://www.gnu.org/copyleft/gpl.txt.
+
+from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "takesum_0.3/src"
+
+def install():
+    pisitools.dobin("takesum")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "takesum.desktop")
