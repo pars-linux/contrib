@@ -14,12 +14,14 @@ WorkDir="VTK"
 
 def setup():
     cmaketools.configure("-DBUILD_SHARED_LIBS=ON \
+                          -DVTK_DIR=/usr/lib/vtk-5.0 \
                           -DVTK_USE_SYSTEM_JPEG=ON \
                           -DVTK_USE_SYSTEM_PNG=ON \
                           -DVTK_USE_SYSTEM_TIFF=ON \
                           -DVTK_USE_SYSTEM_ZLIB=ON \
                           -DVTK_USE_SYSTEM_EXPAT=ON \
                           -DVTK_USE_SYSTEM_FREETYPE=ON \
+                          -DVTK_USE_HYBRID=ON \
                           -DVTK_WRAP_PYTHON=ON \
                           -DPYTHON_INCLUDE_PATH=/usr/include/python2.4 \
                           -DVTK_USE_GUISUPPORT=ON \
@@ -31,7 +33,8 @@ def setup():
                           -DQT_MOC_EXECUTABLE=/usr/qt/3/bin/moc \
                           -DQT_UIC_EXECUTABLE=/usr/qt/3/bin/uic \
                           -DQT_INCLUDE_DIR=/usr/qt/3/include \
-                          -DQT_QMAKE_EXECUTABLE=/usr/qt/3/bin/qmake")
+                          -DQT_QMAKE_EXECUTABLE=/usr/qt/3/bin/qmake \
+                          -DVTK_DATA_ROOT=/usr/share/%s/data" % get.srcTAG())
 
 
 def build():
