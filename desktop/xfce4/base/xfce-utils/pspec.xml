@@ -12,19 +12,14 @@
         <IsA>library</IsA>
         <Summary>Xfce4 utilities</Summary>
         <Summary xml:lang="tr">Xfce4 yardımcı uygulamaları</Summary>
-        <Archive sha1sum="181dadd737a7ff4f7085729318d3b7a3aebb9a69"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.0/src/xfce-utils-4.4.0.tar.bz2</Archive>
+        <Archive sha1sum="69ab30d45bbe252993f783e2f4d7f184226cacbb"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.1/src/xfce-utils-4.4.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xorg-server</Dependency>
-            <Dependency>libxfce4mcs</Dependency>
-            <Dependency>libxfcegui4</Dependency>
-            <Dependency>xfce-mcs-manager</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
+            <Dependency versionFrom="1.0">dbus</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>cairo</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>dbus</Dependency>
-            <Dependency>startup-notification</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">pardus-xdg-datadir.patch</Patch>
@@ -34,17 +29,14 @@
     <Package>
         <Name>xfce-utils</Name>
         <RuntimeDependencies>
-            <Dependency>xfce-mcs-manager</Dependency>
             <Dependency>xorg-server</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
+            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
+            <Dependency versionFrom="1.0">dbus</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>cairo</Dependency>
-            <Dependency>atk</Dependency>
             <Dependency>Terminal</Dependency>
             <Dependency>firefox</Dependency>
-            <Dependency>dbus</Dependency>
-            <Dependency>startup-notification</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -64,6 +56,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-04-12</Date>
+            <Version>4.4.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-01-24</Date>
             <Version>4.4.0</Version>
