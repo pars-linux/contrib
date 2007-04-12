@@ -7,8 +7,10 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "takesum_0.3/src"
+WorkDir = "takesum_0.5/src"
 
 def install():
     pisitools.dobin("takesum")
-    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "takesum.desktop")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "takesum_check.desktop")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "takesum_sha1.desktop")
+    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "takesum_md5.desktop")
