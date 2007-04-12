@@ -15,6 +15,10 @@
         <Description>K3Guitune is a program that lets you tune a musical instrument using your computer and its microphone.</Description>
         <Description xml:lang="tr">K3Guitune müzik enstrümanınızı bilgisayarınızın mikrofonuyla akort etmenizi sağlayan bir yazılımdır.</Description>
         <Archive sha1sum="494e19ddf7a3ade10f496891675f6c97a8b05965" type="tarbz2">http://home.planet.nl/~lamer024/files/k3guitune-0.5.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>bio2jack</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch level="0">varsayilan_OSS.patch</Patch>
         </Patches>
@@ -24,7 +28,7 @@
         <Name>k3guitune</Name>
         <RuntimeDependencies>
             <Dependency>kdebase</Dependency>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>bio2jack</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
