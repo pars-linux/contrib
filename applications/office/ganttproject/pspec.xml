@@ -9,12 +9,13 @@
             <Email>jnmbk@users.sourceforge.net</Email>
         </Packager>
         <License>GPL-2</License>
+        <Icon>ganttproject</Icon>
         <IsA>app:gui</IsA>
         <Summary>Gantt diagram creator</Summary>
         <Summary xml:lang="tr">Gantt diyagramı oluşturucusu</Summary>
-        <Description>GanttProject is a project scheduling application written in Java.</Description>
-        <Description xml:lang="tr">GanttProject, Java ile yazılmış bir proje zamanlama uygulamasıdır.</Description>
-        <Archive type="zip" sha1sum="00fe203da035a26a6a7a57a4bc8722504d5e76a1">mirrors://sourceforge/ganttproject/ganttproject-2.0.3-src.zip</Archive>
+        <Description>GanttProject is a project scheduling application written in Java. You may print your charts, generate PDF and HTML reports, exchange data with Microsoft(R) Project(TM) and spreadsheet applications.</Description>
+        <Description xml:lang="tr">GanttProject, Java ile yazılmış bir proje zamanlama uygulamasıdır. Bunu kullanarak diyagramlarınızı yazdırabilir, PDF ve HTML olarak rapor oluşturabilir, Microsoft(R) Project(TM) ve elektronik tablolama uygulamalarıyla bilgi alışverişi yapabilirsiniz.</Description>
+        <Archive type="zip" sha1sum="98c8dc8c4c154a1169eb7ae0affd4563fc32d24e">mirrors://sourceforge/ganttproject/ganttproject-2.0.4-src.zip</Archive>
         <BuildDependencies>
             <Dependency>sun-jdk</Dependency>
             <Dependency>ant</Dependency>
@@ -36,10 +37,18 @@
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/ganttproject.desktop">ganttproject.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/mimelnk/application/gan.desktop" permission="0644" owner="root">gan.desktop</AdditionalFile>
         </AdditionalFiles>
    </Package>
 
    <History>
+        <Update release="2">
+            <Date>2007-04-13</Date>
+            <Version>2.0.4</Version>
+            <Comment>Version bump, added mime type, package icon and a better description.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="1">
             <Date>2007-02-02</Date>
             <Version>2.0.3</Version>

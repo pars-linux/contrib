@@ -8,7 +8,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir = "%s-%s-src/ganttproject-builder" % (get.srcNAME(), get.srcVERSION())
+WorkDir = "%s-%s-src/%s-builder" % (get.srcNAME(), get.srcVERSION(), get.srcNAME())
 
 def build():
     shelltools.system("ant")
@@ -17,6 +17,7 @@ def install():
     pisitools.dobin("dist-bin/ganttproject.sh")
     pisitools.rename("/usr/bin/ganttproject.sh", "ganttproject")
     pisitools.insinto("/usr/share/ganttproject", "dist-bin/*")
+    shelltools.chmod("../ganttproject/data/resources/icons/ganttproject.png", 644)
     pisitools.insinto("/usr/share/pixmaps", "../ganttproject/data/resources/icons/ganttproject.png")
     pisitools.remove("/usr/share/ganttproject/ganttproject.*")
 
