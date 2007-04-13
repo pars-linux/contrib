@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ksquirrel</Name>
+        <Homepage>http://ksquirrel.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KSquirrel is an image viewer for KDE with disk navigator,</Summary>
+        <Description>KSquirrel is an image viewer for KDE with disk navigator, file tree, multiple directory view, thumbnails, extended thumbnails, dynamic format support, DCOP interface and KIPI plugins support.</Description>
+        <Archive type="tarbz2" sha1sum="86f9e707b460d1f1bbeec355eb075ee5b3b0dc0f">http://heanet.dl.sourceforge.net/sourceforge/ksquirrel/ksquirrel-0.7.0-pre2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libkipi</Dependency>
+            <Dependency>ksquirrel-libs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ksquirrel</Name>
+        <RuntimeDependencies>
+            <Dependency>libkipi</Dependency>
+            <Dependency>ksquirrel-libs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="man">/usr/kde/3.5/man</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-04-13</Date>
+            <Version>0.7.0_pre2</Version>
+            <Comment>First release.</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Update>
+    </History>
+</PISI>
