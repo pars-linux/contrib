@@ -20,3 +20,4 @@ def install():
     pisitools.dosbin("smartctl")
     pisitools.doman("smartd.8","smartctl.8","smartd.conf.5")
     pisitools.dodoc("AUTHORS","ChangeLog","NEWS","README","WARNINGS","smartd.conf")
+    pisitools.insinto("/etc/conf.d","smartd.conf")
