@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libspiff</Name>
+        <Homepage>http://libspiff.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>library</IsA>
+        <Summary>XSPF playlist reading and writing library</Summary>
+        <Summary xml:lang="tr">XSPF parça listesi okuma ve yazma kütüphanesi</Summary>
+        <Archive sha1sum="bae9bf5e8f8e4b57de35f10c4719eec3c0692b9d" type="tarbz2">mirrors://sourceforge/libspiff/libspiff-0.6.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>uriparser</Dependency>
+            <Dependency>expat</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libspiff</Name>
+        <RuntimeDependencies>
+            <Dependency>uriparser</Dependency>
+            <Dependency>expat</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-04-13</Date>
+            <Version>0.6.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
