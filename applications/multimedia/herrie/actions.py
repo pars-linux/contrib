@@ -17,7 +17,7 @@ def install():
     pisitools.dobin("herrie")
     pisitools.doman("herrie.1")
     
-    locales = ['nl','tr']
+    locales = ['nl','tr','de']
     for locale in locales:
         pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale, "herrie.mo")
 
