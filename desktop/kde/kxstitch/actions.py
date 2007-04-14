@@ -15,5 +15,6 @@ def build():
 
 def install():
     kde.install()
-    #pisitools.domo("po/tr.po", "tr", "kxstitch.mo")
+    pisitools.domo("po/tr.po", "tr", "kxstitch.mo")
+    pisitools.domove("/usr/share/locale/tr/*", "/usr/kde/3.5/share/locale/tr/")
     pisitools.domove("/usr/share/man/*", "/usr/kde/3.5/man/")
