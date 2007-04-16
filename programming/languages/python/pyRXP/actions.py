@@ -6,8 +6,12 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
-WorkDir="pyRXP-1.12-20070308/pyRXP"
+WorkDir="pyRXP"
 
 def install():
     pythonmodules.install()
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "docs")
+    pisitools.dodoc("README")
