@@ -12,7 +12,7 @@ from pisi.actionsapi import get
 WorkDir = "ogdi-3.2.0.beta1"
 
 def setup():
-    shelltools.export("TOPDIR", "%s/%s" % (get.workDIR(),get.srcDIR()))
+    shelltools.export("TOPDIR", "%s/%s" % (get.workDIR(), WorkDir))
     autotools.configure("--with-zlib \
                          --with-proj \
                          --with-expat")
