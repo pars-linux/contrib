@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>Reportlab</Name>
+        <Homepage>http://www.reportlab.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>PDF generator library</Summary>
+        <Summary xml:lang="tr">PDF üretim kitaplığı</Summary>
+        <Archive sha1sum="a6b11949276ab039dc3103127ef196ffbccfa0a7" type="zip">http://www.reportlab.org/ftp/ReportLab_2_0.zip</Archive>
+        <BuildDependencies>
+           <Dependency>python-imaging</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>Reportlab</Name>
+        <RuntimeDependencies>
+            <Dependency>python-imaging</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-06-12</Date>
+            <Version>2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
