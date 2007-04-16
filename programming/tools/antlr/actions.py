@@ -7,14 +7,18 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
+
+shelltools.export("MONO_SHARED_DIR", get.workDIR())
 
 def setup():
     autotools.configure("--enable-java \
                          --enable-cxx \
                          --enable-python \
                          --enable-csharp \
-                         --enable-examples")
+                         --enable-examples \
+                         --enable-verbose")
 
 def build():
     autotools.make()
