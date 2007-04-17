@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>isomaster</Name>
+        <Homepage>http://littlesvr.ca/isomaster/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>GTK2 (bootable) CD ISO Image editor.</Summary>
+        <Summary xml:lang="tr">GTK2 (bootable) CD ISO imaj düzenleyici</Summary>
+        <Archive sha1sum="c3ffe0a351e09e404a5ad7ae69b1d4272b7d6e73" type="tarbz2">http://littlesvr.ca/isomaster/releases/isomaster-0.8.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>make.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>isomaster</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-11</Date>
+            <Version>0.8.1</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
