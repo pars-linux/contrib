@@ -10,8 +10,6 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.export("LDFLAGS", "")
-
     autotools.configure("--disable-static \
                          --enable-gpx \
                          --enable-georef \
