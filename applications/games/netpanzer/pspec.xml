@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>netpanzer</Name>
+        <Homepage>http://netpanzer.berlios.de</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>netpanzer</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>netPanzer is an online multiplayer tactical warfare game designed for FAST ACTION combat</Summary>
+        <Description>The game is based on quick tactical action and unit management in real-time. Battles progress quickly and constantly as destroyed players respawn with a set of new units. Players can join or leave multiplayer games at any time.</Description>
+        <Archive sha1sum="467035ac35fb20f21db8329fa7606f4f94b4348d" type="tarbz2">http://download.berlios.de/netpanzer/netpanzer-0.8.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="1.2.7">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-image</Dependency>
+            <Dependency versionFrom="1.0.1">physfs</Dependency>
+            <Dependency versionFrom="4.0.3">screen</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>netpanzer.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>netpanzer</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.11">libsdl</Dependency>
+            <Dependency versionFrom="1.2.7">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-image</Dependency>
+            <Dependency versionFrom="1.0.1">physfs</Dependency>
+            <Dependency versionFrom="4.0.3">screen</Dependency>
+            <Dependency versionFrom="0.8">netpanzer-data</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-19</Date>
+            <Version>0.8.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
