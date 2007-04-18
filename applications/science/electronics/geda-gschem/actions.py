@@ -5,6 +5,7 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 WorkDir = "geda-gschem-%s" % get.srcVERSION()
@@ -17,3 +18,4 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("AUTHORS","ChangeLog","INSTALL","NEWS","README","TODO","VOCABULARY")
