@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>redland-bindings</Name>
+        <Homepage>http://librdf.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2 MPL-1.1</License>
+        <IsA>library</IsA>
+        <Summary>Redland RDF Language Bindings</Summary>
+        <Description>Redland RDF Language Bindings</Description>
+        <Archive sha1sum="4fb753a46c58c6c9e6e42a262876edb1af7f0cc5" type="targz">http://download.librdf.org/source/redland-bindings-1.0.5.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.5">redland</Dependency>
+            <Dependency versionFrom="2.4.4">python-tk</Dependency>
+            <Dependency versionFrom="1.5.0.10">sun-jdk</Dependency>
+            <Dependency versionFrom="1.8.5_p2">ruby</Dependency>
+            <Dependency versionFrom="5.2.1">php-cli</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>redland-bindings</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.5">redland</Dependency>
+            <Dependency versionFrom="2.4.4">python-tk</Dependency>
+            <Dependency versionFrom="1.5.0.10">sun-jdk</Dependency>
+            <Dependency versionFrom="1.8.5_p2">ruby</Dependency>
+            <Dependency versionFrom="5.2.1">php-cli</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/java</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-19</Date>
+            <Version>1.0.5.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
