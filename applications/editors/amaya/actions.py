@@ -9,41 +9,49 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="Amaya%s" % get.srcVERSION()
+WorkDir="Amaya"
 
 def setup():
-    # Create a subdirectory for your Pardus
-    shelltools.makedirs("%s/Amaya%s/Amaya/Pardus" % (get.workDIR(), get.srcVERSION()))
-    shelltools.cd("%s/Amaya%s/Amaya/Pardus" % (get.workDIR(), get.srcVERSION()))
+    # Cleanup crap
+    shelltools.unlinkDir("../libwww")
+    shelltools.unlinkDir("../freetype")
+    shelltools.unlinkDir("../Mesa")
+    shelltools.unlinkDir("../redland")
+    shelltools.unlinkDir("../wxWidgets")
+
+    # Re-create configure file for system libs
+    autotools.autoconf()
+
+    # Create a build directory for Pardus
+    shelltools.makedirs("Pardus")
+    shelltools.cd("Pardus")
 
     shelltools.system("ln -s ../configure")
-    autotools.configure("--prefix=/usr \
-                         --with-wx \
-                         --enable-bookmarks \
+
+    autotools.configure("--enable-bookmarks \
                          --enable-templates \
-                         --with-gl \
+                         --enable-system-libwww \
+                         --enable-system-wx \
+                         --enable-system-redland \
+                         --enable-annot \
                          --with-dav \
-                         --with-mesa \
-                         --without-gtk \
                          --enable-svg \
                          --enable-generic-xml \
-                         --with-graphiclibs")
+                         --without-graphiclibs")
 
 def build():
-    shelltools.cd("%s/Amaya%s/Amaya/Pardus" % (get.workDIR(), get.srcVERSION()))
+    shelltools.cd("Pardus")
     autotools.make()
 
 def install():
-    shelltools.cd("%s/Amaya%s/Amaya/Pardus" % (get.workDIR(), get.srcVERSION()))
+    pisitools.insinto("/usr/share/pixmaps", "resources/bundle/logo.png", "amaya.png")
+
+    shelltools.cd("Pardus")
     pisitools.dodir("/usr/share")
 
-    # run the scripts to install the files to the installation dir
-    shelltools.system("./script_install %s/Amaya%s/Amaya/Pardus/bin %s/usr/share" % (get.workDIR(), get.srcVERSION(), get.installDIR()))
-    shelltools.system("./script_install_gnomekde %s/Amaya%s/Amaya/Pardus/bin %s/usr/share" % (get.workDIR(), get.srcVERSION(), get.installDIR()))
+    autotools.install()
 
-    # make symbolic link for executable files
-    pisitools.dosym("/usr/share/Amaya-%s/wx/bin/amaya" % get.srcVERSION(), "/usr/bin/amaya")
-    pisitools.dosym("/usr/share/Amaya-%s/wx/bin/print" % get.srcVERSION(), "/usr/bin/print")
+    pisitools.domove("/usr/Amaya", "/usr/share/")
 
-    # remove redundant dirs and files
-    pisitools.removeDir("/usr/share/bin")
+    pisitools.dosed("%s/usr/share/Amaya/wx/bin/amaya" % get.installDIR(), "usr", "usr/share")
+    pisitools.domove("/usr/share/Amaya/wx/bin/amaya", "/usr/bin")
