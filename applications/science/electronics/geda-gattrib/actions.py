@@ -5,13 +5,12 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import get
 
-WorkDir = "geda-gattrib-20070216"
+WorkDir = "geda-gattrib-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--with-docdir=/usr/share/doc \
-                         --with-pcbconfdir=/usr/share/pcb \
-                         --with-pcbm4dir=/usr/share/pcb/m4")
+    autotools.configure()
 
 def build():
     autotools.make()
