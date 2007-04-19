@@ -27,10 +27,9 @@ def build():
     shelltools.system("jam")
 
 def install():
-    shelltools.system("jam -sDESTDIR=%s \
-                           -sappdocdir=/%s/%s \
-                            install" % 
-                            (get.installDIR(), get.docDIR(), get.srcTAG()))
+    shelltools.system("jam -sDESTDIR=%s install" % get.installDIR())
+
+    pisitools.dodoc("ChangeLog", "COPYING", "README", "RELNOTES", "TODO")
 
     for d in ["cache", "maps", "pics", "powerups", "sound", "units", "wads"]:
         fixperms("%s/usr/share/netpanzer/%s" % (get.installDIR(), d))
