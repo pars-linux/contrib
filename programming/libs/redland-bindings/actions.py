@@ -27,3 +27,5 @@ def install():
 
     pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
     pisitools.dohtml("*.html")
+
+    pisitools.removeDir("/usr/lib/perl5/5.8.8")
