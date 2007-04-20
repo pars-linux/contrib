@@ -13,10 +13,20 @@
         <Summary>3D-Desktop is a program for switching virtual desktops in a seamless 3-dimensional manner.</Summary>
         <Summary xml:lang="tr">3D-Desktop sanal masaüstleri arasında 3 boyutlu geçiş sağlayan bir programdır.</Summary>
         <Archive sha1sum="33ff86b559d0c0407ef4c6c989a9fcbf804f7e5f" type="targz">mirrors://sourceforge/desk3d/3ddesktop-0.2.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>glut</Dependency>
+            <Dependency>imlib2</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>3ddesktop</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>glut</Dependency>
+            <Dependency>imlib2</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="data">/usr/kde/3.5/etc</Path>
