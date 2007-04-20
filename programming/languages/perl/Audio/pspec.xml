@@ -13,10 +13,18 @@
         <Summary>Perl audio library</Summary>
         <Summary xml:lang="tr">Perl ses kütüphanesi</Summary>
         <Archive sha1sum="efc20e90256d6621db9bb5c93c83826218a2fdc4" type="targz">mirrors://cpan/authors/id/N/NI/NI-S/Audio-1.029.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>nas</Dependency>
+            <Dependency>alsa-lib</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>Audio</Name>
+        <RuntimeDependencies>
+            <Dependency>nas</Dependency>
+            <Dependency>alsa-lib</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
