@@ -15,17 +15,35 @@
         <Description>KAlgebra is a MathML-based graph calculator.</Description>
         <Description xml:lang="tr">KAlgebra, MathML tabanlı grafiksel hesap makinesi.</Description>
         <Archive sha1sum="fb2669bc18a88cd8abd982519c5cf4c6afb26907" type="tarbz2">http://kent.dl.sourceforge.net/sourceforge/kalgebra/kalgebra-20060501.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>lcms</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>kalgebra</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>lcms</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="data">/usr/kde/3.5/share/applications</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
             <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
             <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>            
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/kde/3.5/share/applications/KAlgebra.desktop" permission="0644" owner="root">KAlgebra.desktop</AdditionalFile>
