@@ -15,10 +15,28 @@
         <Description>An advanced twin-panel (commander-style) file-manager for KDE with many extras.</Description>
         <Description xml:lang="tr">KDE için çift panelli gelişmiş dosya yöneticisi.</Description>
         <Archive sha1sum="a91267cc33d5f1f61242b9a786f2bb3c57a04262" type="targz">mirrors://sourceforge/krusader/krusader-1.80.0-beta2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>lcms</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>krusader</Name>
+        <RuntimeDependencies>
+            <Dependency>lcms</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="library">/usr/kde/3.5/lib</Path>
