@@ -15,6 +15,15 @@
         <Description>KSimus is a KDE tool for simulation, automatization and visualization of technical processes.</Description>
         <Description xml:lang="tr">KSimus, teknik işlemlerin simülasyonu, otomatiklerştirilmesi ve canlandırılması için bir KDE aracı.</Description>
         <Archive sha1sum="8a5e85574ff6463fc90b21b7322ddc08340a8813" type="targz">http://ftp.debian.org/debian/pool/main/k/ksimus/ksimus_0.3.6-2.orig.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>lcms</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch level="1">ksimus_0.3.6-2-10.diff</Patch>
         </Patches>
@@ -22,6 +31,15 @@
 
     <Package>
         <Name>ksimus</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>lcms</Dependency>
+        </RuntimeDependencies>
         <Files>
                 <Path fileType="executable">/usr/kde/3.5/bin</Path>
                 <Path fileType="header">/usr/kde/3.5/include</Path>
