@@ -14,10 +14,16 @@
         <Summary xml:lang="tr">Java ile yazılmış bir Gnutella istemcisi</Summary>
         <Description>Limewire Java Gnutella client</Description>
         <Archive sha1sum="56e463e085b29e43f4a1c96cfea7cca218e7296f" type="zip">http://maverick.limewire.com/download/LimeWireOther.zip</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>limewire</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/usr/share/applications</Path>
