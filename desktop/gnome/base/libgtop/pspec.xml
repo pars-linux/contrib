@@ -15,11 +15,15 @@
         <Archive sha1sum="5019c727e7381bdea99f0e171edcc1c961dd0b6d" type="tarbz2">mirrors://gnome/libgtop/2.14/libgtop-2.14.8.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>pkgconfig</Dependency>
+            <Dependency>libXau</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>libgtop</Name>
+        <RuntimeDependencies>
+            <Dependency>libXau</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
