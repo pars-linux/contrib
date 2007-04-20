@@ -15,13 +15,17 @@
         <Description>A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Description>
         <Description xml:lang="tr">A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Description>
         <Archive sha1sum="2ac0680a9cf89fd1fac5b31a7834e4d509194345" type="zip">mirrors://sourceforge/bioclipse/bioclipse_1_0_1.linux.gtk.x86.zip</Archive>
-        <BuildDependencies>
-            <Dependency>sun-jre</Dependency>
-        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>bioclipse</Name>
+        <RuntimeDependencies>
+            <Dependency>atk</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/opt/bioclipse</Path>
