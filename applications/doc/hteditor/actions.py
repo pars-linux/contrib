@@ -6,8 +6,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="ht-2.0"
+WorkDir="ht-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure()
@@ -17,4 +18,5 @@ def build():
 
 def install():
     autotools.install()
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
