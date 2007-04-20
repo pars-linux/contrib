@@ -13,6 +13,11 @@
         <Summary>A tiny program that looks like wget and is designed to upload files or whole directories to remote ftp-servers</Summary>
         <Summary xml:lang="tr">Wget gibi tasarlanmış, uzak ftp sunucularına dosya veya bir çok dizini yüklemeye yarayan küçük bir program</Summary> 
         <Archive sha1sum="83c2a538041f667398b23611a993eafa738ab01d" type="targz">mirrors://sourceforge/wput/wput-0.6.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>gnutls</Dependency>
+            <Dependency>libgcrypt</Dependency>
+            <Dependency>libgpg-error</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch level="1">wput-0.6-gentoo.diff</Patch>
             <Patch level="1">i18n-tr.patch</Patch>
@@ -21,6 +26,11 @@
 
     <Package>
         <Name>wput</Name>
+        <RuntimeDependencies>
+            <Dependency>gnutls</Dependency>
+            <Dependency>libgcrypt</Dependency>
+            <Dependency>libgpg-error</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="config">/etc</Path>
