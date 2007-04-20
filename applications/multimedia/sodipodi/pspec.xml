@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
@@ -16,16 +16,36 @@
         <Description>Cizgifilm afiş ve bir çok vektörel cizimlerinizi yapabileceğiniz güzel bir yazılım</Description>
         <Description xml:lang="tr">Cizgifilm afiş ve bir çok vektörel cizimlerinizi yapabileceğiniz güzel bir yazılım</Description>
         <Archive sha1sum="61d97af419d9c0e1dd89998d21e8c9f81857192c" type="targz">http://mesh.dl.sourceforge.net/sourceforge/sodipodi/sodipodi-0.34.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qtk2</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>sodipodi</Name>
+        <RuntimeDependencies>
+            <Dependency>qtk2</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
         </Files>
     </Package>
-    
+
     <History>
         <Update release="1">
             <Date>2006-11-12</Date>
@@ -36,5 +56,3 @@
         </Update>
     </History>
 </PISI>
-
-
