@@ -13,10 +13,32 @@
         <Summary>Agave is a very simple application that allows you to generate a variety of colorschemes from a single starting color</Summary>
         <Summary xml:lang="tr">Agave, tek bir renkten başlayarak çeşitli renk şemaları yaratmanıza imkan sağlayan basit bir araçtır.</Summary>
         <Archive type="tarbz2" sha1sum="11c2c7eb2b9c2ef0ec93587c7555422c7a388b26">http://download.gna.org/colorscheme/releases/agave-0.4.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>glibmm</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>cairomm</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libsigc++</Dependency>
+            <Dependency>gtkmm</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>agave</Name>
+        <RuntimeDependencies>
+            <Dependency>glibmm</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>cairomm</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libsigc++</Dependency>
+            <Dependency>gtkmm</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
