@@ -13,6 +13,9 @@
         <Summary>A photo album generator for KDE 3.x</Summary>
         <Summary xml:lang="tr">Fotoğraf albümleri oluşturmak için bir programdır.</Summary>
         <Archive sha1sum="04c811f4dd0cd6701ecbc61f957e34401021b2db" type="tarbz2">http://www.paldandy.com/kalbum/data/kalbum-0.8.0/kalbum-0.8.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch>kalbum-0.8.0-configure-arts.patch</Patch>
         </Patches>
@@ -20,6 +23,9 @@
 
     <Package>
         <Name>kalbum</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="data">/usr/kde/3.5/share</Path>
             <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
