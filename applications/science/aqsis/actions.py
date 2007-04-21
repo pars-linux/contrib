@@ -14,4 +14,7 @@ def install():
     shelltools.export("LD_LIBRARY_PATH", "%s/%s/lib" % (get.installDIR(), get.defaultprefixDIR()))
     scons.install("install_prefix=/%s sysconfdir=/%s/aqsis install" % (get.defaultprefixDIR(), get.confDIR()), get.installDIR(), "destdir")
 
+    pisitools.dosym("/usr/lib/aqsis/plugins/libjpg2tif.so", "/usr/lib/libjpg2tif.so.1")
+    pisitools.dosym("/usr/lib/aqsis/plugins/libppm2tif.so", "/usr/lib/libppm2tif.so.1")
+
     pisitools.dodoc("AUTHORS", "COPYING", "README", "ReleaseNotes")
