@@ -22,4 +22,4 @@ def install():
     pisitools.insinto("/usr/share/MiniRacer/data", "data/maps/maps1.lst")
     pisitools.insinto("/usr/share/man", "miniracer.6")
 
-    pisitools.dodoc("AUTHORS", "CREDITS", "COPYING", "INSTALL", "ChangeLog", "README")
+    pisitools.dodoc("AUTHORS", "CREDITS", "COPYING", "ChangeLog", "README")
