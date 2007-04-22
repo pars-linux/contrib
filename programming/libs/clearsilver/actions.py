@@ -29,4 +29,4 @@ def install():
     # no static libs
     pisitools.remove("/usr/lib/*.a")
 
-    pisitools.dodoc("CS_LICENSE", "LICENSE", "INSTALL", "README*")
+    pisitools.dodoc("CS_LICENSE", "LICENSE", "README*")
