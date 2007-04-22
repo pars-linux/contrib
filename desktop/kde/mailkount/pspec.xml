@@ -13,10 +13,16 @@
         <Summary>MailKount is an applet for Kicker that regularly checks the number of mails on one or two pop/imap servers and sends notifications on new messages.</Summary>
         <Summary xml:lang="tr">Sistem çekmecesine yerleşen ve POP/IMAP sunuculardaki maillerinizi kontrol edip sizi uyaran bir yazılım.</Summary>
         <Archive sha1sum="b5e7f953e7350fda9ffd529762c60c3199f7bf8e" type="tarbz2">http://goondy.free.fr/gentoo/mailkount/mailkount-0.3.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+	</BuildDependencies>
     </Source>
 
     <Package>
         <Name>mailkount</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+	</RuntimeDependencies>
         <Files>
             <Path fileType="data">/usr/kde/3.5/share</Path>
             <Path fileType="library">/usr/kde/3.5/lib</Path>
