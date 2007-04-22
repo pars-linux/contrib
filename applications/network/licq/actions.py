@@ -32,7 +32,7 @@ def build():
         autotools.make()
 
 def install():
-    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "INSTALL", "ChangeLog", "doc/*")
+    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
     autotools.install()
     shelltools.cd("plugins/qt-gui")
     autotools.install()
