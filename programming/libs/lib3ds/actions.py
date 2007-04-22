@@ -24,4 +24,4 @@ def install():
     pisitools.dobin("examples/player")
     pisitools.rename("/usr/bin/player", "lib3ds-player")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
