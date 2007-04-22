@@ -19,7 +19,7 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS","ChangeLog","COPYING*","INSTALL","NEWS","README","TODO")
+    pisitools.dodoc("AUTHORS","ChangeLog","COPYING*","NEWS","README","TODO")
     pisitools.dosym("/usr/bin/glade-3", "/usr/bin/glade")
 
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
