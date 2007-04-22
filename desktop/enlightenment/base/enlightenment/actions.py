@@ -43,5 +43,5 @@ def install():
     pisitools.dosym("/usr/share/xsessions/enlightenment.desktop", "%s/share/apps/kdm/sessions/enlightenment.desktop" % get.kdeDIR())
     pisitools.rename("%s/share/apps/kdm/sessions/enlightenment.desktop" % get.kdeDIR(), "E17.desktop")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README*", "docs/README*")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README*", "docs/README*")
 
