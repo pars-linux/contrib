@@ -33,4 +33,4 @@ def install():
 
     pisitools.insinto("/usr/share/pixmaps", "images/icons/qgis-icon.png", "qgis.png")
 
-    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
