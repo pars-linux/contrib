@@ -22,4 +22,4 @@ def install():
 
     pisitools.domo("po/gnaural.tr.po", "tr", "gnaural.mo")
     pisitools.insinto("/usr/share/pixmaps", "pixmaps/*")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
