@@ -18,4 +18,4 @@ def build():
 
 def install():
     autotools.rawInstall('INSTALL_ROOT="%s"' % get.installDIR())
-    pisitools.dodoc('COPYING', 'INSTALL', 'README', 'TODO')
+    pisitools.dodoc('COPYING', 'README', 'TODO')
