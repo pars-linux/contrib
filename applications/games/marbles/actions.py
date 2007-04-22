@@ -23,4 +23,4 @@ def install():
 
     pisitools.domove("/usr/bin/marbles", "/usr/share/marbles")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
