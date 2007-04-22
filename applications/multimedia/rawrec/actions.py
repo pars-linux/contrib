@@ -20,4 +20,4 @@ def install():
 
     pisitools.doman("docs/user/rawrec.1")
 
-    pisitools.dodoc("docs/programmer/*", "ChangeLog", "copyright", "INSTALL")
+    pisitools.dodoc("docs/programmer/*", "ChangeLog", "copyright")
