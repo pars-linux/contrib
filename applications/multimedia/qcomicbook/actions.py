@@ -16,5 +16,5 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.dodoc("ChangeLog", "COPYING", "README", "AUTHORS", "TODO", "THANKS", "INSTALL", "NEWS")
+    pisitools.dodoc("ChangeLog", "COPYING", "README", "AUTHORS", "TODO", "THANKS", "NEWS")
     pisitools.insinto("/usr/share/applications","fedora/qcomicbook.desktop")
