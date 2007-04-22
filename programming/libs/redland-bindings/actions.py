@@ -7,6 +7,7 @@
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import perlmodules
 from pisi.actionsapi import get
 
 def setup():
@@ -28,4 +29,4 @@ def install():
     pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
     pisitools.dohtml("*.html")
 
-    pisitools.removeDir("/usr/lib/perl5/5.8.8")
+    perlmodules.fixLocalPod()
