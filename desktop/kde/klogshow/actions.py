@@ -21,4 +21,4 @@ def install():
     pisitools.insinto("/usr/share/applications","src/klogshow.desktop")
     pisitools.insinto("/usr/share/pixmaps","src/images/klogshow.png")
 
-    pisitools.dodoc("CHANGELOG", "COPYING", "INSTALL")
+    pisitools.dodoc("CHANGELOG", "COPYING")
