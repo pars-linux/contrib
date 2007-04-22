@@ -18,4 +18,4 @@ def build():
 
 def install():
     autotools.install()
-    pisitools.dodoc('COPYING', 'INSTALL')
+    pisitools.dodoc('COPYING')
