@@ -25,6 +25,6 @@ def install():
     pisitools.dobin("new/mailstat")
     pisitools.doman("*.1")
     pisitools.doman("*.5")
-    pisitools.dodoc("Artistic", "COPYING", "FAQ", "FEATURES", "HISTORY", "INSTALL", "KNOWN_BUGS", "README")
+    pisitools.dodoc("Artistic", "COPYING", "FAQ", "FEATURES", "HISTORY", "KNOWN_BUGS", "README")
     pisitools.dodir("/usr/share/doc/%s/examples" % get.srcTAG())
     pisitools.insinto("/usr/share/doc/%s/examples" % get.srcTAG(), "examples/*")
