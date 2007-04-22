@@ -24,7 +24,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "INSTALL", "NEWS", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "NEWS", "README")
     pisitools.insinto("%s/html" % docdir, "%s/%s/rasqal/*" % (get.installDIR(), docdir))
     pisitools.removeDir("%s/rasqal" % docdir)
     pisitools.dohtml("*.html")
