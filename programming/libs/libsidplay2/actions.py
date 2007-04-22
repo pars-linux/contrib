@@ -37,7 +37,7 @@ def install():
 
     # Dirty way to install docs
     for dirs in ("libsidplay", "libsidutils", "resid"):
-        for files in ("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "TODO", "README"):
+        for files in ("AUTHORS", "ChangeLog", "COPYING", "TODO", "README"):
             shelltools.cd(dirs)
             pisitools.insinto("/usr/share/doc/%s/%s" % (get.srcTAG(), dirs), "%s" % files)
             shelltools.cd("..")
