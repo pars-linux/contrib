@@ -22,4 +22,4 @@ def install():
     pisitools.remove("usr/share/stardict/pixmaps/docklet_stop.png")
     pisitools.remove("usr/share/stardict/pixmaps/docklet_normal.png")
     pisitools.domo("po/tr.po" , "tr" , "stardict.mo")
-    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "HowToCreateDictionary", "INSTALL", "NEWS", "README", "TODO")
+    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "HowToCreateDictionary", "NEWS", "README", "TODO")
