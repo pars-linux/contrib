@@ -32,5 +32,5 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "images/prokyon_logo.png", "prokyon.png")
 
     pisitools.domove("usr/share/prokyon3/html", "%s/%s" % (get.docDIR(), get.srcTAG()))
-    pisitools.dodoc("ChangeLog", "AUTHORS", "COPYING", "INSTALL", "NEWS", "README")
+    pisitools.dodoc("ChangeLog", "AUTHORS", "COPYING", "NEWS", "README")
 
