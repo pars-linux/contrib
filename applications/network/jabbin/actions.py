@@ -20,4 +20,4 @@ def install():
     #autotools.install doesn't do the trick here :\
     shelltools.system("./install.sh")
     pisitools.insinto("/usr/share/applications", "jabbin.desktop")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
