@@ -26,7 +26,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "NEWS", "README", "TODO")
     pisitools.dohtml("*.html")
 
     perlmodules.fixLocalPod()
