@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gcc-snapshot</Name>
+        <Homepage>http://www.gnu.org/software/gcc/gcc.html</Homepage>
+        <Packager>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2.1</License>
+        <IsA>app:console</IsA>
+        <Summary>The GNU Compiler Collection snapshot. Includes C/C++,Fortran,ObjC compilers</Summary>
+        <Archive sha1sum="86880c199a8d7a1229f77becc9399d04ea7fefec" type="tarbz2">http://cekirdek.pardus.org.tr/~ismail/dist/gcc-4.3-20070420.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>mpfr</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gcc-snapshot</Name>
+        <RuntimeDependencies>
+            <Dependency>mpfr</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/gcc-snapshot/lib</Path>
+            <Path fileType="executable">/usr/lib/gcc-snapshot/bin</Path>
+            <Path fileType="executable">/usr/lib/gcc-snapshot/sbin</Path>
+            <Path fileType="library">/usr/lib/gcc-snapshot/libexec</Path>
+            <Path fileType="library">/usr/lib/gcc-snapshot/i686-pc-linux-gnu</Path>
+            <Path fileType="data">/usr/lib/gcc-snapshot/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-21</Date>
+            <Version>4.3.0_20070420</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
