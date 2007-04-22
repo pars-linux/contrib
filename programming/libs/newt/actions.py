@@ -27,5 +27,5 @@ def install():
 
     pisitools.remove("/usr/lib/libnewt.a")
 
-    pisitools.dodoc("ChangeLog", "AUTHORS", "INSTALL*", "NEWS", "README*")
+    pisitools.dodoc("ChangeLog", "AUTHORS", "NEWS", "README*")
 
