@@ -16,6 +16,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "INSTALL", "HACKING", "README")
+    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "HACKING", "README")
     pisitools.insinto("/usr/share/pixmaps/", "xchat.png")
     pisitools.insinto("/usr/share/applications/", "xchat.desktop")
