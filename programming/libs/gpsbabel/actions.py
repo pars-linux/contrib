@@ -24,5 +24,5 @@ def build():
 
 def install():
     pisitools.dobin("gpsbabel")
-    pisitools.dodoc("AUTHORS", "COPYING", "INSTALL", "NEWS", "README*")
+    pisitools.dodoc("AUTHORS", "COPYING", "NEWS", "README*")
     pisitools.dohtml("*")
