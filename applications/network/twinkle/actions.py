@@ -15,4 +15,4 @@ def build():
 
 def install():
     kde.install()
-    pisitools.dodoc("COPYING", "INSTALL", "README", "ChangeLog", "AUTHORS", "NEWS", "TODO", "THANKS")
+    pisitools.dodoc("COPYING", "README", "ChangeLog", "AUTHORS", "NEWS", "TODO", "THANKS")
