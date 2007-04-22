@@ -16,5 +16,5 @@ def install():
     for file in appFiles:
         pisitools.insinto("%s/share/apps/kim" % get.kdeDIR(), file)
     pisitools.rename("%s/share/apps/kim/COPYING" % get.kdeDIR(), "kim_about.txt")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "INSTALL", "NEWS", "README", "manual.html")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "manual.html")
 
