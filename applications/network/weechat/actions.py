@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-static=no \
@@ -17,8 +18,7 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
-    pisitools.dobin("src/gui/curses/weechat-curses", "/usr/bin")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dosym("/usr/bin/weechat-curses", "/usr/bin/weechat")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "NEWS", "README")
