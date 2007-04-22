@@ -24,4 +24,4 @@ def install():
     pisitools.removeDir("/usr/bin")
     pisitools.removeDir("/usr/include")
 
-    pisitools.dodoc("ChangeLog", "COPYING", "AUTHORS", "INSTALL", "NEWS")
+    pisitools.dodoc("ChangeLog", "COPYING", "AUTHORS", "NEWS")
