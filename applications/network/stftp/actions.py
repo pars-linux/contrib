@@ -12,4 +12,4 @@ def build():
 
 def install():
     pisitools.dobin("stftp")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "INSTALL", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO")
