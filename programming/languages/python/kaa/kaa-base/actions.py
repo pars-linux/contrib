@@ -9,4 +9,5 @@ from pisi.actionsapi import pisitools
 
 def install():
     pythonmodules.install()
+
     pisitools.dodoc("AUTHORS", "COPYING", "PKG-INFO", "TODO", "README")
