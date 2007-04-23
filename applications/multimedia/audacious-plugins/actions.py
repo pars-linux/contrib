@@ -48,7 +48,11 @@ def setup():
                          --enable-tta \
                          --enable-lame \
                          --with-sidplay2=/usr \
-                         --with-sidbuilders=/usr")
+                         --with-sidplay2-lib=/usr/lib \
+                         --with-sidplay2-inc=/usr/include/sidplay \
+                         --with-sidbuilders=/usr \
+                         --with-builders-inc=/usr/include/sidplay/builders \
+                         --with-builders-lib=/usr/lib/sidplay/builders")
 
 def build():
     autotools.make()
