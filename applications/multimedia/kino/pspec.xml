@@ -16,11 +16,11 @@
         <Description xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir.</Description>
         <Archive sha1sum="2949a014e53dd7c7b561f0bb4f0be5e5cb3a857a" type="targz">mirrors://sourceforge/kino/kino-1.0.0.tar.gz</Archive>
         <BuildDependencies>
+            <Dependency>libiec61883</Dependency>
             <Dependency versionFrom="1.0.0">libraw1394</Dependency>
             <Dependency versionFrom="0.4.1">libavc1394</Dependency>
             <Dependency versionFrom="0.103">libdv</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
             <Dependency>libglade2</Dependency>
             <Dependency>audiofile</Dependency>
             <Dependency>libsamplerate</Dependency>
@@ -36,9 +36,17 @@
     <Package>
         <Name>kino</Name>
         <RuntimeDependencies>
+            <Dependency>libiec61883</Dependency>
+            <Dependency versionFrom="1.0.0">libraw1394</Dependency>
+            <Dependency versionFrom="0.4.1">libavc1394</Dependency>
             <Dependency versionFrom="0.103">libdv</Dependency>
-	    <Dependency>mjpegtools</Dependency>
-	    <Dependency>rawrec</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>audiofile</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>lzo</Dependency>
+            <Dependency>libquicktime</Dependency>
         </RuntimeDependencies>
         <Files>
            <Path fileType="localedata">/usr/share/locale</Path>
