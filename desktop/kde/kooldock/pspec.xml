@@ -15,6 +15,9 @@
         <Description>A kool dock for KDE. It attemps to resemble the Mac OSX dock.</Description>
         <Description xml:lang="tr">KDE için Mac OSX paneline benzeyen bir panel.</Description>
         <Archive sha1sum="aec5817a2920cc12fd07973f538da73b61f28587" type="targz">ftp://ftp.freenet.de/pub/.disk3/ftp.snt.utwente.nl/pub/os/linux/gentoo/distfiles/kooldock-0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.2">kdebase</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch>kooldock-0.3-configure.patch</Patch>
             <Patch>kooldock-0.3-fix-left-segfault.patch</Patch>
@@ -26,8 +29,6 @@
     <Name>kooldock</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="3.2">kdebase</Dependency>
-            <Dependency versionFrom="3.2">kdelibs</Dependency>
-            <Dependency versionFrom="3.3">qt</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
