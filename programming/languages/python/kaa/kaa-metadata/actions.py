@@ -9,7 +9,6 @@ from pisi.actionsapi import pisitools
 
 def install():
     pythonmodules.install()
+
     pisitools.dodoc("AUTHORS", "COPYING", "TODO", "PKG-INFO", "README")
 
-    # Conflict with mmpython
-    pisitools.remove("/usr/bin/mminfo")
