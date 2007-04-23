@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-scrollkeeper --disable-mime-install --prefix=/usr")
+    autotools.configure("--disable-scrollkeeper")
 
 def build():
     autotools.make()
