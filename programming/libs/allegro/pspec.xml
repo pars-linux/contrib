@@ -15,10 +15,22 @@
         <Description>Allegro is a cross-platform library intended for use in computer games and other types of multimedia programming.</Description>
         <Description xml:lang="tr">Allegro, bilgisayar oyunları ve çokluortam uygulamaları için tasarlanmış platform bağımsız bir kütüphanedir.</Description>
         <Archive sha1sum="5b4a542c038ee196564f9107de59fe30a8caeaf5" type="targz">mirrors://sourceforge/alleg/allegro-4.2.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>esound</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>arts</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>allegro</Name>
+        <RuntimeDependencies>
+            <Dependency>esound</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>arts</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
