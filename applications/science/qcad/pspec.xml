@@ -17,7 +17,7 @@
         <Archive sha1sum="aff563389d1285740f6bf7e28f93b8df0f902e0c" type="targz">http://www.ribbonsoft.com/archives/qcad/qcad-2.0.5.0-1-community.src.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="3.3">qt</Dependency>
-            <Dependency versionFrom="4">sed</Dependency>
+            <Dependency>qt-assistant</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">qcad-2.0.4.0-1.src-gentoo.patch</Patch>
@@ -26,6 +26,10 @@
 
     <Package>
         <Name>qcad</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.3">qt</Dependency>
+            <Dependency>qt-assistant</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
