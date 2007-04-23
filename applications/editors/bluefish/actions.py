@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 
 
 def setup():
-    autotools.configure("--without-libgnomeui --without-gnome-vfs")
+    autotools.configure()
 
 def build():
     autotools.make()
