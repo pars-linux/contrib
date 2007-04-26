@@ -24,4 +24,10 @@ def build():
 def install():
     autotools.install()
 
+    # Conflicts with emacs
+    pisitools.removeDir("/usr/share/info")
+    pisitools.removeDir("/usr/share/man")
+    pisitools.removeDir("/var/lib/games/")
+    pisitools.remove("/usr/share/emacs/site-lisp/subdirs.el")
+
     pisitools.dodoc("ChangeLog", "BUGS", "README")
