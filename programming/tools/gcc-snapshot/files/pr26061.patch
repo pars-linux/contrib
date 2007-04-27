@@ -1,0 +1,15 @@
+--- gcc/toplev.c	2006-10-09 19:27:14.000000000 +0300
++++ gcc/toplev.c	2007-01-26 20:59:19.395519510 +0200
+@@ -1975,6 +1975,12 @@
+ 
+   /* Language-specific end of compilation actions.  */
+   lang_hooks.finish ();
++
++
++  /* Print error / warning counts.  */
++  if ( errorcount || warningcount )
++    fprintf (stderr, "\n*** %d errors, %d warnings\n",
++             errorcount, warningcount);
+ }
+ 
+ /* Initialize the compiler, and compile the input file.  */
