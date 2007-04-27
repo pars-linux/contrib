@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>moc</Name>
+        <Homepage>http://moc.daper.net/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Console audio player for Linux.</Summary>
+        <Summary xml:lang="tr">Komut satırı ses çalıcısı</Summary>
+        <Archive sha1sum="63923cd7ff0f144d5a7baed7b55e3790da05134c" type="tarbz2">ftp://ftp.daper.net/pub/soft/moc/stable/moc-2.4.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>ncurses</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>speex</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>moc</Name>
+        <RuntimeDependencies>
+            <Dependency>ncurses</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>speex</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/moc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="library">/usr/lib/moc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-28</Date>
+            <Version>2.4.1</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
