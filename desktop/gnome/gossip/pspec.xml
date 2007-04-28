@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gossip</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Lightweight Jabber client for GNOME</Summary>
+        <Summary xml:lang="tr">Gnome için hafif bir jabber istemcisi</Summary>
+        <Archive sha1sum="f68ab43bd23aa8bd0d0527b7a941e93250c50b22" type="tarbz2">mirrors://gnome/gossip/0.24/gossip-0.24.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="0.4.4">libnotify</Dependency>
+            <Dependency>docbook-xml4_1_2</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>loudmouth</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency>intltool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gossip</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="0.4.4">libnotify</Dependency>
+            <Dependency>docbook-xml4_1_2</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>loudmouth</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-04-28</Date>
+            <Version>0.24</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-04</Date>
+            <Version>0.23</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
