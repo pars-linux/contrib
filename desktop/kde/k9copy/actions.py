@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     kde.configure()
@@ -16,4 +17,9 @@ def build():
 def install():
     kde.install()
 
+    pisitools.domo("po/tr.po" , "tr", "k9copy.mo")
+    pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/k9copy.mo", "%s/share/locale/tr/LC_MESSAGES" % get.kdeDIR())
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
+
+    pisitools.removeDir("/usr/share/locale")
