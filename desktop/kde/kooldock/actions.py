@@ -21,6 +21,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.domo("kooldock.po" , "tr" , "kooldock.mo")
+    pisitools.domo("po/tr.po" , "tr" , "kooldock.mo")
     pisitools.dodoc("AUTHORS", "ChangeLog" , "INSTALL", "README", "TODO")
 
