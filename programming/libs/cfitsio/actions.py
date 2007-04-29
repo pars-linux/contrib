@@ -13,7 +13,8 @@ WorkDir = "cfitsio"
 def setup():
     autotools.rawConfigure("--prefix=/usr \
                             --libdir=/usr/lib \
-                            --includedir=/usr/include")
+                            --includedir=/usr/include \
+                            --disable-static")
 
 def build():
     autotools.make()
