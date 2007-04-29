@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>risk</Name>
+        <Homepage>http://jrisk.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <Icon>risk</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>This is java version of the classic RISK board game</Summary>
+        <Summary xml:lang="tr">Klasik masaüstü oyunu Risk'in java ile yazılmış versiyonu</Summary>
+        <Archive sha1sum="8f5ffda916d76833389519281a326d6254a462a1" type="zip">mirrors://sourceforge/jrisk/backup_of_Risk_1.0.8.9.zip</Archive>
+        <BuildDependencies>
+            <Dependency>ant</Dependency>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>risk</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/risk</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/risk.png">risk.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/risk.desktop">risk.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/risk">risk</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-31</Date>
+            <Version>1.0.8.9</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
