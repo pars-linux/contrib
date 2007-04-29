@@ -63,7 +63,8 @@ def setup():
                          --with-eet-config=/usr/bin/eet-config \
                          --with-edb-config=/usr/bin/edb-config \
                          --with-qtdir=%s \
-                         --with-freetype" % get.qtDIR())
+                         --with-freetype \
+                         --disable-static" % get.qtDIR())
 
 def build():
     autotools.make()
