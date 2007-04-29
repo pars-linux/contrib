@@ -6,7 +6,6 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
 def build():
@@ -14,4 +13,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pythonmodules.fixCompiledPy("/usr/share/gquilt/")
+#   Requires SVN PiSi
+#    from pisi.actionsapi import pythonmodules
+#    pythonmodules.fixCompiledPy("/usr/share/gquilt/")
