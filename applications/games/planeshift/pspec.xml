@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>planeshift</Name>
+        <Homepage>http://www.planeshift.it/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>PlaneShift</License>
+        <Icon>planeshift</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A 3D Fantasy MMORPG. You can not use this software if you don't agree to the following license. Do not install this software if you don't agree with the following license. Please, check the license from http://www.planeshift.it/license.html</Summary>
+        <Summary xml:lang="tr">A 3D Fantasy MMORPG. Eğer, lisansı onaylamıyorsanız bu programı kullanamazsınız ve yükleyemezsiniz. Lisansı okumak için lütfen şu adresi ziyaret ediniz http://www.planeshift.it/license.html</Summary>
+        <Archive sha1sum="0a7eb4f7feca3ae5021e7dc12432dee7d090b751" type="tarbz2">http://cekirdek.pardus.org.tr/~onur/distfiles/extra/planeshift-0.3.018_20070220.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency version="1.1_26566">crystalspace</Dependency>
+            <Dependency version="1.1_2591">cel</Dependency>
+            <Dependency>jam</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>header_effect.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>planeshift</Name>
+        <RuntimeDependencies>
+            <Dependency version="1.1_26566">crystalspace</Dependency>
+            <Dependency version="1.1_2591">cel</Dependency>
+            <Dependency version="0.3.018">planeshift-data</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/planeshift">planeshift</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/planeshift.desktop">planeshift.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/planeshift.png">planeshift.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-20</Date>
+            <Version>0.3.018_20070220</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
