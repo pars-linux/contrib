@@ -5,10 +5,15 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir = "fmodapi375linux"
+WorkDir="fmodapi375linux"
 
 def install():
-    pisitools.insinto("/usr/include", "api/inc/*")
-    pisitools.insinto("/usr/lib", "api/libfmod-3.75.so")
-    pisitools.insinto("/usr/share/doc/fmod-3.75-1", "documentation/*")
+    pisitools.insinto("/usr/lib","api/libfmod-3.75.so")
+    pisitools.dosym("/usr/lib/libfmod-3.75.so","/usr/lib/libfmod.so")
+
+    pisitools.insinto("/usr/include","api/inc/*.h")
+
+    pisitools.dohtml("documentation/*.html")
+    pisitools.insinto("/usr/share/doc/fmod-%s-%s/html" % (get.srcVERSION(),get.srcRELEASE()),"documentation/HTML")
