@@ -9,7 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-edje-cc \
+    autotools.configure("--disable-static \
+                         --enable-edje-cc \
                          --with-eet \
                          --with-eet-exec \
                          --with-evas \
