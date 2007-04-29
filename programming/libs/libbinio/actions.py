@@ -9,12 +9,15 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-iostream --enable-string")
+    autotools.configure("--disable-static \
+                         --enable-iostream \
+                         --enable-string")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("ChangeLog", "AUTHORS", "NEWS", "README", "TODO")
 
