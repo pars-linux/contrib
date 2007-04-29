@@ -31,7 +31,8 @@ def setup():
                          --enable-ecore-desktop \
                          --enable-curl \
                          --enable-pthreads \
-                         --with-x")
+                         --with-x \
+                         --disable-static")
 
 def build():
     autotools.make()
