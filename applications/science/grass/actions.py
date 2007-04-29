@@ -11,7 +11,9 @@ from pisi.actionsapi import get
 
 def setup():
     shelltools.export("GRASS_XTERM", "/usr/bin/konsole")
+
     autotools.configure("--prefix=%s/opt \
+                         --disable-static \
                          --with-x \
                          --with-cxx \
                          --with-jpeg \
