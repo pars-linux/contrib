@@ -1,0 +1,42 @@
+diff -Nuar liferea-1.2.12.orig/opml/feedlist_tr.opml liferea-1.2.12/opml/feedlist_tr.opml
+--- liferea-1.2.12.orig/opml/feedlist_tr.opml	1970-01-01 02:00:00.000000000 +0200
++++ liferea-1.2.12/opml/feedlist_tr.opml	2007-04-29 22:49:41.000000000 +0300
+@@ -0,0 +1,19 @@
++<?xml version="1.0"?>
++<opml version="1.0">
++  <head>
++    <title>Liferea Feed List Export</title>
++  </head>
++  <body>
++    <outline title="Important" text="Important" description="Important" type="vfolder" id="nafgbsc" sortColumn="time" viewMode="0">
++      <outline type="rule" text="&#x130;&#x15F;aretlenme durumu" rule="flagged" value="" additive="true"/>
++    </outline>
++    <outline title="Unread" text="Unread" description="Unread" type="vfolder" id="lxbesie" sortColumn="time" viewMode="0">
++      <outline type="rule" text="Okunma durumu" rule="unread" value="" additive="true"/>
++    </outline>
++    <outline title="A&#xE7;&#x131;k Kaynak Kod" text="A&#xE7;&#x131;k Kaynak Kod" description="A&#xE7;&#x131;k Kaynak Kod" type="folder" id="gagqwnw" sortColumn="time" viewMode="0" expanded="true">
++      <outline title="Pardus D&#xFC;nyas&#x131;" text="Pardus D&#xFC;nyas&#x131;" description="Pardus D&#xFC;nyas&#x131;" type="rss" id="ksbmwcx" sortColumn="time" viewMode="0" htmlUrl="http://gezegen.pardus.org.tr" xmlUrl="http://gezegen.pardus.org.tr/rss20.xml" updateInterval="-1" etag="&quot;1fba4-1c848-fba4b640&quot;" lastModified="Sun, 29 Apr 2007 19:00:33 GMT" lastPollTime="1177875934" lastFaviconPollTime="1177875940"/>
++      <outline title="Linux Gezegeni" text="Linux Gezegeni" description="Linux Gezegeni" type="rss" id="fcqxcbs" sortColumn="time" viewMode="0" htmlUrl="http://gezegen.linux.org.tr" xmlUrl="http://gezegen.linux.org.tr/rss20.xml" updateInterval="-1" etag="&quot;3d035-7cc2-4634f4d5&quot;" lastModified="Sun, 29 Apr 2007 19:41:09 GMT" lastPollTime="1177875958" lastFaviconPollTime="1177875959"/>
++      <outline title="Fazlamesai.net" text="Fazlamesai.net" description="Fazlamesai.net" type="rss" id="ikwqvmq" sortColumn="time" viewMode="0" htmlUrl="http://www.fazlamesai.net" xmlUrl="http://www.fazlamesai.net/backend.php" updateInterval="-1" lastPollTime="1177875985" lastFaviconPollTime="1177875985"/>
++    </outline>
++  </body>
++</opml>
+diff -Nuar liferea-1.2.12.orig/opml/Makefile.am liferea-1.2.12/opml/Makefile.am
+--- liferea-1.2.12.orig/opml/Makefile.am	2007-04-29 22:27:25.000000000 +0300
++++ liferea-1.2.12/opml/Makefile.am	2007-04-29 22:48:12.000000000 +0300
+@@ -2,6 +2,7 @@
+ 	feedlist.opml \
+ 	feedlist_de.opml \
+ 	feedlist_es.opml \
++	feedlist_tr.opml \
+ 	feedlist_fr.opml \
+ 	feedlist_pl.opml \
+ 	feedlist_sk.opml \
+@@ -12,6 +13,7 @@
+ lifereadistopml_DATA = feedlist.opml \
+ 			feedlist_de.opml \
+ 			feedlist_es.opml \
++			feedlist_tr.opml \
+ 			feedlist_fr.opml \
+ 			feedlist_pl.opml \
+ 			feedlist_sk.opml \
