@@ -13,14 +13,17 @@ WorkDir = "cfitsio"
 def setup():
     autotools.rawConfigure("--prefix=/usr \
                             --libdir=/usr/lib \
-                            --includedir=/usr/include \
-                            --disable-static")
+                            --includedir=/usr/include")
 
 def build():
-    autotools.make()
+    autotools.make("shared")
 
 def install():
     pisitools.dodir("/usr")
-    autotools.install()
-    pisitools.dodoc("*.ps", "*.txt", "README")
 
+    autotools.install()
+
+    pisitools.dosym("/usr/lib/libcfitsio.so.0", "/usr/lib/libcfitsio.so")
+    pisitools.remove("/usr/lib/libcfitsio.a")
+
+    pisitools.dodoc("*.ps", "*.txt", "README")
