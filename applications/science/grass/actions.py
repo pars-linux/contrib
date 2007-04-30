@@ -14,6 +14,7 @@ def setup():
 
     autotools.configure("--prefix=%s/opt \
                          --disable-static \
+                         --enable-shared \
                          --with-x \
                          --with-cxx \
                          --with-jpeg \
