@@ -9,12 +9,10 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "vamps-%s" % get.srcVERSION()
-
 def build():
     autotools.make()
 
 def install():
     pisitools.dobin("play_cell/play_cell")
     pisitools.dobin("vamps/vamps")
-    pisitools.dodoc("COPYING", "INSTALL")
+    pisitools.dodoc("COPYING")
