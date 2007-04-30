@@ -9,13 +9,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
-WorkDir = "libgeotiff-1.2.3"
-
 def setup():
     autotools.configure("--with-zip \
                          --with-jpeg \
                          --with-libtiff \
-                         --with-proj")
+                         --with-proj \
+                         --disable-static")
 
 def build():
     shelltools.export("LDFLAGS", "")
@@ -23,7 +22,9 @@ def build():
 
 def install():
     autotools.install()
-    
+
+    pisitools.remove("/usr/lib/libgeotiff.a")
+
     pisitools.dodoc("ChangeLog", "Doxyfile", "HOWTO-RELEASE", "LICENSE", "README*", "docs/manual.txt")
     pisitools.dohtml("docs/*")
     pisitools.remove("/usr/share/doc/%s/README.WIN" % get.srcTAG())
