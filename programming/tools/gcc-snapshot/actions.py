@@ -51,12 +51,12 @@ def install():
     shelltools.cd("build")
 
     # Do not allow symlinks in include as this can break the build.
-    for file in shelltools.ls("build/gcc/include/*"):
+    for file in shelltools.ls("gcc/include/*"):
         if shelltools.isLink(file):
             shelltools.unlink(file)
 
     # Remove generated headers, as they can cause things to break
-    for file in shelltools.ls("build/gcc/include/*"):
+    for file in shelltools.ls("gcc/include/*"):
         if shelltools.isFile(file):
             if not shelltools.system("grep -q \"auto-edited\" %s" % file):
                 shelltools.unlink(file)
