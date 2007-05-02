@@ -18,6 +18,7 @@
             <Dependency versionFrom="1.6.3">guile</Dependency>
             <Dependency versionFrom="20070216">libgeda</Dependency>
             <Dependency versionFrom="20070216">geda-symbols</Dependency>
+            <Dependency versionFrom="20070216">geda-gnetlist</Dependency>
             <Dependency>gd</Dependency>
         </BuildDependencies>
         <Patches>
@@ -33,15 +34,20 @@
             <Dependency versionFrom="20070216">libgeda</Dependency>
             <Dependency versionFrom="20070216">geda-symbols</Dependency>
             <Dependency versionFrom="20070216">geda-gattrib</Dependency>
+            <Dependency versionFrom="20070216">geda-gnetlist</Dependency>
             <Dependency>gd</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share/gEDA</Path>
+            <Path fileType="data">/usr/share</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gschem.desktop">gschem.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/gschem.png">gschem.png</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
