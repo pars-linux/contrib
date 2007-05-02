@@ -1,6 +1,6 @@
 diff -Naur linden.orig/indra/llcommon/llsdserialize_xml.cpp linden/indra/llcommon/llsdserialize_xml.cpp
 --- linden.orig/indra/llcommon/llsdserialize_xml.cpp	2007-04-25 22:12:58.000000000 +0300
-+++ linden/indra/llcommon/llsdserialize_xml.cpp	2007-05-02 22:35:58.000000000 +0300
++++ linden/indra/llcommon/llsdserialize_xml.cpp	2007-05-02 23:26:03.000000000 +0300
 @@ -36,7 +36,7 @@
  
  extern "C"
@@ -12,7 +12,7 @@ diff -Naur linden.orig/indra/llcommon/llsdserialize_xml.cpp linden/indra/llcommo
  /**
 diff -Naur linden.orig/indra/llcommon/llsys.cpp linden/indra/llcommon/llsys.cpp
 --- linden.orig/indra/llcommon/llsys.cpp	2007-04-25 22:12:59.000000000 +0300
-+++ linden/indra/llcommon/llsys.cpp	2007-05-02 22:35:58.000000000 +0300
++++ linden/indra/llcommon/llsys.cpp	2007-05-02 23:26:03.000000000 +0300
 @@ -31,7 +31,7 @@
  #include "llsys.h"
  
@@ -24,7 +24,7 @@ diff -Naur linden.orig/indra/llcommon/llsys.cpp linden/indra/llcommon/llsys.cpp
  
 diff -Naur linden.orig/indra/llimage/llimagejpeg.h linden/indra/llimage/llimagejpeg.h
 --- linden.orig/indra/llimage/llimagejpeg.h	2007-04-25 22:12:59.000000000 +0300
-+++ linden/indra/llimage/llimagejpeg.h	2007-05-02 22:35:37.000000000 +0300
++++ linden/indra/llimage/llimagejpeg.h	2007-05-02 23:26:03.000000000 +0300
 @@ -34,8 +34,8 @@
  #include "llimage.h"
  
@@ -36,9 +36,21 @@ diff -Naur linden.orig/indra/llimage/llimagejpeg.h linden/indra/llimage/llimagej
  }
  
  class LLImageJPEG : public LLImageFormatted
+diff -Naur linden.orig/indra/llmessage/llhttpassetstorage.cpp linden/indra/llmessage/llhttpassetstorage.cpp
+--- linden.orig/indra/llmessage/llhttpassetstorage.cpp	2007-04-25 22:13:01.000000000 +0300
++++ linden/indra/llmessage/llhttpassetstorage.cpp	2007-05-02 23:29:33.000000000 +0300
+@@ -37,7 +37,7 @@
+ #include "llvfile.h"
+ #include "llvfs.h"
+ 
+-#include "zlib/zlib.h"
++#include "zlib.h"
+ 
+ const U32 MAX_RUNNING_REQUESTS = 1;
+ const F32 MAX_PROCESSING_TIME = 0.005f;
 diff -Naur linden.orig/indra/llrender/llfont.cpp linden/indra/llrender/llfont.cpp
 --- linden.orig/indra/llrender/llfont.cpp	2007-04-25 22:13:02.000000000 +0300
-+++ linden/indra/llrender/llfont.cpp	2007-05-02 22:35:58.000000000 +0300
++++ linden/indra/llrender/llfont.cpp	2007-05-02 23:26:03.000000000 +0300
 @@ -32,7 +32,7 @@
  
  // Freetype stuff
@@ -50,7 +62,7 @@ diff -Naur linden.orig/indra/llrender/llfont.cpp linden/indra/llrender/llfont.cp
  #endif
 diff -Naur linden.orig/indra/llxml/llxmlnode.h linden/indra/llxml/llxmlnode.h
 --- linden.orig/indra/llxml/llxmlnode.h	2007-04-25 22:13:05.000000000 +0300
-+++ linden/indra/llxml/llxmlnode.h	2007-05-02 22:35:37.000000000 +0300
++++ linden/indra/llxml/llxmlnode.h	2007-05-02 23:26:03.000000000 +0300
 @@ -30,7 +30,7 @@
  #define LL_LLXMLNODE_H
  
@@ -62,7 +74,7 @@ diff -Naur linden.orig/indra/llxml/llxmlnode.h linden/indra/llxml/llxmlnode.h
  #include "indra_constants.h"
 diff -Naur linden.orig/indra/llxml/llxmlparser.h linden/indra/llxml/llxmlparser.h
 --- linden.orig/indra/llxml/llxmlparser.h	2007-04-25 22:13:05.000000000 +0300
-+++ linden/indra/llxml/llxmlparser.h	2007-05-02 22:35:37.000000000 +0300
++++ linden/indra/llxml/llxmlparser.h	2007-05-02 23:26:03.000000000 +0300
 @@ -30,7 +30,7 @@
  #define LL_LLXMLPARSER_H
  
@@ -74,7 +86,7 @@ diff -Naur linden.orig/indra/llxml/llxmlparser.h linden/indra/llxml/llxmlparser.
  {
 diff -Naur linden.orig/indra/newview/llviewerobjectlist.cpp linden/indra/newview/llviewerobjectlist.cpp
 --- linden.orig/indra/newview/llviewerobjectlist.cpp	2007-04-25 22:13:15.000000000 +0300
-+++ linden/indra/newview/llviewerobjectlist.cpp	2007-05-02 22:35:59.000000000 +0300
++++ linden/indra/newview/llviewerobjectlist.cpp	2007-05-02 23:26:03.000000000 +0300
 @@ -61,7 +61,7 @@
  #include "u64.h"
  #include "llviewerimagelist.h"
@@ -86,7 +98,7 @@ diff -Naur linden.orig/indra/newview/llviewerobjectlist.cpp linden/indra/newview
  extern BOOL gVelocityInterpolate;
 diff -Naur linden.orig/indra/newview/llwebbrowserctrl.h linden/indra/newview/llwebbrowserctrl.h
 --- linden.orig/indra/newview/llwebbrowserctrl.h	2007-04-25 22:13:10.000000000 +0300
-+++ linden/indra/newview/llwebbrowserctrl.h	2007-05-02 22:38:56.000000000 +0300
++++ linden/indra/newview/llwebbrowserctrl.h	2007-05-02 23:26:03.000000000 +0300
 @@ -156,6 +156,9 @@
  
  ////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +120,7 @@ diff -Naur linden.orig/indra/newview/llwebbrowserctrl.h linden/indra/newview/llw
  		virtual void preRender( BOOL clear_depth = TRUE ) {};
 diff -Naur linden.orig/indra/SConstruct linden/indra/SConstruct
 --- linden.orig/indra/SConstruct	2007-04-25 22:12:56.000000000 +0300
-+++ linden/indra/SConstruct	2007-05-02 22:41:40.000000000 +0300
++++ linden/indra/SConstruct	2007-05-02 23:26:03.000000000 +0300
 @@ -183,13 +183,15 @@
              if arch == 'x86_64' or arch == 'x86_64cross':
                  flags += '-DLL_FMOD=0 '
