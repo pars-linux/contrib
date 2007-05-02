@@ -11,8 +11,9 @@ WorkDir="d4x-2.5.7.1"
 
 def setup():
     autotools.configure("--enable-release \
-                         --enable-alsa \
-                         --enable-libao \
+                         --disable-libao \
+                         --enable-esd \
+                         --enable-oss \
                          --enable-openssl \
                          --enable-nls \
                          --disable-rpath \
