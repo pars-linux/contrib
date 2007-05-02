@@ -11,4 +11,3 @@ WorkDir = "linden/indra"
 
 def install():
     pisitools.insinto("/usr/share/secondlife/","newview/*")
-
