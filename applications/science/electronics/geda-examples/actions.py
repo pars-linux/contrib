@@ -10,6 +10,9 @@ from pisi.actionsapi import pisitools
 def setup():
     autotools.configure()
 
+def build():
+    autotools.make()
+
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
     pisitools.dodoc("AUTHORS","ChangeLog","NEWS","README")
