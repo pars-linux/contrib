@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geda-examples</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>data</IsA>
+        <Summary>Schematic/PCB examples for gEDA</Summary>
+        <Summary xml:lang="tr">gEDA için örnek dosyalar ve şemalar.</Summary>
+        <Archive sha1sum="e135b83124259002e9dee7e1da37d34a392639b7" type="targz">http://geda.seul.org/devel/20070216/geda-examples-20070216.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geda-examples</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">gtk2</Dependency>
+            <Dependency versionFrom="1.6.3">guile</Dependency>
+            <Dependency versionFrom="20070216">libgeda</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/doc/geda-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-02</Date>
+            <Version>20070216</Version>
+            <Comment>First release.</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
