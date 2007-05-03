@@ -7,18 +7,16 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
-import os
-
-WorkDir = "geda-gschem-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure()
 
 def build():
-    os.system("msgfmt -c -o po/tr.gmo po/tr.po")
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS","ChangeLog","NEWS","README","TODO","VOCABULARY")
+    pisitools.domo("po/tr.po", "tr", "geda-gschem.mo")
     pisitools.dosym("/usr/bin/gschem", "/usr/bin/geda")
+    
+    pisitools.dodoc("AUTHORS","ChangeLog","NEWS","README","TODO","VOCABULARY")
