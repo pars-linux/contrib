@@ -7,6 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+import os
 
 WorkDir = "geda-gschem-%s" % get.srcVERSION()
 
@@ -14,6 +15,7 @@ def setup():
     autotools.configure()
 
 def build():
+    os.system("msgfmt -c -o po/tr.gmo po/tr.po")
     autotools.make()
 
 def install():
