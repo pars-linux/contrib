@@ -22,6 +22,7 @@ def setup():
            --disable-libssp \
            --disable-nls \
            --disable-werror \
+           --disable-checking \
            --enable-clocale=gnu \
            --enable-__cxa_atexit \
            --enable-languages=c,c++,fortran,objc \
