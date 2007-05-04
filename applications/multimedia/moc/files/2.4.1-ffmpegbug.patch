@@ -1,0 +1,12 @@
+diff -Naur moc-2.4.1-meltdown/decoder_plugins/ffmpeg/ffmpeg.c moc-2.4.1-ffmpegbug/decoder_plugins/ffmpeg/ffmpeg.c
+--- decoder_plugins/ffmpeg/ffmpeg.c	2006-10-19 14:49:09.000000000 +0200
++++ decoder_plugins/ffmpeg/ffmpeg.c	2006-10-22 11:01:38.000000000 +0200
+@@ -27,6 +27,8 @@
+ /* FFmpeg also likes common names, without that, our common.h would not be
+  * included. */
+ #undef COMMON_H
++/* same for logging... */
++#undef LOG_H
+ 
+ #define DEBUG
+ 
