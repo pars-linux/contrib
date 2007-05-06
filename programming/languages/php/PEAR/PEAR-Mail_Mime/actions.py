@@ -5,8 +5,10 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Mail_Mime-1.3.1"
-
+WorkDir="Mail_Mime-%s" % get.srcVERSION()
+ 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Mail", "*")
+    pisitools.insinto("/usr/share/php5/PEAR/Mail", "mime*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/Mail_Mime", "tests/*")
