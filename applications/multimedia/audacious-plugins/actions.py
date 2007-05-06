@@ -21,6 +21,7 @@ def setup():
                          --enable-evdevplug \
                          --enable-statusicon \
                          --enable-aosd \
+                         --enable-aosd-xcomp \
                          --enable-adplug \
                          --enable-vorbis \
                          --enable-wavpack \
