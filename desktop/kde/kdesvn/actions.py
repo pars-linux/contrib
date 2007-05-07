@@ -20,9 +20,7 @@ def build():
 
 def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     #remove files conflicts kdesvn
-    pisitools.remove("/usr/kde/3.5/share/services/svn+file.protocol")
-    pisitools.remove("/usr/kde/3.5/share/services/svn+http.protocol")
-    pisitools.remove("/usr/kde/3.5/share/services/svn+https.protocol")
-    pisitools.remove("/usr/kde/3.5/share/services/svn+ssh.protocol")
+    pisitools.remove("/usr/kde/3.5/share/services/svn+*.protocol")
     pisitools.remove("/usr/kde/3.5/share/services/svn.protocol")
