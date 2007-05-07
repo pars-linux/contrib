@@ -1,0 +1,357 @@
+diff -Nuar liferea-1.2.14.orig/po/tr.po liferea-1.2.14/po/tr.po
+--- liferea-1.2.14.orig/po/tr.po	2007-05-07 19:30:41.000000000 +0300
++++ liferea-1.2.14/po/tr.po	2007-05-07 19:35:50.000000000 +0300
+@@ -1,20 +1,23 @@
++# translation of tr.po to Türkçe
+ # Liferea Turkish Translation
+ # Copyright (C) 2007 Mehmet Atif Ergun
+ # This file is distributed under the same license as the Liferea package.
+-# Mehmet Atif Ergun <mehmetaergun@gmail.com>, 2007.
+ #
++# Mehmet Atif Ergun <mehmetaergun@gmail.com>, 2007.
++# Eren Türkay <turkay.eren@gmail.com>, 2007.
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: Liferea 1.2\n"
++"Project-Id-Version: tr\n"
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2007-05-01 20:13+0200\n"
+-"PO-Revision-Date: 2007-01-12 03:00+0100\n"
+-"Last-Translator: Mehmet Atif Ergun <mehmetaergun@gmail.com>\n"
+-"Language-Team: ubuntu-l10n-tr <ubuntu-tr@lists.ubuntu.com>\n"
++"PO-Revision-Date: 2007-05-07 19:33+0300\n"
++"Last-Translator: Eren Türkay <turkay.eren@gmail.com>\n"
++"Language-Team: Türkçe <turkce@pardus.org.tr>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n < 2 ? 0 : 1;\n"
++"X-Generator: KBabel 1.11.4\n"
+ 
+ #: ../liferea.desktop.in.h:1
+ msgid "Download and view feeds"
+@@ -95,7 +98,7 @@
+ 
+ #: ../xslt/item.xml.in.h:1
+ msgid "Also posted in"
+-msgstr ""
++msgstr "Tekrarlanan yer"
+ 
+ #: ../xslt/item.xml.in.h:2
+ msgid "Author"
+@@ -103,16 +106,15 @@
+ 
+ #: ../xslt/item.xml.in.h:3
+ msgid "Creator"
+-msgstr ""
++msgstr "Oluşturan"
+ 
+ #: ../xslt/item.xml.in.h:4
+ msgid "Department"
+ msgstr "Bölüm"
+ 
+ #: ../xslt/item.xml.in.h:5
+-#, fuzzy
+ msgid "Feed"
+-msgstr "Haber:"
++msgstr "Haber"
+ 
+ #: ../xslt/item.xml.in.h:6
+ msgid "Filed under"
+@@ -234,9 +236,9 @@
+ "bozuk! Bazı karakterler alınmadı!"
+ 
+ #: ../src/export.c:144
+-#, fuzzy, c-format
++#, c-format
+ msgid "Error renaming %s to %s\n"
+-msgstr "İsim değiştirilirken hata"
++msgstr "%s öğesini %s ismine değiştirmede hata\n"
+ 
+ #: ../src/export.c:308 ../src/export.c:310
+ #, c-format
+@@ -245,19 +247,17 @@
+ 
+ #: ../src/export.c:315 ../src/export.c:317
+ #, c-format
+-msgid ""
+-"Empty document! OPML document \"%s\" should not be empty when importing."
++msgid "Empty document! OPML document \"%s\" should not be empty when importing."
+ msgstr "Boş dosya! \"%s\" isimli OPML dosyası içeri aktarılırken boş olmamalı."
+ 
+ #: ../src/export.c:338 ../src/export.c:340
+ #, c-format
+ msgid "\"%s\" is not a valid OPML document! Liferea cannot import this file!"
+-msgstr ""
+-"\"%s\" geçerli bir OPML dosyası değil! Liferea bu dosyayı içeri aktaramıyor!"
++msgstr "\"%s\" geçerli bir OPML dosyası değil! Liferea bu dosyayı içeri aktaramıyor!"
+ 
+ #: ../src/export.c:359
+ msgid "Imported feed list"
+-msgstr ""
++msgstr "İçe aktarılan haber listesi"
+ 
+ #: ../src/export.c:371
+ msgid "Import Feed List"
+@@ -286,8 +286,7 @@
+ #: ../src/feed.c:371
+ #, c-format
+ msgid "<p>XML error while reading feed! Feed \"%s\" could not be loaded!</p>"
+-msgstr ""
+-"<p>Haber kaynağı okunurken XML hatası! Haber kaynağı \"%s\" yüklenemedi!</p>"
++msgstr "<p>Haber kaynağı okunurken XML hatası! Haber kaynağı \"%s\" yüklenemedi!</p>"
+ 
+ #: ../src/feed.c:376 ../src/feed.c:667
+ msgid "<p>Empty document!</p>"
+@@ -328,8 +327,7 @@
+ #: ../src/feed.c:682
+ #, c-format
+ msgid "<p>\"%s\" is no valid cache file! Cannot read cache file!</p>"
+-msgstr ""
+-"<p>\"%s\" geçerli bir bellek dosyası değil! Bellek dosyası okunamıyor!</p>"
++msgstr "<p>\"%s\" geçerli bir bellek dosyası değil! Bellek dosyası okunamıyor!</p>"
+ 
+ #: ../src/feed.c:748
+ #, c-format
+@@ -344,8 +342,7 @@
+ #: ../src/feed.c:778
+ #, c-format
+ msgid "The feed \"%s\" was discontinued. Liferea won't update it anymore!"
+-msgstr ""
+-"Bu haber kaynağı \"%s\"durdurulmuş. Liferea bunu artık güncellemeyecek!"
++msgstr "Bu haber kaynağı \"%s\"durdurulmuş. Liferea bunu artık güncellemeyecek!"
+ 
+ #: ../src/feed.c:1055
+ msgid ""
+@@ -705,9 +702,8 @@
+ msgstr "_Bu Haber kaynağı için bütün ekleri otomatik olarak indir."
+ 
+ #: ../src/interface.c:725
+-#, fuzzy
+ msgid "Auto-_load item link in configured browser when selecting articles."
+-msgstr "Makaleleri okurken öğe linkini iç tarayıcıda otomatik olarak _yükle."
++msgstr "Makaleleri seçerken öğe linkini ayarlanmış tarayıcıda otomatik olarak _yükle."
+ 
+ #: ../src/interface.c:729
+ msgid "Advanced"
+@@ -893,17 +889,16 @@
+ msgstr "Uyarı alanında (sistem çubuğu) durum _simgesini göster."
+ 
+ #: ../src/interface.c:1773
+-#, fuzzy
+ msgid "     "
+-msgstr "    "
++msgstr "     "
+ 
+ #: ../src/interface.c:1781
+ msgid "Show _number of new items in the tray icon."
+-msgstr ""
++msgstr "Sistem ç_ekmecesinde güncellenen haber kaynağı listesini göster"
+ 
+ #: ../src/interface.c:1785
+ msgid "T_erminate instead of minimizing to tray icon."
+-msgstr ""
++msgstr "Sim_ge durumunda küçültmek yerine programı kapat"
+ 
+ #: ../src/interface.c:1793
+ msgid "<span weight=\"bold\">Menu Settings</span>"
+@@ -1044,13 +1039,12 @@
+ msgstr "<span color=\"blue\" underline=\"single\">Liferea Anasayfası</span>"
+ 
+ #: ../src/interface.c:2702
+-#, fuzzy
+ msgid ""
+ "Copyright (c) 2003-2007\n"
+ "Lars Lindner <lars.lindner@gmx.net> and \n"
+ "Nathan J. Conrad <t98502@users.sourceforge.net>\n"
+ msgstr ""
+-"Telif Hakkı (c) 2003-2006\n"
++"Telif Hakkı (c) 2003-2007\n"
+ "Lars Lindner <lars.lindner@gmx.net> ve \n"
+ "Nathan J. Conrad <t98502@users.sourceforge.net>\n"
+ 
+@@ -1237,8 +1231,7 @@
+ "dizgiyi belirtiniz."
+ 
+ #: ../src/interface.c:3216
+-msgid ""
+-"Saves this search as a search folder, which will appear in the feed list."
++msgid "Saves this search as a search folder, which will appear in the feed list."
+ msgstr ""
+ "Bu aramayı, haber kaynak listesinde gözükecek bir arama klasörü olarak "
+ "kaydeder."
+@@ -1361,10 +1354,8 @@
+ "göster"
+ 
+ #: ../src/main.c:79
+-msgid ""
+-"  --debug-conf     Print debugging messages of the configuration handling"
+-msgstr ""
+-"  --debug-conf     Ayar işlenmesi hakkındaki hata ayıklama mesajlarını göster"
++msgid "  --debug-conf     Print debugging messages of the configuration handling"
++msgstr "  --debug-conf     Ayar işlenmesi hakkındaki hata ayıklama mesajlarını göster"
+ 
+ #: ../src/main.c:80
+ msgid "  --debug-gui      Print debugging messages of all GUI functions"
+@@ -1381,9 +1372,8 @@
+ "liferea_1.2/output.xhtml)"
+ 
+ #: ../src/main.c:82
+-#, fuzzy
+ msgid "  --debug-net      Print debugging messages for all network access"
+-msgstr "  --debug-all      Her tür hata ayıklama mesajını göster"
++msgstr "  --debug-net      Tüm ağ erişimi için hata ayıklama mesajı göster"
+ 
+ #: ../src/main.c:83
+ msgid "  --debug-parsing  Print debugging messages of all parsing functions"
+@@ -1393,19 +1383,16 @@
+ 
+ #: ../src/main.c:84
+ msgid "  --debug-plugins  Print debugging messages when loading plugins"
+-msgstr ""
+-"  --debug-plugins  Eklentileri yüklerken hata ayıklama mesajlarını göster"
++msgstr "  --debug-plugins  Eklentileri yüklerken hata ayıklama mesajlarını göster"
+ 
+ #: ../src/main.c:85
+-msgid ""
+-"  --debug-trace    Print debugging messages when entering/leaving functions"
++msgid "  --debug-trace    Print debugging messages when entering/leaving functions"
+ msgstr ""
+ "  --debug-trace    İşlevlere girerken ve işlemlerden çıkarken hata ayıklama "
+ "mesajlarını göster"
+ 
+ #: ../src/main.c:86
+-msgid ""
+-"  --debug-update   Print debugging messages of the feed update processing"
++msgid "  --debug-update   Print debugging messages of the feed update processing"
+ msgstr ""
+ "  --debug-update   Haber kaynak güncellemesi hakkındaki hata ayıklama "
+ "mesajlarını göster"
+@@ -2246,10 +2233,10 @@
+ "%d unread items"
+ msgstr[0] ""
+ "%s\n"
+-"%d okunmamış madde"
++"%d okunmamış öğe"
+ msgstr[1] ""
+ "%s\n"
+-"%d okunmamış madd"
++"Okunmamış madde yok"
+ 
+ #: ../src/ui/ui_tray.c:192
+ #, c-format
+@@ -2315,7 +2302,7 @@
+ #. "feedlist.opml" is translatable so that translators can provide a localized default feed list
+ #: ../src/fl_sources/default_source.c:338
+ msgid "feedlist.opml"
+-msgstr "feedlist.opml"
++msgstr "feedlist_tr.opml"
+ 
+ #: ../src/fl_sources/opml_source.c:339
+ msgid "Planet, BlogRoll, OPML"
+@@ -2339,8 +2326,7 @@
+ msgstr "OPML/Planet Ekle"
+ 
+ #: ../src/fl_sources/opml_source-ui.c:56
+-msgid ""
+-"Please specify a local file or an URL pointing to a valid OPML feed list."
++msgid "Please specify a local file or an URL pointing to a valid OPML feed list."
+ msgstr ""
+ "Yerel bir dosya ya da geçerli bir OPML haber kaynağı listesine yönelten "
+ "adres belirtin."
+@@ -2354,9 +2340,8 @@
+ msgstr "_Dosya Seç"
+ 
+ #: ../src/fl_sources/opml_source-cb.c:77
+-#, fuzzy
+ msgid "Choose OPML File"
+-msgstr "Dosya Seç"
++msgstr "OPML Dosyası Seç"
+ 
+ #: ../src/fl_sources/node_source.c:207
+ msgid "No feed list source types found!"
+@@ -2389,37 +2374,34 @@
+ 
+ #: ../src/notification/notif_libnotify.c:112
+ msgid "This news entry has no headline"
+-msgstr ""
++msgstr "Bu haber girdisi başlığa sahip değil"
+ 
+ #: ../src/notification/notif_libnotify.c:117
+ msgid "Visit"
+-msgstr ""
++msgstr "Ziyaret Et"
+ 
+ #: ../src/notification/notif_libnotify.c:154
+ #: ../src/notification/notif_libnotify.c:239
+ msgid "Open feed"
+-msgstr ""
++msgstr "Haber kaynağı aç"
+ 
+ #: ../src/notification/notif_libnotify.c:157
+ #: ../src/notification/notif_libnotify.c:242
+-#, fuzzy
+ msgid "Mark all as read"
+-msgstr "Hepsini _Okundu Olarak İşaretle"
++msgstr "Hepsini okundu olarak işaretle"
+ 
+ #: ../src/notification/notif_libnotify.c:226
+ #, c-format
+ msgid "%s has %d new / updated headlines\n"
+-msgstr ""
++msgstr "%s %d adet yeni güncellenmiş başlık içeriyor\n"
+ 
+ #: ../src/notification/notif_libnotify.c:228
+-#, fuzzy
+ msgid "Feed Update"
+-msgstr "Haber başlığı"
++msgstr "Haber Listesi Güncellemesi"
+ 
+ #: ../src/notification/notif_libnotify.c:236
+-#, fuzzy
+ msgid "Show details"
+-msgstr "Detaylar"
++msgstr "Detayları Göster"
+ 
+ #: ../src/notification/notif_popup.c:251
+ msgid "Untitled"
+@@ -2437,24 +2419,24 @@
+ msgid "No script selected!"
+ msgstr "Hiçbir senaryo seçili değil"
+ 
+-#, fuzzy
+-#~ msgid "window1"
+-#~ msgstr "Yeni pencere"
++msgid "window1"
++msgstr "pencere1"
++
++msgid "         "
++msgstr "         "
+ 
+-#~ msgid "         "
+-#~ msgstr "         "
++msgid "Lower Right"
++msgstr "Sağ Alt"
+ 
+-#~ msgid "Lower Right"
+-#~ msgstr "Sağ Alt"
++msgid "Upper Right"
++msgstr "Sağ Üst"
+ 
+-#~ msgid "Upper Right"
+-#~ msgstr "Sağ Üst"
++msgid "Upper Left"
++msgstr "Sol Üst"
+ 
+-#~ msgid "Upper Left"
+-#~ msgstr "Sol Üst"
++msgid "Lower Left"
++msgstr "Sol Alt"
+ 
+-#~ msgid "Lower Left"
+-#~ msgstr "Sol Alt"
++msgid "<b>Popup Placement</b>"
++msgstr "<b>Pencere Yeri</b>"
+ 
+-#~ msgid "<b>Popup Placement</b>"
+-#~ msgstr "<b>Pencere Yeri</b>"
