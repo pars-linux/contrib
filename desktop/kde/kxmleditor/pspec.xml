@@ -14,14 +14,17 @@
         <Summary xml:lang="tr">KDE xml düzenleyici</Summary>
         <Archive sha1sum="f285eca3ca33d7e8d100f8a808e91507bc955ee2" type="targz">mirrors://sourceforge/kxmleditor/kxmleditor-1.1.4.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>kdebase</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>kxmleditor</Name>
         <RuntimeDependencies>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>kdebase</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
@@ -33,6 +36,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-05-08</Date>
+            <Version>1.1.4</Version>
+            <Comment>Fix #5625</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-05-05</Date>
             <Version>1.1.4</Version>
