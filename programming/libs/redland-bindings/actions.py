@@ -12,6 +12,7 @@ from pisi.actionsapi import get
 
 def setup():
     shelltools.export("LDFLAGS", "")
+
     autotools.configure("--with-python \
                          --with-tcl \
                          --with-redland=system \
