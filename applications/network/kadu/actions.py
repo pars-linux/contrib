@@ -5,15 +5,18 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
 
 WorkDir="kadu"
 
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-modules --enable-pheaders --enable-dist-info=Pardus")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
+    #This is included as an additional file in the correct directory
+    pisitools.removeDir("/usr/share/applnk")
 
