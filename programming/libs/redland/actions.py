@@ -18,7 +18,7 @@ def setup():
                          --enable-assertions \
                          --enable-assert-messages \
                          --disable-gtk-doc \
-                         --with-xml-parser=libxml \
+                         --with-xml-parser=expat \
                          --with-raptor=system \
                          --with-rasqal=system \
                          --with-openssl-digests \
