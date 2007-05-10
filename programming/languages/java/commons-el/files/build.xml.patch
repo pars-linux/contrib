@@ -1,0 +1,41 @@
+--- build.xml.orig	2003-06-07 00:35:28.000000000 +0200
++++ build.xml	2007-04-16 22:04:45.000000000 +0200
+@@ -31,10 +31,10 @@
+ 
+ 
+   <!-- The pathname of the Servlet 2.4 classes JAR file -->
+-  <property name="servlet-api.jar" value="${api.home}/jsr154/dist/lib/servlet-api.jar"/>
++  <property name="servlet-api.jar" value="${api.home}/servlet-api.jar"/>
+ 
+   <!-- The pathname of the JSP 2.0 classes JAR file -->
+-  <property name="jsp-api.jar" value="${api.home}/jsr152/dist/lib/jsp-api.jar"/>
++  <property name="jsp-api.jar" value="${api.home}/jsp-api.jar"/>
+ 
+   <!-- The pathname of the "junit.jar" JAR file -->
+   <property name="junit.jar"               value="${junit.home}/junit.jar"/>
+@@ -164,7 +164,7 @@
+   </target>
+ 
+ 
+-  <target name="compile" depends="static,build-servletapi,build-jspapi,compile-only"
++  <target name="compile" depends="static,compile-only"
+    description="Compile shareable components"/>
+ 
+   <target name="compile-only" >
+@@ -172,6 +172,7 @@
+            destdir="${build.home}/classes"
+              debug="${compile.debug}"
+        deprecation="${compile.deprecation}"
++            source="1.4"
+           optimize="${compile.optimize}">
+       <classpath refid="compile.classpath"/>
+     </javac>
+@@ -242,7 +243,7 @@
+    description="Create jar">
+     <mkdir      dir="${dist.home}"/>
+     <mkdir      dir="${build.home}/classes/META-INF"/>
+-    <copy      file="../LICENSE"
++    <copy      file="LICENSE.txt"
+              tofile="${build.home}/classes/META-INF/LICENSE.txt"/>
+     <jar    jarfile="${commons-el.jar}"
+            manifest="${build.home}/conf/MANIFEST.MF">

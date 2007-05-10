@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>commons-dbcp</Name>
+        <Homepage>http://jakarta.apache.org/commons/dbcp</Homepage>
+        <Packager>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Packager>
+        <License>Apache 1.1</License>
+        <IsA>library</IsA>
+        <Summary>Jakarta-Commons component providing general purpose object pooling API</Summary>
+        <Archive sha1sum="82db8bc09ab13b139c3ca3efffb223c8bc9c4a09" type="targz">mirrors://apache/jakarta/commons/dbcp/source/commons-dbcp-1.2.1-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+            <Dependency versionFrom="2.0">commons-collections</Dependency>
+            <Dependency versionFrom="1.1">commons-pool</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>commons-dbcp</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency versionFrom="2.0">commons-collections</Dependency>
+            <Dependency versionFrom="1.1">commons-pool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-28</Date>
+            <Version>1.2.1</Version>
+            <Comment>First release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

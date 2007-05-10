@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>commons-io</Name>
+        <Homepage>http://jakarta.apache.org/commons/io/</Homepage>
+        <Packager>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <IsA>library</IsA>
+        <Summary>Commons IO is a library of utilities to assist with developing IO functionality</Summary>
+        <Archive sha1sum="b2c7c38b64092d450abfb03a96b340859aa81f77" type="targz">mirrors://apache/jakarta/commons/io/source/commons-io-1.3.1-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>commons-io</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-04</Date>
+            <Version>1.3.1</Version>
+            <Comment>First release</Comment>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
