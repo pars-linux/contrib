@@ -25,4 +25,5 @@ def install():
 
     pisitools.insinto("/usr/share/manslide/Effects","Effects/*")
     pisitools.insinto("/usr/share/manslide/Interface","Interface/*")
+    pisitools.insinto("/usr/share/manslide/Luma","Luma/*")
     pisitools.insinto("/usr/share/manslide/","*.qm")
