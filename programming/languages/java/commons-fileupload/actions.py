@@ -16,7 +16,7 @@ def setup():
     shelltools.system("ant -v dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/commons-fileupload-1.2rc3.jar","commons-fileupload.jar")
+    pisitools.insinto("/usr/share/java","dist/commons-fileupload-1.2rc3.jar","commons-fileupload.jar")
 
     pisitools.dodoc("*.txt")
 #	java API-doc path not complete    

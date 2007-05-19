@@ -13,13 +13,13 @@ WorkDir="commons-digester-%s-src" % get.srcVERSION()
 
 def setup():
     shelltools.export("LC_ALL", "C")
-    pisitools.echo("build.properties","root=/usr/lib/java")
-    pisitools.echo("build.properties","commons-beanutils.jar=/usr/lib/java/commons-beanutils.jar")
-    pisitools.echo("build.properties","commons-logging.jar=/usr/lib/java/commons-logging.jar")
+    pisitools.echo("build.properties","root=/usr/share/java")
+    pisitools.echo("build.properties","commons-beanutils.jar=/usr/share/java/commons-beanutils.jar")
+    pisitools.echo("build.properties","commons-logging.jar=/usr/share/java/commons-logging.jar")
     shelltools.system("ant dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/*.jar","commons-digester.jar")
+    pisitools.insinto("/usr/share/java","dist/*.jar","commons-digester.jar")
 
     pisitools.dodoc("dist/*.txt")
 #	java API-doc path not complete    

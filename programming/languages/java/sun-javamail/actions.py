@@ -11,7 +11,7 @@ from pisi.actionsapi import shelltools
 WorkDir="mail"
 
 def setup():
-    shelltools.system("JAVA_PKG_STRICT=true ant -Djavaee.jar=/usr/lib/java/activation.jar jar")
+    shelltools.system("JAVA_PKG_STRICT=true ant -Djavaee.jar=/usr/share/java/activation.jar jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","build/release/*.jar")
+    pisitools.insinto("/usr/share/java","build/release/*.jar")

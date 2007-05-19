@@ -12,6 +12,6 @@ def build():
     shelltools.system("ant jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","build/*.jar")
+    pisitools.insinto("/usr/share/java","build/*.jar")
 
     pisitools.dodoc("NOTICE","README.*")

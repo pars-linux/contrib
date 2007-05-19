@@ -16,7 +16,7 @@ def setup():
     shelltools.system("ant dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/bin/commons-launcher.jar","commons-launcher.jar")
+    pisitools.insinto("/usr/share/java","dist/bin/commons-launcher.jar","commons-launcher.jar")
 
     pisitools.dodoc("dist/*.txt")
 #TODO:pisitools.dohtml("dist/docs/api/*.html")

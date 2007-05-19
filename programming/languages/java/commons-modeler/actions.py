@@ -17,6 +17,6 @@ def setup():
     shelltools.system("ant dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/commons-modeler.jar","commons-modeler.jar")
+    pisitools.insinto("/usr/share/java","dist/commons-modeler.jar","commons-modeler.jar")
 #TODO:api-docs
     pisitools.dodoc("*.txt")

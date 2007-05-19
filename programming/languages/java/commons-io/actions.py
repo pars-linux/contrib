@@ -16,6 +16,6 @@ def setup():
     shelltools.system("ant dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","build/commons-io-1.3.1.jar","commons-io.jar")
+    pisitools.insinto("/usr/share/java","build/commons-io-1.3.1.jar","commons-io.jar")
 
     pisitools.dodoc("*.txt")

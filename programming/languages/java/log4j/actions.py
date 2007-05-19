@@ -17,7 +17,7 @@ def setup():
     shelltools.system("ant jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/lib/log4j*.jar","log4j.jar")
+    pisitools.insinto("/usr/share/java","dist/lib/log4j*.jar","log4j.jar")
 
     pisitools.dodoc("LICENSE")
     pisitools.dodoc("NOTICE")
