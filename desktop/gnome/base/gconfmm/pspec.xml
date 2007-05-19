@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gconfmm</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2.1</License>
+        <IsA>library</IsA>
+        <Summary>C++ bindings for GConf</Summary>
+        <Summary xml:lang="tr">GConf için C++ bağlayıcıları</Summary>
+        <Archive sha1sum="cc00409d9a9bd396cd738e040adbba86fe578e00" type="tarbz2">mirrors://gnome/gconfmm/2.18/gconfmm-2.18.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gconf</Dependency>
+            <Dependency>glibmm</Dependency>
+            <Dependency>gtkmm</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gconfmm</Name>
+        <RuntimeDependencies>
+            <Dependency>gconf</Dependency>
+            <Dependency>glibmm</Dependency>
+            <Dependency>gtkmm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-19</Date>
+            <Version>2.18.0</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
