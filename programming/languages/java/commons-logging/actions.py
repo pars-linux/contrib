@@ -17,9 +17,9 @@ def setup():
     shelltools.system("ant -v compile")
 
 def install():
-    pisitools.insinto("/usr/lib/java","target/commons-logging-api-*.jar","commons-logging-api.jar")
-    pisitools.insinto("/usr/lib/java","target/commons-logging-adapters-*.jar","commons-logging-adapters.jar")
-    pisitools.insinto("/usr/lib/java","target/commons-logging-1.1.jar","commons-logging.jar")
+    pisitools.insinto("/usr/share/java","target/commons-logging-api-*.jar","commons-logging-api.jar")
+    pisitools.insinto("/usr/share/java","target/commons-logging-adapters-*.jar","commons-logging-adapters.jar")
+    pisitools.insinto("/usr/share/java","target/commons-logging-1.1.jar","commons-logging.jar")
 
     pisitools.dodoc("README.txt")
     pisitools.dohtml("*.html")

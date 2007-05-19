@@ -21,7 +21,7 @@ def setup():
     shelltools.system("jar cvfm portlet-api.jar manifest -C class/ .")
 
 def install():
-    pisitools.insinto("/usr/lib/java","portlet-api.jar","portlet-api.jar")
+    pisitools.insinto("/usr/share/java","portlet-api.jar","portlet-api.jar")
 
     pisitools.dodoc("changes.txt")
     pisitools.dohtml("docs/*")

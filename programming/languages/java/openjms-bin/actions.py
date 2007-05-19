@@ -13,6 +13,6 @@ from pisi.actionsapi import get
 WorkDir="openjms-%s-beta-1" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/lib/java","lib/jms*.jar","jms.jar")
+    pisitools.insinto("/usr/share/java","lib/jms*.jar","jms.jar")
 
 #    pisitools.dohtml("docs/*")

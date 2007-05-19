@@ -9,12 +9,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
 def setup():
-    pisitools.echo("build.properties","commons-collections.jar=/usr/lib/java/commons-collections.jar")
-    pisitools.echo("build.properties","commons-pool.jar=/usr/lib/java/commons-pool.jar")
+    pisitools.echo("build.properties","commons-collections.jar=/usr/share/java/commons-collections.jar")
+    pisitools.echo("build.properties","commons-pool.jar=/usr/share/java/commons-pool.jar")
     shelltools.system("ant build-jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/*.jar","commons-dbcp.jar")
+    pisitools.insinto("/usr/share/java","dist/*.jar","commons-dbcp.jar")
 
     pisitools.dodoc("README.txt")
 

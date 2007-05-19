@@ -16,7 +16,7 @@ def setup():
     shelltools.system("ant jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/commons-el.jar","commons-el.jar")
+    pisitools.insinto("/usr/share/java","dist/commons-el.jar","commons-el.jar")
 
     pisitools.dodoc("*.txt")
     pisitools.dohtml("*.html")

@@ -14,4 +14,4 @@ def setup():
     shelltools.system("ant jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","build/release/*.jar")
+    pisitools.insinto("/usr/share/java","build/release/*.jar")

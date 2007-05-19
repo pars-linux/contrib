@@ -14,4 +14,4 @@ def build():
     shelltools.system("ant jar -Dclasspath=/usr/share/ant-core/lib")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/*.jar")
+    pisitools.insinto("/usr/share/java","dist/*.jar")

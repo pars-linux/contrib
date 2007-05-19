@@ -16,7 +16,7 @@ def build():
     shelltools.system("ant -f resolver.xml jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","build/*.jar")
+    pisitools.insinto("/usr/share/java","build/*.jar")
 
     pisitools.dodoc("KEYS","LICENSE.resolver.txt","NOTICE-resolver.txt")
 

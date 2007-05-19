@@ -16,7 +16,7 @@ def setup():
     shelltools.system("ant jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","build/commons-collections-*.jar","commons-collections.jar")
+    pisitools.insinto("/usr/share/java","build/commons-collections-*.jar","commons-collections.jar")
 
     pisitools.dodoc("README.txt")
     pisitools.dohtml("*.html")

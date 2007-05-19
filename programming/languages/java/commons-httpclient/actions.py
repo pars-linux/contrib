@@ -18,7 +18,7 @@ def setup():
     shelltools.system("ant dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/commons-httpclient.jar","commons-httpclient.jar")
+    pisitools.insinto("/usr/share/java","dist/commons-httpclient.jar","commons-httpclient.jar")
     #TODO: docs
 
     pisitools.dodoc("LICENSE")

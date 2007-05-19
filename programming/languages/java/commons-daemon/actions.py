@@ -23,7 +23,7 @@ def setup():
 
 def install():
     pisitools.dobin("src/native/unix/jsvc")
-    pisitools.insinto("/usr/lib/java","dist/*.jar")
+    pisitools.insinto("/usr/share/java","dist/*.jar")
 
     pisitools.dodoc("README","RELEASE-NOTES.txt")
     pisitools.dohtml("*.html")

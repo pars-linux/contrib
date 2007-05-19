@@ -21,7 +21,7 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.insinto("/usr/lib/java","antlr/antlr.jar")
+    pisitools.insinto("/usr/share/java","antlr/antlr.jar")
 
     pisitools.dodoc("CHANGES.txt","README.txt")
 

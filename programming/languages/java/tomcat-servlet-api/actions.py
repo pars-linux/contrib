@@ -18,8 +18,8 @@ def setup():
     shelltools.system("ant -f jsr152/build.xml dist")
 
 def install():
-    pisitools.insinto("/usr/lib/java","jsr154/dist/lib/servlet-api*.jar","servlet-api.jar")
-    pisitools.insinto("/usr/lib/java","jsr152/dist/lib/jsp-api*.jar","jsp-api.jar")
+    pisitools.insinto("/usr/share/java","jsr154/dist/lib/servlet-api*.jar","servlet-api.jar")
+    pisitools.insinto("/usr/share/java","jsr152/dist/lib/jsp-api*.jar","jsp-api.jar")
 
     pisitools.dodoc("jsr154/dist/README.txt")
     pisitools.dodoc("jsr154/dist/LICENSE")

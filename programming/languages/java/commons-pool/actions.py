@@ -16,6 +16,6 @@ def setup():
     shelltools.system("ant build-jar")
 
 def install():
-    pisitools.insinto("/usr/lib/java","dist/*.jar","commons-pool.jar")
+    pisitools.insinto("/usr/share/java","dist/*.jar","commons-pool.jar")
 
     pisitools.dodoc("README.txt","RELEASE-NOTES.txt","NOTICE.txt")
