@@ -16,7 +16,3 @@ def build():
 
 def install():
     kde.install()
-
-    pisitools.domo("po/tr.po", "tr", "kguitar.mo")
-    pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/kguitar.mo", "%s/share/locale/tr/LC_MESSAGES/" % get.kdeDIR())
-    pisitools.removeDir("/usr/share/locale")
