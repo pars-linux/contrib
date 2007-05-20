@@ -14,11 +14,16 @@ def setup():
                          --disable-gtk \
                          --disable-wxwidgets")
 
+    # we use only console edition and binary name should be the same with package (weechat-curses -> weechat)
+    pisitools.dosed("doc/weechat-curses.1", "weechat-curses", "weechat")
+
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dosym("/usr/bin/weechat-curses", "/usr/bin/weechat")
+    pisitools.domove("/usr/bin/weechat-curses", "/usr/bin", "weechat")
+
+    pisitools.domove("/usr/share/man/man1/weechat-curses.1", "/usr/share/man/man1", "weechat.1")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
