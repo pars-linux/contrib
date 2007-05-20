@@ -16,14 +16,17 @@
         <Description xml:lang="tr">Bu program gerçek zamanlı ses efektlerini işleyebilir.Gitarı takıp çalmanız yeterlidir.Efektler sizin için hazırdır.</Description>
         <Archive sha1sum="9fb960252e18c93ae9a53dde0d102ed037ef5bed" type="tarbz2">mirrors://sourceforge/kguitar/kguitar-0.5.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>kdebase</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>tr.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>kguitar</Name>
         <RuntimeDependencies>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>kdebase</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
@@ -34,6 +37,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-05-20</Date>
+            <Version>0.5</Version>
+            <Comment>Thanks to Server ACİM for Turkish translation.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-02-25</Date>
             <Version>0.5</Version>
