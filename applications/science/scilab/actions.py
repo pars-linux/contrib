@@ -14,6 +14,7 @@ def setup():
                             --bindir=/usr/bin \
                             --datadir=/usr/share \
                             --docdir=/usr/share/doc \
+                            --disable-static \
                             --with-local-xaw \
                             --with-pvm \
                             --with-tk \
