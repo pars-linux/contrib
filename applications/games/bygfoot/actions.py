@@ -22,4 +22,4 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "support_files/pixmaps/bygfoot_icon.png", "bygfoot.png")
     pisitools.insinto("/usr/share/applications", "bygfoot.desktop")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "ReleaseNotes", "NEWS", "TODO", "UPDATE")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "ReleaseNotes", "TODO", "UPDATE")
