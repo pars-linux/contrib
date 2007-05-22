@@ -12,4 +12,5 @@ def build():
 
 def install():
     pisitools.dobin("stftp")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO")
