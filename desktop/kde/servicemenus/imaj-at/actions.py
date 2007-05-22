@@ -13,5 +13,6 @@ WorkDir = "imaj.at-%s" % get.srcVERSION()
 def install():
     pisitools.dobin("imaj.at.upload.py")
     pisitools.dobin("sendss.py")
+
     pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "*.desktop")
 
