@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Pager-2.4.3"
+WorkDir="Pager-%s" % get.srcVERSION()
 
 def install():
     items = ['Common.php', 'HtmlWidgets.php', 'Pager.php', 'Sliding.php', 'Jumping.php', 'Pager_savebc.php']
