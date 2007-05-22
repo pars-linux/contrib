@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Calendar-0.5.3"
+WorkDir="Calendar-%s" % get.srcVERSION()
 
 def install():
     items = ['Calendar.php', 'Minute.php', 'Week.php', 'Day.php', 'Year.php', 'Factory.php', 'Month.php', 'Decorator.php', 'Hour.php', 'Second.php', 'Validator.php']
