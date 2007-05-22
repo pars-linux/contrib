@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Image_IPTC-1.0.2"
+WorkDir="Image_IPTC-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Image", "IPTC.php")
