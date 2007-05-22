@@ -13,11 +13,12 @@ WorkDir = "sidplay-libs-%s" % get.srcVERSION()
 
 def setup():
     pisitools.dosed("libsidutils/src/ini/ini.cpp", "#include <malloc.h>", "#include <stdlib.h>")
+
     pisitools.dosed("resid/Makefile.in", "@ACLOCAL@", "${SHELL} %s/%s/resid/missing --run aclocal-1.8" % (get.workDIR(), WorkDir))
+
     pisitools.dosed("resid/Makefile.in", "@AUTOMAKE@", "${SHELL} %s/%s/resid/missing --run automake-1.8" % (get.workDIR(), WorkDir))
 
     shelltools.export("CXXFLAGS", "%s -D_GNU_SOURCE" % get.CXXFLAGS())
-    shelltools.export("CFLAGS", get.CFLAGS())
 
     autotools.autoreconf("-fi")
 
@@ -34,6 +35,9 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto("/usr/include/resid", "resid/*.h")
+
+    pisitools.dosym("/usr/lib/sidplay/builders/libresid-builder.so.0.0.1", "/usr/lib/libresid-builder.so.0")
+    pisitools.dosym("/usr/lib/sidplay/builders/libresid-builder.so.0.0.1", "/usr/lib/libresid-builder.so")
 
     # Dirty way to install docs
     for dirs in ("libsidplay", "libsidutils", "resid"):
