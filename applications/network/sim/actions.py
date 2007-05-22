@@ -16,6 +16,6 @@ def build():
 
 def install():
     kde.install()
-    
+
 #   conflict with /usr/kde/3.5/share/mimelnk/application/x-icq.desktop
     pisitools.removeDir("/usr/kde/3.5/share/mimelnk")
