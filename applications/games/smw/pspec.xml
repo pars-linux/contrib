@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>smw</Name>
+        <Homepage>http://smw.72dpiarmy.com/</Homepage>
+        <Packager>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>chriseba@gmail.com</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Super Mario War</Summary>
+        <Archive sha1sum="d376daa80520115c30a883bfe269208557595132" type="tarbz2">http://www.ertugerata.org/files/smw_svn-1.7.tar.bz2 </Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>smw</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/smw</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/smw.desktop" permission="0644" owner="root">smw.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/smw-leveledit.desktop" permission="0644" owner="root">smwleveledit.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/smw.xpm" permission="0644" owner="root">smw.xpm</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    <History>
+        <Update release="2">
+            <Date>2007-05-20</Date>
+            <Version>1.7</Version>
+            <Comment>svn version=57</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-01</Date>
+            <Version>0.0_20061229</Version>
+            <Comment>First Release</Comment>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>chriseba@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
