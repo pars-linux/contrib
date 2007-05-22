@@ -5,9 +5,10 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
-WorkDir="File_Fortune-0.9.0"
+WorkDir="File_Fortune-%s" % get.srcVERSION()
 
 def install():
     shelltools.cd("File")
