@@ -14,7 +14,8 @@ def setup():
     pisitools.dosed('azureus', '#PROGRAM_DIR="/home/username/apps/azureus"', 'PROGRAM_DIR="/usr/share/azureus"')
 
 def install():
-     pisitools.dodir("/usr/share/azureus")
-     pisitools.insinto("/usr/share/azureus", "*")
-     pisitools.dosym("/usr/share/azureus/azureus", "/usr/bin/azureus")
-     pisitools.insinto("/usr/share/pixmaps/", "Azureus.png")
+    pisitools.insinto("/usr/share/azureus", "*")
+    pisitools.insinto("/usr/share/pixmaps/", "Azureus.png")
+
+    pisitools.dosym("/usr/share/azureus/azureus", "/usr/bin/azureus")
+
