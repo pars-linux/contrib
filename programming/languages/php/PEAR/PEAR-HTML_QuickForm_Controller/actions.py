@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="HTML_QuickForm_Controller-1.0.7"
+WorkDir="HTML_QuickForm_Controller-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML/QuickForm", "Action*")
