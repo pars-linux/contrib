@@ -6,13 +6,12 @@
 
 from pisi.actionsapi import autotools
 
-WorkDir="gtmess-0.92"
 
 def install():
-	autotools.install()
-    
+    autotools.install()
+
 def build():
-	autotools.make()
-	
+    autotools.make()
+
 def setup():
-	autotools.configure()
+    autotools.configure()
