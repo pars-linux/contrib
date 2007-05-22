@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="HTML_Table_Matrix-1.0.9"
+WorkDir="HTML_Table_Matrix-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML/Table", "Matrix*")
