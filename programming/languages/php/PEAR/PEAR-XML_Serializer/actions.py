@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="XML_Serializer-0.18.0"
+WorkDir="XML_Serializer-%s" % get.srcVERSION()
 
 def install():
     items = ['Serializer.php', 'Unserializer.php']
