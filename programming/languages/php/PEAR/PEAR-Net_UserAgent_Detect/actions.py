@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Net_UserAgent_Detect-2.2.0"
+WorkDir="Net_UserAgent_Detect-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net/UserAgent", "Detect.php")
