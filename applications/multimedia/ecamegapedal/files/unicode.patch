@@ -1,0 +1,39 @@
+diff -Naur ecamegapedal-0.4.4/src/interface.cpp ecamegapedal-0.4.4/src/interface.cpp
+--- ecamegapedal-0.4.4/src/interface.cpp	2004-04-18 20:34:32.000000000 +0300
++++ ecamegapedal-0.4.4/src/interface.cpp	2007-05-23 13:17:42.000000000 +0300
+@@ -451,7 +451,7 @@
+   fdialog->exec();
+   QString fname = fdialog->selectedFile();
+   if (!fname.isEmpty()) {
+-    current_dir_rep = string(fdialog->dirPath().latin1());
++    current_dir_rep = string(fdialog->dirPath().utf8());
+     inputrow_name_repp->setText(fname);
+   }
+ }
+@@ -465,7 +465,7 @@
+   fdialog->exec();
+   QString fname = fdialog->selectedFile();
+   if (!fname.isEmpty()) {
+-    current_dir_rep = string(fdialog->dirPath().latin1());
++    current_dir_rep = string(fdialog->dirPath().utf8());
+     outputrow_name_repp->setText(fname);
+   }
+ }
+@@ -486,7 +486,7 @@
+ 
+ void QEInterface::set_input_name(const QString& q)
+ {
+-  string s (q.latin1());
++  string s (q.utf8());
+   if (s != input_rep) {
+     input_rep = s;
+     io_changed_rep = true;
+@@ -496,7 +496,7 @@
+ 
+ void QEInterface::set_output_name(const QString& q)
+ {
+-  string s (q.latin1());
++  string s (q.utf8());
+   if (s != output_rep) {
+     output_rep = s;
+     io_changed_rep = true;
