@@ -8,22 +8,25 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="lynx2-8-5"
+WorkDir="lynx2-8-6"
 
 def setup():
     autotools.configure("--libdir=/etc/lynx \
-                                           --enable-cgi-links \
-                                           --enable-EXP_PERSISTENT_COOKIES \
-                                           --enable-prettysrc \
-                                           --enable-nls-fork \
-                                           --enable-file-upload \
-                                           --enable-read-eta \
-                                           --enable-libjs \
-                                           --enable-color-style \
-                                           --enable-scrollbar \
-                                           --enable-included-msgs \
-                                           --with-zlib \
-                                           --enable-nls")
+                         --enable-ipv6 \
+                         --enable-widec \
+                         --enable-cgi-links \
+                         --enable-EXP_PERSISTENT_COOKIES \
+                         --enable-prettysrc \
+                         --enable-nls-fork \
+                         --enable-file-upload \
+                         --enable-read-eta \
+                         --enable-libjs \
+                         --enable-color-style \
+                         --enable-scrollbar \
+                         --enable-included-msgs \
+                         --with-bzlib \
+                         --with-zlib \
+                         --enable-nls")
 
 def build():
     autotools.make()
