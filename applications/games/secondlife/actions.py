@@ -22,7 +22,6 @@ def install():
         pisitools.insinto("/usr/share/secondlife","indra/newview/%s" % data)
 
     pisitools.insinto("/usr/share/secondlife/app_settings","scripts/messages/message_template.msg")
-    pisitools.insinto("/usr/share/secondlife","indra/newview/res/ll_icon.ico","secondlife.ico")
     pisitools.insinto("/usr/share/secondlife","indra/newview/linux_tools/launch_url.sh")
 
     pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf","/usr/share/secondlife/unicode.ttf")
