@@ -15,7 +15,7 @@ def build():
     shelltools.cd("indra")
     shelltools.export("TEMP_BUILD_DIR","build")
 
-    scons.make("DISTCC=no BTARGET=client BUILD=release MOZLIB=no GRID=firstlook")
+    scons.make("DISTCC=no BTARGET=client BUILD=release MOZLIB=no GRID=firstlook FMOD=yes")
 
 def install():
     for data in ["secondlife-i686-bin-globalsyms","featuretable.txt","gpu_table.txt","app_settings","skins","fonts","character","help","res-sdl"]:
