@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 WorkDir="ht-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-release")
 
 def build():
     autotools.make()
@@ -19,4 +19,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "doc/ht.info", "doc/hthelp.info")
