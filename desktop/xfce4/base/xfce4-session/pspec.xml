@@ -15,39 +15,24 @@
         <Summary xml:lang="tr">Xfce oturum yöneticisi</Summary>
         <Archive sha1sum="05a47d55830a9f9b91498a6a3fd1bf3eb197d42a"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.1/src/xfce4-session-4.4.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="1.0">dbus</Dependency>
-            <Dependency>xorg-server</Dependency>
+            <Dependency>dbus-glib</Dependency>
             <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
-            <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
             <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
             <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>cairo</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">i18n-tr-fix-mcs-button-label.patch</Patch>
         </Patches>
     </Source>
-    
+
     <Package>
        <Name>xfce4-session</Name>
        <RuntimeDependencies>
-           <Dependency versionFrom="1.0">dbus</Dependency>
-           <Dependency>xorg-server</Dependency>
-           <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
-           <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
-           <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
-           <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
-           <Dependency>atk</Dependency>
-           <Dependency>gtk2</Dependency>
-           <Dependency>glib2</Dependency>
-           <Dependency>pango</Dependency>
-           <Dependency>cairo</Dependency>
-           <Dependency>xfce-utils</Dependency>
-       </RuntimeDependencies> 
+            <Dependency>dbus-glib</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
+       </RuntimeDependencies>
        <Files>
            <Path fileType="executable">/usr/bin</Path>
            <Path fileType="executable">/usr/libexec</Path>
