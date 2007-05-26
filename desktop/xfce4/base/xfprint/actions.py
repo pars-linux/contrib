@@ -9,8 +9,8 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--enable-static=no \
-                                  --enable-cups \
-                                  --disable-bsdlpr")
+                         --enable-cups \
+                         --disable-bsdlpr")
 
 def build():
     autotools.make()
