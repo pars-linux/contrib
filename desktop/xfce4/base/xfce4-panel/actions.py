@@ -15,9 +15,9 @@ def build():
 
 def install():
     autotools.install()
-    
     pisitools.dodoc("README*", "NEWS", "HACKING", "ChangeLog", "AUTHORS")
-    # conflict
+
+# conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
     pisitools.remove("/usr/share/icons/hicolor/48x48/apps/xfce-filemanager.png")
     # it's in xfdesktop package for default configuration
