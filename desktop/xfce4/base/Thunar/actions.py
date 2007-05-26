@@ -8,14 +8,15 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-gnome-thumbnailers \
+                         --with-volume-manager=hal")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    
+
     pisitools.domo("po/tr.po", "tr", "Thunar.mo")
     pisitools.dodoc("TODO", "THANKS", "README", "HACKING", "FAQ", "AUTHORS", "ChangeLog")
     # conflict
