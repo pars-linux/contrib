@@ -2,7 +2,7 @@
 <!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-    <Name>xcircuit</Name>
+        <Name>xcircuit</Name>
         <Homepage>http://opencircuitdesign.com/xcircuit/</Homepage>
         <Packager>
             <Name>Ayan Öztürk</Name>
@@ -12,26 +12,39 @@
         <IsA>app:gui</IsA>
         <Summary>Program for drawing publishable-quality electrical circuit schematic diagrams and related figures, and produce circuit netlists through schematic capture.</Summary>
         <Summary xml:lang="tr">Şematik diagramlar, elektik devreleri, figürler çizmeye yarayan bir program.</Summary>
-        <Archive sha1sum="cf3eda5c788376a09cca6a35ee120a3f12a08c33" type="targz">http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.4.26.tgz</Archive>
+        <Archive sha1sum="50bd295c7377558bef9634a9792c16b2e256f256" type="targz">http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.6.94.tgz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="8.4">tcltk</Dependency>
-            <Dependency versionFrom="0.98">nasm</Dependency>
+            <Dependency>tcltk</Dependency>
+            <Dependency>nasm</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
-      <Name>xcircuit</Name>
-      <RuntimeDependencies>
-          <Dependency versionFrom="8.4">tcltk</Dependency>
-      </RuntimeDependencies>
-      <Files>
-          <Path fileType="data">/usr/share</Path>
-          <Path fileType="doc">/usr/share/doc</Path>
-          <Path fileType="executable">/usr/bin</Path>
-      </Files>
+        <Name>xcircuit</Name>
+        <RuntimeDependencies>
+            <Dependency>tcltk</Dependency>
+            <Dependency>nasm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/lib/xcircuit-3.6</Path>
+            <Path fileType="data">/usr/share/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/xcircuit.desktop">xcircuit.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/xcircuit.xpm">xcircuit.xpm</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-05-22</Date>
+            <Version>3.6.94</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-01-16</Date>
             <Version>3.4.26</Version>
