@@ -15,42 +15,24 @@
         <Summary xml:lang="tr">Xfce paneli</Summary>
         <Archive sha1sum="5a0ca0dee7f8d525120f65cc8fd199a3e673f60c"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.1/src/xfce4-panel-4.4.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>xorg-server</Dependency>
-            <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
             <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
             <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
             <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>cairo</Dependency>
-            <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>libwww</Dependency>
+            <Dependency>startup-notification</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">i18n-tr-little-fix.patch</Patch>
         </Patches>
     </Source>
-    
+
     <Package>
        <Name>xfce4-panel</Name>
        <RuntimeDependencies>
-           <Dependency>startup-notification</Dependency>
-           <Dependency versionFrom="4.4.1">xfce-mcs-plugins</Dependency>
-           <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
-           <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
-           <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
-           <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
-           <Dependency>xorg-server</Dependency>
-           <Dependency>atk</Dependency>
-           <Dependency>cairo</Dependency>
-           <Dependency>gtk2</Dependency>
-           <Dependency>glib2</Dependency>
-           <Dependency>libxml2</Dependency>
-           <Dependency>pango</Dependency>
-           <Dependency>libwww</Dependency>
-       </RuntimeDependencies> 
+            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
+            <Dependency>startup-notification</Dependency>
+       </RuntimeDependencies>
        <Files>
            <Path fileType="executable">/usr/bin</Path>
            <Path fileType="config">/etc</Path>
