@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kicad</Name>
+        <Homepage>http://www.lis.inpg.fr/realise_au_lis/kicad/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Electronic schematic and PCB design tools</Summary>
+        <Archive sha1sum="21d2e865c064173d8b346386b4ba7c9800fd383d" type="tarbz2">http://cekirdek.pardus.org.tr/~ismail/dist/kicad-20070115.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kicad</Name>
+        <RuntimeDependencies>
+            <Dependency>wxGTK</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/kicad">kicad</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/kicad.desktop">kicad.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-20</Date>
+            <Version>0.0_20070115</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
