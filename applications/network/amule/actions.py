@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 WorkDir = "aMule-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure()
+    autotools.configure("--with-wx-prefix=/usr/wx/2.8 \
+                         --with-wx-config=/usr/wx/2.8/bin/wx-config")
 
 def build():
     autotools.make()
