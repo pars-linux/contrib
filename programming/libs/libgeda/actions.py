@@ -11,6 +11,7 @@ from pisi.actionsapi import get
 WorkDir="libgeda-%s" % get.srcVERSION().split('_')[-1]
 
 def setup():
+    autotools.automake()
     autotools.configure("--disable-static")
 
 def build():
