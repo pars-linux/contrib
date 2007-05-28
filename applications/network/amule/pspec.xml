@@ -26,17 +26,9 @@
     </Source>
 
     <Package>
-        <Name>amule-locales</Name>
-        <Files>
-            <Path fileType="localedata">/usr/share/locale</Path>
-        </Files>
-    </Package>
-
-    <Package>
         <Name>amule</Name>
         <RuntimeDependencies>
             <Dependency>wxGTK2_8</Dependency>
-            <Dependency>amule-locales</Dependency>
         </RuntimeDependencies>
         <Conflicts>
             <Package>xmule</Package>
@@ -61,18 +53,16 @@
             <Path fileType="man">/usr/share/man/es/man1/xas.1</Path>
             <Path fileType="man">/usr/share/man/fr/man1/xas.1</Path>
             <Path fileType="man">/usr/share/man/de/man1/xas.1</Path>
-            <!--  doc and datas -->
+            <!--  doc, datas and locales -->
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <Package>
         <Name>amulecmd</Name>
-        <RuntimeDependencies>
-            <Dependency>amule-locales</Dependency>
-        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin/amulecmd</Path>
             <!-- man files -->
@@ -86,9 +76,6 @@
 
     <Package>
         <Name>amuleweb</Name>
-        <RuntimeDependencies>
-            <Dependency>amule-locales</Dependency>
-        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin/amuleweb</Path>
             <Path fileType="executable">/usr/bin/amuled</Path>
