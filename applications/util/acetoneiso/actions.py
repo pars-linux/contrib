@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 
 WorkDir= "AcetoneISO-6.7"
 
-def make():
+def build():
     scons.make()
 
 def install():
