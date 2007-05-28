@@ -1,0 +1,48 @@
+diff -Nur libgeda-20070216/include/Makefile.in libgeda-20070216.patched/include/Makefile.in
+--- libgeda-20070216/include/Makefile.in	2007-02-17 06:40:17.000000000 +0200
++++ libgeda-20070216.patched/include/Makefile.in	2007-05-28 23:12:48.000000000 +0300
+@@ -338,7 +338,7 @@
+ all-am: Makefile $(HEADERS)
+ installdirs:
+ 	for dir in "$(DESTDIR)$(libgedaincludedir)"; do \
+-	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
++	  test -z "$$dir" || $(MKDIR_P) "$(distdir)$$dir"; \
+ 	done
+ install: install-am
+ install-exec: install-exec-am
+diff -Nur libgeda-20070216/Makefile.in libgeda-20070216.patched/Makefile.in
+--- libgeda-20070216/Makefile.in	2007-02-17 06:40:18.000000000 +0200
++++ libgeda-20070216.patched/Makefile.in	2007-05-28 23:12:48.000000000 +0300
+@@ -593,7 +593,7 @@
+ installdirs: installdirs-recursive
+ installdirs-am:
+ 	for dir in "$(DESTDIR)$(pkgconfigdir)"; do \
+-	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
++	  test -z "$$dir" || $(MKDIR_P) "$(distdir)$$dir"; \
+ 	done
+ install: install-recursive
+ install-exec: install-exec-recursive
+diff -Nur libgeda-20070216/share/Makefile.in libgeda-20070216.patched/share/Makefile.in
+--- libgeda-20070216/share/Makefile.in	2007-02-17 06:40:17.000000000 +0200
++++ libgeda-20070216.patched/share/Makefile.in	2007-05-28 23:12:48.000000000 +0300
+@@ -290,7 +290,7 @@
+ all-am: Makefile $(DATA)
+ installdirs:
+ 	for dir in "$(DESTDIR)$(prologdatadir)"; do \
+-	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
++	  test -z "$$dir" || $(MKDIR_P) "$(distdir)$$dir"; \
+ 	done
+ install: install-am
+ install-exec: install-exec-am
+diff -Nur libgeda-20070216/src/Makefile.in libgeda-20070216.patched/src/Makefile.in
+--- libgeda-20070216/src/Makefile.in	2007-02-17 06:40:18.000000000 +0200
++++ libgeda-20070216.patched/src/Makefile.in	2007-05-28 23:12:48.000000000 +0300
+@@ -483,7 +483,7 @@
+ all-am: Makefile $(LTLIBRARIES)
+ installdirs:
+ 	for dir in "$(DESTDIR)$(libdir)"; do \
+-	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
++	  test -z "$$dir" || $(MKDIR_P) "$(distdir)$$dir"; \
+ 	done
+ install: install-am
+ install-exec: install-exec-am
