@@ -6,11 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir="libgeda-%s" % get.srcVERSION().split('_')[-1]
 
 def setup():
+    shelltools.export("WANT_AUTOMAKE", "1.9")
     autotools.automake()
     autotools.configure("--disable-static")
 
