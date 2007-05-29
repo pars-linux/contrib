@@ -9,11 +9,11 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.rawConfigure("--prefix=%s/usr" % get.installDIR()) 
+    autotools.rawConfigure("--prefix=/usr") 
 
 def build():
     autotools.make()
 
 def install():
     pisitools.dodoc("README","COPYING","ChangeLog","TODO")
-    autotools.install()
+    autotools.rawInstall("INSTALL_ROOT='%s'"  % get.installDIR())
