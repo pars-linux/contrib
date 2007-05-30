@@ -14,4 +14,3 @@ def build():
 
 def install():
     kde.install()
-
