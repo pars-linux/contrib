@@ -16,6 +16,7 @@ def setup():
     shelltools.export("CFLAGS", get.CFLAGS())
 
     autotools.autoreconf("-fi")
+
     autotools.configure()
 
 def build():
@@ -23,4 +24,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "TODO", "README")
