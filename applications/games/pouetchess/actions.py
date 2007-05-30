@@ -17,4 +17,5 @@ def build():
 
 def install():
     pisitools.dobin("bin/pouetChess")
+
     pisitools.insinto("/usr/share/pouetchess", "data/*")
