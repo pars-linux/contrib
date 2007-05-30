@@ -13,18 +13,19 @@ WorkDir="linden"
 
 def build():
     shelltools.cd("indra")
-    shelltools.export("TEMP_BUILD_DIR","build")
+
+    shelltools.export("TEMP_BUILD_DIR", "build")
 
     scons.make("DISTCC=no BTARGET=client BUILD=release MOZLIB=no GRID=firstlook FMOD=yes")
 
 def install():
-    for data in ["secondlife-i686-bin-globalsyms","featuretable.txt","gpu_table.txt","app_settings","skins","fonts","character","help","res-sdl"]:
-        pisitools.insinto("/usr/share/secondlife","indra/newview/%s" % data)
+    for data in ["secondlife-i686-bin-globalsyms", "featuretable.txt", "gpu_table.txt", "app_settings", "skins", "fonts", "character", "help", "res-sdl"]:
+        pisitools.insinto("/usr/share/secondlife", "indra/newview/%s" % data)
 
-    pisitools.insinto("/usr/share/secondlife/app_settings","scripts/messages/message_template.msg")
-    pisitools.insinto("/usr/share/secondlife","indra/newview/linux_tools/launch_url.sh")
+    pisitools.insinto("/usr/share/secondlife/app_settings", "scripts/messages/message_template.msg")
+    pisitools.insinto("/usr/share/secondlife", "indra/newview/linux_tools/launch_url.sh")
 
-    pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf","/usr/share/secondlife/unicode.ttf")
+    pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf", "/usr/share/secondlife/unicode.ttf")
 
     pisitools.dohtml("indra/newview/lsl_guide.html")
-    pisitools.dodoc("indra/newview/releasenotes.txt","indra/newview/licenses-linux.txt")
+    pisitools.dodoc("indra/newview/releasenotes.txt", "indra/newview/licenses-linux.txt")
