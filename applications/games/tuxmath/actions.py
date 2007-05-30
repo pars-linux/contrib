@@ -7,6 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+import os
 
 WorkDir="tuxmath"
 
@@ -23,14 +24,7 @@ def install():
 
     pisitools.dodoc("docs/*.txt")
 
-    pisitools.removeDir("/usr/share/tuxmath/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/cities/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/tux/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/status/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/status/.xvpics")
-    pisitools.removeDir("/usr/share/tuxmath/images/ufos/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/backgrounds/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/backgrounds/CVS/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/images/comets/CVS")
-    pisitools.removeDir("/usr/share/tuxmath/sounds/CVS")
+    # Remove CVS dirs in installDir
+    for root, dirs, files in os.walk(get.installDIR()):
+        if "CVS" in root:
+            pisitools.removeDir(root.split("install")[1])
