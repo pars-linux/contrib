@@ -12,4 +12,5 @@ def build():
 
 def install():
     pisitools.dobin("ctronome")
+
     pisitools.insinto("/usr/share/ctronome","*.wav")
