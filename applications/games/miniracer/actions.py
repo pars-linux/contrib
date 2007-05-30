@@ -7,8 +7,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="miniracer-1.04"
-
 def build():
     autotools.make()
 
@@ -20,6 +18,7 @@ def install():
     pisitools.insinto("/usr/share/MiniRacer/data", "data/config.cfg")
     pisitools.insinto("/usr/share/MiniRacer/data", "data/maps/*.bsp")
     pisitools.insinto("/usr/share/MiniRacer/data", "data/maps/maps1.lst")
-    pisitools.insinto("/usr/share/man", "miniracer.6")
+
+    pisitools.doman("miniracer.6")
 
     pisitools.dodoc("AUTHORS", "CREDITS", "COPYING", "ChangeLog", "README")
