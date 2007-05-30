@@ -10,4 +10,4 @@ from pisi.actionsapi import pisitools
 WorkDir = "linden/indra"
 
 def install():
-    pisitools.insinto("/usr/share/secondlife/","newview/*")
+    pisitools.insinto("/usr/share/secondlife/", "newview/*")
