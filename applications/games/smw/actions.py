@@ -27,5 +27,5 @@ def install():
     pisitools.insinto("/usr/share/smw/maps","maps/*.map")
     pisitools.insinto("/usr/share/smw/music","music/*")
     pisitools.insinto("/usr/share/smw/tours","tours/*")
-    
+
     pisitools.dohtml("README.html")
