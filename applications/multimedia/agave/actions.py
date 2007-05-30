@@ -10,10 +10,10 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-gnome --disable-gconf")
+    autotools.configure("--disable-gnome \
+                         --disable-gconf")
 
 def build():
-
     autotools.make()
 
 def install():
