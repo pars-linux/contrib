@@ -10,4 +10,3 @@ WorkDir="."
 
 def install():
     pisitools.insinto("/usr/share/openttd/scenario", "*.scn")
-
