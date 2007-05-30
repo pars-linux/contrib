@@ -16,6 +16,6 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.insinto("/usr/share/pixmaps", "cgoban_icon.png")
+    pisitools.insinto("/usr/share/pixmaps", "cgoban_icon.png", "cgoban.png")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
