@@ -5,11 +5,13 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import kde
-from pisi.actionsapi import get
 
 
 def setup():
-    kde.configure("--with-showimgdb --enable-libexif --enable-libkipi --with-postgres")
+    kde.configure("--with-showimgdb \
+                   --enable-libexif \
+                   --enable-libkipi \
+                   --with-postgres")
 
 def build():
     kde.make()
