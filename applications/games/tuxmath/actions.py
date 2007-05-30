@@ -18,7 +18,9 @@ def build():
 
 def install():
     pisitools.dodir("/usr/bin")
+
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("docs/*.txt")
 
     pisitools.removeDir("/usr/share/tuxmath/CVS")
