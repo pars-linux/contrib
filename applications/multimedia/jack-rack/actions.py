@@ -18,4 +18,3 @@ def install():
     autotools.rawInstall("DESTDIR=%s JR_DESKTOP_PREFIX=/usr/share" % get.installDIR())
 
     pisitools.dodoc("BUGS", "ChangeLog", "AUTHORS", "THANKS", "TODO", "WISHLIST")
-
