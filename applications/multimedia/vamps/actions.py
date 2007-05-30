@@ -15,4 +15,5 @@ def build():
 def install():
     pisitools.dobin("play_cell/play_cell")
     pisitools.dobin("vamps/vamps")
+
     pisitools.dodoc("COPYING")
