@@ -23,12 +23,14 @@ def build():
 def install():
     pisitools.insinto("/usr/share/openttd/data", "data/*")
     pisitools.insinto("/usr/share/openttd/lang", "lang/*.lng")
+
     pisitools.doexe("openttd", "/usr/share/openttd")
+
     pisitools.dodoc("docs/*", "*.txt")
     #remove unneeded Readmes
     pisitools.remove("/usr/share/doc/%s/Readme_*" % get.srcTAG())
+
     #copy icons
     iconSizes = ["16", "32", "48", "64", "128", "256"]
     for size in iconSizes:
         pisitools.insinto("/usr/share/icons/hicolor/%sx%s/apps" % (size, size), "media/openttd.%s.png" % size, destinationFile = "openttd.png")
-
