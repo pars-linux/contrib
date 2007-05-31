@@ -5,10 +5,6 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
-
-
 
 def setup():
     autotools.configure("--without-xsel")
