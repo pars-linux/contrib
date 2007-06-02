@@ -7,8 +7,6 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="ksquirrel-0.7.0-pre2"
-
 def setup():
     kde.configure()
 
