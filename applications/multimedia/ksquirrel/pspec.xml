@@ -12,13 +12,12 @@
         <IsA>app:gui</IsA>
         <Summary>KSquirrel is an image viewer for KDE with disk navigator,</Summary>
         <Description>KSquirrel is an image viewer for KDE with disk navigator, file tree, multiple directory view, thumbnails, extended thumbnails, dynamic format support, DCOP interface and KIPI plugins support.</Description>
-        <Archive type="tarbz2" sha1sum="425960d8ae26113da166b154da1896036e7563ea">mirrors://sourceforge/ksquirrel/ksquirrel-0.7.0-pre2.tar.bz2</Archive>
+        <Archive sha1sum="a21cd1666ab35b9b1efef09f9a9ab64ff0f22196" type="tarbz2">mirrors://sourceforge/ksquirrel/ksquirrel-0.7.0try5.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>kdelibs</Dependency>
-            <Dependency versionFrom="3.3.8">qt</Dependency>
+            <Dependency>kdebase</Dependency>
             <Dependency>glut</Dependency>
             <Dependency>libkipi</Dependency>
-            <Dependency>ksquirrel-libs</Dependency>
+            <Dependency versionFrom="0.7.0">ksquirrel-libs</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">ld-kutils.patch</Patch>
@@ -28,20 +27,26 @@
     <Package>
         <Name>ksquirrel</Name>
         <RuntimeDependencies>
-            <Dependency>kdelibs</Dependency>
-            <Dependency versionFrom="3.3.8">qt</Dependency>
+            <Dependency>kdebase</Dependency>
             <Dependency>glut</Dependency>
             <Dependency>libkipi</Dependency>
-            <Dependency>ksquirrel-libs</Dependency>
+            <Dependency versionFrom="0.7.0">ksquirrel-libs</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
             <Path fileType="man">/usr/kde/3.5/man</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
+    <History>
+        <Update release="2">
+            <Date>2007-06-02</Date>
+            <Version>0.7.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-04-14</Date>
             <Version>0.7.0_pre2</Version>
