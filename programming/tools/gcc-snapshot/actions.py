@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "gcc-4.3-20070420"
+WorkDir = "gcc-4.3-%s" % get.srcVERSION().split('_')[-1]
 
 def setup():
     # gcc doesn't like mcpu flag while bootstrapping itself
