@@ -1,33 +1,21 @@
 from comar.service import *
-import comar
-import os
 
 serviceType="server"
 serviceDesc = _({"en": "S.M.A.R.T. monitoring daemon",
-                 "tr": "S.M.A.R.T. monitoring daemon"})
+                 "tr": "S.M.A.R.T. izleme servisi"})
 
 serviceConf = "smartd.conf"
 
-def unlink():
-    try:
-        os.unlink("/var/run/smartd.pid")
-    except:
-        pass
-
+@synchronized
 def start():
+    startService(command="/usr/sbin/smartd", pidfile="/var/run/smartd.pid", donotify=True)
 
-    ret = run("/sbin/start-stop-daemon --start --exec /usr/sbin/smartd --pidfile /var/run/smartd.pid  -- -p /var/run/smartd.pid")
-
-    if ret == 0:
-        notify("System.Service.changed", "started")
-    else:
-        fail("Unable to start service")
-
+@synchronized
 def stop():
-    ret = run("/sbin/start-stop-daemon  --stop --exec /usr/sbin/smartd --pidfile /var/run/smartd.pid")
+    stopService(pidfile="/var/run/smartd.pid", donotify=True)
 
-    if ret == 0:
-        unlink()
-        notify("System.Service.changed", "stopped")
-    else:
-        fail("Unable to stop service")
+def reload():
+    run("/usr/bin/killall -HUP smartd")
+
+def status():
+    return isServiceRunning("/var/run/smartd.pid")
