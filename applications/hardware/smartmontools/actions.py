@@ -8,7 +8,6 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import autotools
 
-
 def setup():
     autotools.configure()
 
@@ -18,6 +17,8 @@ def build():
 def install():
     pisitools.dosbin("smartd")
     pisitools.dosbin("smartctl")
-    pisitools.doman("smartd.8","smartctl.8","smartd.conf.5")
-    pisitools.dodoc("AUTHORS","ChangeLog","NEWS","README","WARNINGS","smartd.conf")
-    pisitools.insinto("/etc/conf.d","smartd.conf")
+
+    pisitools.doman("smartd.8", "smartctl.8", "smartd.conf.5")
+    pisitools.dodoc("AUTHORS", "ChangeLog","NEWS","README","WARNINGS","smartd.conf")
+
+    pisitools.insinto("/etc/", "smartd.conf")
