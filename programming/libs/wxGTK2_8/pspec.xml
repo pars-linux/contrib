@@ -37,33 +37,33 @@
             <Dependency>alsa-lib</Dependency>
             <Dependency>libsdl</Dependency>
         </RuntimeDependencies>
+        <Conflicts>
+            <Package>wxGTK2_8-devel</Package>
+        </Conflicts>
         <Files>
-            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/wx/2.8/bin</Path>
             <Path fileType="library">/usr/wx/2.8/lib</Path>
             <Path fileType="localedata">/usr/wx/2.8/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="header">/usr/wx/2.8/include</Path>
+            <Path fileType="data">/usr/wx/2.8/share/aclocal</Path>
+            <Path fileType="data">/usr/wx/2.8/share/bakefile</Path>
+            <Path fileType="config">/etc</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/etc/env.d/50wxGTK-2.8">50wxGTK-2.8</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
-    <Package>
-        <Name>wxGTK2_8-devel</Name>
-        <RuntimeDependencies>
-            <Dependency version="2.8.4">wxGTK2_8</Dependency>
-        </RuntimeDependencies>
-        <Files>
-            <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="executable">/usr/wx/2.8/bin</Path>
-            <Path fileType="header">/usr/wx/2.8/include</Path>
-            <Path fileType="header">/usr/wx/2.8/lib/wx</Path>
-            <Path fileType="data">/usr/wx/2.8/share/aclocal</Path>
-            <Path fileType="data">/usr/wx/2.8/share/bakefile</Path>
-        </Files>
-    </Package>
-
     <History>
+        <Update release="2">
+            <Date>2007-06-03</Date>
+            <Version>2.8.4</Version>
+            <Comment>Merge -devel package into main package</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2007-05-18</Date>
             <Version>2.8.4</Version>
