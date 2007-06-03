@@ -9,12 +9,12 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--enable-static=no \
-                                  --with-ssl=openssl")
+                         --with-ssl=openssl")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    
+
     pisitools.dodoc("README", "AUTHORS", "ChangeLog", "NEWS", "CONTRIBUTORS")
