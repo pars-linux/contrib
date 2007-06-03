@@ -14,6 +14,9 @@ from pisi.actionsapi import get
 WorkDir="kicad-%s" % get.srcVERSION().split('_')[-1]
 
 def build():
+    pisitools.dosed("libs.*","wx-config","wx-config-2.8")
+    pisitools.dosed("*/makefile.*","wx-config","wx-config-2.8")
+
     autotools.make("-f makefile.gtk")
 
     shelltools.cd("kicad/minizip")
