@@ -12,10 +12,10 @@
         <IsA>library</IsA>
         <Summary>Lightweight C Jabber library</Summary>
         <Summary xml:lang="tr">Hafif bir C jabber kütüphanesi</Summary>
-        <Archive sha1sum="540c92192c66b2e7440fb7124d67faef43143471" type="tarbz2">mirrors://gnome/loudmouth/1.2/loudmouth-1.2.0.tar.bz2</Archive>
+        <Archive sha1sum="fba4020fcec86259670685359d2c5438d1ab2395" type="tarbz2">mirrors://gnome/loudmouth/1.2/loudmouth-1.2.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>openssl</Dependency>
-            <Dependency>pkgconfig</Dependency>
+            <Dependency>libidn</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -23,15 +23,24 @@
         <Name>loudmouth</Name>
         <RuntimeDependencies>
             <Dependency>openssl</Dependency>
+            <Dependency>libidn</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-06-04</Date>
+            <Version>1.2.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-03-04</Date>
             <Version>1.2.0</Version>
