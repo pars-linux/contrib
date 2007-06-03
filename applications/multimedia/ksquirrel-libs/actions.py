@@ -4,23 +4,19 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import kde
+from pisi.actionsapi import autotools
+from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
 def setup():
-    kde.configure("--disable-camera \
-                   --disable-djvu \
-                   --disable-jpeg2000 \
-                   --disable-gif \
-                   --disable-mng \
-                   --disable-svg \
-                   --disable-ttf \
-                   --disable-xcf \
-                   --disable-dxf \
-                   --disable-wmf \
-                   --enable-final")
+    autotools.configure("--disable-xcf \
+                         --disable-dxf \
+                         --enable-final")
 
 def build():
-    kde.make()
+    autotools.make()
 
 def install():
-    kde.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    pisitools.dodoc("ChangeLog", "NEWS", "AUTHORS", "TODO")

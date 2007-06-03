@@ -19,12 +19,17 @@
             <Dependency>jasper</Dependency>
             <Dependency>jpeg</Dependency>
             <Dependency>jasper</Dependency>
-            <Dependency>libsvg</Dependency>
+            <Dependency>libsvg-cairo</Dependency>
+            <Dependency>libpixman</Dependency>
             <Dependency>tiff</Dependency>
             <Dependency>libwmf</Dependency>
-            <Dependency>libungif</Dependency>
+            <Dependency>giflib</Dependency>
             <Dependency>libpng</Dependency>
+            <Dependency>lcms</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">lcms.h-include.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -35,18 +40,20 @@
             <Dependency>jasper</Dependency>
             <Dependency>jpeg</Dependency>
             <Dependency>jasper</Dependency>
-            <Dependency>libsvg</Dependency>
+            <Dependency>libsvg-cairo</Dependency>
+            <Dependency>libpixman</Dependency>
             <Dependency>tiff</Dependency>
             <Dependency>libwmf</Dependency>
-            <Dependency>libungif</Dependency>
+            <Dependency>giflib</Dependency>
             <Dependency>libpng</Dependency>
+            <Dependency>lcms</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/kde/3.5/bin</Path>
-            <Path fileType="data">/usr/kde/3.5/share</Path>
-            <Path fileType="library">/usr/kde/3.5/lib</Path>
-            <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
