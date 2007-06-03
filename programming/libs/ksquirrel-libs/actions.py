@@ -9,8 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-xcf \
-                         --disable-dxf \
+    autotools.configure("--disable-dxf \
                          --enable-final")
 
 def build():
