@@ -19,9 +19,5 @@ def build():
 def install():
     kde.install()
 
-    # add.tr language 
-    pisitools.domo("po/tr.po","tr","tork.mo")
-    pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/tork.mo","/usr/kde/3.5/share/locale/tr/LC_MESSAGES")
-
     # remove files conflicts
     pisitools.removeDir("/usr/kde/3.5/share/icons/crystalsvg")
