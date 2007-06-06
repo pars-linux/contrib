@@ -10,4 +10,5 @@ from pisi.actionsapi import get
 WorkDir="HTML_BBCodeParser-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/HTML", "*")
+    pisitools.insinto("/usr/share/php5/PEAR/HTML", "BBCodeParser*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/HTML_BBCodeParser", "tests/*")
