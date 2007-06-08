@@ -18,10 +18,10 @@ def build():
 def install():
     pisitools.insinto("/usr/share/uzakdiyarlar/bin", "src/ud")
     pisitools.dosym("/usr/share/uzakdiyarlar/area/area.lst", "/usr/share/uzakdiyarlar/bin/area.lst")
-    
+
     pisitools.insinto("/usr/share/uzakdiyarlar/area", "area/*")
     shelltools.copytree("belgeler", "%s/usr/share/uzakdiyarlar" % get.installDIR())
-    
+
     pisitools.dodir("/usr/share/uzakdiyarlar/gods")
     pisitools.dodir("/usr/share/uzakdiyarlar/player")
     pisitools.dodir("/usr/share/uzakdiyarlar/log")
