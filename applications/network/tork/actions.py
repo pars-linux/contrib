@@ -21,3 +21,6 @@ def install():
 
     # remove files conflicts
     pisitools.removeDir("/usr/kde/3.5/share/icons/crystalsvg")
+
+    # for using tsocks add  needed programs
+    pisitools.dobin("src/tsocks/torkify")
