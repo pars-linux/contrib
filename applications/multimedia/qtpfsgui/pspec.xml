@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qtpfsgui</Name>
+        <Homepage>http://qtpfsgui.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa GÜNAY</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Qtpfsgui is a Qt4 graphical user interface</Summary>
+        <Description>Qtpfsgui is a Qt4 graphical user interface that aims to provide a workflow for HDR imaging.</Description>
+        <Archive sha1sum="10a1f406db8dc211ce9669691b8758ec8878b1f8" type="targz">mirrors://sourceforge/qtpfsgui/qtpfsgui-1.8.8.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>exiv2</Dependency>
+            <Dependency>openexr</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>tiff</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>qtpfsgui.desktop.patch</Patch>
+            <Patch>project-tr.patch</Patch>
+            <Patch>qtpfsgui-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qtpfsgui</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>exiv2</Dependency>
+            <Dependency>openexr</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>tiff</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/qtpfsgui/i18n</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-30</Date>
+            <Version>1.8.8</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa GÜNAY</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
