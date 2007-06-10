@@ -8,6 +8,7 @@ from pisi.actionsapi import autotools
 
 def setup():
     autotools.automake()
+
     autotools.configure()
 
 def build():
