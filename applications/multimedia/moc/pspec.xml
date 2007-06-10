@@ -12,32 +12,28 @@
         <IsA>app:console</IsA>
         <Summary>Console audio player for Linux.</Summary>
         <Summary xml:lang="tr">Komut satırı ses çalıcısı</Summary>
-        <Archive sha1sum="63923cd7ff0f144d5a7baed7b55e3790da05134c" type="tarbz2">ftp://ftp.daper.net/pub/soft/moc/stable/moc-2.4.1.tar.bz2</Archive>
+        <Archive sha1sum="a5421c0d900a856cc5ce45879305116e515faaec" type="tarbz2">ftp://ftp.daper.net/pub/soft/moc/stable/moc-2.4.2.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>ncurses</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>ffmpeg</Dependency>
             <Dependency>flac</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency>speex</Dependency>
             <Dependency>libmad</Dependency>
-            <Dependency>ffmpeg</Dependency>
-            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>ncurses</Dependency>
+            <Dependency>speex</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>moc-2.4.1-alt-librcc-filesystem.patch</Patch>
-            <Patch>2.4.1-ffmpegbug.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
         <Name>moc</Name>
         <RuntimeDependencies>
-            <Dependency>ncurses</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>ffmpeg</Dependency>
             <Dependency>flac</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency>speex</Dependency>
             <Dependency>libmad</Dependency>
-            <Dependency>ffmpeg</Dependency>
-            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>ncurses</Dependency>
+            <Dependency>speex</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -49,6 +45,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2007-06-10</Date>
+            <Version>2.4.2</Version>
+            <Comment>version bump, minor bugfixes</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2007-05-10</Date>
             <Version>2.4.1</Version>
