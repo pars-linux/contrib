@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import kde
 
+WorkDir="kblogger-0.7-beta1"
+
 def setup():
     kde.configure()
 
