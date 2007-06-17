@@ -14,7 +14,7 @@
         <Summary xml:lang="tr">A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Summary>
         <Description>A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Description>
         <Description xml:lang="tr">A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Description>
-        <Archive sha1sum="2ac0680a9cf89fd1fac5b31a7834e4d509194345" type="zip">mirrors://sourceforge/bioclipse/bioclipse_1_0_1.linux.gtk.x86.zip</Archive>
+        <Archive sha1sum="c4f55fa027c87a97251bc6f8ff40f50ae886a82d" type="zip">mirrors://sourceforge/bioclipse/bioclipse1_1_1.linux.gtk.x86.zip</Archive>
     </Source>
 
     <Package>
@@ -22,20 +22,30 @@
         <RuntimeDependencies>
             <Dependency>atk</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>fontconfig</Dependency>
             <Dependency>pango</Dependency>
-            <Dependency>xorg-server</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/opt/bioclipse</Path>
+            <Path fileType="data">/opt/Bioclipse</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/bin/bioclipse" permission="0755" owner="root">bioclipse</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/bioclipse.desktop" permission="0755" owner="root">bioclipse.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/bioclipse.png" permission="0755" owner="root">bioclipse.png</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2007-06-17</Date>
+            <Version>1.1.1_beta1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2007-04-08</Date>
             <Version>1.0.1</Version>

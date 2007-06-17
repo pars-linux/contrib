@@ -6,11 +6,21 @@
 
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="bioclipse"
+WorkDir = "Bioclipse"
+directory = "/opt/Bioclipse"
 
 def install():
-    pisitools.dodir("/opt/bioclipse")
-    pisitools.insinto("/opt/bioclipse", "*")
+    pisitools.dodir(directory)
 
+    for i in ["about_files", "configuration", "features", "plugins", "workspace"]:
+        shelltools.copy(i, "%s/%s" % (get.installDIR(), directory))
 
+    for files in ["Bioclipse.ini", "startup.jar"]:
+        pisitools.insinto(directory, files)
+
+    for exes in ["Bioclipse", "libcairo-swt.so"]:
+        pisitools.doexe(exes, directory)
+
+    pisitools.dohtml("about.html")
