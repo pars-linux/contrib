@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "e-uae-%s-%s" % (get.srcVERSION().split("_")[0], get.srcVERSION().split("_")[1])
+WorkDir = "e-uae-%s-WIP4" % get.srcVERSION()
 
 def setup():
     autotools.configure("--disable-dependency-tracking \
