@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import kde
+from pisi.actionsapi import get
 
-WorkDir="kirocker"
+WorkDir = "kirocker-%s" % get.srcVERSION()
 
 def setup():
     kde.configure()
