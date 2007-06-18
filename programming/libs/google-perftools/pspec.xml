@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>google-perftools</Name>
+        <Homepage>https://sourceforge.net/projects/goog-perftools/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Google Performance Tools</Summary>
+        <Description>Perf Tools is a collection of a high-performance multi-threaded malloc() implementation, plus some pretty nifty performance analysis tools.</Description>
+        <Archive sha1sum="30f15f88bb58f326d4d20ef9181a729ef1d0f28c" type="targz">http://google-perftools.googlecode.com/files/google-perftools-0.91.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">google-perftools-0.91-norpath.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>google-perftools</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-18</Date>
+            <Version>0.91</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
