@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import kde
 
+WorkDir=("kwin-decor-suse2-0.4.1")
+
 def setup():
     kde.configure()
 
