@@ -1,21 +1,12 @@
-diff -urNad linden~/indra/SConstruct linden/indra/SConstruct
---- linden~/indra/SConstruct	2007-05-03 22:04:12.000000000 +1000
-+++ linden/indra/SConstruct	2007-05-03 22:04:42.000000000 +1000
-@@ -391,7 +391,7 @@
-     create_static_module('lscript', extra_depends=build_dir + '/lscript/lscript_compile/indra.y.h')
+diff -Naur linden.orig/indra/newview/viewer_manifest.py linden/indra/newview/viewer_manifest.py
+--- linden.orig/indra/newview/viewer_manifest.py	2007-06-13 20:10:29.000000000 +0300
++++ linden/indra/newview/viewer_manifest.py	2007-06-18 22:21:34.000000000 +0300
+@@ -446,7 +446,7 @@
+                 # TODO: I get the sense that this isn't fully fleshed out
+                 if self.prefix("../../libraries/x86_64-linux/lib_release_client", "lib"):
+ #                        self.path("libkdu_v42R.so")
+-                        self.path("libxmlrpc.so.0")
++                        self.path("libxmlrpc-epi.so.0")
+ #                        # self.path("libllkdu.so", "../bin/libllkdu.so") # llkdu goes in bin for some reason
+                         self.end_prefix("lib")
  
-     net_external_libs = [ 'curl', 'cares', 'ssl', 'crypto', 'expat', 'aprutil-1', 'apr-1' ]
--    common_external_libs = net_external_libs + [ 'xmlrpc', 'z' ]
-+    common_external_libs = net_external_libs + [ 'xmlrpc-epi', 'z' ]
- 
-     if build_target == 'client':
-         if opensource == 'no' and platform == 'linux':
-@@ -521,7 +521,7 @@
- 
-         # Rpcserver
-         Depends('rpcserver/rpcserver', 'userserver/userserver' + file_suffix)
--        external_libs = common_external_libs + ['xmlrpc', 
-+        external_libs = common_external_libs + ['xmlrpc-epi', 
-             'mysqlclient']
-         internal_libs = ['llscene', 'llmessage', 'lldatabase', 'llvfs', 
-                 'llmath', 'llcommon']
