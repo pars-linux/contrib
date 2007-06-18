@@ -8,10 +8,10 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
 def setup():
-        autotools.make("prep")
+    autotools.make("prep")
 
 def build():
-        autotools.make("QMAKE=qmake-qt4 PREFIX=/usr")
+    autotools.make("QMAKE=qmake-qt4 PREFIX=/usr")
 
 def install():
-	autotools.rawInstall("PREFIX=/usr DESTDIR=%s DOC_PATH=/usr/share/doc/%s" % (get.installDIR(),get.srcTAG()))
+    autotools.rawInstall("PREFIX=/usr DESTDIR=%s DOC_PATH=/usr/share/doc/%s" % (get.installDIR(),get.srcTAG()))
