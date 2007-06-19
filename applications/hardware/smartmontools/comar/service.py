@@ -8,14 +8,16 @@ serviceConf = "smartd.conf"
 
 @synchronized
 def start():
-    startService(command="/usr/sbin/smartd", pidfile="/var/run/smartd.pid", donotify=True)
+    startService(command="/usr/sbin/smartd",
+                 donotify=True)
 
 @synchronized
 def stop():
-    stopService(pidfile="/var/run/smartd.pid", donotify=True)
+    stopService(command="/usr/sbin/smartd",
+                donotify=True)
 
 def reload():
     run("/usr/bin/killall -HUP smartd")
 
 def status():
-    return isServiceRunning("/var/run/smartd.pid")
+    return isServiceRunning(command="/usr/sbin/smartd")
