@@ -7,8 +7,10 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir = "herrie-1.7"
+
 def setup():
-    autotools.rawConfigure()
+    autotools.rawConfigure("alsa")
 
 def build():
     autotools.make()
@@ -17,7 +19,7 @@ def install():
     pisitools.dobin("herrie")
     pisitools.doman("herrie.1")
 
-    locales = ['nl','tr','de','pl', 'sv']
+    locales = ['nl','tr','de','pl', 'sv', 'ga']
     for locale in locales:
         pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale, "herrie.mo")
 

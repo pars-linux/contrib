@@ -1,0 +1,2934 @@
+diff --git a/ChangeLog b/ChangeLog
+index 01c844c..c228d92 100644
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,4 +1,17 @@
+-????-??-?? -- Herrie 1.7:
++2007-07-01 -- Herrie 1.8:
++ * Added: PulseAudio output module
++ * Fixed: Close stderr on Linux when using OSS as well - Robert Buchholz
++ * Fixed: Time display when seeking Ogg Vorbis files while being paused
++ * Improved: Seek time when using 'J' will now be remembered
++ * Added: Support for searching with regex(3)
++ * Added: Irish translation - Kevin Scannell
++ * Removed: Buggy SDL output driver - package makers want to use it
++ * Fixed: Improve buffering behaviour of Ogg Vorbis files
++ * Added: Native Mac OS X CoreAudio output module
++ * Added: Native Linux ALSA output module
++ * Fixed: Delay when a track can't be opened; prevents CPU hogging
++
++2007-06-03 -- Herrie 1.7:
+  * Fixed: Don't point files/directories starting with ~ to home directories
+  * Fixed: Allow usage of ~/foo in playq.dumpfile
+  * Improved: Include own MD5 implementation or use -lmd/-lmd5/-lc
+diff --git a/README b/README
+index 66332cb..096e947 100644
+--- a/README
++++ b/README
+@@ -54,20 +54,22 @@ Herrie:
+ 
+ - gettext
+ - glib
++- libasound (ALSA, optional)
+ - libao (optional)
+ - libcurl
+ - libid3tag
+ - libmad
+ - libmodplug
+-- libsdl (audio - optional)
+ - libsndfile
+ - libspiff (0.6.3 or higher - optional)
+ - libvorbisfile
+ - ncursesw, ncurses or pdcurses (`XCurses')
++- pulseaudio (optional)
+ 
+-Please note that some dependencies can be disabled. OpenSSL and cURL are only
+-needed when compiling with AudioScrobbler or HTTP support. LibAO and SDL are
+-only needed when building the `ao' or `sdl' audio output driver.
++Please note that some dependencies can be disabled. OpenSSL and cURL are
++only needed when compiling with AudioScrobbler or HTTP support. LibAO
++and PulseAudio are only needed when building the `ao' or `pulse' audio
++output driver.
+ 
+ How do I compile and install Herrie?
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@@ -84,10 +86,12 @@ configure script to change certain parameters:
+ - no_vorbis     Disable Ogg Vorbis support
+ - no_xspf       Disable XSPF (`Spiff') playlist support
+ 
++- alsa          Use ALSA audio output
+ - ao            Use libao audio output
++- coreaudio     Use Apple's CoreAudio audio output
+ - oss           Use Open Sound System output
+ - null          Use placeholder audio output
+-- sdl           Use LibSDL audio output
++- pulse         Use PulseAudio audio output
+ 
+ - ncurses       Use ncurses instead of ncursesw (breaks UTF-8 support)
+ - xcurses       Build application against XCurses (PDCurses)
+diff --git a/configure b/configure
+index ab7d01f..a3c39e8 100755
+--- a/configure
++++ b/configure
+@@ -26,19 +26,19 @@
+ # 
+ 
+ APP_NAME=herrie
+-APP_VERSION=1.7
+-APP_LINGUAS='de nl pl sv tr'
++APP_VERSION='1.7_20070621'
++APP_LINGUAS='de ga nl pl sv tr'
+ 
+ # Default compilation switches
+ CFG_AO=ao
+ unset CFG_BINEXT
+ CFG_CURSES_HEADER=ncurses
+ CFG_CURSES_LIB=ncursesw
+-CFG_DUMPFILE="~/.$APP_NAME/autosave.xspf"
+ CFG_FTELLO=yes
+ CFG_HTTP=yes
+ CFG_MODPLUG=yes
+ CFG_MP3=yes
++CFG_REGEX=yes
+ CFG_RES_INIT=yes
+ CFG_SCROBBLER=yes
+ unset CFG_SETPROCTITLE
+@@ -60,6 +60,7 @@ CYGWIN*)
+ 	[ "$PREFIX" = "" ] && PREFIX=/usr
+ 	;;
+ Darwin)
++	CFG_AO=coreaudio
+ 	LDFLAGS="$LDFLAGS -lresolv"
+ 	[ "$PREFIX" = "" ] && PREFIX=/opt/local
+ 	;;
+@@ -70,7 +71,7 @@ FreeBSD)
+ 	[ "$MANDIR" = "" ] && MANDIR=$PREFIX/man
+ 	;;
+ Linux)
+-	CFG_AO=oss
++	CFG_AO=alsa
+ 	[ "$CONFDIR" = "" ] && CONFDIR=/etc
+ 	[ "$PREFIX" = "" ] && PREFIX=/usr
+ 	;;
+@@ -98,6 +99,7 @@ Windows)
+ 	unset CFG_FTELLO
+ 	unset CFG_HTTP
+ 	unset CFG_MODPLUG
++	unset CFG_REGEX
+ 	CFG_CURSES_HEADER=curses
+ 	CFG_CURSES_LIB=pdcurses
+ 	;;
+@@ -142,10 +144,9 @@ do
+ 		;;
+ 	no_xspf)
+ 		unset CFG_XSPF
+-		CFG_DUMPFILE="~/.$APP_NAME/autosave.pls"
+ 		;;
+ 
+-	ao|null|oss|sdl)
++	alsa|ao|coreaudio|null|oss|pulse)
+ 		CFG_AO=$1
+ 		;;
+ 	
+@@ -187,7 +188,6 @@ then
+ 	echo "Error: Glib not found"
+ 	exit 1
+ fi
+-CFLAGS_config="-DPLAYQ_DUMPFILE=\\\"$CFG_DUMPFILE\\\""
+ CFLAGS_main="-DAUDIO_OUTPUT=\\\"$CFG_AO\\\" -DCONFFILE=\\\"$CONFFILE\\\""
+ LDFLAGS="$LDFLAGS `pkg-config --libs glib-2.0 gthread-2.0` \
+     -L$PREFIX/lib -l$CFG_CURSES_LIB"
+@@ -253,11 +253,10 @@ then
+ 	LDFLAGS="$LDFLAGS -lmad -lid3tag -lz"
+ 	SRCS="$SRCS audio_format_mp3"
+ fi
++# regcomp()/regexec() usage
++[ "$CFG_REGEX" != "" ] && CFLAGS="$CFLAGS -DBUILD_REGEX"
+ # res_init() usage
+-if [ "$CFG_RES_INIT" != "" ]
+-then
+-	CFLAGS="$CFLAGS -DBUILD_RES_INIT"
+-fi
++[ "$CFG_RES_INIT" != "" ] && CFLAGS="$CFLAGS -DBUILD_RES_INIT"
+ # setproctitle() usage
+ if [ "$CFG_SETPROCTITLE" != "" ]
+ then
+@@ -319,33 +318,43 @@ fi
+ 
+ # Audio output options
+ case $CFG_AO in
++alsa)
++	CFLAGS="$CFLAGS -DBUILD_ALSA"
++	LDFLAGS="$LDFLAGS -lasound"
++	;;
+ ao)
+ 	CFLAGS="$CFLAGS -DBUILD_AO"
+ 	CFLAGS_main="$CFLAGS_main -DCLOSE_STDERR"
+ 	LDFLAGS="$LDFLAGS -lao"
+ 	;;
++coreaudio)
++	LDFLAGS="$LDFLAGS -framework CoreAudio"
++	;;
+ oss)
+ 	CFLAGS="$CFLAGS -DBUILD_OSS"
+ 	case $OS in
+ 	NetBSD|OpenBSD)
+ 		CFLAGS="$CFLAGS -DOSS_HEADER=\\<soundcard.h\\>"
+-		CFLAGS_config="$CFLAGS_config -DOSS_DEVICE=\\\"/dev/audio\\\""
++		CFLAGS_config="-DOSS_DEVICE=\\\"/dev/audio\\\""
+ 		LDFLAGS="$LDFLAGS -lossaudio"
+ 		;;
+ 	*)
++		# The OSS-through-ALSA compat may generate noise
++		[ "$OS" = "Linux" ] && CFLAGS_main="$CFLAGS_main -DCLOSE_STDERR"
+ 		CFLAGS="$CFLAGS -DOSS_HEADER=\\<sys/soundcard.h\\>"
+-		CFLAGS_config="$CFLAGS_config -DOSS_DEVICE=\\\"/dev/dsp\\\""
++		CFLAGS_config="-DOSS_DEVICE=\\\"/dev/dsp\\\""
+ 		;;
+ 	esac
+ 	;;
+-sdl)
+-	CFLAGS="$CFLAGS `sdl-config --cflags`"
++pulse)
++	CFLAGS="$CFLAGS -DBUILD_PULSE"
++	CFLAGS_audio_output_pulse="`pkg-config --cflags libpulse-simple`"
+ 	if [ $? -ne 0 ]
+ 	then
+-		echo "Error: LibSDL not found"
++		echo "Error: PulseAudio not found"
+ 		exit 1
+ 	fi
+-	LDFLAGS="$LDFLAGS `sdl-config --libs`"
++	LDFLAGS="$LDFLAGS `pkg-config --libs libpulse-simple`"
+ 	;;
+ esac
+ 
+@@ -358,14 +367,6 @@ do
+ 	OBJS="$OBJS $i.o"
+ done
+ 
+-eval $CC $SRCDIR/src/conftest.c $CFLAGS $LDFLAGS -o conftest$CFG_BINEXT
+-if [ $? -ne 0 ]
+-then
+-	echo "Error: compiler is not usable"
+-	exit 1
+-fi
+-rm conftest$CFG_BINEXT
+-
+ echo "Configuration:"
+ echo "- Installing $APP_NAME$CFG_BINEXT in $BINDIR"
+ echo "- Installing manual page in $MANDIR"
+@@ -380,6 +381,16 @@ echo "- Using $CFG_AO audio output"
+ [ "$CFG_SNDFILE" != "" ] && echo "- Support for libsndfile"
+ [ "$CFG_VORBIS" != "" ] && echo "- Support for Ogg Vorbis"
+ [ "$CFG_XSPF" != "" ] && echo "- Support for XSPF (\`Spiff')"
++echo
++
++# Perform a simple compiler test
++eval $CC $SRCDIR/src/conftest.c $CFLAGS $LDFLAGS -o conftest$CFG_BINEXT
++if [ $? -ne 0 ]
++then
++	echo "Error: some dependencies are missing; please see README for a list"
++	exit 1
++fi
++rm conftest$CFG_BINEXT
+ 
+ (cat << EOF
+ all: $APP_NAME$CFG_BINEXT $APP_NAME.1.gz $SRCDIR/$APP_NAME.conf.sample $MOS
+@@ -445,5 +456,4 @@ do
+ 	echo "	${DOIT}msgfmt -o $i.mo $SRCDIR/lang/$i.po"
+ done) > Makefile
+ 
+-echo
+ echo "Run \`make' to compile $APP_NAME"
+diff --git a/depends b/depends
+index 56f0ad4..a137707 100644
+--- a/depends
++++ b/depends
+@@ -3,10 +3,12 @@ DEPENDS_audio_format_modplug="audio_file audio_format audio_output"
+ DEPENDS_audio_format_mp3="audio_file audio_format audio_output"
+ DEPENDS_audio_format_sndfile="audio_file audio_format audio_output"
+ DEPENDS_audio_format_vorbis="audio_file audio_format audio_output"
++DEPENDS_audio_output_alsa="audio_file audio_output config gui"
+ DEPENDS_audio_output_ao="audio_file audio_output config gui"
++DEPENDS_audio_output_coreaudio="audio_file audio_output gui"
+ DEPENDS_audio_output_null="audio_output"
+-DEPENDS_audio_output_oss="audio_file audio_output config"
+-DEPENDS_audio_output_sdl="audio_file audio_output gui"
++DEPENDS_audio_output_oss="audio_file audio_output config gui"
++DEPENDS_audio_output_pulse="audio_file audio_output gui"
+ DEPENDS_config="config gui vfs"
+ DEPENDS_gui_browser="config gui gui_internal gui_vfslist playq vfs"
+ DEPENDS_gui_draw="config gui gui_internal"
+diff --git a/herrie.1 b/herrie.1
+index b857fe1..1c65203 100644
+--- a/herrie.1
++++ b/herrie.1
+@@ -80,6 +80,9 @@ must be stored in the following format:
+ .PP
+ Below is a list of switches, including their default values:
+ .TP
++.B audio.output.alsa.device=default
++The name of the ALSA device that should be used for audio playback.
++.TP
+ .B audio.output.ao.driver=
+ The name of the driver that LibAO should use for audio playback.
+ .TP
+@@ -219,8 +222,8 @@ Move the selection to the top.
+ Move the selection to the bottom.
+ .TP
+ .B /
+-Search the entries for a specified search string and select the first
+-matching entry below the current selection. If no match is found,
++Search the entries for a specified regular expression and select the
++first matching entry below the current selection. If no match is found,
+ the search will continue at the top of the list. As a final attempt, the
+ other window is searched as well.
+ .TP
+diff --git a/lang/de.po b/lang/de.po
+index 25f3e5a..6d9d3b4 100644
+--- a/lang/de.po
++++ b/lang/de.po
+@@ -2,27 +2,31 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: herrie\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2007-06-03 18:00+0200\n"
+-"PO-Revision-Date: 2007-06-03 18:00+0200\n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
++"PO-Revision-Date: 2007-06-21 01:46+0200\n"
+ "Last-Translator: Sebastian Pipping <webmaster@hartwork.org>\n"
+ "Language-Team: Sebastian Pipping <webmaster@hartwork.org>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-#: audio_output_ao.c:115 audio_output_sdl.c:114
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr "Gerät kann nicht geöffnet werden.\n"
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr "Abtastrate oder Kanalanzahl nicht unterstützt"
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
+ msgid "Cannot open the audio device."
+ msgstr "Gerät kann nicht geöffnet werden."
+ 
+-#: audio_output_oss.c:60
++#: audio_output_oss.c:61
+ #, c-format
+ msgid "Cannot open audio device \"%s\".\n"
+ msgstr "Gerät \"%s\" kann nicht geöffnet werden.\n"
+ 
+-#: audio_output_sdl.c:82
+-msgid "Cannot initialize SDL audio subsystem.\n"
+-msgstr "SDL-Sub-System kann nicht initialisiert werden.\n"
+-
+ #: gui_browser.c:115
+ msgid "Unable to open initial directory."
+ msgstr "Fehler beim Öffnen des Start-Verzeichnisses."
+@@ -51,36 +55,40 @@ msgstr "Playlist in Datei speichern"
+ msgid "Unable to write playlist."
+ msgstr "Fehler beim Schreiben der Playlist."
+ 
+-#: gui_input.c:115 gui_input.c:158
++#: gui_input.c:155
++msgid "Not found."
++msgstr "Nicht gefunden."
++
++#: gui_input.c:177
+ msgid "Search for"
+ msgstr "Suchen"
+ 
+-#: gui_input.c:139
+-msgid "Not found."
+-msgstr "Nicht gefunden."
++#: gui_input.c:184
++msgid "Bad pattern."
++msgstr "Ungültiger regulärer Ausdruck"
+ 
+-#: gui_input.c:194
++#: gui_input.c:229
+ msgid "Use kill(1) to quit."
+ msgstr "Zum Beenden kill(1) benutzen."
+ 
+-#: gui_input.c:198
++#: gui_input.c:233
+ #, c-format
+ msgid "Quit %s?"
+ msgstr "%s beenden?"
+ 
+-#: gui_input.c:235
++#: gui_input.c:270
+ msgid "Jump to position"
+ msgstr "Zu Position springen"
+ 
+-#: gui_input.c:288
++#: gui_input.c:327
+ msgid "Bad time format."
+ msgstr "Ungültiges Zeit-Format."
+ 
+-#: gui_input.c:478 main.c:70 main.c:76 main.c:82
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
+ msgid "yes"
+ msgstr "ja"
+ 
+-#: gui_input.c:479 main.c:72 main.c:78 main.c:84
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
+ msgid "no"
+ msgstr "nein"
+ 
+@@ -116,19 +124,19 @@ msgstr "Dieses Lied ist bereits ganz am Ende."
+ msgid "There are no songs."
+ msgstr "Die Liste ist leer."
+ 
+-#: gui_vfslist.c:288
++#: gui_vfslist.c:297
+ msgid "You are at the first song."
+ msgstr "Du bist am Anfang der Liste."
+ 
+-#: gui_vfslist.c:307
++#: gui_vfslist.c:316
+ msgid "You are at the last song."
+ msgstr "Du bist am Ende der Liste."
+ 
+-#: gui_vfslist.c:560
++#: gui_vfslist.c:574
+ msgid "Search wrapped to top."
+ msgstr "Suche am Ende angelagt, Fortsetzung am Anfang."
+ 
+-#: gui_vfslist.c:584
++#: gui_vfslist.c:598
+ msgid "Full pathname"
+ msgstr "Vollständiger Pfad"
+ 
+@@ -165,16 +173,16 @@ msgstr "Benutzung"
+ msgid "Failed to open \"%s\" for playback."
+ msgstr "\"%s\" konnte nicht zum Abspielen geöffnet werden."
+ 
+-#: playq.c:401
++#: playq.c:403
+ #, c-format
+ msgid "Repeat: %s"
+ msgstr "Wiederholen: %s"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "on"
+ msgstr "an"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "off"
+ msgstr "aus"
+ 
+diff --git a/lang/ga.po b/lang/ga.po
+new file mode 100644
+index 0000000..7b22f43
+--- /dev/null
++++ b/lang/ga.po
+@@ -0,0 +1,242 @@
++# Irish translations for herrie.
++# Copyright (C) 2006 Free Software Foundation, Inc.
++# This file is distributed under the same license as the herrie package.
++# Kevin Scannell <kscanne@gmail.com>, 2007.
++#
++msgid ""
++msgstr ""
++"Project-Id-Version: herrie\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
++"PO-Revision-Date: 2007-06-12 07:53-0500\n"
++"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
++"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr "Ní féidir an gléas fuaime a oscailt.\n"
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr ""
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
++msgid "Cannot open the audio device."
++msgstr "Ní féidir an gléas fuaime a oscailt."
++
++#: audio_output_oss.c:61
++#, c-format
++msgid "Cannot open audio device \"%s\".\n"
++msgstr "Ní féidir gléas fuaime \"%s\" a oscailt.\n"
++
++#: gui_browser.c:115
++msgid "Unable to open initial directory."
++msgstr "Ní féidir an chomhadlann tosaigh a oscailt."
++
++#: gui_browser.c:220
++msgid "Unable to enter the parent directory."
++msgstr "Ní féidir dul isteach sa mháthairchomhadlann."
++
++#: gui_browser.c:235
++msgid "Unable to enter the selected directory."
++msgstr "Ní féidir dul isteach sa chomhadlann roghnaithe."
++
++#: gui_browser.c:319
++msgid "Change directory"
++msgstr "Athraigh an chomhadlann"
++
++#: gui_browser.c:357
++msgid "Unable to display the file or directory."
++msgstr "Ní féidir an comhad nó comhadlann a thaispeáint."
++
++#: gui_browser.c:374
++msgid "Write playlist to file"
++msgstr "Scríobh an seinmliosta i gcomhad"
++
++#: gui_browser.c:383
++msgid "Unable to write playlist."
++msgstr "Ní féidir an seinmliosta a scríobh."
++
++#: gui_input.c:155
++msgid "Not found."
++msgstr "Ar iarraidh."
++
++#: gui_input.c:177
++msgid "Search for"
++msgstr "Déan cuardach ar"
++
++#: gui_input.c:184
++msgid "Bad pattern."
++msgstr "Drochphatrún."
++
++#: gui_input.c:229
++msgid "Use kill(1) to quit."
++msgstr "Bain úsáid as kill(1) chun scor."
++
++#: gui_input.c:233
++#, c-format
++msgid "Quit %s?"
++msgstr "Scoir ó %s?"
++
++#: gui_input.c:270
++msgid "Jump to position"
++msgstr "Léim go"
++
++#: gui_input.c:327
++msgid "Bad time format."
++msgstr "Drochfhormáid ama."
++
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
++msgid "yes"
++msgstr "tá"
++
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
++msgid "no"
++msgstr "níl"
++
++#: gui_playq.c:106
++msgid "Idle"
++msgstr "Díomhaoin"
++
++#: gui_playq.c:109
++msgid "Paused"
++msgstr "Moillithe"
++
++#: gui_playq.c:111
++msgid "Playing"
++msgstr "Á Sheinm"
++
++#: gui_playq.c:349
++msgid "Remove all songs from the playlist?"
++msgstr "Bain gach amhrán as an seinmliosta?"
++
++#: gui_playq.c:360
++msgid "Randomize the playlist?"
++msgstr "Suaith an seinmliosta?"
++
++#: gui_playq.c:409
++msgid "The song is already at the top of the playlist."
++msgstr "Tá an t-amhrán seo ag barr an tseinmliosta cheana."
++
++#: gui_playq.c:428
++msgid "The song is already at the bottom of the playlist."
++msgstr "Tá an t-amhrán ag bun an tseinmliosta cheana."
++
++#: gui_vfslist.c:231
++msgid "There are no songs."
++msgstr "Níl aon amhrán ann."
++
++#: gui_vfslist.c:297
++msgid "You are at the first song."
++msgstr "Tá tú ag an chéad amhrán."
++
++#: gui_vfslist.c:316
++msgid "You are at the last song."
++msgstr "Tá tú ag an amhrán deiridh."
++
++#: gui_vfslist.c:574
++msgid "Search wrapped to top."
++msgstr "Thimfhill an cuardach go dtí an barr."
++
++#: gui_vfslist.c:598
++msgid "Full pathname"
++msgstr "Ainm iomlán na conaire"
++
++#: main.c:66
++msgid "Global configuration file"
++msgstr "Comhad cumraíochta comhchoitinne"
++
++#: main.c:67
++msgid "Audio output"
++msgstr "Aschur fuaime"
++
++#: main.c:68
++msgid "Support for AudioScrobbler"
++msgstr "Tacaíocht AudioScrobbler"
++
++#: main.c:74
++msgid "Support for HTTP streams"
++msgstr "Tacaíocht le Sruthanna HTTP"
++
++#: main.c:80
++msgid "Support for XSPF playlists (`spiff')"
++msgstr "Tacaíocht le seinmliostaí XSPF (`spiff')"
++
++#: main.c:86
++msgid "Supported audio file formats"
++msgstr "Formáidí fuaime a dtacaítear leo"
++
++#: main.c:98
++msgid "usage"
++msgstr "úsáid"
++
++#: playq.c:182
++#, c-format
++msgid "Failed to open \"%s\" for playback."
++msgstr "Theip ar \"%s\" a oscailt chun é a sheinm ar ais."
++
++#: playq.c:403
++#, c-format
++msgid "Repeat: %s"
++msgstr "Athsheinm: %s"
++
++#: playq.c:404
++msgid "on"
++msgstr "ann"
++
++#: playq.c:404
++msgid "off"
++msgstr "as"
++
++#: scrobbler.c:322
++msgid "Successfully authorized at AudioScrobbler."
++msgstr "D'éirigh le húdarú ag AudioScrobbler."
++
++#: scrobbler.c:329
++msgid "Failed to authorize at AudioScrobbler."
++msgstr "Theip ar údarú ag AudioScrobbler."
++
++#: scrobbler.c:345
++msgid "Successfully sent 1 song to AudioScrobbler."
++msgstr "D'éirigh le seoladh amhrán amháin chuig AudioScrobbler."
++
++#: scrobbler.c:349
++#, c-format
++msgid "Successfully sent %d songs to AudioScrobbler."
++msgstr "D'éirigh le seoladh %d amhrán chuig AudioScrobbler."
++
++#: scrobbler.c:355
++msgid "Invalid AudioScrobbler username/password."
++msgstr "Ainm úsáideora/Focal faire neamhbhailí do AudioScrobbler."
++
++#: scrobbler.c:358
++msgid "Failed to submit songs to AudioScrobbler."
++msgstr "Theip ar sheoladh amhráin chuig AudioScrobbler."
++
++#: vfs.c:109
++#, c-format
++msgid "Unknown user: %s\n"
++msgstr "Úsáideoir anaithnid: %s\n"
++
++#: vfs.c:121
++#, c-format
++msgid "Unable to chroot in %s\n"
++msgstr "Ní féidir \"chroot\" a dhéanamh i %s\n"
++
++#: vfs.c:129
++#, c-format
++msgid "Unable to change to group %d\n"
++msgstr "Ní féidir an grúpa a athrú go %d\n"
++
++#: vfs.c:133
++#, c-format
++msgid "Unable to change to user %d\n"
++msgstr "Ní féidir an t-úsáideoir a athrú go %d\n"
++
++#: vfs_http.c:145
++#, c-format
++msgid "Connection with \"%s\" lost."
++msgstr "Cailleadh an nasc le \"%s\"."
+diff --git a/lang/herrie.pot b/lang/herrie.pot
+index ef4a964..a471855 100644
+--- a/lang/herrie.pot
++++ b/lang/herrie.pot
+@@ -8,7 +8,7 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: PACKAGE VERSION\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2007-06-03 18:00+0200\n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"
+@@ -16,19 +16,23 @@ msgstr ""
+ "Content-Type: text/plain; charset=CHARSET\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-#: audio_output_ao.c:115 audio_output_sdl.c:114
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr ""
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr ""
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
+ msgid "Cannot open the audio device."
+ msgstr ""
+ 
+-#: audio_output_oss.c:60
++#: audio_output_oss.c:61
+ #, c-format
+ msgid "Cannot open audio device \"%s\".\n"
+ msgstr ""
+ 
+-#: audio_output_sdl.c:82
+-msgid "Cannot initialize SDL audio subsystem.\n"
+-msgstr ""
+-
+ #: gui_browser.c:115
+ msgid "Unable to open initial directory."
+ msgstr ""
+@@ -57,36 +61,40 @@ msgstr ""
+ msgid "Unable to write playlist."
+ msgstr ""
+ 
+-#: gui_input.c:115 gui_input.c:158
++#: gui_input.c:155
++msgid "Not found."
++msgstr ""
++
++#: gui_input.c:177
+ msgid "Search for"
+ msgstr ""
+ 
+-#: gui_input.c:139
+-msgid "Not found."
++#: gui_input.c:184
++msgid "Bad pattern."
+ msgstr ""
+ 
+-#: gui_input.c:194
++#: gui_input.c:229
+ msgid "Use kill(1) to quit."
+ msgstr ""
+ 
+-#: gui_input.c:198
++#: gui_input.c:233
+ #, c-format
+ msgid "Quit %s?"
+ msgstr ""
+ 
+-#: gui_input.c:235
++#: gui_input.c:270
+ msgid "Jump to position"
+ msgstr ""
+ 
+-#: gui_input.c:288
++#: gui_input.c:327
+ msgid "Bad time format."
+ msgstr ""
+ 
+-#: gui_input.c:478 main.c:70 main.c:76 main.c:82
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
+ msgid "yes"
+ msgstr ""
+ 
+-#: gui_input.c:479 main.c:72 main.c:78 main.c:84
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
+ msgid "no"
+ msgstr ""
+ 
+@@ -122,19 +130,19 @@ msgstr ""
+ msgid "There are no songs."
+ msgstr ""
+ 
+-#: gui_vfslist.c:288
++#: gui_vfslist.c:297
+ msgid "You are at the first song."
+ msgstr ""
+ 
+-#: gui_vfslist.c:307
++#: gui_vfslist.c:316
+ msgid "You are at the last song."
+ msgstr ""
+ 
+-#: gui_vfslist.c:560
++#: gui_vfslist.c:574
+ msgid "Search wrapped to top."
+ msgstr ""
+ 
+-#: gui_vfslist.c:584
++#: gui_vfslist.c:598
+ msgid "Full pathname"
+ msgstr ""
+ 
+@@ -171,16 +179,16 @@ msgstr ""
+ msgid "Failed to open \"%s\" for playback."
+ msgstr ""
+ 
+-#: playq.c:401
++#: playq.c:403
+ #, c-format
+ msgid "Repeat: %s"
+ msgstr ""
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "on"
+ msgstr ""
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "off"
+ msgstr ""
+ 
+diff --git a/lang/nl.po b/lang/nl.po
+index 6a9f262..1658772 100644
+--- a/lang/nl.po
++++ b/lang/nl.po
+@@ -2,27 +2,31 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: herrie\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2007-06-03 18:00+0200\n"
+-"PO-Revision-Date: 2007-06-03 18:00+0200\n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
++"PO-Revision-Date: 2007-06-11 20:01+0200\n"
+ "Last-Translator: Ed Schouten <ed@fxq.nl>\n"
+ "Language-Team: Ed Schouten <ed@fxq.nl>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-#: audio_output_ao.c:115 audio_output_sdl.c:114
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr "Kan het geluidsapparaat niet openen.\n"
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr "Sample rate of aantal kanalen wordt niet ondersteund."
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
+ msgid "Cannot open the audio device."
+ msgstr "Kan het geluidsapparaat niet openen."
+ 
+-#: audio_output_oss.c:60
++#: audio_output_oss.c:61
+ #, c-format
+ msgid "Cannot open audio device \"%s\".\n"
+ msgstr "Kan geluidsapparaat \"%s\" niet openen.\n"
+ 
+-#: audio_output_sdl.c:82
+-msgid "Cannot initialize SDL audio subsystem.\n"
+-msgstr "Kan het SDL geluids subsysteem niet initialiseren.\n"
+-
+ #: gui_browser.c:115
+ msgid "Unable to open initial directory."
+ msgstr "Opstartmap openen mislukt."
+@@ -51,36 +55,40 @@ msgstr "Schrijf afspeellijst naar bestand"
+ msgid "Unable to write playlist."
+ msgstr "Het wegschrijven van de afspeellijst mislukt."
+ 
+-#: gui_input.c:115 gui_input.c:158
++#: gui_input.c:155
++msgid "Not found."
++msgstr "Niet gevonden."
++
++#: gui_input.c:177
+ msgid "Search for"
+ msgstr "Zoeken naar"
+ 
+-#: gui_input.c:139
+-msgid "Not found."
+-msgstr "Niet gevonden."
++#: gui_input.c:184
++msgid "Bad pattern."
++msgstr "Ongeldig patroon."
+ 
+-#: gui_input.c:194
++#: gui_input.c:229
+ msgid "Use kill(1) to quit."
+ msgstr "Gebruik kill(1) om af te sluiten."
+ 
+-#: gui_input.c:198
++#: gui_input.c:233
+ #, c-format
+ msgid "Quit %s?"
+ msgstr "%s afsluiten?"
+ 
+-#: gui_input.c:235
++#: gui_input.c:270
+ msgid "Jump to position"
+ msgstr "Spring naar positie"
+ 
+-#: gui_input.c:288
++#: gui_input.c:327
+ msgid "Bad time format."
+ msgstr "Ongeldig tijdformaat."
+ 
+-#: gui_input.c:478 main.c:70 main.c:76 main.c:82
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
+ msgid "yes"
+ msgstr "ja"
+ 
+-#: gui_input.c:479 main.c:72 main.c:78 main.c:84
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
+ msgid "no"
+ msgstr "nee"
+ 
+@@ -116,19 +124,19 @@ msgstr "Het nummer is al aan de onderkant van de afspeellijst."
+ msgid "There are no songs."
+ msgstr "Er zijn geen nummers."
+ 
+-#: gui_vfslist.c:288
++#: gui_vfslist.c:297
+ msgid "You are at the first song."
+ msgstr "Je bent bij het eerste nummer."
+ 
+-#: gui_vfslist.c:307
++#: gui_vfslist.c:316
+ msgid "You are at the last song."
+ msgstr "Je bent bij het laatste nummer."
+ 
+-#: gui_vfslist.c:560
++#: gui_vfslist.c:574
+ msgid "Search wrapped to top."
+ msgstr "Zoekopdracht naar boven verplaatst."
+ 
+-#: gui_vfslist.c:584
++#: gui_vfslist.c:598
+ msgid "Full pathname"
+ msgstr "Volledige bestandsnaam"
+ 
+@@ -165,16 +173,16 @@ msgstr "gebruik"
+ msgid "Failed to open \"%s\" for playback."
+ msgstr "Openen voor afspelen van \"%s\" mislukt."
+ 
+-#: playq.c:401
++#: playq.c:403
+ #, c-format
+ msgid "Repeat: %s"
+ msgstr "Herhaling: %s"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "on"
+ msgstr "aan"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "off"
+ msgstr "uit"
+ 
+diff --git a/lang/pl.po b/lang/pl.po
+index 7d1715a..2be1dbb 100644
+--- a/lang/pl.po
++++ b/lang/pl.po
+@@ -1,30 +1,35 @@
+ # translation of pl.po to
+ # Piotr Budny <vip@pld-linux.org>, 2007.
++# Piotr Budny <piotr@lcm.pl>, 2007.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: herrie\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2007-06-03 18:00+0200\n"
+-"PO-Revision-Date: 2007-06-03 18:00+0200\n"
+-"Last-Translator: Piotr Budny <vip@pld-linux.org>\n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
++"PO-Revision-Date: 2007-06-21 12:47+0200\n"
++"Last-Translator: Piotr Budny <piotr@lcm.pl>\n"
+ "Language-Team: Polish <pl@li.org>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-#: audio_output_ao.c:115 audio_output_sdl.c:114
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr "Nie można otworzyć urządzenia.\n"
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr "Częstotliwość próbkowania lub liczba kanałów nie jest wspierana."
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
+ msgid "Cannot open the audio device."
+ msgstr "Nie można otworzyć urządzenia"
+ 
+-#: audio_output_oss.c:60
++#: audio_output_oss.c:61
+ #, c-format
+ msgid "Cannot open audio device \"%s\".\n"
+ msgstr "Nie można utworzyć urządzenia \"%s\".\n"
+ 
+-#: audio_output_sdl.c:82
+-msgid "Cannot initialize SDL audio subsystem.\n"
+-msgstr "Nie można zainicjować podsystemu audio SDL.\n"
+-
+ #: gui_browser.c:115
+ msgid "Unable to open initial directory."
+ msgstr "Nie można otworzyć katalogu."
+@@ -53,36 +58,40 @@ msgstr "Zapisz playlistę do pliku"
+ msgid "Unable to write playlist."
+ msgstr "Nie można zapisac playlisty."
+ 
+-#: gui_input.c:115 gui_input.c:158
++#: gui_input.c:155
++msgid "Not found."
++msgstr "Nie znaleziono"
++
++#: gui_input.c:177
+ msgid "Search for"
+ msgstr "Szukaj"
+ 
+-#: gui_input.c:139
+-msgid "Not found."
+-msgstr "Nie znaleziono"
++#: gui_input.c:184
++msgid "Bad pattern."
++msgstr "Zła próbka."
+ 
+-#: gui_input.c:194
++#: gui_input.c:229
+ msgid "Use kill(1) to quit."
+ msgstr "Użyj kill(1) aby wyjść."
+ 
+-#: gui_input.c:198
++#: gui_input.c:233
+ #, c-format
+ msgid "Quit %s?"
+ msgstr "Zamknij %s?"
+ 
+-#: gui_input.c:235
++#: gui_input.c:270
+ msgid "Jump to position"
+ msgstr "Skocz do pozycji"
+ 
+-#: gui_input.c:288
++#: gui_input.c:327
+ msgid "Bad time format."
+ msgstr "Zły format czasu."
+ 
+-#: gui_input.c:478 main.c:70 main.c:76 main.c:82
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
+ msgid "yes"
+ msgstr "tak"
+ 
+-#: gui_input.c:479 main.c:72 main.c:78 main.c:84
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
+ msgid "no"
+ msgstr "nie"
+ 
+@@ -118,19 +127,19 @@ msgstr "Uwtór już jest na dole playlisty."
+ msgid "There are no songs."
+ msgstr "Brak utworów."
+ 
+-#: gui_vfslist.c:288
++#: gui_vfslist.c:297
+ msgid "You are at the first song."
+ msgstr "To jest pierwszy utwór."
+ 
+-#: gui_vfslist.c:307
++#: gui_vfslist.c:316
+ msgid "You are at the last song."
+ msgstr "To jest ostati utwór."
+ 
+-#: gui_vfslist.c:560
++#: gui_vfslist.c:574
+ msgid "Search wrapped to top."
+ msgstr "Przeszukiwanie wznowione od początku."
+ 
+-#: gui_vfslist.c:584
++#: gui_vfslist.c:598
+ msgid "Full pathname"
+ msgstr "Pełna ścieżka"
+ 
+@@ -167,16 +176,16 @@ msgstr "użycie"
+ msgid "Failed to open \"%s\" for playback."
+ msgstr "Nie udało się otworzyć \"%s\" do odtworzenia."
+ 
+-#: playq.c:401
++#: playq.c:403
+ #, c-format
+ msgid "Repeat: %s"
+ msgstr "Powtórz: %s"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "on"
+ msgstr "włączony"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "off"
+ msgstr "wyłączony"
+ 
+diff --git a/lang/sv.po b/lang/sv.po
+index 8deb2c6..91ea60d 100644
+--- a/lang/sv.po
++++ b/lang/sv.po
+@@ -7,27 +7,31 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: herrie\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2007-06-03 18:00+0200\n"
+-"PO-Revision-Date: 2007-06-03 18:00+0200\n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
++"PO-Revision-Date: 2007-06-21 11:06+0200\n"
+ "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+ "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+ "MIME-Version: 1.0\n"
+-"Content-Type: text/plain; charset=utf-8\n"
++"Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-#: audio_output_ao.c:115 audio_output_sdl.c:114
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr "Kan inte öppna ljudenheten.\n"
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr "Samlingsfrekvensen eller antalet kanaler stöds inte."
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
+ msgid "Cannot open the audio device."
+ msgstr "Kan inte öppna ljudenheten."
+ 
+-#: audio_output_oss.c:60
++#: audio_output_oss.c:61
+ #, c-format
+ msgid "Cannot open audio device \"%s\".\n"
+ msgstr "Kan inte öppna ljudenheten \"%s\".\n"
+ 
+-#: audio_output_sdl.c:82
+-msgid "Cannot initialize SDL audio subsystem.\n"
+-msgstr "Kan inte initiera SDL:s ljudundersystem.\n"
+-
+ #: gui_browser.c:115
+ msgid "Unable to open initial directory."
+ msgstr "Kunde inte öppna startkatalogen."
+@@ -56,36 +60,40 @@ msgstr "Skriv spellista till fil"
+ msgid "Unable to write playlist."
+ msgstr "Kunde inte skriva spellista."
+ 
+-#: gui_input.c:115 gui_input.c:158
++#: gui_input.c:155
++msgid "Not found."
++msgstr "Hittades inte."
++
++#: gui_input.c:177
+ msgid "Search for"
+ msgstr "Sök efter"
+ 
+-#: gui_input.c:139
+-msgid "Not found."
+-msgstr "Hittades inte."
++#: gui_input.c:184
++msgid "Bad pattern."
++msgstr "Felaktigt mönster."
+ 
+-#: gui_input.c:194
++#: gui_input.c:229
+ msgid "Use kill(1) to quit."
+ msgstr "Använd kill(1) för att avsluta."
+ 
+-#: gui_input.c:198
++#: gui_input.c:233
+ #, c-format
+ msgid "Quit %s?"
+ msgstr "Avsluta %s?"
+ 
+-#: gui_input.c:235
++#: gui_input.c:270
+ msgid "Jump to position"
+ msgstr "Hoppa till position"
+ 
+-#: gui_input.c:288
++#: gui_input.c:327
+ msgid "Bad time format."
+ msgstr "Felaktigt tidsformat."
+ 
+-#: gui_input.c:478 main.c:70 main.c:76 main.c:82
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
+ msgid "yes"
+ msgstr "ja"
+ 
+-#: gui_input.c:479 main.c:72 main.c:78 main.c:84
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
+ msgid "no"
+ msgstr "nej"
+ 
+@@ -122,19 +130,19 @@ msgstr "Låten är redan i slutet av spellistan."
+ msgid "There are no songs."
+ msgstr "Det finns inga låtar."
+ 
+-#: gui_vfslist.c:288
++#: gui_vfslist.c:297
+ msgid "You are at the first song."
+ msgstr "Du är på första låten."
+ 
+-#: gui_vfslist.c:307
++#: gui_vfslist.c:316
+ msgid "You are at the last song."
+ msgstr "Du är på sista låten."
+ 
+-#: gui_vfslist.c:560
++#: gui_vfslist.c:574
+ msgid "Search wrapped to top."
+ msgstr "Sökningen började om från början."
+ 
+-#: gui_vfslist.c:584
++#: gui_vfslist.c:598
+ msgid "Full pathname"
+ msgstr "Full sökväg"
+ 
+@@ -171,16 +179,16 @@ msgstr "användning"
+ msgid "Failed to open \"%s\" for playback."
+ msgstr "Misslyckades med att öppna \"%s\" för uppspelning."
+ 
+-#: playq.c:401
++#: playq.c:403
+ #, c-format
+ msgid "Repeat: %s"
+ msgstr "Upprepa: %s"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "on"
+ msgstr "på"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "off"
+ msgstr "av"
+ 
+diff --git a/lang/tr.po b/lang/tr.po
+index ec0724c..a0877c7 100644
+--- a/lang/tr.po
++++ b/lang/tr.po
+@@ -3,27 +3,31 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: herrie\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2007-06-03 18:00+0200\n"
+-"PO-Revision-Date: 2007-06-03 16:09+0200\n"
++"POT-Creation-Date: 2007-06-20 15:22+0200\n"
++"PO-Revision-Date: 2007-06-19 12:41+0200\n"
+ "Last-Translator: Eren Türkay <turkay.eren@gmail.com>\n"
+-"Language-Team: Turkish <yerellestirme@kde.org>\n"
++"Language-Team: Turkish <turkce@pardus.org.tr>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+-#: audio_output_ao.c:115 audio_output_sdl.c:114
++#: audio_output_alsa.c:100 audio_output_coreaudio.c:172
++msgid "Cannot open the audio device.\n"
++msgstr "Ses aygıtı açılamıyor.\n"
++
++#: audio_output_alsa.c:123 audio_output_coreaudio.c:194 audio_output_oss.c:108
++msgid "Sample rate or amount of channels not supported."
++msgstr "Örnekleme oranı ya da kanal sayısı desteklenmiyor"
++
++#: audio_output_ao.c:116 audio_output_pulse.c:77
+ msgid "Cannot open the audio device."
+-msgstr "Ses aygıtı açılamıyor"
++msgstr "Ses aygıtı açılamıyor."
+ 
+-#: audio_output_oss.c:60
++#: audio_output_oss.c:61
+ #, c-format
+ msgid "Cannot open audio device \"%s\".\n"
+ msgstr "Ses aygıtı \"%s\" açılamadı.\n"
+ 
+-#: audio_output_sdl.c:82
+-msgid "Cannot initialize SDL audio subsystem.\n"
+-msgstr "SDL ses sistemi başlatılamıyor\n"
+-
+ #: gui_browser.c:115
+ msgid "Unable to open initial directory."
+ msgstr "Başlangıç dizini açılamıyor."
+@@ -52,36 +56,40 @@ msgstr "Parça listesini dosyaya yaz"
+ msgid "Unable to write playlist."
+ msgstr "Parça listesini yazma başarısız"
+ 
+-#: gui_input.c:115 gui_input.c:158
++#: gui_input.c:155
++msgid "Not found."
++msgstr "Bulunamadı"
++
++#: gui_input.c:177
+ msgid "Search for"
+ msgstr "Ara"
+ 
+-#: gui_input.c:139
+-msgid "Not found."
+-msgstr "Bulunamadı"
++#: gui_input.c:184
++msgid "Bad pattern."
++msgstr "Hatalı ifade"
+ 
+-#: gui_input.c:194
++#: gui_input.c:229
+ msgid "Use kill(1) to quit."
+ msgstr "Çıkmak için kill(1) kullanın."
+ 
+-#: gui_input.c:198
++#: gui_input.c:233
+ #, c-format
+ msgid "Quit %s?"
+ msgstr "%s uygulamasından çık?"
+ 
+-#: gui_input.c:235
++#: gui_input.c:270
+ msgid "Jump to position"
+ msgstr "Konuma git"
+ 
+-#: gui_input.c:288
++#: gui_input.c:327
+ msgid "Bad time format."
+ msgstr "Kötü zaman biçimi."
+ 
+-#: gui_input.c:478 main.c:70 main.c:76 main.c:82
++#: gui_input.c:517 main.c:70 main.c:76 main.c:82
+ msgid "yes"
+ msgstr "evet"
+ 
+-#: gui_input.c:479 main.c:72 main.c:78 main.c:84
++#: gui_input.c:518 main.c:72 main.c:78 main.c:84
+ msgid "no"
+ msgstr "hayır"
+ 
+@@ -117,19 +125,19 @@ msgstr "Parça zaten parça listesinin en altında."
+ msgid "There are no songs."
+ msgstr "Hiç parça yok"
+ 
+-#: gui_vfslist.c:288
++#: gui_vfslist.c:297
+ msgid "You are at the first song."
+ msgstr "İlk parçadasınız."
+ 
+-#: gui_vfslist.c:307
++#: gui_vfslist.c:316
+ msgid "You are at the last song."
+ msgstr "Son parçadasınız."
+ 
+-#: gui_vfslist.c:560
++#: gui_vfslist.c:574
+ msgid "Search wrapped to top."
+ msgstr "Arama üste kaydırıldı."
+ 
+-#: gui_vfslist.c:584
++#: gui_vfslist.c:598
+ msgid "Full pathname"
+ msgstr "Tam dosya yolu"
+ 
+@@ -166,16 +174,16 @@ msgstr "kullanım"
+ msgid "Failed to open \"%s\" for playback."
+ msgstr "\"%s\" çalınamadı."
+ 
+-#: playq.c:401
++#: playq.c:403
+ #, c-format
+ msgid "Repeat: %s"
+ msgstr "Tekrarla: %s"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "on"
+ msgstr "açık"
+ 
+-#: playq.c:402
++#: playq.c:404
+ msgid "off"
+ msgstr "kapalı"
+ 
+diff --git a/src/audio_file.c b/src/audio_file.c
+index 12346b7..3fb5b37 100644
+--- a/src/audio_file.c
++++ b/src/audio_file.c
+@@ -51,7 +51,7 @@ struct audio_format {
+ 	/**
+ 	 * @brief The format's read call.
+ 	 */
+-	size_t	(*read)(struct audio_file *fd, void *buf);
++	size_t	(*read)(struct audio_file *fd, int16_t *buf, size_t len);
+ 	/**
+ 	 * @brief The format's seek call.
+ 	 */
+@@ -148,11 +148,11 @@ audio_file_close(struct audio_file *fd)
+ }
+ 
+ size_t
+-audio_file_read(struct audio_file *fd, void *buf)
++audio_file_read(struct audio_file *fd, int16_t *buf, size_t len)
+ {
+ 	size_t ret;
+ 
+-	ret = fd->drv->read(fd, buf);
++	ret = fd->drv->read(fd, buf, len);
+ #ifdef BUILD_SCROBBLER
+ 	scrobbler_notify_read(fd, (ret == 0));
+ #endif /* BUILD_SCROBBLER */
+diff --git a/src/audio_file.h b/src/audio_file.h
+index 1bf26ee..13cd215 100644
+--- a/src/audio_file.h
++++ b/src/audio_file.h
+@@ -56,12 +56,12 @@ struct audio_file {
+ 	/**
+ 	 * @brief The file's sample rate.
+ 	 */
+-	long srate;
++	unsigned int srate;
+ 
+ 	/**
+ 	 * @brief The number of audio channels.
+ 	 */
+-	long channels;
++	unsigned int channels;
+ 
+ 	/**
+ 	 * @brief The file's length in seconds.
+@@ -116,10 +116,10 @@ void audio_file_close(struct audio_file *fd);
+ /**
+  * @brief Call the read function in the audio_file struct.
+  */
+-size_t audio_file_read(struct audio_file *fd, void *buf);
++size_t audio_file_read(struct audio_file *fd, int16_t *buf, size_t len);
+ 
+ /**
+- * @brief Call the seek function in the audio_file struct if available.
++ * @brief Call the seek function in the audio_file struct.
+  */
+ void audio_file_seek(struct audio_file *fd, int len, int rel);
+ 
+diff --git a/src/audio_format.h b/src/audio_format.h
+index 3f9c45c..394970e 100644
+--- a/src/audio_format.h
++++ b/src/audio_format.h
+@@ -45,7 +45,7 @@ void modplug_close(struct audio_file *fd);
+ /**
+  * @brief Read data from the modplug file and place it in buf.
+  */
+-size_t modplug_read(struct audio_file *fd, void *buf);
++size_t modplug_read(struct audio_file *fd, int16_t *buf, size_t len);
+ /**
+  * @brief Seek the modplug file a relatime amount of seconds.
+  */
+@@ -64,7 +64,7 @@ void mp3_close(struct audio_file *fd);
+ /**
+  * @brief Read data from the mp3 file and place it in buf.
+  */
+-size_t mp3_read(struct audio_file *fd, void *buf);
++size_t mp3_read(struct audio_file *fd, int16_t *buf, size_t len);
+ /**
+  * @brief Seek the mp3 file a relatime amount of seconds.
+  */
+@@ -83,7 +83,7 @@ void sndfile_close(struct audio_file *fd);
+ /**
+  * @brief Read data from the soundfile and place it in buf.
+  */
+-size_t sndfile_read(struct audio_file *fd, void *buf);
++size_t sndfile_read(struct audio_file *fd, int16_t *buf, size_t len);
+ /**
+  * @brief Seek a relative amount in seconds in the current file handle.
+  */
+@@ -102,7 +102,7 @@ void vorbis_close(struct audio_file *fd);
+ /**
+  * @brief Read data from the Ogg Vorbis file and place it in buf.
+  */
+-size_t vorbis_read(struct audio_file *fd, void *buf);
++size_t vorbis_read(struct audio_file *fd, int16_t *buf, size_t len);
+ /**
+  * @brief Seek a relative amount in seconds in the current file handle.
+  */
+diff --git a/src/audio_format_modplug.c b/src/audio_format_modplug.c
+index 884ab2c..22e8c27 100644
+--- a/src/audio_format_modplug.c
++++ b/src/audio_format_modplug.c
+@@ -143,25 +143,16 @@ modplug_close(struct audio_file *fd)
+ }
+ 
+ size_t
+-modplug_read(struct audio_file *fd, void *buf)
++modplug_read(struct audio_file *fd, int16_t *buf, size_t len)
+ {
+ 	struct modplug_drv_data *data = fd->drv_data;
+-	int len;
+-#if G_BYTE_ORDER != G_LITTLE_ENDIAN
+-	unsigned int i;
+-#endif /* G_BYTE_ORDER != G_LITTLE_ENDIAN */
++	int rlen;
+ 
+-	len = ModPlug_Read(data->modplug, buf, AUDIO_OUTPUT_BUFLEN);
+-	data->sample += len / BYTESPERSAMPLE;
++	rlen = ModPlug_Read(data->modplug, buf, len * sizeof(int16_t));
++	data->sample += rlen / BYTESPERSAMPLE;
+ 	fd->time_cur = data->sample / SAMPLERATE;
+ 
+-#if G_BYTE_ORDER != G_LITTLE_ENDIAN
+-	/* Convert it to little endian */
+-	for (i = 0; i < len / sizeof(short); i++)
+-		((short *)buf)[i] = GINT16_TO_LE(((short *)buf)[i]);
+-#endif /* G_BYTE_ORDER != G_LITTLE_ENDIAN */
+-
+-	return (len);
++	return (rlen / sizeof(int16_t));
+ }
+ 
+ void
+diff --git a/src/audio_format_mp3.c b/src/audio_format_mp3.c
+index 2f77488..a2acee0 100644
+--- a/src/audio_format_mp3.c
++++ b/src/audio_format_mp3.c
+@@ -258,10 +258,10 @@ mp3_read_frame(struct audio_file *fd)
+ /**
+  * @brief Convert a fixed point sample to a short.
+  */
+-static short
++static int16_t
+ mp3_fixed_to_short(mad_fixed_t fixed)
+ {
+-	short sample;
++	int16_t sample;
+ 
+ 	if (fixed >= MAD_F_ONE)
+ 		sample = SHRT_MAX;
+@@ -363,13 +363,11 @@ mp3_close(struct audio_file *fd)
+ }
+ 
+ size_t
+-mp3_read(struct audio_file *fd, void *buf)
++mp3_read(struct audio_file *fd, int16_t *buf, size_t len)
+ {
+ 	struct mp3_drv_data *data = fd->drv_data;
+ 	size_t written = 0;
+ 	int i;
+-	short sample;
+-	unsigned char *out = buf;
+ 
+ 	do {
+ 		/* Get a new frame when we haven't go one */
+@@ -387,15 +385,11 @@ mp3_read(struct audio_file *fd, void *buf)
+ 		}
+ 
+ 		while ((data->cursample < data->msynth.pcm.length) &&
+-		    (written < AUDIO_OUTPUT_BUFLEN)) {
++		    (written < len)) {
+ 			/* Write out all channels */
+ 			for (i = 0; i < MAD_NCHANNELS(&data->mframe.header); i++) {
+-				sample = mp3_fixed_to_short(
++				buf[written++] = mp3_fixed_to_short(
+ 				    data->msynth.pcm.samples[i][data->cursample]);
+-
+-				/* Write it back as little endian */
+-				out[written++] = sample >> 0;
+-				out[written++] = sample >> 8;
+ 			}
+ 
+ 			data->cursample++;
+@@ -405,7 +399,7 @@ mp3_read(struct audio_file *fd, void *buf)
+ 		if (data->cursample == data->msynth.pcm.length)
+ 			data->cursample = 0;
+ 
+-	} while (written < AUDIO_OUTPUT_BUFLEN);
++	} while (written < len);
+ 
+ done:
+ 	return (written);
+diff --git a/src/audio_format_sndfile.c b/src/audio_format_sndfile.c
+index 69148fa..27bb4b0 100644
+--- a/src/audio_format_sndfile.c
++++ b/src/audio_format_sndfile.c
+@@ -70,26 +70,18 @@ sndfile_close(struct audio_file *fd)
+ }
+ 
+ size_t
+-sndfile_read(struct audio_file *fd, void *buf)
++sndfile_read(struct audio_file *fd, int16_t *buf, size_t len)
+ {
+ 	SNDFILE *hnd = fd->drv_data;
+ 	sf_count_t ret, frame;
+-#if G_BYTE_ORDER != G_LITTLE_ENDIAN
+-	int i;
+-#endif /* G_BYTE_ORDER != G_LITTLE_ENDIAN */
+ 	
+-	ret = sf_read_short(hnd, buf, AUDIO_OUTPUT_BUFLEN / sizeof(short));
+-#if G_BYTE_ORDER != G_LITTLE_ENDIAN
+-	/* Convert it to little endian */
+-	for (i = 0; i < ret; i++)
+-		((short *)buf)[i] = GINT16_TO_LE(((short *)buf)[i]);
+-#endif /* G_BYTE_ORDER != G_LITTLE_ENDIAN */
++	ret = sf_read_short(hnd, buf, len);
+ 
+ 	/* Seek zero frames to obtain the current position */
+ 	frame = sf_seek(hnd, 0, SEEK_CUR);
+ 	fd->time_cur = frame / fd->srate;
+ 
+-	return (ret * sizeof(short));
++	return (ret);
+ }
+ 
+ void
+diff --git a/src/audio_format_vorbis.c b/src/audio_format_vorbis.c
+index 6d6a523..8ad07fb 100644
+--- a/src/audio_format_vorbis.c
++++ b/src/audio_format_vorbis.c
+@@ -113,16 +113,29 @@ vorbis_close(struct audio_file *fd)
+ }
+ 
+ size_t
+-vorbis_read(struct audio_file *fd, void *buf)
++vorbis_read(struct audio_file *fd, int16_t *buf, size_t len)
+ {
+ 	OggVorbis_File *vfp = fd->drv_data;
+-	size_t ret;
+-
+-	/* Return 16 bits signed little endian */
+-	ret = ov_read(vfp, buf, AUDIO_OUTPUT_BUFLEN, 0, 2, 1, NULL);
++	size_t ret = 0;
++	long rlen;
++	char *out = (char *)buf;
++	
++	len *= sizeof(int16_t);
++
++	/* Return 16 bits signed native endian */
++	while (ret < len) {
++#if G_BYTE_ORDER == G_BIG_ENDIAN
++		rlen = ov_read(vfp, out + ret, len - ret, 1, 2, 1, NULL);
++#else /* G_BYTE_ORDER != G_BIG_ENDIAN */
++		rlen = ov_read(vfp, out + ret, len - ret, 0, 2, 1, NULL);
++#endif /* G_BYTE_ORDER == G_BIG_ENDIAN */
++		if (rlen <= 0)
++			break;
++		ret += rlen;
++	}
+ 	fd->time_cur = ov_time_tell(vfp);
+ 
+-	return (ret);
++	return (ret / sizeof(int16_t));
+ }
+ 
+ void
+@@ -140,4 +153,5 @@ vorbis_seek(struct audio_file *fd, int len, int rel)
+ 	npos = CLAMP(npos, 0, ov_time_total(vfp, -1));
+ 
+ 	ov_time_seek(vfp, npos);
++	fd->time_cur = ov_time_tell(vfp);
+ }
+diff --git a/src/audio_output.h b/src/audio_output.h
+index 4132771..397d6d6 100644
+--- a/src/audio_output.h
++++ b/src/audio_output.h
+@@ -46,9 +46,4 @@ int audio_output_play(struct audio_file *fd);
+  */
+ void audio_output_close(void);
+ 
+-/**
+- * @brief The size in bytes that a read may return at most.
+- */
+-#define AUDIO_OUTPUT_BUFLEN 4096
+-
+ #endif /* !_AUDIO_OUTPUT_H_ */
+diff --git a/src/audio_output_alsa.c b/src/audio_output_alsa.c
+new file mode 100644
+index 0000000..396efb5
+--- /dev/null
++++ b/src/audio_output_alsa.c
+@@ -0,0 +1,160 @@
++/*
++ * Copyright (c) 2006-2007 Ed Schouten <ed@fxq.nl>
++ * All rights reserved.
++ * 
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 
++ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++/**
++ * @file audio_output_alsa.c
++ * @brief ALSA audio output driver.
++ */
++
++#include "stdinc.h"
++
++#include <alsa/asoundlib.h>
++
++#include "audio_file.h"
++#include "audio_output.h"
++#include "config.h"
++#include "gui.h"
++
++/**
++ * @brief Handle to the audio device obtained from ALSA.
++ */
++static snd_pcm_t		*devhnd;
++/**
++ * @brief the amount of channels that is currently used for playback.
++ */
++static unsigned int		channels = 0;
++/**
++ * @brief the sample rate that is currently used for playback.
++ */
++static unsigned int		srate = 0;
++
++/**
++ * @brief Alter the audio output parameters of the audio output device.
++ */
++static int
++audio_output_apply_hwparams(void)
++{
++	snd_pcm_hw_params_t *devparam;
++
++	snd_pcm_hw_params_alloca(&devparam);
++
++	/* Acquire the standard parameters */
++	if (snd_pcm_hw_params_any(devhnd, devparam) != 0)
++		return (-1);
++
++	/* Set the access method - XXX: mmap */
++	if (snd_pcm_hw_params_set_access(devhnd, devparam,
++	    SND_PCM_ACCESS_RW_INTERLEAVED) != 0)
++		return (-1);
++
++	/* Output format */
++	if (snd_pcm_hw_params_set_format(devhnd, devparam,
++	    SND_PCM_FORMAT_S16) != 0)
++		return (-1);
++	/* Sample rate */
++	if (snd_pcm_hw_params_set_rate_near(devhnd, devparam, &srate, NULL) != 0)
++		return (-1);
++	/* Channels */
++	if (snd_pcm_hw_params_set_channels(devhnd, devparam, channels) != 0)
++		return (-1);
++
++	/* Apply values */
++	if (snd_pcm_hw_params(devhnd, devparam) != 0)
++		return (-1);
++	/* And we're off! */
++	if (snd_pcm_prepare(devhnd) != 0)
++		return (-1);
++	
++	return (0);
++}
++
++int
++audio_output_open(void)
++{
++	/* Open the device */
++	if (snd_pcm_open(&devhnd, config_getopt("audio.output.alsa.device"),
++	    SND_PCM_STREAM_PLAYBACK, 0) != 0)
++		goto error;
++
++	return (0);
++error:
++	g_printerr(_("Cannot open the audio device.\n"));
++	return (-1);
++}
++
++int
++audio_output_play(struct audio_file *fd)
++{
++	char buf[16384];
++	size_t bps;
++	snd_pcm_sframes_t ret, len, done = 0;
++
++	if ((len = audio_file_read(fd, (int16_t *)buf,
++	    sizeof buf / sizeof(int16_t))) == 0)
++		return (-1);
++	
++	if (fd->channels != channels || fd->srate != srate) {
++		/* Reset the stream */
++		snd_pcm_drain(devhnd);
++
++		/* Apply the new values */
++		channels = fd->channels;
++		srate = fd->srate;
++		if (audio_output_apply_hwparams() != 0) {
++			gui_msgbar_warn(_("Sample rate or amount of channels not supported."));
++			/* Invalidate the old settings */
++			srate = 0;
++			return (-1);
++		}
++	}
++
++	/* ALSA measures in sample lengths */
++	bps = fd->channels * sizeof(int16_t);
++	len /= fd->channels;
++
++	/* Our complex error handling for snd_pcm_writei() */
++	while (done < len) {
++		ret = snd_pcm_writei(devhnd, buf + (done * bps), len - done);
++		if (ret == -EPIPE) {
++			/* Buffer underrun. */
++			if (snd_pcm_prepare(devhnd) != 0)
++				return (-1);
++			continue;
++		} else if (ret <= 0) {
++			/* Some other strange error. */
++			return (-1);
++		} else {
++			done += ret;
++		}
++	}
++
++	return (0);
++}
++
++void
++audio_output_close(void)
++{
++	snd_pcm_close(devhnd);
++}
+diff --git a/src/audio_output_ao.c b/src/audio_output_ao.c
+index 3c57392..bc06921 100644
+--- a/src/audio_output_ao.c
++++ b/src/audio_output_ao.c
+@@ -59,9 +59,9 @@ audio_output_open(void)
+ 
+ 	ao_initialize();
+ 
+-	/* We always expect 16 bits little endian PCM */
++	/* We always expect 16 bits native endian PCM */
+ 	devfmt.bits = 16;
+-	devfmt.byte_format = AO_FMT_LITTLE;
++	devfmt.byte_format = AO_FMT_NATIVE;
+ 
+ 	host = config_getopt("audio.output.ao.host");
+ 	if (strcmp(host, "env_ssh") == 0) {
+@@ -86,13 +86,14 @@ int
+ audio_output_play(struct audio_file *fd)
+ {
+ 	const char *drvname;
+-	char buf[AUDIO_OUTPUT_BUFLEN];
++	int16_t buf[2048];
+ 	int len, drvnum;
+ 
+-	if ((len = audio_file_read(fd, buf)) == 0)
+-		return (0);
++	if ((len = audio_file_read(fd, buf, sizeof buf / sizeof(int16_t))) == 0)
++		return (-1);
+ 
+-	if (devfmt.rate != fd->srate || devfmt.channels != fd->channels) {
++	if ((unsigned int)devfmt.rate != fd->srate ||
++	    (unsigned int)devfmt.channels != fd->channels) {
+ 		/* Sample rate or amount of channels has changed */
+ 		audio_output_close();
+ 
+@@ -113,17 +114,17 @@ audio_output_play(struct audio_file *fd)
+ 		devptr = ao_open_live(drvnum, &devfmt, devopt);
+ 		if (devptr == NULL) {
+ 			gui_msgbar_warn(_("Cannot open the audio device."));
+-			return (0);
++			return (-1);
+ 		}
+ 	}
+ 
+-	if (ao_play(devptr, buf, len) == 0) {
++	if (ao_play(devptr, (char *)buf, len * sizeof(int16_t)) == 0) {
+ 		/* No success - device must be closed */
+ 		audio_output_close();
+-		return (0);
+-	} else {
+-		return (len);
++		return (-1);
+ 	}
++
++	return (0);
+ }
+ 
+ void
+diff --git a/src/audio_output_coreaudio.c b/src/audio_output_coreaudio.c
+new file mode 100644
+index 0000000..a611db6
+--- /dev/null
++++ b/src/audio_output_coreaudio.c
+@@ -0,0 +1,227 @@
++/*
++ * Copyright (c) 2006-2007 Ed Schouten <ed@fxq.nl>
++ * All rights reserved.
++ * 
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 
++ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++/**
++ * @file audio_output_coreaudio.c
++ * @brief Apple CoreAudio audio output driver.
++ */
++
++#include "stdinc.h"
++
++#include <CoreAudio/AudioHardware.h>
++
++#include "audio_file.h"
++#include "audio_output.h"
++#include "gui.h"
++
++/*
++ * A small problem with CoreAudio is that it doesn't actually have a
++ * standard blocking push-interface such as OSS or ALSA. We have to
++ * install a routine in the audio layer that gets called routinely to
++ * pull data from buffers.
++ *
++ * According to a discussion on the CoreAudio mailing list, we can't use
++ * stuff such as spinlocks from within this callback routine (probably
++ * served through some kind of interrupt-driven context) we guarantee
++ * buffer locking by using atomic operations on abufulen; the indicator
++ * of the length of the buffer that is used.
++ */
++
++/**
++ * @brief The audio device ID obtained from CoreAudio.
++ */
++AudioDeviceID			adid;
++/**
++ * @brief The stream format used by the CoreAudio device.
++ */
++AudioStreamBasicDescription	afmt;
++
++/**
++ * @brief The buffer that will be played when the current buffer is
++ *        finished processing.
++ */
++int16_t				*abufnew;
++/**
++ * @brief The buffer that is currently processed by CoreAudio.
++ */
++int16_t				*abufcur;
++/**
++ * @brief The length of the buffers used by CoreAudio.
++ */
++int				abuflen;
++/**
++ * @brief The length of the abufcur that is currently used. It should
++ *        only be used with g_atomic_* operations.
++ */
++int				abufulen = 0;
++/**
++ * @brief A not really used mutex that is used for the conditional
++ *        variable.
++ */
++GMutex				*abuflock;
++/**
++ * @brief The conditional variable that is used to inform the
++ *        application that a buffer has been processed.
++ */
++GCond				*abufdrained;
++
++/**
++ * @brief Pull-function needed by CoreAudio to copy data to the audio
++ *        buffers.
++ */
++static OSStatus
++audio_output_ioproc(AudioDeviceID inDevice, const AudioTimeStamp *inNow,
++    const AudioBufferList *inInputData, const AudioTimeStamp *inInputTime,
++    AudioBufferList *outOutputData, const AudioTimeStamp *inOutputTime,
++    void *inClientData)
++{
++	int i, len;
++	float *ob = outOutputData->mBuffers[0].mData;
++
++	/* Stop the IOProc handling if we're going idle */
++	len = g_atomic_int_get(&abufulen);
++	if (len == 0)
++		AudioDeviceStop(adid, audio_output_ioproc);
++
++	/* Convert the data to floats */
++	for (i = 0; i < len; i++)
++		ob[i] = (float)abufcur[i] / SHRT_MAX;
++
++	/* Empty the buffer and notify that we can receive new data */
++	g_atomic_int_set(&abufulen, 0);
++	g_cond_signal(abufdrained);
++
++	/* Fill the trailer with zero's */
++	for (; i < abuflen; i++)
++		ob[i] = 0.0;
++	
++	return (0);
++}
++
++int
++audio_output_open(void)
++{
++	UInt32 size;
++
++	/* Obtain the audio device ID */
++	size = sizeof adid;
++	if (AudioHardwareGetProperty(
++	    kAudioHardwarePropertyDefaultOutputDevice, 
++	    &size, &adid) != 0 || adid == kAudioDeviceUnknown)
++		goto error;
++
++	/* Adjust the stream format */
++	size = sizeof afmt;
++	if (AudioDeviceGetProperty(adid, 0, false,
++	    kAudioDevicePropertyStreamFormat, &size, &afmt) != 0 ||
++	    afmt.mFormatID != kAudioFormatLinearPCM)
++		goto error;
++
++	/* To be set on the first run */
++	afmt.mSampleRate = 0;
++	afmt.mChannelsPerFrame = 0;
++	afmt.mBytesPerFrame = afmt.mChannelsPerFrame * sizeof (float);
++	afmt.mBytesPerPacket = afmt.mBytesPerFrame * afmt.mFramesPerPacket;
++
++	/* Decide what buffer size to use */
++	size = sizeof abuflen;
++	abuflen = 32768;
++	AudioDeviceSetProperty(adid, 0, 0, false,
++	    kAudioDevicePropertyBufferSize, size, &abuflen);
++	if (AudioDeviceGetProperty(adid, 0, false,
++	    kAudioDevicePropertyBufferSize, &size, &abuflen) != 0)
++		goto error;
++
++	/* The buffer size reported is in floats */
++	abuflen /= sizeof(float);
++	abufnew = g_malloc(abuflen * sizeof(int16_t));
++	abufcur = g_malloc(abuflen * sizeof(int16_t));
++
++	/* Locking down the buffer length */
++	abuflock = g_mutex_new();
++	abufdrained = g_cond_new();
++
++	/* Add our own I/O handling routine */
++	if (AudioDeviceAddIOProc(adid, audio_output_ioproc, NULL) != 0)
++		goto error;
++
++	return (0);
++error:
++	g_printerr(_("Cannot open the audio device.\n"));
++	return (-1);
++}
++
++int
++audio_output_play(struct audio_file *fd)
++{
++	UInt32 len;
++	int16_t *tmp;
++	
++	/* Read data in our temporary buffer */
++	if ((len = audio_file_read(fd, abufnew, abuflen)) == 0)
++		return (-1);
++
++	if (fd->srate != afmt.mSampleRate ||
++	    fd->channels != afmt.mChannelsPerFrame) {
++		/* Sample rate or the amount of channels has changed */
++		afmt.mSampleRate = fd->srate;
++		afmt.mChannelsPerFrame = fd->channels;
++
++		if (AudioDeviceSetProperty(adid, 0, 0, 0,
++		    kAudioDevicePropertyStreamFormat, sizeof afmt, &afmt) != 0) {
++			gui_msgbar_warn(_("Sample rate or amount of channels not supported."));
++			return (-1);
++		}
++	}
++
++	/* XXX: Mutex not actually needed - only for the condvar */
++	g_mutex_lock(abuflock);
++	while (g_atomic_int_get(&abufulen) != 0)
++		g_cond_wait(abufdrained, abuflock);
++	g_mutex_unlock(abuflock);
++	
++	/* Toggle the buffers */
++	tmp = abufcur;
++	abufcur = abufnew;
++	abufnew = tmp;
++
++	/* Atomically set the usage length */
++	g_atomic_int_set(&abufulen, len);
++
++	/* Start processing of the data */
++	AudioDeviceStart(adid, audio_output_ioproc);
++
++	return (0);
++}
++
++void
++audio_output_close(void)
++{
++	AudioDeviceStop(adid, audio_output_ioproc);
++	AudioDeviceRemoveIOProc(adid, audio_output_ioproc);
++
++	g_free(abufnew);
++	g_free(abufcur);
++}
+diff --git a/src/audio_output_null.c b/src/audio_output_null.c
+index 3806c41..6dafce5 100644
+--- a/src/audio_output_null.c
++++ b/src/audio_output_null.c
+@@ -41,7 +41,7 @@ audio_output_open(void)
+ int
+ audio_output_play(struct audio_file *fd)
+ {
+-	return (0);
++	return (-1);
+ }
+ 
+ void
+diff --git a/src/audio_output_oss.c b/src/audio_output_oss.c
+index ea14ca5..8630211 100644
+--- a/src/audio_output_oss.c
++++ b/src/audio_output_oss.c
+@@ -35,6 +35,7 @@
+ #include "audio_file.h"
+ #include "audio_output.h"
+ #include "config.h"
++#include "gui.h"
+ 
+ /**
+  * @brief File descriptor of the audio device handle.
+@@ -43,16 +44,15 @@ static int dev_fd;
+ /**
+  * @brief Sample rate of the audio device handle.
+  */
+-static long cur_srate = -1;
++static unsigned int cur_srate = 0;
+ /**
+  * @brief Amount of channels of the audio device handle.
+  */
+-static long cur_channels = -1;
++static unsigned int cur_channels = 0;
+ 
+ int
+ audio_output_open(void)
+ {
+-	int dat;
+ 	const char *dev;
+ 
+ 	dev = config_getopt("audio.output.oss.device");
+@@ -60,10 +60,6 @@ audio_output_open(void)
+ 		g_printerr(_("Cannot open audio device \"%s\".\n"), dev);
+ 		return (-1);
+ 	}
+-	
+-	/* 16 bits little endian stereo */
+-	dat = AFMT_S16_LE;
+-	ioctl(dev_fd, SNDCTL_DSP_SETFMT, &dat);
+ 
+ 	return (0);
+ }
+@@ -71,32 +67,45 @@ audio_output_open(void)
+ int
+ audio_output_play(struct audio_file *fd)
+ {
+-	char buf[AUDIO_OUTPUT_BUFLEN];
++	int16_t buf[2048];
+ 	int len;
++	int fmt;
+ 
+-	if ((len = audio_file_read(fd, buf)) == 0)
+-		return (0);
++	if ((len = audio_file_read(fd, buf, sizeof buf / sizeof(int16_t))) == 0)
++		return (-1);
+ 
+ 	if (cur_srate != fd->srate || cur_channels != fd->channels) {
+ 		/* Our settings have been altered */
+ 		ioctl(dev_fd, SNDCTL_DSP_RESET, NULL);
+ 
+-		if (cur_srate != fd->srate) {
+-			/* Reset the sample rate */
+-			if (ioctl(dev_fd, SNDCTL_DSP_SPEED,
+-			    &fd->srate) != -1)
+-				cur_srate = fd->srate;
+-		}
+-
+-		if (cur_channels != fd->channels) {
+-			/* Reset the number of channels rate */
+-			if (ioctl(dev_fd, SNDCTL_DSP_CHANNELS,
+-			    &fd->channels) != -1)
+-				cur_channels = fd->channels;
+-		}
++		/* 16 bits native endian stereo */
++		fmt = AFMT_S16_NE;
++		if (ioctl(dev_fd, SNDCTL_DSP_SETFMT, &fmt) == -1)
++			goto bad;
++
++		/* Reset the sample rate */
++		if (ioctl(dev_fd, SNDCTL_DSP_SPEED, &fd->srate) == -1)
++			goto bad;
++
++		/* Reset the number of channels rate */
++		if (ioctl(dev_fd, SNDCTL_DSP_CHANNELS, &fd->channels) == -1)
++			goto bad;
++
++		/* Both succeeded */
++		cur_srate = fd->srate;
++		cur_channels = fd->channels;
+ 	}
+ 
+-	return write(dev_fd, buf, len);
++	len *= sizeof(int16_t);
++	if (write(dev_fd, buf, len) != len)
++		return (-1);
++	
++	return (0);
++bad:
++	gui_msgbar_warn(_("Sample rate or amount of channels not supported."));
++	/* Invalidate the old sample rate setting to force reconfiguration */
++	cur_srate = 0;
++	return (-1);
+ }
+ 
+ void
+diff --git a/src/audio_output_pulse.c b/src/audio_output_pulse.c
+new file mode 100644
+index 0000000..45a8f73
+--- /dev/null
++++ b/src/audio_output_pulse.c
+@@ -0,0 +1,99 @@
++/*
++ * Copyright (c) 2006-2007 Ed Schouten <ed@fxq.nl>
++ * All rights reserved.
++ * 
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ * 
++ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
++ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
++ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
++ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
++ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
++ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
++ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
++ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
++ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
++ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
++ * SUCH DAMAGE.
++ */
++/**
++ * @file audio_output_pulse.c
++ * @brief PulseAudio audio output driver.
++ */
++
++#include "stdinc.h"
++
++#include <pulse/simple.h>
++
++#include "audio_file.h"
++#include "audio_output.h"
++#include "gui.h"
++
++/**
++ * @brief Handle to an audio device handle if one has already been opened.
++ */
++static pa_simple*	devptr = NULL;
++/**
++ * @brief Format of the current open audio device handle.
++ */
++static pa_sample_spec	devfmt = { PA_SAMPLE_S16LE, 0, 0 };
++
++int
++audio_output_open(void)
++{
++	return (0);
++}
++
++int
++audio_output_play(struct audio_file *fd)
++{
++	int16_t buf[2048];
++	size_t len;
++
++	if ((len = audio_file_read(fd, buf, sizeof buf / sizeof(int16_t))) == 0)
++		return (-1);
++
++	if (devfmt.rate != fd->srate || devfmt.channels != fd->channels) {
++		/* Sample rate or amount of channels has changed */
++		audio_output_close();
++
++		devfmt.rate = fd->srate;
++		devfmt.channels = fd->channels;
++	}
++
++	if (devptr == NULL) {
++		/* Open the device */
++		devptr = pa_simple_new(NULL, APP_NAME,
++		    PA_STREAM_PLAYBACK, NULL, "Audio output", &devfmt,
++		    NULL, NULL, NULL);
++		if (devptr == NULL) {
++			gui_msgbar_warn(_("Cannot open the audio device."));
++			return (-1);
++		}
++	}
++
++	if (pa_simple_write(devptr, buf, len * sizeof(int16_t), NULL) != 0) {
++		/* No success - device must be closed */
++		audio_output_close();
++		return (-1);
++	}
++
++	return (0);
++}
++
++void
++audio_output_close(void)
++{
++	if (devptr != NULL) {
++		/* Close device */
++		pa_simple_free(devptr);
++		devptr = NULL;
++	}
++}
+diff --git a/src/audio_output_sdl.c b/src/audio_output_sdl.c
+deleted file mode 100644
+index 3126367..0000000
+--- a/src/audio_output_sdl.c
++++ /dev/null
+@@ -1,130 +0,0 @@
+-/*
+- * Copyright (c) 2006-2007 Ed Schouten <ed@fxq.nl>
+- * All rights reserved.
+- * 
+- * Redistribution and use in source and binary forms, with or without
+- * modification, are permitted provided that the following conditions
+- * are met:
+- * 1. Redistributions of source code must retain the above copyright
+- *    notice, this list of conditions and the following disclaimer.
+- * 2. Redistributions in binary form must reproduce the above copyright
+- *    notice, this list of conditions and the following disclaimer in the
+- *    documentation and/or other materials provided with the distribution.
+- * 
+- * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+- * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+- * SUCH DAMAGE.
+- */
+-/**
+- * @file audio_output_sdl.c
+- * @brief LibSDL audio output driver.
+- */
+-
+-#include "stdinc.h"
+-
+-#include <SDL.h>
+-#include <SDL_audio.h>
+-
+-#include "audio_file.h"
+-#include "audio_output.h"
+-#include "gui.h"
+-
+-/**
+- * @brief Format currently used for playback.
+- */
+-SDL_AudioSpec	curfmt;
+-/**
+- * @brief Buffer with decoded audio data.
+- */
+-Uint8		buf[AUDIO_OUTPUT_BUFLEN];
+-/**
+- * @brief Amount of data still present in the audio buffer.
+- */
+-size_t		buflen = 0;
+-/**
+- * @brief Lock used for the buffer length.
+- */
+-GMutex		*buflock;
+-/**
+- * @brief Conditional used for notifying that new data can be written.
+- */
+-GCond		*bufcond;
+-
+-/**
+- * @brief SDL Audio callback function which writes data to the audio
+- *        device.
+- */
+-static void
+-audio_output_write(void *data, Uint8 *stream, int len)
+-{
+-	if (buflen != 0) {
+-		SDL_MixAudio(stream, buf, buflen, SDL_MIX_MAXVOLUME);
+-		buflen = 0;
+-		g_cond_signal(bufcond);
+-	}
+-}
+-
+-int
+-audio_output_open(void)
+-{
+-	buflock = g_mutex_new();
+-	bufcond = g_cond_new();
+-
+-	if (SDL_InitSubSystem(SDL_INIT_AUDIO) != 0) {
+-		g_printerr(_("Cannot initialize SDL audio subsystem.\n"));
+-		return (1);
+-	}
+-
+-	curfmt.format = AUDIO_S16LSB,
+-	curfmt.callback = audio_output_write;
+-
+-	return (0);
+-}
+-
+-int
+-audio_output_play(struct audio_file *fd)
+-{
+-	int rlen;
+-
+-	g_mutex_lock(buflock);
+-	if (buflen != 0)
+-		g_cond_wait(bufcond, buflock);
+-	g_mutex_unlock(buflock);
+-
+-	if ((rlen = buflen = audio_file_read(fd, buf)) == 0)
+-		return (0);
+-
+-	if (curfmt.freq != fd->srate || curfmt.channels != fd->channels) {
+-		audio_output_close();
+-
+-		curfmt.freq = fd->srate;
+-		curfmt.channels = fd->channels;
+-		curfmt.samples = AUDIO_OUTPUT_BUFLEN /
+-		    (2 * curfmt.channels);
+-
+-		if (SDL_OpenAudio(&curfmt, NULL) != 0) {
+-			gui_msgbar_warn(_("Cannot open the audio device."));
+-			return (0);
+-		}
+-
+-		g_assert(curfmt.size == AUDIO_OUTPUT_BUFLEN);
+-	}
+-
+-	SDL_PauseAudio(0);
+-
+-	return (rlen);
+-}
+-
+-void
+-audio_output_close(void)
+-{
+-	SDL_CloseAudio();
+-}
+diff --git a/src/config.c b/src/config.c
+index 0dd357c..0a4b43d 100644
+--- a/src/config.c
++++ b/src/config.c
+@@ -132,6 +132,9 @@ struct config_entry {
+  * @brief List of configuration switches.
+  */
+ static struct config_entry configlist[] = {
++#ifdef BUILD_ALSA
++	{ "audio.output.alsa.device",	"default",	NULL, 		NULL },
++#endif /* BUILD_ALSA */
+ #ifdef BUILD_AO
+ 	{ "audio.output.ao.driver",	"",		NULL, 		NULL },
+ 	{ "audio.output.ao.host",	"",		NULL, 		NULL },
+@@ -152,11 +155,14 @@ static struct config_entry configlist[] = {
+ 	{ "gui.color.select.bg",	"cyan",		valid_color,	NULL },
+ 	{ "gui.color.select.fg",	"black",	valid_color,	NULL },
+ 	{ "gui.input.may_quit",		"yes",		valid_bool,	NULL },
+-	{ "playq.dumpfile",		PLAYQ_DUMPFILE,	NULL,		NULL },
++#ifdef BUILD_XSPF
++	{ "playq.dumpfile",		CONFHOMEDIR "autosave.xspf", NULL, NULL },
++#else /* !BUILD_XSPF */
++	{ "playq.dumpfile",		CONFHOMEDIR "autosave.pls", NULL, NULL },
++#endif /* BUILD_XSPF */
+ 	{ "playq.xmms",			"no",		valid_bool,	NULL },
+ #ifdef BUILD_SCROBBLER
+-	{ "scrobbler.dumpfile",		"~" G_DIR_SEPARATOR_S "." APP_NAME
+-	    G_DIR_SEPARATOR_S "scrobbler.queue",	NULL,		NULL },
++	{ "scrobbler.dumpfile",		CONFHOMEDIR "scrobbler.queue",	NULL, NULL },
+ 	{ "scrobbler.hostname",		"post.audioscrobbler.com", NULL, NULL },
+ 	{ "scrobbler.password",		"",		valid_md5,	NULL },
+ 	{ "scrobbler.username",		"",		NULL,		NULL },
+diff --git a/src/conftest.c b/src/conftest.c
+index 9e5f8e0..ea03027 100644
+--- a/src/conftest.c
++++ b/src/conftest.c
+@@ -32,6 +32,9 @@
+ #include "stdinc.h"
+ 
+ #include CURSES_HEADER
++#ifdef BUILD_ALSA
++#include <alsa/asoundlib.h>
++#endif /* BUILD_ALSA */
+ #ifdef BUILD_AO
+ #include <ao/ao.h>
+ #endif /* BUILD_AO */
+diff --git a/src/gui_browser.c b/src/gui_browser.c
+index 9e038a0..61f3df7 100644
+--- a/src/gui_browser.c
++++ b/src/gui_browser.c
+@@ -301,9 +301,9 @@ gui_browser_playq_add_before(void)
+ }
+ 
+ int
+-gui_browser_searchnext(const char *str)
++gui_browser_searchnext(const regex_t *match)
+ {
+-	return gui_vfslist_searchnext(win_browser, str);
++	return gui_vfslist_searchnext(win_browser, match);
+ }
+ 
+ void
+diff --git a/src/gui_input.c b/src/gui_input.c
+index 7fcad7b..8b44079 100644
+--- a/src/gui_input.c
++++ b/src/gui_input.c
+@@ -56,6 +56,18 @@ static int gui_input_curfocus = GUI_FOCUS_BROWSER;
+  * @brief Indicator of the current search string.
+  */
+ static char *cursearch = NULL;
++#ifdef BUILD_REGEX
++/**
++ * @brief Compiled regular expression of the current search string.
++ */
++static regex_t cursearchregex;
++#endif /* BUILD_REGEX */
++/**
++ * @brief The last seek string that has been entered.
++ */
++static char *curseek = NULL;
++
++static void gui_input_search(void);
+ 
+ /**
+  * @brief Fetch a character from the keyboard, already processing
+@@ -109,12 +121,16 @@ static void
+ gui_input_searchnext(void)
+ {
+ 	int nfocus = GUI_FOCUS_PLAYQ;
++#ifdef BUILD_REGEX
++	const regex_t *match = &cursearchregex;
++#else /* !BUILD_REGEX */
++	const char *match = cursearch;
++#endif /* BUILD_REGEX */
+ 
+ 	if (cursearch == NULL) {
+ 		/* No search string yet */
+-		cursearch = gui_input_askstring(_("Search for"), NULL, NULL);
+-		if (cursearch == NULL)
+-			return;
++		gui_input_search();
++		return;
+ 	}
+ 
+ 	/*
+@@ -125,13 +141,13 @@ gui_input_searchnext(void)
+ 	 * last two.
+ 	 */
+ 	if (gui_input_curfocus == GUI_FOCUS_PLAYQ &&
+-	    gui_playq_searchnext(cursearch) == 0) {
++	    gui_playq_searchnext(match) == 0) {
+ 		goto found;
+-	} else if (gui_browser_searchnext(cursearch) == 0) {
++	} else if (gui_browser_searchnext(match) == 0) {
+ 		nfocus = GUI_FOCUS_BROWSER;
+ 		goto found;
+ 	} else if (gui_input_curfocus != GUI_FOCUS_PLAYQ &&
+-	    gui_playq_searchnext(cursearch) == 0) {
++	    gui_playq_searchnext(match) == 0) {
+ 		goto found;
+ 	}
+ 
+@@ -153,11 +169,28 @@ static void
+ gui_input_search(void)
+ {
+ 	char *str;
++#ifdef BUILD_REGEX
++	regex_t match;
++#endif /* BUILD_REGEX */
+ 
+ 	/* Allow the user to enter a search string */
+ 	str = gui_input_askstring(_("Search for"), cursearch, NULL);
+ 	if (str == NULL)
+ 		return;
++	
++#ifdef BUILD_REGEX
++	/* Compile the new expression */
++	if (regcomp(&match, str, REG_ICASE) != 0) {
++		gui_msgbar_warn(_("Bad pattern."));
++		g_free(str);
++		return;
++	}
++
++	/* Copy the compiled expression over the original one */
++	if (cursearch != NULL)
++		regfree(&cursearchregex);
++	memcpy(&cursearchregex, &match, sizeof match);
++#endif /* BUILD_REGEX */
+ 
+ 	/* Replace our search string */
+ 	g_free(cursearch);
+@@ -234,8 +267,8 @@ gui_input_cursong_seek_jump(void)
+ 	char *str, *t;
+ 	int total = 0, split = 0, digit = 0, value, relative = 0;
+ 
+-	t = str = gui_input_askstring(_("Jump to position"), NULL,
+-	    "1234567890:+-");
++	t = str = gui_input_askstring(_("Jump to position"),
++	    curseek, "1234567890:+-");
+ 	if (str == NULL)
+ 		return;
+ 
+@@ -285,10 +318,14 @@ gui_input_cursong_seek_jump(void)
+ 	if (relative != 0)
+ 		total *= relative;
+ 	playq_cursong_seek(total, relative);
+-	goto done;
++
++	/* Show the string the next time as well */
++	g_free(curseek);
++	curseek = str;
++	return;
+ 
+ bad:	gui_msgbar_warn(_("Bad time format."));
+-done:	g_free(str);
++	g_free(str);
+ }
+ 
+ /**
+diff --git a/src/gui_internal.h b/src/gui_internal.h
+index d9cfefb..8c8d646 100644
+--- a/src/gui_internal.h
++++ b/src/gui_internal.h
+@@ -243,7 +243,7 @@ void gui_playq_song_select(void);
+  * @brief Search for the next item matching gui_input_cursearch in the
+  *        playlist.
+  */
+-int gui_playq_searchnext(const char *str);
++int gui_playq_searchnext(const regex_t *str);
+ /**
+  * @brief Focus or unfocus the playlist.
+  */
+@@ -330,7 +330,7 @@ void gui_browser_playq_add_before(void);
+  * @brief Search for the next item matching gui_input_cursearch in the
+  *        file browser.
+  */
+-int gui_browser_searchnext(const char *str);
++int gui_browser_searchnext(const regex_t *str);
+ /**
+  * @brief Change to a specified directory.
+  */
+diff --git a/src/gui_playq.c b/src/gui_playq.c
+index b14d4f5..b2c9863 100644
+--- a/src/gui_playq.c
++++ b/src/gui_playq.c
+@@ -448,12 +448,12 @@ gui_playq_song_select(void)
+ }
+ 
+ int
+-gui_playq_searchnext(const char *str)
++gui_playq_searchnext(const regex_t *match)
+ {
+ 	int ret;
+ 
+ 	playq_lock();
+-	ret = gui_vfslist_searchnext(win_playq, str);
++	ret = gui_vfslist_searchnext(win_playq, match);
+ 	playq_unlock();
+ 	
+ 	return (ret);
+diff --git a/src/gui_vfslist.c b/src/gui_vfslist.c
+index 0ef36c9..9631342 100644
+--- a/src/gui_vfslist.c
++++ b/src/gui_vfslist.c
+@@ -264,9 +264,18 @@ void
+ gui_vfslist_setselected(struct gui_vfslist *gv, struct vfsref *vr,
+     unsigned int index)
+ {
+-	gv->vr_selected = vr;
+-	gv->idx_selected = index;
+-	/* XXX: center */
++	unsigned int i;
++
++	gv->vr_selected = gv->vr_top = vr;
++	gv->idx_selected = gv->idx_top =  index;
++
++	/* Put the selected item in the center */
++	for (i = 0; i < (gv->winheight - 1) / 2 &&
++	    vfs_list_prev(gv->vr_top) != NULL; i++) {
++		gv->vr_top = vfs_list_prev(gv->vr_top);
++		gv->idx_top--;
++	}
++
+ 	gui_vfslist_refresh(gv);
+ }
+ 
+@@ -350,12 +359,11 @@ gui_vfslist_cursor_pageup(struct gui_vfslist *gv)
+ 		gv->idx_top--;
+ 	}
+ 	if (gv->vr_top == NULL) {
+-		gv->vr_top = vfs_list_first(gv->list);
+-		gv->idx_top = 1;
+-	}
+-	
+-	/* Original screen may have had one item */
+-	if (gv->vr_selected == NULL) {
++		/* Don't scroll out of reach */
++		gv->vr_selected = gv->vr_top = vfs_list_first(gv->list);
++		gv->idx_selected = gv->idx_top = 1;
++	} else if (gv->vr_selected == NULL) {
++		/* Original screen may have had one item */
+ 		gv->vr_selected = gv->vr_top;
+ 		gv->idx_selected = gv->idx_top;
+ 	}
+@@ -513,34 +521,40 @@ gui_vfslist_notify_done(struct gui_vfslist *gv)
+  *        string.
+  */
+ static int
+-gui_vfslist_searchmatch(struct vfsref *vr, const char *str)
++gui_vfslist_searchmatch(struct vfsref *vr, const regex_t *match)
+ {
++#ifdef BUILD_REGEX
++	if (regexec(match, vfs_name(vr), 0, NULL, 0) == 0)
++		return (1);
++#else /* !BUILD_REGEX */
+ 	size_t len;
+ 	const char *name;
+ 	char first;
+ 
+ 	name = vfs_name(vr);
+-	len = strlen(str);
++	len = strlen(match);
+ 
+ 	/* strcasestr()-like string comparison */
+-	if ((first = tolower(str[0])) == '\0')
++	if ((first = tolower(match[0])) == '\0')
+ 		return (0);
+ 	while (name[0] != '\0') {
+ 		if (tolower(name[0]) == first)
+-			if (strncasecmp(name, str, len) == 0)
++			if (strncasecmp(name, match, len) == 0)
+ 				return (1);
+ 		name++;
+ 	}
++#endif /* BUILD_REGEX */
++
+ 	return (0);
+ }
+ 
+ int
+-gui_vfslist_searchnext(struct gui_vfslist *gv, const char *str)
++gui_vfslist_searchnext(struct gui_vfslist *gv, const regex_t *match)
+ {
+ 	struct vfsref *vr;
+ 	unsigned int idx;
+ 
+-	g_assert(str != NULL);
++	g_assert(match != NULL);
+ 
+ 	if (gv->vr_selected == NULL)
+ 		return (-1);
+@@ -548,7 +562,7 @@ gui_vfslist_searchnext(struct gui_vfslist *gv, const char *str)
+ 	/* Step 1: search from selection to end */
+ 	for (vr = vfs_list_next(gv->vr_selected), idx = gv->idx_selected + 1;
+ 	    vr != NULL; vr = vfs_list_next(vr), idx++) {
+-		if (gui_vfslist_searchmatch(vr, str))
++		if (gui_vfslist_searchmatch(vr, match))
+ 			goto found;
+ 	}
+ 
+@@ -556,7 +570,7 @@ gui_vfslist_searchnext(struct gui_vfslist *gv, const char *str)
+ 	for (vr = vfs_list_first(gv->list), idx = 1;
+ 	    vr != vfs_list_next(gv->vr_selected);
+ 	    vr = vfs_list_next(vr), idx++) {
+-		if (gui_vfslist_searchmatch(vr, str)) {
++		if (gui_vfslist_searchmatch(vr, match)) {
+ 			gui_msgbar_warn(_("Search wrapped to top."));
+ 			goto found;
+ 		}
+diff --git a/src/gui_vfslist.h b/src/gui_vfslist.h
+index 086df76..1337f65 100644
+--- a/src/gui_vfslist.h
++++ b/src/gui_vfslist.h
+@@ -206,7 +206,7 @@ void gui_vfslist_notify_done(struct gui_vfslist *gv);
+  * @brief Change the selection to the first item that matches the
+  *        globally defined search string gui_input_cursearch.
+  */
+-int gui_vfslist_searchnext(struct gui_vfslist *gv, const char *str);
++int gui_vfslist_searchnext(struct gui_vfslist *gv, const regex_t *match);
+ /**
+  * @brief Show the full pathname of the selected entry in the message
+  *        bar.
+diff --git a/src/main.c b/src/main.c
+index f808210..15d54c8 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -121,8 +121,7 @@ main(int argc, char *argv[])
+ 
+ 	/* Global and local configuration files */
+ 	config_load(CONFFILE);
+-	config_load("~" G_DIR_SEPARATOR_S "." APP_NAME
+-	    G_DIR_SEPARATOR_S "config");
++	config_load(CONFHOMEDIR "config");
+ 
+ 	while ((ch = getopt(argc, argv, "c:vx")) != -1) {
+ 		switch (ch) {
+diff --git a/src/playq.c b/src/playq.c
+index 939cf1b..3eacbd5 100644
+--- a/src/playq.c
++++ b/src/playq.c
+@@ -184,6 +184,8 @@ playq_runner_thread(void *unused)
+ 			gui_msgbar_warn(errmsg);
+ 			g_free(errmsg);
+ 			vfs_close(nvr);
++			/* Don't hog the CPU */
++			g_usleep(500000);
+ 			continue;
+ 		}
+ 
+@@ -207,7 +209,7 @@ playq_runner_thread(void *unused)
+ 				gui_playq_song_update(cur, 0, 1);
+ 
+ 				/* Play a part of the audio file */
+-				if (audio_output_play(cur) <= 0)
++				if (audio_output_play(cur) != 0)
+ 					break;
+ 			}
+ 
+diff --git a/src/stdinc.h b/src/stdinc.h
+index 704fa5d..8c94c31 100644
+--- a/src/stdinc.h
++++ b/src/stdinc.h
+@@ -74,3 +74,11 @@
+ #ifndef BUILD_FTELLO
+ #define ftello(stream)		ftell(stream)
+ #endif /* !BUILD_FTELLO */
++
++#ifdef BUILD_REGEX
++#include <regex.h>
++#else /* !BUILD_REGEX */
++typedef char regex_t;
++#endif /* BUILD_REGEX */
++
++#define CONFHOMEDIR "~" G_DIR_SEPARATOR_S "." APP_NAME G_DIR_SEPARATOR_S
+diff --git a/src/vfs.c b/src/vfs.c
+index b71a3ca..f2bdb6e 100644
+--- a/src/vfs.c
++++ b/src/vfs.c
+@@ -40,19 +40,19 @@
+  */
+ static struct vfsmodule modules[] = {
+ #ifdef BUILD_HTTP
+-	{ vfs_http_open, NULL, vfs_http_handle, 1, 1, VFS_SORT_LAST, '^' },
++	{ vfs_http_open, NULL, vfs_http_handle, 1, 1, 1, '^' },
+ #endif /* BUILD_HTTP */
+-	{ vfs_m3u_open, vfs_m3u_populate, NULL, 0, 0, VFS_SORT_LAST, '@' },
+-	{ vfs_pls_open, vfs_pls_populate, NULL, 0, 0, VFS_SORT_LAST, '@' },
++	{ vfs_m3u_open, vfs_m3u_populate, NULL, 0, 0, 1, '@' },
++	{ vfs_pls_open, vfs_pls_populate, NULL, 0, 0, 1, '@' },
+ #ifdef BUILD_XSPF
+-	{ vfs_xspf_open, vfs_xspf_populate, NULL, 0, 0, VFS_SORT_LAST, '@' },
++	{ vfs_xspf_open, vfs_xspf_populate, NULL, 0, 0, 1, '@' },
+ #endif /* BUILD_XSPF */
+ 	/*
+ 	 * Leave these two rules at the bottom of the list. They have
+ 	 * the weakest matching rules.
+ 	 */
+-	{ vfs_dir_open, vfs_dir_populate, NULL, 0, 1, VFS_SORT_FIRST, G_DIR_SEPARATOR },
+-	{ vfs_file_open, NULL, vfs_file_handle, 0, 1, VFS_SORT_LAST, '\0' },
++	{ vfs_dir_open, vfs_dir_populate, NULL, 0, 1, 0, G_DIR_SEPARATOR },
++	{ vfs_file_open, NULL, vfs_file_handle, 0, 1, 1, '\0' },
+ };
+ /**
+  * @brief The number of virtual file system modules currently available
+@@ -253,11 +253,9 @@ vfs_open(const char *filename, const char *name, const char *basepath,
+ 	int pseudo = 0;
+ 
+ 	fn = vfs_path_concat(basepath, filename, strict);
+-	if (fn == NULL)
+-		return (NULL);
+ 
+ 	/* We only allow files and directories */
+-	if (stat(fn, &fs) != 0) {
++	if (fn == NULL || stat(fn, &fs) != 0) {
+ 		/* Could be a network stream */
+ 		pseudo = 1;
+ 		/* Don't prepend the dirnames */
+diff --git a/src/vfs.h b/src/vfs.h
+index 7196bbb..65a0c60 100644
+--- a/src/vfs.h
++++ b/src/vfs.h
+@@ -88,14 +88,6 @@ struct vfsmodule {
+ 	char	recurse;
+ 
+ 	/**
+-	 * @brief Sorting number of items that should appear at the top
+-	 */
+-#define VFS_SORT_FIRST	0
+-	/**
+-	 * @brief Sorting number of items that should appear at the bottom
+-	 */
+-#define VFS_SORT_LAST	255
+-	/**
+ 	 * @brief Order in which files should be sorted in vfs_dir
+ 	 */
+ 	unsigned char sortorder;
