@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>audiokonverter</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php/audiokonverter?content=12608</Homepage>
+        <Packager>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Audiokonverter is a small utility to easily convert sound files.</Summary>
+        <Summary xml:lang="tr">Ses dosyalarını birbirleri arasında dönüştürmek için bir servis menüsü.</Summary>
+        <Description>Audiokonverter is a small utility to easily convert from OGG, MP3, AAC, M4A, FLAC, WMA, RealAudio, Musepack, Wavpack, WAV and movies to MP3, OGG, M4A, WAV and FLAC in Konqueror by right-clicking on them.</Description>
+        <Description xml:lang="tr">Audiokonverter OGG, MP3, AAC, M4A, FLAC, WMA, RealAudio, Musepack, Wavpack, WAV dosyalarını MP3, OGG, M4A, WAV ve FLAC dosyalarına çevirmek için Konqueror servis menüsüdür.</Description>
+        <Archive sha1sum="dbc76d5b4fdeaffb4fea51f3596cc1bbd4d9810e" type="tarbz2">http://www.kde-apps.org/CONTENT/content-files/12608-audiokonverter-5.5.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>audiokonverter</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.40">wavpack</Dependency>
+            <Dependency versionFrom="1.0">vorbis-tools</Dependency>
+            <Dependency versionFrom="1.4">taglib</Dependency>
+            <Dependency versionFrom="1.1.1">flac</Dependency>
+            <Dependency>kdebase</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency>ffmpeg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-20</Date>
+            <Version>5.5</Version>
+            <Comment>First release</Comment>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
