@@ -51,7 +51,7 @@ def install():
 
     pisitools.insinto(datadir, "*.cfg")
 
-    pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf", "%sdata/ttf/arial.ttf" % datadir)
+    pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf", "%s/data/ttf/arial.ttf" % datadir)
 
     pisitools.dodoc("docs/*.txt")
     pisitools.dohtml("docs/*")
