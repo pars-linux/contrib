@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = ("tuxtype2-1.5.3")
+WorkDir = "tuxtype2-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure()
