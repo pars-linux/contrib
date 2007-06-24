@@ -20,4 +20,5 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("COPYING*", "README", "VERSION", "WHATS_NEW")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "TODO", "tuxtype/docs/en/howtotheme.html")
+    pisitools.removeDir("/usr/doc")
