@@ -11,10 +11,8 @@ from pisi.actionsapi import get
 WorkDir = "SHERPA-MC-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--enable-clhep \
-                         --enable-hepmc2 \
-                         --enable-root \
-                         --enable-lhapdf \
+    #FIXME: --enable-clhep , --enable-hepmc2, --enable-lhapdf, dependencies are missing.
+    autotools.configure("--enable-root \
                          --enable-gzip")
 
 def build():
