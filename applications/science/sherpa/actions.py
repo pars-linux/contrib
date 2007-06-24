@@ -15,6 +15,7 @@ def setup():
     autotools.configure("--enable-gzip")
 
 def build():
+    shelltools.export("LDFLAGS", "")
     autotools.make()
 
 def install():
