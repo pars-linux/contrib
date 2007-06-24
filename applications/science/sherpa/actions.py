@@ -12,10 +12,10 @@ WorkDir = "SHERPA-MC-%s" % get.srcVERSION()
 
 def setup():
     #FIXME: --enable-clhep , --enable-hepmc2, --enable-lhapdf, --enable-root, dependencies are missing.
+    shelltools.export("LDFLAGS", "")
     autotools.configure("--enable-gzip")
 
 def build():
-    shelltools.export("LDFLAGS", "")
     autotools.make()
 
 def install():
