@@ -7,7 +7,7 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
-WorkDir=("eqonomize-0.5")
+WorkDir = "eqonomize-0.5"
 NoStrip = "/"
 
 def setup():
