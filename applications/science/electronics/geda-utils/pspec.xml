@@ -14,9 +14,8 @@
         <Summary xml:lang="tr">gEDA için yardımcı araçlar.</Summary>
         <Archive sha1sum="742551219cd930438c4c74b995b986a8297b7801" type="targz">http://www.geda.seul.org/devel/20070526/geda-utils-20070526.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.4">gtk2</Dependency>
-            <Dependency>guile</Dependency>
-            <Dependency version="0.0_20070526">libgeda</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency releaseFrom="5">libgeda</Dependency>
             <Dependency>gd</Dependency>
         </BuildDependencies>
     </Source>
@@ -24,9 +23,8 @@
     <Package>
         <Name>geda-utils</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.4">gtk2</Dependency>
-            <Dependency>guile</Dependency>
-            <Dependency version="0.0_20070526">libgeda</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency releaseFrom="5">libgeda</Dependency>
             <Dependency>gd</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -38,6 +36,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-06-26</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Depend on new libgeda.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-05-27</Date>
             <Version>0.0_20070526</Version>
