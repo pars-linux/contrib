@@ -15,7 +15,7 @@
         <Archive sha1sum="df0e83ca16bcbb2b6de2c8692cb29357000cc52d" type="targz">http://geda.seul.org/devel/20070526/libgeda-20070526.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency>guile</Dependency>
+            <Dependency versionFrom="1.8.1">guile</Dependency>
             <Dependency>libstroke</Dependency>
             <Dependency>gd</Dependency>
         </BuildDependencies>
@@ -25,7 +25,7 @@
         <Name>libgeda</Name>
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency>guile</Dependency>
+            <Dependency versionFrom="1.8.1">guile</Dependency>
             <Dependency>libstroke</Dependency>
             <Dependency>gd</Dependency>
         </RuntimeDependencies>
@@ -38,6 +38,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-06-26</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Add guile dependency version from 1.8.1. Libgeda and geda-* should be re-compiled with new guile.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-05-27</Date>
             <Version>0.0_20070526</Version>
