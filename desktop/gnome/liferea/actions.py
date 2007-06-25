@@ -9,22 +9,22 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.automake()
-    autotools.configure("--with-x  \
-                                  --disable-sm \
-                                  --disable-nm \
-                                  --disable-lua \
-                                  --enable-gtkhtml2 \
-                                  --disable-xulrunner \
-                                  --disable-gecko \
-                                  --enable-gnutls \
-                                  --enable-libnotify")
+    autotools.configure("--with-x \
+                         --disable-sm \
+                         --disable-nm \
+                         --disable-lua \
+                         --enable-gtkhtml2 \
+                         --disable-xulrunner \
+                         --disable-gecko \
+                         --enable-gnutls \
+                         --enable-libnotify")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    
+
     pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
