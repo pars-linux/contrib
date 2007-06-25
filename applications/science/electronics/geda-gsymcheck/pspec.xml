@@ -14,10 +14,9 @@
         <Summary xml:lang="tr">gsymcheck gEDA için sembol kontrol aracıdır.</Summary>
         <Archive sha1sum="a7f865c226e6c133cce46a711a880f372c405838" type="targz">http://www.geda.seul.org/devel/20070526/geda-gsymcheck-20070526.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.4">gtk2</Dependency>
-            <Dependency>guile</Dependency>
-            <Dependency version="0.0_20070526">libgeda</Dependency>
-            <Dependency version="0.0_20070526">geda-symbols</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency releaseFrom="5">libgeda</Dependency>
+            <Dependency releaseFrom="3">geda-symbols</Dependency>
             <Dependency>gd</Dependency>
         </BuildDependencies>
         <Patches>
@@ -28,10 +27,9 @@
     <Package>
         <Name>geda-gsymcheck</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.4">gtk2</Dependency>
-            <Dependency>guile</Dependency>
-            <Dependency version="0.0_20070526">libgeda</Dependency>
-            <Dependency version="0.0_20070526">geda-symbols</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency releaseFrom="5">libgeda</Dependency>
+            <Dependency releaseFrom="3">geda-symbols</Dependency>
             <Dependency>gd</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -43,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-06-26</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Depend on new libgeda.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-04-09</Date>
             <Version>0.0_20070526</Version>
