@@ -9,9 +9,9 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--with-python \
-                                  --with-gnomeprint \
-                                  --with-gnome \
-                                  --with-cairo")
+                         --with-gnomeprint \
+                         --with-gnome \
+                         --with-cairo")
 
 def build():
     autotools.make()
