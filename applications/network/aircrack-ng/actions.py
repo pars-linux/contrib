@@ -13,5 +13,5 @@ def build():
 
 def install():
     autotools.install("mandir=%s/usr/share/man/man1" % get.installDIR())
-    
+
     pisitools.dodoc("ChangeLog", "README", "AUTHORS")
