@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qt-recordmydesktop</Name>
+        <Homepage>http://recordmydesktop.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa GÜNAY</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>a graphical frontend for recordMyDesktop</Summary>
+        <Archive sha1sum="da25d71eed87cadf2e7415fd658198b3feb02f16" type="targz">mirrors://sourceforge/recordmydesktop/qt-recordmydesktop-0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>PyQt4</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qt-recordmydesktop</Name>
+        <RuntimeDependencies>
+            <Dependency>recordmydesktop</Dependency>
+            <Dependency>PyQt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-18</Date>
+            <Version>0.1</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa GÜNAY</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
