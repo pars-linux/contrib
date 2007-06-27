@@ -6,6 +6,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "gtk-xfce-engine-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure()
@@ -13,8 +16,7 @@ def setup():
 def build():
     autotools.make()
 
-
 def install():
     autotools.install()
-    
+
     pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
