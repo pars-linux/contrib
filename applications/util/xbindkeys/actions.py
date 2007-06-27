@@ -5,10 +5,17 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
-
-WorkDir="xbindkeys-1.8.0"
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 def setup():
+    # there is no rpl_mallock function and gives error
+    # configure script will act as if AC_FUNC_MALLOCK check has passed.
+    shelltools.export("ac_cv_func_malloc_0_nonnull", "yes")
+
+    # a flag used by guile, configure script doesn't add this veriable.
+    shelltools.export("CFLAGS", "%s -pthread" % get.CFLAGS())
+
     autotools.configure()
 
 def build():
