@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>elisa</Name>
+        <Homepage>http://elisa.fluendo.com/</Homepage>
+        <Packager>
+            <Name>Nicolas E. Lara G.</Name>
+            <Email>nicolaslara@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Elisa is an open source cross platform media center solution.</Summary>
+        <Description>
+          Elisa is a project to create an open source cross platform
+        media center solution. Elisa runs on top of the GStreamer
+        multimedia framework and takes full advantage of harware
+        acceleration provided by modern graphic cards by using OpenGL
+        APIs.
+        </Description>
+        <Archive sha1sum="a812171d03c524ca73e2d5417660e0b5fe566994" type="targz">http://elisa.fluendo.com/static/download/elisa/elisa-0.1.7.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>elisa</Name>
+        <RuntimeDependencies>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>Twisted</Dependency>
+            <Dependency>setuptools</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>pigment</Dependency>
+            <Dependency>gst-plugins-good</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>gst-plugins-ugly</Dependency>
+            <Dependency>gst-ffmpeg</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/python2.4/site-packages</Path>
+            <Path fileType="doc">/usr/share/doc/</Path>
+            <Path fileType="data">/usr/share/</Path>
+            <Path fileType="executable">/usr/bin/</Path>
+        </Files>
+   </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-27</Date>
+            <Version>0.1.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Nicolas E. Lara G.</Name>
+            <Email>nicolaslara@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
