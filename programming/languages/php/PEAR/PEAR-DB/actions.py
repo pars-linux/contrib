@@ -14,4 +14,3 @@ def install():
     pisitools.insinto("/usr/share/php5/PEAR/DB","DB/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/DB","doc/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/DB","tests/*")
-
