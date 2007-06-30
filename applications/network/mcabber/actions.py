@@ -9,7 +9,8 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--with-ssl --with-utf8")
+    autotools.configure("--with-ssl \
+                         --with-utf8")
 
 def build():
     autotools.make()
@@ -17,5 +18,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "mcabberrc.example", "NEWS", "README", "TODO")
     pisitools.insinto("/usr/share/mcabber/themes", "contrib/themes/*")
+    pisitools.insinto("/etc", "mcabberrc.example")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "mcabberrc.example", "NEWS", "README", "TODO")
