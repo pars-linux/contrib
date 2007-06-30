@@ -7,8 +7,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "herrie-1.7"
-
 def setup():
     autotools.rawConfigure("alsa")
 
