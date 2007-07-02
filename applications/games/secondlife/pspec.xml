@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Client for SecondLife</Summary>
         <Summary xml:lang="tr">SecondLife istemcisi</Summary>
-        <Archive sha1sum="b0b9ed7e50d100feb25d92dfde7bd00daf7f2bea" type="targz">http://s3.amazonaws.com/viewer-source-downloads/2007/06/slviewer-src-1.17.0.12.tar.gz</Archive>
+        <Archive sha1sum="7094cb0adb4550c3e798878fb083bdf5e650689f" type="targz">http://s3.amazonaws.com/viewer-source-downloads/2007/06/slviewer-src-1.17.2.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency releaseFrom="5">jpeg</Dependency>
             <Dependency>fmod</Dependency>
@@ -29,8 +29,8 @@
             <Dependency>google-perftools</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch level="1">system-headers.patch</Patch>
             <Patch level="1">no-elfio.patch</Patch>
-            <Patch level="1">pardus-build.patch</Patch>
             <Patch level="1">debian_put_AppROData_in_usr_share_secondlife.patch</Patch>
             <Patch level="1">use_pardus-included_fonts.patch</Patch>
             <Patch level="1">libxmlrpc-epi.patch</Patch>
@@ -51,7 +51,7 @@
             <Dependency>curl</Dependency>
             <Dependency>fmod</Dependency>
             <Dependency>google-perftools</Dependency>
-            <Dependency version="1.17.0.12">secondlife-artwork</Dependency>
+            <Dependency version="1.17.2.0">secondlife-artwork</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -82,9 +82,9 @@
 
     <History>
         <Update release="14">
-            <Date>2007-07-02</Date>
-            <Version>1.17.0.12</Version>
-            <Comment>libxmlrpc-epi fix</Comment>
+            <Date>2007-07-03</Date>
+            <Version>1.17.2.0</Version>
+            <Comment>Version bump and libxmlrpc-epi fix</Comment>
             <Name>Murat Şenel</Name>
             <Email>muratasenel@gmail.com</Email>
         </Update>

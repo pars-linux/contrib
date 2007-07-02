@@ -1,21 +1,21 @@
-diff -urNad linden~/indra/SConstruct linden/indra/SConstruct
---- linden~/indra/SConstruct	2007-05-03 22:04:12.000000000 +1000
-+++ linden/indra/SConstruct	2007-05-03 22:04:42.000000000 +1000
-@@ -391,7 +391,7 @@
-     create_static_module('lscript', extra_depends=build_dir + '/lscript/lscript_compile/indra.y.h')
- 
-     net_external_libs = [ 'curl', 'cares', 'ssl', 'crypto', 'expat', 'aprutil-1', 'apr-1' ]
--    common_external_libs = net_external_libs + [ 'xmlrpc', 'z' ]
-+    common_external_libs = net_external_libs + [ 'xmlrpc-epi', 'z' ]
+diff -Naur linden.orig/indra/SConstruct linden/indra/SConstruct
+--- linden.orig/indra/SConstruct	2007-06-27 02:46:56.000000000 +0300
++++ linden/indra/SConstruct	2007-07-03 00:27:13.000000000 +0300
+@@ -511,7 +511,7 @@
+     if standalone and fedora:
+         common_external_libs += [ 'xmlrpc-epi' ]
+     else:
+-        common_external_libs += [ 'xmlrpc' ]
++        common_external_libs += [ 'xmlrpc-epi' ]
  
      if build_target == 'client':
-         if opensource == 'no' and platform == 'linux':
-@@ -521,7 +521,7 @@
+         if platform == 'linux':
+@@ -659,7 +659,7 @@
  
          # Rpcserver
          Depends('rpcserver/rpcserver', 'userserver/userserver' + file_suffix)
--        external_libs = common_external_libs + ['xmlrpc', 
-+        external_libs = common_external_libs + ['xmlrpc-epi', 
-             'mysqlclient']
+-        external_libs = common_external_libs + ['xmlrpc', 'mysqlclient']
++        external_libs = common_external_libs + ['xmlrpc-epi', 'mysqlclient']
          internal_libs = ['llscene', 'llmessage', 'lldatabase', 'llvfs', 
                  'llmath', 'llcommon']
+         create_executable('rpcserver/rpcserver' + file_suffix, 'rpcserver',
