@@ -96,3 +96,23 @@ diff -Naur linden.orig/indra/newview/llviewerobjectlist.cpp linden/indra/newview
  #include "object_flags.h"
  
  extern BOOL gVelocityInterpolate;
+--- linden/indra/SConstruct.orig	2007-06-27 02:46:56.000000000 +0300
++++ linden/indra/SConstruct	2007-07-03 13:24:20.000000000 +0300
+@@ -262,7 +262,7 @@
+             else:
+                 client_external_libs += [ 'gtk-x11-2.0' ]
+                 incdirs = [ 'ELFIO', 'atk-1.0', 'glib-2.0', 'gtk-2.0',
+-                            'llfreetype2', 'pango-1.0' ]
++                            'freetype2', 'pango-1.0' ]
+                 include_dirs += ['../libraries/' + system_str + '/include/' + d
+                                  for d in incdirs]
+ 
+@@ -551,7 +551,7 @@
+             external_libs += [ d[2:] for d in
+                               pkgconfig('--libs-only-l').split() ]
+         else:
+-            external_libs += [ 'freetype', 'SDL', 'ogg', 'vorbisenc',
++            external_libs += [ 'freetype2', 'SDL', 'ogg', 'vorbisenc',
+                                'vorbisfile', 'vorbis', 'db-4.2' ]
+ 
+         external_libs += [ 'jpeg', 'openjpeg', 'png12', 'GL', 'GLU' ]
