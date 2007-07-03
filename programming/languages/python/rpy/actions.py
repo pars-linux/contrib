@@ -7,8 +7,9 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 
-WorkDir="rpy-1.0-RC2"
+WorkDir="rpy-1.0-RC3"
 
 def install():
     pythonmodules.install()
+
     pisitools.remove("/usr/lib/python2.4/site-packages/rpy_wintools.py")
