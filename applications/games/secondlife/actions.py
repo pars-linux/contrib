@@ -22,6 +22,7 @@ def build():
                 MOZLIB=no \
                 GRID=firstlook \
                 FMOD=yes \
+                ELFIO=no \
                 STANDALONE=yes")
 
 def install():
