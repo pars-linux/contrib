@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scythia</Name>
+        <Homepage>http://scythia.free.fr/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Scythia basit ama kullanışlı ve çok fonksiyonlu bir FTP istemcisidir.</Summary>
+        <Description>Scythia basit ama kullanışlı ve çok fonksiyonlu bir FTP istemcisidir. Yalnızca QT ile çalışır, başka herhangi bir kütüphaneye ihtiyaç duymaz.</Description>
+        <Archive sha1sum="aa9dc45041a2c8340356d2fa7ee7f75cb111e8df"  type="targz">http://www.qt-apps.org/CONTENT/content-files/61326-scythia_0.9.1-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>scythia</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/scythia.desktop">scythia.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-01</Date>
+            <Version>0.9.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
