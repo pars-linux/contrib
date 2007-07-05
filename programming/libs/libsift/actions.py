@@ -14,7 +14,12 @@ WorkDir="libsift-1.8/src"
 
 
 def build():
+    shelltools.export("MONO_SHARED_DIR", get.workDIR())
+
     autotools.make("lib")
 
 def install():
     pisitools.insinto("/usr/lib","libsift.dll")
+
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "TODO")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "VERSION")
