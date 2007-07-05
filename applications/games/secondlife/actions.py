@@ -32,7 +32,7 @@ def install():
     pisitools.insinto("/usr/share/secondlife/app_settings", "scripts/messages/message_template.msg")
     pisitools.insinto("/usr/share/secondlife", "indra/newview/linux_tools/launch_url.sh")
 
-    pisitools.doexe("indra/lib_release_client/i686-linux/*.so", "/usr/share/secondlife")
+    pisitools.dolib_so("indra/lib_release_client/i686-linux/*.so")
 
     pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf", "/usr/share/secondlife/unicode.ttf")
 
