@@ -6,12 +6,11 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
-from pisi.actionsapi import shelltools
 
 WorkDir="File_Fortune-%s" % get.srcVERSION()
 
 def install():
-    shelltools.cd("File")
-    pisitools.insinto("/usr/share/php5/PEAR/File", "Fortune*")
+    pisitools.insinto("/usr/share/php5/PEAR/File", "File/Fortune*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/File_Fortune", "tutorials/File_Fortune/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/File_Fortune", "examples/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/File_Fortune", "tests/*")
