@@ -17,9 +17,9 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.dobin("src/scythia")
-    pisitools.insinto("/usr/share/scythia/lang","qm/*")
+    pisitools.dobin("bin/scythia")
+    pisitools.insinto("/usr/share/scythia/lang","translations/*")
 
     pisitools.dohtml("doc/html/*")
     pisitools.doman("doc/man/man3/*.3")
-    pisitools.dodoc("AUTHORS", "CHANGELOG", "COPYING")
+    pisitools.dodoc("AUTHORS", "CHANGELOG", "COPYING") 
