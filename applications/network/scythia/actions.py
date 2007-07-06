@@ -22,4 +22,4 @@ def install():
 
     pisitools.dohtml("doc/html/*")
     pisitools.doman("doc/man/man3/*.3")
-    pisitools.dodoc("AUTHORS", "CHANGELOG", "COPYING") 
+    pisitools.dodoc("AUTHORS", "CHANGELOG", "COPYING")
