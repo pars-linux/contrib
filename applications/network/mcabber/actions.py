@@ -21,4 +21,4 @@ def install():
     pisitools.insinto("/usr/share/mcabber/themes", "contrib/themes/*")
     pisitools.insinto("/etc", "mcabberrc.example")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "mcabberrc.example", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "TODO")
