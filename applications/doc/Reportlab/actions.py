@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pythonmodules
 
-WorkDir="reportlab_2_0/reportlab"
+WorkDir="reportlab_2_1/reportlab"
 
 def install():
     pythonmodules.install()
