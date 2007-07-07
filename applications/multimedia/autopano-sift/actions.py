@@ -6,10 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 WorkDir="autopano-sift-2.4/src"
 
 def build():
+    shelltools.export("MONO_SHARED_DIR", get.workDIR())
     autotools.make()
 
 def install():
@@ -18,3 +21,4 @@ def install():
     pisitools.insinto("/usr/lib/","bin/ICSharpCode.SharpZipLib.dll")
 
     pisitools.doman("../doc/*.1")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "../doc/*.txt")
