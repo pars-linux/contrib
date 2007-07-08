@@ -1,0 +1,18 @@
+--- Makefile	2007-07-08 13:33:00.000000000 +0300
++++ Makefile	2007-07-08 13:39:20.000000000 +0300
+@@ -231,11 +231,11 @@
+ 
+ install: $(PROG) nvram_export
+ 	@echo "Installing"
+-	install -d $(DESTDIR)/bin $(DESTDIR)/man/man1 $(DESTDIR)/man/man7 $(DESTDIR)/etc
++	install -d $(DESTDIR)/bin $(DESTDIR)/share/man/man1 $(DESTDIR)/share/man/man7 $(DESTDIR)/etc
+ 	install dynamips nvram_export   $(DESTDIR)/bin
+-	install -m644 dynamips.1        $(DESTDIR)/man/man1
+-	install -m644 nvram_export.1    $(DESTDIR)/man/man1
+-	install -m644 hypervisor_mode.7 $(DESTDIR)/man/man7
++	install -m644 dynamips.1        $(DESTDIR)/share/man/man1
++	install -m644 nvram_export.1    $(DESTDIR)/share/man/man1
++	install -m644 hypervisor_mode.7 $(DESTDIR)/share/man/man7
+ # install -m644 example         $(DESTDIR)/etc/dynamips
+ 
+ 
