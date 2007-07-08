@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dynamips</Name>
+        <Homepage>http://www.ipflow.utc.fr/index.php/Cisco_7200_Simulator</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Cisco rooter simulator</Summary>
+        <Archive sha1sum="6f65a2e92f5d27aca9d8608369cb20c9539a8121" type="targz">http://www.ipflow.utc.fr/dynamips/dynamips-0.2.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libpcap</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>shared-libpcap.patch</Patch>
+            <Patch>mandir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>dynamips</Name>
+        <RuntimeDependencies>
+            <Dependency>libpcap</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-06</Date>
+            <Version>0.2.7</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
