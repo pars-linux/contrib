@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "openttd-0.5.3-RC1"
+WorkDir = "openttd-0.5.3-RC2"
 
 def setup():
     #dummy configure enables freetype
@@ -28,7 +28,7 @@ def install():
 
     pisitools.doexe("openttd", "/usr/share/openttd")
 
-    pisitools.dodoc("docs/*", "*.txt")
+    pisitools.dodoc("docs/*", "*.txt", "COPYING")
     #remove unneeded Readmes
     pisitools.remove("/usr/share/doc/%s/Readme_*" % get.srcTAG())
 
