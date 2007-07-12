@@ -8,13 +8,13 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "Bioclipse"
-directory = "/opt/Bioclipse"
+WorkDir = get.srcName()
+directory = "/opt/bioclipse"
 
 def install():
     pisitools.dodir(directory)
 
-    for i in ["about_files", "configuration", "features", "plugins", "workspace"]:
+    for i in ["about_files", "configuration", "features", "plugins"]:
         shelltools.copy(i, "%s/%s" % (get.installDIR(), directory))
 
     for files in ["Bioclipse.ini", "startup.jar"]:
