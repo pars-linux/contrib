@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pythonmodules
 
-WorkDir = get.srcName()
+WorkDir = get.srcNAME()
 
 def install():
     pythonmodules.install()
