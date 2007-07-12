@@ -18,7 +18,7 @@ def build():
 def install():
     shelltools.system("jam -sDESTDIR=%s \
                            -sappdocdir=/%s/%s \
-                            install" % 
+                            install" %
                             (get.installDIR(), get.docDIR(), get.srcTAG()))
 
     pisitools.remove("/usr/share/pixmaps/netpanzer.xpm")
