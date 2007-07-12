@@ -4,7 +4,6 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import perlmodules
@@ -16,7 +15,8 @@ def setup():
     autotools.configure("--with-libz \
                          --with-grass=no \
                          --with-libtool \
-                         --without-ld-shared \
+                         --with-local=/usr \
+                         --with-ld-shared \
                          --enable-static=no \
                          --enable-shared=yes \
                          --with-pic \
@@ -54,6 +54,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("COMMITERS", "Doxyfile", "HOWTO-RELEASE", "NEWS", "VERSION")
+    pisitools.dodoc("COMMITERS", "HOWTO-RELEASE", "NEWS", "PROVENANCE.TXT", "VERSION")
 
     perlmodules.fixLocalPod()
