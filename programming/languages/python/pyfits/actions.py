@@ -5,6 +5,7 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import pythonmodules
+from pisi.actionsapi import get
 
 WorkDir = get.srcNAME()
 
