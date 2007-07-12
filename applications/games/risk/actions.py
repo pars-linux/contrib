@@ -29,7 +29,6 @@ def install():
 
     pisitools.dodir(datadir)
 
-    pisitools.insinto(datadir, "src.zip")
     pisitools.insinto(datadir, "Risk.jar")
 
     for f in ["help", "maps", "resources" ,"saves"]:
