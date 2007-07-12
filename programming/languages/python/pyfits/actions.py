@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pythonmodules
 
-WorkDir="pyfits-1.1rc1"
+WorkDir = get.srcName()
 
 def install():
     pythonmodules.install()
