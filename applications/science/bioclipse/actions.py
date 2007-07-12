@@ -8,7 +8,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = get.srcName()
+WorkDir = "bioclipse"
 directory = "/opt/bioclipse"
 
 def install():
