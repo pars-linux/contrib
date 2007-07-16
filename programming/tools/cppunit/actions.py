@@ -27,7 +27,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dolib("lib/libqttestrunner.so*")
+    pisitools.insinto("/usr/lib","lib/libqttestrunner.so*")
 
     # remove md5 files move html's
     pisitools.remove("/usr/share/cppunit/html/*.md5")
