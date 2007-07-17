@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>camstream</Name>
+        <Homepage>http://www.smcc.demon.nl/camstream/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>camstream</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A webcam streaming image viewer</Summary>
+        <Description>CamStream is (going to be) a collection of tools for webcams and other video-devices, enhancing your Linux system with multimedia video.</Description>
+        <Archive sha1sum="7ddd36a0ebfd4ba4849b39c9e64a9ab80a5a7d44" type="targz">http://cekirdek.pardus.org.tr/~ismail/dist/camstream-0.27.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>camstream</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/camstream.desktop">camstream.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/camstream.png">camstream.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-13</Date>
+            <Version>0.27</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
