@@ -8,8 +8,6 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "sqliteman-0.99"
-
 def setup():
     cmaketools.configure(installPrefix = "%s/usr" % get.installDIR())
 
