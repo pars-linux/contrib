@@ -8,7 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-xmltest \
+    autotools.configure("--with-qt-dir=/usr/qt/3 \
+                         --disable-xmltest \
                          --disable-link-static \
                          --enable-lfs")
 
