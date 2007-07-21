@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>comedi</Name>
+        <Homepage>http://www.comedi.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>driver</IsA>
+        <Summary>Comedi is a collection of drivers for a variety of common data acquisition plug-in boards.</Summary>
+        <Description>The drivers are implemented as a core Linux kernel module providing common functionality and individual low-level driver modules.</Description>
+        <Archive sha1sum="778d4d7492e7ca1c6fff09396e3dff046999b9d4" type="targz">http://www.comedi.org/download/comedi-0.7.73.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency release="86">kernel-source</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>comedi</Name>
+        <Files>
+            <Path fileType="library" permanent="true">/lib/modules</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-10</Date>
+            <Version>0.7.73</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
