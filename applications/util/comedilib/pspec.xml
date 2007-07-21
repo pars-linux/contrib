@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>comedilib</Name>
+        <Homepage>http://www.comedi.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>LGPL</License>
+        <IsA>app:console</IsA>
+        <Summary>Comedilib is the library for the Comedi data acquisition driver for Linux</Summary>
+        <Description>Comedilib allows Linux processes to acquire data from
+supported DAQ cards, such as those from National Instruments.</Description>
+        <Archive sha1sum="1a3adf80d7722a08c6c0a6c93a8b8ff9248c29ef" type="targz">http://www.comedi.org/download/comedilib-0.7.22.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">makefile_sandbox.patch</Patch>
+       </Patches>
+    </Source>
+
+    <Package>
+        <Name>comedilib</Name>
+        <RuntimeDependencies>
+            <Dependency>comedi</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/var</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-10</Date>
+            <Version>0.7.22</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
