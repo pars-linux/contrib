@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir= "fuseiso-20070708"
+
 def setup():
     autotools.configure("--enable-static=no")
 
