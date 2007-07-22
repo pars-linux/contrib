@@ -8,5 +8,7 @@ WorkDir="elementtree-1.2.6-20050316"
 
 def install():
     pythonmodules.install()
-    pisitools.dodoc("PKG-INFO", "CHANGES", "README")
+
+
     pisitools.dohtml("docs/")
+    pisitools.dodoc("CHANGES", "README")
