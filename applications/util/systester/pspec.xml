@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>systester</Name>
+        <Homepage>http://sourceforge.net/projects/systester/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>System Stability Tester is a RAM/CPU burning and benchmarking program.</Summary>
+        <Summary xml:lang="tr">Sistem Kararlılık Ölçer, RAM/İşlemci test ve ölçüm programıdır.</Summary>
+        <Description>System Stability Tester is a RAM/CPU burning and benchmarking program. It calculates the Pi using the Borwein algorithm with two or more threads.</Description>
+        <Description xml:lang="tr">Sistem Kararlılık Ölçer, RAM/İşlemci test ve ölçüm programıdır. Borwein algoritmasını kullanarak Pi sayısını hesaplar.</Description>
+        <Archive sha1sum="685a3117f11005ec5761b0ef5cb88286f18eae4a" type="tarbz2">mirrors://sourceforge/systester/systester-0.7.1-src.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>systester</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/systester.desktop">systester.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/systester.png">systester.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-19</Date>
+            <Version>0.7.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
