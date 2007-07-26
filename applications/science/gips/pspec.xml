@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gips</Name>
+        <Homepage>https://sourceforge.net/projects/isotopatcalc/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical program that calculates the isotopic distribution of a given chemical formula.</Summary>
+        <Summary xml:lang="tr">Kimyasal formüle göre izotop dağılımlarını hesaplayan grafiksel bir program.</Summary>
+        <Description>It calculates the isotopic distribution for a given chemical formula or peptide sequence. GIPS is a GUI Version of the Isotopic Pattern Calculator.</Description>
+        <Description xml:lang="tr">GIPS, Isotop Dağılım Hesaplayıcı programının GUI versiyoudur.</Description>
+        <Archive sha1sum="04a8f4a3523dcc4f86da449455cc2b6eaca0e332" type="targz">mirrors://sourceforge/isotopatcalc/gips-0.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gips</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gips.desktop">gips.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/gips.png">gips.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-26</Date>
+            <Version>0.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
