@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ipc</Name>
+        <Homepage>http://isotopatcalc.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GNU General Public License</License>
+        <IsA>app:console</IsA>
+        <Summary>Program that calculates the isotopic distribution of a given chemical formula.</Summary>
+        <Summary xml:lang="tr">Verilen kimyasal formüle göre izotop dağılımlarını hesaplayan bir konsol programı.</Summary>
+        <Archive sha1sum="33ff3737d368d4d4a73be819cce6235e72ebc0ce" type="targz">mirrors://sourceforge/isotopatcalc/ipc-1.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ipc</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-25</Date>
+            <Version>1.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
