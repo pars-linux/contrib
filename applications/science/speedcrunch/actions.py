@@ -6,7 +6,10 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import cmaketools
-from pisi.actionsapi import pisitools
+from pisi.actionsapi import autotools
+from pisi.actionsapi import get
+
+WorkDir="speedcrunch-0.8/src"
 
 def setup():
     cmaketools.configure()
@@ -15,8 +18,4 @@ def build():
     cmaketools.make()
 
 def install():
-    pisitools.dobin("speedcrunch")
-
-    # add translation files and png
-    pisitools.insinto("/usr/share/crunch","crunch_*.qm")
-    pisitools.insinto("/usr/share/pixmaps","crunch.png")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
