@@ -9,7 +9,7 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-WorkDir="speedcrunch-0.8/src"
+WorkDir="speedcrunch-%s/src" % get.srcVERSION()
 
 def setup():
     cmaketools.configure()
