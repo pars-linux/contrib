@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ostbox</Name>
+        <Homepage>http://perso.nnx.com/pludov/homepage/index-ostbox.html</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Full featured media center program. It's goal is to give you access to all kind of media (TV, EPG, music and photos collections, videos), using only a single remote.</Summary>
+        <Summary xml:lang="tr">Tam fonksiyonlu bir çoklu ortam merkezi olmayı hedefler.Hedefi bütün çokluortam türlerini sadece bir uzaktan kumanda ile kullanabilmenizi sağlamaktır.</Summary>
+        <Archive sha1sum="1d776734b76ea0f83794da0e26e1c088f1a66fe1" type="tarbz2">mirrors://sourceforge/ost-box/ostbox-0.3.7.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.1">sqlite</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>sdl-gfx</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+            <Dependency>xine-lib</Dependency>
+            <Dependency>lirc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ostbox</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.1">sqlite</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>sdl-gfx</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>sdl-ttf</Dependency>
+            <Dependency>xine-lib</Dependency>
+            <Dependency>lirc</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/ostbox.desktop">ostbox.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/ostbox.png">ostbox.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-17</Date>
+            <Version>0.3.7</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
