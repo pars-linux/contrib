@@ -11,11 +11,12 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --with-wx=/usr")
+                         --with-wx=/usr/wx/2.8")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.insinto("/usr/share/pixmaps", "pkg/debian/pgadmin3.xpm")
