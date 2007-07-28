@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>polyxmass</Name>
+        <Homepage>http://www.polyxmass.org</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Mass spectrometric software</Summary>
+        <Summary xml:lang="tr">Kütle spektrometri uygulaması</Summary>
+        <Description>A computer framework for mass spectrometry that was designed specifically for linear (bio-)polymers of any polymer chemistry (ie proteins, saccharides, nucleic acids...).</Description>
+        <Description xml:lang="tr">Özellikle protein, nükleik asitler gibi polimer ve bio-polimerlerin kütle spektrometri hesabı için tasarlanmış bir uygulamadır.</Description>
+        <Archive sha1sum="2a97f8182be22980f23256d1bd2f11c54c583f8d" type="targz">http://www.polyxmass.org/polyxmass-bin/downloads/0.9.7/polyxmass-bin-0.9.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>libglade2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>polyxmass</Name>
+        <RuntimeDependencies>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>libglade2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-27</Date>
+            <Version>0.9.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
+
