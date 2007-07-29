@@ -8,9 +8,8 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 from pisi.actionsapi import autotools
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import pisitools
 
-
-WorkDir="PyQwt-%s" % get.srcVERSION()
 
 def setup():
     shelltools.copytree("../PyQwt-%s" % get.srcVERSION(),"../PyQwt-%s-qt4" % get.srcVERSION())
@@ -33,7 +32,9 @@ def install():
     shelltools.cd("configure")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pythonmodules.fixCompiledPy()
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "../qt3examples")
 
     shelltools.cd("../../PyQwt-%s-qt4/configure" % get.srcVERSION())
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pythonmodules.fixCompiledPy()
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "../qt4examples")
