@@ -11,12 +11,11 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>a graphical frontend for recordMyDesktop</Summary>
-        <Archive sha1sum="138ec92c9bc8521b76526fd99b1416d1949e34d0" type="targz">mirrors://sourceforge/recordmydesktop/qt-recordmydesktop-0.2.tar.gz</Archive>
+        <Archive sha1sum="da25d71eed87cadf2e7415fd658198b3feb02f16" type="targz">mirrors://sourceforge/recordmydesktop/qt-recordmydesktop-0.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>PyQt4</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>turkish.patch</Patch>
             <Patch>PyQt4.patch</Patch>
         </Patches>
     </Source>
@@ -24,7 +23,7 @@
     <Package>
         <Name>qt-recordmydesktop</Name>
         <RuntimeDependencies>
-            <Dependency>recordmydesktop</Dependency>
+            <Dependency versionFrom="0.3.4">recordmydesktop</Dependency>
             <Dependency>PyQt4</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -38,6 +37,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-07-30</Date>
+            <Version>0.1</Version>
+            <Comment>Version downgrade, recordmydesktop version 0.3.5.X broken, segmentation errors, no apparent way to fix the problem</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-07-17</Date>
             <Version>0.2</Version>
