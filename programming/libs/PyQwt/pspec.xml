@@ -14,11 +14,8 @@
         <Archive sha1sum="6bcb9a2c4b3db905f3f233cc21d07bfae4f8e073"  type="targz">mirrors://sourceforge/pyqwt/PyQwt-5.0.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.3.0">qt4</Dependency>
-            <Dependency>qt</Dependency>
             <Dependency>sip</Dependency>
             <Dependency>PyQt4</Dependency>
-            <Dependency>PyQt</Dependency>
-            <Dependency>qwt</Dependency>
             <Dependency>qwt-qt4</Dependency>
             <Dependency>numpy</Dependency>
             <Dependency>numeric</Dependency>
@@ -28,23 +25,6 @@
 
     <Package>
         <Name>PyQwt</Name>
-        <RuntimeDependencies>
-            <Dependency>qt</Dependency>
-            <Dependency>sip</Dependency>
-            <Dependency>PyQt</Dependency>
-            <Dependency>qwt</Dependency>
-            <Dependency>numpy</Dependency>
-            <Dependency>numeric</Dependency>
-            <Dependency>numarray</Dependency>
-        </RuntimeDependencies>
-        <Files>
-            <Path fileType="library">/usr/lib/python2.4/site-packages/Qwt5</Path>
-            <Path fileType="data">/usr/share/sip/Qwt5</Path>
-        </Files>
-    </Package>
-
-    <Package>
-        <Name>PyQwt-qt4</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="4.3.0">qt4</Dependency>
             <Dependency>sip</Dependency>
@@ -57,12 +37,6 @@
         <Files>
             <Path fileType="library">/usr/lib/python2.4/site-packages/PyQt4/</Path>
             <Path fileType="data">/usr/share/sip/PyQt4</Path>
-        </Files>
-    </Package>
-
-    <Package>
-        <Name>PyQwt-doc</Name>
-        <Files>
             <Path fileType="data">/usr/share/doc/</Path>
         </Files>
     </Package>
@@ -71,7 +45,7 @@
         <Update release="3">
             <Date>2007-07-29</Date>
             <Version>5.0.1</Version>
-            <Comment>Version bump, add doc and examples</Comment>
+            <Comment>Version bump, add doc and examples,qt3 support disabled</Comment>
             <Name>Ertuğrul Erata</Name>
             <Email>ertugrulerata@gmail.com</Email>
         </Update>
