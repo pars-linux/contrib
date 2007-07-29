@@ -32,9 +32,14 @@ def install():
     shelltools.cd("configure")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pythonmodules.fixCompiledPy()
+
+    # add Doc and examples for PyQwt-doc pisi
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "../qt3examples")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "../Doc/html")
 
     shelltools.cd("../../PyQwt-%s-qt4/configure" % get.srcVERSION())
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pythonmodules.fixCompiledPy()
+    
+    # add examples for PyQwt-doc pisi
     pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "../qt4examples")
