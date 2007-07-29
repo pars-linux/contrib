@@ -10,21 +10,21 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import shelltools
 
 
-WorkDir="PyQwt-5.0.0"
+WorkDir="PyQwt-%s" % get.srcVERSION()
 
 def setup():
-    shelltools.copytree("../PyQwt-5.0.0","../PyQwt-5.0.0-qt4")
+    shelltools.copytree("../PyQwt-%s" % get.srcVERSION(),"../PyQwt-%s-qt4" % get.srcVERSION())
     shelltools.cd("configure")
     shelltools.system("python configure.py -3 -I /usr/qt/3/include/qwt/")
 
-    shelltools.cd("../../PyQwt-5.0.0-qt4/configure")
+    shelltools.cd("../../PyQwt-%s-qt4/configure" % get.srcVERSION())
     shelltools.system("python configure.py -I /usr/qt/4/include/qwt/")
 
 def build():
     shelltools.cd("configure")
     autotools.make()
 
-    shelltools.cd("../../PyQwt-5.0.0-qt4/configure")
+    shelltools.cd("../../PyQwt-%s-qt4/configure" % get.srcVERSION())
     autotools.make()
 
 
@@ -34,6 +34,6 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pythonmodules.fixCompiledPy()
 
-    shelltools.cd("../../PyQwt-5.0.0-qt4/configure")
+    shelltools.cd("../../PyQwt-%s-qt4/configure" % get.srcVERSION())
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pythonmodules.fixCompiledPy()
