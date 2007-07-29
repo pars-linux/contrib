@@ -11,5 +11,4 @@ from pisi.actionsapi import pisitools
 WorkDir="phpMyAdmin-%s-all-languages" % get.srcVERSION()
 
 def install():
-    pisitools.dodir("/var/www/localhost/htdocs/phpmyadmin")
     pisitools.insinto("/var/www/localhost/htdocs/phpmyadmin", "*")
