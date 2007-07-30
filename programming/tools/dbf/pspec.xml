@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dbf</Name>
+        <Homepage>http://developer.berlios.de/projects/dbf/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>An easy-to-use command line tool to show and convert the content of xBASE files.</Summary>
+        <Description>dbf is an easy-to-use command line tool to show and convert the content of xBASE files. It reads dBASE, FoxPro, Clipper files and prints the content to the screen or converts it to comma-separated (*.csv) or SQL stated files.</Description>
+        <Archive sha1sum="c880589504805f4bc34105a68657aef2e5de4475" type="zip">mirrors://berlios/dbf/dbf-core-0.9.0.src.zip</Archive>
+        <BuildDependencies>
+            <Dependency>libdbf</Dependency>
+            <Dependency>docbook-utils</Dependency>
+            <Dependency>docbook-sgml4_1</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>dbf</Name>
+        <RuntimeDependencies>
+            <Dependency>libdbf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-21</Date>
+            <Version>0.9.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
