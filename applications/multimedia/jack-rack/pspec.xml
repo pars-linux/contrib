@@ -12,13 +12,15 @@
         <IsA>app:gui</IsA>
         <Summary>JACK Rack is an effects "rack" for the JACK low latency audio API.</Summary>
         <Summary xml:lang="tr">JACK rack; JACK, düşük gecikme süreli ses API'si için efektlerdir</Summary>
-        <Archive sha1sum="d6754e486da88fd1421f7c7e598400608111b1b4" type="tarbz2">mirrors://sourceforge/jack-rack/jack-rack-1.4.5.tar.bz2</Archive>
+        <Archive sha1sum="9e37e6e348c7f797198e0dc75f65f79c6d9a7f1e" type="tarbz2">mirrors://sourceforge/jack-rack/jack-rack-1.4.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>jack-audio-connection-kit</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>ladspa-sdk</Dependency>
             <Dependency>libxml2</Dependency>
             <Dependency>raptor</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>liblrdf</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -30,6 +32,8 @@
             <Dependency>ladspa-sdk</Dependency>
             <Dependency>libxml2</Dependency>
             <Dependency>raptor</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>liblrdf</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -40,6 +44,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-07-30</Date>
+            <Version>1.4.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-02-25</Date>
             <Version>1.4.5</Version>

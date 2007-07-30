@@ -9,12 +9,13 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-desktop-inst --disable-gnome")
+    autotools.configure("--disable-desktop-inst \
+                         --disable-gnome")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s JR_DESKTOP_PREFIX=/usr/share" % get.installDIR())
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("BUGS", "ChangeLog", "AUTHORS", "THANKS", "TODO", "WISHLIST")
