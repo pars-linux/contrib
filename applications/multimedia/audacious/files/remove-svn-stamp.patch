@@ -1,0 +1,39 @@
+diff -Naur audacious-1.4.0_20070731.orig/src/audacious/main.c audacious-1.4.0_20070731/src/audacious/main.c
+--- audacious-1.4.0_20070731.orig/src/audacious/main.c	2007-07-31 21:31:36.000000000 +0300
++++ audacious-1.4.0_20070731/src/audacious/main.c	2007-07-31 22:13:29.000000000 +0300
+@@ -425,7 +425,7 @@
+ {
+     GSList *features;
+ 
+-    g_printf("%s %s [%s]", _(application_name), VERSION, svn_stamp);
++    g_printf("%s %s", _(application_name), VERSION);
+ 
+     features = get_feature_list();
+ 
+diff -Naur audacious-1.4.0_20070731.orig/src/audacious/signals.c audacious-1.4.0_20070731/src/audacious/signals.c
+--- audacious-1.4.0_20070731.orig/src/audacious/signals.c	2007-07-31 21:31:36.000000000 +0300
++++ audacious-1.4.0_20070731/src/audacious/signals.c	2007-07-31 22:13:58.000000000 +0300
+@@ -53,7 +53,7 @@
+          "Please include the entire text of this message and a description of what you were doing when\n"
+          "this crash occured in order to quickly expedite the handling of your bug report:\n\n"));
+ 
+-    g_printerr("Program version: Audacious %s (buildid: %s)\n\n", VERSION, svn_stamp);
++//     g_printerr("Program version: Audacious %s\n\n", VERSION);
+ 
+ #ifdef HAVE_EXECINFO_H
+     {
+diff -Naur audacious-1.4.0_20070731.orig/src/audacious/ui_preferences.c audacious-1.4.0_20070731/src/audacious/ui_preferences.c
+--- audacious-1.4.0_20070731.orig/src/audacious/ui_preferences.c	2007-07-31 21:31:36.000000000 +0300
++++ audacious-1.4.0_20070731/src/audacious/ui_preferences.c	2007-07-31 22:14:50.000000000 +0300
+@@ -2615,9 +2615,9 @@
+    /* audacious version label */
+    widget = glade_xml_get_widget(xml, "audversionlabel");
+ 
+-   aud_version_string = g_strdup_printf("<span size='small'>%s (%s) (%s@%s)</span>",
++   aud_version_string = g_strdup_printf("<span size='small'>%s (%s@%s)</span>",
+ 		    "Audacious " PACKAGE_VERSION ,
+-                    svn_stamp , g_get_user_name() , g_get_host_name() );
++                    g_get_user_name() , g_get_host_name() );
+ 
+    gtk_label_set_markup( GTK_LABEL(widget) , aud_version_string );
+    g_free(aud_version_string);
