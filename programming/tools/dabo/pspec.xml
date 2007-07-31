@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dabo</Name>
+        <Homepage>http://dabodev.com/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <Summary>3-tier desktop application runtime framework</Summary>
+        <Description>3-tier desktop application runtime framework</Description>
+        <Archive sha1sum="2991a0c1bb922f048e9d9c89fa29392ea2eb450e" type="targz">ftp://dabodev.com/dabo/dabo-0.8-mac-nix.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pysqlite</Dependency>
+            <Dependency versionFrom="0.6">setuptools</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>dabo</Name>
+        <RuntimeDependencies>
+            <Dependency>pysqlite</Dependency>
+            <Dependency>wxPython2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-10</Date>
+            <Version>0.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

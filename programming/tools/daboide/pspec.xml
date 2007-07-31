@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>daboide</Name>
+        <Homepage>http://dabodev.com/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>app:gui</IsA>
+        <Summary>Ide for dabo. That help you visualy design databases.</Summary>
+        <Description>This is a tool designed to help you visually design menubars and their menus.</Description>
+        <Archive sha1sum="1a256f2c8de2d7f71b459688d34df6f83c84f299" type="targz">ftp://dabodev.com/dabo/daboide-0.8-mac-nix.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>daboide</Name>
+        <RuntimeDependencies>
+            <Dependency>dabo</Dependency>
+            <Dependency>wxPython2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/daboide.desktop">daboide.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/daboide">daboide</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-10</Date>
+            <Version>0.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
