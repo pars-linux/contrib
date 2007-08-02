@@ -7,6 +7,9 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 
+def setup():
+    pisitools.dosed("pysozlukqt/online.py", "www", "www1")
+
 def install():
     pythonmodules.install()
 
