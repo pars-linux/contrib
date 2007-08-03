@@ -11,7 +11,7 @@ from pisi.actionsapi import pisitools
 
 def setup():
     kde.configure("--with-external-geoip \
-                   --with-external-tsocks")
+                   --with-conf=/etc/tor/tor-tsocks.conf")
 
 def build():
     kde.make()
@@ -24,3 +24,8 @@ def install():
 
     # for using tsocks add  needed programs
     pisitools.dobin("src/tsocks/torkify")
+
+    # remove unused library, configfile and man's
+    pisitools.remove("/usr/kde/3.5/lib/libtorksocks.*")
+    pisitools.remove("/usr/kde/3.5/local/etc/tork-tsocks.conf")
+    pisitools.removeDir("/usr/kde/3.5/man/")
