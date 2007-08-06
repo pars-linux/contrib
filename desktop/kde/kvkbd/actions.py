@@ -6,8 +6,10 @@
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
+    shelltools.system("sh autogen.sh")
     kde.configure()
 
 def build():
