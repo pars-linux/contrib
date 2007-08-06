@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>massxpert</Name>
+        <Homepage>http://www.massxpert.org</Homepage>
+        <Packager>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>(Bio)Chemistry Software</Summary>
+        <Summary xml:lang="tr">Biyokimya yazılımı</Summary>
+        <Description>The massXpert project aims to provide to (Bio)chemists that, user-specific atom definitions and polymer chemistry definitions.</Description>
+        <Description xml:lang="tr">massXpert, kullanıcıya özgün atom ve polimer kimya tanımlamaları yapabilen bir yazılımdır.</Description>
+        <Archive sha1sum="fb84de9aecb4396ddca80b20d36dd57251241b57" type="targz">http://www.massxpert.org/downloads/source/massxpert-1.6.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>prefix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>massxpert</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/massxpert.desktop">massxpert.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/massxpert.png">massxpert.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-04</Date>
+            <Version>1.6.4</Version>
+            <Comment>First release</Comment>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
