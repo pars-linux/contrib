@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ack</Name>
+        <Homepage>http://search.cpan.org/~petdance/ack/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Grep-like text finder</Summary>
+        <Summary xml:lang="tr">Grep komutu benzeri metin bulma uygulaması</Summary>
+        <Description>Ack is a grep-like tool tailored to working with large trees of sourcecode.</Description>
+        <Description xml:lang="tr">Ack, grep gibi çalışan ve kod üzerinde ağaç yapısı şeklinde de gösterim alabileceğiniz bir metin bulma uygulamasıdır.</Description>
+        <Archive sha1sum="fdb989d464f993323b0860144e5cbfb2b93e90ec" type="targz">http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/ack-1.64.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>File-Next</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ack</Name>
+        <RuntimeDependencies>
+            <Dependency>File-Next</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-05</Date>
+            <Version>1.64</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
