@@ -1,0 +1,61 @@
+diff -Naur K7Z-0.6-orig/Build/Makefile K7Z-0.6/Build/Makefile
+--- Makefile	2007-01-05 12:42:30.000000000 +0200
++++ Makefile	2007-08-07 12:38:39.000000000 +0300
+@@ -4,9 +4,11 @@
+ # Defines
+ 
+ ifndef KDEDIR
+-	KDEDIR = /usr/
++	KDEDIR = PISI_KDEDIR
+ endif
+ 
++DESTDIR = PISI_DESTDIR/$(KDEDIR)
++
+ ifndef USER
+ 	USER = $(LOGNAME)
+ endif
+@@ -56,29 +58,22 @@
+ 	@echo "Only root can run 'make install'.  Others should instead run: 'make install-user'"
+ 	@echo "Before using this unstable script, please thoroughly read the Installation section of the README."
+ 	@echo ""
+-	make uninstall
+-	make clean
+ 	make all
+-	mkdir -p $(KDEDIR)/share/apps/K7Z/
+-	cp -r ../Doc/ $(KDEDIR)/share/apps/K7Z/
+-	cp -r ../Desktop/ $(KDEDIR)/share/apps/K7Z/
+-	cp -r ../Source/ $(KDEDIR)/share/apps/K7Z/
+-	chmod 777 $(KDEDIR)/share/apps/K7Z/Source/
+-	chmod 775 $(KDEDIR)/share/apps/K7Z/Source/K7Z.pyw
+-	mkdir -p $(KDEDIR)/bin/
+-	ln -fs $(KDEDIR)/share/apps/K7Z/Source/K7Z.pyw $(KDEDIR)/bin/K7Z.pyw
+-	mkdir -p $(KDEDIR)/share/apps/konqueror/servicemenus/
+-	cp -u ../Desktop/Context/Live/* $(KDEDIR)/share/apps/konqueror/servicemenus/
+-	rm -f ~$(USER)/.kde/share/apps/konqueror/servicemenus/K7Z*
+-	mkdir -p $(KDEDIR)/share/applnk/Utilities/File/
+-	cp ../Desktop/KMenu/* $(KDEDIR)/share/applnk/Utilities/File/
+-	mkdir -p $(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	ln -fs $(KDEDIR)/share/apps/K7Z/Source/Images/actions/ark* $(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	mkdir -p $(KDEDIR)/share/icons/hicolor/32x32/apps/
+-	ln -fs $(KDEDIR)/share/apps/K7Z/Source/Images/apps/K7Z* $(KDEDIR)/share/icons/hicolor/32x32/apps/
+-	@echo ""
+-	@echo "Finished.  To run K7Z, enter: K7Z.pyw &"
+-	@echo ""
++	mkdir -p $(DESTDIR)/share/apps/K7Z/
++	cp -r ../Doc/ $(DESTDIR)/share/apps/K7Z/
++	cp -r ../Desktop/ $(DESTDIR)/share/apps/K7Z/
++	cp -r ../Source/ $(DESTDIR)/share/apps/K7Z/
++	chmod 777 $(DESTDIR)/share/apps/K7Z/Source/
++	chmod 775 $(DESTDIR)/share/apps/K7Z/Source/K7Z.pyw
++	mkdir -p $(DESTDIR)/bin/
++	ln -s $(KDEDIR)/share/apps/K7Z/Source/K7Z.pyw $(DESTDIR)/bin/K7Z.pyw
++	mkdir -p $(DESTDIR)/share/apps/konqueror/servicemenus/
++	mkdir -p $(DESTDIR)/share/applnk/Utilities/File/
++	cp ../Desktop/KMenu/* $(DESTDIR)/share/applnk/Utilities/File/
++	mkdir -p $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	ln -s $(KDEDIR)/share/apps/K7Z/Source/Images/actions/ark* $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	mkdir -p $(DESTDIR)/share/icons/hicolor/32x32/apps/
++	ln -s $(KDEDIR)/share/apps/K7Z/Source/Images/apps/K7Z* $(DESTDIR)/share/icons/hicolor/32x32/apps/
+ 
+ Install.CurrentUser :
+ 	@echo ""
