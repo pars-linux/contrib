@@ -11,7 +11,8 @@ from pisi.actionsapi import pisitools
 WorkDir = "%s/Build" % get.srcDIR()
 
 def setup():
-    pisitools.dosed("Makefile", "KDEDIR = /usr/", "KDEDIR = %s" % get.installDIR() + get.kdeDIR())
+    pisitools.dosed("Makefile", "PISI_KDEDIR", get.kdeDIR())
+    pisitools.dosed("Makefile", "PISI_DESTDIR", get.installDIR())
 
 def build():
     autotools.make("all")
