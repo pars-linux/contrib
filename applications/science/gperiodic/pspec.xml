@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gperiodic</Name>
+        <Homepage>http://www.frantz.fi/software/gperiodic.php</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A(nother) periodic table application</Summary>
+        <Summary xml:lang="tr">Ayrıntılı periyodik tablo programı</Summary>
+        <Description>GPeriodic is a program for looking up data of elements from the periodic table. This program also features a non-graphical interface.</Description>
+        <Description xml:lang="tr">GPeriodic, periyodik tablodan elementlerin verilerini ve detaylı özelliklerini incelemenizi sağlayan bir uygulamadır. Grafiksel olmayan arayüzü de vardır. 118 element listelenmektedir.</Description>
+        <Archive sha1sum="ce7a4d5271aaf283afa0c8299b2ee9b04da257fe" type="targz">http://www.frantz.fi/software/gperiodic-2.0.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktoptr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gperiodic</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-25</Date>
+            <Version>2.0.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
