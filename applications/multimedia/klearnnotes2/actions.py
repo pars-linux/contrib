@@ -6,11 +6,14 @@
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
     kde.configure()
 
 def build():
+    shelltools.system("lrelease po/klearnnotes2_tr_TR.ts")
+
     kde.make()
 
 def install():
