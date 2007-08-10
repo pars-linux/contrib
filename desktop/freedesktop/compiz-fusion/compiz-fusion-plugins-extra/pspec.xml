@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compiz-fusion-plugins-extra</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Plugins extra for Compiz Fusion</Summary>
+        <Description>Collection of extra fusion plugins for Compiz Fusion.</Description>
+        <Archive sha1sum="0e8e8a3aaa9a7b6669edcf7f3f3082b39ca2f712" type="tarbz2">http://kpelit.org/ds/compiz/plugins-extra-0.0_20070810.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>compiz-fusion-plugins-main</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">pe_no_gconf.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>compiz-fusion-plugins-extra</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-fusion-plugins-main</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-29</Date>
+            <Version>0.0.1_20070810</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

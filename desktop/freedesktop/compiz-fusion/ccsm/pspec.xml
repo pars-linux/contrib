@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ccsm</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Contains a gui configuration tool</Summary>
+        <Summary xml:lang="tr">Yapılandırma araçları arayüzü</Summary>
+        <Description>Contains a gui configuration tool to configure Compiz plugins and the composite window manager.</Description>
+        <Description xml:lang="tr">Compiz eklentileri ve birleşik pencere yönetimini sağlayan arayüz ve yapılandırma araçlarını içerir.</Description>
+        <Archive sha1sum="32a09f1e326f7ea8f9b2d433269555dfc7525133" type="tarbz2">http://kpelit.org/ds/compiz/ccsm-0.0_20070810.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>compizconfig-python</Dependency>
+            <Dependency>sexy-python</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ccsm</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>compizconfig-python</Dependency>
+            <Dependency>sexy-python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-28</Date>
+            <Version>0.1.0_20070810</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compiz-fusion</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL</License>
+        <License>MIT</License>
+        <IsA>app:gui</IsA>
+        <Summary>3D composite and window manager</Summary>
+        <Summary xml:lang="tr">Uç boyutlu birleşik pencere yönetici</Summary>
+        <Description>The Compiz Fusion Project brings 3D desktop visual effects that improve usability of the X Window System and provide increased productivit though plugins and themes contributed by the community giving a rich desktop experience.</Description>
+        <Description xml:lang="tr">Compiz Fusion, X pencere sistemini kullanışlı hale getiren üç boyutlu masaüstü görünüm efektleri kazandırır. Ayrıca zengin masaüstü deneyimi bulunan katkıcıların sağladığı eklentiler ve temalar sayesinde geliştirilmiş verimlilik sunar.</Description>
+        <Archive sha1sum="0a9ab9c016215f56cc0e9fe493ce1098e2ba3393" type="tarbz2">http://kpelit.org/ds/compiz/compiz-0.0_20070810.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>compiz-manager</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">no_gconf.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>compiz-fusion</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-manager</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/kde</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/kde/3.5/etc/xdg/menus/applications-merged/compiz.menu">directory/compiz.menu</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/kde/3.5/share/desktop-directories/compiz.directory">directory/compiz.directory</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/compiz.desktop">desktop/compiz.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/compizfusion.png">icons/compizfusion.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-28</Date>
+            <Version>0.5.2_20070810</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
