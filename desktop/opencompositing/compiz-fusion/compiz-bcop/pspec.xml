@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compiz-bcop</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Compiz option code generator</Summary>
+        <Summary xml:lang="tr">Compiz için otomatik bir kod üreteci</Summary>
+        <Description>Bcop is a tool to autogenerate code for working with options in compiz plugins</Description>
+        <Description xml:lang="tr">Bcop, compiz eklentileri ile birlikte çalışan yapılandırmalar için otomatik bir kod üretecidir.</Description>
+        <Archive sha1sum="328a125ec07cddc48487b84c7debba20fee2f945" type="tarbz2">http://kpelit.org/ds/compiz/bcop-0.0_20070810.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxslt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>compiz-bcop</Name>
+        <RuntimeDependencies>
+            <Dependency>libxslt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-28</Date>
+            <Version>0.1.4_20070810</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
