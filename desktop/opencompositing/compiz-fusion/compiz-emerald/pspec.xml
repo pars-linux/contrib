@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compiz-emerald</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Window decorator of Compiz Fusion</Summary>
+        <Summary xml:lang="tr">Compiz Fusion için pencere dekoratörü</Summary>
+        <Description>It comes with a themes editor called emerald-theme-manager and the decorator. You need compiz to use emerald.</Description>
+        <Description xml:lang="tr">Emerald-theme-manager adında bir tema editörü ve dekor aracı ile birlikte gelir. Emerald'ı kullanmak için Compiz'e ihtiyacınız vardır.</Description>
+        <Archive sha1sum="bfae47b03e2e32a1bf37b5438368fb39938aff8c" type="tarbz2">http://kpelit.org/ds/compiz/emerald-0.0_20070810.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>compiz-fusion</Dependency>
+            <Dependency>libwnck</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>compiz-emerald</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-fusion</Dependency>
+            <Dependency>libwnck</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-28</Date>
+            <Version>0.3.0_20070810</Version>
+            <Comment>First release.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

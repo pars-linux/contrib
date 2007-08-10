@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compiz-fusion-icon</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Program that manages the compiz fusion on system tray.</Summary>
+        <Description>This program manages the compiz fusion on system tray, right click to view available options.</Description>
+        <Archive sha1sum="3da20faca6de7844b5adcf8b376f71c8f1e1e522" type="tarbz2">http://kpelit.org/ds/compiz/fusion-icon-0.0_20070810.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>compiz-fusion</Dependency>
+            <Dependency>compizconfig-python</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>compiz-fusion-icon</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-fusion</Dependency>
+            <Dependency>compizconfig-python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-29</Date>
+            <Version>0.0.1_20070810</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
