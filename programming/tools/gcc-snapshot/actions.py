@@ -42,8 +42,8 @@ def setup():
 
 def build():
     # gcc doesn't like mcpu flag while bootstrapping itself
-    shelltools.export("CFLAGS", "-march=i686 -O2 -pipe -fomit-frame-pointer -U_FORTIFY_SOURCE")
-    shelltools.export("CXXFLAGS", "-march=i686 -O2 -pipe -fomit-frame-pointer -U_FORTIFY_SOURCE")
+    shelltools.export("CFLAGS", "-march=i686 -ftree-vectorize -O2 -pipe -fomit-frame-pointer -U_FORTIFY_SOURCE")
+    shelltools.export("CXXFLAGS", "-march=i686 -ftree-vectorize -O2 -pipe -fomit-frame-pointer -U_FORTIFY_SOURCE")
 
     shelltools.cd("build")
     autotools.make('LDFLAGS="%s" BOOT_CFLAGS="%s" profiledbootstrap' % (get.LDFLAGS(), get.CFLAGS()))
