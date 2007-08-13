@@ -23,7 +23,7 @@ def install():
 
     # install headers
     pisitools.insinto("/usr/include/bsutilities", "*.h")
-    pisitools.insinto("/usr/include/bsutilities/tinyxml", "tinyxml/*")
+    pisitools.insinto("/usr/include/bsutilities", "tinyxml")
 
     # install docs
     pisitools.dohtml("documentation/html")
