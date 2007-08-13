@@ -19,7 +19,11 @@ def build():
     autotools.make("doc")
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    # install headers
+    pisitools.insinto("/usr/include/bsutilities", "*.h")
+
+    # install docs
     pisitools.dohtml("documentation/html")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
