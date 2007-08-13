@@ -17,7 +17,7 @@
         <Archive sha1sum="26dbc59a726b102729f32b775a46284b047aa99d" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/firestarter/firestarter-1.0.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency>libgnome</Dependency>
+            <Dependency releaseFrom="3">libgnome</Dependency>
             <Dependency>libgnomeui</Dependency>
             <Dependency>iptables</Dependency>
             <Dependency>gnome-vfs</Dependency>
@@ -29,7 +29,7 @@
         <Name>firestarter</Name>
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency>libgnome</Dependency>
+            <Dependency releaseFrom="3">libgnome</Dependency>
             <Dependency>libgnomeui</Dependency>
             <Dependency>iptables</Dependency>
             <Dependency>gnome-vfs</Dependency>
@@ -49,6 +49,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-08-13</Date>
+            <Version>1.0.3</Version>
+            <Comment>Depend on a new libgnome for proper installing of gconf schemas, fix critiacal bug #5685</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-05-28</Date>
             <Version>1.0.3</Version>
