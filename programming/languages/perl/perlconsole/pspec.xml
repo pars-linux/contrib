@@ -11,14 +11,22 @@
         <License>GPL-2</License>
         <IsA>app:console</IsA>
         <Summary>Console based perl compiler</Summary>
-        <Summary xml:lang="tr">Konsol tabanlı Perl derleyicisi</Summary>
+        <Summary xml:lang="tr">Konsol tabanlı Perl yorumlayıcısı</Summary>
         <Description>Perl Console is a small program that lets you evaluate Perl code interactively.</Description>
         <Description xml:lang="tr">Perl Console, etkileşimli olarak perl kodunu derlemenizi saplayan bir uygulamadır.</Description>
-        <Archive sha1sum="930a969449671a4c389933bf0ace16f4b68cfb2b" type="targz">http://www.sukria.net/perlconsole-0.1.tar.gz</Archive>
+        <Archive sha1sum="36dd983755b7aec951d0c598498bc1d242a8acb0" type="targz">http://www.sukria.net/perlconsole-0.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>YAML</Dependency>
+            <Dependency>Data-Dumper</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>perlconsole</Name>
+        <RuntimeDependencies>
+            <Dependency>YAML</Dependency>
+            <Dependency>Data-Dumper</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -26,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-08-14</Date>
+            <Version>0.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-08-11</Date>
             <Version>0.1</Version>
@@ -35,3 +50,4 @@
         </Update>
     </History>
 </PISI>
+
