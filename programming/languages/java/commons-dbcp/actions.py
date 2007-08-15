@@ -7,6 +7,9 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
+
+WorkDir="commons-dbcp-%s-src" % get.srcVERSION()
 
 def setup():
     pisitools.echo("build.properties","commons-collections.jar=/usr/share/java/commons-collections.jar")
@@ -17,4 +20,7 @@ def install():
     pisitools.insinto("/usr/share/java","dist/*.jar","commons-dbcp.jar")
 
     pisitools.dodoc("README.txt")
+    pisitools.dodoc("LICENSE.txt")
+    pisitools.dodoc("NOTICE.txt")
+    pisitools.dodoc("RELEASE-NOTES.txt")
 
