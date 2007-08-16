@@ -1,0 +1,33 @@
+diff -Nuar itcl3.3.orig/configure itcl3.3/configure
+--- itcl3.3.orig/configure	2005-03-25 21:37:41.000000000 +0200
++++ itcl3.3/configure	2007-08-05 12:56:42.000000000 +0300
+@@ -6492,7 +6492,7 @@
+ 	    # results, and the version is kept in special file).
+ 
+ 	    if test -r /etc/.relid -a "X`uname -n`" = "X`uname -s`" ; then
+-		system=MP-RAS-`awk '{print }' /etc/.relid'`
++		system=MP-RAS-`awk '{print }' /etc/.relid`
+ 	    fi
+ 	    if test "`uname -s`" = "AIX" ; then
+ 		system=AIX-`uname -v`.`uname -r`
+diff -Nuar itcl3.3.orig/tclconfig/tcl.m4 itcl3.3/tclconfig/tcl.m4
+--- itcl3.3.orig/tclconfig/tcl.m4	2005-04-05 21:06:57.000000000 +0300
++++ itcl3.3/tclconfig/tcl.m4	2007-08-05 12:56:43.000000000 +0300
+@@ -794,7 +794,7 @@
+ 	    # results, and the version is kept in special file).
+ 	
+ 	    if test -r /etc/.relid -a "X`uname -n`" = "X`uname -s`" ; then
+-		system=MP-RAS-`awk '{print $3}' /etc/.relid'`
++		system=MP-RAS-`awk '{print $3}' /etc/.relid`
+ 	    fi
+ 	    if test "`uname -s`" = "AIX" ; then
+ 		system=AIX-`uname -v`.`uname -r`
+@@ -2208,7 +2208,7 @@
+ 	    # results, and the version is kept in special file).
+ 	
+ 	    if test -r /etc/.relid -a "X`uname -n`" = "X`uname -s`" ; then
+-		system=MP-RAS-`awk '{print $3}' /etc/.relid'`
++		system=MP-RAS-`awk '{print $3}' /etc/.relid`
+ 	    fi
+ 	    if test "`uname -s`" = "AIX" ; then
+ 		system=AIX-`uname -v`.`uname -r`
