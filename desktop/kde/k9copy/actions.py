@@ -9,17 +9,17 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    kde.make("-f admin/Makefile.common")
     kde.configure()
 
 def build():
-    kde.make("-f admin/Makefile.common")
+    kde.make()
 
 def install():
     kde.install()
 
     pisitools.domo("po/tr.po" , "tr", "k9copy.mo")
     pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/k9copy.mo", "%s/share/locale/tr/LC_MESSAGES" % get.kdeDIR())
+    pisitools.removeDir("/usr/share/locale")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
-
-    pisitools.removeDir("/usr/share/locale")
