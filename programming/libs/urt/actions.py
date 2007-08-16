@@ -25,3 +25,6 @@ def install():
 
     pisitools.insinto("/usr/share/man","man/man*")
     pisitools.dodoc("*-changes","CHANGES*","README","blurb")
+
+    # remove conflict man file
+    pisitools.remove("/usr/share/man/man1/template.1")
