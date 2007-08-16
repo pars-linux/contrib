@@ -8,13 +8,11 @@ from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "k9copy-1.1.1-3"
-
 def setup():
     kde.configure()
 
 def build():
-    kde.make()
+    kde.make("-f admin/Makefile.common")
 
 def install():
     kde.install()
