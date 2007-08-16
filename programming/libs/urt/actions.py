@@ -26,5 +26,5 @@ def install():
     pisitools.insinto("/usr/share/man","man/man*")
     pisitools.dodoc("*-changes","CHANGES*","README","blurb")
 
-    # remove conflicting manpage
-    pisitools.remove("/usr/share/man/man1/template.1")
+    # Rename conflicting manpage
+    pisitools.rename("/usr/share/man/man1/template.1","urt-template.1")
