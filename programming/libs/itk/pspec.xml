@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>itk</Name>
+        <Homepage>http://incrtcl.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Object Oriented Enhancements for Tcl/Tk</Summary>
+        <Archive sha1sum="313fc2ddbe3f5b213372bc7ef870d644f38a95af" type="targz">mirrors://sourceforge/incrtcl/itk3.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>tcltk</Dependency>
+            <Dependency>itcl</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">itk_relid.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>itk</Name>
+        <RuntimeDependencies>
+            <Dependency>tcltk</Dependency>
+            <Dependency>itcl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>3.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
