@@ -33,8 +33,7 @@ def setup():
                          --with-sdl \
                          --with-pic \
                          --enable-optimized \
-                         --disable-debug \
-                         --prefix=/usr/brlcad/")
+                         --disable-debug")
 
 def build():
     autotools.make()
