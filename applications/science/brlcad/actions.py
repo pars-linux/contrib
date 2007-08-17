@@ -15,7 +15,8 @@ def setup():
     shelltools.system("sh autogen.sh")
     shelltools.export("LIBS","-lz -lrle")
 
-    autotools.configure("--enable-jove-build=no \
+    autotools.configure("--prefix=/usr/brlcad \
+                         --enable-jove-build=no \
                          --enable-termlib-build=no \
                          --enable-regexp-build=no \
                          --enable-png-build=no \
@@ -34,7 +35,6 @@ def setup():
                          --with-pic \
                          --with-x \
                          --enable-optimized \
-                         --prefix=/usr/brlcad \
                          --disable-debug")
 
 def build():
