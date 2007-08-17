@@ -32,7 +32,9 @@ def setup():
                          --with-python \
                          --with-sdl \
                          --with-pic \
+                         --with-x \
                          --enable-optimized \
+                         --prefix=/usr/brlcad \
                          --disable-debug")
 
 def build():
