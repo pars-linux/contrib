@@ -11,24 +11,15 @@ from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import libtools
 
-Workdir="brlcad"
+WorkDir="brlcad"
 
 def setup():
-    autotools.autoreconf("-fi")
+    shelltools.system("sh autogen.sh")
     shelltools.export("LIBS","-lz -lrle")
 
     autotools.configure("--prefix=/usr/brlcad \
-                         --enable-jove-build=no \
-                         --enable-termlib-build=no \
-                         --enable-regexp-build=no \
-                         --enable-png-build=no \
-                         --enable-zlib-build=no \
-                         --enable-tcl-build=no \
-                         --enable-tk-build=no \
-                         --enable-itcl-build=no \
-                         --enable-itk-build=no \
+                         --disable-almost-everything \
                          --enable-iwidgets-build=yes \
-                         --enable-urt-build=no \
                          --with-java=/opt/sun-jdk \
                          --disable-static \
                          --without-wgl \
