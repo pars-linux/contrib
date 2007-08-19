@@ -12,8 +12,8 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import libtools
 
 def setup():
-    shelltools.system("sh autogen.sh")
-    shelltools.export("LIBS","-lz -lrle")
+    autotools.autoreconf("-fi")
+    shelltools.export("LIBS","-lz -lrle -ltk8.5 -ltcl8.5")
 
     autotools.configure("--prefix=/usr/brlcad \
                          --enable-jove-build=no \
