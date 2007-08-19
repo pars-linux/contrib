@@ -11,9 +11,11 @@ from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import libtools
 
+Workdir="brlcad"
+
 def setup():
     autotools.autoreconf("-fi")
-    shelltools.export("LIBS","-lz -lrle -ltk8.5 -ltcl8.5")
+    shelltools.export("LIBS","-lz -lrle")
 
     autotools.configure("--prefix=/usr/brlcad \
                          --enable-jove-build=no \
