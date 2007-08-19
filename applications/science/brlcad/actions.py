@@ -19,6 +19,7 @@ def setup():
     autotools.configure("--prefix=/usr/brlcad \
                          --disable-almost-everything \
                          --enable-iwidgets-build=yes \
+                         --enable-tnt-build=yes \
                          --with-java=/opt/sun-jdk \
                          --disable-static \
                          --without-wgl \
