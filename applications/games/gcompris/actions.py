@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--disable-sdltest \
                          --disable-glibtest \
-                         --disable-xf86vidmode \
+                         --enable-xf86vidmode \
                          --enable-sqlite \
                          --disable-cairo \
                          --with-python=/usr/bin/python \
