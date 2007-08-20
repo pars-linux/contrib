@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import kde
+from pisi.actionsapi import get
 
-WorkDir = "krusader-1.80.0-beta2"
+WorkDir = "krusader-%s" % get.srcVERSION()
 
 def setup():
     kde.configure()
