@@ -10,10 +10,10 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.automake()
     autotools.configure("--enable-static=no \
                          --enable-hqsinc \
                          --without-sampe-decoders \
+                         --without-vst \
                          --with-x \
                          --with-qtdir=%s" % get.qtDIR())
 
