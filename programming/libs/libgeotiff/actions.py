@@ -28,4 +28,3 @@ def install():
     pisitools.dodoc("ChangeLog", "Doxyfile", "HOWTO-RELEASE", "LICENSE", "README*", "docs/manual.txt")
     pisitools.dohtml("docs/*")
     pisitools.remove("/usr/share/doc/%s/README.WIN" % get.srcTAG())
-
