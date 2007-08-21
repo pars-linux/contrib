@@ -1,6 +1,6 @@
-diff -Naur compiz.orig/configure.ac compiz/configure.ac
---- compiz.orig/configure.ac	2007-08-08 01:22:38.000000000 +0300
-+++ compiz/configure.ac	2007-08-09 21:20:01.000000000 +0300
+diff -Naur compiz-0.5.4.orig/configure.ac compiz-0.5.4/configure.ac
+--- compiz-0.5.4.orig/configure.ac	2007-08-20 19:14:10.000000000 +0300
++++ compiz-0.5.4/configure.ac	2007-08-21 20:59:28.000000000 +0300
 @@ -176,26 +176,6 @@
    AC_DEFINE(USE_GLIB, 1, [Build glib plugin])
  fi
@@ -28,9 +28,9 @@ diff -Naur compiz.orig/configure.ac compiz/configure.ac
  stylesheetdir=$datadir/compiz
  AC_SUBST(stylesheetdir)
  
-diff -Naur compiz.orig/gtk/window-decorator/Makefile.am compiz/gtk/window-decorator/Makefile.am
---- compiz.orig/gtk/window-decorator/Makefile.am	2007-07-29 03:44:59.000000000 +0300
-+++ compiz/gtk/window-decorator/Makefile.am	2007-08-09 21:21:51.000000000 +0300
+diff -Naur compiz-0.5.4.orig/gtk/window-decorator/Makefile.am compiz-0.5.4/gtk/window-decorator/Makefile.am
+--- compiz-0.5.4.orig/gtk/window-decorator/Makefile.am	2007-05-11 20:01:09.000000000 +0300
++++ compiz-0.5.4/gtk/window-decorator/Makefile.am	2007-08-21 21:01:21.000000000 +0300
 @@ -9,7 +9,6 @@
  gtk_window_decorator_LDADD	  =		       \
  	$(top_builddir)/libdecoration/libdecoration.la \
@@ -62,9 +62,9 @@ diff -Naur compiz.orig/gtk/window-decorator/Makefile.am compiz/gtk/window-decora
  
  bin_PROGRAMS = $(gtk_window_decorator_program)
  
-diff -Naur compiz.orig/Makefile.am compiz/Makefile.am
---- compiz.orig/Makefile.am	2007-08-05 03:09:48.000000000 +0300
-+++ compiz/Makefile.am	2007-08-09 21:17:56.000000000 +0300
+diff -Naur compiz-0.5.4.orig/Makefile.am compiz-0.5.4/Makefile.am
+--- compiz-0.5.4.orig/Makefile.am	2007-08-15 07:54:27.000000000 +0300
++++ compiz-0.5.4/Makefile.am	2007-08-21 21:02:02.000000000 +0300
 @@ -23,10 +23,6 @@
  	po/stamp-it	 \
  	po/.intltool-merge-cache
@@ -73,13 +73,13 @@ diff -Naur compiz.orig/Makefile.am compiz/Makefile.am
 -gconfdata = compiz-gconf.pc
 -endif
 -
- pkgconfigdir = $(libdir)/pkgconfig
- pkgconfig_DATA = compiz.pc compiz-cube.pc compiz-scale.pc $(gconfdata)
- 
-diff -Naur compiz.orig/metadata/Makefile.am compiz/metadata/Makefile.am
---- compiz.orig/metadata/Makefile.am	2007-07-29 03:44:59.000000000 +0300
-+++ compiz/metadata/Makefile.am	2007-08-09 21:22:29.000000000 +0300
-@@ -34,26 +34,6 @@
+ if USE_KCONFIG
+ kconfigdata = compiz-kconfig.pc
+ endif
+diff -Naur compiz-0.5.4.orig/metadata/Makefile.am compiz-0.5.4/metadata/Makefile.am
+--- compiz-0.5.4.orig/metadata/Makefile.am	2007-08-20 19:48:36.000000000 +0300
++++ compiz-0.5.4/metadata/Makefile.am	2007-08-21 21:03:27.000000000 +0300
+@@ -35,18 +35,6 @@
  
  @INTLTOOL_XML_RULE@
  
@@ -91,24 +91,31 @@ diff -Naur compiz.orig/metadata/Makefile.am compiz/metadata/Makefile.am
 -%.schemas: $(xml_files)
 -	xsltproc -o $@ $(srcdir)/schemas.xslt $(subst compiz-,,$*).xml;
 -
--xsltdir    = $(stylesheetdir)
--xslt_files = schemas.xslt
--xslt_DATA  = $(xslt_files)
+-schemas_stylesheets = schemas.xslt
 -
--if GCONF_SCHEMAS_INSTALL
+-endif
+-
+ if USE_KCONFIG
+ kde_kcfgdir    = $(DESTDIR)$(KDE_KCFG_DIR)
+ kde_kcfg_files = $(patsubst %.xml.in,compiz-%.kcfg,$(xml_in_files))
+@@ -71,14 +59,6 @@
+ 	$(kde_kcfg_files) \
+ 	$(kde_config_files)
+ 
 -install-data-local:
+-if USE_GCONF
+-if GCONF_SCHEMAS_INSTALL
 -	if test -z "$(DESTDIR)" ; then \
 -		GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(schema_DATA); \
 -        fi
 -endif
 -endif
--
- EXTRA_DIST =		\
- 	$(xml_files)    \
- 	$(xml_in_files) \
-diff -Naur compiz.orig/plugins/Makefile.am compiz/plugins/Makefile.am
---- compiz.orig/plugins/Makefile.am	2007-07-29 03:44:59.000000000 +0300
-+++ compiz/plugins/Makefile.am	2007-08-09 21:23:30.000000000 +0300
+ if USE_KCONFIG
+ 	if mkdir -p $(kde_kcfgdir) && test -w $(kde_kcfgdir); then ( \
+ 		$(INSTALL) -m 644 $(kde_kcfg_files) $(kde_kcfgdir) \
+diff -Naur compiz-0.5.4.orig/plugins/Makefile.am compiz-0.5.4/plugins/Makefile.am
+--- compiz-0.5.4.orig/plugins/Makefile.am	2007-08-13 19:11:16.000000000 +0300
++++ compiz-0.5.4/plugins/Makefile.am	2007-08-21 21:04:08.000000000 +0300
 @@ -89,13 +89,6 @@
  libglib_module = libglib.la
  endif
@@ -120,14 +127,14 @@ diff -Naur compiz.orig/plugins/Makefile.am compiz/plugins/Makefile.am
 -libgconf_module = libgconf.la
 -endif
 -
- if PLACE_PLUGIN
- libplace_la_LDFLAGS = -module -avoid-version -no-undefined
- libplace_la_LIBADD = @PLACE_LIBS@
-@@ -128,7 +121,6 @@
+ if USE_KCONFIG
+ libkconfig_la_LDFLAGS = -module -avoid-version -no-undefined
+ libkconfig_la_LIBADD = @KCONFIG_LIBS@
+@@ -135,7 +128,6 @@
  	@LIBPNG_CFLAGS@				\
  	@LIBRSVG_CFLAGS@			\
  	@ANNOTATE_CFLAGS@			\
 -	@GCONF_CFLAGS@				\
+ 	@KCONFIG_CFLAGS@			\
  	@PLACE_CFLAGS@				\
  	@DBUS_CFLAGS@				\
- 	@FUSE_CFLAGS@				\
