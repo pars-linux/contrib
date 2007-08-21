@@ -10,6 +10,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
 def setup():
+    shelltools.export("LDFLAGS", "")
     autotools.configure("--with-zip \
                          --with-jpeg \
                          --with-libtiff \
@@ -17,7 +18,6 @@ def setup():
                          --disable-static")
 
 def build():
-    shelltools.export("LDFLAGS", "")
     autotools.make()
 
 def install():
