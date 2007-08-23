@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rinetd</Name>
+        <Homepage>http://www.boutell.com/rinetd</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>TCP redirector tool</Summary>
+        <Summary xml:lang="tr">TCP yönlendirme aracı</Summary>
+        <Description>Redirects TCP connections from one IP address and port to another. rinetd is a single-process server which handles any number of connections to the address/port pairs specified in the file /etc/rinetd.conf.</Description>
+        <Description xml:lang="tr">IP adresi ya da portlar arası bağlantıları yönlendirmeye yarayan bir uygulamadır. /etc/rinetd.conf dosyasındaki yapılandırmalara göre adres/port yönlendirmesini uygular.</Description>
+        <Archive sha1sum="2498fa03c2ef50bf924ffd0a034d5de5e3258f21" type="targz">http://www.boutell.com/rinetd/http/rinetd.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>rinetd</Name>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/rinetd.conf" permission="0644" owner="root">rinetd.conf</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-15</Date>
+            <Version>0.62</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
