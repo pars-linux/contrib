@@ -15,6 +15,7 @@ def setup():
                          --enable-telepathy=no \
                          --enable-aspell=no \
                          --disable-scrollkeeper \
+                         --disable-schemas-install \
                          --with-x \
                          --with-backend=gnome")
 
@@ -25,4 +26,6 @@ def install():
     autotools.install()
 
     pisitools.dodoc("README", "AUTHORS", "ChangeLog", "NEWS", "CONTRIBUTORS")
+
+    # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
