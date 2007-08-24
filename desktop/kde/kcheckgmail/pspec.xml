@@ -14,10 +14,13 @@
         <Summary xml:lang="tr">KDE için GMail kontrolcüsü</Summary>
         <Description>KCheckGmail is a system tray application to notify you about how many email messages you have in your Gmail account.</Description>
         <Description xml:lang="tr">KCheckGmail, GMail hesabınıza bir e-posta geldiğinde sistem tepsisinde size haber verir.</Description>
-        <Archive sha1sum="46a979738dc9a453303624f2fcf1e6ddaede80bb" type="tarbz2">mirrors://sourceforge/kcheckgmail/kcheckgmail-0.5.7.1.tar.bz2</Archive>
+        <Archive type="tarbz2" sha1sum="8243902d4e09227ddf39dccc589ef180aa499a83">mirrors://sourceforge/kcheckgmail/kcheckgmail-0.5.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">kcheckgmail-turkish.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -31,32 +34,38 @@
             <Path fileType="data">/usr/kde/3.5/share/apps</Path>
             <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
             <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-            <Path fileType="man">/usr/kde/3.5/share/man</Path>
             <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
-       <Update release="4">
-           <Date>2007-08-19</Date>
-           <Version>0.5.7.1</Version>
-           <Comment>Version bump.</Comment>
-           <Name>Eren Türkay</Name>
-           <Email>turkay.eren@gmail.com</Email>
+    <History>
+        <Update release="5">
+            <Date>2007-08-24</Date>
+            <Version>0.5.6</Version>
+            <Comment>Back to previous release, 0.5.7.1 is buggy..</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
         </Update>
-       <Update release="3">
-           <Date>2007-04-07</Date>
-           <Version>0.5.6</Version>
-           <Comment>Version bump.</Comment>
-           <Name>Uğur Çetin</Name>
-           <Email>jnmbk@users.sourceforge.net</Email>
+        <Update release="4">
+            <Date>2007-08-19</Date>
+            <Version>0.5.7.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
         </Update>
-       <Update release="2">
-           <Date>2006-08-23</Date>
-           <Version>0.5.5</Version>
-           <Comment>Turkish translation.</Comment>
-           <Name>Uğur Çetin</Name>
-           <Email>jnmbk@users.sourceforge.net</Email>
+        <Update release="3">
+            <Date>2007-04-07</Date>
+            <Version>0.5.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-23</Date>
+            <Version>0.5.5</Version>
+            <Comment>Turkish translation.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
         </Update>
         <Update release="1">
             <Date>2006-08-23</Date>
@@ -67,4 +76,3 @@
         </Update>
     </History>
 </PISI>
-
