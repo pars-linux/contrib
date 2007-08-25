@@ -9,7 +9,7 @@ serviceDefault = "off"
 @synchronized
 def start():
     startService(command="/usr/sbin/rinetd",
-                 args="-c /etc/rinetd.conf"
+                 args="-c /etc/rinetd.conf",
                  pidfile= "/var/run/rinetd.pid",
                  donotify=True)
 @synchronized
