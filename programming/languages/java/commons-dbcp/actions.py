@@ -12,9 +12,16 @@ from pisi.actionsapi import get
 WorkDir="commons-dbcp-%s-src" % get.srcVERSION()
 
 def setup():
+    shelltools.export("LC_ALL", "C")
     pisitools.echo("build.properties","commons-collections.jar=/usr/share/java/commons-collections.jar")
     pisitools.echo("build.properties","commons-pool.jar=/usr/share/java/commons-pool.jar")
+    #for generics support
+    pisitools.echo("build.properties","javac.source=1.5")
+    
+    #build jar file
     shelltools.system("ant build-jar")
+    #build javadocs
+    shelltools.system("ant javadoc");
 
 def install():
     pisitools.insinto("/usr/share/java","dist/*.jar","commons-dbcp.jar")
@@ -23,4 +30,5 @@ def install():
     pisitools.dodoc("LICENSE.txt")
     pisitools.dodoc("NOTICE.txt")
     pisitools.dodoc("RELEASE-NOTES.txt")
-
+    #install javadocs
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "dist/docs/api", "javadoc")
