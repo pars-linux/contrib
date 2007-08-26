@@ -16,6 +16,12 @@ def setup():
     shelltools.system("ant dist")
 
 def install():
-    pisitools.insinto("/usr/share/java","build/commons-io-1.3.1.jar","commons-io.jar")
+    pisitools.insinto("/usr/share/java","build/commons-io-1.3.2.jar","commons-io.jar")
 
+    #install standard text files
     pisitools.dodoc("*.txt")
+    
+    #install javadocs
+    shelltools.system("unzip build/commons-io-*-javadoc.jar -d javadoc")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "javadoc")
+    
