@@ -6,10 +6,10 @@
 
 from pisi.actionsapi import kde
 
-WorkDir="kmobiletools-0.5.0-beta2"
+WorkDir="kmobiletools-0.5.0-beta3"
 
 def setup():
-    kde.configure()
+    kde.configure("--disable-kioslaves")
 
 def build():
     kde.make()
