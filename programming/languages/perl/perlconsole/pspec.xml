@@ -12,10 +12,13 @@
         <IsA>app:console</IsA>
         <Summary>Console based perl compiler</Summary>
         <Description>Perl Console is a small program that lets you evaluate Perl code interactively.</Description>
-        <Archive sha1sum="36dd983755b7aec951d0c598498bc1d242a8acb0" type="targz">http://www.sukria.net/perlconsole-0.2.tar.gz</Archive>
-        <Patches>
-            <Patch>bindir.patch</Patch>
-        </Patches>
+        <Archive sha1sum="4488df1fcc665bb26663b5f84345caef218d8bb5" type="targz">http://www.sukria.net/perlconsole-0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>Lexical-Persistence</Dependency>
+            <Dependency>Getopt-Long</Dependency>
+            <Dependency>Term-ReadLine</Dependency>
+            <Dependency>Module-Refresh</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
@@ -23,15 +26,26 @@
         <RuntimeDependencies>
             <Dependency>YAML</Dependency>
             <Dependency>Data-Dumper</Dependency>
+            <Dependency>Lexical-Persistence</Dependency>
+            <Dependency>Module-Refresh</Dependency>
+            <Dependency>Getopt-Long</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share/perlconsole</Path>
+            <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-08-29</Date>
+            <Version>0.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-08-14</Date>
             <Version>0.2</Version>
