@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xrope</Name>
+        <Homepage>http://xrope.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>An IDE (VB-like or Delphi-like) for Python.</Summary>
+        <Archive sha1sum="0067d23fce439c072de163ab8bb984a80dd743c6" type="targz">mirrors://sourceforge/xrope/xrope-1.2c9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>python-tk</Dependency>
+            <Dependency>Pmw</Dependency>
+            <Dependency>pychecker</Dependency>
+            <Dependency>tk-happy</Dependency>
+            <Dependency>rapyd</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>no-inside-dep.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xrope</Name>
+        <RuntimeDependencies>
+            <Dependency>python-tk</Dependency>
+            <Dependency>Pmw</Dependency>
+            <Dependency>pychecker</Dependency>
+            <Dependency>tk-happy</Dependency>
+            <Dependency>rapyd</Dependency>
+    </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/xrope.desktop">xrope.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/xrope.png">xrope.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-27</Date>
+            <Version>1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
