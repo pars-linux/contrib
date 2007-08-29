@@ -12,4 +12,7 @@ WorkDir = "ccsm"
 def install():
     pythonmodules.install("--prefix=/usr")
 
+    # Turkish translation
+    pisitools.domo("po/tr.po", "tr", "ccsm.mo")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "LICENSE")
