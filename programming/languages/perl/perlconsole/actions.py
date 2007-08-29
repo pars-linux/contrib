@@ -5,12 +5,19 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import autotools
+from pisi.actionsapi import perlmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "perlconsole"
+WorkDir = "perlconsole-%s" % get.srcVERSION()
+
+def setup():
+    perlmodules.configure()
+
+def build():
+    perlmodules.make()
 
 def install():
-    autotools.install("DEST=%s" % get.installDIR())
+    perlmodules.install()
 
-    pisitools.dodoc("CHANGES", "README", "COPYING")
+    pisitools.dodoc("CHANGES", "README", "COPYING", "AUTHORS")
