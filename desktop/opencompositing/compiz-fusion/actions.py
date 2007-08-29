@@ -38,4 +38,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    # Turkish translation
+    pisitools.domo("po/tr.po", "tr", "compiz.mo")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README")
