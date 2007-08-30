@@ -36,4 +36,3 @@
 
 ;; Use with --enable-font-backend
 ;; (set-default-font "DejaVu Sans Mono-10")
-;; (set-fontset-font "fontset-default" 'latin '("DejaVu Sans Mono-10" . "unicode-bmp"))

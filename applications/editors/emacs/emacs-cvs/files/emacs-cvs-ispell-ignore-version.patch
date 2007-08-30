@@ -1,6 +1,6 @@
---- emacs.orig/lisp/textmodes/ispell.el	2006-02-27 13:38:28.000000000 +0200
-+++ emacs/lisp/textmodes/ispell.el	2006-02-27 14:01:33.000000000 +0200
-@@ -759,70 +759,8 @@
+--- emacs/lisp/textmodes/ispell.el	2007-08-13 16:47:15.000000000 +0300
++++ emacs/lisp/textmodes/ispell.el	2007-08-30 04:54:24.000000000 +0300
+@@ -761,68 +761,8 @@
  				    temporary-file-directory)
  			       default-directory))
  	result status)
@@ -9,9 +9,7 @@
 -	(if buf (kill-buffer buf)))
 -      (set-buffer (get-buffer-create " *ispell-tmp*"))
 -      (erase-buffer)
--      (unless (file-exists-p default-directory)
--	(setq default-directory (expand-file-name "~/")))
--      (setq status (call-process
+-      (setq status (ispell-call-process
 -		    ispell-program-name nil t nil
 -		    ;; aspell doesn't accept the -vv switch.
 -		    (let ((case-fold-search
@@ -72,4 +70,4 @@
 +    ;; I'm turning on zpspell as the default speller
      result))
  
- 
+ (defun ispell-call-process (&rest args)
