@@ -17,7 +17,6 @@ def setup():
                          --enable-font-backend \
                          --program-suffix=-unicode")
 
-
 def build():
     autotools.make("bootstrap")
 
