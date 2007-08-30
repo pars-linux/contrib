@@ -13,7 +13,6 @@ WorkDir="emacs"
 def setup():
     autotools.configure("--with-gtk \
                          --with-xft \
-                         --with-freetype \
                          --enable-font-backend \
                          --program-suffix=-unicode")
 
