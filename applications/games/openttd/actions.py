@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "openttd-0.5.3-RC2"
+WorkDir = "openttd-0.5.3-RC3"
 
 def setup():
     #dummy configure enables freetype
