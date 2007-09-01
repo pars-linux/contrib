@@ -8,7 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.automake()
     autotools.configure("--with-x \
                          --disable-sm \
                          --disable-nm \
@@ -24,6 +23,9 @@ def build():
 
 def install():
     autotools.install()
+
+    # install opml file
+    pisitools.insinto("/usr/share/liferea/opml", "opml/feedlist_tr.opml")
 
     pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
     # conflict

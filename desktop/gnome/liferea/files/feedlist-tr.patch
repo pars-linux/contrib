@@ -1,34 +1,21 @@
-diff -Nuar liferea-1.2.12.orig/opml/feedlist_tr.opml liferea-1.2.12/opml/feedlist_tr.opml
---- liferea-1.2.12.orig/opml/feedlist_tr.opml	1970-01-01 02:00:00.000000000 +0200
-+++ liferea-1.2.12/opml/feedlist_tr.opml	2007-04-29 22:49:41.000000000 +0300
-@@ -0,0 +1,19 @@
+--- /dev/null	2007-08-31 21:53:58.703977417 +0300
++++ opml/feedlist_tr.opml	2007-09-01 12:39:02.000000000 +0300
+@@ -0,0 +1,18 @@
 +<?xml version="1.0"?>
 +<opml version="1.0">
 +  <head>
-+    <title>Liferea Feed List Export</title>
++    <title>Liferea Haber Kaynakları</title>
 +  </head>
 +  <body>
-+    <outline title="Önemli" text="Önemli" description="Önemli" type="vfolder" id="nafgbsc" sortColumn="time" viewMode="0">
-+      <outline type="rule" text="&#x130;&#x15F;aretlenme durumu" rule="flagged" value="" additive="true"/>
-+    </outline>
-+    <outline title="Okunmayan" text="Okunmayan" description="Okunmayan" type="vfolder" id="lxbesie" sortColumn="time" viewMode="0">
++    <outline title="Okunmam&#x131;&#x15F;" text="Okunmam&#x131;&#x15F;" description="Okunmam&#x131;&#x15F;" type="vfolder" id="hlwekgo" sortColumn="time" viewMode="0">
 +      <outline type="rule" text="Okunma durumu" rule="unread" value="" additive="true"/>
 +    </outline>
-+    <outline title="A&#xE7;&#x131;k Kaynak Kod" text="A&#xE7;&#x131;k Kaynak Kod" description="A&#xE7;&#x131;k Kaynak Kod" type="folder" id="gagqwnw" sortColumn="time" viewMode="0" expanded="true">
-+      <outline title="Pardus D&#xFC;nyas&#x131;" text="Pardus D&#xFC;nyas&#x131;" description="Pardus D&#xFC;nyas&#x131;" type="rss" id="ksbmwcx" sortColumn="time" viewMode="0" htmlUrl="http://gezegen.pardus.org.tr" xmlUrl="http://gezegen.pardus.org.tr/rss20.xml" updateInterval="-1" etag="&quot;1fba4-1c848-fba4b640&quot;" lastModified="Sun, 29 Apr 2007 19:00:33 GMT" lastPollTime="1177875934" lastFaviconPollTime="1177875940"/>
-+      <outline title="Linux Gezegeni" text="Linux Gezegeni" description="Linux Gezegeni" type="rss" id="fcqxcbs" sortColumn="time" viewMode="0" htmlUrl="http://gezegen.linux.org.tr" xmlUrl="http://gezegen.linux.org.tr/rss20.xml" updateInterval="-1" etag="&quot;3d035-7cc2-4634f4d5&quot;" lastModified="Sun, 29 Apr 2007 19:41:09 GMT" lastPollTime="1177875958" lastFaviconPollTime="1177875959"/>
-+      <outline title="Fazlamesai.net" text="Fazlamesai.net" description="Fazlamesai.net" type="rss" id="ikwqvmq" sortColumn="time" viewMode="0" htmlUrl="http://www.fazlamesai.net" xmlUrl="http://www.fazlamesai.net/backend.php" updateInterval="-1" lastPollTime="1177875985" lastFaviconPollTime="1177875985"/>
++    <outline title="&#xD6;nemli" text="&#xD6;nemli" description="&#xD6;nemli" type="vfolder" id="gnnymgu" sortColumn="time" viewMode="0">
++      <outline type="rule" text="&#x130;&#x15F;aretlenme durumu" rule="flagged" value="" additive="true"/>
++    </outline>
++    <outline title="A&#xE7;&#x131;k Kaynak" text="A&#xE7;&#x131;k Kaynak" description="A&#xE7;&#x131;k Kaynak" type="folder" id="xgxxhcy" sortColumn="time" viewMode="0" expanded="true">
++      <outline title="Pardus Gezegeni" text="Pardus Gezegeni" description="Pardus Gezegeni" type="rss" id="vmaorqs" sortColumn="time" viewMode="0" htmlUrl="http://gezegen.pardus.org.tr" xmlUrl="http://gezegen.pardus.org.tr/rss20.xml" updateInterval="-1"/>
++      <outline title="&#xD6;zg&#xFC;rl&#xFC;k i&#xE7;in... - Anasayfa" text="&#xD6;zg&#xFC;rl&#xFC;k i&#xE7;in... - Anasayfa" description="&#xD6;zg&#xFC;rl&#xFC;k i&#xE7;in... - Anasayfa" type="rss" id="fpwuash" sortColumn="time" viewMode="0" htmlUrl="http://www.ozgurlukicin.com" xmlUrl="http://www.ozgurlukicin.com/rss" updateInterval="-1"/>
 +    </outline>
 +  </body>
 +</opml>
-diff -Nur liferea-1.2.19/opml/Makefile.in liferea-1.2.19.patched/opml/Makefile.in
---- liferea-1.2.19/opml/Makefile.in	2007-07-03 01:35:23.000000000 +0300
-+++ liferea-1.2.19.patched/opml/Makefile.in	2007-07-03 07:11:33.000000000 +0300
-@@ -240,6 +240,7 @@
- target_vendor = @target_vendor@
- EXTRA_DIST = \
- 	feedlist.opml \
-+	feedlist_tr.opml \
- 	feedlist_ca.opml \
- 	feedlist_de.opml \
- 	feedlist_es.opml \
