@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "compiz-%s" % get.srcVERSION()
+WorkDir = "compiz"
 
 def setup():
     shelltools.system("./autogen.sh")
@@ -37,8 +37,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    # Turkish translation
-    pisitools.domo("po/tr.po", "tr", "compiz.mo")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README")
