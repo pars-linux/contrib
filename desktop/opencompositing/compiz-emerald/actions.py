@@ -21,7 +21,4 @@ def build():
 def install():
     autotools.install()
 
-    # Turkish translation
-    pisitools.domo("po/tr.po", "tr", "emerald.mo")
-
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS")
