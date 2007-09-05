@@ -24,9 +24,7 @@ def build():
 def install():
     autotools.install()
 
-    # install opml file
-    pisitools.insinto("/usr/share/liferea/opml", "opml/feedlist_tr.opml")
-
-    pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+
+    pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
