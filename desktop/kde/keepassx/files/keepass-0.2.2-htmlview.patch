@@ -1,0 +1,11 @@
+--- ./src/PwmConfig.cpp.htmlview	2007-06-27 21:57:50.000000000 +0200
++++ ./src/PwmConfig.cpp	2007-06-27 21:58:06.000000000 +0200
+@@ -50,7 +50,7 @@ BannerColor1=ParseColorString(ini.GetVal
+ BannerColor2=ParseColorString(ini.GetValue("Options","BannerColor2","0,117,175").c_str());
+ BannerTextColor=ParseColorString(ini.GetValue("Options","BannerTextColor","222,222,222").c_str());
+ ShowPasswords=ini.GetValueB("Options","ShowPasswords",false);
+-OpenUrlCommand=ini.GetValue("Options","UrlCmd","kfmclient openURL %1").c_str();
++OpenUrlCommand=ini.GetValue("Options","UrlCmd","htmlview %1").c_str();
+ Language=ini.GetValue("Options","LangFile","").c_str();
+ ParseBoolString(ini.GetValue("Options","SearchOptions",(const char*)defaultSearchOptions.toUtf8()).c_str(),defaultSearchOptions,SearchOptions,9);
+ ListView_HidePasswords=ini.GetValueB("UI","HidePasswords",true);

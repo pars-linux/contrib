@@ -19,6 +19,11 @@
              <Dependency>qt4</Dependency>
              <Dependency>xorg-server</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>keepassx-0.2.2-helpurl.patch</Patch>
+            <Patch>keepass-0.2.2-htmlview.patch</Patch>
+            <Patch>turkish.ts.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -33,11 +38,19 @@
             <Path fileType="data">/usr/share/</Path>
         </Files>
         <AdditionalFiles>
-            <AdditionalFile target="/usr/share/applications/keepass.desktop" permission="0755" >keepass.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/keepass.desktop" permission="0644" >keepass.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/keepass.png" permission="0644" >keepass.png</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-09-10</Date>
+            <Version>0.2.2</Version>
+            <Comment>Thanks to Serdar SOYTETİR for Turkish translation.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-01-03</Date>
             <Version>0.2.2</Version>
