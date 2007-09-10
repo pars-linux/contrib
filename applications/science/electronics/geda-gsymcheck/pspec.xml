@@ -11,12 +11,11 @@
         <License>GPL-2</License>
         <IsA>app:console</IsA>
         <Summary>gsymcheck is the symbol checker for the gEDA/gaf system.</Summary>
-        <Archive sha1sum="d87f3218b52ec18171a6ffffea5ddd6947f4f589" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.0/1.0.1/geda-gsymcheck-20070626.tar.gz</Archive>
+        <Archive sha1sum="0989d5b4b8bb219c3cdb657d6d4f26a4ce7c7da8" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.2/1.2.0/geda-gsymcheck-1.2.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency releaseFrom="6">libgeda</Dependency>
-            <Dependency releaseFrom="4">geda-symbols</Dependency>
-            <Dependency>gd</Dependency>
+            <Dependency version="1.2.0">geda-symbols</Dependency>
+            <Dependency version="1.2.0">libgeda</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>sandbox.patch</Patch>
@@ -27,9 +26,8 @@
         <Name>geda-gsymcheck</Name>
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency releaseFrom="6">libgeda</Dependency>
-            <Dependency releaseFrom="4">geda-symbols</Dependency>
-            <Dependency>gd</Dependency>
+            <Dependency version="1.2.0">geda-symbols</Dependency>
+            <Dependency version="1.2.0">libgeda</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -40,6 +38,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-09-10</Date>
+            <Version>1.2.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-06-29</Date>
             <Version>1.0.1_20070626</Version>
