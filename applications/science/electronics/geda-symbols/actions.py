@@ -7,8 +7,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-WorkDir="geda-symbols-%s" % get.srcVERSION().split('_')[-1]
-
 def setup():
     autotools.configure()
 
