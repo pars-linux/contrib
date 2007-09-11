@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="Amaya"
+WorkDir = "Amaya9.55/Amaya"
 
 def setup():
     # Cleanup crap
