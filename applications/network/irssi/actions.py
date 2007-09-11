@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import perlmodules
+from pisi.actionsapi import get
 
 WorkDir = "irssi-0.8.12-rc1"
 
@@ -25,6 +27,10 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    pisitools.remove("/usr/lib/irssi/modules/libirc_proxy.a")
 
     pisitools.rename("/usr/bin/irssi", "irssi-bin")
+
+    perlmodules.fixLocalPod()
