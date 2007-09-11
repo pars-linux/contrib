@@ -19,4 +19,4 @@ def install():
     
     docs = ['AUTHORS','ChangeLog','NEWS','README']
     for i in docs:
-        pisitools.insinto("/usr/share/doc/geda-doc", "%s" % i)
+        pisitools.insinto("/usr/share/doc/geda-doc", i)
