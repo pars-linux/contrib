@@ -8,14 +8,14 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "mcs-%s" % get.srcVERSION()
-
 def setup():
-    autotools.configure("--disable-gconf")
+    autotools.configure("--disable-gconf \
+                         --enable-kconfig")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("AUTHORS", "COPYING", "README", "TODO")
