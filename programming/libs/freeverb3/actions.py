@@ -14,7 +14,8 @@ def setup():
                          --enable-vst \
                          --disable-glibtest \
                          --disable-gtktest \
-                         --disable-static")
+                         --disable-static \
+                         --enable-plugdouble")
 
 def build():
     autotools.make()
