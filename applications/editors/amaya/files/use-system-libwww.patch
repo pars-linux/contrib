@@ -1,7 +1,7 @@
 diff -Naur Amaya.orig/amaya/Makefile.in Amaya/amaya/Makefile.in
---- Amaya.orig/amaya/Makefile.in	2007-03-22 15:59:08.000000000 +0200
-+++ Amaya/amaya/Makefile.in	2007-04-18 20:06:22.000000000 +0300
-@@ -6,10 +6,17 @@
+--- Amaya.orig/amaya/Makefile.in	2007-06-07 12:12:17.000000000 +0300
++++ Amaya/amaya/Makefile.in	2007-09-11 22:15:25.000000000 +0300
+@@ -6,10 +6,16 @@
  
  @VPATHOPT@= @srcdir@
  THOTDIR = @top_srcdir@
@@ -16,11 +16,10 @@ diff -Naur Amaya.orig/amaya/Makefile.in Amaya/amaya/Makefile.in
 +AMAYA_DAV_OPTIONS = @AMAYA_DAV_OPTIONS@
 +AMAYA_DAV_INCLUDES = @AMAYA_DAV_INCLUDES@
 +
-+
  OBJDIRS = wxdialog
  
  include ../Options
-@@ -86,10 +93,6 @@
+@@ -86,10 +92,6 @@
  ../tools/mkdep/mkdep : 
  	@(cd ../tools/mkdep ; $(MAKE) CC="$(CC)" CFLAGS="-O -x c")
  
@@ -31,7 +30,7 @@ diff -Naur Amaya.orig/amaya/Makefile.in Amaya/amaya/Makefile.in
  ../redland/librdf/.libs/librdf.a \
  ../redland/raptor/.libs/libraptor.a \
  amaya_comp_redland: @MAKEREDLAND@ force
-@@ -104,8 +107,13 @@
+@@ -104,8 +106,13 @@
  #									#
  #########################################################################
  
@@ -47,7 +46,7 @@ diff -Naur Amaya.orig/amaya/Makefile.in Amaya/amaya/Makefile.in
  
  #include the fragment "amaya/Makefile.svg" for svg if configured in
  @svg_frag@
-@@ -116,9 +124,6 @@
+@@ -116,9 +123,6 @@
  #include the fragment "annotlib/Makefile.annot" for annotations if configured in
  @annot_frag@
  
@@ -58,8 +57,8 @@ diff -Naur Amaya.orig/amaya/Makefile.in Amaya/amaya/Makefile.in
  @templates_frag@
  
 diff -Naur Amaya.orig/amaya/Makefile.math Amaya/amaya/Makefile.math
---- Amaya.orig/amaya/Makefile.math	2007-01-22 13:42:04.000000000 +0200
-+++ Amaya/amaya/Makefile.math	2007-04-18 20:10:08.000000000 +0300
+--- Amaya.orig/amaya/Makefile.math	2007-04-04 13:58:39.000000000 +0300
++++ Amaya/amaya/Makefile.math	2007-09-11 22:17:11.000000000 +0300
 @@ -23,7 +23,7 @@
  
  MATH_SCHEMAS= $(AMAYA)/MathML.S $(AMAYA)/MathMLP.P $(AMAYA)/MathMLT.T
@@ -71,19 +70,19 @@ diff -Naur Amaya.orig/amaya/Makefile.math Amaya/amaya/Makefile.math
  # Structure schema compilation.
 diff -Naur Amaya.orig/amaya/Makefile.svg Amaya/amaya/Makefile.svg
 --- Amaya.orig/amaya/Makefile.svg	2007-01-22 13:42:04.000000000 +0200
-+++ Amaya/amaya/Makefile.svg	2007-04-18 20:10:38.000000000 +0300
++++ Amaya/amaya/Makefile.svg	2007-09-11 22:17:45.000000000 +0300
 @@ -31,7 +31,7 @@
  	$(AMAYA)/Timeline.S $(AMAYA)/TimelineP.P $(AMAYA)/TimelineT.T
  
  svg_schema= compSVG compSVGP compSVGT \
 -	compTimeline compTimelineP compTimelineT
-+	compTimeline compTimelineP compTimelineT SVG.h
++# 	compTimeline compTimelineP compTimelineT SVG.h
  
  
  #
 diff -Naur Amaya.orig/annotlib/Makefile.in Amaya/annotlib/Makefile.in
---- Amaya.orig/annotlib/Makefile.in	2007-01-22 13:42:34.000000000 +0200
-+++ Amaya/annotlib/Makefile.in	2007-04-18 20:07:06.000000000 +0300
+--- Amaya.orig/annotlib/Makefile.in	2007-06-05 17:05:42.000000000 +0300
++++ Amaya/annotlib/Makefile.in	2007-09-11 22:18:34.000000000 +0300
 @@ -14,9 +14,7 @@
  
  INCLUDES= -DHAVE_CONFIG_H -DANNOTATIONS \
@@ -96,8 +95,8 @@ diff -Naur Amaya.orig/annotlib/Makefile.in Amaya/annotlib/Makefile.in
  
  
 diff -Naur Amaya.orig/configure.in Amaya/configure.in
---- Amaya.orig/configure.in	2007-03-30 14:00:17.000000000 +0300
-+++ Amaya/configure.in	2007-04-18 20:01:16.000000000 +0300
+--- Amaya.orig/configure.in	2007-06-05 16:59:24.000000000 +0300
++++ Amaya/configure.in	2007-09-11 22:24:42.000000000 +0300
 @@ -1005,6 +1005,114 @@
  	esac],
  	[with_svg="yes"])
@@ -250,11 +249,10 @@ diff -Naur Amaya.orig/configure.in Amaya/configure.in
      if test ! -f $srcdir/amaya/MathML.S ; then
  	if test "$with_math" = "yes" ; then
  	    AC_MSG_WARN(MathML sources not found !!)
-@@ -1204,20 +1283,6 @@
- 	    SVG_OPTIONS=
+@@ -1205,19 +1284,6 @@
  	fi
      fi
--
+ 
 -    if test ! -f $srcdir/davlib/Makefile.in ; then
 -	if test "$with_dav" = "yes" ; then
 -	    AC_MSG_WARN(WebDAV makefile not found !!)
@@ -271,7 +269,7 @@ diff -Naur Amaya.orig/configure.in Amaya/configure.in
  fi
  
  dnl
-@@ -1320,11 +1385,6 @@
+@@ -1320,11 +1386,6 @@
  AC_SUBST(IMGLIBS)
  AC_SUBST(EXTRA_INCLUDES)
  
@@ -280,10 +278,10 @@ diff -Naur Amaya.orig/configure.in Amaya/configure.in
 -AC_SUBST(WITHDAV)
 -AC_SUBST(WWWDAV)
 -
+ AC_SUBST(MAKE_LIBWWW_RDF_PARSER)
+ AC_SUBST(LIBWWW_RDF_PARSER)
  AC_SUBST(MAKEREDLAND)
- AC_SUBST(ANNOTLIB_COMPILE_BM)
- AC_SUBST(AMAYA_RAPTOR_SRC)
-@@ -1339,9 +1399,6 @@
+@@ -1339,9 +1400,6 @@
  dnl Include the option Makefile.xxx fragment according to the configure options
  dnl
  
@@ -293,7 +291,7 @@ diff -Naur Amaya.orig/configure.in Amaya/configure.in
  if test "$with_math" = "no" ; then
      math_frag=/dev/null
  else
-@@ -1363,13 +1420,6 @@
+@@ -1363,13 +1421,6 @@
  fi
  AC_SUBST_FILE(annot_frag)
  
@@ -307,7 +305,7 @@ diff -Naur Amaya.orig/configure.in Amaya/configure.in
  if test "$with_templates" = "yes" ; then
      templates_frag=$srcdir/amaya/Makefile.templates
  else
-@@ -1396,8 +1446,11 @@
+@@ -1396,8 +1447,11 @@
  
  if test "$build_amaya" = "yes" ; then
      make_output="$make_output amaya/Makefile"
@@ -323,7 +321,7 @@ diff -Naur Amaya.orig/configure.in Amaya/configure.in
         make_output="$make_output annotlib/Makefile"
 diff -Naur Amaya.orig/davlib/Makefile.in Amaya/davlib/Makefile.in
 --- Amaya.orig/davlib/Makefile.in	2007-01-22 13:42:34.000000000 +0200
-+++ Amaya/davlib/Makefile.in	2007-04-18 20:09:02.000000000 +0300
++++ Amaya/davlib/Makefile.in	2007-09-11 22:26:58.000000000 +0300
 @@ -13,46 +13,21 @@
  
  INCLUDES =-DHAVE_CONFIG_H -I.. \
@@ -385,8 +383,8 @@ diff -Naur Amaya.orig/davlib/Makefile.in Amaya/davlib/Makefile.in
  #
  # dependencies
 diff -Naur Amaya.orig/Makefile.in Amaya/Makefile.in
---- Amaya.orig/Makefile.in	2007-03-22 15:59:08.000000000 +0200
-+++ Amaya/Makefile.in	2007-04-18 20:04:02.000000000 +0300
+--- Amaya.orig/Makefile.in	2007-06-05 16:28:14.000000000 +0300
++++ Amaya/Makefile.in	2007-09-11 22:30:15.000000000 +0300
 @@ -60,7 +60,7 @@
  	@(if test -d "$(GL_BUILDDIR)" ; then cd "$(GL_BUILDDIR)" ; \
  	  $(MAKE) linux-static ; fi)
@@ -396,7 +394,7 @@ diff -Naur Amaya.orig/Makefile.in Amaya/Makefile.in
  	@(if test -d thotlib ; then cd thotlib ; \
    $(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)" CXX="$(CXX)" CXXFLAGS="$(CXXFLAGS)" print ; fi)
  
-@@ -138,128 +138,15 @@
+@@ -131,128 +131,15 @@
  # Rules to rebuild the libWWW package
  #
  
@@ -534,12 +532,13 @@ diff -Naur Amaya.orig/Makefile.in Amaya/Makefile.in
  #
 diff -Naur Amaya.orig/Options.in Amaya/Options.in
 --- Amaya.orig/Options.in	2007-02-26 16:17:13.000000000 +0200
-+++ Amaya/Options.in	2007-04-18 20:04:27.000000000 +0300
-@@ -79,7 +79,5 @@
++++ Amaya/Options.in	2007-09-11 22:30:42.000000000 +0300
+@@ -78,8 +78,3 @@
+ GL_BUILDDIR=@GL_BUILDDIR@
  GL_INCLUDES=@GL_INCLUDES@
  GL_LIBRARIES=@GL_LIBRARIES@
- 
+-
 -LIBWWW=libwww
 -
- 
- 
+-
+-
