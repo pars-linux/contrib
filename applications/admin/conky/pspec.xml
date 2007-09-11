@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>conky</Name>
+        <Homepage>http://conky.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>app:gui</IsA>
+        <Summary>An advanced, highly configurable system monitor for X.</Summary>
+        <Archive sha1sum="531ab8a468c80f5904feb8a26121158cd7af033f" type="tarbz2">mirrors://sourceforge/conky/conky-1.4.7.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>imlib2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>obsoleteman.conkyrc.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>conky</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>imlib2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-05</Date>
+            <Version>1.4.7</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
