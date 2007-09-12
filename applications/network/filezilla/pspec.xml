@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>filezilla</Name>
+        <Homepage>http://filezilla-project.org/</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Simple FTP Client.</Summary>
+        <Description>Easy-to-use FTP Client which also supports SFTP.</Description>
+        <Archive sha1sum="0e1d81c36f287004a1061b1aec479682f5b75144" type="tarbz2">mirrors://sourceforge/filezilla/FileZilla_3.0.0_src.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK2_8</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>i18n-filezilla.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>filezilla</Name>
+        <RuntimeDependencies>
+            <Dependency>wxGTK2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/filezilla</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-11</Date>
+            <Version>3.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
