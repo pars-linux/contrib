@@ -6,11 +6,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
-
-WorkDir = "uudeview-%s" % get.srcVERSION()
 
 def setup():
+    autotools.autoreconf("-f")
     autotools.configure()
 
 def build():
@@ -19,6 +17,15 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.insinto("/usr/include/","uulib/uudeview.h")
+    for libs in ["uulib/libuu.la", "uulib/.libs/libuu.so"]:
+        pisitools.doexe(libs, "/usr/lib")
+
+    pisitools.dosym("/usr/lib/libuu.so", "/usr/lib/libuu.so.0")
+    pisitools.dosym("/usr/lib/libuu.so", "/usr/lib/libuu.so.0.0.0")
+
+    for includes in ["uulib/fptools.h", "uulib/uudeview.h", "uulib/uuint.h"]:
+        pisitools.insinto("/usr/include", includes)
+
+    pisitools.remove("/usr/lib/libuu.la")
 
     pisitools.dodoc("COPYING", "README","HISTORY", "doc/*")
