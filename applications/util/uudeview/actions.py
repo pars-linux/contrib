@@ -17,15 +17,16 @@ def build():
 def install():
     autotools.install()
 
-    for libs in ["uulib/libuu.la", "uulib/.libs/libuu.so"]:
-        pisitools.doexe(libs, "/usr/lib")
+    # install library
+    pisitools.doexe("uulib/.libs/libuu.so", "/usr/lib")
 
+    # link it
     pisitools.dosym("/usr/lib/libuu.so", "/usr/lib/libuu.so.0")
     pisitools.dosym("/usr/lib/libuu.so", "/usr/lib/libuu.so.0.0.0")
 
+    # install header files
     for includes in ["uulib/fptools.h", "uulib/uudeview.h", "uulib/uuint.h"]:
         pisitools.insinto("/usr/include", includes)
 
-    pisitools.remove("/usr/lib/libuu.la")
-
+    # install docs
     pisitools.dodoc("COPYING", "README","HISTORY", "doc/*")
