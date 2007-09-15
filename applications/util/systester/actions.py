@@ -13,6 +13,7 @@ WorkDir = "systester-%s-src" % get.srcVERSION()
 
 def setup():
     shelltools.system("qmake")
+    autotools.configure()
 
 def build():
     autotools.make()
