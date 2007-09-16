@@ -14,7 +14,9 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.dobin("herrie")
+    # move herrie to herrie-bin for wrapper script
+    pisitools.insinto("/usr/bin", "herrie", "herrie-bin")
+
     pisitools.doman("herrie.1")
 
     locales = ['nl','tr','de','pl', 'sv', 'ga', 'ru']
