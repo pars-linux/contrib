@@ -11,14 +11,14 @@
         <License>GPL-2</License>
         <IsA>library</IsA>
         <Summary>User Interface part of libbonobo</Summary>
-        <Archive sha1sum="5daf7f7160c2010c4bb1d6ac63339eb13ce6e28b" type="tarbz2">mirrors://gnome/libbonoboui/2.18/libbonoboui-2.18.0.tar.bz2</Archive>
+        <Archive sha1sum="0f28da17b5d65c6b0cf912005a3f0b7af29c18b2" type="tarbz2">mirrors://gnome/libbonoboui/2.20/libbonoboui-2.20.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>libgnomecanvas</Dependency>
-            <Dependency>libbonobo</Dependency>
-            <Dependency>libgnome</Dependency>
+            <Dependency versionFrom="2.20.0">libbonobo</Dependency>
+            <Dependency versionFrom="2.20.0">libgnome</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>gconf</Dependency>
+            <Dependency releaseFrom="4">gconf</Dependency>
             <Dependency>libglade2</Dependency>
             <Dependency>intltool</Dependency>
         </BuildDependencies>
@@ -29,10 +29,10 @@
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>libgnomecanvas</Dependency>
-            <Dependency>libbonobo</Dependency>
-            <Dependency>libgnome</Dependency>
+            <Dependency versionFrom="2.20.0">libbonobo</Dependency>
+            <Dependency versionFrom="2.20.0">libgnome</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>gconf</Dependency>
+            <Dependency releaseFrom="4">gconf</Dependency>
             <Dependency>libglade2</Dependency>
             <Dependency>intltool</Dependency>
         </RuntimeDependencies>
@@ -48,6 +48,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-09-17</Date>
+            <Version>2.20.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-03-12</Date>
             <Version>2.18.0</Version>
