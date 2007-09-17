@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
 #
-# Copyright 2006 TUBITAK/UEKAE
+# Copyright 2006,2007 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
@@ -23,4 +23,3 @@ def install():
 
     pisitools.domo("po/tr.po" , "tr" , "kooldock.mo")
     pisitools.dodoc("AUTHORS", "ChangeLog" , "INSTALL", "README", "TODO")
-
