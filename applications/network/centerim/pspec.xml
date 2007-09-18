@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>centerim</Name>
+        <Homepage>http://www.centerim.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Centerim is a text mode menu and window-driven IM interface that supports the ICQ2000, Yahoo!, AIM, IRC, MSN, Gadu-Gadu and Jabber protocols.</Summary>
+        <Archive sha1sum="221b3e505d5ea432977db7e5c0cebc85b4f928f2" type="targz">http://www.centerim.org/download/releases/centerim-4.22.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>fribidi</Dependency>
+            <Dependency>gpgme</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>centerim</Name>
+        <RuntimeDependencies>
+            <Dependency>fribidi</Dependency>
+            <Dependency>gpgme</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/centerim</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-09</Date>
+            <Version>4.22.1</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
