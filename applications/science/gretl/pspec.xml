@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gretl</Name>
+        <Homepage>http://gretl.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A cross-platform software package for econometric analysis</Summary>
+        <Archive sha1sum="864c1ca433d2d398b541215f24a960a38264c7ed" type="tarbz2">mirrors://sourceforge/gretl/gretl-1.6.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.0.1">gmp</Dependency>
+            <Dependency versionFrom="2.2.0">mpfr</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gnuplot</Dependency>
+            <Dependency versionFrom="3.1.1">lapack</Dependency>
+            <Dependency versionFrom="3.1.2">fftw3</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libxslt</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>settings.patch</Patch>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gretl</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.0.1">gmp</Dependency>
+            <Dependency versionFrom="2.2.0">mpfr</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gnuplot</Dependency>
+            <Dependency versionFrom="3.1.1">lapack</Dependency>
+            <Dependency versionFrom="3.1.2">fftw3</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>tetex</Dependency>
+            <Dependency>R</Dependency>
+            <Dependency>firefox</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include/gretl</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/gretl</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>gretl-emacs</Name>
+        <IsA>data</IsA>
+        <Summary>Gretl module for Emacs</Summary>
+        <RuntimeDependencies>
+            <Dependency version="1.6.5">gretl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/emacs/site-lisp</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-21</Date>
+            <Version>1.6.5</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
