@@ -11,6 +11,7 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--with-readline \
                          --without-gnome \
+                         --with-gtksourceview \
                          --with-gmp \
                          --with-mpfr \
                          --without-audio")
