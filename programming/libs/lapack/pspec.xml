@@ -19,19 +19,6 @@
     </Source>
 
     <Package>
-        <Name>lapack</Name>
-        <RuntimeDependencies>
-            <Dependency version="3.1.1">blas</Dependency>
-        </RuntimeDependencies>
-        <Files>
-            <Path fileType="library">/usr/lib/liblapack.so.3.1.1</Path>
-            <Path fileType="library">/usr/lib/liblapack.so.3</Path>
-            <Path fileType="library">/usr/lib/liblapack.so</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
-        </Files>
-    </Package>
-
-    <Package>
         <Name>blas</Name>
         <License>BSD</License>
         <IsA>library</IsA>
@@ -41,6 +28,19 @@
             <Path fileType="library">/usr/lib/libblas.so.3.1.1</Path>
             <Path fileType="library">/usr/lib/libblas.so.3</Path>
             <Path fileType="library">/usr/lib/libblas.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>lapack</Name>
+        <RuntimeDependencies>
+            <Dependency version="3.1.1">blas</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/liblapack.so.3.1.1</Path>
+            <Path fileType="library">/usr/lib/liblapack.so.3</Path>
+            <Path fileType="library">/usr/lib/liblapack.so</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
