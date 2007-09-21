@@ -9,7 +9,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "dynamips-%s" % get.srcVERSION()
+WorkDir = "dynamips-%s-RC1" % get.srcVERSION()
 NoStrip = "/"
 
 def build():
