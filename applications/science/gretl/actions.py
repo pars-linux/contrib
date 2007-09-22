@@ -12,6 +12,8 @@ def setup():
     autotools.configure("--with-readline \
                          --without-gnome \
                          --without-gtksourceview \
+                         --enable-png-comments \
+                         --enable-build-doc \
                          --with-gmp \
                          --with-mpfr \
                          --without-audio")
