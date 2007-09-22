@@ -11,7 +11,7 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>A cross-platform software package for econometric analysis</Summary>
-        <Archive sha1sum="864c1ca433d2d398b541215f24a960a38264c7ed" type="tarbz2">mirrors://sourceforge/gretl/gretl-1.6.5.tar.bz2</Archive>
+        <Archive sha1sum="5ae8d6a90cc70f4079b829bf0fe1fbeb44c74775" type="tarbz2">http://repo.pardus-linux.nl/sources/gretl-1.6.5_20070922.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.0.1">gmp</Dependency>
             <Dependency versionFrom="2.2.0">mpfr</Dependency>
@@ -21,8 +21,10 @@
             <Dependency versionFrom="3.1.2">fftw3</Dependency>
             <Dependency>libxml2</Dependency>
             <Dependency>libxslt</Dependency>
+            <Dependency>tetex</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch>workaround_unicode_prb.patch</Patch>
             <Patch>settings.patch</Patch>
             <Patch>desktop.patch</Patch>
         </Patches>
@@ -70,6 +72,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-09-22</Date>
+            <Version>1.6.5_20070922</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-09-21</Date>
             <Version>1.6.5</Version>
