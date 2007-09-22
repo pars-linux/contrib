@@ -10,7 +10,6 @@ from pisi.actionsapi import get
 
 import os
 
-WorkDir = "."
 NoStrip = "/"
 
 data = ["art", "data"]
