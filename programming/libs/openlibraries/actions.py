@@ -10,7 +10,6 @@ from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
 def setup():
-    shelltools.export("CXXFLAGS","%s -D__STDC_CONSTANT_MACROS" % get.CXXFLAGS())
     autotools.configure("--with-qtlib=%(QTDIR)s/lib --with-qtinclude=%(QTDIR)s/include" % {'QTDIR': get.qtDIR()})
 
 def build():
