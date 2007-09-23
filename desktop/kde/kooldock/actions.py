@@ -12,7 +12,6 @@ from pisi.actionsapi import get
 WorkDir = "kooldock"
 
 def setup():
-    autotools.make("-f Makefile.dist")
     autotools.configure()
 
 def build():
