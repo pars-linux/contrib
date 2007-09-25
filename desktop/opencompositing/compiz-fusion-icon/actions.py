@@ -16,4 +16,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    # Turkish translation
+    pisitools.domo("po/tr.po", "tr", "fusion-icon.mo")
+
     pisitools.dodoc("COPYING")
