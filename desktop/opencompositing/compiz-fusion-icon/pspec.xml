@@ -12,13 +12,15 @@
         <IsA>app:gui</IsA>
         <Summary>Program that manages the compiz fusion on system tray.</Summary>
         <Description>This program manages the compiz fusion on system tray, right click to view available options.</Description>
-        <Archive sha1sum="33ef0d44ca4db5869b609591f24c769be19e2dd7" type="tarbz2">http://kpelit.org/ds/compiz/fusion-icon-0.0_20070917.tar.bz2</Archive>
+        <Archive sha1sum="be7407b508bbb2adacf26d4d37e53dd20ff35587" type="tarbz2">http://kpelit.org/ds/compiz/fusion-icon-0.0_20070925.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>compiz-fusion</Dependency>
             <Dependency>compizconfig-python</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop.patch</Patch>
+            <Patch>turkish.patch</Patch>
+            <Patch level="1">gettext-support.patch</Patch>
         </Patches>
     </Source>
 
@@ -37,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-09-25</Date>
+            <Version>0.0_20070925</Version>
+            <Comment>Thanks to Serdar SOYTETİR for adding gettext support and Turkish translation. New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-09-17</Date>
             <Version>0.0_20070917</Version>
