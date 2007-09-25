@@ -1,0 +1,27 @@
+diff -Naur scheme-7.7.1-yedek/src/microcode/pruxdld.c scheme-7.7.1-yedek2/src/microcode/pruxdld.c
+--- scheme-7.7.1-yedek/src/microcode/pruxdld.c	2001-03-08 20:01:45.000000000 +0200
++++ scheme-7.7.1-yedek2/src/microcode/pruxdld.c	2007-09-24 23:56:13.000000000 +0300
+@@ -76,7 +76,7 @@
+ DEFINE_PRIMITIVE ("OBJECT-LOOKUP-SYMBOL", Prim_object_lookup_symbol, 3, 3,
+ 		  "(HANDLE SYMBOL TYPE)\n\
+ Look up SYMBOL, a Scheme string, in the dynamically-loaded file\n\
+-referenced by HANDLE.  TYPE is obsolete and must be specified as zero.
++referenced by HANDLE.  TYPE is obsolete and must be specified as zero.\
+ Returns the symbol's address, or signals an error if no such symbol.")
+ {
+   PRIMITIVE_HEADER (3);
+diff -Naur scheme-7.7.1-yedek/src/microcode/uxio.c scheme-7.7.1-yedek2/src/microcode/uxio.c
+--- scheme-7.7.1-yedek/src/microcode/uxio.c	2001-04-03 20:51:52.000000000 +0300
++++ scheme-7.7.1-yedek2/src/microcode/uxio.c	2007-09-24 23:55:44.000000000 +0300
+@@ -236,11 +236,7 @@
+   return ((scr < 0) ? 0 : scr);
+ }
+ 
+-#ifdef _POSIX
+ #include <string.h>
+-#else
+-extern int EXFUN (strlen, (CONST char *));
+-#endif
+ 
+ void
+ DEFUN (OS_channel_write_string, (channel, string),
