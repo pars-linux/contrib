@@ -12,8 +12,10 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>Geographic Resources Analysis Support System</Summary>
+        <Summary xml:lang="tr">Coğrafi Kaynak Analizi Destek Sistemi</Summary>
         <Description>GRASS is a Geographic Information System (GIS) used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.</Description>
-        <Archive sha1sum="4fc37b9f1bd792bb6af534dae32be925f0d78f3f" type="targz">http://grass.itc.it/grass62/source/grass-6.2.2RC1.tar.gz</Archive>
+        <Description xml:lang="tr">GRASS, coğrafi veri yönetimi ve analizi, resim işleme, grafik/harita üretimi, uzamsal modelleme ve canlandırma amaçlı kullanılan bir Coğrafi Bilgi Sistemidir (GIS-Geographic Information System).</Description>
+        <Archive sha1sum="0b6d30e3ee5c9f0e62357c62961225b7614099d9" type="targz">http://grass.itc.it/grass62/source/grass-6.2.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.4.9">proj</Dependency>
             <Dependency>gdal</Dependency>
@@ -41,7 +43,11 @@
             <Dependency>libtheora</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch>use_konsole.patch</Patch>
             <Patch>readline-configure.patch</Patch>
+            <Patch level="1">grass-ffmpeg.patch</Patch>
+            <Patch level="1">grass-link.patch</Patch>
+            <Patch level="1">grass-soname.patch</Patch>
         </Patches>
     </Source>
 
@@ -74,28 +80,32 @@
             <Dependency>libtheora</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="config">/etc</Path>
-            <Path fileType="executable">/opt/grass-6.2.2RC1/bin</Path>
-            <Path fileType="data">/opt/grass-6.2.2RC1</Path>
-            <Path fileType="doc">/opt/grass-6.2.2RC1/docs</Path>
-            <Path fileType="config">/opt/grass-6.2.2RC1/etc</Path>
-            <Path fileType="header">/opt/grass-6.2.2RC1/include</Path>
-            <Path fileType="library">/opt/grass-6.2.2RC1/lib</Path>
-            <Path fileType="man">/opt/grass-6.2.2RC1/man</Path>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/opt/grass/bin</Path>
+            <Path fileType="data">/opt/grass</Path>
+            <Path fileType="doc">/opt/grass/docs</Path>
+            <Path fileType="config">/opt/grass/etc</Path>
+            <Path fileType="header">/opt/grass/include</Path>
+            <Path fileType="library">/opt/grass/lib</Path>
+            <Path fileType="man">/opt/grass/man</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
      <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/grass.desktop" permission="0644" owner="root">grass.desktop</AdditionalFile>
             <AdditionalFile target="/usr/share/pixmaps/grass.png" permission="0644" owner="root">grass.png</AdditionalFile>
-            <AdditionalFile target="/etc/env.d/99grass" permission="0644" owner="root">99grass</AdditionalFile>
     </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2007-09-26</Date>
+            <Version>6.2.2</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="9">
             <Date>2007-07-12</Date>
             <Version>6.2.2_rc1</Version>
