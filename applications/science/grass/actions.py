@@ -9,8 +9,6 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-grassdir = "grass-%s" % get.srcVERSION()
-
 def setup():
     autotools.configure("--disable-static \
                          --enable-shared \
