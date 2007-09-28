@@ -14,9 +14,9 @@
         <License>LGPL-3</License>
         <IsA>app:console</IsA>
         <Summary>The GNU Compiler Collection snapshot. Includes C/C++,Fortran,ObjC compilers</Summary>
-        <Archive sha1sum="99ed88988ada86fc1e1e245b31c868d52f66437e" type="tarbz2">ftp://gcc.gnu.org/pub/gcc/snapshots/4.3-20070907/gcc-4.3-20070907.tar.bz2</Archive>
+        <Archive sha1sum="b2fe2742bdecf1dda23f18454a90a9acead31149" type="tarbz2">ftp://gcc.gnu.org/pub/gcc/snapshots/4.3-20070928/gcc-4.3-20070928.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>mpfr</Dependency>
+            <Dependency versionFrom="2.3.0">mpfr</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>pr26061.patch</Patch>
@@ -26,7 +26,7 @@
     <Package>
         <Name>gcc-snapshot</Name>
         <RuntimeDependencies>
-            <Dependency>mpfr</Dependency>
+            <Dependency versionFrom="2.3.0">mpfr</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib/gcc-snapshot/lib</Path>
@@ -39,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="18">
+            <Date>2007-09-29</Date>
+            <Version>4.3.0_20070928</Version>
+            <Comment>New snapshot</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
         <Update release="17">
             <Date>2007-09-10</Date>
             <Version>4.3.0_20070907</Version>
