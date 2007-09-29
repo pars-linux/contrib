@@ -68,3 +68,6 @@ def install():
 
     # This one comes with gdb
     pisitools.remove("/usr/share/gcc-snapshot/lib/libiberty.a")
+
+    # cc symlink
+    pisitools.dosym("/usr/lib/gcc-snapshot/bin/gcc","/usr/lib/gcc-snapshot/bin/cc")
