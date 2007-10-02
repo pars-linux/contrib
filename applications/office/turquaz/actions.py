@@ -13,7 +13,7 @@ WorkDir = "TurquazLinux08Beta5"
 NoStrip = "/"
 
 def install():
-    shelltools.unlinkDir(get.workDIR() + "/TurquazLinux08Beta5/java")
+    shelltools.unlinkDir("%s/TurquazLinux08Beta5/java" % get.workDIR())
 
     pisitools.dodir("/usr/share/pixmaps")
     shelltools.system('unzip -j %s/TurquazLinux08Beta5/turquaz/08Beta5/lib/turquaz-client.jar \
