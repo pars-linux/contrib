@@ -26,5 +26,4 @@ def install():
     pisitools.remove("/opt/TurquazLinux08Beta5/database/turquaz.script")
     pisitools.remove("/opt/TurquazLinux08Beta5/lib/asm.jar")
 
-
-    pisitools.dodoc("install.txt", "yukleme.txt", "lisans/*")
+    pisitools.dodoc("lisans/*")
