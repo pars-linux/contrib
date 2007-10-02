@@ -19,7 +19,12 @@ def install():
     shelltools.system('unzip -j %s/TurquazLinux08Beta5/turquaz/08Beta5/lib/turquaz-client.jar \
                        icons/turquaz_paw.gif -d %s/usr/share/pixmaps'
                        % (get.workDIR(), get.installDIR()) )
+
     pisitools.insinto("/opt/TurquazLinux08Beta5/", "turquaz/08Beta5/*")
-    pisitools.remove("/opt/TurquazLinux08Beta5/database/turquaz.script")
     pisitools.domove("/opt/TurquazLinux08Beta5/turquaz.sh", "/usr/bin")
+
+    pisitools.remove("/opt/TurquazLinux08Beta5/database/turquaz.script")
+    pisitools.remove("/opt/TurquazLinux08Beta5/lib/asm.jar")
+
+
     pisitools.dodoc("install.txt", "yukleme.txt", "lisans/*")
