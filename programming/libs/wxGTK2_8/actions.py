@@ -45,4 +45,5 @@ def install():
 
     pisitools.dosym("%s/lib/wx/config/gtk2-unicode-release-2.8" % wxprefix, "/usr/bin/wx-config-2.8")
     pisitools.dosym("%s/bin/wxrc-2.8" % wxprefix, "/usr/bin/wxrc-2.8")
+
     pisitools.dodoc("docs/*.txt", "docs/*.htm")
