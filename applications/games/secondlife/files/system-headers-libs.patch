@@ -1,0 +1,11 @@
+--- linden/indra/SConstruct.orig	2007-08-29 14:20:26.000000000 +0300
++++ linden/indra/SConstruct	2007-08-29 14:21:01.000000000 +0300
+@@ -104,7 +104,7 @@
+     EnumOption('GRID', 'Client package\'s default grid', 'default',
+         allowed_values=('default', 'aditi', 'agni', 'dmz', 'durga', 'firstlook', 'ganga', 'shakti', 'siva', 'soma', 'uma', 'vaak')),
+     BoolOption('ELFIO', 'Enabled enhanced backtraces with libELFIO symbol extraction support', False),
+-    BoolOption('STANDALONE', 'Build using system packages (implies OPENSOURCE)', False),
++    BoolOption('STANDALONE', 'Build using system packages (implies OPENSOURCE)', True),
+     BoolOption('OPENSOURCE', 'Build using only non-proprietary dependencies', True) # OPENSOURCE: do not edit this line
+ )
+ optenv = Environment(options = opts)

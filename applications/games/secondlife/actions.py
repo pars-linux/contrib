@@ -16,12 +16,16 @@ def build():
 
     shelltools.export("TEMP_BUILD_DIR", "build")
 
+    pisitools.dosed("SConstruct", "-Werror")
+
     scons.make("DISTCC=no \
                 BTARGET=client \
                 BUILD=release \
                 MOZLIB=no \
-                GRID=firstlook \
-                FMOD=yes \
+                GRID=default \
+                FMOD=no \
+                GSTREAMER=yes \
+                CHANNEL=Release \
                 ELFIO=no \
                 STANDALONE=yes")
 

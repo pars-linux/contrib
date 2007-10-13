@@ -12,10 +12,9 @@
         <Icon>secondlife</Icon>
         <IsA>app:gui</IsA>
         <Summary>Client for SecondLife</Summary>
-        <Archive sha1sum="7094cb0adb4550c3e798878fb083bdf5e650689f" type="targz">http://s3.amazonaws.com/viewer-source-downloads/2007/06/slviewer-src-1.17.2.0.tar.gz</Archive>
+        <Archive sha1sum="f58a288438eaccd7545f4a73f5e3982730b9552c" type="targz">http://s3.amazonaws.com/viewer-source-downloads/2007/09/slviewer-src-RC-1.18.3.5.tar.gz</Archive>
         <BuildDependencies>
             <Dependency releaseFrom="5">jpeg</Dependency>
-            <Dependency>fmod</Dependency>
             <Dependency>libsdl</Dependency>
             <Dependency>apr1</Dependency>
             <Dependency>apr-util1</Dependency>
@@ -25,15 +24,23 @@
             <Dependency>gtk2</Dependency>
             <Dependency versionFrom="1.1.1">openjpeg</Dependency>
             <Dependency>curl</Dependency>
+            <Dependency>openal</Dependency>
+            <Dependency>freealut</Dependency>
             <Dependency>google-perftools</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">system-headers.patch</Patch>
+            <Patch level="1">no-mozlib.patch</Patch>
+            <Patch level="1">no-fmod.patch</Patch>
             <Patch level="1">no-elfio.patch</Patch>
+            <Patch level="1">system-headers-libs.patch</Patch>
+            <Patch level="1">system-gstreamer.patch</Patch>
             <Patch level="1">debian_put_AppROData_in_usr_share_secondlife.patch</Patch>
             <Patch level="1">use_pardus-included_fonts.patch</Patch>
-            <Patch level="1">libxmlrpc-epi.patch</Patch>
             <Patch level="1">freetype2.patch</Patch>
+            <Patch level="1">slviewer-1.17.0.12-openal-20070625.patch</Patch>
+            <Patch level="1">boost_regex.patch</Patch>
+            <Patch level="1">voiceclient-expat.patch</Patch>
+            <Patch level="1">openssl.patch</Patch>
         </Patches>
     </Source>
 
@@ -49,7 +56,8 @@
             <Dependency>gtk2</Dependency>
             <Dependency versionFrom="1.1.1">openjpeg</Dependency>
             <Dependency>curl</Dependency>
-            <Dependency>fmod</Dependency>
+            <Dependency>openal</Dependency>
+            <Dependency>freealut</Dependency>
             <Dependency>google-perftools</Dependency>
             <Dependency version="1.17.2.0">secondlife-artwork</Dependency>
         </RuntimeDependencies>
@@ -82,6 +90,13 @@
     </Package>
 
     <History>
+        <Update release="15">
+            <Date>2007-10-13</Date>
+            <Version>1.18.3.5_rc1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="14">
             <Date>2007-07-03</Date>
             <Version>1.17.2.0</Version>
