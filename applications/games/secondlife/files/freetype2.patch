@@ -1,25 +1,25 @@
 diff -Naur linden.orig/indra/SConstruct linden/indra/SConstruct
---- linden.orig/indra/SConstruct	2007-07-03 00:27:13.000000000 +0300
-+++ linden/indra/SConstruct	2007-07-04 01:05:19.000000000 +0300
-@@ -221,7 +221,7 @@
+--- linden.orig/indra/SConstruct	2007-08-30 02:31:00.000000000 +0300
++++ linden/indra/SConstruct	2007-08-30 02:33:27.000000000 +0300
+@@ -255,7 +255,7 @@
      ##############
  
      # Generic GCC flags
--    cflags = '-g -pipe -Wall -Wno-trigraphs -Wno-sign-compare -Werror '
-+    cflags = '-g -pipe -Wall -Wno-trigraphs -Wno-sign-compare -Werror -I/usr/include/freetype2 '
+-    cflags = '-g -pipe -Wall -Wno-reorder -Wno-trigraphs -Wno-sign-compare -Werror '
++    cflags = '-g -pipe -Wall -Wno-reorder -Wno-trigraphs -Wno-sign-compare -Werror -I/usr/include/freetype2 '
      cxxflags = ''
-     cppflags = ''
- 
-@@ -262,7 +262,7 @@
+     cppflags = '-D_FORTIFY_SOURCE=2 '
+     if standalone:
+@@ -299,7 +299,7 @@
              else:
-                 client_external_libs += [ 'gtk-x11-2.0' ]
+                 client_external_libs += [ 'gtk-x11-2.0', 'atk-1.0', 'gmodule-2.0', 'gdk-x11-2.0', 'gdk_pixbuf-2.0', 'pango-1.0', 'pangoft2-1.0', 'pangox-1.0', 'pangoxft-1.0', 'Xinerama' ]
                  incdirs = [ 'ELFIO', 'atk-1.0', 'glib-2.0', 'gtk-2.0',
 -                            'llfreetype2', 'pango-1.0' ]
 +                            'freetype2', 'pango-1.0' ]
                  include_dirs += ['../libraries/' + system_str + '/include/' + d
                                   for d in incdirs]
  
-@@ -551,7 +551,7 @@
+@@ -649,7 +649,7 @@
              external_libs += [ d[2:] for d in
                                pkgconfig('--libs-only-l').split() ]
          else:
