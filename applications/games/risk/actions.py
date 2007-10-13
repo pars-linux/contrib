@@ -27,8 +27,6 @@ def build():
 def install():
     shelltools.cd("build/game")
 
-    pisitools.dodir(datadir)
-
     pisitools.insinto(datadir, "Risk.jar")
 
     for f in ["help", "maps", "resources" ,"saves"]:
