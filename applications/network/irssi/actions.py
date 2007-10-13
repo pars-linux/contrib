@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import perlmodules
 from pisi.actionsapi import get
 
-WorkDir = "irssi-0.8.12-rc1"
+WorkDir = "irssi-0.8.12"
 
 def setup():
     autotools.configure("--enable-ipv6 \
