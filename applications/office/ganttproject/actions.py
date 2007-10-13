@@ -20,4 +20,3 @@ def install():
     shelltools.chmod("../ganttproject/data/resources/icons/ganttproject.png", 644)
     pisitools.insinto("/usr/share/pixmaps", "../ganttproject/data/resources/icons/ganttproject.png")
     pisitools.remove("/usr/share/ganttproject/ganttproject.*")
-
