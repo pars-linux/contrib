@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
 WorkDir = "fusion-icon"
@@ -15,6 +16,7 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pythonmodules.fixCompiledPy()
 
     # Turkish translation
     pisitools.domo("po/tr.po", "tr", "fusion-icon.mo")
