@@ -15,9 +15,8 @@ def build():
     cmaketools.make()
 
 def install():
-    cmaketools.install()
-
     pisitools.dobin("src/klogshow")
+
     pisitools.insinto("/usr/share/applications","src/klogshow.desktop")
     pisitools.insinto("/usr/share/pixmaps","src/images/klogshow.png")
 
