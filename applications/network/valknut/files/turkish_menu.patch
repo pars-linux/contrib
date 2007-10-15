@@ -1,6 +1,6 @@
-diff -Naur valknut-0.3.9.orig/valknut/dciconloader.cpp valknut-0.3.9/valknut/dciconloader.cpp
---- valknut-0.3.9.orig/valknut/dciconloader.cpp	2007-02-17 15:39:25.000000000 +0200
-+++ valknut-0.3.9/valknut/dciconloader.cpp	2007-05-15 15:50:40.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/dciconloader.cpp valknut-0.3.11/valknut/dciconloader.cpp
+--- valknut-0.3.11.orig/valknut/dciconloader.cpp	2007-02-17 15:39:25.000000000 +0200
++++ valknut-0.3.11/valknut/dciconloader.cpp	2007-10-15 22:20:19.000000000 +0300
 @@ -2,7 +2,7 @@
                            dciconloader.cpp  -  description
                               -------------------
@@ -14,13 +14,13 @@ diff -Naur valknut-0.3.9.orig/valknut/dciconloader.cpp valknut-0.3.9/valknut/dci
  	m_PixmapMap[eiFLAG_LATVIAN] = LoadPixmap("flag_latvian.xpm");
  	m_PixmapMap[eiFLAG_RUSSIA] = LoadPixmap("flag_russia.xpm");
  	m_PixmapMap[eiFLAG_SLOVAK] = LoadPixmap("flag_slovak.xpm");
-+	m_PixmapMap[eiFLAG_TURKEY] = LoadPixmap("flag_turkey.xpm");
++        m_PixmapMap[eiFLAG_TURKEY] = LoadPixmap("flag_turkey.xpm");
  	
  	m_PixmapMap[eiUSERICONS] = LoadPixmap("usericons.xpm");
  	
-diff -Naur valknut-0.3.9.orig/valknut/dciconloader.h valknut-0.3.9/valknut/dciconloader.h
---- valknut-0.3.9.orig/valknut/dciconloader.h	2006-11-07 06:57:47.000000000 +0200
-+++ valknut-0.3.9/valknut/dciconloader.h	2007-05-15 15:14:15.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/dciconloader.h valknut-0.3.11/valknut/dciconloader.h
+--- valknut-0.3.11.orig/valknut/dciconloader.h	2006-11-07 06:57:47.000000000 +0200
++++ valknut-0.3.11/valknut/dciconloader.h	2007-10-15 22:21:31.000000000 +0300
 @@ -2,7 +2,7 @@
                            dciconloader.h  -  description
                               -------------------
@@ -49,9 +49,9 @@ diff -Naur valknut-0.3.9.orig/valknut/dciconloader.h valknut-0.3.9/valknut/dcico
  } eIcons;
  
  class QPixmap;
-diff -Naur valknut-0.3.9.orig/valknut/dcmenuhandler.cpp valknut-0.3.9/valknut/dcmenuhandler.cpp
---- valknut-0.3.9.orig/valknut/dcmenuhandler.cpp	2006-11-07 05:55:32.000000000 +0200
-+++ valknut-0.3.9/valknut/dcmenuhandler.cpp	2007-05-15 15:17:53.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/dcmenuhandler.cpp valknut-0.3.11/valknut/dcmenuhandler.cpp
+--- valknut-0.3.11.orig/valknut/dcmenuhandler.cpp	2007-09-23 11:18:21.000000000 +0300
++++ valknut-0.3.11/valknut/dcmenuhandler.cpp	2007-10-15 22:40:38.000000000 +0300
 @@ -2,7 +2,7 @@
                            dcmenuhandler.cpp  -  description
                               -------------------
@@ -61,19 +61,20 @@ diff -Naur valknut-0.3.9.orig/valknut/dcmenuhandler.cpp valknut-0.3.9/valknut/dc
      email                : mathen@users.berlios.de
   ***************************************************************************/
  
-@@ -421,6 +421,9 @@
- 		case emiLANGUAGE_SWEDISH:
+@@ -422,6 +422,10 @@
  				popupmenu->insertItem( QIconSet( g_pIconLoader->GetPixmap(eiFLAG_SWEDEN) ), QObject::tr("Swedish"), menuitems );
  				popupmenu->setItemEnabled( menuitems, enabled );
+ 				break;
 +		case emiLANGUAGE_TURKISH:
 +				popupmenu->insertItem( QIconSet( g_pIconLoader->GetPixmap(eiFLAG_TURKEY) ), QObject::tr("Turkish"), menuitems );
-+        			popupmenu->setItemEnabled( menuitems, enabled );
- 				break;
- 		case emiTEXT_INPUT_ENCODING:
- 				popupmenu->insertItem( QIconSet( QPixmap() ), QObject::tr("Input"), menuitems );
-diff -Naur valknut-0.3.9.orig/valknut/dcmenuhandler.h valknut-0.3.9/valknut/dcmenuhandler.h
---- valknut-0.3.9.orig/valknut/dcmenuhandler.h	2006-11-07 05:55:32.000000000 +0200
-+++ valknut-0.3.9/valknut/dcmenuhandler.h	2007-05-15 15:19:06.000000000 +0300
++				popupmenu->setItemEnabled( menuitems, enabled );
++				break;
+ 		// submenus
+ 		case emisGROUP:
+ 				menu = new QPopupMenu(popupmenu);
+diff -Naur valknut-0.3.11.orig/valknut/dcmenuhandler.h valknut-0.3.11/valknut/dcmenuhandler.h
+--- valknut-0.3.11.orig/valknut/dcmenuhandler.h	2007-09-23 11:18:21.000000000 +0300
++++ valknut-0.3.11/valknut/dcmenuhandler.h	2007-10-15 22:25:43.000000000 +0300
 @@ -2,7 +2,7 @@
                            dcmenuhandler.h  -  description
                               -------------------
@@ -97,12 +98,12 @@ diff -Naur valknut-0.3.9.orig/valknut/dcmenuhandler.h valknut-0.3.9/valknut/dcme
  	emiLANGUAGE_SPANISH,
  	emiLANGUAGE_SWEDISH,
 +	emiLANGUAGE_TURKISH,
- 	emiTEXT_INPUT_ENCODING,
- 	emiTEXT_OUTPUT_ENCODING,
  	// submenus
-diff -Naur valknut-0.3.9.orig/valknut/dcoptions.cpp valknut-0.3.9/valknut/dcoptions.cpp
---- valknut-0.3.9.orig/valknut/dcoptions.cpp	2007-04-11 23:29:39.000000000 +0300
-+++ valknut-0.3.9/valknut/dcoptions.cpp	2007-05-15 15:22:45.000000000 +0300
+ 	emisGROUP,
+ 	emisCHAT_RIGHTCLICK_USER,
+diff -Naur valknut-0.3.11.orig/valknut/dcoptions.cpp valknut-0.3.11/valknut/dcoptions.cpp
+--- valknut-0.3.11.orig/valknut/dcoptions.cpp	2007-10-05 17:43:08.000000000 +0300
++++ valknut-0.3.11/valknut/dcoptions.cpp	2007-10-15 22:27:24.000000000 +0300
 @@ -2,7 +2,7 @@
                            dcoptions.cpp  -  description
                               -------------------
@@ -112,7 +113,7 @@ diff -Naur valknut-0.3.9.orig/valknut/dcoptions.cpp valknut-0.3.9/valknut/dcopti
      email                : mathen@users.berlios.de
   ***************************************************************************/
  
-@@ -1933,6 +1933,7 @@
+@@ -1986,6 +1986,7 @@
  	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SLOVAKIAN );
  	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SPANISH );
  	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SWEDISH );
@@ -120,7 +121,7 @@ diff -Naur valknut-0.3.9.orig/valknut/dcoptions.cpp valknut-0.3.9/valknut/dcopti
  
  	id = m->exec(QCursor::pos());
  
-@@ -1980,6 +1981,8 @@
+@@ -2033,6 +2034,8 @@
  		s = "valknut.es.qm";
  	else if ( id == emiLANGUAGE_SWEDISH )
  		s = "valknut.sv.qm";
@@ -129,9 +130,9 @@ diff -Naur valknut-0.3.9.orig/valknut/dcoptions.cpp valknut-0.3.9/valknut/dcopti
  
  	if ( s != "" )
  	{
-diff -Naur valknut-0.3.9.orig/valknut/icons/Makefile.am valknut-0.3.9/valknut/icons/Makefile.am
---- valknut-0.3.9.orig/valknut/icons/Makefile.am	2006-11-07 05:29:21.000000000 +0200
-+++ valknut-0.3.9/valknut/icons/Makefile.am	2007-05-15 15:23:29.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/icons/Makefile.am valknut-0.3.11/valknut/icons/Makefile.am
+--- valknut-0.3.11.orig/valknut/icons/Makefile.am	2006-11-07 05:29:21.000000000 +0200
++++ valknut-0.3.11/valknut/icons/Makefile.am	2007-10-15 22:28:28.000000000 +0300
 @@ -1,6 +1,6 @@
  # icons
  ICONS_EMOT = emoticons.xml emoticons.xpm
@@ -140,15 +141,15 @@ diff -Naur valknut-0.3.9.orig/valknut/icons/Makefile.am valknut-0.3.9/valknut/ic
  ICONS_USER = usericons.xml usericons.xpm
  ICONS_APPL = \
  back.xpm ball_green.xpm ball_red.xpm ball_yellow.xpm bookmark_add.xpm bookmark_folder.xpm \
-diff -Naur valknut-0.3.9.orig/valknut/icons/Makefile.in valknut-0.3.9/valknut/icons/Makefile.in
---- valknut-0.3.9.orig/valknut/icons/Makefile.in	2007-05-06 19:56:26.000000000 +0300
-+++ valknut-0.3.9/valknut/icons/Makefile.in	2007-05-15 15:33:49.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/icons/Makefile.in valknut-0.3.11/valknut/icons/Makefile.in
+--- valknut-0.3.11.orig/valknut/icons/Makefile.in	2007-10-14 10:49:19.000000000 +0300
++++ valknut-0.3.11/valknut/icons/Makefile.in	2007-10-15 22:29:41.000000000 +0300
 @@ -272,7 +272,7 @@
  
  # icons
  ICONS_EMOT = emoticons.xml emoticons.xpm
 -ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm
-+ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm flag_turkey.xpm
++ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm flag_turkey.xpm 
  ICONS_USER = usericons.xml usericons.xpm
  ICONS_APPL = \
  back.xpm ball_green.xpm ball_red.xpm ball_yellow.xpm bookmark_add.xpm bookmark_folder.xpm \
@@ -161,24 +162,24 @@ diff -Naur valknut-0.3.9.orig/valknut/icons/Makefile.in valknut-0.3.9/valknut/ic
  
  #>+ 2
  docs-am:
-diff -Naur valknut-0.3.9.orig/valknut/Makefile.tr valknut-0.3.9/valknut/Makefile.tr
---- valknut-0.3.9.orig/valknut/Makefile.tr	2006-11-07 05:29:21.000000000 +0200
-+++ valknut-0.3.9/valknut/Makefile.tr	2007-05-15 15:26:02.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/Makefile.tr valknut-0.3.11/valknut/Makefile.tr
+--- valknut-0.3.11.orig/valknut/Makefile.tr	2006-11-07 05:29:21.000000000 +0200
++++ valknut-0.3.11/valknut/Makefile.tr	2007-10-15 22:30:27.000000000 +0300
 @@ -5,4 +5,4 @@
  dcapplicationevents.cpp dcchat.cpp dcclient.cpp dcconfig.cpp dcconnectionmanager.cpp dcdebug.cpp dceditserver.cpp dcedittransfer.cpp dcevent.cpp dcfilebrowser.cpp dcfiletool.cpp dcfiletransferinfo.cpp dcgeturl.cpp dcgui.cpp dchubfilter.cpp dchublistmanager.cpp dchubprofile.cpp dchubsearch.cpp dciconloader.cpp dcmenuhandler.cpp dcoptions.cpp dcpluginmanager.cpp dcsplash.cpp dcspy.cpp dctransferview.cpp dctranslator.cpp dcupdatemanager.cpp dcuserslist.cpp main.cpp 
  
  INTERFACES = ui/DCDialogEditSharePath.ui ui/DCDialogConnectionManager.ui ui/DCDialogHubListManager.ui ui/DCDialogFileTransferInfo.ui ui/DCDialogHubFilter.ui ui/DCDialogTransfer.ui ui/DCDialogUpdateManager.ui ui/DCDialogClient.ui ui/DCDialogSplash.ui ui/DCDialogAbout.ui ui/DCDialogDebug.ui ui/DCDialogFileBrowser.ui ui/DCDialogHubSearch.ui ui/DCDialogHubProfile.ui ui/DCDialogSpy.ui ui/DCDialogMessage.ui ui/DCDialogGetURL.ui ui/DCDialogEditTransfer.ui ui/DCDialogServerList.ui ui/DCDialogChat.ui ui/DCDialogUsersList.ui ui/DCDialogEditServer.ui ui/DCDialogOptions.ui
 -TRANSLATIONS = ts/valknut.bs.ts ts/valknut.rus.ts ts/valknut.lv.ts ts/valknut.sk.ts ts/valknut.hu.ts ts/valknut.is.ts ts/valknut.nb.ts ts/valknut.ro.ts ts/valknut.nl.ts ts/valknut.da.ts ts/valknut.es.ts ts/valknut.pl.ts ts/valknut.sv.ts ts/valknut.fi.ts ts/valknut.it.ts ts/valknut.cs.ts ts/valknut.en_GB.ts ts/valknut.fr.ts ts/valknut.de.ts ts/valknut.el.ts ts/valknut.pt_br.ts
 +TRANSLATIONS = ts/valknut.bs.ts ts/valknut.rus.ts ts/valknut.lv.ts ts/valknut.sk.ts ts/valknut.hu.ts ts/valknut.is.ts ts/valknut.nb.ts ts/valknut.ro.ts ts/valknut.nl.ts ts/valknut.da.ts ts/valknut.es.ts ts/valknut.pl.ts ts/valknut.sv.ts ts/valknut.fi.ts ts/valknut.it.ts ts/valknut.cs.ts ts/valknut.en_GB.ts ts/valknut.fr.ts ts/valknut.de.ts ts/valknut.el.ts ts/valknut.pt_br.ts ts/valknut.tr.ts
-diff -Naur valknut-0.3.9.orig/valknut/ts/Makefile.am valknut-0.3.9/valknut/ts/Makefile.am
---- valknut-0.3.9.orig/valknut/ts/Makefile.am	2006-11-07 05:29:21.000000000 +0200
-+++ valknut-0.3.9/valknut/ts/Makefile.am	2007-05-15 15:28:06.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/ts/Makefile.am valknut-0.3.11/valknut/ts/Makefile.am
+--- valknut-0.3.11.orig/valknut/ts/Makefile.am	2006-11-07 05:29:21.000000000 +0200
++++ valknut-0.3.11/valknut/ts/Makefile.am	2007-10-15 22:32:10.000000000 +0300
 @@ -1 +1 @@
 -EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts
 +EXTRA_DIST = README.rus README.tr valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts valknut.tr.ts
-diff -Naur valknut-0.3.9.orig/valknut/ts/Makefile.in valknut-0.3.9/valknut/ts/Makefile.in
---- valknut-0.3.9.orig/valknut/ts/Makefile.in	2007-05-06 19:56:26.000000000 +0300
-+++ valknut-0.3.9/valknut/ts/Makefile.in	2007-05-15 15:29:06.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/ts/Makefile.in valknut-0.3.11/valknut/ts/Makefile.in
+--- valknut-0.3.11.orig/valknut/ts/Makefile.in	2007-10-14 10:49:19.000000000 +0300
++++ valknut-0.3.11/valknut/ts/Makefile.in	2007-10-15 22:32:53.000000000 +0300
 @@ -269,7 +269,7 @@
  xdg_appsdir = @xdg_appsdir@
  xdg_directorydir = @xdg_directorydir@
@@ -188,17 +189,17 @@ diff -Naur valknut-0.3.9.orig/valknut/ts/Makefile.in valknut-0.3.9/valknut/ts/Ma
  subdir = valknut/ts
  mkinstalldirs = $(SHELL) $(top_srcdir)/admin/mkinstalldirs
  CONFIG_HEADER = $(top_builddir)/config.h
-diff -Naur valknut-0.3.9.orig/valknut/ts/README valknut-0.3.9/valknut/ts/README
---- valknut-0.3.9.orig/valknut/ts/README	2006-11-07 05:29:21.000000000 +0200
-+++ valknut-0.3.9/valknut/ts/README	2007-05-15 18:54:16.000000000 +0300
+diff -Naur valknut-0.3.11.orig/valknut/ts/README valknut-0.3.11/valknut/ts/README
+--- valknut-0.3.11.orig/valknut/ts/README	2006-11-07 05:29:21.000000000 +0200
++++ valknut-0.3.11/valknut/ts/README	2007-10-15 22:33:24.000000000 +0300
 @@ -22,3 +22,4 @@
  valknut.rus.ts   - Russian
  valknut.sk.ts    - Slovak
  valknut.sv.ts    - Swedish
-+valknut.tr.ts	 - Turkish
-diff -Naur valknut-0.3.9.orig/valknut/ts/README.tr valknut-0.3.9/valknut/ts/README.tr
---- valknut-0.3.9.orig/valknut/ts/README.tr	1970-01-01 02:00:00.000000000 +0200
-+++ valknut-0.3.9/valknut/ts/README.tr	2007-05-15 15:54:15.000000000 +0300
++valknut.tr.ts    - Turkish
+diff -Naur valknut-0.3.11.orig/valknut/ts/README.tr valknut-0.3.11/valknut/ts/README.tr
+--- valknut-0.3.11.orig/valknut/ts/README.tr	1970-01-01 02:00:00.000000000 +0200
++++ valknut-0.3.11/valknut/ts/README.tr	2007-10-15 22:35:21.000000000 +0300
 @@ -0,0 +1,14 @@
 +Turkish  Declaration
 +
