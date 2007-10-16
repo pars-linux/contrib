@@ -16,7 +16,8 @@ def setup():
                                             --rb-dir=/usr/lib/ruby/site_ruby/1.8 \
                                             --so-dir=/usr/lib/ruby/site_ruby/1.8 \
                                             --ruby-path=/usr/bin/ruby \
-                                            --ruby-prog=/usr/bin/ruby")
+                                            --ruby-prog=/usr/bin/ruby \
+                                            --without-ext")
 
 def build():
     shelltools.system("ruby setup.rb setup")
