@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tennix</Name>
+        <Homepage>http://icculus.org/tennix/</Homepage>
+        <Packager>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>tennix</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A tennis game</Summary>
+        <Description>The game features a two-player game mode and a single-player mode against the computer</Description>
+        <Archive sha1sum="7e086ef92a48207dcd0cf82c6d0615766e08cada" type="targz">http://icculus.org/tennix/releases/tennix-0.4.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tennix</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/tennix.desktop" owner="root" permission="0644">tennix.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-27</Date>
+            <Version>0.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
