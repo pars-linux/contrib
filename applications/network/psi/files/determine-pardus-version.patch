@@ -1,21 +1,18 @@
-diff -Nur psi-0.10/src/common.cpp psi-0.10.patched/src/common.cpp
---- psi-0.10/src/common.cpp	2006-01-07 23:37:22.000000000 +0200
-+++ psi-0.10.patched/src/common.cpp	2007-08-16 17:47:47.000000000 +0300
-@@ -1144,7 +1144,8 @@
+--- src/systeminfo.cpp.orig	2007-10-16 14:38:42.753513426 +0300
++++ src/systeminfo.cpp	2007-10-16 14:42:29.095104274 +0300
+@@ -62,6 +62,7 @@
+ 		LinuxConectiva,
+ 		LinuxCaldera,
+ 		LinuxLFS,
++		LinuxPardus,
  
- 		LinuxPLD, // Polish Linux distros
- 		LinuxAurox,
--		LinuxArch
-+		LinuxArch,
-+		LinuxPardus
- 	};
- 
- 	enum OsFlags {
-@@ -1166,6 +1167,7 @@
- 		{ LinuxPLD,		OsUseFile,	"/etc/pld-release",		"PLD Linux"		},
+ 		LinuxASP, // Russian Linux distros
+ 		LinuxALT,
+@@ -91,6 +92,7 @@
  		{ LinuxAurox,		OsUseName,	"/etc/aurox-release",		"Aurox Linux"		},
  		{ LinuxArch,		OsUseFile,	"/etc/arch-release",		"Arch Linux"		},
-+		{ LinuxPardus,		OsUseFile,	"/etc/pardus-release",		"Pardus Linux"		},
  		{ LinuxLFS,		OsAppendFile,	"/etc/lfs-release",		"LFS Linux"		},
++		{ LinuxPardus,		OsUseFile,	"/etc/pardus-release",		"Pardus Linux"		},
  
  		// untested
+ 		{ LinuxSuSE,		OsUseFile,	"/etc/SuSE-release",		"SuSE Linux"		},

@@ -1,7 +1,5 @@
 <?xml version="1.0" ?>
-
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
-
 <PISI>
     <Source>
         <Name>psi</Name>
@@ -15,21 +13,21 @@
         <IsA>app:gui</IsA>
         <Summary>Fast and lightweight jabber client</Summary>
         <Description>Psi is a fast and lightweight jabber instant messaging client that utilises the best in open source technologies.</Description>
-        <Archive type="tarbz2" sha1sum="f1687f8b93338f47cb1c8fa363e4b4f58628f167">http://heanet.dl.sourceforge.net/sourceforge/psi/psi-0.10.tar.bz2</Archive>
+        <Archive type="tarbz2" sha1sum="834fac4b51d92e2502cb08d01d40f05ffcdce4a2">http://heanet.dl.sourceforge.net/sourceforge/psi/psi-0.11.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="3.3.0">qt</Dependency>
-            <Dependency versionFrom="1.0">qca</Dependency>
+            <Dependency>qca2</Dependency>
+            <Dependency>qca2-ossl</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">determine-pardus-version.patch</Patch>
+            <Patch>determine-pardus-version.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>psi</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="3.3.0">qt</Dependency>
-            <Dependency versionFrom="1.0">qca</Dependency>
+            <Dependency>qca2</Dependency>
+            <Dependency>qca2-ossl</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -39,6 +37,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2007-10-16</Date>
+            <Version>0.11</Version>
+            <Comment>Version bump to Qt4 port.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2007-08-16</Date>
             <Version>0.10</Version>
