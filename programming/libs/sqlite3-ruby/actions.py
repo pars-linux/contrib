@@ -10,14 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.system("ruby setup.rb config --prefix=/usr \
-                                            --std-ruby=/usr/lib/ruby/site_ruby/1.8 \
-                                            --site-ruby=/usr/lib/ruby/site_ruby/1.8 \
-                                            --rb-dir=/usr/lib/ruby/site_ruby/1.8 \
-                                            --so-dir=/usr/lib/ruby/site_ruby/1.8 \
-                                            --ruby-path=/usr/bin/ruby \
-                                            --ruby-prog=/usr/bin/ruby \
-                                            --without-ext")
+    shelltools.system("ruby setup.rb config")
 
 def build():
     shelltools.system("ruby setup.rb setup")
