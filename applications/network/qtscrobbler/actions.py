@@ -10,7 +10,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "qtscrob-%s/src/qt/" % get.srcVERSION()
+WorkDir = "qtscrob-%s/src/qt" % get.srcVERSION()
 
 def setup():
     shelltools.system("qmake-qt4")
@@ -24,4 +24,4 @@ def install():
     pisitools.insinto("/usr/share/qtscrobbler/resources", "resources/*")
     pisitools.insinto("/usr/share/qtscrobbler/translations", "translations/*.qm")
 
-    pisitools.dodoc("README", "TODO")
+    pisitools.dodoc("README", "TODO", "../../AUTHORS", "../../CHANGELOG", "../../COPYING")
