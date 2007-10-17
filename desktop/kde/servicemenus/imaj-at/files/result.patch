@@ -1,0 +1,10 @@
+diff -Naur imaj.at-1.1_orig/imaj.at.upload.py imaj.at-1.1/imaj.at.upload.py
+--- imaj.at.upload.py	2007-10-17 15:32:20.000000000 +0300
++++ imaj.at.upload.py	2007-10-17 15:49:47.000000000 +0300
+@@ -23,5 +23,5 @@
+ cnn             = httplib.HTTPConnection(sunucu)
+ gonder          = cnn.request('POST', sayfa, parametre, baslik)
+ cevap			= cnn.getresponse()
+-cnn.close()
+ system("kdialog --msgbox '"+cevap.read()+"'")
++cnn.close()
