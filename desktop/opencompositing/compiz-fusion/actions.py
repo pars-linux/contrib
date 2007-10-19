@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "compiz"
+WorkDir="compiz-%s" % get.srcVERSION()
 
 def setup():
     shelltools.system("./autogen.sh")
@@ -27,9 +27,8 @@ def setup():
                          --enable-kde \
                          --enable-dbus \
                          --enable-annotate \
-                         --enable-place \
-                         --enable-schemas-install \
                          --enable-dbus-glib \
+                         --enable-place \
                          --enable-librsvg")
 
 def build():
