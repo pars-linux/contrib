@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir = "compiz-scripts/manager"
+WorkDir = "compiz-manager"
 
 def install():
     pisitools.dobin("compiz-manager")
