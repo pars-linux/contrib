@@ -1,7 +1,7 @@
 diff -Naur compiz.orig/configure.ac compiz/configure.ac
---- compiz.orig/configure.ac	2007-08-30 22:56:57.000000000 +0300
-+++ compiz/configure.ac	2007-09-04 15:00:43.000000000 +0300
-@@ -181,26 +181,6 @@
+--- compiz.orig/configure.ac	1970-01-01 02:00:00.000000000 +0200
++++ compiz/configure.ac	2007-10-18 20:58:00.000000000 +0300
+@@ -180,26 +180,6 @@
    AC_DEFINE(USE_GLIB, 1, [Build glib plugin])
  fi
  
@@ -29,8 +29,8 @@ diff -Naur compiz.orig/configure.ac compiz/configure.ac
  AC_SUBST(stylesheetdir)
  
 diff -Naur compiz.orig/gtk/window-decorator/Makefile.am compiz/gtk/window-decorator/Makefile.am
---- compiz.orig/gtk/window-decorator/Makefile.am	2007-07-29 03:44:59.000000000 +0300
-+++ compiz/gtk/window-decorator/Makefile.am	2007-09-04 15:01:51.000000000 +0300
+--- compiz.orig/gtk/window-decorator/Makefile.am	1970-01-01 02:00:00.000000000 +0200
++++ compiz/gtk/window-decorator/Makefile.am	2007-10-18 20:58:56.000000000 +0300
 @@ -9,7 +9,6 @@
  gtk_window_decorator_LDADD	  =		       \
  	$(top_builddir)/libdecoration/libdecoration.la \
@@ -63,8 +63,8 @@ diff -Naur compiz.orig/gtk/window-decorator/Makefile.am compiz/gtk/window-decora
  bin_PROGRAMS = $(gtk_window_decorator_program)
  
 diff -Naur compiz.orig/Makefile.am compiz/Makefile.am
---- compiz.orig/Makefile.am	2007-08-21 21:39:09.000000000 +0300
-+++ compiz/Makefile.am	2007-09-04 15:02:47.000000000 +0300
+--- compiz.orig/Makefile.am	1970-01-01 02:00:00.000000000 +0200
++++ compiz/Makefile.am	2007-10-18 20:59:38.000000000 +0300
 @@ -23,10 +23,6 @@
  	po/stamp-it	 \
  	po/.intltool-merge-cache
@@ -73,13 +73,13 @@ diff -Naur compiz.orig/Makefile.am compiz/Makefile.am
 -gconfdata = compiz-gconf.pc
 -endif
 -
- if USE_KCONFIG
- kconfigdata = compiz-kconfig.pc
- endif
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = compiz.pc compiz-cube.pc compiz-scale.pc $(gconfdata)
+ 
 diff -Naur compiz.orig/metadata/Makefile.am compiz/metadata/Makefile.am
---- compiz.orig/metadata/Makefile.am	2007-08-24 21:51:00.000000000 +0300
-+++ compiz/metadata/Makefile.am	2007-09-04 15:13:39.000000000 +0300
-@@ -35,19 +35,6 @@
+--- compiz.orig/metadata/Makefile.am	1970-01-01 02:00:00.000000000 +0200
++++ compiz/metadata/Makefile.am	2007-10-18 21:01:55.000000000 +0300
+@@ -34,27 +34,6 @@
  
  @INTLTOOL_XML_RULE@
  
@@ -92,31 +92,24 @@ diff -Naur compiz.orig/metadata/Makefile.am compiz/metadata/Makefile.am
 -	xsltproc -o $@ --param defaultPlugins "'$(default_plugins)'" \
 -		$(srcdir)/schemas.xslt $(subst compiz-,,$*).xml
 -
--schemas_stylesheets = schemas.xslt
+-xsltdir    = $(stylesheetdir)
+-xslt_files = schemas.xslt
+-xslt_DATA  = $(xslt_files)
 -
--endif
--
- if USE_KCONFIG
- kde_kcfgdir    = $(DESTDIR)$(KDE_KCFG_DIR)
- kde_kcfg_files = $(patsubst %.xml.in,compiz-%.kcfg,$(xml_in_files))
-@@ -72,14 +59,6 @@
- 	$(kde_kcfg_files) \
- 	$(kde_config_files)
- 
--install-data-local:
--if USE_GCONF
 -if GCONF_SCHEMAS_INSTALL
+-install-data-local:
 -	if test -z "$(DESTDIR)" ; then \
 -		GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(schema_DATA); \
 -        fi
 -endif
 -endif
- if USE_KCONFIG
- 	if mkdir -p $(kde_kcfgdir) && test -w $(kde_kcfgdir); then ( \
- 		$(INSTALL) -m 644 $(kde_kcfg_files) $(kde_kcfgdir) \
+-
+ EXTRA_DIST =		\
+ 	$(xml_files)    \
+ 	$(xml_in_files) \
 diff -Naur compiz.orig/plugins/Makefile.am compiz/plugins/Makefile.am
---- compiz.orig/plugins/Makefile.am	2007-08-21 21:39:09.000000000 +0300
-+++ compiz/plugins/Makefile.am	2007-09-04 15:05:25.000000000 +0300
+--- compiz.orig/plugins/Makefile.am	1970-01-01 02:00:00.000000000 +0200
++++ compiz/plugins/Makefile.am	2007-10-18 21:02:43.000000000 +0300
 @@ -89,13 +89,6 @@
  libglib_module = libglib.la
  endif
@@ -128,14 +121,14 @@ diff -Naur compiz.orig/plugins/Makefile.am compiz/plugins/Makefile.am
 -libgconf_module = libgconf.la
 -endif
 -
- if USE_KCONFIG
- libkconfig_la_LDFLAGS = -module -avoid-version -no-undefined
- libkconfig_la_LIBADD = @KCONFIG_LIBS@
-@@ -135,7 +128,6 @@
+ if PLACE_PLUGIN
+ libplace_la_LDFLAGS = -module -avoid-version -no-undefined
+ libplace_la_LIBADD = @PLACE_LIBS@
+@@ -128,7 +121,6 @@
  	@LIBPNG_CFLAGS@				\
  	@LIBRSVG_CFLAGS@			\
  	@ANNOTATE_CFLAGS@			\
 -	@GCONF_CFLAGS@				\
- 	@KCONFIG_CFLAGS@			\
  	@PLACE_CFLAGS@				\
  	@DBUS_CFLAGS@				\
+ 	@FUSE_CFLAGS@				\

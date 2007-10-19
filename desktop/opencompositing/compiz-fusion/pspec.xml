@@ -14,13 +14,16 @@
         <IsA>app:gui</IsA>
         <Summary>3D composite and window manager</Summary>
         <Description>The Compiz Fusion Project brings 3D desktop visual effects that improve usability of the X Window System and provide increased productivit though plugins and themes contributed by the community giving a rich desktop experience.</Description>
-        <Archive sha1sum="fc5d8c8371df74f3cf43566be4980b26c39bc507" type="tarbz2">http://kpelit.org/ds/compiz/compiz-0.5.4_20070925.tar.bz2</Archive>
+        <Archive sha1sum="2b34caa05a29f9055ea74365a5429e6ea79b32ed" type="tarbz2">http://kpelit.org/ds/compiz/compiz-0.6.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>compiz-manager</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency versionFrom="0.1.4">libsvg</Dependency>
+            <Dependency>libwnck</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">no_gconf.patch</Patch>
-            <Patch level="1">sandbox.patch</Patch>
             <Patch level="1">compiz-pardus-top.patch</Patch>
         </Patches>
     </Source>
@@ -29,6 +32,10 @@
         <Name>compiz-fusion</Name>
         <RuntimeDependencies>
             <Dependency>compiz-manager</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency versionFrom="0.1.4">libsvg</Dependency>
+            <Dependency>libwnck</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -49,6 +56,18 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2007-10-19</Date>
+            <Version>0.6.2</Version>
+            <Comment>Stable release.
+                - Support for automatically starting one decorator per screen.
+                - Various stacking problem fixes.
+                - Fixes for various focus issues.
+                - Minor other bug fixes.
+            </Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2007-09-25</Date>
             <Version>0.5.4_20070925</Version>
