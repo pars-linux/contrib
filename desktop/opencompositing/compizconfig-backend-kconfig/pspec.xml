@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>compizconfig-backend-kconfig</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Window manager decoration like default Kwin decoration.</Summary>
+        <Archive sha1sum="d45c21297d0edfe25d41ffa1999ad5b7085b23d5" type="tarbz2">http://releases.compiz-fusion.org/0.6.0/compizconfig-backend-kconfig-0.6.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.6.2">compiz-fusion</Dependency>
+            <Dependency versionFrom="0.6.0">libcompizconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>compizconfig-backend-kconfig</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.6.2">compiz-fusion</Dependency>
+            <Dependency versionFrom="0.6.0">libcompizconfig</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-21</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
