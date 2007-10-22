@@ -1,0 +1,25 @@
+--- Linux.conf	2006-08-14 13:55:19.000000000 +0300
++++ Linux2.conf	2007-10-17 22:44:29.000000000 +0300
+@@ -6,11 +6,9 @@
+ LINK=gcc -fpic -g -Wall -shared
+ 
+ 
+-dist: SDIR=PyCg-$(shell python setup.py --version).linux-i686
++dist: SDIR=PyCg-$(shell python setup.py --version)
+ dist: all
+ 	mkdir $(SDIR)
+ 	mkdir $(SDIR)/Cg
+ 	cp Cg.py $(SDIR)/Cg/__init__.py
+ 	cp setup.py _Cg.$(SOEXT) /usr/lib/libCg.so /usr/lib/libCgGL.so $(SDIR)
+-	tar zcvf $(SDIR).tar.gz $(SDIR)
+-	rm -rf $(SDIR)
+--- Makefile	2006-08-14 13:55:19.000000000 +0300
++++ Makefile2	2007-10-17 22:42:52.000000000 +0300
+@@ -14,7 +14,6 @@
+ 	mkdir Cg
+ 	cp Cg.py Cg/__init__.py
+ 	python setup.py $@
+-	rm -rf Cg
+ 
+ clean:
+ 	rm -f _Cg.$(SOEXT) Cg.pyc Cg.py cg_wrap.c
