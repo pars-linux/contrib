@@ -8,9 +8,20 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
+
 
 def setup():
-    autotools.configure("--disable-gnome-support")
+    shelltools.system("./autogen.sh")
+    autotools.configure("--prefix=/usr \
+                         --disable-gnome-support\
+                         --disable-spell \
+                         --disable-espeak \
+                         --disable-festival \
+                         --disable-gucharmap \
+                         --disable-deprecations \
+                         --disable-schemas-install \
+                         PKG_CONFIG=/usr/bin/pkg-config")
 
 def build():
     autotools.make()
@@ -21,5 +32,4 @@ def install():
     pisitools.remove("usr/share/stardict/pixmaps/docklet_scan.png")
     pisitools.remove("usr/share/stardict/pixmaps/docklet_stop.png")
     pisitools.remove("usr/share/stardict/pixmaps/docklet_normal.png")
-    pisitools.domo("po/tr.po" , "tr" , "stardict.mo")
-    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "HowToCreateDictionary", "NEWS", "README", "TODO")
+    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO","doc/HowToCreateDictionary")
