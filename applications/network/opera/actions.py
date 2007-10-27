@@ -9,10 +9,10 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="opera-9.50-20071024.6-shared-qt.i386-1643"
+WorkDir="opera-9.24-20071015.6-shared-qt.i386-en-671"
 
 def install():
     shelltools.system("./install.sh DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/etc","etc/*")
-    pisitools.insinto("/usr/share/pixmaps", "usr/share/pixmaps/opera.xpm")
+    pisitools.insinto("/etc","config/opera6rc")
+    pisitools.insinto("/usr/share/pixmaps","images/*.png")
