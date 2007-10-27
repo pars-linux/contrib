@@ -15,4 +15,4 @@ def install():
     shelltools.system("./install.sh DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto("/etc","etc/*")
-    pisitools.insinto("/usr/share/pixmaps","images/*.png")
+    pisitools.insinto("/usr/share/pixmaps", "usr/share/pixmaps/opera.xpm")
