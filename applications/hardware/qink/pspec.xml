@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qink</Name>
+        <Homepage>http://code.google.com/p/qink/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A simple printer ink level monitor based on libinklevel</Summary>
+        <Archive sha1sum="d2f6c9f9d946219ed45cf8e9c589e24c7508e333" type="tarbz2">http://qink.googlecode.com/files/qink-0.3.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libinklevel</Dependency>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+            <Patch>turkish.patch</Patch>
+            <Patch>src-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qink</Name>
+        <RuntimeDependencies>
+            <Dependency>libinklevel</Dependency>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/qink</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-27</Date>
+            <Version>0.3.3</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
