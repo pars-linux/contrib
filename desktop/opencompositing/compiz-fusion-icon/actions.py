@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
-WorkDir = "fusion-icon"
+WorkDir="fusion-icon-%s" % get.srcVERSION()
 
 def build():
     autotools.make()
