@@ -12,18 +12,22 @@
         <IsA>library</IsA>
         <Summary>Window decorator of Compiz Fusion</Summary>
         <Description>It comes with a themes editor called emerald-theme-manager and the decorator. You need compiz to use emerald.</Description>
-        <Archive sha1sum="02386b5e41a0012098af0b1214d833ae709d857c" type="tarbz2">http://kpelit.org/ds/compiz/emerald-0.6.0.tar.bz2</Archive>
+        <Archive sha1sum="a078f00f0c1e08211cc3e115f06e89790b73a6bd" type="tarbz2">http://kpelit.org/ds/compiz/emerald-0.6.99_20071028.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>compiz-fusion</Dependency>
+            <Dependency version="0.6.2_20071028">compiz-fusion</Dependency>
             <Dependency>libwnck</Dependency>
+            <Dependency>glitz</Dependency>
+            <Dependency>xcb-util</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>compiz-emerald</Name>
         <RuntimeDependencies>
-            <Dependency>compiz-fusion</Dependency>
+            <Dependency version="0.6.2_20071028">compiz-fusion</Dependency>
             <Dependency>libwnck</Dependency>
+            <Dependency>glitz</Dependency>
+            <Dependency>xcb-util</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -37,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2007-10-29</Date>
+            <Version>0.6.99_20071028</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2007-10-19</Date>
             <Version>0.6.0</Version>
