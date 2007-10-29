@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "plugins-main"
+WorkDir = "plugins-main-%s" % get.srcVERSION()
 
 def setup():
     shelltools.system("./autogen.sh")
