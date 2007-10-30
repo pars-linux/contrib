@@ -17,4 +17,3 @@ def build():
 def install():
     autotools.install()
     autotools.make("install-man")
-
