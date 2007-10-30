@@ -7,10 +7,14 @@
 from pisi.actionsapi import autotools
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-artsdigi \
+                         --disable-esddigi \
+                         --disable-jackdigi")
 
 def build():
-    autotools.make()
+    autotools.make("-j1")
 
 def install():
     autotools.install()
+    autotools.make("install-man")
+
