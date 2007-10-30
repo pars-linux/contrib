@@ -6,7 +6,6 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
 WorkDir = "alleggl"
 
@@ -18,3 +17,5 @@ def build():
 
 def install():
     autotools.install()
+
+    pisitools.dodoc("changelog","bugs.txt","faq.txt","gpl.txt","readme.txt","quickstart.txt")
