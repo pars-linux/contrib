@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>phasex</Name>
+        <Homepage>http://www.sysex.net/phasex</Homepage>
+        <Packager>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>phasex-icon</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An experimental software synthesizer for use with Linux/ALSA/JACK</Summary>
+        <Description>PHASEX(Phase Harmonic Advanced Synthesis Experiment) is an experimental software synthesizer.</Description>
+        <Archive sha1sum="4a2d5f15e5707af26158b1131906b572ac58ee1c" type="targz">http://www.sysex.net/phasex/phasex-0.11.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>phasex_desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>phasex</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/phasex</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-22</Date>
+            <Version>0.11.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
