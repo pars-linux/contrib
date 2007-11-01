@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 #
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
@@ -12,6 +12,9 @@ def install():
     pythonmodules.install()
 
     pisitools.insinto("%s/%s" % (get.docDIR(),get.srcTAG()), "examples/")
+
+    # Remove EGG part
+    pisitools.removeDir("/usr/lib/%s/site-packages/*egg*" % get.curPYTHON())
 
     pisitools.dohtml("doc/twitter.html")
     pisitools.dodoc("CHANGES", "COPYING", "LICENSE", "README")
