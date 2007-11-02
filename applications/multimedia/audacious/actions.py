@@ -26,4 +26,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    pisitools.remove("/usr/share/applications/audacious.desktop")
+    pisitools.insinto("/usr/share/applications", "applications/audacious.desktop")
+
     pisitools.dodoc("ABOUT-NLS", "ChangeLog", "COPYING", "AUTHORS", "NEWS", "README")
