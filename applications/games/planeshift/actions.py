@@ -26,7 +26,7 @@ def setup():
                          --with-bfd")
 
 def build():
-    pisitools.dosed("Jamconfig", "-O3", get.CFLAGS())
+    pisitools.dosed("Jamconfig", "-O3", get.CXXFLAGS())
 
     # Let's only build client for now.
     shelltools.system("jam -aq client")
@@ -34,26 +34,16 @@ def build():
 def install():
     shelltools.system("jam -s DESTDIR=%s install_bin" % get.installDIR())
 
-    for art in ["art/sfxfiles.dtd", "art/pawseditor.zip", "art/psclient-setup.zip", "art/eedit.zip", "art/runes", "art/music"]:
-        pisitools.insinto("%s/art" % datadir, art)
-
-    for data in ["data/eedit", "data/partview", "data/pawseditor", "data/schemas",
-                 "data/npcbehave.xml", "data/npcdefs.xml", "data/pvp_regions.xml",
-                 "data/rpgrules.xml", "data/npcbehave.xml", "data/npcdefs.xml",
-                 "data/pvp_regions.xml", "data/rpgrules.xml"]:
+    for data in ["data/eedit", "data/npcbehave.xml", "data/npcdefs.xml", "data/pvp_regions.xml"]:
         pisitools.insinto("%s/data" % datadir, data)
 
     for f in ["lang", "*.cfg"]:
         pisitools.insinto(datadir, f)
 
-    pisitools.insinto("%s/art/world" % datadir, "art/world/sound.xml")
-
     pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf", "%s/data/ttf/arial.ttf" % datadir)
 
     pisitools.domove("/usr/bin/*", datadir)
     pisitools.removeDir("/usr/bin")
-    pisitools.remove("/usr/share/planeshift/art/music/README")
 
     pisitools.dodoc("docs/*.txt")
-    pisitools.dohtml("docs/*")
-
+    pisitools.dohtml("docs/*.html")
