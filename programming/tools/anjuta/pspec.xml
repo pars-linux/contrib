@@ -11,20 +11,19 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>Versatile Integrated Development Environment (IDE) for C and C++ on GNU/Linux</Summary>
-        <Archive sha1sum="6851dc78d4be518bada9d6fa51f95d43789d7ea9" type="tarbz2">mirrors://sourceforge/anjuta/anjuta-2.2.1.tar.bz2</Archive>
+        <Archive sha1sum="384408f8b26818d9b6af07d78d46d12ed332f082" type="tarbz2">mirrors://sourceforge/anjuta/anjuta-2.3.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="2.12.0">gtk2</Dependency>
             <Dependency>orbit2</Dependency>
             <Dependency>libglade2</Dependency>
-            <Dependency>libgnome</Dependency>
-            <Dependency>libgnomeui</Dependency>
+            <Dependency versionFrom="2.20.1">libgnome</Dependency>
+            <Dependency versionFrom="2.20.0">libgnomeui</Dependency>
             <Dependency>libgnomeprint</Dependency>
             <Dependency>libgnomeprintui</Dependency>
-            <Dependency>gnome-vfs</Dependency>
-            <Dependency>gconf</Dependency>
+            <Dependency versionFrom="2.20.0">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.20.0">gconf</Dependency>
             <Dependency>vte</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>pango</Dependency>
             <Dependency>gdl</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
             <Dependency versionFrom="0.2.0">gnome-build</Dependency>
@@ -34,7 +33,7 @@
             <Dependency>binutils</Dependency>
             <Dependency>autogen</Dependency>
             <Dependency>graphviz</Dependency>
-            <Dependency>gtksourceview</Dependency>
+            <Dependency versionFrom="2.0.0">gtksourceview</Dependency>
             <Dependency>subversion</Dependency>
             <Dependency>valgrind</Dependency>
             <Dependency>glade</Dependency>
@@ -42,24 +41,24 @@
         </BuildDependencies>
         <Patches>
             <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+            <Patch>use-gtksourceview-2.0.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>anjuta</Name>
         <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="2.12.0">gtk2</Dependency>
             <Dependency>orbit2</Dependency>
             <Dependency>libglade2</Dependency>
-            <Dependency>libgnome</Dependency>
-            <Dependency>libgnomeui</Dependency>
+            <Dependency versionFrom="2.20.1">libgnome</Dependency>
+            <Dependency versionFrom="2.20.0">libgnomeui</Dependency>
             <Dependency>libgnomeprint</Dependency>
             <Dependency>libgnomeprintui</Dependency>
-            <Dependency>gnome-vfs</Dependency>
-            <Dependency>gconf</Dependency>
+            <Dependency versionFrom="2.20.0">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.20.0">gconf</Dependency>
             <Dependency>vte</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>pango</Dependency>
             <Dependency>gdl</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
             <Dependency versionFrom="0.2.0">gnome-build</Dependency>
@@ -69,7 +68,7 @@
             <Dependency>binutils</Dependency>
             <Dependency>autogen</Dependency>
             <Dependency>graphviz</Dependency>
-            <Dependency>gtksourceview</Dependency>
+            <Dependency versionFrom="2.0.0">gtksourceview</Dependency>
             <Dependency>subversion</Dependency>
             <Dependency>valgrind</Dependency>
             <Dependency>glade</Dependency>
@@ -92,6 +91,13 @@
    </Package>
 
    <History>
+        <Update release="5">
+            <Date>2007-11-03</Date>
+            <Version>2.3.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-09-10</Date>
             <Version>2.2.1</Version>

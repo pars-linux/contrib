@@ -8,7 +8,11 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-plugin-scintilla --disable-plugin-devhelp")
+    autotools.aclocal()
+    autotools.autoconf("-f")
+    autotools.configure("--disable-plugin-scintilla \
+                         --disable-plugin-devhelp \
+                         --disable-scrollkeeper")
 
 def build():
     autotools.make()
