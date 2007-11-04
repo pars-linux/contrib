@@ -12,15 +12,16 @@
         <IsA>app:gui</IsA>
         <Summary>KSquirrel is an image viewer for KDE with disk navigator,</Summary>
         <Description>KSquirrel is an image viewer for KDE with disk navigator, file tree, multiple directory view, thumbnails, extended thumbnails, dynamic format support, DCOP interface and KIPI plugins support.</Description>
-        <Archive sha1sum="a21cd1666ab35b9b1efef09f9a9ab64ff0f22196" type="tarbz2">mirrors://sourceforge/ksquirrel/ksquirrel-0.7.0try5.tar.bz2</Archive>
+        <Archive sha1sum="bd7706ca022cf52c05d8dd7500f0b0df70dbf483" type="tarbz2">mirrors://sourceforge/ksquirrel/ksquirrel-0.7.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdebase</Dependency>
             <Dependency>glut</Dependency>
             <Dependency>libkipi</Dependency>
-            <Dependency versionFrom="0.7.0">ksquirrel-libs</Dependency>
+            <Dependency versionFrom="0.7.3">ksquirrel-libs</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">ld-kutils.patch</Patch>
+            <Patch>ld-kutils.patch</Patch>
+            <Patch>desktop.patch</Patch>
         </Patches>
     </Source>
 
@@ -30,7 +31,7 @@
             <Dependency>kdebase</Dependency>
             <Dependency>glut</Dependency>
             <Dependency>libkipi</Dependency>
-            <Dependency versionFrom="0.7.0">ksquirrel-libs</Dependency>
+            <Dependency versionFrom="0.7.3">ksquirrel-libs</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
@@ -40,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-11-04</Date>
+            <Version>0.7.3</Version>
+            <Comment>Stable bump.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-06-02</Date>
             <Version>0.7.0</Version>
