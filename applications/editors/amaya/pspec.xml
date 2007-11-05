@@ -12,9 +12,9 @@
         <IsA>app:gui</IsA>
         <Summary>Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Summary>
         <Description>Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Description>
-        <Archive sha1sum="f9632629da98290d182fa5397672d42586d0da2f" type="targz">http://www.w3.org/Amaya/Distribution/amaya-sources-9.55-2.tgz</Archive>
+        <Archive sha1sum="01911ba7b7192d995e9cf440e6e6983ea4d50f43" type="targz">http://wam.inrialpes.fr/software/amaya/amaya-sources-9.99.tgz</Archive>
         <BuildDependencies>
-            <Dependency>wxGTK</Dependency>
+            <Dependency>wxGTK2_8</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>imlib2</Dependency>
             <Dependency>raptor</Dependency>
@@ -23,6 +23,7 @@
             <Dependency>redland</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch>use-wx2.8.patch</Patch>
             <Patch level="1">use-system-libwww.patch</Patch>
             <Patch level="1">use-system-mesa.patch</Patch>
             <Patch level="1">use-system-png_jpeg_zlib.patch</Patch>
@@ -32,7 +33,7 @@
     <Package>
         <Name>amaya</Name>
         <RuntimeDependencies>
-            <Dependency>wxGTK</Dependency>
+            <Dependency>wxGTK2_8</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>imlib2</Dependency>
             <Dependency>raptor</Dependency>
@@ -42,8 +43,7 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="executable">/usr/share/Amaya/wx/bin/print</Path>
-            <Path fileType="executable">/usr/share/Amaya/wx/bin/amaya_bin</Path>
+            <Path fileType="executable">/usr/share/Amaya/wx/bin</Path>
             <Path fileType="data">/usr/share/Amaya</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
@@ -57,6 +57,13 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2007-11-05</Date>
+            <Version>9.99</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2007-09-11</Date>
             <Version>9.55.2</Version>
