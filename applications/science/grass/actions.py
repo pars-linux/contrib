@@ -9,6 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+WorkDir = "grass-6.3.0RC1"
+
 def setup():
     autotools.configure("--disable-static \
                          --enable-shared \
@@ -37,10 +39,10 @@ def build():
 
 def install():
     # Change the GISBASE directory to where it should be
-    pisitools.dosed("bin.i686-pc-linux-gnu/grass62", "GISBASE=%s/grass-6.2.2/dist.i686-pc-linux-gnu" % get.workDIR(), "GISBASE=/opt/grass")
+    pisitools.dosed("bin.i686-pc-linux-gnu/grass63", "GISBASE=%s/%s/dist.i686-pc-linux-gnu" % (get.workDIR(), WorkDir), "GISBASE=/opt/grass")
 
     autotools.rawInstall("INST_DIR=%s/opt/grass" % get.installDIR())
 
-    pisitools.dobin("bin.i686-pc-linux-gnu/grass62")
+    pisitools.dobin("bin.i686-pc-linux-gnu/grass63")
 
     pisitools.dodoc("doc/*.txt", "AUTHORS", "CHANGES", "COPYING", "GPL.txt", "README", "SUBMITTING*", "TODO")
