@@ -39,7 +39,7 @@ def build():
 
 def install():
     # Change the GISBASE directory to where it should be
-    pisitools.dosed("bin.i686-pc-linux-gnu/grass63", "GISBASE=%s/%s/dist.i686-pc-linux-gnu" % (get.workDIR(), WorkDir), "GISBASE=/opt/grass")
+    pisitools.dosed("bin.i686-pc-linux-gnu/grass63", "GISBASE=\"%s/%s/dist.i686-pc-linux-gnu\"" % (get.workDIR(), WorkDir), "GISBASE=/opt/grass")
 
     autotools.rawInstall("INST_DIR=%s/opt/grass" % get.installDIR())
 
