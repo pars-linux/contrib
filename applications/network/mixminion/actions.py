@@ -7,7 +7,7 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
-WorkDir="Mixminion-0.0.8alpha2"
+WorkDir="Mixminion-0.0.8alpha3"
 
 def install():
     pythonmodules.install()
