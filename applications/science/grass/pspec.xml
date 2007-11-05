@@ -15,13 +15,13 @@
         <Summary xml:lang="tr">Coğrafi Kaynak Analizi Destek Sistemi</Summary>
         <Description>GRASS is a Geographic Information System (GIS) used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.</Description>
         <Description xml:lang="tr">GRASS, coğrafi veri yönetimi ve analizi, resim işleme, grafik/harita üretimi, uzamsal modelleme ve canlandırma amaçlı kullanılan bir Coğrafi Bilgi Sistemidir (GIS-Geographic Information System).</Description>
-        <Archive sha1sum="0b6d30e3ee5c9f0e62357c62961225b7614099d9" type="targz">http://grass.itc.it/grass62/source/grass-6.2.2.tar.gz</Archive>
+        <Archive sha1sum="8caf8f6832536a08d707d419097d2659bf97e312" type="targz">http://grass.itc.it/grass63/source/grass-6.3.0RC1.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.9">proj</Dependency>
+            <Dependency versionFrom="4.5.0">proj</Dependency>
             <Dependency>gdal</Dependency>
             <Dependency>mysql-lib</Dependency>
-            <Dependency versionFrom="2.3">readline</Dependency>
-            <Dependency versionFrom="3.5.7">tiff</Dependency>
+            <Dependency versionFrom="5.1">readline</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
             <Dependency>tcltk</Dependency>
             <Dependency>python-tk</Dependency>
             <Dependency>ffmpeg</Dependency>
@@ -43,10 +43,7 @@
             <Dependency>libtheora</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>use_konsole.patch</Patch>
             <Patch>readline-configure.patch</Patch>
-            <Patch level="1">grass-ffmpeg.patch</Patch>
-            <Patch level="1">grass-link.patch</Patch>
             <Patch level="1">grass-soname.patch</Patch>
         </Patches>
     </Source>
@@ -54,11 +51,11 @@
     <Package>
         <Name>grass</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.9">proj</Dependency>
+            <Dependency versionFrom="4.5.0">proj</Dependency>
             <Dependency>gdal</Dependency>
             <Dependency>mysql-lib</Dependency>
-            <Dependency versionFrom="2.3">readline</Dependency>
-            <Dependency versionFrom="3.5.7">tiff</Dependency>
+            <Dependency versionFrom="5.1">readline</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
             <Dependency>tcltk</Dependency>
             <Dependency>python-tk</Dependency>
             <Dependency>ffmpeg</Dependency>
@@ -99,6 +96,13 @@
     </Package>
 
     <History>
+        <Update release="11">
+            <Date>2007-11-05</Date>
+            <Version>6.3.0_rc1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="10">
             <Date>2007-09-26</Date>
             <Version>6.2.2</Version>
