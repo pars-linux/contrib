@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir = "compiz-manager"
+WorkDir = "compiz-manager-%s" % get.srcVERSION()
 
 def install():
     pisitools.dobin("compiz-manager")
