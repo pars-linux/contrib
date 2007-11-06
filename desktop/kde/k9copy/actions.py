@@ -18,10 +18,6 @@ def build():
 def install():
     kde.install()
 
-    # Install Turkish translation
-    pisitools.domo("po/tr.po" , "tr", "k9copy.mo")
-    pisitools.domove("/usr/share/locale/tr/LC_MESSAGES/k9copy.mo", "%s/share/locale/tr/LC_MESSAGES" % get.kdeDIR())
-    pisitools.removeDir("/usr/share/locale")
+    pisitools.removeDir("/usr/kde/3.5/include")
 
-    # Install docs
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
