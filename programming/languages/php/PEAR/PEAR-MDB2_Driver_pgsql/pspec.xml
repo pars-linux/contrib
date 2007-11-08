@@ -12,6 +12,9 @@
         <IsA>library</IsA>
         <Summary>pgsql MDB2 driver</Summary>
         <Archive sha1sum="07a69e5ebd8a0d920ac372f3666b39f2601c2a82" type="targz">http://download.pear.php.net/package/MDB2_Driver_pgsql-1.4.1.tgz</Archive>
+        <Patches>
+            <Patch>bug-10024.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -19,7 +22,7 @@
         <RuntimeDependencies>
             <Dependency>mod_php</Dependency>
             <Dependency>PEAR</Dependency>
-            <Dependency versionFrom="2.3.0">PEAR-MDB2</Dependency>
+            <Dependency releaseFrom="4">PEAR-MDB2</Dependency>
             <Dependency>postgresql-server</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -28,6 +31,13 @@
     </Package>
 
     <History>
+        <Update release="4" type="security">
+            <Date>2007-11-08</Date>
+            <Version>1.4.1</Version>
+            <Comment>Fix http://pear.php.net/bugs/bug.php?id=10024</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2007-05-03</Date>
             <Version>1.4.1</Version>
