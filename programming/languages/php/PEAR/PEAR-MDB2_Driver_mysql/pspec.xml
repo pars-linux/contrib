@@ -12,6 +12,9 @@
         <IsA>library</IsA>
         <Summary>MDB2 MySQL Driver</Summary>
         <Archive sha1sum="edbbc2e5e6074080650c5f6a21b7fe7fb8dededd" type="targz">http://download.pear.php.net/package/MDB2_Driver_mysql-1.4.1.tgz</Archive>
+        <Patches>
+            <Patch>bug-10024.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -19,7 +22,7 @@
         <RuntimeDependencies>
             <Dependency>mod_php</Dependency>
             <Dependency>PEAR</Dependency>
-            <Dependency versionFrom="2.3.0">PEAR-MDB2</Dependency>
+            <Dependency releaseFrom="4">PEAR-MDB2</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="data">/usr/share/php5/PEAR</Path>
@@ -27,6 +30,13 @@
     </Package>
 
     <History>
+        <Update release="4" type="security">
+            <Date>2007-11-08</Date>
+            <Version>1.4.1</Version>
+            <Comment>Fix http://pear.php.net/bugs/bug.php?id=10024</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2007-05-03</Date>
             <Version>1.4.1</Version>
