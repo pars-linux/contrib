@@ -10,7 +10,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-ruby-binding \
+    autotools.configure("--enable-etc-hotplug \
+                         --disable-docbook-binding \
+                         --disable-ruby-binding \
                          --disable-static \
                          --localstatedir=/var")
 
@@ -22,13 +24,16 @@ def install():
 
     pisitools.dodir("/var/lib/comedi/calibrations")
 
-   # remove pcmcia config files. pcmcia unsupported by comedi
+    # remove pcmcia config files. pcmcia unsupported by comedi
     pisitools.removeDir("/etc/pcmcia")
 
     # needed demo programs added
     files =["demo/antialias", "demo/ao_waveform", "demo/apply_cal", "demo/cmd", "demo/dio", \
-            "demo/eeprom_dump", "demo/info", "demo/inp", "demo/inpn", "demo/insn","demo/ledclock",\
-            "demo/mmap","demo/outp", "demo/poll", "demo/receiver","demo/select","demo/sender",\
+            "demo/ao_mmap", "demo/board_info", "demo/do_waveform", "demo/ledclock", \
+            "demo/gpct_buffered_counting", "demo/gpct_encoder", "demo/gpct_pulse_generator",\
+            "demo/gpct_simple_counting", "demo/eeprom_dump", "demo/inp", "demo/inpn",\
+            "demo/insn","demo/mmap","demo/outp", "demo/poll","demo/choose_clock", "demo/choose_filter",\
+            "demo/receiver","demo/select","demo/sender","demo/choose_routing",\
             "demo/sigio","demo/sv","demo/tut1", "demo/tut2","demo/README" ]
 
     for data in files:
