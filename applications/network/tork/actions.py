@@ -1,13 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
 #
-# Copyright 2005 TUBITAK/UEKAE
+# Copyright 2006,2007 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
-
 
 def setup():
     kde.configure("--with-external-geoip \
@@ -19,5 +18,5 @@ def build():
 def install():
     kde.install()
 
-    # remove files conflicts
+    # remove conflicting files
     pisitools.removeDir("/usr/kde/3.5/share/icons/crystalsvg")
