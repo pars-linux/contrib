@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "audacious-1.4.0-rc1"
-
 def setup():
     autotools.configure("--enable-ipv6 \
                          --enable-chardet \
@@ -26,7 +24,8 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.remove("/usr/share/applications/audacious.desktop")
-    pisitools.insinto("/usr/share/applications", "applications/audacious.desktop")
+    # We need this workaround since Default skin is buggy.
+    pisitools.removeDir("/usr/share/audacious/Skins/Default")
+    pisitools.rename("/usr/share/audacious/Skins/Refugee", "Default")
 
-    pisitools.dodoc("ABOUT-NLS", "ChangeLog", "COPYING", "AUTHORS", "NEWS", "README")
+    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "doc/libaudacious/*.txt")
