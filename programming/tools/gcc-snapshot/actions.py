@@ -25,7 +25,7 @@ def setup():
            --disable-checking \
            --enable-clocale=gnu \
            --enable-__cxa_atexit \
-           --enable-languages=c,c++,fortran,objc \
+           --enable-languages=c,c++,fortran,objc,obj-c++,treelang \
            --enable-libstdcxx-allocator=new \
            --enable-shared \
            --enable-ssp \
