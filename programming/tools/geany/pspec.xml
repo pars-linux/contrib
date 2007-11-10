@@ -11,37 +11,38 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>Fast and lightweight programming tool using GTK2</Summary>
-        <Archive sha1sum="9836ecb1b9b8192a8f5058452f2957b413382002" type="tarbz2">mirrors://sourceforge/geany/geany-0.11.tar.bz2</Archive>
+        <Archive sha1sum="9de77f76058e3bdee3b7523efddd5ab42ef5efd9" type="tarbz2">mirrors://sourceforge/geany/geany-0.12.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>xorg-server</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>freetype</Dependency>
-            <Dependency>libpng</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>pango</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>geany</Name>
         <RuntimeDependencies>
-            <Dependency>xorg-server</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>freetype</Dependency>
-            <Dependency>libpng</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>pango</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/geany</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-10-10</Date>
+            <Version>0.12</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-05-22</Date>
             <Version>0.11</Version>
