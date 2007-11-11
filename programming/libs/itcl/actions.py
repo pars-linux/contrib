@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "itcl%s" % get.srcVERSION()
-
 def setup():
     autotools.configure("--with-tcl=/usr/lib \
                          --enable-shared \
@@ -22,7 +20,7 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     # needed symlink http://bugs.gentoo.org/show_bug.cgi?id=93307
-    pisitools.dosym("/usr/lib/itcl3.3/libitcl3.3.so","/usr/lib/libitcl3.3.so")
+    pisitools.dosym("/usr/lib/itcl3.4/libitcl3.4.so","/usr/lib/libitcl3.4.so")
 
     # add docs
     pisitools.dodoc("CHANGES","ChangeLog","INCOMPATIBLE","README","TODO")
