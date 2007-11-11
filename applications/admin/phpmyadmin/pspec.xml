@@ -12,7 +12,7 @@
         <IsA>app:gui</IsA>
         <Summary>Browser based MySQL Admin Tool</Summary>
         <Description>A populer application for managing MySQL Server; add/update data etc. with PHP5 support.</Description>
-        <Archive sha1sum="cf75188675a6ddd6295d5adc6d9f70cfc9680c71" type="tarbz2">mirrors://sourceforge/phpmyadmin/phpMyAdmin-2.11.1.2-all-languages.tar.bz2</Archive>
+        <Archive sha1sum="a73e5438f041233838e2e940fce14b5b4230133e" type="tarbz2">mirrors://sourceforge/phpmyadmin/phpMyAdmin-2.11.2.1-all-languages.tar.bz2</Archive>
     </Source>
 
     <Package>
@@ -25,6 +25,7 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/var/www/localhost/htdocs</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0655" target="/var/www/localhost/htdocs/phpmyadmin/config.inc.php">config.inc.php</AdditionalFile>
@@ -32,6 +33,13 @@
     </Package>
 
     <History>
+        <Update release="6" type="security">
+            <Date>2007-11-11</Date>
+            <Version>2.11.2.1</Version>
+            <Comment>Stable update to fix http://www.phpmyadmin.net/home_page/security.php?issue=PMASA-2007-7</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
         <Update release="5" type="security">
             <Date>2007-10-18</Date>
             <Version>2.11.1.2</Version>
