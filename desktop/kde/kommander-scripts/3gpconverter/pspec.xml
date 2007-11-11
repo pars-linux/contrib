@@ -17,6 +17,9 @@
             <Dependency>kdebase</Dependency>
             <Dependency>kdewebdev</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>amr.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -31,11 +34,18 @@
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0755" target="/usr/kde/3.5/bin/3gpconverter">3gpconverter</AdditionalFile>
-            <AdditionalFile target="/usr/kde/3.5/share/applnk/Utilities/3gpconverter.desktop" permission="0755" >3gpconverter.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/kde/3.5/share/applnk/Utilities/3gpconverter.desktop">3gpconverter.desktop</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-11-11</Date>
+            <Version>0.6</Version>
+            <Comment>Fix audiocodec problem. Thanks Uğur Çetin.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-05-15</Date>
             <Version>0.6</Version>
