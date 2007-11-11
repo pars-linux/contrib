@@ -10,19 +10,14 @@ from pisi.actionsapi import get
 
 def setup():
     pisitools.dosed("Makefile.in", "DESTDIR=", "DESTDIR=%s" % get.installDIR())
-    autotools.rawConfigure("--prefix=/usr \
-                            --bindir=/usr/bin \
-                            --datadir=/usr/share \
-                            --docdir=/usr/share/doc \
-                            --disable-static \
-                            --with-local-xaw \
-                            --with-pvm \
-                            --with-tk \
-                            --with-addedf2c \
-                            --with-ocaml \
-                            --with-java \
-                            --with-atlas-library=/usr/lib \
-                            --with-x")
+
+    autotools.configure("--enable-shared \
+                         --disable-static \
+                         --without-tk \
+                         --with-gtk2 \
+                         --with-ocaml \
+                         --with-atlas-library=/usr/lib \
+                         --with-x")
 
 def build():
     autotools.make("all")
