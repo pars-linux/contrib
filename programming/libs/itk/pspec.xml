@@ -11,21 +11,18 @@
         <License>BSD</License>
         <IsA>library</IsA>
         <Summary>Object Oriented Enhancements for Tcl/Tk</Summary>
-        <Archive sha1sum="313fc2ddbe3f5b213372bc7ef870d644f38a95af" type="targz">mirrors://sourceforge/incrtcl/itk3.3.tar.gz</Archive>
+        <Archive sha1sum="b4c32898ff6dbf9da936977aefb80825712e92c4" type="tarbz2">http://cekirdek.pardus.org.tr/~ismail/dist/itk-3.3_20071111.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>tcltk</Dependency>
-            <Dependency>itcl</Dependency>
+            <Dependency versionFrom="8.5_beta2">tcltk</Dependency>
+            <Dependency versionFrom="3.3_20071111">itcl</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">itk_relid.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
         <Name>itk</Name>
         <RuntimeDependencies>
-            <Dependency>tcltk</Dependency>
-            <Dependency>itcl</Dependency>
+            <Dependency versionFrom="8.5_beta2">tcltk</Dependency>
+            <Dependency versionFrom="3.3_20071111">itcl</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib</Path>
@@ -36,6 +33,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2006-11-11</Date>
+            <Version>3.3_20071111</Version>
+            <Comment>Version bump from CVS</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2006-07-20</Date>
             <Version>3.3</Version>
