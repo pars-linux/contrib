@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "itk%s" % get.srcVERSION()
-
 def setup():
     autotools.configure("--enable-shared")
 
@@ -20,6 +18,6 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     # needed symlink http://bugs.gentoo.org/show_bug.cgi?id=93311
-    pisitools.dosym("/usr/lib/itk3.3/libitk3.3.so","/usr/lib/libitk3.3.so")
+    pisitools.dosym("/usr/lib/itk3.4/libitk3.4.so","/usr/lib/libitk3.4.so")
 
-    pisitools.dodoc("CHANGES","ChangeLog","INCOMPATIBLE","README","TODO")
+    pisitools.dodoc("license.terms")
