@@ -12,3 +12,6 @@ WorkDir="phpMyAdmin-%s-all-languages" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/var/www/localhost/htdocs/phpmyadmin", "*")
+
+    pisitools.dohtml("*")
+    pisitools.dodoc("ChangeLog","CREDITS","Documentation.txt","LICENSE","README")
