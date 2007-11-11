@@ -22,5 +22,4 @@ def install():
     # needed symlink http://bugs.gentoo.org/show_bug.cgi?id=93307
     pisitools.dosym("/usr/lib/itcl3.4/libitcl3.4.so","/usr/lib/libitcl3.4.so")
 
-    # add docs
-    pisitools.dodoc("CHANGES","ChangeLog","INCOMPATIBLE","README","TODO")
+    pisitools.dodoc("license.terms")
