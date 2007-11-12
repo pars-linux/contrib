@@ -29,7 +29,6 @@ def setup():
                          --disable-debug")
 
 def build():
-    shelltools.export("TCL_LIBRARY","/usr/lib/tcl8.5")
     shelltools.export("ITCL_LIBRARY","/usr/lib/itcl3.4")
 
     autotools.make()
