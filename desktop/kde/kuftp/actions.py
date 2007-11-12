@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import kde
 
+WorkDir= "kuftp-0.9.0"
+
 def setup():
     kde.configure()
 
