@@ -12,17 +12,17 @@
         <IsA>app:gui</IsA>
         <Summary>KSquirrel is an image viewer for KDE with disk navigator,</Summary>
         <Description>KSquirrel is an image viewer for KDE with disk navigator, file tree, multiple directory view, thumbnails, extended thumbnails, dynamic format support, DCOP interface and KIPI plugins support.</Description>
-        <Archive sha1sum="1330dbb7206b650c08e0c4555c8b11785996a981" type="tarbz2">mirrors://sourceforge/ksquirrel/ksquirrel-0.7.4.tar.bz2</Archive>
+        <Archive sha1sum="82fa18c69f761650d5f517c17e3389fb4649d3d9" type="tarbz2">mirrors://sourceforge/ksquirrel/ksquirrel-0.7.5.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdebase</Dependency>
             <Dependency>glut</Dependency>
             <Dependency>libkipi</Dependency>
-            <Dependency versionFrom="0.7.4">ksquirrel-libs</Dependency>
+            <Dependency versionFrom="0.7.5">ksquirrel-libs</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>ld-kutils.patch</Patch>
             <Patch>desktop.patch</Patch>
-            <Patch>turkish.patch</Patch>
+            <!--Patch>turkish.patch</Patch-->
         </Patches>
     </Source>
 
@@ -32,7 +32,7 @@
             <Dependency>kdebase</Dependency>
             <Dependency>glut</Dependency>
             <Dependency>libkipi</Dependency>
-            <Dependency versionFrom="0.7.4">ksquirrel-libs</Dependency>
+            <Dependency versionFrom="0.7.5">ksquirrel-libs</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
@@ -44,6 +44,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-11-15</Date>
+            <Version>0.7.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-11-06</Date>
             <Version>0.7.4</Version>
