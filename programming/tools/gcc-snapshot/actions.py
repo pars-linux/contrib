@@ -10,8 +10,6 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "gcc-4.3-%s" % get.srcVERSION().split('_')[-1]
-
 def setup():
     # gcc doesn't like mcpu flag while bootstrapping itself
     shelltools.export("CFLAGS", "-march=i686 -O2 -pipe -fomit-frame-pointer -U_FORTIFY_SOURCE")
