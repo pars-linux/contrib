@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lives</Name>
+        <Homepage>http://lives.sf.net</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Linux Video Editing System</Summary>
+        <Archive sha1sum="2eab03fc256438b77b19061cf66b111b8782e539" type="tarbz2">mirrors://sourceforge/lives/lives-0.9.8.6.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>mplayer</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>sox</Dependency>
+            <Dependency>cdrtools</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>libavc1394</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">destdir.patch</Patch>
+            <Patch>desktop-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lives</Name>
+        <RuntimeDependencies>
+            <Dependency>mplayer</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>sox</Dependency>
+            <Dependency>cdrtools</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>libavc1394</Dependency>
+        </RuntimeDependencies>
+
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-07</Date>
+            <Version>0.9.8.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
