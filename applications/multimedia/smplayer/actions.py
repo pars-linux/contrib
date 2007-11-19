@@ -7,9 +7,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-def setup():
-    autotools.make("prep")
-
 def build():
     autotools.make("QMAKE=qmake-qt4 PREFIX=/usr")
 
