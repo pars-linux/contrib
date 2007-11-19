@@ -24,8 +24,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # We need this workaround since Default skin is buggy.
-    pisitools.removeDir("/usr/share/audacious/Skins/Default")
-    pisitools.rename("/usr/share/audacious/Skins/Refugee", "Default")
-
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "doc/libaudacious/*.txt")
