@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>yougrabber</Name>
+        <Homepage>http://yougrabber.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A simple, lightweight youtube video grabber with ncurses interface.</Summary>
+        <Archive sha1sum="08f4d66448a617a058a38c78cfe3c631c4ae0e61" type="tarbz2">mirrors://sourceforge/yougrabber/YouGrabber-0.29-beta2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>curl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>yougrabber</Name>
+        <RuntimeDependencies>
+            <Dependency>curl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-18</Date>
+            <Version>0.29_beta2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
