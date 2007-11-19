@@ -6,7 +6,8 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import cmaketools
-from pisi.actionsapi import autotools
+from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir="speedcrunch-%s/src" % get.srcVERSION()
@@ -18,4 +19,7 @@ def build():
     cmaketools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    shelltools.cd("..")
+    pisitools.dodoc("ChangeLog","COPYING","README")
