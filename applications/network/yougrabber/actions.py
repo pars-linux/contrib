@@ -7,7 +7,7 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir = "YouGrabber-0.29-beta2"
+WorkDir = "YouGrabber-0.29-rc1"
 
 def build():
     shelltools.cd("src")
