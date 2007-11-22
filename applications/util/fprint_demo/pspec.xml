@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fprint_demo</Name>
+        <Homepage>http://www.reactivated.net/fprint/wiki/Fprint_demo</Homepage>
+        <Packager>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A simple GTK+ application to demonstrate and test libfprint's capabilities</Summary>
+        <Archive sha1sum="96a82462e8324472861ba928bf52f59aad2fe8c2" type="tarbz2">mirrors://sourceforge/fprint/fprint_demo-0.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pam_fprint</Dependency>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fprint_demo</Name>
+        <RuntimeDependencies>
+            <Dependency>pam_fprint</Dependency>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/fprint_demo.desktop">fprint_demo.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/fprint_demo.png">fprint_demo.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-22</Date>
+            <Version>0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
