@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>google-sparsehash</Name>
+        <Homepage>http://code.google.com/p/google-sparsehash/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>An extremely memory-efficient hash_map implementation</Summary>
+        <Description>The SparseHash library contains several hash-map implementations, including implementations that optimize for space or speed.</Description>
+        <Archive sha1sum="882781066c09b4fb60a6bbefe14f5afdd5c08b1c" type="targz">http://google-sparsehash.googlecode.com/files/sparsehash-1.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>google-perftools</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>google-sparsehash</Name>
+        <RuntimeDependencies>
+            <Dependency>google-perftools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-22</Date>
+            <Version>1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
