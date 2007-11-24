@@ -17,7 +17,7 @@ def setup():
                          --disable-static")
 
     shelltools.cd("qtgui/i18n")
-    shelltools.system("lrelease-qt4 recoll_tr.ts")
+    shelltools.system("lrelease-qt4 *.ts")
 
 def build():
     autotools.make()
