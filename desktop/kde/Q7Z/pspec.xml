@@ -2,19 +2,20 @@
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-        <Name>K7Z</Name>
+        <Name>Q7Z</Name>
         <Homepage>http://k7z.sourceforge.net/</Homepage>
         <Packager>
             <Name>Uğur Çetin</Name>
             <Email>jnmbk@users.sourceforge.net</Email>
         </Packager>
         <License>GPL-2</License>
+        <Icon>Q7Z</Icon>
         <IsA>app:gui</IsA>
         <Summary>KDE frontend for 7z compressed files</Summary>
         <Summary xml:lang="tr">7z sıkıştırılmış dosyaları için KDE arayüzü</Summary>
-        <Description>Use K7Z if you want to create/extract a password-protected archive or update an existing archive.</Description>
+        <Description>Use Q7Z if you want to create/extract a password-protected archive or update an existing archive.</Description>
         <Description xml:lang="tr">Şifre korumalı 7z arşivleri oluşturmak ve bunları açmak için bu arayüzü kullanabilirsiniz.</Description>
-        <Archive type="tarbz2" sha1sum="0575419cc5f39d27d2f00751aefe64f407661725">mirrors://sourceforge/k7z/K7Z-0.6.tar.bz2</Archive>
+        <Archive type="tarbz2" sha1sum="b0b4de20f42297fb0dd3d8c1bc36d924a41faf5d">mirrors://sourceforge/k7z/Q7Z-0.6.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>PyQt4</Dependency>
         </BuildDependencies>
@@ -24,11 +25,14 @@
     </Source>
 
     <Package>
-        <Name>K7Z</Name>
+        <Name>Q7Z</Name>
         <RuntimeDependencies>
             <Dependency>PyQt4</Dependency>
             <Dependency>p7zip</Dependency>
         </RuntimeDependencies>
+        <Replaces>
+            <Package>K7Z</Package>
+        </Replaces>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
             <Path fileType="data">/usr/kde/3.5/share</Path>
@@ -36,6 +40,13 @@
    </Package>
 
    <History>
+        <Update release="5">
+            <Date>2007-11-24</Date>
+            <Version>0.6.3</Version>
+            <Comment>Rename to Q7Z, version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="4">
             <Date>2007-08-07</Date>
             <Version>0.6</Version>
