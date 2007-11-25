@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir="l_cc_c_%s_ia32/data" % get.srcVERSION()
+WorkDir="l_cc_p_%s_ia32/data" % get.srcVERSION()
 version_simple = (get.srcVERSION()).replace('.','')
 NoStrip="/"
 
@@ -29,3 +29,7 @@ def install():
 
     # Provide an empty licenses directory
     pisitools.dodir("/opt/intel/licenses")
+
+    # Remove samples & eclipse stuff
+    for data in ["eclipse","samples"]:
+        pisitools.removeDir("/opt/intel/cc/%s/%s" % (get.srcVERSION(), data))
