@@ -25,7 +25,7 @@ def install():
 
     # Work around Turkish problems with FlexLM, Intel Premier Support Issue #366034
     for app in ["icc","icpc"]:
-        pisitools.dosed("%s/opt/intel/cc/*/bin/%s" % (get.installDIR(),app),"#!/bin/sh","#!/bin/sh\n\nexport LC_ALL=C");
+        pisitools.dosed("%s/opt/intel/cc/*/bin/%s" % (get.installDIR(),app),"#!/bin/bash","#!/bin/bash\n\nexport LC_ALL=C");
 
     # Provide an empty licenses directory
     pisitools.dodir("/opt/intel/licenses")
