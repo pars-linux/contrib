@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mpd</Name>
+        <Homepage>http://www.musicpd.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>service</IsA>
+        <Summary>Music Player Daemon (MPD) allows remote access for playing music (MP3, Ogg Vorbis, FLAC, AAC, Mod, and wave files) and managing playlists.</Summary>
+        <Archive sha1sum="5d69d5ec6da8e4a26797017f682e54789691395c" type="tarbz2">http://www.musicpd.org/uploads/files/mpd-0.13.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.15">alsa-utils</Dependency>
+            <Dependency versionFrom="2.6.1">faad2</Dependency>
+            <Dependency versionFrom="0.8.6">libao</Dependency>
+            <Dependency versionFrom="0.2.6">audiofile</Dependency>
+            <Dependency versionFrom="1.1.2">flac</Dependency>
+            <Dependency versionFrom="0.102.20">jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="0.1.2">libsamplerate</Dependency>
+            <Dependency releaseFrom="4">libmad</Dependency>
+            <Dependency releaseFrom="4">libid3tag</Dependency>
+            <Dependency versionFrom="3.1.11">libmikmod</Dependency>
+            <Dependency versionFrom="1.2.2">libmpcdec</Dependency>
+            <Dependency versionFrom="1.1.3">libogg</Dependency>
+            <Dependency versionFrom="1.2.0">libvorbis</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>pardus-mpd-config.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mpd</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.15">alsa-utils</Dependency>
+            <Dependency versionFrom="2.6.1">faad2</Dependency>
+            <Dependency versionFrom="0.8.6">libao</Dependency>
+            <Dependency versionFrom="0.2.6">audiofile</Dependency>
+            <Dependency versionFrom="1.1.2">flac</Dependency>
+            <Dependency versionFrom="0.102.20">jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="0.1.2">libsamplerate</Dependency>
+            <Dependency releaseFrom="4">libmad</Dependency>
+            <Dependency releaseFrom="4">libid3tag</Dependency>
+            <Dependency versionFrom="3.1.11">libmikmod</Dependency>
+            <Dependency versionFrom="1.2.2">libmpcdec</Dependency>
+            <Dependency versionFrom="1.1.3">libogg</Dependency>
+            <Dependency versionFrom="1.2.0">libvorbis</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <Provides>
+            <COMAR script="service.py">System.Service</COMAR>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-21</Date>
+            <Version>0.13.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
