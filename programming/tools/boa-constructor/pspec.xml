@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>boa-constructor</Name>
+        <Homepage>http://boa-constructor.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A RAD GUI Building IDE for wxPython.</Summary>
+        <Archive sha1sum="20e3508e66c6cf2a6da647558f90f3b2ae0fab10" type="zip">mirrors://sourceforge/boa-constructor/boa-constructor-0.6.1.src.zip</Archive>
+    </Source>
+
+    <Package>
+        <Name>boa-constructor</Name>
+        <RuntimeDependencies>
+            <Dependency>wxPython2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+          <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/boa-constructor.desktop">boa-constructor.desktop</AdditionalFile>
+          <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/boa-constructor.png">boa-constructor.png</AdditionalFile>
+          <AdditionalFile owner="root" permission="0755" target="/usr/bin/boa-constructor">boa-constructor</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-23</Date>
+            <Version>0.6.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
