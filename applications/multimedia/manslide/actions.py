@@ -18,8 +18,7 @@ def build():
     autotools.make()
 
 def install():
-    for data in ["Manslide","Effects","Interface","Luma","*.qm"]:
+    for data in ["Manslide","BIB_ManSlide","Interface","Luma","*.qm"]:
         pisitools.insinto("/usr/share/manslide",data)
 
     pisitools.dosym("/usr/share/manslide/Manslide","/usr/bin/manslide")
-
