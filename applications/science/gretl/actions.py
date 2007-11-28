@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 #
 # Licensed under the GNU General Public License, version 2.
-# See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
+# See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
 def setup():
+    autotools.autoconf()
+
     autotools.configure("--with-readline \
                          --without-gnome \
                          --without-gtksourceview \
@@ -31,6 +32,6 @@ def install():
     pisitools.insinto("/usr/share/aclocal", "gretl.m4")
     pisitools.insinto("/usr/share/emacs/site-lisp", "utils/emacs/gretl.el")
 
-    pisitools.doman("gretlcli.1", "gretl-config.1")
+    pisitools.doman("gretlcli.1")
 
     pisitools.dodoc("ABOUT-NLS", "ChangeLog", "COPYING", "EXTENDING", "NEWS", "README", "README.audio", "TODO")

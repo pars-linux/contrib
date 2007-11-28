@@ -1,0 +1,58 @@
+diff -Naur gretl-1.7.0.orig/configure.in gretl-1.7.0/configure.in
+--- gretl-1.7.0.orig/configure.in	2007-11-07 00:42:08.000000000 +0200
++++ gretl-1.7.0/configure.in	2007-11-28 19:32:53.000000000 +0200
+@@ -649,10 +649,7 @@
+ if test "${build_docs}" = "yes" ; then
+   AC_OUTPUT([
+     doc/Makefile
+-    doc/commands/Makefile
+     doc/tex/Makefile
+-    doc/tex_it/Makefile
+-    doc/tex_es/Makefile
+   ])
+ fi
+ 
+diff -Naur gretl-1.7.0.orig/doc/Makefile.in gretl-1.7.0/doc/Makefile.in
+--- gretl-1.7.0.orig/doc/Makefile.in	2007-03-09 04:04:37.000000000 +0200
++++ gretl-1.7.0/doc/Makefile.in	2007-11-28 20:00:41.000000000 +0200
+@@ -6,17 +6,14 @@
+ WEBDIR = /home/cottrell/stats/esl/website
+ CHAPDIR = $(topsrc)/doc/chapters
+ CHAPDIR_IT = $(topsrc)/doc/chapters_it
+-CMDSDIR = $(topsrc)/doc/commands
+ 
+ REF_CHAPTERS = $(CHAPDIR)/cmdref.xml $(CHAPDIR)optarg.xml
+ CMDLIST = chapters/cmdlist.xml
+-CMDREF = $(CMDSDIR)/gretl_commands.xml
+ 
+ REF_CHAPTERS_IT = $(CHAPDIR_IT)/cmdref.xml $(CHAPDIR_IT)/optarg.xml
+ CMDLIST_IT = chapters_it/cmdlist.xml
+-CMDREF_IT = $(CMDSDIR)/gretl_commands.xml
+ 
+-SUBDIRS = tex tex_it
++SUBDIRS = tex
+ 
+ .PHONY : subdirs $(SUBDIRS) texfigs clean install 
+ 
+@@ -27,10 +24,6 @@
+ 
+ clean:
+ 	make -C tex clean
+-	make -C tex_it clean
+-	make -C tex_es clean
+ 
+ install: 
+ 	make -C tex install
+-	make -C tex_it install
+-	make -C tex_es clean
+diff -Naur gretl-1.7.0.orig/share/Makefile.in gretl-1.7.0/share/Makefile.in
+--- gretl-1.7.0.orig/share/Makefile.in	2007-03-09 04:04:53.000000000 +0200
++++ gretl-1.7.0/share/Makefile.in	2007-11-28 20:01:59.000000000 +0200
+@@ -45,7 +45,6 @@
+ all: $(query_make_help)
+ 
+ help:
+-	make -C ../doc/commands help-all
+ 
+ .PHONY :
+ 
