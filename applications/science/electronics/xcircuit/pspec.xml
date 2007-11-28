@@ -11,11 +11,14 @@
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
         <Summary>Program for drawing publishable-quality electrical circuit schematic diagrams and related figures, and produce circuit netlists through schematic capture.</Summary>
-        <Archive sha1sum="c69fe18807e11cd8a50e523a5516a87a4a909469" type="targz">http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.6.120.tgz</Archive>
+        <Archive sha1sum="3f185022d1e88ec63b624ea80eca0e668f9f0ab4" type="targz">http://opencircuitdesign.com/xcircuit/archive/xcircuit-3.6.127.tgz</Archive>
         <BuildDependencies>
             <Dependency>tcltk</Dependency>
             <Dependency>nasm</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>tcl_exact_fix.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -37,6 +40,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2007-11-28</Date>
+            <Version>3.6.127</Version>
+            <Comment>stable update and add patch for tcl</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-09-10</Date>
             <Version>3.6.120</Version>
