@@ -1,0 +1,167 @@
+--- scilab-4.1.2/routines/xsci/wf_w_setup.c.orig	2007-10-25 17:08:48.000000000 -0200
++++ scilab-4.1.2/routines/xsci/wf_w_setup.c	2007-10-25 17:09:47.000000000 -0200
+@@ -26,7 +26,7 @@ int		MSGPANEL_WD = 600;
+ int		MOUSEFUN_WD;
+ int		INDPANEL_WD;
+ int		CANVAS_WD, CANVAS_HT;
+-int		INTERNAL_BW=1;
++int		INTERNAL_BW=0;
+ int		TOPRULER_WD, TOPRULER_HT;
+ int		SIDERULER_WD, SIDERULER_HT;
+ int		SW_PER_ROW, SW_PER_COL;
+--- scilab-4.1.2/routines/xsci/wf_w_dir.c.orig	2007-10-25 17:36:53.000000000 -0200
++++ scilab-4.1.2/routines/xsci/wf_w_dir.c	2007-10-25 18:52:51.000000000 -0200
+@@ -315,7 +315,7 @@ create_dirinfo(parent, below, ret_beside
+ 			      parent, Args, ArgCount);
+     FirstArg(XtNstring, cur_dir);
+ 	NextArg(XtNinsertPosition, strlen(cur_dir));
+-    NextArg(XtNheight, char_ht * 2);
++    /*NextArg(XtNheight, char_ht);*/
+     NextArg(XtNborderWidth, INTERNAL_BW);
+     NextArg(XtNscrollHorizontal, XawtextScrollWhenNeeded);
+     NextArg(XtNeditType, XawtextEdit);
+@@ -340,6 +340,7 @@ create_dirinfo(parent, below, ret_beside
+     NextArg(XtNfromVert, dir_alt);
+     NextArg(XtNfromHoriz, dir_alt);
+     NextArg(XtNhorizDistance, -70);
++    NextArg(XtNwidth, 55);
+     NextArg(XtNborderWidth, INTERNAL_BW);
+     home = XtCreateManagedWidget("home", commandWidgetClass, 
+ 				parent, Args, ArgCount);
+@@ -350,6 +351,7 @@ create_dirinfo(parent, below, ret_beside
+     NextArg(XtNfromVert, home);
+     NextArg(XtNfromHoriz, dir_alt);
+     NextArg(XtNhorizDistance, -70);
++    NextArg(XtNwidth, 55);
+     NextArg(XtNborderWidth, INTERNAL_BW);
+     scilab = XtCreateManagedWidget("scilab", commandWidgetClass, 
+ 				parent, Args, ArgCount);
+@@ -390,8 +392,11 @@ create_dirinfo(parent, below, ret_beside
+     NextArg(XtNfromVert, dir_viewport);
+     NextArg(XtNborderWidth, INTERNAL_BW);
+     NextArg(XtNvertDistance, 15);
+-    NextArg(XtNhorizDistance, 45);
+-    NextArg(XtNheight, 25);
++
++    NextArg(XtNhorizDistance, 25);
++    NextArg(XtNwidth, 55);
++    /*NextArg(XtNheight, 25);*/
++
+     w = XtCreateManagedWidget("rescan", commandWidgetClass, parent,
+ 			      Args, ArgCount);
+     XtAddCallback(w, XtNcallback, CallbackRescan, (XtPointer) NULL);
+--- scilab-4.1.2/routines/xsci/wf_w_file.c.orig	2007-10-25 17:15:28.000000000 -0200
++++ scilab-4.1.2/routines/xsci/wf_w_file.c	2007-10-25 18:50:35.000000000 -0200
+@@ -568,7 +568,7 @@ void create_file_panel(w,description)
+ 	static int	   actions_added=0;
+ 	file_w = w;
+ 	XtTranslateCoords(w, (Position) 0, (Position) 0, &xposn, &yposn);
+-	
++
+ 	FirstArg(XtNx, xposn);
+ 	NextArg(XtNy, yposn + 50);
+ 	NextArg(XtNtitle, " File menu");
+@@ -619,7 +619,7 @@ void create_file_panel(w,description)
+ 	GetValues(file);
+ 
+ 	FirstArg(XtNwidth, 350);
+-	NextArg(XtNheight, ch=char_height(temp_font) * 2 + 4);
++	/*NextArg(XtNheight, */ch=char_height(temp_font) * 2/* + 4)*/;
+ 	NextArg(XtNeditType, "edit");
+ 	NextArg(XtNstring, cur_filename);
+ 	NextArg(XtNinsertPosition, strlen(cur_filename));
+@@ -651,8 +651,11 @@ void create_file_panel(w,description)
+ 			   XtParseTranslationTable(file_name_translations));
+ 	FirstArg(XtNlabel, "Cancel");
+ 	NextArg(XtNvertDistance, 15);
+-	NextArg(XtNhorizDistance, 25);
+-	NextArg(XtNheight, 25);
++
++	NextArg(XtNhorizDistance, 10);
++	NextArg(XtNwidth, 55);
++	/*NextArg(XtNheight, 25);*/
++	
+ 	NextArg(XtNfromHoriz, beside);
+ 	NextArg(XtNfromVert, below);
+ 	NextArg(XtNborderWidth, INTERNAL_BW);
+@@ -667,8 +670,11 @@ void create_file_panel(w,description)
+ 	NextArg(XtNfromHoriz, cancel);
+ 	NextArg(XtNfromVert, below);
+ 	NextArg(XtNvertDistance, 15);
+-	NextArg(XtNhorizDistance, 25);
+-	NextArg(XtNheight, 25);
++
++	NextArg(XtNhorizDistance, 10);
++	NextArg(XtNwidth, 55);
++	/*NextArg(XtNheight, 25);*/
++
+ 	NextArg(XtNborderWidth, INTERNAL_BW);
+ 	ok = XtCreateManagedWidget("Ok", commandWidgetClass,
+ 				     file_panel, Args, ArgCount);
+@@ -680,8 +686,11 @@ void create_file_panel(w,description)
+ 	NextArg(XtNfromHoriz, ok);
+ 	NextArg(XtNfromVert, below);
+ 	NextArg(XtNvertDistance, 15);
+-	NextArg(XtNhorizDistance, 25);
+-	NextArg(XtNheight, 25);
++
++	NextArg(XtNhorizDistance, 10);
++	NextArg(XtNwidth, 55);
++	/*NextArg(XtNheight, 25);*/
++
+ 	NextArg(XtNborderWidth, INTERNAL_BW);
+ 	load = XtCreateManagedWidget("load", commandWidgetClass,
+ 				     file_panel, Args, ArgCount);
+@@ -693,8 +702,11 @@ void create_file_panel(w,description)
+ 	NextArg(XtNfromHoriz, load);
+ 	NextArg(XtNfromVert, below);
+ 	NextArg(XtNvertDistance, 15);
+-	NextArg(XtNhorizDistance, 25);
+-	NextArg(XtNheight, 25);
++
++	NextArg(XtNhorizDistance, 10);
++	NextArg(XtNwidth, 55);
++	/*NextArg(XtNheight, 25);*/
++
+ 	NextArg(XtNborderWidth, INTERNAL_BW);
+ 	getf = XtCreateManagedWidget("getf", commandWidgetClass,
+ 				     file_panel, Args, ArgCount);
+@@ -720,8 +732,11 @@ void create_file_panel(w,description)
+ 	NextArg(XtNfromHoriz, getf);
+ 	NextArg(XtNfromVert, below);
+ 	NextArg(XtNvertDistance, 15);
+-	NextArg(XtNhorizDistance, 25);
+-	NextArg(XtNheight, 25);
++
++	NextArg(XtNhorizDistance, 10);
++	NextArg(XtNwidth, 55);
++	/*NextArg(XtNheight, 25);*/
++
+ 	NextArg(XtNborderWidth, INTERNAL_BW);
+ 	linkf = XtCreateManagedWidget("link", commandWidgetClass,
+ 				     file_panel, Args, ArgCount);
+@@ -733,8 +748,11 @@ void create_file_panel(w,description)
+ 	NextArg(XtNfromHoriz, linkf);
+ 	NextArg(XtNfromVert, below);
+ 	NextArg(XtNvertDistance, 15);
+-	NextArg(XtNhorizDistance, 25);
+-	NextArg(XtNheight, 25);
++
++	NextArg(XtNhorizDistance, 10);
++	NextArg(XtNwidth, 55);
++	/*NextArg(XtNheight, 25);*/
++
+ 	exec = XtCreateManagedWidget("exec", commandWidgetClass,
+ 				     file_panel, Args, ArgCount);
+ 	XtAddEventHandler(exec, ButtonReleaseMask, (Boolean) 0,
+--- scilab-4.1.2/routines/xsci/wf_w_msgpanel.c.orig	2007-10-25 18:30:55.000000000 -0200
++++ scilab-4.1.2/routines/xsci/wf_w_msgpanel.c	2007-10-25 18:37:33.000000000 -0200
+@@ -66,7 +66,7 @@ void init_msg(tool,vert_w, ch,filename)
+ 				      Args, ArgCount);
+     /* now the message panel */
+     FirstArg(XtNstring, "\0");
+-    NextArg(XtNwidth,  400);
++    NextArg(XtNwidth,  350);
+     NextArg(XtNfromHoriz, name_panel);
+     NextArg(XtNhorizDistance, INTERNAL_BW);
+     NextArg(XtNtop, XtChainTop);
