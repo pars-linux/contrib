@@ -20,7 +20,7 @@ def start():
             music_dir = regex.search(line).groups()[0]
 
             if not os.path.exists(music_dir):
-                fail('Music directory "%s" doesn\'t exist, please set a valid directory and retry' % music_dir)
+                fail('Music directory "%s" doesn\'t exist, please edit your /etc/mpd.conf and set a valid directory' % music_dir)
 
     conf.close()
 
