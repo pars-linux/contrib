@@ -13,17 +13,19 @@ def setup():
 
     autotools.configure("--enable-shared \
                          --disable-static \
-                         --without-tk \
-                         --with-gtk2 \
+                         --with-tk \
+                         --without-gtk2 \
                          --with-ocaml \
+                         --with-java \
                          --with-atlas-library=/usr/lib \
                          --with-x")
 
 def build():
+
     autotools.make("all")
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto("/usr/share/pixmaps/", "X11_defaults/scilab.xpm")
     pisitools.insinto("/usr/share/applications", "scilab.desktop")

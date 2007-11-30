@@ -16,7 +16,8 @@
         <BuildDependencies>
             <Dependency>vte</Dependency>
             <Dependency>gtkhtml2</Dependency>
-            <Dependency>gtk2</Dependency>
+            <Dependency>tcltk</Dependency>
+            <Dependency>sun-jdk</Dependency>
             <Dependency versionFrom="1.5">Xaw3d</Dependency>
             <Dependency versionFrom="3.09.1">ocaml</Dependency>
             <Dependency versionFrom="3.7.11">atlas</Dependency>
@@ -24,6 +25,9 @@
         <Patches>
             <Patch>scilab.desktop.patch</Patch>
             <Patch>pardus-makefile.in.patch</Patch>
+            <Patch level="1">0001-UseStandardXaw.patch</Patch>
+            <Patch level="1">0002-file-menu.patch</Patch>
+            <Patch level="1">scilab-sh5.patch</Patch>
         </Patches>
     </Source>
 
@@ -32,7 +36,7 @@
         <RuntimeDependencies>
             <Dependency>vte</Dependency>
             <Dependency>gtkhtml2</Dependency>
-            <Dependency>gtk2</Dependency>
+            <Dependency>tcltk</Dependency>
             <Dependency versionFrom="1.5">Xaw3d</Dependency>
             <Dependency versionFrom="3.09.1">ocaml</Dependency>
             <Dependency versionFrom="3.7.11">atlas</Dependency>
@@ -44,9 +48,19 @@
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/emacs/site-lisp/scilab.el">scilab.el</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2007-11-30</Date>
+            <Version>4.1.2</Version>
+            <Comment>Back to tk gui since gtk2 gui is still buggy. BUG:FIXED:6617</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2007-11-11</Date>
             <Version>4.1.2</Version>
