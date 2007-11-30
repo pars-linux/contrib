@@ -1,7 +1,7 @@
-diff -Naur indra.orig/newview/viewer.cpp indra/newview/viewer.cpp
---- linden/indra.orig/newview/viewer.cpp	2007-08-30 00:10:43.000000000 +0300
-+++ linden/indra/newview/viewer.cpp	2007-08-30 02:27:07.000000000 +0300
-@@ -82,7 +82,7 @@
+diff -Naur linden.orig/indra/newview/viewer.cpp linden/indra/newview/viewer.cpp
+--- linden.orig/indra/newview/viewer.cpp	2007-11-30 00:47:17.000000000 +0200
++++ linden/indra/newview/viewer.cpp	2007-11-30 10:31:55.000000000 +0200
+@@ -78,7 +78,7 @@
    #	include <dlfcn.h>		// RTLD_LAZY
    #     include <execinfo.h>            // backtrace - glibc only
    #     ifndef LL_ELFBIN
@@ -10,13 +10,13 @@ diff -Naur indra.orig/newview/viewer.cpp indra/newview/viewer.cpp
    #     endif // LL_ELFBIN
    #     if LL_ELFBIN
    #          include <cxxabi.h>         // for symbol demangling
-diff -Naur indra.orig/SConstruct indra/SConstruct
---- linden/indra.orig/SConstruct	2007-08-30 00:10:39.000000000 +0300
-+++ linden/indra/SConstruct	2007-08-30 02:26:08.000000000 +0300
-@@ -93,7 +93,7 @@
-         allowed_values=('default', 'aditi', 'agni', 'dmz', 'durga', 'firstlook', 'ganga', 'shakti', 'siva', 'soma', 'uma', 'vaak')),
-     EnumOption('CHANNEL', 'Client package default channel', 'default',
-         allowed_values=('default', 'Release', 'Release Candidate', 'WindLight')),
+diff -Naur linden.orig/indra/SConstruct linden/indra/SConstruct
+--- linden.orig/indra/SConstruct	2007-11-30 00:47:10.000000000 +0200
++++ linden/indra/SConstruct	2007-11-30 10:32:15.000000000 +0200
+@@ -94,7 +94,7 @@
+         allowed_values=('default', 'aditi', 'agni', 'dmz', 'durga', 'ganga', 'shakti', 'siva', 'soma', 'uma', 'vaak')),
+     EnumOption('CHANNEL', 'Client package\'s default channel', 'Release',
+         allowed_values=('Release', 'Release Candidate', 'WindLight')),
 -    BoolOption('ELFIO', 'Enabled enhanced backtraces with libELFIO symbol extraction support', True),
 +    BoolOption('ELFIO', 'Enabled enhanced backtraces with libELFIO symbol extraction support', False),
      BoolOption('STANDALONE', 'Build using system packages (implies OPENSOURCE)', False),
