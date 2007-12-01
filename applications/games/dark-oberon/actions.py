@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 WorkDir = "dark-oberon-1.0.2-RC1"
 
 def build():
-    autotools.make("SOUND=1")
+    autotools.make("SOUND=0")
 
 def install():
     pisitools.insinto("/usr/share/darkoberon", "*")
