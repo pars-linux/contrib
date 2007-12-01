@@ -15,6 +15,7 @@ def build():
 def install():
     pisitools.insinto("/usr/share/darkoberon", "*")
 
+    pisitools.removeDir("/usr/share/darkoberon/libs")
     pisitools.removeDir("/usr/share/darkoberon/src")
     pisitools.remove("/usr/share/darkoberon/Makefile")
     pisitools.remove("/usr/share/darkoberon/README")
