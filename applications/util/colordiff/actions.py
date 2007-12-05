@@ -12,7 +12,10 @@ def install():
     pisitools.dobin("colordiff.pl")
     pisitools.domove("/usr/bin/colordiff.pl", "/usr/bin", "colordiff")
 
-    pisitools.insinto("/usr/share/doc/%s/examples" % get.srcTAG(), "colordiffrc*")
+    pisitools.dosed("colordiffrc", "newtext=blue", "newtext=yellow")
+
+    pisitools.insinto("/etc", "colordiffrc")
+    pisitools.insinto("/usr/share/doc/%s/examples" % get.srcTAG(), "colordiffrc-lightbg")
 
     pisitools.doman("colordiff.1")
 
