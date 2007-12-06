@@ -15,6 +15,8 @@ def build():
 
 def install():
     autotools.install()
-    
-    pisitools.dodoc("ChangeLog", "AUTHORS", "README", "THANKS")
+
+    # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+
+    pisitools.dodoc("ChangeLog", "AUTHORS", "README", "THANKS")
