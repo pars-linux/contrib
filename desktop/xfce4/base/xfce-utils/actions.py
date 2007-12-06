@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-static=no \
+    autotools.configure("--disable-static \
                          --with-browser=firefox \
                          --with-terminal=Terminal")
 
@@ -19,6 +19,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("README", "NEWS", "TODO", "AUTHORS", "ChangeLog")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+
+    pisitools.dodoc("README", "NEWS", "TODO", "AUTHORS", "ChangeLog")
