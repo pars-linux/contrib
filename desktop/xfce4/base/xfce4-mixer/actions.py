@@ -12,11 +12,12 @@ def setup():
     autotools.configure("--with-sound=alsa")
 
 def build():
-    autotools.make()
+    autotools.make("-j1")
 
 def install():
     autotools.install()
 
-    pisitools.dodoc("NOTES", "NEWS", "TODO", "README", "ChangeLog", "AUTHORS")
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+
+    pisitools.dodoc("NOTES", "NEWS", "TODO", "README", "ChangeLog", "AUTHORS")
