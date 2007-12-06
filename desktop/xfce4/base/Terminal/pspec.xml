@@ -11,19 +11,17 @@
         </Packager>
         <License>LGPL-2</License>
         <IsA>app:gui</IsA>
-        <Summary>Terminal for Xfce</Summary>
-        <Archive sha1sum="8851179492c4768a1a53d2424d7a7c8b1a873c58" type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.0/src/Terminal-0.2.6.tar.bz2</Archive>
+        <Summary>Terminal for XFCE</Summary>
+        <Archive sha1sum="9c4ae0422dea8161aa72659d3bd1b035688d70d7" type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/Terminal-0.2.8.tar.bz2</Archive>
        <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency versionFrom="0.5">startup-notification</Dependency>
             <Dependency>vte</Dependency>
-            <Dependency>exo</Dependency>
+            <Dependency versionFrom="0.3.4">exo</Dependency>
        </BuildDependencies>
        <Patches>
-           <Patch level="1">i18n-tr.patch</Patch>
            <Patch>fix-desktop-menu-duplicate-with-kde.patch</Patch>
-           <Patch level="1">CVE-2007-3770.patch</Patch>
        </Patches>
     </Source>
 
@@ -34,7 +32,7 @@
             <Dependency>dbus-glib</Dependency>
             <Dependency>startup-notification</Dependency>
             <Dependency>vte</Dependency>
-            <Dependency>exo</Dependency>
+            <Dependency versionFrom="0.3.4">exo</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -55,6 +53,13 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2007-12-06</Date>
+            <Version>0.2.8</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="8" type="security">
             <Date>2007-08-14</Date>
             <Version>0.2.6</Version>
