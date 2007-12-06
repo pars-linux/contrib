@@ -10,12 +10,12 @@
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
-        <Summary>Xfce file manager</Summary>
-        <Archive sha1sum="1adcba7b86d9219b0bd7eb8c16d5719aa8393d98" type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.0/src/Thunar-0.8.0.tar.bz2</Archive>
+        <Summary>XFCE file manager</Summary>
+        <Archive sha1sum="fd4625d58e28006087d5a35004483a953184e4fe" type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/Thunar-0.9.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>exo</Dependency>
+            <Dependency versionFrom="0.3.4">exo</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
             <Dependency>libpng</Dependency>
             <Dependency>jpeg</Dependency>
             <Dependency>dbus-glib</Dependency>
@@ -23,7 +23,6 @@
             <Dependency>freetype</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">i18n-tr.patch</Patch>
             <Patch level="1">fix-desktop-menu-duplicate-with-kde.patch</Patch>
         </Patches>
     </Source>
@@ -31,9 +30,9 @@
     <Package>
         <Name>Thunar</Name>
         <RuntimeDependencies>
-            <Dependency>exo</Dependency>
+            <Dependency versionFrom="0.3.4">exo</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
             <Dependency>libpng</Dependency>
             <Dependency>jpeg</Dependency>
             <Dependency>dbus-glib</Dependency>
@@ -57,6 +56,13 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2007-12-06</Date>
+            <Version>0.9.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2007-05-26</Date>
             <Version>0.8.0</Version>
