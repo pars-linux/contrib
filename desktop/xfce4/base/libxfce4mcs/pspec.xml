@@ -11,21 +11,20 @@
         <License>GPL-2</License>
         <IsA>library</IsA>
         <Summary>Xfce Multi Channel Setting library</Summary>
-        <Archive sha1sum="9a39e5227f6f574635bd5a06f023cadd4256e57c"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.1/src/libxfce4mcs-4.4.1.tar.bz2</Archive>
+        <Archive sha1sum="f71c618070a57b1180a25dc008d83b623a862f42"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/libxfce4mcs-4.4.2.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>pkgconfig</Dependency>
+            <Dependency>startup-notification</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
-            <Dependency>startup-notification</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
        <Name>libxfce4mcs</Name>
        <RuntimeDependencies>
+            <Dependency>startup-notification</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
-            <Dependency>startup-notification</Dependency>
        </RuntimeDependencies> 
             <Files>
                <Path fileType="header">/usr/include</Path>
@@ -34,8 +33,15 @@
                <Path fileType="doc">/usr/share/gtk-doc</Path>
            </Files>
     </Package>
-    
+ 
     <History>
+        <Update release="6">
+            <Date>2007-12-06</Date>
+            <Version>4.4.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2007-04-11</Date>
             <Version>4.4.1</Version>
