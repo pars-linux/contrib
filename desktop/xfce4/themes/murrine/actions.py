@@ -6,5 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
+WorkDir = "Murrine"
+
 def install():
     pisitools.insinto("/usr/share/themes/Murrine", "*")
