@@ -10,11 +10,11 @@
         </Packager>
         <License>GPL-2</License>
         <IsA>app:gui</IsA>
-        <Summary>Small text editor for Xfce</Summary>
-        <Archive sha1sum="7a27bc73290c08d729c36e816cf1c7f1aa667bd5"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.0/src/mousepad-0.2.12.tar.bz2</Archive>
+        <Summary>Small text editor for XFCE</Summary>
+        <Archive sha1sum="521d2ffb3b805b568620d40ca43264584d504ccb"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/mousepad-0.2.13.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
-            <Dependency>pkgconfig</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>fix-desktop-menu-duplicate-with-kde.patch</Patch>
@@ -24,7 +24,8 @@
     <Package>
        <Name>mousepad</Name>
        <RuntimeDependencies>
-            <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
+           <Dependency>gtk2</Dependency>
+           <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
        </RuntimeDependencies> 
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -35,6 +36,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2007-12-06</Date>
+            <Version>0.2.13</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2007-05-08</Date>
             <Version>0.2.12</Version>
