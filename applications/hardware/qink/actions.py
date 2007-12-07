@@ -10,8 +10,6 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.system("lrelease-qt4 locale/tr.ts -qm locale/tr.qm")
-
     autotools.rawConfigure("--prefix=/usr \
                             --qtdir=/usr/qt/4")
 
