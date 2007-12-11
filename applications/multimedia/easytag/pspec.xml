@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Audio File Tag Viewer/Editor</Summary>
         <Description>EasyTAG is a utility for viewing and editing tags for MP3, MP2, MP4/AAC, FLAC, Ogg Vorbis, MusePack and Monkey's Audio files.</Description>
-        <Archive type="tarbz2" sha1sum="8be1f0f84fed9b9f3fe0f1f9770315744005905e">mirrors://sourceforge/easytag/easytag-2.1.3.tar.bz2</Archive>
+        <Archive type="tarbz2" sha1sum="1987839c8e3c141891d04143903e92bc788a26e8">mirrors://sourceforge/easytag/easytag-2.1.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.4.1">gtk2</Dependency>
             <Dependency>id3lib</Dependency>
@@ -25,7 +25,7 @@
             <Dependency>wavpack</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>beautify-desktopfile.patch</Patch>
+            <Patch level="1">patch_easytag_214_flac_112_fix.diff</Patch>
         </Patches>
     </Source>
 
@@ -51,6 +51,13 @@
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2007-12-10</Date>
+            <Version>2.1.4</Version>
+            <Comment>Version bump including Turkish locale fix for vorbis.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="9">
             <Date>2007-10-16</Date>
             <Version>2.1.3</Version>
