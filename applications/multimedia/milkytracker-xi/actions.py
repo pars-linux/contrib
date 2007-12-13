@@ -12,4 +12,4 @@ WorkDir = "."
 def install():
     shelltools.system('unrar x Xi_instruments.rar')
 
-    pisitools.insinto("/opt/MilkyTracker_linux_x86_2006_08_27/XI - instruments",  "instrumentos/*")
+    pisitools.insinto("/opt/MilkyTracker/XI - instruments",  "instrumentos/*")
