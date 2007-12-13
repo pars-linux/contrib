@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mutt</Name>
+        <Homepage>http://www.mutt.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Text mode mail user agent</Summary>
+        <Description>Mutt supports color, threading, arbitrary key remapping, and a lot of customization.</Description>
+        <Archive sha1sum="6b51745fc4baf463adde53e91efb2a6c7eec8492" type="targz">ftp://ftp.mutt.org/mutt/devel/mutt-1.5.17.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>mit-kerberos</Dependency>
+            <Dependency>gnutls</Dependency>
+            <Dependency>cyrus-sasl</Dependency>
+            <Dependency>lynx</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>gpgme</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">sidebar.patch</Patch>
+            <Patch>muttrc.patch</Patch>
+            <Patch level="1">mutt-1.5.17-maildirnull.patch</Patch>
+            <Patch level="1">mutt-1.5.17-batchsend.patch</Patch>
+            <Patch level="1">mutt-1.5.17-mailto.patch</Patch>
+            <Patch level="1">mutt-1.5.17-manual.patch</Patch>
+            <Patch level="1">mutt-1.5.17-updating.patch</Patch>
+            <Patch level="1">patch-1.5.17.rr.compressed</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mutt</Name>
+        <RuntimeDependencies>
+            <Dependency>mit-kerberos</Dependency>
+            <Dependency>gnutls</Dependency>
+            <Dependency>cyrus-sasl</Dependency>
+            <Dependency>lynx</Dependency>
+            <Dependency>libxslt</Dependency>
+            <Dependency>gpgme</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-09</Date>
+            <Version>1.5.17</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
