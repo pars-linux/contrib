@@ -10,4 +10,4 @@ from pisi.actionsapi import get
 WorkDir = ""
 
 def install():
-    pisitools.insinto("/opt/MilkyTracker_linux_x86_2006_08_27",  "*")
+    pisitools.insinto("/opt/MilkyTracker",  "*")
