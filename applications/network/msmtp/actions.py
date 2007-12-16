@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-ssl --with-ssl=gnutls")
@@ -16,4 +17,8 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README*", "THANKS", "doc/msmtp.pdf")
+    pisitools.insinto("/usr/share/doc/%s/examples"% get.srcTAG(), "doc/*.example")
+    pisitools.insinto("/usr/share/doc/%s/examples"% get.srcTAG(), "scripts/*.sh")
+    pisitools.insinto("/usr/share/doc/%s/examples"% get.srcTAG(), "scripts/msmtpqueue/*.sh")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "THANKS", "doc/msmtp.pdf")
