@@ -5,13 +5,13 @@
         <Name>msmtp</Name>
         <Homepage>http://msmtp.sourceforge.net</Homepage>
         <Packager>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPL-3</License>
         <IsA>app:console</IsA>
         <Summary>A simple smtp client</Summary>
-        <Archive sha1sum="bff79c69e667df55fadb80d49cd4f263c410a4ae" type="tarbz2">mirrors://sourceforge/msmtp/msmtp-1.4.9.tar.bz2</Archive>
+        <Archive sha1sum="c1d0dee2b8e035289a0467d687ec8066dba61e97" type="tarbz2">mirrors://sourceforge/msmtp/msmtp-1.4.13.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.2.0">gnutls</Dependency>
             <Dependency versionFrom="0.9.6">openssl</Dependency>
@@ -30,14 +30,21 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="info">/usr/share/info</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-12-16</Date>
+            <Version>1.4.13</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-11-15</Date>
             <Version>1.4.9</Version>
