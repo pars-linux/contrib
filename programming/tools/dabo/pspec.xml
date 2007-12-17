@@ -9,10 +9,9 @@
             <Email>mustafagunay@gmail.com</Email>
         </Packager>
         <License>MIT</License>
-        <IsA>library</IsA>
+        <IsA>app:gui</IsA>
         <Summary>3-tier desktop application runtime framework</Summary>
-        <Description>3-tier desktop application runtime framework</Description>
-        <Archive sha1sum="2991a0c1bb922f048e9d9c89fa29392ea2eb450e" type="targz">ftp://dabodev.com/dabo/dabo-0.8-mac-nix.tar.gz</Archive>
+        <Archive sha1sum="519995ab31f04f94914f389804ddd023ec2ad297" type="targz">ftp://dabodev.com/dabo/dabo-0.8.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>pysqlite</Dependency>
             <Dependency versionFrom="0.6">setuptools</Dependency>
@@ -25,13 +24,30 @@
             <Dependency>pysqlite</Dependency>
             <Dependency>wxPython2_8</Dependency>
         </RuntimeDependencies>
+        <Conflicts>
+            <Package>daboide</Package>
+        </Conflicts>
         <Files>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/daboide.desktop">daboide.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/daboide">daboide</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2007-12-16</Date>
+            <Version>0.8.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-07-10</Date>
             <Version>0.8</Version>
