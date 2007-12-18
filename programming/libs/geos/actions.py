@@ -11,12 +11,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
-WorkDir = "geos-3.0.0rc4"
+WorkDir = "geos-3.0.0rc5"
 
 def setup():
-    shelltools.export("WANT_AUTOCONF", "2.5")
+    #shelltools.export("WANT_AUTOCONF", "2.5")
 
-    libtools.libtoolize("--copy --force")
+    #libtools.libtoolize("--copy --force")
 
     autotools.configure("--with-pic \
                          --disable-static \
