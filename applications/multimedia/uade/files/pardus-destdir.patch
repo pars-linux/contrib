@@ -1,6 +1,6 @@
---- Makefile.in.orig	2007-01-25 20:53:09.000000000 +0200
-+++ Makefile.in	2007-01-30 20:08:52.000000000 +0200
-@@ -34,39 +34,39 @@
+--- Makefile.in.orig	2007-11-18 13:32:53.000000000 +0200
++++ Makefile.in	2007-12-18 16:18:11.000000000 +0200
+@@ -34,24 +34,23 @@
  	$(MAKE) -C src
  
  uadecoreinstall:	$(UADECORE)
@@ -24,6 +24,7 @@
  
  uade123install:	$(UADE123)
 -	mkdir -p "$(BINDIR)" "$(MANDIR)"
+-	rm -f "$(BINDIR)/$(UADE123NAME)" || true
 -	cp -f src/frontends/uade123/$(UADE123NAME) "$(BINDIR)/" || true
 -	chmod og+rx "$(BINDIR)/$(UADE123NAME)"
 -	cp doc/uade123.1 "$(MANDIR)"/
@@ -36,16 +37,7 @@
  
  xmmsplugin:	
  	$(MAKE) -C src/frontends/xmms
- 
- xmmsplugininstall:	$(XMMSPLUGIN)
--	mkdir -p "$(XMMSPLUGINDIR)" "$(BINDIR)"
--	install src/frontends/xmms/libuade2.so "$(XMMSPLUGINDIR)"
--	install contrib/uadexmmsadd "$(BINDIR)"/
-+	mkdir -p "$(DESTDIR)$(XMMSPLUGINDIR)" "$(DESTDIR)$(BINDIR)"
-+	install src/frontends/xmms/libuade2.so "$(DESTDIR)$(XMMSPLUGINDIR)"
-+	install contrib/uadexmmsadd "$(DESTDIR)$(BINDIR)"/
- 
- audaciousplugin:	
+@@ -65,9 +64,9 @@
  	$(MAKE) -C src/frontends/audacious
  
  audaciousplugininstall:	$(AUDACIOUSPLUGIN)
@@ -58,7 +50,7 @@
  
  src/include/uadeconfig.h:	
  	@echo ""
-@@ -81,11 +81,11 @@
+@@ -82,14 +81,14 @@
  	src/frontends/uade123/$(UADE123NAME) --basedir=. -S amigasrc/score/score -P players/AbyssHighestExperience -m songs/AHX.Cruisin -u src/uadecore
  
  install:	
@@ -74,4 +66,8 @@
 +	chmod -R og+rX "$(DESTDIR)$(DATADIR)"
  	$(MAKE) installagain
  	$(MAKE) feinstall
+-	install src/frontends/mod2ogg/mod2ogg2.sh "$(BINDIR)/"
++	install src/frontends/mod2ogg/mod2ogg2.sh "$(DESTDIR)$(BINDIR)/"
  
+ installagain:	$(UADECOREINSTALL)
+ 	@true
