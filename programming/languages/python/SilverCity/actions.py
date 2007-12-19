@@ -6,15 +6,12 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def install():
     pythonmodules.install()
 
-    pisitools.dosed("%s/usr/bin/cgi-styler-form.py" % get.installDIR(), \
-                    "#!/usr/home/sweetapp/bin/python", \
-                    "#!/usr/bin/env python")
+    pisitools.dosed("%s/usr/bin/cgi-styler-form.py" % get.installDIR(), "home/sweetapp/")
 
     pisitools.chmod("%s/usr/lib/%s/site-packages/SilverCity/default.css" % (get.installDIR(), get.curPYTHON()), 0644)
 
