@@ -15,15 +15,15 @@
         <Archive sha1sum="dc0e86f066b092ab23da5c2bc8443837a7f54633" type="targz">http://download.qgis.org/qgis/src/qgis_0.9.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.2.2">qt4</Dependency>
-            <Dependency versionFrom="1.2.5">gdal</Dependency>
+            <Dependency versionFrom="1.4.4">gdal</Dependency>
             <Dependency versionFrom="3.2.1">sqlite</Dependency>
-            <Dependency releaseFrom="7">geos</Dependency>
+            <Dependency releaseFrom="3.0.0_rc5">geos</Dependency>
             <Dependency versionFrom="1.6">gsl</Dependency>
             <Dependency>proj</Dependency>
             <Dependency>grass</Dependency>
-            <Dependency releaseFrom="7">postgresql-lib</Dependency>
-            <Dependency releaseFrom="7">postgresql-pl</Dependency>
-            <Dependency releaseFrom="7">postgresql-server</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-pl</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
             <Dependency>gpsbabel</Dependency>
             <Dependency>postgis</Dependency>
         </BuildDependencies>
@@ -33,14 +33,15 @@
         <Name>qgis</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="4.2.2">qt4</Dependency>
-            <Dependency versionFrom="1.2.5">gdal</Dependency>
+            <Dependency versionFrom="1.4.4">gdal</Dependency>
             <Dependency versionFrom="3.2.1">sqlite</Dependency>
-            <Dependency releaseFrom="7">geos</Dependency>
+            <Dependency releaseFrom="3.0.0_rc5">geos</Dependency>
             <Dependency versionFrom="1.6">gsl</Dependency>
             <Dependency>proj</Dependency>
-            <Dependency releaseFrom="7">postgresql-lib</Dependency>
-            <Dependency releaseFrom="7">postgresql-pl</Dependency>
-            <Dependency releaseFrom="7">postgresql-server</Dependency>
+            <Dependency>grass</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-pl</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
             <Dependency>gpsbabel</Dependency>
             <Dependency>postgis</Dependency>
         </RuntimeDependencies>
@@ -60,6 +61,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2007-12-20</Date>
+            <Version>0.9.0</Version>
+            <Comment>Fix deps, sync with new gdal, geos</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2007-11-05</Date>
             <Version>0.9.0</Version>
