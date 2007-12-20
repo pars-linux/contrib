@@ -57,6 +57,7 @@ def build():
 
 def install():
     pisitools.dodir("/usr/lib/ruby/site_ruby/1.8/i686-linux/gdal")
+
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("COMMITERS", "HOWTO-RELEASE", "NEWS", "PROVENANCE.TXT", "VERSION")
