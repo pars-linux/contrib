@@ -4,6 +4,7 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import perlmodules
@@ -43,7 +44,7 @@ def setup():
                          --with-ogr \
                          --with-static-proj4 \
                          --with-geos \
-                         --with-php \
+                         --without-php \
                          --with-perl \
                          --with-ruby \
                          --with-python")
@@ -51,7 +52,11 @@ def setup():
 def build():
     autotools.make()
 
+    shelltools.cd("swig/ruby")
+    autotools.make()
+
 def install():
+    pisitools.dodir("/usr/lib/ruby/site_ruby/1.8/i686-linux/gdal")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("COMMITERS", "HOWTO-RELEASE", "NEWS", "PROVENANCE.TXT", "VERSION")
