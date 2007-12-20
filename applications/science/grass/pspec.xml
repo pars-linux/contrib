@@ -15,12 +15,11 @@
         <Summary xml:lang="tr">Coğrafi Kaynak Analizi Destek Sistemi</Summary>
         <Description>GRASS is a Geographic Information System (GIS) used for geospatial data management and analysis, image processing, graphics/maps production, spatial modeling, and visualization.</Description>
         <Description xml:lang="tr">GRASS, coğrafi veri yönetimi ve analizi, resim işleme, grafik/harita üretimi, uzamsal modelleme ve canlandırma amaçlı kullanılan bir Coğrafi Bilgi Sistemidir (GIS-Geographic Information System).</Description>
-        <Archive sha1sum="8caf8f6832536a08d707d419097d2659bf97e312" type="targz">http://grass.itc.it/grass63/source/grass-6.3.0RC1.tar.gz</Archive>
+        <Archive sha1sum="ee220d556c651d7ccbbda53708f157cd1ca6d850" type="targz">http://grass.itc.it/grass63/source/grass-6.3.0RC3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.5.0">proj</Dependency>
-            <Dependency>gdal</Dependency>
+            <Dependency versionFrom="1.4.4">gdal</Dependency>
             <Dependency>mysql-lib</Dependency>
-            <Dependency versionFrom="5.1">readline</Dependency>
             <Dependency versionFrom="3.8.2">tiff</Dependency>
             <Dependency>tcltk</Dependency>
             <Dependency>python-tk</Dependency>
@@ -41,6 +40,8 @@
             <Dependency>fftw3</Dependency>
             <Dependency>gsm</Dependency>
             <Dependency>libtheora</Dependency>
+            <Dependency>blas</Dependency>
+            <Dependency>lapack</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>readline-configure.patch</Patch>
@@ -52,9 +53,8 @@
         <Name>grass</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="4.5.0">proj</Dependency>
-            <Dependency>gdal</Dependency>
+            <Dependency versionFrom="1.4.4">gdal</Dependency>
             <Dependency>mysql-lib</Dependency>
-            <Dependency versionFrom="5.1">readline</Dependency>
             <Dependency versionFrom="3.8.2">tiff</Dependency>
             <Dependency>tcltk</Dependency>
             <Dependency>python-tk</Dependency>
@@ -75,6 +75,8 @@
             <Dependency>fftw3</Dependency>
             <Dependency>gsm</Dependency>
             <Dependency>libtheora</Dependency>
+            <Dependency>blas</Dependency>
+            <Dependency>lapack</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -96,6 +98,13 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2007-12-20</Date>
+            <Version>6.3.0_rc3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2007-11-05</Date>
             <Version>6.3.0_rc1</Version>
