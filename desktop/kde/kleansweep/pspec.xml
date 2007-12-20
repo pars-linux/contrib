@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kleansweep</Name>
+        <Homepage>http://kde-apps.org/content/show.php?content=28631</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>kleansweep</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An unneeded file finder</Summary>
+        <Description>Allows you to reclaim disk space by finding unneeded files</Description>
+        <Archive sha1sum="c43c3767e0af2ee1db58a8efe13677af884011bc" type="tarbz2">http://linux.bydg.org/~yogin/kleansweep-0.2.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>turkish.patch</Patch>
+            <Patch>desktop-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kleansweep</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-18</Date>
+            <Version>0.2.9</Version>
+            <Comment>First release</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
