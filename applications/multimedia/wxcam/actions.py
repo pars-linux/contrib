@@ -17,6 +17,8 @@ def build():
 def install():
     autotools.install()
 
+    pisitools.insinto("/usr/share/pixmaps", "src/appicon.xpm", "wxcam.xpm")
+
     pisitools.removeDir("/usr/doc")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
