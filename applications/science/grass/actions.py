@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "grass-6.3.0RC1"
+WorkDir = "grass-6.3.0RC3"
 
 def setup():
     autotools.configure("--disable-static \
@@ -20,8 +20,10 @@ def setup():
                          --with-proj-includes=/usr/include --with-proj-libs=/usr/lib --with-proj-share=/usr/share/proj \
                          --with-tiff \
                          --with-png \
-                         --with-mysql=yes --with-mysql-includes=/usr/include/mysql --with-mysql-libs=/usr/lib/mysql \
-                         --with-ffmpeg --with-ffmpeg-includes=/usr/include/ffmpeg \
+                         --with-mysql=yes \
+                         --with-mysql-includes=/usr/include/mysql --with-mysql-libs=/usr/lib/mysql \
+                         --with-ffmpeg \
+                         --with-ffmpeg-includes=/usr/include/ffmpeg \
                          --with-opengl \
                          --with-gdal-config=/usr/bin/gdal-config \
                          --with-postgres=yes --with-postgres-includes=/usr/include/postgresql \
@@ -32,7 +34,9 @@ def setup():
                          --with-nls \
                          --with-tcltk \
                          --with-readline \
-                         --enable-largefile")
+                         --enable-largefile \
+                         --with-blas \
+                         --with-lapack")
 
 def build():
     autotools.make()
