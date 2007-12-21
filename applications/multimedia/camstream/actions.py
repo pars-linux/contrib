@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir="camstream-070511"
+
 def setup():
     autotools.autoreconf("-fi")
     autotools.configure()
