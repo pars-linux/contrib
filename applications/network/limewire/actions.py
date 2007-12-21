@@ -4,8 +4,6 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-WorkDir="LimeWire"
-
 from pisi.actionsapi import pisitools
 
 def install():
