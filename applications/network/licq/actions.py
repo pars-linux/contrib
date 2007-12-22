@@ -22,6 +22,7 @@ def setup():
 
 def build():
     autotools.make()
+
     shelltools.cd("plugins/qt-gui")
     autotools.make()
 
@@ -32,17 +33,19 @@ def build():
         autotools.make()
 
 def install():
-    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
-    autotools.install()
+    autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
+
     shelltools.cd("plugins/qt-gui")
-    autotools.install()
+    autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
 
     # Optional Plugins
     li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
     for name in li:
         shelltools.cd("../%s" % name)
-        autotools.install()
+        autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
 
     # Licq-web plugin
     pisitools.dodir("/var/www/localhost/htdocs")
     shelltools.copytree("../licqweb/", "%s/var/www/localhost/htdocs/licqweb/" % get.installDIR())
+
+    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
