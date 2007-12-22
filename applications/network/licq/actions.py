@@ -48,4 +48,4 @@ def install():
     pisitools.dodir("/var/www/localhost/htdocs")
     shelltools.copytree("../licqweb/", "%s/var/www/localhost/htdocs/licqweb/" % get.installDIR())
 
-    pisitools.dodoc("README", "README.FREEBSD", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
+    pisitools.dodoc("README", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
