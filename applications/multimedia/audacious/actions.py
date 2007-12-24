@@ -10,14 +10,11 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-ipv6 \
-                         --enable-chardet \
-                         --enable-rpath \
-                         --disable-gconf \
-                         --enable-mcs \
-                         --enable-xspf \
-                         --disable-xmltest \
+                         --enable-nls \
                          --enable-samplerate \
-                         --enable-nls")
+                         --enable-xspf \
+                         --enable-rpath
+                         --disable-xmltest")
 def build():
     autotools.make()
 
