@@ -9,16 +9,14 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="Manslide-%s" % get.srcVERSION()
-
 def setup():
-    shelltools.system("/usr/bin/qmake-qt4 Manslide.pro")
+    shelltools.system("qmake-qt4 Manslide.pro")
 
 def build():
     autotools.make()
 
 def install():
-    for data in ["Manslide","BIB_ManSlide","Interface","Luma","*.qm"]:
+    for data in ["Manslide","BIB_ManSlide","Interface", "*.qm"]:
         pisitools.insinto("/usr/share/manslide",data)
 
     pisitools.dosym("/usr/share/manslide/Manslide","/usr/bin/manslide")
