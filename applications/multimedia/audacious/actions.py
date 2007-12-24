@@ -13,7 +13,7 @@ def setup():
                          --enable-nls \
                          --enable-samplerate \
                          --enable-xspf \
-                         --enable-rpath
+                         --enable-rpath \
                          --disable-xmltest")
 def build():
     autotools.make()
