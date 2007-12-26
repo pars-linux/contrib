@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>boncuk</Name>
+        <Homepage>http://sourceforge.net/projects/pysozluk-qt</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>boncuk</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Simple English-Turkish dictionary</Summary>
+        <Description>Boncuk is a minimalistic English-Turkish dictionary. It can search in its local database and in seslisozluk.com.</Description>
+        <Archive sha1sum="612811454fa17e31451f971b1494c1422a02a232" type="tarbz2">mirrors://sourceforge/pysozluk-qt/boncuk-0.2.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4-sql-sqlite</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>boncuk</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4-sql-sqlite</Dependency>
+            <Dependency>boncuk-dict</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>pysozluk-qt</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/boncuk.desktop">boncuk.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-22</Date>
+            <Version>0.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
