@@ -6,10 +6,22 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
+from pisi.actionsapi import autotools
 
-WorkDir="rpy-1.0-RC3"
+def build():
+    shelltools.cd("doc")
+    autotools.make("html")
 
 def install():
+    shelltools.export("RHOMES","/usr/lib/R")
+
     pythonmodules.install()
 
     pisitools.remove("/usr/lib/python2.4/site-packages/rpy_wintools.py")
+
+    # add docs, examples and tests
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "tests")
+    pisitools.dohtml("doc/rpy_html")
