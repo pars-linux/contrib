@@ -8,13 +8,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 WorkDir = "kim"
-appFiles = ["COPYING", "src/slideshow", "src/galery"]
+appFiles = ["src/slideshow", "src/galery"]
 
 def install():
     pisitools.insinto("/usr/bin", "src/bin/kim*")
     pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "src/kim*.desktop")
     for file in appFiles:
         pisitools.insinto("%s/share/apps/kim" % get.kdeDIR(), file)
-    pisitools.rename("%s/share/apps/kim/COPYING" % get.kdeDIR(), "kim_about.txt")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "manual.html")
 
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README", "COPYING")
