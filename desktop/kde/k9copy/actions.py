@@ -20,4 +20,4 @@ def install():
 
     pisitools.removeDir("/usr/kde/3.5/include")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING")
