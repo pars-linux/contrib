@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>simple-ccsm</Name>
+        <Homepage>http://www.opencompositing.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>simple-ccsm</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Contains a gui configuration tool</Summary>
+        <Description>Contains a gui configuration tool to configure Compiz plugins and the composite window manager.</Description>
+        <Archive sha1sum="489ad3fcdc4508b29de32527fca76dec0af013f4" type="tarbz2">http://kpelit.org/ds/compiz/simple-ccsm-0.6.99_20071228.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>ccsm</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>simple-ccsm</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>ccsm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/simple-ccsm</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-21</Date>
+            <Version>0.6.99_20071228</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
