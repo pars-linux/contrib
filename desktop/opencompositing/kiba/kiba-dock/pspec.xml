@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kiba-dock</Name>
+        <Homepage>http://www.kiba-dock.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>kiba-dock</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An AIGLX dock with physics</Summary>
+        <Archive sha1sum="25f67462c28eed2863f9e579cadcf54c985b462d" type="tarbz2">http://kpelit.org/ds/kiba/kiba-dock-0.0_20071223.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>akamaru</Dependency>
+            <Dependency>librsvg</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">desktop_files_tr.patch</Patch>
+            <Patch>populate_dock.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kiba-dock</Name>
+        <RuntimeDependencies>
+            <Dependency>akamaru</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>compiz-fusion</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/kiba-dock</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-12</Date>
+            <Version>0.0_20071223</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
