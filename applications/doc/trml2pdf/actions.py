@@ -7,9 +7,12 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="trml2pdf"
-
 def install():
-    pisitools.insinto("/usr/lib/python2.4/site-packages/trml2pdf","trml2pdf/*")
+    pisitools.insinto("/usr/lib/python2.4/site-packages/trml2pdf","trml2pdf/*.py")
+
+    # create needed symlink
     pisitools.dosym("/usr/lib/python2.4/site-packages/trml2pdf/trml2pdf.py","/usr/bin/trml2pdf")
+
+    # add examples and docs
     pisitools.insinto("/usr/share/doc/trml2pdf-%s-%s/examples" % (get.srcVERSION(),get.srcRELEASE()),"rmls/*.rml")
+    pisitools.dodoc("README.txt","COPYRIGHT.txt")
