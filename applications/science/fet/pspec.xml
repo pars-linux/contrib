@@ -8,39 +8,42 @@
             <Name>Ertuğrul Erata</Name>
             <Email>ertugrulerata@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
-        <Summary>FET is a program for automatically generating the timetable of a school, high-school or university</Summary>
-        <Archive sha1sum="0e7964e33829668dc63a088a5d65e3d752cf717c"  type="tarbz2">http://www.lalescu.ro/liviu/fet/download/fet-4.2.8.tar.bz2</Archive>
+        <Summary>FET is open source/free software for automatically scheduling the timetable of a school, high-school or university</Summary>
+        <Archive sha1sum="9462d35605ef4fdcdd6e5aa3349c54d33f6924e8" type="tarbz2">http://www.lalescu.ro/liviu/fet/download/fet-5.4.17.tar.bz2</Archive>
         <BuildDependencies>
-             <Dependency>qt4</Dependency>
-             <Dependency>fontconfig</Dependency>
-             <Dependency>xorg-server</Dependency>
+             <Dependency versionFrom="4.3">qt4</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>fet</Name>
         <RuntimeDependencies>
-             <Dependency>qt4</Dependency>
-             <Dependency>fontconfig</Dependency>
-             <Dependency>xorg-server</Dependency>
+             <Dependency versionFrom="4.3">qt4</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="executable">/usr/share/fet</Path>
-            <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/fet</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
         </Files>
         <AdditionalFiles>
-            <AdditionalFile target="/usr/share/pixmaps/fet.png" permission="0755" owner="root">fet.png</AdditionalFile>
-            <AdditionalFile target="/usr/share/applications/fet.desktop" permission="0755" owner="root">fet.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/fet.png" permission="0644" owner="root">fet.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/fet.desktop" permission="0644" owner="root">fet.desktop</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2008-01-04</Date>
+            <Version>5.4.17</Version>
+            <Comment>Much better algorithm,Version Bump.</Comment>
+            <Name>Mehmet Ş. Çatalbaş</Name>
+            <Email>mehmet.catalbas@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2007-03-06</Date>
             <Version>4.2.8</Version>
@@ -64,3 +67,4 @@
         </Update>
     </History>
 </PISI>
+
