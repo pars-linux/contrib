@@ -18,4 +18,4 @@ def install():
     pisitools.insinto("/usr/share/pixmaps","pida/resources/pixmaps/pida-icon.png","pida.png")
 
     pisitools.dohtml("docs/html/*")
-    pisitools.dodoc("docs/txt/*","AUTHORS","CHANGELOG","COPYING","INSTALL","README")
+    pisitools.dodoc("docs/txt/*","AUTHORS","CHANGELOG","COPYING","README")
