@@ -15,4 +15,6 @@ def install():
     shelltools.system("./install.sh DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto("/etc","config/opera6rc")
-    pisitools.insinto("/usr/share/pixmaps","images/*.png")
+
+    for size in ["16x16","22x22","32x32","48x48"]:
+        pisitools.insinto("/usr/share/icons/hicolor/%s/apps" % size, "images/opera_%s.png" % size , "opera.png")
