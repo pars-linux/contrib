@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = 'glew'
+WorkDir = "glew"
 
 def build():
     autotools.make()
@@ -17,4 +17,4 @@ def install():
     autotools.rawInstall("GLEW_DEST=%s/usr" % get.installDIR())
 
     pisitools.dohtml("doc/*")
-	pisitools.dodoc("README.txt", "doc/*.txt")
+    pisitools.dodoc("README.txt", "doc/*.txt")
