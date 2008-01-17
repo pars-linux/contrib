@@ -10,6 +10,4 @@ from pisi.actionsapi import pisitools
 def install():
     pythonmodules.install("--prefix=/usr")
 
-    pisitools.domo("po/tr.po", "tr", "simple-ccsm.mo")
-
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "LICENSE")
+    pisitools.dodoc("AUTHORS", "COPYING", "LICENSE")
