@@ -1,0 +1,2334 @@
+diff -aur ChangeLog ChangeLog
+--- ChangeLog	2007-07-21 21:10:38.000000000 +0200
++++ ChangeLog	2007-09-26 00:43:07.000000000 +0200
+@@ -1,3 +1,18 @@
++1.1.1-jr
++========
++fixed "twinkle --cmd line" crash of GUI
++fixed GetProfileNameForm profileLineEdit char20 limit
++colored SysSettingsForm, UserProfileForm
++added view menu entry and shortcut (Ins) for addressbook
++made minimized or backgrounded IM-window pop up on inbound msg
++added timestamp to cmdline and GUI IM-msg
++changed statusline call-timer hide time from 5 to 20 sec
++TODO: change colors for syssettings and userprofile form 
++      from red bg to red foreground
++
++
++
++
+ 16 july 2007 - 1.1alpha2
+ ========================
+ - French translation
+diff -aur src/gui/getprofilenameform.ui src/gui/getprofilenameform.ui
+--- src/gui/getprofilenameform.ui	2006-09-18 22:12:55.000000000 +0200
++++ src/gui/getprofilenameform.ui	2007-09-19 23:04:33.000000000 +0200
+@@ -116,9 +116,6 @@
+                     <property name="text">
+                         <string></string>
+                     </property>
+-                    <property name="maxLength">
+-                        <number>20</number>
+-                    </property>
+                     <property name="whatsThis" stdset="0">
+                         <string>&lt;b&gt;The name of your profile&lt;/b&gt;
+ &lt;br&gt;&lt;br&gt;
+diff -aur src/gui/gui.cpp src/gui/gui.cpp
+--- src/gui/gui.cpp	2007-07-21 20:56:02.000000000 +0200
++++ src/gui/gui.cpp	2007-09-15 03:22:28.000000000 +0200
+@@ -533,6 +533,7 @@
+ }
+ 
+ void t_gui::do_line(int line) {
++	if (line <= 0) return;
+ 	phone->pub_activate_line(line - 1);
+ }
+ 
+diff -aur src/gui/messageform.ui src/gui/messageform.ui
+--- src/gui/messageform.ui	2007-07-08 20:05:11.000000000 +0200
++++ src/gui/messageform.ui	2007-09-20 23:58:01.000000000 +0200
+@@ -188,6 +188,12 @@
+         <receiver>MessageForm</receiver>
+         <slot>showAddressBook()</slot>
+     </connection>
++    <connection>
++        <sender>conversationTextEdit</sender>
++        <signal>textChanged()</signal>
++        <receiver>MessageForm</receiver>
++        <slot>conversationTextEdit_textChanged()</slot>
++    </connection>
+ </connections>
+ <includes>
+     <include location="local" impldecl="in implementation">gui.h</include>
+@@ -220,6 +226,7 @@
+     <slot>addMessage( const QString &amp; name, const QString &amp; msg, bool incoming, bool html )</slot>
+     <slot>displayError( const QString &amp; errorMsg )</slot>
+     <slot>setRemotePartyCaption( void )</slot>
++    <slot>conversationTextEdit_textChanged()</slot>
+ </slots>
+ <functions>
+     <function access="private" specifier="non virtual">init()</function>
+diff -aur src/gui/messageform.ui.h src/gui/messageform.ui.h
+--- src/gui/messageform.ui.h	2007-06-30 20:20:21.000000000 +0200
++++ src/gui/messageform.ui.h	2007-09-25 23:46:28.000000000 +0200
+@@ -166,6 +166,7 @@
+ {
+ 	QString s = "<b>";
+ 	if (incoming) s += "<font color=\"blue\">";
++	s += current_time2str("%a %H:%M:%S  ").c_str();
+ 	s += QStyleSheet::escape(name);
+ 	if (incoming) s += "</font>";
+ 	s += ": </b>";
+@@ -198,3 +199,10 @@
+ 	setCaption(ui->format_sip_address(user, 
+ 			remote_party.display, remote_party.url).c_str());
+ }
++
++
++void MessageForm::conversationTextEdit_textChanged()
++{
++	QDialog::showNormal();
++	QDialog::raise();
++}
+diff -aur src/gui/mphoneform.ui src/gui/mphoneform.ui
+--- src/gui/mphoneform.ui	2007-07-21 20:48:05.000000000 +0200
++++ src/gui/mphoneform.ui	2007-09-19 23:38:30.000000000 +0200
+@@ -11,8 +11,8 @@
+         <rect>
+             <x>0</x>
+             <y>0</y>
+-            <width>739</width>
+-            <height>645</height>
++            <width>866</width>
++            <height>845</height>
+         </rect>
+     </property>
+     <property name="sizePolicy">
+@@ -25,8 +25,8 @@
+     </property>
+     <property name="minimumSize">
+         <size>
+-            <width>688</width>
+-            <height>645</height>
++            <width>716</width>
++            <height>638</height>
+         </size>
+     </property>
+     <property name="caption">
+@@ -168,14 +168,19 @@
+                                         <property name="text">
+                                             <string></string>
+                                         </property>
++                                        <property name="accel">
++                                            <string>Ins</string>
++                                        </property>
+                                         <property name="iconSet">
+                                             <iconset>kontact_contacts.png</iconset>
+                                         </property>
+                                         <property name="toolTip" stdset="0">
+                                             <string>Address book</string>
++                                            <comment>tooltip</comment>
+                                         </property>
+                                         <property name="whatsThis" stdset="0">
+                                             <string>Select an address from the address book.</string>
++                                            <comment>whth mainwin address button</comment>
+                                         </property>
+                                     </widget>
+                                     <widget class="QPushButton">
+@@ -1658,6 +1663,7 @@
+     </item>
+     <item text="&amp;View" name="View">
+         <action name="viewCall_HistoryAction"/>
++        <action name="viewAddressbookAction"/>
+         <action name="viewLogAction"/>
+         <action name="viewDisplayAction"/>
+         <action name="viewBuddyListAction"/>
+@@ -2342,6 +2348,34 @@
+             <string>Buddy list</string>
+         </property>
+     </action>
++    <action>
++        <property name="name">
++            <cstring>viewCall_Historynew_itemAction</cstring>
++        </property>
++        <property name="text">
++            <string>new item</string>
++        </property>
++        <property name="menuText">
++            <string>new item</string>
++        </property>
++    </action>
++    <action>
++        <property name="name">
++            <cstring>viewAddressbookAction</cstring>
++        </property>
++        <property name="iconSet">
++            <iconset>kontact_contacts32.png</iconset>
++        </property>
++        <property name="text">
++            <string>Addressbook</string>
++        </property>
++        <property name="menuText">
++            <string>&amp;Addressbook...</string>
++        </property>
++        <property name="accel">
++            <string>Ins</string>
++        </property>
++    </action>
+ </actions>
+ <connections>
+     <connection>
+@@ -2572,6 +2606,18 @@
+         <receiver>MphoneForm</receiver>
+         <slot>showBuddyList(bool)</slot>
+     </connection>
++    <connection>
++        <sender>MphoneForm</sender>
++        <signal>usesTextLabelChanged(bool)</signal>
++        <receiver>MphoneForm</receiver>
++        <slot>MphoneForm_usesTextLabelChanged(bool)</slot>
++    </connection>
++    <connection>
++        <sender>viewAddressbookAction</sender>
++        <signal>activated()</signal>
++        <receiver>MphoneForm</receiver>
++        <slot>showAddressBook()</slot>
++    </connection>
+ </connections>
+ <tabstops>
+     <tabstop>callComboBox</tabstop>
+@@ -2778,6 +2824,7 @@
+     <slot>doAddBuddy()</slot>
+     <slot>doAvailabilityOffline()</slot>
+     <slot>doAvailabilityOnline()</slot>
++    <slot>MphoneForm_usesTextLabelChanged( bool )</slot>
+ </slots>
+ <functions>
+     <function access="private" specifier="non virtual">init()</function>
+diff -aur src/gui/mphoneform.ui.h src/gui/mphoneform.ui.h
+--- src/gui/mphoneform.ui.h	2007-07-21 20:52:09.000000000 +0200
++++ src/gui/mphoneform.ui.h	2007-09-19 23:32:07.000000000 +0200
+@@ -29,7 +29,7 @@
+ 
+ // Time (s) that the conversation timer of a line should stay visible after
+ // a call has ended
+-#define HIDE_LINE_TIMER_AFTER	5
++#define HIDE_LINE_TIMER_AFTER	20
+ 
+ void MphoneForm::init()
+ {
+@@ -2931,3 +2931,9 @@
+ 	
+ 	pu->publish_presence(t_presence_state::ST_BASIC_OPEN);
+ }
++
++
++void MphoneForm::MphoneForm_usesTextLabelChanged( bool )
++{
++
++}
+diff -aur src/gui/syssettingsform.ui src/gui/syssettingsform.ui
+--- src/gui/syssettingsform.ui	2007-05-08 19:27:34.000000000 +0200
++++ src/gui/syssettingsform.ui	2007-09-17 00:39:08.000000000 +0200
+@@ -8,7 +8,7 @@
+         <rect>
+             <x>0</x>
+             <y>0</y>
+-            <width>709</width>
++            <width>759</width>
+             <height>587</height>
+         </rect>
+     </property>
+@@ -153,6 +153,13 @@
+                     <verstretch>0</verstretch>
+                 </sizepolicy>
+             </property>
++            <property name="paletteBackgroundColor">
++                <color>
++                    <red>238</red>
++                    <green>238</green>
++                    <blue>238</blue>
++                </color>
++            </property>
+             <property name="frameShape">
+                 <enum>Box</enum>
+             </property>
+@@ -256,6 +263,13 @@
+                                 <property name="name">
+                                     <cstring>speakerTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Speaker:</string>
+                                 </property>
+@@ -267,6 +281,13 @@
+                                 <property name="name">
+                                     <cstring>ringtoneTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Ring tone:</string>
+                                 </property>
+@@ -278,6 +299,13 @@
+                                 <property name="name">
+                                     <cstring>otherRingtoneTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Other device:</string>
+                                 </property>
+@@ -289,6 +317,13 @@
+                                 <property name="name">
+                                     <cstring>otherSpeakerTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Other device:</string>
+                                 </property>
+@@ -300,6 +335,13 @@
+                                 <property name="name">
+                                     <cstring>otherMicTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Other device:</string>
+                                 </property>
+@@ -311,6 +353,13 @@
+                                 <property name="name">
+                                     <cstring>micTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Microphone:</string>
+                                 </property>
+@@ -322,16 +371,37 @@
+                                 <property name="name">
+                                     <cstring>otherRingtoneLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                             </widget>
+                             <widget class="QLineEdit" row="5" column="1">
+                                 <property name="name">
+                                     <cstring>otherMicLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                             </widget>
+                             <widget class="QLineEdit" row="3" column="1">
+                                 <property name="name">
+                                     <cstring>otherSpeakerLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                             </widget>
+                             <widget class="QLabel" row="6" column="0" rowspan="1" colspan="2">
+                                 <property name="name">
+@@ -355,6 +425,13 @@
+                                 <property name="name">
+                                     <cstring>validateAudioCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Validate devices before usage</string>
+                                 </property>
+@@ -378,6 +455,13 @@
+                         <property name="name">
+                             <cstring>reduceNoiseMicCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>255</red>
++                                <green>250</green>
++                                <blue>160</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Reduce &amp;noise from the microphone</string>
+                         </property>
+@@ -413,6 +497,13 @@
+                                         <property name="name">
+                                             <cstring>ossFragmnetTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>OSS &amp;fragment size:</string>
+                                         </property>
+@@ -457,6 +548,13 @@
+                                         <property name="name">
+                                             <cstring>alsaPlayPeriodTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>ALSA &amp;play period size:</string>
+                                         </property>
+@@ -468,6 +566,13 @@
+                                         <property name="name">
+                                             <cstring>alsaCapturePeriosTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>&amp;ALSA capture period size:</string>
+                                         </property>
+@@ -630,6 +735,13 @@
+                                 <property name="name">
+                                     <cstring>logMaxSizeTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Max log size:</string>
+                                 </property>
+@@ -641,6 +753,13 @@
+                                 <property name="name">
+                                     <cstring>logMaxSizeSpinBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="maxValue">
+                                     <number>100</number>
+                                 </property>
+@@ -688,6 +807,13 @@
+                         <property name="name">
+                             <cstring>logDebugCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>255</red>
++                                <green>250</green>
++                                <blue>160</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Log &amp;debug reports</string>
+                         </property>
+@@ -702,6 +828,13 @@
+                         <property name="name">
+                             <cstring>logSipCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>255</red>
++                                <green>250</green>
++                                <blue>160</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Log &amp;SIP reports</string>
+                         </property>
+@@ -716,6 +849,13 @@
+                         <property name="name">
+                             <cstring>logStunCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>255</red>
++                                <green>250</green>
++                                <blue>160</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Log S&amp;TUN reports</string>
+                         </property>
+@@ -730,6 +870,13 @@
+                         <property name="name">
+                             <cstring>logMemoryCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>255</red>
++                                <green>250</green>
++                                <blue>160</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Log m&amp;emory reports</string>
+                         </property>
+@@ -811,6 +958,13 @@
+                                 <property name="name">
+                                     <cstring>guiUseSystrayCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Create &amp;system tray icon on startup</string>
+                                 </property>
+@@ -825,6 +979,13 @@
+                                 <property name="name">
+                                     <cstring>guiHideCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Hide in system tray when closing main window</string>
+                                 </property>
+@@ -868,6 +1029,13 @@
+                                 <property name="name">
+                                     <cstring>userHostLextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Default &amp;IP address:</string>
+                                 </property>
+@@ -895,6 +1063,13 @@
+                                 <property name="name">
+                                     <cstring>userDevLextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Default &amp;network interface:</string>
+                                 </property>
+@@ -906,6 +1081,13 @@
+                                 <property name="name">
+                                     <cstring>startHiddenCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>S&amp;tartup hidden in system tray</string>
+                                 </property>
+@@ -931,6 +1113,13 @@
+                                 <property name="name">
+                                     <cstring>profileListView</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="selectionMode">
+                                     <enum>NoSelection</enum>
+                                 </property>
+@@ -958,6 +1147,13 @@
+                                 <property name="name">
+                                     <cstring>callWaitingCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Call &amp;waiting</string>
+                                 </property>
+@@ -972,6 +1168,13 @@
+                                 <property name="name">
+                                     <cstring>hangupBothCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Hang up &amp;both lines when ending a 3-way conference call.</string>
+                                 </property>
+@@ -996,6 +1199,13 @@
+                                 <property name="name">
+                                     <cstring>histSizeTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Maximum calls in call history:</string>
+                                 </property>
+@@ -1048,6 +1258,13 @@
+                                 <property name="name">
+                                     <cstring>autoShowCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Auto show main window on incoming call after</string>
+                                 </property>
+@@ -1164,6 +1381,13 @@
+                                 <property name="name">
+                                     <cstring>sipUdpPortSpinBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="maxValue">
+                                     <number>65535</number>
+                                 </property>
+@@ -1181,6 +1405,13 @@
+                                 <property name="name">
+                                     <cstring>rtpPortTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;RTP port:</string>
+                                 </property>
+@@ -1192,6 +1423,13 @@
+                                 <property name="name">
+                                     <cstring>rtpPortSpinBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="maxValue">
+                                     <number>65535</number>
+                                 </property>
+@@ -1229,6 +1467,13 @@
+                                 <property name="name">
+                                     <cstring>sipUdpPortTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;SIP UDP port:</string>
+                                 </property>
+@@ -1309,6 +1554,13 @@
+                                 <property name="name">
+                                     <cstring>playRingtoneCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Play ring tone on incoming call</string>
+                                 </property>
+@@ -1323,6 +1575,13 @@
+                                 <property name="name">
+                                     <cstring>defaultRingtoneRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Default ring tone</string>
+                                 </property>
+@@ -1340,6 +1599,13 @@
+                                 <property name="name">
+                                     <cstring>customRingtoneRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>C&amp;ustom ring tone</string>
+                                 </property>
+@@ -1379,6 +1645,13 @@
+                                         <property name="name">
+                                             <cstring>ringtoneLineEdit</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="whatsThis" stdset="0">
+                                             <string>Specify the file name of a .wav file that you want to be played as ring tone.</string>
+                                         </property>
+@@ -1419,6 +1692,13 @@
+                                 <property name="name">
+                                     <cstring>playRingbackCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>P&amp;lay ring back tone when network does not play ring back tone</string>
+                                 </property>
+@@ -1438,6 +1718,13 @@
+                                 <property name="name">
+                                     <cstring>defaultRingbackRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>D&amp;efault ring back tone</string>
+                                 </property>
+@@ -1455,6 +1742,13 @@
+                                 <property name="name">
+                                     <cstring>customRingbackRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Cu&amp;stom ring back tone</string>
+                                 </property>
+@@ -1494,6 +1788,13 @@
+                                         <property name="name">
+                                             <cstring>ringbackLineEdit</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="whatsThis" stdset="0">
+                                             <string>Specify the file name of a .wav file that you want to be played as ring back tone.</string>
+                                         </property>
+@@ -1579,6 +1880,13 @@
+                         <property name="name">
+                             <cstring>abLookupNameCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>187</red>
++                                <green>238</green>
++                                <blue>185</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>&amp;Lookup name for incoming call</string>
+                         </property>
+@@ -1593,6 +1901,13 @@
+                         <property name="name">
+                             <cstring>abOverrideDisplayCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>187</red>
++                                <green>238</green>
++                                <blue>185</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Ove&amp;rride received display name</string>
+                         </property>
+@@ -1607,6 +1922,13 @@
+                         <property name="name">
+                             <cstring>abLookupPhotoCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>187</red>
++                                <green>238</green>
++                                <blue>185</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>Lookup &amp;photo for incoming call</string>
+                         </property>
+diff -aur src/gui/userprofileform.ui src/gui/userprofileform.ui
+--- src/gui/userprofileform.ui	2007-07-10 22:42:21.000000000 +0200
++++ src/gui/userprofileform.ui	2007-09-14 23:02:16.000000000 +0200
+@@ -8,7 +8,7 @@
+         <rect>
+             <x>0</x>
+             <y>0</y>
+-            <width>754</width>
++            <width>802</width>
+             <height>614</height>
+         </rect>
+     </property>
+@@ -307,6 +307,13 @@
+                                 <property name="name">
+                                     <cstring>usernameTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;User name*:</string>
+                                 </property>
+@@ -318,6 +325,13 @@
+                                 <property name="name">
+                                     <cstring>domainTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Domain*:</string>
+                                 </property>
+@@ -329,6 +343,13 @@
+                                 <property name="name">
+                                     <cstring>organizationTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Or&amp;ganization:</string>
+                                 </property>
+@@ -340,6 +361,13 @@
+                                 <property name="name">
+                                     <cstring>usernameLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The SIP user name given to you by your provider. It is the user part in your SIP address, &lt;b&gt;username&lt;/b&gt;@domain.com This could be a telephone number.
+ &lt;br&gt;&lt;br&gt;
+@@ -350,6 +378,13 @@
+                                 <property name="name">
+                                     <cstring>domainLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The domain part of your SIP address, username@&lt;b&gt;domain.com&lt;/b&gt;. Instead of a real domain this could also be the hostname or IP address of your &lt;b&gt;SIP proxy&lt;/b&gt;. If you want direct IP phone to IP phone communications then you fill in the hostname or IP address of your computer.
+ &lt;br&gt;&lt;br&gt;
+@@ -360,6 +395,13 @@
+                                 <property name="name">
+                                     <cstring>organizationLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>You may fill in the name of your organization. When you make a call, this might be shown to the called party.</string>
+                                 </property>
+@@ -368,6 +410,13 @@
+                                 <property name="name">
+                                     <cstring>displayLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>This is just your full name, e.g. John Doe. It is used as a display name. When you make a call, this display name might be shown to the called party.</string>
+                                 </property>
+@@ -376,6 +425,13 @@
+                                 <property name="name">
+                                     <cstring>dislpayTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Your name:</string>
+                                 </property>
+@@ -400,6 +456,13 @@
+                                 <property name="name">
+                                     <cstring>authRealmTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Realm:</string>
+                                 </property>
+@@ -411,6 +474,13 @@
+                                 <property name="name">
+                                     <cstring>authNameTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Authentication &amp;name:</string>
+                                 </property>
+@@ -422,6 +492,13 @@
+                                 <property name="name">
+                                     <cstring>authPasswordTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Password:</string>
+                                 </property>
+@@ -433,6 +510,13 @@
+                                 <property name="name">
+                                     <cstring>authRealmLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The realm for authentication. This value must be provided by your SIP provider. If you leave this field empty, then Twinkle will try the user name and password for any realm that it will be challenged with.</string>
+                                 </property>
+@@ -441,6 +525,13 @@
+                                 <property name="name">
+                                     <cstring>authNameLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>Your SIP authentication name. Quite often this is the same as your SIP user name. It can be a different name though.</string>
+                                 </property>
+@@ -449,6 +540,13 @@
+                                 <property name="name">
+                                     <cstring>authPasswordLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="echoMode">
+                                     <enum>Password</enum>
+                                 </property>
+@@ -529,6 +627,13 @@
+                                 <property name="name">
+                                     <cstring>registrarTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Registrar:</string>
+                                 </property>
+@@ -540,6 +645,13 @@
+                                 <property name="name">
+                                     <cstring>registrarLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The hostname, domain name or IP address of your registrar. If you use an outbound proxy that is the same as your registrar, then you may leave this field empty and only fill in the address of the outbound proxy.</string>
+                                 </property>
+@@ -548,6 +660,13 @@
+                                 <property name="name">
+                                     <cstring>expiryTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Expiry:</string>
+                                 </property>
+@@ -573,6 +692,13 @@
+                                                 <height>0</height>
+                                             </size>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="maxValue">
+                                             <number>999999</number>
+                                         </property>
+@@ -587,6 +713,13 @@
+                                         <property name="name">
+                                             <cstring>secondsTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>seconds</string>
+                                         </property>
+@@ -614,6 +747,13 @@
+                                 <property name="name">
+                                     <cstring>regAtStartupCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Re&amp;gister at startup</string>
+                                 </property>
+@@ -641,6 +781,13 @@
+                                 <property name="name">
+                                     <cstring>useProxyCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Use outbound proxy</string>
+                                 </property>
+@@ -658,6 +805,13 @@
+                                 <property name="enabled">
+                                     <bool>true</bool>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Outbound &amp;proxy:</string>
+                                 </property>
+@@ -669,6 +823,13 @@
+                                 <property name="name">
+                                     <cstring>allRequestsCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Send in-dialog requests to proxy</string>
+                                 </property>
+@@ -683,6 +844,13 @@
+                                 <property name="name">
+                                     <cstring>proxyNonResolvableCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Don't send a request to proxy if its destination can be resolved locally.</string>
+                                 </property>
+@@ -700,6 +868,13 @@
+                                 <property name="enabled">
+                                     <bool>true</bool>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The hostname, domain name or IP address of your outbound proxy.</string>
+                                 </property>
+@@ -766,6 +941,13 @@
+                         <property name="name">
+                             <cstring>rtpAudioTabWidget</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>255</red>
++                                <green>250</green>
++                                <blue>160</blue>
++                            </color>
++                        </property>
+                         <widget class="QWidget">
+                             <property name="name">
+                                 <cstring>tabCodecs</cstring>
+@@ -2173,6 +2355,13 @@
+                                             <property name="name">
+                                                 <cstring>holdVariantTextLabel</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Call &amp;Hold variant:</string>
+                                             </property>
+@@ -2233,6 +2422,13 @@
+                                             <property name="name">
+                                                 <cstring>missingContactCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Allow m&amp;issing Contact header in 200 OK on REGISTER</string>
+                                             </property>
+@@ -2247,6 +2443,13 @@
+                                             <property name="name">
+                                                 <cstring>maxForwardsCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>&amp;Max-Forwards header is mandatory</string>
+                                             </property>
+@@ -2261,6 +2464,13 @@
+                                             <property name="name">
+                                                 <cstring>regTimeCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Put &amp;registration expiry time in contact header</string>
+                                             </property>
+@@ -2275,6 +2485,13 @@
+                                             <property name="name">
+                                                 <cstring>compactHeadersCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>&amp;Use compact header names</string>
+                                             </property>
+@@ -2289,6 +2506,13 @@
+                                             <property name="name">
+                                                 <cstring>allowSdpChangeCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Allow SDP change during call setup</string>
+                                             </property>
+@@ -2301,6 +2525,13 @@
+                                             <property name="name">
+                                                 <cstring>useDomainInContactCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>250</green>
++                                                    <blue>160</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Use domain &amp;name to create a unique contact header value</string>
+                                             </property>
+@@ -2332,6 +2563,13 @@
+                                             <property name="name">
+                                                 <cstring>multiValuesListCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>&amp;Encode Via, Route, Record-Route as list</string>
+                                             </property>
+@@ -2359,6 +2597,13 @@
+                                             <property name="name">
+                                                 <cstring>allowRedirectionCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>187</red>
++                                                    <green>238</green>
++                                                    <blue>185</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>&amp;Allow redirection</string>
+                                             </property>
+@@ -2373,6 +2618,13 @@
+                                             <property name="name">
+                                                 <cstring>askUserRedirectCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>187</red>
++                                                    <green>238</green>
++                                                    <blue>185</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Ask user &amp;permission to redirect</string>
+                                             </property>
+@@ -2387,6 +2639,13 @@
+                                             <property name="name">
+                                                 <cstring>maxRedirectTextLabel</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>187</red>
++                                                    <green>238</green>
++                                                    <blue>185</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Max re&amp;directions:</string>
+                                             </property>
+@@ -2412,6 +2671,13 @@
+                                                     <height>0</height>
+                                                 </size>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>187</red>
++                                                    <green>238</green>
++                                                    <blue>185</blue>
++                                                </color>
++                                            </property>
+                                             <property name="maxValue">
+                                                 <number>5</number>
+                                             </property>
+@@ -2505,6 +2771,13 @@
+                                             <property name="name">
+                                                 <cstring>ext100relTextLabel</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>250</green>
++                                                    <blue>160</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>&amp;100 rel (PRACK):</string>
+                                             </property>
+@@ -2516,6 +2789,13 @@
+                                             <property name="name">
+                                                 <cstring>extReplacesCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Replaces</string>
+                                             </property>
+@@ -2553,6 +2833,13 @@
+                                             <property name="name">
+                                                 <cstring>allowReferCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>187</red>
++                                                    <green>238</green>
++                                                    <blue>185</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Allow call &amp;transfer (incoming REFER)</string>
+                                             </property>
+@@ -2567,6 +2854,13 @@
+                                             <property name="name">
+                                                 <cstring>askUserReferCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>187</red>
++                                                    <green>238</green>
++                                                    <blue>185</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>As&amp;k user permission to transfer</string>
+                                             </property>
+@@ -2581,6 +2875,13 @@
+                                             <property name="name">
+                                                 <cstring>refereeHoldCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>250</green>
++                                                    <blue>160</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Hold call &amp;with referrer while setting up call to transfer target</string>
+                                             </property>
+@@ -2595,6 +2896,13 @@
+                                             <property name="name">
+                                                 <cstring>referrerHoldCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>250</green>
++                                                    <blue>160</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Ho&amp;ld call with referee before sending REFER</string>
+                                             </property>
+@@ -2609,6 +2917,13 @@
+                                             <property name="name">
+                                                 <cstring>refreshReferSubCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>250</green>
++                                                    <blue>160</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Auto re&amp;fresh subscription to refer event while call transfer is not finished</string>
+                                             </property>
+@@ -2623,6 +2938,13 @@
+                                             <property name="name">
+                                                 <cstring>referAorCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>250</green>
++                                                    <blue>160</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>Attended refer to AoR (Address of Record)</string>
+                                             </property>
+@@ -2677,6 +2999,13 @@
+                                             <property name="name">
+                                                 <cstring>pPreferredIdCheckBox</cstring>
+                                             </property>
++                                            <property name="paletteBackgroundColor">
++                                                <color>
++                                                    <red>255</red>
++                                                    <green>140</green>
++                                                    <blue>136</blue>
++                                                </color>
++                                            </property>
+                                             <property name="text">
+                                                 <string>&amp;Send P-Preferred-Identity header when hiding user identity</string>
+                                             </property>
+@@ -2763,6 +3092,13 @@
+                                 <property name="name">
+                                     <cstring>natNoneRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;NAT traversal not needed</string>
+                                 </property>
+@@ -2777,6 +3113,13 @@
+                                 <property name="name">
+                                     <cstring>natStaticRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Use statically configured public IP address inside SIP messages</string>
+                                 </property>
+@@ -2792,6 +3135,13 @@
+                                 <property name="name">
+                                     <cstring>natStunRadioButton</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Use &amp;STUN</string>
+                                 </property>
+@@ -2806,6 +3156,13 @@
+                                 <property name="name">
+                                     <cstring>stunServerTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>S&amp;TUN server:</string>
+                                 </property>
+@@ -2820,6 +3177,13 @@
+                                 <property name="name">
+                                     <cstring>stunServerLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The hostname, domain name or IP address of the STUN server.</string>
+                                 </property>
+@@ -2828,6 +3192,13 @@
+                                 <property name="name">
+                                     <cstring>publicIPTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Public IP address:</string>
+                                 </property>
+@@ -2842,6 +3213,13 @@
+                                 <property name="name">
+                                     <cstring>publicIPLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The public IP address of your NAT.</string>
+                                 </property>
+@@ -2919,6 +3297,13 @@
+                                 <property name="name">
+                                     <cstring>displayTelUserCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Only &amp;display user part of URI for telephone number</string>
+                                 </property>
+@@ -2933,6 +3318,13 @@
+                                 <property name="name">
+                                     <cstring>numericalUserIsTelCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;URI with numerical user part is a telephone number</string>
+                                 </property>
+@@ -2947,6 +3339,13 @@
+                                 <property name="name">
+                                     <cstring>removeSpecialCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Remove special symbols from numerical dial strings</string>
+                                 </property>
+@@ -2972,6 +3371,13 @@
+                                 <property name="name">
+                                     <cstring>specialLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The special symbols that may be part of a telephone number for nice formatting, but must be removed when dialing.</string>
+                                 </property>
+@@ -3023,6 +3429,13 @@
+                                         <property name="name">
+                                             <cstring>conversionListView</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>187</red>
++                                                <green>238</green>
++                                                <blue>185</blue>
++                                            </color>
++                                        </property>
+                                         <property name="allColumnsShowFocus">
+                                             <bool>true</bool>
+                                         </property>
+@@ -3352,6 +3765,13 @@
+                                                 <height>32767</height>
+                                             </size>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="maxValue">
+                                             <number>900</number>
+                                         </property>
+@@ -3389,6 +3809,13 @@
+                                                 <height>32767</height>
+                                             </size>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>187</red>
++                                                <green>238</green>
++                                                <blue>185</blue>
++                                            </color>
++                                        </property>
+                                         <property name="maxValue">
+                                             <number>600</number>
+                                         </property>
+@@ -3403,6 +3830,13 @@
+                                         <property name="name">
+                                             <cstring>tmrNatKeepaliveTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>NAT &amp;keep alive:</string>
+                                         </property>
+@@ -3414,6 +3848,13 @@
+                                         <property name="name">
+                                             <cstring>tmrNoanswerTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>187</red>
++                                                <green>238</green>
++                                                <blue>185</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>&amp;No answer:</string>
+                                         </property>
+@@ -3544,6 +3985,13 @@
+                                 <property name="name">
+                                     <cstring>ringbackTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Ring &amp;back tone:</string>
+                                 </property>
+@@ -3555,6 +4003,13 @@
+                                 <property name="name">
+                                     <cstring>ringbackLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ Specify the file name of a .wav file that you want to be played as ring back tone for this user.
+@@ -3568,6 +4023,13 @@
+                                 <property name="name">
+                                     <cstring>ringtoneLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ Specify the file name of a .wav file that you want to be played as ring tone for this user.
+@@ -3581,6 +4043,13 @@
+                                 <property name="name">
+                                     <cstring>ringtoneTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Ring tone:</string>
+                                 </property>
+@@ -3658,6 +4127,13 @@
+                                 <property name="name">
+                                     <cstring>localReleaseLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when you release a call.
+@@ -3725,6 +4201,13 @@
+                                 <property name="name">
+                                     <cstring>inCallFailedLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when an incoming call fails.
+@@ -3758,6 +4241,13 @@
+                                 <property name="name">
+                                     <cstring>remoteReleaseLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when the remote party releases a call.
+@@ -3791,6 +4281,13 @@
+                                 <property name="name">
+                                     <cstring>incomingCallScriptLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ You can customize the way Twinkle handles incoming calls. Twinkle can call a script when a call comes in. Based on the ouput of the script Twinkle accepts, rejects or redirects the call. When accepting the call, the ring tone can be customized by the script as well. The script can be any executable program.
+@@ -3850,6 +4347,13 @@
+                                 <property name="name">
+                                     <cstring>outCallAnsweredLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when the remote party answers your call.
+@@ -3866,6 +4370,13 @@
+                                 <property name="name">
+                                     <cstring>inCallAnsweredLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when you answer an incoming call.
+@@ -3882,6 +4393,13 @@
+                                 <property name="name">
+                                     <cstring>localReleaseTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Call released locall&amp;y:</string>
+                                 </property>
+@@ -3910,6 +4428,13 @@
+                                 <property name="name">
+                                     <cstring>outCallFailedLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when an outgoing call fails.
+@@ -3926,6 +4451,13 @@
+                                 <property name="name">
+                                     <cstring>outCallLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>&lt;p&gt;
+ This script is called when you make a call.
+@@ -3942,6 +4474,13 @@
+                                 <property name="name">
+                                     <cstring>outCallAnsweredTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Outgoing call a&amp;nswered:</string>
+                                 </property>
+@@ -3953,6 +4492,13 @@
+                                 <property name="name">
+                                     <cstring>inCallFailedTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Incoming call &amp;failed:</string>
+                                 </property>
+@@ -3964,6 +4510,13 @@
+                                 <property name="name">
+                                     <cstring>incomingCallScriptTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Incoming call:</string>
+                                 </property>
+@@ -3992,6 +4545,13 @@
+                                 <property name="name">
+                                     <cstring>remoteReleaseTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Call released &amp;remotely:</string>
+                                 </property>
+@@ -4003,6 +4563,13 @@
+                                 <property name="name">
+                                     <cstring>inCallAnsweredTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Incoming call &amp;answered:</string>
+                                 </property>
+@@ -4031,6 +4598,13 @@
+                                 <property name="name">
+                                     <cstring>outCallTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>O&amp;utgoing call:</string>
+                                 </property>
+@@ -4042,6 +4616,13 @@
+                                 <property name="name">
+                                     <cstring>outCallFailedTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>Out&amp;going call failed:</string>
+                                 </property>
+@@ -4111,6 +4692,13 @@
+                         <property name="name">
+                             <cstring>zrtpEnabledCheckBox</cstring>
+                         </property>
++                        <property name="paletteBackgroundColor">
++                            <color>
++                                <red>187</red>
++                                <green>238</green>
++                                <blue>185</blue>
++                            </color>
++                        </property>
+                         <property name="text">
+                             <string>&amp;Enable ZRTP/SRTP encryption</string>
+                         </property>
+@@ -4136,6 +4724,13 @@
+                                 <property name="name">
+                                     <cstring>zrtpSendIfSupportedCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>O&amp;nly encrypt audio if remote party indicated ZRTP support in SDP</string>
+                                 </property>
+@@ -4150,6 +4745,13 @@
+                                 <property name="name">
+                                     <cstring>zrtpSdpCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>250</green>
++                                        <blue>160</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Indicate ZRTP support in SDP</string>
+                                 </property>
+@@ -4164,6 +4766,13 @@
+                                 <property name="name">
+                                     <cstring>zrtpGoClearWarningCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Popup warning when remote party disables encryption during call</string>
+                                 </property>
+@@ -4244,6 +4853,13 @@
+                                 <property name="name">
+                                     <cstring>vmAddressTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Voice mail address:</string>
+                                 </property>
+@@ -4255,6 +4871,13 @@
+                                 <property name="name">
+                                     <cstring>vmAddressLineEdit</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>105</red>
++                                        <green>238</green>
++                                        <blue>156</blue>
++                                    </color>
++                                </property>
+                                 <property name="whatsThis" stdset="0">
+                                     <string>The SIP address or telephone number to access your voice mail.</string>
+                                 </property>
+@@ -4281,6 +4904,13 @@
+                                         <property name="name">
+                                             <cstring>mwiTypeComboBox</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>140</green>
++                                                <blue>136</blue>
++                                            </color>
++                                        </property>
+                                         <property name="whatsThis" stdset="0">
+                                             <string>&lt;H2&gt;Message waiting indication type&lt;/H2&gt;
+ &lt;p&gt;
+@@ -4319,6 +4949,13 @@
+                                 <property name="name">
+                                     <cstring>mwiTypeTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>255</red>
++                                        <green>140</green>
++                                        <blue>136</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;MWI type:</string>
+                                 </property>
+@@ -4368,6 +5005,13 @@
+                                         <property name="name">
+                                             <cstring>mwiDurationTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>Subscription &amp;duration:</string>
+                                         </property>
+@@ -4379,6 +5023,13 @@
+                                         <property name="name">
+                                             <cstring>mwiUserTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>Mailbox &amp;user name:</string>
+                                         </property>
+@@ -4390,6 +5041,13 @@
+                                         <property name="name">
+                                             <cstring>mwiServerLineEdit</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="whatsThis" stdset="0">
+                                             <string>The hostname, domain name or IP address of your voice mailbox server.</string>
+                                         </property>
+@@ -4412,6 +5070,13 @@
+                                                         <height>0</height>
+                                                     </size>
+                                                 </property>
++                                                <property name="paletteBackgroundColor">
++                                                    <color>
++                                                        <red>255</red>
++                                                        <green>250</green>
++                                                        <blue>160</blue>
++                                                    </color>
++                                                </property>
+                                                 <property name="maxValue">
+                                                     <number>999999</number>
+                                                 </property>
+@@ -4453,6 +5118,13 @@
+                                         <property name="name">
+                                             <cstring>mwiUserLineEdit</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="whatsThis" stdset="0">
+                                             <string>Your user name for accessing your voice mailbox.</string>
+                                         </property>
+@@ -4461,6 +5133,13 @@
+                                         <property name="name">
+                                             <cstring>mwiServerTextLabel</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>Mailbox &amp;server:</string>
+                                         </property>
+@@ -4472,6 +5151,13 @@
+                                         <property name="name">
+                                             <cstring>mwiViaProxyCheckBox</cstring>
+                                         </property>
++                                        <property name="paletteBackgroundColor">
++                                            <color>
++                                                <red>255</red>
++                                                <green>250</green>
++                                                <blue>160</blue>
++                                            </color>
++                                        </property>
+                                         <property name="text">
+                                             <string>Via outbound &amp;proxy</string>
+                                         </property>
+@@ -4554,6 +5240,13 @@
+                                 <property name="name">
+                                     <cstring>imMaxSessionsTextLabel</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Maximum number of sessions:</string>
+                                 </property>
+@@ -4565,6 +5258,13 @@
+                                 <property name="name">
+                                     <cstring>imMaxSessionsSpinBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="maxValue">
+                                     <number>65535</number>
+                                 </property>
+@@ -4662,6 +5362,13 @@
+                                 <property name="name">
+                                     <cstring>presPublishCheckBox</cstring>
+                                 </property>
++                                <property name="paletteBackgroundColor">
++                                    <color>
++                                        <red>187</red>
++                                        <green>238</green>
++                                        <blue>185</blue>
++                                    </color>
++                                </property>
+                                 <property name="text">
+                                     <string>&amp;Publish availability at startup</string>
+                                 </property>
+diff -aur src/phone.cpp src/phone.cpp
+--- src/phone.cpp	2007-07-16 21:40:29.000000000 +0200
++++ src/phone.cpp	2007-09-14 23:17:21.000000000 +0200
+@@ -2419,6 +2419,11 @@
+ }
+ 
+ void t_phone::set_active_line(unsigned short l) {
++		log_file->write_header("t_phone::set_active_line", LOG_NORMAL, LOG_DEBUG);
++		log_file->write_raw("lineno: ");
++		log_file->write_raw(l);
++		log_file->write_endl();
++		log_file->write_footer();
+ 	lock();
+ 	assert (l < NUM_USER_LINES);
+ 	active_line = l;
+diff -aur src/userintf.cpp src/userintf.cpp
+--- src/userintf.cpp	2007-07-09 22:26:19.000000000 +0200
++++ src/userintf.cpp	2007-09-25 22:50:16.000000000 +0200
+@@ -3299,7 +3299,7 @@
+ 
+ bool t_userintf::cb_message_request(t_user *user_config, t_request *r) {
+ 	cout << endl;
+-	cout << "Received message\n";
++	cout << "Received message at: " << current_time2str("%a %H:%M:%S").c_str() << "\n";
+ 	cout << "From:\t\t";
+ 	
+ 	string from_party = format_sip_address(user_config, 
