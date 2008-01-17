@@ -15,5 +15,6 @@ def build():
 
 def install():
     kde.install()
+    pisitools.insinto("/usr/share/pixmaps/", "src/gui/images/twinkle48.png", "twinkle.png")
 
     pisitools.dodoc("COPYING", "README", "ChangeLog", "AUTHORS", "NEWS", "TODO", "THANKS")
