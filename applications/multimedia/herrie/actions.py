@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.rawConfigure("alsa")
@@ -14,14 +15,7 @@ def build():
     autotools.make()
 
 def install():
-    # move herrie to herrie-bin for wrapper script
-    pisitools.insinto("/usr/bin", "herrie", "herrie-bin")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.doman("herrie.1")
-
-    locales = ['ca', 'da', 'de', 'es', 'fi', 'ga', 'nl', 'pl', 'ru', 'sv', 'tr', 'vi']
-    for locale in locales:
-        pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale, "herrie.mo")
-
-    pisitools.insinto("/etc", "herrie.conf.sample")
-    pisitools.dodoc("COPYING", "ChangeLog", "README")
+    ## move herrie to herrie-bin for wrapper script
+    pisitools.rename("/usr/bin/herrie", "herrie-bin")
