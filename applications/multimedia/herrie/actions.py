@@ -19,7 +19,7 @@ def install():
 
     pisitools.doman("herrie.1")
 
-    locales = ['de', 'ga', 'nl', 'pl', 'ru', 'sv', 'tr', 'vi']
+    locales = ['ca', 'da', 'de', 'es', 'fi', 'ga', 'nl', 'pl', 'ru', 'sv', 'tr', 'vi']
     for locale in locales:
         pisitools.insinto("/usr/share/locale/%s/LC_MESSAGES" % locale, "%s.mo" % locale, "herrie.mo")
 
