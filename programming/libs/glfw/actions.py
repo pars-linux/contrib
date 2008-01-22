@@ -6,13 +6,15 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "glfw"
 
 def build():
     autotools.make("x11")
 
 def install():
-    pisitools.dolib_a("lib/x11/libglfw.a")
-    pisitools.insinto("/usr/include/GL/", "include/GL/glfw.h")
+    autotools.make("DESTDIR=%s x11-install" % get.installDIR())
+
     pisitools.dohtml("readme.html")
     pisitools.dodoc("docs/*")
-
