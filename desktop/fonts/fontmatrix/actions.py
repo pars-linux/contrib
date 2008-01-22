@@ -8,7 +8,7 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "fontmatrix-0.3.0-Source"
+WorkDir = "fontmatrix-%s-Source" % get.srcVERSION()
 
 def setup():
     cmaketools.configure()
