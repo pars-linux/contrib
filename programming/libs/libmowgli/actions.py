@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--enable-examples")
+    autotools.configure("--disable-examples")
 
 def build():
     autotools.make()
