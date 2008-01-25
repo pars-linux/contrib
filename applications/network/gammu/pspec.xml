@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gammu</Name>
+        <Homepage>http://www.gammu.org</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>GNU All Mobile Management Utilities</Summary>
+        <Archive sha1sum="1ab243b15e510ba6da96119e1463c020e1c9a2ee" type="tarbz2">http://dl.cihar.com/gammu/releases/gammu-1.17.92.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>bluez-libs</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>mit-kerberos</Dependency>
+            <Dependency>mysql-server</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>unsigned_int.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gammu</Name>
+        <RuntimeDependencies>
+            <Dependency>bluez-libs</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>mit-kerberos</Dependency>
+            <Dependency>mysql-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-01-10</Date>
+            <Version>1.17.92</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
