@@ -10,9 +10,9 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-static=no \
-                                  --with-libjpeg \
-                                  --with-x \
-                                  --with-kde-datadir=%s/share" % get.kdeDIR())
+                         --with-libjpeg \
+                         --with-x \
+                         --with-kde-datadir=%s/share" % get.kdeDIR())
 
 def build():
     autotools.make()
