@@ -19,10 +19,5 @@ def build():
 def install():
     autotools.install()
 
-    # ignore error Tip of the Day
-    #pisitools.rename("/usr/share/fityk/tips.txt", "fityk_tips.txt")
-
-    #pisitools.insinto("/usr/share/doc/%s/html" % get.srcTAG(), "doc/fitykhelp_img")
-
     pisitools.dohtml("doc/fitykhelp.html", "doc/html.css")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO", "NEWS")
