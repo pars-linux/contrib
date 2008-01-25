@@ -8,28 +8,25 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
-        <License>LGPL-2</License>
+        <License>GPLv2</License>
+        <License>LGPLv2</License>
         <IsA>library</IsA>
         <Summary>GNOME CORBA framework</Summary>
         <Archive sha1sum="9d81eb1b604f3428cc718f6337882cb56ebbd9e2" type="tarbz2">mirrors://gnome/libbonobo/2.20/libbonobo-2.20.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>orbit2</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
             <Dependency>libxml2</Dependency>
             <Dependency>intltool</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>esound</Dependency>
             <Dependency versionFrom="2.12.0">gtk2</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">libbonobo-2.20.0-quit-with-dbus.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
         <Name>libbonobo</Name>
         <RuntimeDependencies>
-            <Dependency>orbit2</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
             <Dependency>libxml2</Dependency>
             <Dependency>intltool</Dependency>
             <Dependency>dbus-glib</Dependency>
