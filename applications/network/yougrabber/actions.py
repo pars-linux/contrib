@@ -6,9 +6,6 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
-
-WorkDir = "YouGrabber-%s" % get.srcVERSION()
 
 def build():
     shelltools.cd("src")
@@ -16,6 +13,11 @@ def build():
     shelltools.cd("..")
 
 def install():
-    pisitools.insinto("/usr/bin", "src/yg", "yougrabber")
+    pisitools.dobin("src/yg")
+    pisitools.doman("man/yg.1")
+
+    # symlinks for better usage, I would first try to use "yougrabber" binary because of the package name :)
+    pisitools.dosym("/usr/bin/yg", "/usr/bin/yougrabber")
+    pisitools.dosym("/usr/share/man/man1/yg.1", "/usr/share/man/man1/yougrabber.1")
 
     pisitools.dodoc("doc/LICENSE", "doc/README", "doc/CHANGELOG", "yg.conf.sample")
