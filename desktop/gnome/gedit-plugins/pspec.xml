@@ -8,28 +8,20 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>data</IsA>
         <IsA>app:gui</IsA>
         <Summary>Plugins for Gedit</Summary>
-        <Archive sha1sum="1dc9eff67536c3537d2dbf4e4efddc93343bfaa9" type="tarbz2">mirrors://gnome/gedit-plugins/2.18/gedit-plugins-2.18.0.tar.bz2</Archive>
+        <Archive sha1sum="ea652f4d50dfff7526b2004b908e6a3c4e91c838" type="tarbz2">mirrors://gnome/gedit-plugins/2.20/gedit-plugins-2.20.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>gtksourceview</Dependency>
-            <Dependency>gedit</Dependency>
-            <Dependency>libglade2</Dependency>
-            <Dependency>gnome-vfs</Dependency>
+            <Dependency versionFrom="2.20.4">gedit</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>gedit-plugins</Name>
         <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>gtksourceview</Dependency>
-            <Dependency>gedit</Dependency>
-            <Dependency>libglade2</Dependency>
-            <Dependency>gnome-vfs</Dependency>
+            <Dependency versionFrom="2.20.4">gedit</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -40,6 +32,13 @@
    </Package>
 
    <History>
+        <Update release="2">
+            <Date>2008-01-26</Date>
+            <Version>2.20.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-03-28</Date>
             <Version>2.18.0</Version>
