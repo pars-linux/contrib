@@ -12,10 +12,10 @@ from pisi.actionsapi import libtools
 def setup():
     libtools.libtoolize("--force")
     autotools.configure("--localstatedir=/var \
-                                  --enable-static=no \
-                                  --with-xml-catalog=/etc/xml/docbook \
-                                  --with-partial-db-dir=scrollkeeper \
-                                  --enable-nls")
+                         --enable-static=no \
+                         --with-xml-catalog=/etc/xml/docbook \
+                         --with-partial-db-dir=scrollkeeper \
+                         --enable-nls")
 
 def build():
     autotools.make()
