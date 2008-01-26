@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE PISI
-      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
         <Name>Terminal</Name>
@@ -9,7 +8,7 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>LGPL-2</License>
+        <License>LGPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>Terminal for XFCE</Summary>
         <Archive sha1sum="9c4ae0422dea8161aa72659d3bd1b035688d70d7" type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/Terminal-0.2.8.tar.bz2</Archive>
@@ -43,16 +42,19 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/Terminal/backgrounds/powered-by-pardus.png">powered-by-pardus.png</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/Terminal/terminalrc">terminalrc</AdditionalFile>
-        </AdditionalFiles>
         <Provides>
             <COMAR script="package.py">System.Package</COMAR>
         </Provides>
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2008-01-26</Date>
+            <Version>0.2.8</Version>
+            <Comment>Remove background image, it looks ugly.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="9">
             <Date>2007-12-06</Date>
             <Version>0.2.8</Version>
