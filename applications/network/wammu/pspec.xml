@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wammu</Name>
+        <Homepage>http://wammu.eu/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>wammu</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A mobile phone manager</Summary>
+        <Description>Wammu is mobile phone manager running on Linux, Windows and possibly other platforms, where Gammu and wxPython works. The communication is made by Gammu library.</Description>
+        <Archive sha1sum="085c5f409a229ded754fc3a106c4677c83cf36ba" type="tarbz2">http://dl.cihar.com/wammu/latest/wammu-0.25.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>python-gammu</Dependency>
+            <Dependency>wxPython2_8</Dependency>
+            <Dependency>pybluez</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>wammu</Name>
+        <RuntimeDependencies>
+            <Dependency>python-gammu</Dependency>
+            <Dependency>wxPython2_8</Dependency>
+            <Dependency>pybluez</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/Wammu</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-02</Date>
+            <Version>0.25</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mustafagunay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
