@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ristretto</Name>
+        <Homepage>http://goodies.xfce.org/projects/applications/ristretto</Homepage>
+        <Packager>
+            <Name>Gökmen GÖRGEN</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>ristretto</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Picture-viewer for XFCE</Summary>
+        <Description>Ristretto is a fast and lightweight picture-viewer for the XFCE desktop environment.</Description>
+        <Archive sha1sum="eb0a2f4d724890f5ba927220b492be4bd679bc3d" type="targz">http://goodies.xfce.org/releases/ristretto/ristretto-0.0.15.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>Thunar</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>libexif</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+            <Patch level="1">i18n-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ristretto</Name>
+        <RuntimeDependencies>
+            <Dependency>Thunar</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>libexif</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-01-09</Date>
+            <Version>0.0.15</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen GÖRGEN</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
