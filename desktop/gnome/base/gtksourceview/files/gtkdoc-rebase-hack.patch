@@ -1,0 +1,20 @@
+diff -Nur gtksourceview-2.1.0.orig/docs/reference/Makefile.in gtksourceview-2.1.0/docs/reference/Makefile.in
+--- gtksourceview-2.1.0.orig/docs/reference/Makefile.in	2008-01-26 13:51:57.000000000 +0200
++++ gtksourceview-2.1.0/docs/reference/Makefile.in	2008-01-26 13:52:45.000000000 +0200
+@@ -573,8 +573,6 @@
+ 	  done; \
+ 	  echo '-- Installing $(srcdir)/html/index.sgml' ; \
+ 	  $(INSTALL_DATA) $(srcdir)/html/index.sgml $(DESTDIR)$(TARGET_DIR) || :; \
+-	  which gtkdoc-rebase >/dev/null && \
+-	    gtkdoc-rebase --relative --dest-dir=$(DESTDIR) --html-dir=$(DESTDIR)$(TARGET_DIR) ; \
+ 	fi
+ 
+ uninstall-local:
+@@ -598,7 +596,6 @@
+ 	cp $(srcdir)/$(DOC_MODULE).types $(distdir)/
+ 	cp $(srcdir)/$(DOC_MODULE)-sections.txt $(distdir)/
+ 	cd $(distdir) && rm -f $(DISTCLEANFILES)
+-	-gtkdoc-rebase --online --relative --html-dir=$(distdir)/html
+ 
+ .PHONY : dist-hook-local docs
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
