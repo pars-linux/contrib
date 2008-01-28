@@ -13,21 +13,24 @@
         <IsA>app:gui</IsA>
         <Summary>Picture-viewer for XFCE</Summary>
         <Description>Ristretto is a fast and lightweight picture-viewer for the XFCE desktop environment.</Description>
-        <Archive sha1sum="eb0a2f4d724890f5ba927220b492be4bd679bc3d" type="targz">http://goodies.xfce.org/releases/ristretto/ristretto-0.0.15.tar.gz</Archive>
+        <Archive sha1sum="9aa17a466cdbb0f0ea1a1e5f7f162e5d767f9095" type="targz">http://goodies.xfce.org/releases/ristretto/ristretto-0.0.16.tar.gz</Archive>
         <BuildDependencies>
+            <!-- newer gtk2 is required for tooltip support -->
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
             <Dependency>Thunar</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>libexif</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop-tr.patch</Patch>
-            <Patch level="1">i18n-tr.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>ristretto</Name>
         <RuntimeDependencies>
+            <!-- newer gtk2 is required for tooltip support -->
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
             <Dependency>Thunar</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>libexif</Dependency>
@@ -42,6 +45,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-01-28</Date>
+            <Version>0.0.16</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-01-09</Date>
             <Version>0.0.15</Version>
