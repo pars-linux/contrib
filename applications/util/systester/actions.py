@@ -12,14 +12,15 @@ from pisi.actionsapi import get
 WorkDir = "systester-%s-src" % get.srcVERSION()
 
 def setup():
-    shelltools.system("qmake")
-    autotools.configure()
+    autotools.rawConfigure()
 
 def build():
     autotools.make()
 
 def install():
     pisitools.dobin("systester")
+
     pisitools.insinto("/usr/share/systester/data", "images/*.png")
+    pisitools.insinto("/usr/share/pixmaps", "images/generic.png", "systester.png")
 
     pisitools.dodoc("gpl.txt")
