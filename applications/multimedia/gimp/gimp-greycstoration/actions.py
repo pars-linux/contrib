@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 #
 # Copyright 2007 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
