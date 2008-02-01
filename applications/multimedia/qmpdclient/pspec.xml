@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qmpdclient</Name>
+        <Homepage>http://havtknut.tihlde.org/qmpdclient/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>qmpdclient</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical music player daemon (MPD) client written in Qt 4</Summary>
+        <Archive sha1sum="0711d19a117634e97ba1f568cd186a5cfaf35e3c" type="targz">http://havtknut.tihlde.org/qmpdclient/files/qmpdclient-1.0.8.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.3.3">qt4</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">1.0.8-argc-ref-fix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qmpdclient</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.3.3">qt4</Dependency>
+            <Dependency>mpd</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/qmpdclient.desktop">qmpdclient.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/qmpdclient.png">qmpdclient.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-02-01</Date>
+            <Version>1.0.8</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
