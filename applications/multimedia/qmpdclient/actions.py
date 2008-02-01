@@ -9,7 +9,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    shelltools.system("lrelease-qt4 tr_TR.ts -qm tr_TR.qm")
     shelltools.system("qmake-qt4 qmpdclient.pro")
 
 def build():
