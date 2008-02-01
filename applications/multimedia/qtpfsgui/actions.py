@@ -18,7 +18,7 @@ def build():
 def install():
     autotools.rawInstall("INSTALL_ROOT=%s"  % get.installDIR())
 
-    for lang in ["it","tr", "de", "es", "fr", "pl"]:
+    for lang in ["cs", "de", "es", "fr", "id", "it", "pl", "ru", "tr"]:
         shelltools.system("lrelease-qt4 i18n/lang_%(LANG)s.ts -qm i18n/lang_%(LANG)s.qm" % {'LANG':lang} )
     pisitools.insinto("/usr/share/qtpfsgui/i18n","i18n/*.qm")
 
