@@ -9,8 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-ipv6 \
-                         --enable-nls \
+    autotools.configure("--enable-nls \
+                         --enable-ipv6 \
                          --enable-samplerate \
                          --enable-xspf \
                          --enable-rpath \
