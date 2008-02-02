@@ -5,20 +5,22 @@
         <Name>qcad</Name>
         <Homepage>http://www.ribbonsoft.com/</Homepage>
         <Packager>
-            <Name>Bahadır Kandemir</Name>
-            <Email>bahadir@pardus.org.tr</Email>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>A 2D CAD package</Summary>
         <Description>qcad is a 2D CAD package based upon Qt library.</Description>
         <Archive sha1sum="aff563389d1285740f6bf7e28f93b8df0f902e0c" type="targz">http://www.ribbonsoft.com/archives/qcad/qcad-2.0.5.0-1-community.src.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="3.3">qt</Dependency>
-            <Dependency>qt-assistant</Dependency>
+            <Dependency>dxflib</Dependency>
+            <Dependency>fparser</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">qcad-2.0.4.0-1.src-gentoo.patch</Patch>
+            <Patch level="1">use-externals.patch</Patch>
         </Patches>
     </Source>
 
@@ -26,18 +28,15 @@
         <Name>qcad</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="3.3">qt</Dependency>
-            <Dependency>qt-assistant</Dependency>
+            <Dependency>dxflib</Dependency>
+            <Dependency>fparser</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include</Path>
-            <Path fileType="library">/usr/lib</Path>
-            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="localedata">/usr/share/qcad</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="man">/usr/share/man</Path>
-        <Path fileType="data">/usr/share/applications</Path>
-        <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/qcad.desktop" permission="0644" owner="root">qcad.desktop</AdditionalFile>
@@ -46,6 +45,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-02-02</Date>
+            <Version>2.0.5.0</Version>
+            <Comment>Fixed desktop, use external dxflib and fparser</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
         <Update release="2">
             <Date>2006-05-08</Date>
             <Version>2.0.5.0</Version>
