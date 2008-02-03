@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk2-perl</Name>
+        <Homepage>http://gtk2-perl.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>library</IsA>
+        <Summary>Perl interface to the 2.x series of the Gimp Toolkit library</Summary>
+        <Description>gtk2-perl is the collective name for a set of perl bindings for Gtk+ 2.x and various related libraries. These modules make it easy to write Gtk and Gnome applications using a natural, perlish, object-oriented syntax.</Description>
+        <Archive sha1sum="e2c147b412aecbe87983e317461e0997b2a7148a" type="targz">mirrors://sourceforge/gtk2-perl/Gtk2-1.164.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>cairo-perl</Dependency>
+            <Dependency>ExtUtils-Depends</Dependency>
+            <Dependency>ExtUtils-PkgConfig</Dependency>
+            <Dependency>glib2-perl</Dependency>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtk2-perl</Name>
+        <RuntimeDependencies>
+            <Dependency>cairo-perl</Dependency>
+            <Dependency>glib2-perl</Dependency>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-01-30</Date>
+            <Version>1.164</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
