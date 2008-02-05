@@ -11,16 +11,18 @@
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>Fast and lightweight programming tool using GTK2</Summary>
-        <Archive sha1sum="9de77f76058e3bdee3b7523efddd5ab42ef5efd9" type="tarbz2">mirrors://sourceforge/geany/geany-0.12.tar.bz2</Archive>
+        <Archive sha1sum="9e7bb16fede8850a621393299108d64a15cf2f9c" type="tarbz2">mirrors://sourceforge/geany/geany-0.13.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency>vte</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>geany</Name>
         <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency>vte</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -36,6 +38,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-02-05</Date>
+            <Version>0.13</Version>
+            <Comment>Version bump. Enable vte.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-01-29</Date>
             <Version>0.12</Version>
