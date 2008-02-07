@@ -1,0 +1,24 @@
+diff -Nur weechat-0.2.6-old/src/gui/curses/gui-curses-keyboard.c weechat-0.2.6/src/gui/curses/gui-curses-keyboard.c
+--- weechat-0.2.6-old/src/gui/curses/gui-curses-keyboard.c	2008-02-07 01:44:57.659031090 +0200
++++ weechat-0.2.6/src/gui/curses/gui-curses-keyboard.c	2008-02-07 02:26:10.549094658 +0200
+@@ -43,6 +43,7 @@
+ {
+     int i;
+     char key_str[32], command[32];
++    char *envterm = getenv ("TERM");
+     
+     /* keys bound with internal functions */
+     gui_keyboard_bind ( /* RC          */ "ctrl-M",             "return");
+@@ -119,7 +120,11 @@
+     
+     /* keys bound with commands */
+     gui_keyboard_bind ( /* m-left      */ "meta-meta2-D",       "/buffer -1");
+-    gui_keyboard_bind ( /* F5          */ "meta2-15~",          "/buffer -1");
++    if(envterm && (strncmp(envterm, "linux", 5) == 0)) {
++        gui_keyboard_bind ( /* F5          */ "meta2-[E",   "/buffer -1");
++    } else {
++        gui_keyboard_bind ( /* F5          */ "meta2-15~",      "/buffer -1");
++    }
+     gui_keyboard_bind ( /* m-right     */ "meta-meta2-C",       "/buffer +1");
+     gui_keyboard_bind ( /* F6          */ "meta2-17~",          "/buffer +1");
+     gui_keyboard_bind ( /* F7          */ "meta2-18~",          "/window -1");
