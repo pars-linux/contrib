@@ -16,5 +16,5 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS")
     pisitools.dohtml("doc/*.htm")
+    pisitools.dodoc("AUTHORS")
