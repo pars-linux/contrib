@@ -15,4 +15,4 @@ def install():
 
     pisitools.insinto("/usr/share/pixmaps", "data/icon.png", "tennix.png")
 
-    pisitools.dodoc("README", "COPYING")
+    pisitools.dodoc("README", "COPYING", "TODO")
