@@ -14,5 +14,4 @@ WorkDir="Elixir-%s" % get.srcVERSION()
 def install():
     pythonmodules.install()
 
-    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG() ,"examples")
     pisitools.dodoc("CHANGES", "LICENSE", "README")
