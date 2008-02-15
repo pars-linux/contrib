@@ -17,6 +17,8 @@ def build():
 
 def install():
     for data in ["Manslide","BIB_ManSlide","Interface", "*.qm"]:
-        pisitools.insinto("/usr/share/manslide",data)
+        pisitools.insinto("/usr/share/manslide", data)
 
     pisitools.dosym("/usr/share/manslide/Manslide","/usr/bin/manslide")
+
+    pisitools.dodoc("COPYING")
