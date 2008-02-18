@@ -12,5 +12,6 @@ WorkDir="ccsm-%s" % get.srcVERSION()
 
 def install():
     pythonmodules.install("--prefix=/usr")
+    pisitools.domove("/usr/share/ccsm/icons/hicolor/22x22/categories/*.png", "/usr/share/icons/hicolor/22x22/apps")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "LICENSE")
