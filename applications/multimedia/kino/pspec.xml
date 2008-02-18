@@ -8,11 +8,12 @@
             <Name>Koray Löker</Name>
             <Email>loker@pardus.org.tr</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
+        <Icon>kino</Icon>
         <IsA>app:gui</IsA>
         <Summary>Kino is a non-linear DV editor for GNU/Linux</Summary>
         <Description>Kino is a non-linear DV editor for GNU/Linux.</Description>
-        <Archive sha1sum="2949a014e53dd7c7b561f0bb4f0be5e5cb3a857a" type="targz">mirrors://sourceforge/kino/kino-1.0.0.tar.gz</Archive>
+        <Archive sha1sum="1401af8b9b024dc491eb0e85c48729c06ba2566f" type="targz">mirrors://sourceforge/kino/kino-1.2.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libiec61883</Dependency>
             <Dependency versionFrom="1.0.0">libraw1394</Dependency>
@@ -23,11 +24,14 @@
             <Dependency>audiofile</Dependency>
             <Dependency>libsamplerate</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>lzo</Dependency>
             <Dependency>libquicktime</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libXv</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>Kino_desktop.patch</Patch>
+            <Patch>potfiles.patch</Patch>
         </Patches>
     </Source>
 
@@ -43,8 +47,20 @@
             <Dependency>audiofile</Dependency>
             <Dependency>libsamplerate</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>lzo</Dependency>
             <Dependency>libquicktime</Dependency>
+            <Dependency>qdvdauthor</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libXv</Dependency>
+            <Dependency>dvdauthor</Dependency>
+            <Dependency>rawrec</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency>dvd+rw-tools</Dependency>
+            <Dependency>gpac</Dependency>
+            <Dependency>lame</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>sox</Dependency>
+            <Dependency>vorbis-tools</Dependency>
         </RuntimeDependencies>
         <Files>
            <Path fileType="localedata">/usr/share/locale</Path>
@@ -62,6 +78,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2008-02-18</Date>
+            <Version>1.2.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
         <Update release="5">
             <Date>2007-03-24</Date>
             <Version>1.0.0</Version>

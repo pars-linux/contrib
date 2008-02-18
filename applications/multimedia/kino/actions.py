@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright © 2006 TUBITAK/UEKAE
+# Copyright © 2006-2008 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
@@ -10,10 +10,15 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    pisitools.dosed("configure", 'LIBS="-lXext', 'LIBS="-lXext -lX11')
+    pisitools.dosed("src/Makefile.in", r"\$\(LIBQUICKTIME_LIBS\) \\", r" \\")
+    pisitools.dosed("src/Makefile.in", r"(^\s*\$\(SRC_LIBS\))", r"\1 $(LIBQUICKTIME_LIBS)")
+    pisitools.dosed("src/filehandler.h", r"^#include <quicktime\.h>", '#include <lqt/quicktime.h>')
+
     autotools.configure('--disable-debug \
                          --disable-dependency-tracking \
-                         --enable-quicktime')
-
+                         --enable-quicktime \
+                         --disable-local-ffmpeg')
 def build():
     autotools.make()
 
