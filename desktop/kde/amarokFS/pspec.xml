@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>amarokFS</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php?content=52641</Homepage>
+        <Packager>
+            <Name>İşbaran Akçayır</Name>
+            <Email>isbaran@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>amarokFS</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A full screen front end for Amarok</Summary>
+        <Description>A full screen front end for Amarok. The look can be changed by custom themes.</Description>
+        <Archive type="targz" sha1sum="367b59ee271ad367b45f0b705feb94f2cb7d3fa0">http://www.kde-apps.org/CONTENT/content-files/52641-amarokFS-0.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+            <Patch>FixMountPointIdQuery.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>amarokFS</Name>
+        <RuntimeDependencies>
+            <Dependency>amarok</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/amarokFS</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-02-19</Date>
+            <Version>0.5</Version>
+            <Comment>First Release</Comment>
+            <Name>İşbaran Akçayır</Name>
+            <Email>isbaran@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
