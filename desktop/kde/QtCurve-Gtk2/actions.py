@@ -4,16 +4,17 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import kde
+from pisi.actionsapi import cmaketools
+from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    kde.configure("--enable-old-shading")
+    cmaketools.configure()
 
 def build():
-    kde.make()
+    cmaketools.make()
 
 def install():
-    kde.install()
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("ChangeLog", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
