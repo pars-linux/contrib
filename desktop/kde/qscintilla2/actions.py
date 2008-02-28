@@ -11,7 +11,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
-WorkDir = "QScintilla-1.73-gpl-2.1"
+WorkDir = "QScintilla-gpl-2.2"
 Qt4DIR = "usr/qt/4"
 qmake = "qmake-qt4"
 
@@ -47,7 +47,7 @@ def install():
 
     # Get Makefile of qscintilla-python via sip
     shelltools.cd("../Python")
-    pythonmodules.run("configure.py -p 4 -n ../Qt4 -o %s/%s/lib" % (get.installDIR(), Qt4DIR))
+    pythonmodules.run("configure.py -p 4 -n ../Qt4 -o ../Qt4")
 
     # installs not managed by the build system
     shelltools.cd("../Qt4/")
