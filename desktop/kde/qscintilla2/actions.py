@@ -36,11 +36,11 @@ def setup():
     pisitools.dosed("Makefile", "^CXXFLAGS = -pipe -w -mcpu=i686 -O2 -pipe", "CXXFLAGS = %s -w" % get.CXXFLAGS())
 
 def install():
-    # there is no build function, since 'make's below do both compilation and installation
 
     # execute install target of build system
     shelltools.cd("Qt4/")
     autotools.make("all staticlib CC=\"%s\" CXX=\"%s\" LINK=\"%s\"" % (get.CC(), get.CXX(), get.CC()))
+    pisitools.insinto("/%s/lib" % Qt4DIR, "libqscintilla2.so*")
 
     shelltools.cd("../designer-Qt4/")
     autotools.make("DESTDIR=\"%s/%s/plugins/designer\"" % (get.installDIR(), Qt4DIR))
@@ -66,8 +66,5 @@ def install():
     shelltools.cd("..")
     pisitools.dohtml("doc/html-Qt4/")
     pisitools.insinto("/usr/share/doc/%s/Scintilla" % get.srcTAG(), "doc/Scintilla/*")
-
-    # No static libs
-    pisitools.remove("/%s/lib/libqscintilla2.a" % Qt4DIR)
 
     pisitools.dodoc("ChangeLog", "LICENSE", "NEWS", "README")
