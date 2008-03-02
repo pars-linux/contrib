@@ -24,10 +24,6 @@ def start():
 
     conf.close()
 
-    # flush mpd's db for re-walking directory if it's changed
-    if os.path.exists("/var/lib/mpd/mpd.db"):
-        os.unlink("/var/lib/mpd/mpd.db")
-
     startService(command="/usr/bin/mpd", detach=True, donotify=True)
 
 @synchronized
