@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir = "GREYCstoration-2.5.2"
+WorkDir = "GREYCstoration-2.6"
 
 def build():
     shelltools.cd("src")
