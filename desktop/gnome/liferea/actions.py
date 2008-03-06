@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+NoStrip = "/"
+
 def setup():
     autotools.configure("--with-x \
                          --disable-sm \
