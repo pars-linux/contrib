@@ -17,7 +17,6 @@ def setup():
                          --disable-gnome-keybindings \
                          --disable-libtool-lock \
                          --disable-gconf \
-                         --enable-kconfig \
                          --enable-fuse \
                          --enable-gtk \
                          --enable-inotify \
