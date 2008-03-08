@@ -15,7 +15,7 @@
         <IsA>app:gui</IsA>
         <Summary>3D composite and window manager</Summary>
         <Description>The Compiz Fusion Project brings 3D desktop visual effects that improve usability of the X Window System and provide increased productivity through plugins and themes contributed by the community giving a rich desktop experience.</Description>
-        <Archive sha1sum="6269ef4eae44868a307608fc3cda856a06fa06ca" type="tarbz2">http://sudrap.org/dist/compiz/compiz-0.7.0_20080218.tar.bz2</Archive>
+        <Archive sha1sum="26baec9dc39a203314c1b41c9e61828eebe95ee6" type="tarbz2">http://releases.compiz-fusion.org/0.7.2/compiz/compiz-0.7.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>compiz-manager</Dependency>
             <Dependency>libxslt</Dependency>
@@ -24,9 +24,14 @@
             <Dependency>libwnck</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">no_gconf.patch</Patch>
-            <Patch level="1">sandbox.patch</Patch>
-            <Patch level="1">compiz-pardus-top.patch</Patch>
+            <Patch level="1">patch/no_gconf.patch</Patch>
+            <Patch level="1">patch/sandbox.patch</Patch>
+            <Patch level="1">patch/compiz-pardus-top.patch</Patch>
+            <Patch level="1">patch/compiz-kde-mem-leak.patch</Patch>
+            <Patch level="1">patch/compiz-fix-kde-screensaver.patch</Patch>
+            <Patch level="1">patch/compiz-window-decorator.patch</Patch>
+            <Patch level="1">patch/compiz-decoration-command.patch</Patch>
+            <Patch>patch/compiz-default-plugins.patch</Patch>
         </Patches>
     </Source>
 
@@ -54,10 +59,18 @@
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/compiz.desktop">desktop/compiz.desktop</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/compizfusion.png">icons/compizfusion.png</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/compiz/pardus-top.png">icons/pardus-top.png</AdditionalFile>
+            <!--<AdditionalFile owner="root" permission="0755" target="/etc/X11/Sessions/compiz-fusion">compiz-fusion</AdditionalFile>-->
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="14">
+            <Date>2008-03-08</Date>
+            <Version>0.7.2</Version>
+            <Comment>Stable release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="13">
             <Date>2008-02-18</Date>
             <Version>0.7.0_20080218</Version>
