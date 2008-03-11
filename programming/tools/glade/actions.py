@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 WorkDir = "glade3-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--enable-python --disable-scrollkeeper")
+    autotools.configure("--enable-python \
+                         --disable-scrollkeeper")
 
 def build():
     autotools.make()
@@ -19,8 +20,7 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS","ChangeLog","COPYING*","NEWS","README","TODO")
     pisitools.dosym("/usr/bin/glade-3", "/usr/bin/glade")
-
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
+    pisitools.dodoc("AUTHORS","ChangeLog","COPYING*","NEWS","README","TODO")
