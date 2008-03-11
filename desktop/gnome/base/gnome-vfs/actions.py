@@ -9,9 +9,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-static=no \
-                         --enable-ipv6 \
+    autotools.configure("--enable-ipv6 \
                          --enable-hal \
+                         --disable-avahi \
+                         --disable-static \
+                         --disable-schemas-install \
+                         --disable-howl \
                          --with-hal-mount=/usr/bin/mount \
                          --with-hal-umount=/usr/bin/umount \
                          --with-hal-eject=/usr/bin/eject")
