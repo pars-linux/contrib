@@ -9,7 +9,9 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--disable-static \
-                         --with-libotr=enable")
+                         --with-libotr \
+                         --with-openssl \
+                         --with-gpgme")
 
 def build():
     autotools.make()
@@ -17,4 +19,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "README*", "NEWS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README", "NEWS", "FAQ", "colorscheme-example")
