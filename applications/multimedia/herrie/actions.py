@@ -17,5 +17,5 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    ## move herrie to herrie-bin for wrapper script
+    # move herrie to herrie-bin for wrapper script
     pisitools.rename("/usr/bin/herrie", "herrie-bin")
