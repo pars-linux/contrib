@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+from pisi.actionsapi import pythonmodules
 
 def setup():
     autotools.configure("--with-gtkmozembed=firefox")
@@ -15,5 +17,7 @@ def build():
 
 def install():
     autotools.install()
+
+    pythonmodules.fixCompiledPy()
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS")
