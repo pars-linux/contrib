@@ -6,6 +6,8 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+from pisi.actionsapi import pythonmodules
 
 def setup():
     autotools.configure()
@@ -15,5 +17,7 @@ def build():
 
 def install():
     autotools.install()
-    
+
+    pythonmodules.fixCompiledPy(lookInto="/usr/lib/%s/site-packages" % get.curPYTHON())
+
     pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "INSTALL", "MAINTAINERS", "NEWS", "README", "TODO")
