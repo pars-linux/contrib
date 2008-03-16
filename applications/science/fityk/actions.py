@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
 def setup():
@@ -17,6 +18,8 @@ def build():
 
 def install():
     autotools.install()
+
+    pythonmodules.fixCompiledPy(lookInto="/usr/lib/%s/site-packages" % get.curPYTHON())
 
     pisitools.dohtml("doc/fitykhelp.html", "doc/html.css")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO", "NEWS")
