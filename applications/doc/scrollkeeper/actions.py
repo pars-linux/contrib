@@ -23,4 +23,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    # It should be deleted because "pisi check scrollkeeper" gives error.
+    pisitools.remove("/var/log/scrollkeeper.log")
+
     pisitools.dodoc("README", "AUTHORS", "ChangeLog", "NEWS")
