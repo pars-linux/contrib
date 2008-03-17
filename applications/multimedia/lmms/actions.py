@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 #
 # Copyright 2005-2007 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
@@ -10,12 +10,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-static=no \
+    autotools.configure("--disable-static \
                          --enable-hqsinc \
-                         --without-sampe-decoders \
                          --without-vst \
-                         --with-x \
-                         --with-qtdir=%s" % get.qtDIR())
+                         --without-stk \
+                         --without-singerbot \
+                         --with-x")
 
 def build():
     autotools.make()
