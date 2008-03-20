@@ -19,5 +19,3 @@ def install():
     pisitools.dodir("/usr/share/applications")
 
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog", "COPYING", "FEATURES","GETTING.STARTED", "NEWS", "README")
