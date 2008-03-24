@@ -8,11 +8,11 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>XML::Simple perl module</Summary>
         <Description>XML::Simple - Easy API to read/write XML</Description>
-        <Archive sha1sum="6d5134129ffea0721f0ae6633e22c9a6205cffa1" type="targz">http://repo.pardus-linux.nl/sources/XML-Simple-2.14.tar.gz</Archive>
+        <Archive sha1sum="6d5134129ffea0721f0ae6633e22c9a6205cffa1" type="targz">http://contrib.pardus.org.tr/~eren/dist/XML-Simple-2.14.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="0.14">XML-SAX</Dependency>
             <Dependency versionFrom="1.04">XML-NamespaceSupport</Dependency>
@@ -22,6 +22,11 @@
 
     <Package>
         <Name>XML-Simple</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.14">XML-SAX</Dependency>
+            <Dependency versionFrom="1.04">XML-NamespaceSupport</Dependency>
+            <Dependency versionFrom="2.30">XML-Parser</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="man">/usr/share/man</Path>
