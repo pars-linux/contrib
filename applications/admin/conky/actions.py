@@ -9,13 +9,16 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    pisitools.dosed("src/linux.c", "#include <linux/route.h>", "#include <net/route.h>")
     autotools.configure("--disable-static \
                          --disable-xmms2 \
                          --disable-bmpx \
-                         --enable-rss \
                          --disable-audacious \
                          --disable-mpd \
                          --disable-debug \
+                         --enable-smapi \
+                         --enable-wlan \
+                         --enable-rss \
                          --enable-own-window \
                          --enable-proc-uptime \
                          --enable-hddtemp \
