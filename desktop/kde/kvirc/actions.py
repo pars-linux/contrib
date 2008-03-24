@@ -10,12 +10,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="kvirc"
-
 def setup():
-    shelltools.system("sh autogen.sh")
-    kde.configure("--without-splash-screen \
-                   --with-aa-fonts \
+    kde.configure("--with-aa-fonts \
                    --with-big-channels \
                    --with-pizza \
                    --mandir=/%s" % get.manDIR())
