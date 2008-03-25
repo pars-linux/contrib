@@ -6,7 +6,6 @@
 
 from pisi.actionsapi import kde
 
-
 def setup():
     kde.configure()
 
