@@ -8,6 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
+WorkDir = "openttd-0.6.0-RC1"
+
 def setup():
     #dummy configure enables freetype
     autotools.rawConfigure()
@@ -21,12 +23,12 @@ def build():
                     INSTALL=1")
 
 def install():
-    pisitools.insinto("/usr/share/openttd/data", "data/*")
-    pisitools.insinto("/usr/share/openttd/lang", "lang/*.lng")
+    pisitools.insinto("/usr/share/openttd/data", "bin/data/*")
+    pisitools.insinto("/usr/share/openttd/lang", "bin/lang/*.lng")
 
-    pisitools.doexe("openttd", "/usr/share/openttd")
+    pisitools.doexe("bin/openttd", "/usr/share/openttd")
 
-    pisitools.dodoc("docs/*", "*.txt", "COPYING")
+    pisitools.dodoc("docs/*", "*.txt", "COPYING", "bin/scripts/*")
     #remove unneeded Readmes
     pisitools.remove("/usr/share/doc/%s/Readme_*" % get.srcTAG())
 
