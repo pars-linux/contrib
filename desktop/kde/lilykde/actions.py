@@ -16,4 +16,4 @@ def install():
     kde.install()
 
     pythonmodules.fixCompiledPy("%s/share/apps/lilykde/"% get.kdeDIR())
-    pisitools.remove("%s/share/apps/katepart/syntax/lilypond.xml"% get.kdeDIR())
+    pisitools.removeDir("%s/share/apps/katepart/"% get.kdeDIR())
