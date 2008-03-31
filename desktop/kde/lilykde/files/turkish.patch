@@ -1,6 +1,6 @@
---- /dev/null	2008-03-29 14:55:28.185041938 +0200
-+++ po/tr.po	2008-03-29 22:10:06.000000000 +0200
-@@ -0,0 +1,291 @@
+--- /dev/null	2008-03-31 11:19:56.678043263 +0300
++++ po/tr.po	2008-03-31 14:32:13.000000000 +0300
+@@ -0,0 +1,346 @@
 +# translation of tr.po to Türkçe
 +# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 +# This file is distributed under the same license as the PACKAGE package.
@@ -10,8 +10,8 @@
 +msgstr ""
 +"Project-Id-Version: tr\n"
 +"Report-Msgid-Bugs-To: lilykde@xs4all.nl\n"
-+"POT-Creation-Date: 2008-03-27 08:43+0100\n"
-+"PO-Revision-Date: 2008-03-29 21:59+0200\n"
++"POT-Creation-Date: 2008-03-29 07:12+0100\n"
++"PO-Revision-Date: 2008-03-30 22:54+0300\n"
 +"Last-Translator: Server Acim <sacim@kde.org.tr>\n"
 +"Language-Team: Türkçe <yerellestirme@kde.org.tr>\n"
 +"MIME-Version: 1.0\n"
@@ -36,9 +36,13 @@
 +msgstr ""
 +"Bir LilyPond Kate/Pate eklentisi.\n"
 +"\n"
-+"Bu bir Kate uygulamasından LilyPond nota yazma işlemlerini yapabilmenizi sağlayan bir eklentidir.\n"
++"Bu bir Kate uygulamasından LilyPond nota yazma işlemlerini yapabilmenizi "
++"sağlayan bir eklentidir.\n"
 +"\n"
-+"Eğer, Expand eklentisini etkinleştirebiliseniz, daha çok LilyPond yapılarında kullanılan kolaylıklara sahip olabilirsiniz. Bunları görmek için, Expand yapılandırma penceresindeki x-lilypond MIME-Type özelliğine bakabilirsiniz..\n"
++"Eğer, Expand eklentisini etkinleştirebiliseniz, daha çok LilyPond "
++"yapılarında kullanılan kolaylıklara sahip olabilirsiniz. Bunları görmek "
++"için, Expand yapılandırma penceresindeki x-lilypond MIME-Type özelliğine "
++"bakabilirsiniz..\n"
 +"\n"
 +"Version: $version\n"
 +"Homepage: $homepage\n"
@@ -79,15 +83,15 @@
 +msgid "publish mode"
 +msgstr "yayınlama kipi"
 +
-+#: ../lilykde/runlily.py:191 ../lilykde/settings.py:153
++#: ../lilykde/runlily.py:191 ../lilykde/settings.py:163
 +msgid "Open folder"
 +msgstr "Dizin aç"
 +
-+#: ../lilykde/runlily.py:195 ../lilykde/settings.py:154
++#: ../lilykde/runlily.py:195 ../lilykde/settings.py:165
 +msgid "Open PDF"
 +msgstr "PDF aç"
 +
-+#: ../lilykde/runlily.py:197 ../lilykde/settings.py:155
++#: ../lilykde/runlily.py:197 ../lilykde/settings.py:167
 +msgid "Print"
 +msgstr "Yazdır"
 +
@@ -95,7 +99,7 @@
 +msgid "Email PDF (preview)"
 +msgstr "PDF'yi e-posta ile gönder (önizleme)"
 +
-+#: ../lilykde/runlily.py:207 ../lilykde/settings.py:156
++#: ../lilykde/runlily.py:207 ../lilykde/settings.py:170
 +msgid "Email PDF"
 +msgstr "PDF'yi e-posta ile gönder"
 +
@@ -103,7 +107,7 @@
 +msgid "LilyPond did not write a PDF. You probably forgot <b>\\layout</b>?"
 +msgstr "LilyPond bir PDF. Büyük ihtimalle şunu eklemeyi unuttunuz <b>\\layout</b>?"
 +
-+#: ../lilykde/runlily.py:213 ../lilykde/settings.py:157
++#: ../lilykde/runlily.py:213 ../lilykde/settings.py:172
 +msgid "Play MIDI"
 +msgstr "MIDI çal"
 +
@@ -177,7 +181,9 @@
 +msgid ""
 +"Can't determine the LilyPond version of the current document. Please add a "
 +"\\version statement with the correct version."
-+msgstr "Bu dosyada Lilypond sürüm belirteci bulunmuyor. Lütfen, \\version belirtecini doğru sürüm numarasını kullanarak ekleyiniz."
++msgstr ""
++"Bu dosyada Lilypond sürüm belirteci bulunmuyor. Lütfen, \\version "
++"belirtecini doğru sürüm numarasını kullanarak ekleyiniz."
 +
 +#: ../lilykde/version.py:70
 +msgid ""
@@ -194,14 +200,18 @@
 +"The document has been processed with convert-ly. You'll find the messages of "
 +"convert-ly in a comment block at the end. You still may have to edit some "
 +"parts manually."
-+msgstr "Bu belge convert-ly ile işlenmiş. Convert-ly mesajlarını sondaki yorum bloğunda bulacaksınız. Bazı kısımları yine de elle düzenlemeniz gerekebilir."
++msgstr ""
++"Bu belge convert-ly ile işlenmiş. Convert-ly mesajlarını sondaki yorum "
++"bloğunda bulacaksınız. Bazı kısımları yine de elle düzenlemeniz gerekebilir."
 +
 +#: ../lilykde/version.py:103
 +#, python-format
 +msgid ""
 +"The document has been processed with convert-ly, but remained unchanged. "
 +"This is the message given by convert-ly: %s"
-+msgstr "Belge, convert-ly ile işlenmiş, ancak değiştirlmeden kalmış. Bu ileti convert-ly tarafından hazırlanmıştır:%s"
++msgstr ""
++"Belge, convert-ly ile işlenmiş, ancak değiştirlmeden kalmış. Bu ileti "
++"convert-ly tarafından hazırlanmıştır:%s"
 +
 +#: ../lilykde/version.py:107
 +#, python-format
@@ -235,7 +245,11 @@
 +"increases the file size dramatically. It's better to email documents without "
 +"point-and-click urls (publish mode), because they are much smaller. Continue "
 +"anyway?"
-+msgstr "Bu PDF dosya boyutunu önemli derecede arttıran işaretle-ve-tıkla bağlantısıyla yaratılmıştır. (önizleme kipi) Belgeleri işaretle-ve-tıkla bağlantısı olmadan e-mail ile göndermek önerilir (baskı kipi), çünkü bu dosyaların boyutu daha küçüktür. Yine de devam edilsin mi?"
++msgstr ""
++"Bu PDF dosya boyutunu önemli derecede arttıran işaretle-ve-tıkla "
++"bağlantısıyla yaratılmıştır. (önizleme kipi) Belgeleri işaretle-ve-tıkla "
++"bağlantısı olmadan e-mail ile göndermek önerilir (baskı kipi), çünkü bu "
++"dosyaların boyutu daha küçüktür. Yine de devam edilsin mi?"
 +
 +#: ../lilykde/hyphen.py:97
 +msgid "Language selection"
@@ -245,42 +259,83 @@
 +msgid "Please select a language:"
 +msgstr "Lütfen bir dil seçiniz:"
 +
-+#: ../lilykde/settings.py:73
++#: ../lilykde/settings.py:74
 +msgid "Commands"
 +msgstr "Komutlar"
 +
-+#: ../lilykde/settings.py:77
++#: ../lilykde/settings.py:78
 +msgid "Lilypond:"
 +msgstr "Lilypond:"
 +
-+#: ../lilykde/settings.py:78
++#: ../lilykde/settings.py:79
++msgid "Name or full path of the LilyPond program."
++msgstr "Lilypond programının tam yolunun adı."
++
++#: ../lilykde/settings.py:80
 +msgid "Convert-ly:"
 +msgstr "Convert-ly:"
 +
-+#: ../lilykde/settings.py:79
++#: ../lilykde/settings.py:81
++msgid "Name or full path of the convert-ly program."
++msgstr "Convert-ly programının tam yolunun adı."
++
++#: ../lilykde/settings.py:82
 +msgid "Printcommand:"
 +msgstr "Yazdırma komutu:"
 +
-+#: ../lilykde/settings.py:108
++#: ../lilykde/settings.py:83
++msgid ""
++"Command to print a PDF file, for example lpr or kprinter. You may add some "
++"arguments, e.g. lpr -P myprinter."
++msgstr "Bir PDF dosyasını yazdırma komutu, örneğin lpr veya kprinter. Bu komutlara lpr -P yazıcım gibi değerler eklemek de mümkündür."
++
++#: ../lilykde/settings.py:117
 +msgid "Hyphenation"
 +msgstr "Tireleme"
 +
-+#: ../lilykde/settings.py:111
++#: ../lilykde/settings.py:120
 +msgid ""
 +"Paths to search for hyphenation dictionaries of OpenOffice.org, Scribus, "
 +"KOffice, etc, one per line. If you leave out the starting slash, the "
 +"prefixes from the KDEDIRS environment variable are prepended."
-+msgstr "Her satır için OpenOffice.org, Scribus, KOffice vb, uygulamalarında tireleme sözlüklerini arama yolları. Eğer başlangıç eğri çizgisini çıkarırsanız, KDEDIRS ortam değişkenlerinin önekleri kendiliğinde eklenir."
++msgstr ""
++"Her satır için OpenOffice.org, Scribus, KOffice vb, uygulamalarında tireleme "
++"sözlüklerini arama yolları. Eğer başlangıç eğri çizgisini çıkarırsanız, "
++"KDEDIRS ortam değişkenlerinin önekleri kendiliğinde eklenir."
 +
-+#: ../lilykde/settings.py:141
++#: ../lilykde/settings.py:150
 +msgid "Actions"
 +msgstr "İşlemler"
 +
-+#: ../lilykde/settings.py:144
++#: ../lilykde/settings.py:153
 +msgid ""
 +"Check the actions you want to display (if applicable) after LilyPond has "
 +"successfully compiled your document."
-+msgstr "Lilypond belgenizi başarıyla derledikten sonra görüntülenmesini istediğiniz işlemleri denetleyiniz. (Eğer mümkünse)"
++msgstr ""
++"Lilypond belgenizi başarıyla derledikten sonra görüntülenmesini istediğiniz "
++"işlemleri denetleyiniz. (Eğer mümkünse)"
++
++#: ../lilykde/settings.py:164
++msgid "Open the folder containing the LilyPond and PDF documents."
++msgstr "Lilypond ve PDF belgelerini içeren dizini aç."
++
++#: ../lilykde/settings.py:166
++msgid "Open the generated PDF file with the default PDF viewer."
++msgstr "İşlenmiş PDF dosyasını varsayılan PDF okuyucu ile aç."
++
++#: ../lilykde/settings.py:168
++msgid "Print the PDF using the print command set in the Commands settings page."
++msgstr "Komut ayarları sayfasındaki ayarları kullanarak PDF dosyasını yazdır."
++
++#: ../lilykde/settings.py:171
++msgid "Attach the PDF to an email message."
++msgstr "PDF dosyasını bir e-posta iletisine ekle."
++
++#: ../lilykde/settings.py:173
++msgid ""
++"Play the generated MIDI files using the default MIDI player (Timidity++ is "
++"recommended)."
++msgstr "Varsayılan MIDI çalıcıyı kullanarak işlenmiş MIDI dosyalarını çal."
 +
 +#: ../lilypond-servicemenu-helper.py:46
 +msgid "One document failed."
