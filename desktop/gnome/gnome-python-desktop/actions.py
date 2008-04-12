@@ -7,6 +7,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
 
 def setup():
     autotools.configure()
@@ -16,5 +17,7 @@ def build():
 
 def install():
     autotools.install()
+
+    pythonmodules.fixCompiledPy()
 
     pisitools.dodoc("README", "NEWS", "ChangeLog","AUTHORS")
