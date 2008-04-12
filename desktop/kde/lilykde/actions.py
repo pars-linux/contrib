@@ -15,5 +15,4 @@ def build():
 def install():
     kde.install()
 
-    pythonmodules.fixCompiledPy("%s/share/apps/lilykde/"% get.kdeDIR())
-    pisitools.removeDir("%s/share/apps/katepart/"% get.kdeDIR())
+    pythonmodules.fixCompiledPy("%s/share/apps/"% get.kdeDIR())
