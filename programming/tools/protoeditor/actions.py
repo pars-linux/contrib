@@ -8,6 +8,7 @@
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import pythonmodules
 
 WorkDir = "protoeditor-1.1beta3"
 
@@ -19,6 +20,8 @@ def build():
 
 def install():
     kde.install()
+
+    pythonmodules.fixCompiledPy(lookInto="%s/share/apps/protoeditor/libs/python" % get.kdeDIR())
 
     # Do not conflict with ktechlab.
     # These icons are also located in
