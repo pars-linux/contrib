@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lexmark-z700</Name>
+        <Homepage>http://users.cybercity.dk/~dko12479/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>as-is</License>
+        <Icon>lexmark-z700</Icon>
+        <IsA>library</IsA>
+        <Summary>Lexmark z700 printer drivers</Summary>
+        <Description>Drivers for Lexmark Z700/P700/P3150 series printers.</Description>
+        <Archive sha1sum="eb02a146911f2842187dd3e3ab4515c87b369faa" type="targz">http://cekirdek.pardus.org.tr/~onur/distfiles/lexmark-z700-1.1.1.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>lexmark-z700</Name>
+        <RuntimeDependencies>
+            <Dependency>magicfilter</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package>lexmark-z600</Package>
+            <Package>lexmark-z35</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="library">/usr/local/z700llpddk</Path>
+            <Path fileType="data">/usr/share/cups</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-03-21</Date>
+            <Version>1.1.1</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
