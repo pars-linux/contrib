@@ -8,6 +8,8 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 
+WorkDir = "d-feet-0.1.8"
+
 def install():
     pythonmodules.install()
 
