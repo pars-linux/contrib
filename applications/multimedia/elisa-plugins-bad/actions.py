@@ -12,6 +12,6 @@ def build():
     pythonmodules.compile()
 
 def install():
-    pisitools.remove("%s/usr/lib/python2.4/site-packages/elisa/plugins/__init__.py" %
-                     get.installDIR())
     pythonmodules.install()
+
+    pisitools.remove("/usr/lib/%s/site-packages/elisa/plugins/__init__.py" % get.curPYTHON())
