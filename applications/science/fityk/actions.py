@@ -19,7 +19,7 @@ def build():
 def install():
     autotools.install()
 
-    pythonmodules.fixCompiledPy(lookInto="/usr/lib/%s/site-packages" % get.curPYTHON())
+    pythonmodules.fixCompiledPy()
 
     pisitools.dohtml("doc/fitykhelp.html", "doc/html.css")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO", "NEWS")
