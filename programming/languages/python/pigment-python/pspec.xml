@@ -32,6 +32,10 @@
             <Dependency>python</Dependency>
             <Dependency>gst-python</Dependency>
         </RuntimeDependencies>
+        <Conflicts>
+            <!-- pigment and pigment-python are not seperate packages. so pigment-python conflicts with old pigment -->
+            <Package versionTo="0.3.2">pigment</Package>
+        </Conflicts>
         <Files>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
