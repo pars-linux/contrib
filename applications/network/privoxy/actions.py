@@ -8,13 +8,14 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "privoxy-3.0.6-stable"
+WorkDir = "privoxy-3.0.8-stable"
 
 def setup():
     autotools.autoheader()
     autotools.autoconf()
 
-    autotools.configure("--enable-dynamic-pcre --enable-zlib")
+    autotools.configure("--enable-dynamic-pcre \
+                         --enable-zlib")
 
 def build():
     autotools.make()
