@@ -12,10 +12,16 @@
         <IsA>library</IsA>
         <Summary>MCS is a library and set of userland tools which abstract the storage of configuration settings away from userland applications.</Summary>
         <Archive sha1sum="a4044047a31aaec8b6d97b6960f676eca9049cb1" type="targz">http://distfiles.atheme.org/libmcs-0.7.0.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>libmowgli</Dependency>
+        </BuildDependencies>
     </Source>
 
     <Package>
         <Name>libmcs</Name>
+        <RuntimeDependencies>
+            <Dependency>libmowgli</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
