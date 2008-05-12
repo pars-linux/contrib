@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>boncuk</Name>
+        <Homepage>http://sourceforge.net/projects/pysozluk-qt</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>boncuk</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Simple English-Turkish dictionary</Summary>
+        <Description>Boncuk is a minimalistic English-Turkish dictionary. It can search in its local database and in seslisozluk.com.</Description>
+        <Archive sha1sum="606b572025c8d49ba03598d71f01ff8e19a40f0f" type="tarbz2">mirrors://sourceforge/pysozluk-qt/boncuk-0.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4-sql-sqlite</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>boncuk</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4-sql-sqlite</Dependency>
+            <Dependency>boncuk-dict</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>pysozluk-qt</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/boncuk.desktop">boncuk.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2008-03-27</Date>
+            <Version>0.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-01-14</Date>
+            <Version>0.3</Version>
+            <Comment>Version bump to fix #6738 and #6743.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-12-22</Date>
+            <Version>0.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
