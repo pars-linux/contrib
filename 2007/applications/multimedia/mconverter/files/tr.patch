@@ -1,0 +1,291 @@
+--- src/LinConverter.kmdr-old	2007-07-01 17:34:25.000000000 +0300
++++ src/LinConverter.kmdr	2007-10-28 01:36:42.000000000 +0300
+@@ -38,7 +38,7 @@
+             </rect>
+         </property>
+         <property name="text">
+-            <string>WA&amp;V &gt;&gt; FLAC</string>
++            <string>&amp;WAV &gt;&gt; FLAC</string>
+         </property>
+         <property name="iconSet">
+             <iconset>image1</iconset>
+@@ -95,7 +95,7 @@
+                 <cstring>tab</cstring>
+             </property>
+             <attribute name="title">
+-                <string>محول الفيديو V&amp;ideo Converter</string>
++                <string>V&amp;ideo Converter / Görüntü Çevirme</string>
+             </attribute>
+             <widget class="PixmapLabel">
+                 <property name="name">
+@@ -146,7 +146,7 @@
+                         </stringlist>
+                     </property>
+                     <property name="buttonCaption" stdset="0">
+-                        <string>فتح ملف Ope&amp;n</string>
++                        <string>Ope&amp;n / Aç</string>
+                     </property>
+                     <property name="selectionFilter">
+                         <string>*.* **|Videos or audios(*.* *.*)</string>
+@@ -170,7 +170,7 @@
+                         </stringlist>
+                     </property>
+                     <property name="buttonCaption" stdset="0">
+-                        <string>حفظ باسم Save As</string>
++                        <string>Sav&amp;e As / Farklı Kaydet</string>
+                     </property>
+                     <property name="selectionFilter">
+                         <string>*.*|* Videos or audios(*.*)</string>
+@@ -1336,7 +1336,7 @@
+                         </rect>
+                     </property>
+                     <property name="text">
+-                        <string>FLV  &gt;&gt; MPG</string>
++                        <string>&amp;FLV  &gt;&gt; MPG</string>
+                     </property>
+                     <property name="iconSet">
+                         <iconset>image11</iconset>
+@@ -1360,7 +1360,7 @@
+                         </rect>
+                     </property>
+                     <property name="text">
+-                        <string>FLV  &gt;&gt; MP4</string>
++                        <string>F&amp;LV  &gt;&gt; MP4</string>
+                     </property>
+                     <property name="iconSet">
+                         <iconset>image11</iconset>
+@@ -1426,7 +1426,7 @@
+                 <cstring>tab</cstring>
+             </property>
+             <attribute name="title">
+-                <string>محول الصوتيات A&amp;udio Converter</string>
++                <string>A&amp;udio Converter / Ses Çevirme</string>
+             </attribute>
+             <widget class="GroupBox">
+                 <property name="name">
+@@ -1445,12 +1445,12 @@
+                 </property>
+                 <widget class="FileSelector">
+                     <property name="name">
+-                        <cstring>outputselector2</cstring>
++                        <cstring>fileSelector2</cstring>
+                     </property>
+                     <property name="geometry">
+                         <rect>
+                             <x>20</x>
+-                            <y>43</y>
++                            <y>13</y>
+                             <width>860</width>
+                             <height>23</height>
+                         </rect>
+@@ -1461,23 +1461,20 @@
+                         </stringlist>
+                     </property>
+                     <property name="buttonCaption" stdset="0">
+-                        <string>Save As حفظ باسم</string>
++                        <string>Ope&amp;n / Aç </string>
+                     </property>
+                     <property name="selectionFilter">
+-                        <string>*.*|* Videos or audios(*.*)</string>
+-                    </property>
+-                    <property name="selectionCaption">
+-                        <string>*.*|* Videos audios(*.*)</string>
++                        <string>*.* **|Videos or audios(*.* *.*)</string>
+                     </property>
+                 </widget>
+                 <widget class="FileSelector">
+                     <property name="name">
+-                        <cstring>fileSelector2</cstring>
++                        <cstring>outputselector2</cstring>
+                     </property>
+                     <property name="geometry">
+                         <rect>
+                             <x>20</x>
+-                            <y>13</y>
++                            <y>43</y>
+                             <width>860</width>
+                             <height>23</height>
+                         </rect>
+@@ -1488,10 +1485,13 @@
+                         </stringlist>
+                     </property>
+                     <property name="buttonCaption" stdset="0">
+-                        <string>ope&amp;n فتح ملف </string>
++                        <string>Sa&amp;ve As / Farklı Kaydet</string>
+                     </property>
+                     <property name="selectionFilter">
+-                        <string>*.* **|Videos or audios(*.* *.*)</string>
++                        <string>*.*|* Videos or audios(*.*)</string>
++                    </property>
++                    <property name="selectionCaption">
++                        <string>*.*|* Videos audios(*.*)</string>
+                     </property>
+                 </widget>
+             </widget>
+@@ -1715,7 +1715,7 @@
+                         </rect>
+                     </property>
+                     <property name="text">
+-                        <string>WAV &gt;&gt; FLAC</string>
++                        <string>WAV &gt;&gt; F&amp;LAC</string>
+                     </property>
+                     <property name="iconSet">
+                         <iconset>image1</iconset>
+@@ -1835,7 +1835,7 @@
+                         </rect>
+                     </property>
+                     <property name="text">
+-                        <string>FLAC &gt;&gt;  WAV</string>
++                        <string>&amp;FLAC &gt;&gt;  WAV</string>
+                     </property>
+                     <property name="iconSet">
+                         <iconset>image13</iconset>
+@@ -2717,7 +2717,7 @@
+                 <cstring>tab</cstring>
+             </property>
+             <attribute name="title">
+-                <string>متطلبات التشغيل Re&amp;quirements</string>
++                <string>Re&amp;quirements / Gerekenler</string>
+             </attribute>
+             <widget class="TextEdit">
+                 <property name="name">
+@@ -2753,48 +2753,25 @@
+             </widget>
+             <widget class="Label">
+                 <property name="name">
+-                    <cstring>Label3_2</cstring>
+-                </property>
+-                <property name="geometry">
+-                    <rect>
+-                        <x>840</x>
+-                        <y>370</y>
+-                        <width>70</width>
+-                        <height>20</height>
+-                    </rect>
+-                </property>
+-                <property name="paletteForegroundColor">
+-                    <color>
+-                        <red>216</red>
+-                        <green>8</green>
+-                        <blue>8</blue>
+-                    </color>
+-                </property>
+-                <property name="text">
+-                    <string>تنبيه مهم :</string>
+-                </property>
+-            </widget>
+-            <widget class="Label">
+-                <property name="name">
+-                    <cstring>Label5</cstring>
++                    <cstring>Label5_2</cstring>
+                 </property>
+                 <property name="geometry">
+                     <rect>
+-                        <x>521</x>
+-                        <y>390</y>
+-                        <width>390</width>
+-                        <height>50</height>
++                        <x>10</x>
++                        <y>380</y>
++                        <width>500</width>
++                        <height>70</height>
+                     </rect>
+                 </property>
+                 <property name="text">
+-                    <string>البرنامج يعمل بشكل جيد ، فإذا لاحظت عدم استجابة بعض الوظائف فهذا يعني نقص في أحد الترميزات الضرورية.</string>
++                    <string>  The program works well, if observed lack of response from some jobs, it means a lack of a required codec.</string>
+                 </property>
+                 <property name="textFormat">
+                     <enum>RichText</enum>
+                 </property>
+                 <property name="associations" stdset="0">
+                     <stringlist>
+-                        <string>البرنامج يعمل بشكل جيد ، فإذا لاحظت عدم استجابة بعض الوظ</string>
++                        <string>  The program works well, if observed lack of response from some jobs, it means a lack of a required codec.</string>
+                     </stringlist>
+                 </property>
+             </widget>
+@@ -2805,7 +2782,7 @@
+                 <property name="geometry">
+                     <rect>
+                         <x>10</x>
+-                        <y>360</y>
++                        <y>350</y>
+                         <width>141</width>
+                         <height>31</height>
+                     </rect>
+@@ -2823,25 +2800,48 @@
+             </widget>
+             <widget class="Label">
+                 <property name="name">
+-                    <cstring>Label5_2</cstring>
++                    <cstring>Label3_2</cstring>
+                 </property>
+                 <property name="geometry">
+                     <rect>
+-                        <x>10</x>
++                        <x>520</x>
++                        <y>350</y>
++                        <width>100</width>
++                        <height>20</height>
++                    </rect>
++                </property>
++                <property name="paletteForegroundColor">
++                    <color>
++                        <red>216</red>
++                        <green>8</green>
++                        <blue>8</blue>
++                    </color>
++                </property>
++                <property name="text">
++                    <string>Önemli Uyarı :</string>
++                </property>
++            </widget>
++            <widget class="Label">
++                <property name="name">
++                    <cstring>Label5</cstring>
++                </property>
++                <property name="geometry">
++                    <rect>
++                        <x>521</x>
+                         <y>380</y>
+-                        <width>500</width>
+-                        <height>70</height>
++                        <width>390</width>
++                        <height>50</height>
+                     </rect>
+                 </property>
+                 <property name="text">
+-                    <string>  The program works well, if observed lack of response from some jobs, it means a lack of a required codec.</string>
++                    <string>Uygulamanın çalışmasında sorun yoktur , eğer yanıt vermesi gecikiyorsa bu gerekli kodlayıcı/kod açıcının gecikmesidir.</string>
+                 </property>
+                 <property name="textFormat">
+                     <enum>RichText</enum>
+                 </property>
+                 <property name="associations" stdset="0">
+                     <stringlist>
+-                        <string>  The program works well, if observed lack of response from some jobs, it means a lack of a required codec.</string>
++                        <string>البرنامج يعمل بشكل جيد ، فإذا لاحظت عدم استجابة بعض الوظ</string>
+                     </stringlist>
+                 </property>
+             </widget>
+@@ -2851,7 +2851,7 @@
+                 <cstring>tab</cstring>
+             </property>
+             <attribute name="title">
+-                <string>حول البرنامج A&amp;bout</string>
++                <string>A&amp;bout / Hakkında</string>
+             </attribute>
+             <widget class="TextEdit">
+                 <property name="name">
+@@ -3030,8 +3030,8 @@
+                     </font>
+                 </property>
+                 <property name="text">
+-                    <string>تطوير - خالد بن محمد المسيهيج
+-Programming by Khalid Almusaihij</string>
++                    <string>Programming by Khalid Almusaihij
++Yazan : Khalid Almusaihij</string>
+                 </property>
+                 <property name="alignment">
+                     <set>AlignTop|AlignHCenter</set>

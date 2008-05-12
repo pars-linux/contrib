@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libjackasyn</Name>
+        <Homepage>http://gige.xdv.org/soft/libjackasyn</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>An application/library for connecting OSS apps to Jackit</Summary>
+        <Description>libjackasyn is a library that allows you to use programs written for the OSS sound API with the JACK audio server</Description>
+        <Archive sha1sum="1cbd70ef5f30e994fcfb07bd080d352a33f8a6e3" type="targz">http://gige.xdv.org/soft/libjackasyn/download/libjackasyn-0.13.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.102.20">jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="0.1.2">libsamplerate</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">libjackasyn-0.13-execprefix.patch</Patch>
+            <Patch level="1">libjackasyn-0.13-libdir.patch</Patch>
+            <Patch>libjackasyn-0.13-pic.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libjackasyn</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.102.20">jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="0.1.2">libsamplerate</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-18</Date>
+            <Version>0.13</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

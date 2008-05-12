@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>limewire</Name>
+        <Homepage>http://www.limewire.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Java Gnutella client</Summary>
+        <Archive sha1sum="78fa44e1a5ec9e07e91641d651d9dd5707f015ad" type="tarbz2">http://contrib.pardus.org.tr/~eren/dist/limewire-4.17.3.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>limewire</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/opt/limewire</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/bin/limewire" owner="root" permission="0755">limewire</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/limewire.png" owner="root" permission="0644">limewire.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/limewire.desktop" owner="root" permission="0644">limewire.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2008-03-29</Date>
+            <Version>4.17.3</Version>
+            <Comment>Update</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-12-21</Date>
+            <Version>4.14.12</Version>
+            <Comment>Update</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-04</Date>
+            <Version>4.12.6</Version>
+            <Comment>Update</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-11</Date>
+            <Version>4.12</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

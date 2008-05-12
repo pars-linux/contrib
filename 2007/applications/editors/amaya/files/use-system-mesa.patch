@@ -1,0 +1,32 @@
+diff -Naur Amaya.orig/configure.in Amaya/configure.in
+--- Amaya.orig/configure.in	2007-03-30 14:00:17.000000000 +0300
++++ Amaya/configure.in	2007-04-09 19:41:02.000000000 +0300
+@@ -379,28 +379,9 @@
+ 
+ 
+ if test "$with_mesa" = "yes" ; then
+-  # --------- compile Mesa library (opengl) --------------- #
+-  # check that sources of Mesa exists
+-  if test ! -f ../../Mesa/Makefile ; then
+-    AC_MSG_ERROR(Mesa library sources not found (opengl). Please download Mesa sources (http://www.mesa3d.org/) or remove --with-gl option !)
+-
+-  fi
+-
+-  OLDDIR=`pwd`
+-  GL_BUILDDIR="${OLDDIR}/Mesa"
+-  if test ! -d "$GL_BUILDDIR" ; then
+-    echo "---> Install Mesa library into ${GL_BUILDDIR}"
+-    mkdir -p ${GL_BUILDDIR}
+-    cp -r ../../Mesa/* ${GL_BUILDDIR}
+-    echo "---> Install Mesa library into ${GL_BUILDDIR} - DONE"
+-  fi
+-
+   # this is the flags used to build amaya with OpenGL
+   GL_OPTIONS="-D_GL"
+-  GL_INCLUDES="-I${GL_BUILDDIR}/include"
+-  GL_LIBRARIES="-Wl,-rpath,${GL_BUILDDIR}/lib -L${GL_BUILDDIR}/lib -lGL -lGLU"
+-  AC_SUBST(GL_BUILDDIR)
+-  AC_SUBST(GL_INCLUDES)
++  GL_LIBRARIES="-Wl,-rpath, -lGL -lGLU"
+   AC_SUBST(GL_LIBRARIES)
+ fi

@@ -1,0 +1,11 @@
+--- MDB2/Driver/oci8.php	2007/03/04 22:27:11	1.192
++++ MDB2/Driver/oci8.php	2007/05/03 22:20:20	1.193
+@@ -1386,7 +1386,7 @@
+             }
+             $value = $this->values[$parameter];
+             $type = array_key_exists($parameter, $this->types) ? $this->types[$parameter] : null;
+-            if ($type == 'clob' || $type == 'blob') {
++            if ($type == 'clob' || $type == 'blob' && $this->options['lob_allow_url_include']) {
+                 $lobs[$i]['file'] = false;
+                 if (is_resource($value)) {
+                     $fp = $value;

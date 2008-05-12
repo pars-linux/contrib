@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PEAR-Net_SMTP</Name>
+        <Homepage>http://pear.php.net/package/Net_SMTP/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>PHP</License>
+        <IsA>library</IsA>
+        <Summary>An implementation of the SMTP protocol</Summary>
+        <Archive sha1sum="e0c4f6782e850889660c50a5f7b6d9fd91ea9298" type="targz">http://download.pear.php.net/package/Net_SMTP-1.2.10.tgz</Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-Net_SMTP</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR</Dependency>
+            <Dependency versionFrom="1.0.1">PEAR-Auth_SASL</Dependency>
+            <Dependency versionFrom="1.0.7">PEAR-Net_Socket</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-03-31</Date>
+            <Version>1.2.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-08</Date>
+            <Version>1.2.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

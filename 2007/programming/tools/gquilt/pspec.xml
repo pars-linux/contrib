@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gquilt</Name>
+        <Homepage>http://gquilt.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>gquilt is a PyGTK GUI wrapper for quilt</Summary>
+        <Archive sha1sum="a5c515d302764a125daacb186200fc493b0dcda2" type="targz">mirrors://sourceforge/gquilt/gquilt-0.20.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">prefix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gquilt</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>quilt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-04</Date>
+            <Version>0.20</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

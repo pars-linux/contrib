@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM 'http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd'>
+
+<PISI>
+    <Source>
+        <Name>ecore</Name>
+        <Homepage>http://www.enlightenment.org/Libraries/Ecore/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>core event abstraction layer and X abstraction layer (nice convenience library</Summary>
+        <Description>core event abstraction layer and X abstraction layer (nice convenience library</Description>
+        <Archive sha1sum="7c83e987572016698dbfa609f28a0034b6378ae7" type="targz">http://enlightenment.freedesktop.org/files/ecore-0.9.9.037.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency versionFrom="0.9.9.037">evas</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ecore</Name>
+        <RuntimeDependencies>
+            <Dependency>openssl</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency versionFrom="0.9.9.0.37">evas</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2007-04-29</Date>
+            <Version>0.9.9.037</Version>
+            <Comment>Disable static libs</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-12-09</Date>
+            <Version>0.9.9.037</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-11-02</Date>
+            <Version>0.9.9.036</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-21</Date>
+            <Version>0.9.9.035</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-07-30</Date>
+            <Version>0.9.9.032</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-10</Date>
+            <Version>0.9.9.027</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

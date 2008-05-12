@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>synfig</Name>
+        <Homepage>http://www.synfig.com</Homepage>
+        <Packager>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Vector based 2D animation package.</Summary>
+        <Description>Synfig designed to be capable of producing feature-film quality animation.</Description>
+        <Archive sha1sum="22a62007e01786bbd75f460f50cb535d1093e2a5" type="targz">mirrors://sourceforge/synfig/synfig-0.61.07.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>etl</Dependency>
+            <Dependency>gtkmm</Dependency>
+            <Dependency>libxmlpp</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>synfig</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>etl</Dependency>
+            <Dependency>gtkmm</Dependency>
+            <Dependency>libxmlpp</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-11</Date>
+            <Version>0.61.07</Version>
+            <Comment>First release</Comment>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

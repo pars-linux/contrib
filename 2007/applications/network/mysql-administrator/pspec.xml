@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mysql-administrator</Name>
+        <Homepage>http://www.mysql.com/products/tools/administrator/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>MySQL Server Administration Graphical User Interface</Summary>
+        <Description>MySQL Administrator is a powerful visual administration tool that makes it easy to administer and monitor your MySQL environment and gain significantly better visibility into how your databases are operating. MySQL Administrator integrates database management and maintenance into a single, seamless environment, with a clear and intuitive graphical user interface.</Description>
+        <Archive sha1sum="3fdd3a80c634f0aa9fa8f3bc505add18f360dc6c" type="targz">http://mysql.easynet.be/Downloads/MySQLGUITools/mysql-gui-tools-5.0r12.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="20">mysql-client</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.6">libxml2</Dependency>
+            <Dependency versionFrom="2.0">libsigc++</Dependency>
+            <Dependency versionFrom="2.4">glibmm</Dependency>
+            <Dependency versionFrom="2.4">gtkmm</Dependency>
+            <Dependency versionFrom="2.5">libglade2</Dependency>
+            <Dependency versionFrom="0.15">pkgconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>mysql-administrator</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.0_p12">mysql-gui-common</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2007-05-15</Date>
+            <Version>1.2.12</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-31</Date>
+            <Version>1.2.11</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-10</Date>
+            <Version>1.2.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-16</Date>
+            <Version>1.2.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>

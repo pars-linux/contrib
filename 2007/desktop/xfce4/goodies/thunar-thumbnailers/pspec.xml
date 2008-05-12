@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>thunar-thumbnailers</Name>
+        <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-thumbnailers</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>The plugin that shows items' thumnails in thunar</Summary>
+        <Archive sha1sum="8b56eefe4893085cb60f8eae2a410bb7514d8d43" type="tarbz2">http://goodies.xfce.org/releases/thunar-thumbnailers/thunar-thumbnailers-0.1.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>Thunar</Dependency>
+            <Dependency>imagemagick</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>thunar-thumbnailers</Name>
+        <RuntimeDependencies>
+            <Dependency>Thunar</Dependency>
+            <Dependency>imagemagick</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-03-24</Date>
+            <Version>0.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

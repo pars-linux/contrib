@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kalgebra</Name>
+        <Homepage>http://kde-apps.org/content/show.php?content=25841</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>KAlgebra is a MathML-based graph calculator.</Summary>
+        <Description>KAlgebra is a MathML-based graph calculator.</Description>
+        <Archive sha1sum="fb2669bc18a88cd8abd982519c5cf4c6afb26907" type="tarbz2">http://kent.dl.sourceforge.net/sourceforge/kalgebra/kalgebra-20060501.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>lcms</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kalgebra</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>lcms</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2007-06-18</Date>
+            <Version>0.5</Version>
+            <Comment>Remove desktop file. #5629</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-26</Date>
+            <Version>0.5</Version>
+            <Comment>Fix desktop entry. #5629</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-06-24</Date>
+            <Version>0.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,770 @@
+diff -Naur koverartist/po/Makefile.in koverartist_tr/po/Makefile.in
+--- po/Makefile.in	2006-11-01 14:37:48.000000000 +0200
++++ po/Makefile.in	2007-03-03 14:06:57.000000000 +0200
+@@ -282,8 +282,8 @@
+ xdg_menudir = @xdg_menudir@
+ #>- POFILES = AUTO
+ #>+ 2
+-POFILES = pt.po es.po it.po de.po pl.po fr.po ru.po
+-GMOFILES = pt.gmo es.gmo it.gmo de.gmo pl.gmo fr.gmo ru.gmo
++POFILES = pt.po es.po it.po de.po pl.po fr.po ru.po tr.po
++GMOFILES = pt.gmo es.gmo it.gmo de.gmo pl.gmo fr.gmo ru.gmo tr.gmo
+ #>- all: all-am
+ #>+ 1
+ all: all-nls docs-am  all-am
+@@ -476,7 +476,7 @@
+ .NOEXPORT:
+ 
+ #>+ 2
+-KDE_DIST=Makefile.in pt.po ru.po koverartist.pot pl.po de.po es.po fr.po it.po Makefile.am 
++KDE_DIST=Makefile.in pt.po ru.po koverartist.pot pl.po de.po es.po fr.po it.po tr.po Makefile.am 
+ 
+ #>+ 22
+ pt.gmo: pt.po
+@@ -500,14 +500,18 @@
+ ru.gmo: ru.po
+ 	rm -f ru.gmo; $(GMSGFMT) -o ru.gmo $(srcdir)/ru.po
+ 	test ! -f ru.gmo || touch ru.gmo
++tr.gmo: tr.po
++	rm -f tr.gmo; $(GMSGFMT) -o tr.gmo $(srcdir)/tr.po
++	test ! -f tr.gmo || touch tr.gmo
++
+ 
+ #>+ 3
+ clean-nls:
+-	-rm -f  pt.gmo es.gmo it.gmo de.gmo pl.gmo fr.gmo ru.gmo
++	-rm -f  pt.gmo es.gmo it.gmo de.gmo pl.gmo fr.gmo ru.gmo tr.gmo
+ 
+ #>+ 10
+ install-nls:
+-	@for base in pt es it de pl fr ru ; do \
++	@for base in pt es it de pl fr ru tr ; do \
+ 	  echo $(INSTALL_DATA) $$base.gmo $(DESTDIR)$(kde_locale)/$$base/LC_MESSAGES/$(PACKAGE).mo ;\
+ 	  $(mkinstalldirs) $(DESTDIR)$(kde_locale)/$$base/LC_MESSAGES ; \
+ 	  if test -f $$base.gmo; then $(INSTALL_DATA) $$base.gmo $(DESTDIR)$(kde_locale)/$$base/LC_MESSAGES/$(PACKAGE).mo ;\
+@@ -525,6 +529,7 @@
+ 	rm -f $(DESTDIR)$(kde_locale)/pl/LC_MESSAGES/$(PACKAGE).mo
+ 	rm -f $(DESTDIR)$(kde_locale)/fr/LC_MESSAGES/$(PACKAGE).mo
+ 	rm -f $(DESTDIR)$(kde_locale)/ru/LC_MESSAGES/$(PACKAGE).mo
++	rm -f $(DESTDIR)$(kde_locale)/tr/LC_MESSAGES/$(PACKAGE).mo
+ 
+ #>+ 2
+ all-nls: $(GMOFILES)
+
+--- po/tr.po	1970-01-01 02:00:00.000000000 +0200
++++ po/tr.po	2007-05-06 13:55:23.000000000 +0300
+@@ -0,0 +1,714 @@
++# translation of tr.po to Türkçe
++# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
++# This file is distributed under the same license as the PACKAGE package.
++#
++# Ayan <ayanozturk@gmail.com>, 2007.
++# Ayan Öztürk <ayanozturk@gmail.com>, 2007.
++msgid ""
++msgstr ""
++"Project-Id-Version: tr\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2006-07-26 15:29+0200\n"
++"PO-Revision-Date: 2007-05-06 13:55+0300\n"
++"Last-Translator: Ayan Öztürk <ayanozturk@gmail.com>\n"
++"Language-Team: Türkçe\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Generator: KBabel 1.11.4\n"
++"Plural-Forms:  nplurals=1; plural=0;\n"
++
++#: main.cpp:37
++msgid ""
++"_: NAME OF TRANSLATORS\n"
++"Your names"
++msgstr "Ayan Öztürk"
++
++#: main.cpp:38
++msgid ""
++"_: EMAIL OF TRANSLATORS\n"
++"Your emails"
++msgstr "ayanozturk@gmail.com"
++
++#: main.cpp:42
++msgid "A program for cd/dvd cover creation"
++msgstr "CD/DVD kapağı oluşturmak için bir program"
++
++#: main.cpp:49
++msgid "Project to open"
++msgstr "Açılacak Proje"
++
++#: case.cpp:134
++msgid ""
++"Error reading %1:\n"
++"Invalid xml element: %2"
++msgstr ""
++"Hata oluştu %1:\n"
++"Hatalı XML elemanı: %2"
++
++#: case.cpp:158
++msgid ""
++"Error reading %1:\n"
++"Invalid 'Connected' value: %2"
++msgstr ""
++"Hata oluştu %1:\n"
++"Hatalı  değer:%2"
++
++#: cdinfo.cpp:93
++msgid "You do not have permission to read from %1"
++msgstr "%1 den okuma izniniz yok"
++
++#: cdinfo.cpp:95
++msgid "Please insert a disc into %1 and try again"
++msgstr "Lütfen %1 e disk yerleştirip tekrar deneyin"
++
++#: cdinfo.cpp:97
++msgid "%1 is busy"
++msgstr "%1 meşgul"
++
++#: cdinfo.cpp:98
++msgid "Cannot open %1: %2"
++msgstr "%1:%2 açılamıyor"
++
++#: cdinfo.cpp:108
++msgid "There is no audio-cd in %1"
++msgstr "%1 de bir ses CD si yok"
++
++#: cdinfo.cpp:151 cdinfo.cpp:165
++msgid "Cannot read audio-cd table of contents: %1"
++msgstr "Ses CD'si içerik tablosu okunamadı: %1"
++
++#: project.cpp:167
++msgid ""
++"Cannot open project %1\n"
++"File does not exist or is not readable"
++msgstr ""
++"Proje açılamadı %1\n"
++"Dosya yok veya okunabilir değil"
++
++#: project.cpp:186
++msgid ""
++"Cannot load project from %1:\n"
++"Invalid file format %2"
++msgstr ""
++"Proje yüklenemedi: %1:\n"
++"Hatalı dosya formatı %2"
++
++#: project.cpp:217
++msgid ""
++"Cannot load project from %1:\n"
++"Unknown document type %2"
++msgstr ""
++"Proje Yüklenemedi %1:\n"
++"Bilinmeyen doküman biçimi %2"
++
++#: project.cpp:318
++msgid "Unknown case: %1"
++msgstr "Bilinmeyen durum: %1"
++
++#: project.cpp:336
++msgid "Unknown image type: %1"
++msgstr "Bilinmeyen resim tipi: %1"
++
++#: project.cpp:349 project.cpp:382 disc.cpp:109
++msgid "Unknown XML element: %1"
++msgstr "Bilinmeyen XML elemanı: %1"
++
++#: project.cpp:467
++msgid ""
++"Cannot save project as %1:\n"
++"Invalid file format %2"
++msgstr ""
++"Proje %1 olarak kaydedilemedi:\n"
++"Hatalı dosya biçimi %2"
++
++#: mainwindow.cpp:230
++msgid "&Disc"
++msgstr "&Disk"
++
++#: mainwindow.cpp:232
++msgid "&New Disc"
++msgstr "&Yeni Disk"
++
++#: mainwindow.cpp:234
++msgid "&Delete Disc"
++msgstr "&Diski Sil"
++
++#: mainwindow.cpp:236
++msgid "&Clear Disc"
++msgstr "Diski &Temizle"
++
++#: mainwindow.cpp:238
++msgid "Move Disc to &Front"
++msgstr "Diski &Öne Taşı"
++
++#: mainwindow.cpp:240
++msgid "Move Disc to &Back"
++msgstr "Diski &Arkaya Taşı"
++
++#: mainwindow.cpp:242
++msgid "&Import Disc"
++msgstr "Diski İçe Aktar"
++
++#: mainwindow.cpp:252
++msgid "Import &Audio-CD"
++msgstr "Ses CD 'sini  İçe Aktar"
++
++#: mainwindow.cpp:256
++msgid "&Export Disc"
++msgstr "Diski Dışa Aktar"
++
++#: mainwindow.cpp:261
++msgid "&Extras"
++msgstr "&Ekstralar"
++
++#: mainwindow.cpp:263
++msgid "&Search for cover images..."
++msgstr "Kapak resimleri için arama yap..."
++
++#: mainwindow.cpp:269
++msgid "&Redisplay"
++msgstr "Tekrar göster"
++
++#: mainwindow.cpp:272
++msgid "New Window"
++msgstr "Yeni Pencere"
++
++#: mainwindow.cpp:284
++msgid "Project"
++msgstr "Proje"
++
++#: mainwindow.cpp:296
++msgid "Number of Discs"
++msgstr "Disk Sayısı"
++
++#: mainwindow.cpp:321
++msgid "Case"
++msgstr "Kapak"
++
++#: mainwindow.cpp:336
++msgid "Title"
++msgstr "Başlık"
++
++#: mainwindow.cpp:357
++msgid "Sub Title"
++msgstr "Altbaşlık"
++
++#: mainwindow.cpp:377
++msgid "Title and Sub Title Effect"
++msgstr "Başlık  ve Altbaşlık Efekti"
++
++#: mainwindow.cpp:401
++msgid "Options"
++msgstr "Seçenekler"
++
++#: mainwindow.cpp:415 pref.cpp:51
++msgid "General"
++msgstr "Genel"
++
++#: mainwindow.cpp:420
++msgid "Background"
++msgstr "Arkaplan"
++
++#: mainwindow.cpp:427
++msgid "Change the background color"
++msgstr "Arkaplan rengini değiştir"
++
++#: mainwindow.cpp:433 effectconfig.cpp:49
++msgid "Outline"
++msgstr "Ana hatlar"
++
++#: mainwindow.cpp:440
++msgid "Change the outline color"
++msgstr "Ana hat rengini değiştir"
++
++#: mainwindow.cpp:448
++msgid "Front Picture"
++msgstr "Ön Resim"
++
++#: mainwindow.cpp:458
++msgid "Wrap image around front and back side"
++msgstr "Resmi ön ve arka tarafı kaplayacak şekilde katla"
++
++#: mainwindow.cpp:466
++msgid "Hide title text on front side"
++msgstr "Ön taraftaki başlık metnini gizle"
++
++#: mainwindow.cpp:478
++msgid "Back Picture"
++msgstr "Arka Resim"
++
++#: mainwindow.cpp:492
++msgid "Disc Contents Text"
++msgstr "Disk İçerik Metni"
++
++#: mainwindow.cpp:507
++msgid "Disc Contents Effect"
++msgstr "Disk İçerik Efekti"
++
++#: mainwindow.cpp:519
++msgid "Side Text"
++msgstr "Kenar Metni"
++
++#: mainwindow.cpp:533
++msgid "Side Text Effect"
++msgstr "Kenar Metni Efekti"
++
++#: mainwindow.cpp:562
++msgid "Disc Title (optional)"
++msgstr "Disk Başlığı (zorunlu değil)"
++
++#: mainwindow.cpp:575
++msgid "Disc Contents"
++msgstr "Disk İçeriği"
++
++#: mainwindow.cpp:746
++msgid ""
++"The project \"%1\" has been modified.\n"
++"Do you want to save your changes or discard them?"
++msgstr ""
++"Projede \"%1\".kaydedilmeyen değişiklikler var.\n"
++"Değişiklikleri kaydetmek veya iptal etmek mi istersiniz?"
++
++#: mainwindow.cpp:748
++msgid "Confirm Close"
++msgstr "Kapatmayı Onayla"
++
++#: mainwindow.cpp:805
++msgid "Use for front side"
++msgstr "Ön tarafı için kullan"
++
++#: mainwindow.cpp:806
++msgid "Use for back side"
++msgstr "Arka taraf için kullan"
++
++#: mainwindow.cpp:808
++msgid "Cancel"
++msgstr "İptal"
++
++#: mainwindow.cpp:928 mainwindow.cpp:1176
++msgid "All Supported Files"
++msgstr "Bütün Desteklenen Dosyalar"
++
++#: mainwindow.cpp:929 mainwindow.cpp:956
++msgid "KoverArtist Projects"
++msgstr "KoverArtist Projeleri"
++
++#: mainwindow.cpp:930 mainwindow.cpp:1178
++msgid "KMediaFactory Projects"
++msgstr "KMediaFactory Projeleri"
++
++#: mainwindow.cpp:931 mainwindow.cpp:1180 imageconfig.cpp:53
++msgid "All Files"
++msgstr "Bütün Dosyalar"
++
++#: mainwindow.cpp:934
++msgid "Open Project"
++msgstr "Proje Aç"
++
++#: mainwindow.cpp:959
++msgid "Save Project"
++msgstr "Proje Kaydet"
++
++#: mainwindow.cpp:976
++msgid ""
++"A file '%1' already exists.\n"
++"Do you want to overwrite it?"
++msgstr ""
++"Dosya %1 zaten var.\n"
++"Üzerine yazmak ister misiniz?"
++
++#: mainwindow.cpp:977
++msgid "Save file"
++msgstr "Dosya Kaydet"
++
++#: mainwindow.cpp:1014
++msgid ""
++"The current disc is not empty.\n"
++"Continue and clear it?"
++msgstr ""
++"Geçerli disk boş değil. \n"
++"Devam edip disk temizlensin mi?"
++
++#: mainwindow.cpp:1015
++msgid "Clear disc"
++msgstr "Diski Temizle"
++
++#: mainwindow.cpp:1055
++msgid ""
++"The current disc is not empty.\n"
++"Continue and delete it?"
++msgstr ""
++"Geçerli disk boş değil.\n"
++"Devam edip silinsin mi?"
++
++#: mainwindow.cpp:1056
++msgid "Delete disc"
++msgstr "Diski Sil"
++
++#: mainwindow.cpp:1103
++msgid ""
++"Disc #%1 is not empty.\n"
++"Continue and replace it?"
++msgstr ""
++"Disk #%1 boş değil.\n"
++"Devam edip üzerine yazılsın mı?"
++
++#: mainwindow.cpp:1104
++msgid "Import disc"
++msgstr "Diski içe aktar"
++
++#: mainwindow.cpp:1177 mainwindow.cpp:1230
++msgid "KoverArtist Discs"
++msgstr "KoverArtist Diskleri"
++
++#: mainwindow.cpp:1179 mainwindow.cpp:1231
++msgid "Text Files"
++msgstr "Metin Dosyaları"
++
++#: mainwindow.cpp:1183
++msgid "Import Disc"
++msgstr "Diski İçe Aktar"
++
++#: mainwindow.cpp:1234
++msgid "Export disc"
++msgstr "Diski Dışa Aktar"
++
++#: mainwindow.cpp:1274
++msgid "Please set a title and try again."
++msgstr "Lütfen bir başlık belirleyin ve tekrar deneyin."
++
++#: mainwindow.cpp:1281
++msgid ""
++"The cover search is performed by querying an internet search engine for "
++"images, using the title and subtitle as keywords. You can then drag&drop the "
++"selected image(s) from the browser into the KoverArtist window."
++msgstr "Kapak araması internet arama motorunda girdiğiniz başlık ve alt başlık aratılarak yapılır.  Seçili resim(ler)i tarayıcıdan KoverArtist penceresine sürükleyip bırakabilirsiniz."
++
++#: mainwindow.cpp:1286
++msgid "Search For Cover Images"
++msgstr "Kapak Resimleri için Arama Yap"
++
++#: mainwindow.cpp:1292
++msgid "Starting external browser..."
++msgstr "Harici web tarayıcı başlatılıyor..."
++
++#: mainwindow.cpp:1418
++msgid "unnamed.koap"
++msgstr "isimsiz.koap"
++
++#: disc.cpp:141
++msgid ""
++"Cannot open disc %1\n"
++"File does not exist or is not readable"
++msgstr ""
++"Disk Açılamadı %1\n"
++"Dosya yok veya okunabilir değil"
++
++#: disc.cpp:170
++msgid "File %1 has unsupported document type %2"
++msgstr "Dosya %1 desteklenmeyen %2 biçimine sahip"
++
++#: disc.cpp:205 disc.cpp:223
++msgid "%1: expected XML element %2"
++msgstr "%1: beklenen XML elemanı %2"
++
++#: disc.cpp:265
++msgid "Unsupported file format %1"
++msgstr "Desteklenmeyen dosya biçimi %1"
++
++#: image.cpp:146
++msgid "Cannot load image %1"
++msgstr "Resim yüklenemedi: %1"
++
++#: effectconfig.cpp:48
++msgid "No Effect"
++msgstr "Efekt Yok"
++
++#: effectconfig.cpp:50
++msgid "Glow"
++msgstr "Parlama"
++
++#: effectconfig.cpp:51
++msgid "Shadow"
++msgstr "Gölge"
++
++#: effectconfig.cpp:52
++msgid "Box"
++msgstr "Kutu"
++
++#: effectconfig.cpp:61
++msgid "Change the primary effect color"
++msgstr "Birinci efekt rengini değiştir"
++
++#: effectconfig.cpp:67
++msgid "Change the secondary effect color"
++msgstr "İkinci efekt rengini değiştir"
++
++#: effectconfig.cpp:72
++msgid "Size"
++msgstr "Boyut"
++
++#: effectconfig.cpp:89
++msgid "Transparency"
++msgstr "Transparanlık"
++
++#: textstyleconfig.cpp:57
++msgid "Change the font"
++msgstr "Yazı tipini değiştir"
++
++#: textstyleconfig.cpp:64
++msgid "Change the text color"
++msgstr "Yazı rengini değiştir"
++
++#: rendererbase.cpp:283
++msgid ""
++"Internal error: invalid\n"
++"image position #%1 %2"
++msgstr ""
++"Dahili hata: geçersiz\n"
++"resim pozisyonu #%1 %2"
++
++#: imageconfig.cpp:53
++msgid "Image Files"
++msgstr "Resim Dosyaları"
++
++#: imageconfig.cpp:62
++msgid "Position"
++msgstr "Pozisyon"
++
++#: imageconfig.cpp:67
++msgid "Centered"
++msgstr "Ortalanmış"
++
++#: imageconfig.cpp:68
++msgid "Tiled"
++msgstr "Parçalı"
++
++#: imageconfig.cpp:69
++msgid "Centered Tiled"
++msgstr "Ortalanmış Parçalı"
++
++#: imageconfig.cpp:70
++msgid "Centered Maxpect"
++msgstr "Ölçeklenip Ortalanmış"
++
++#: imageconfig.cpp:71
++msgid "Scaled"
++msgstr "Ölçekli"
++
++#: imageconfig.cpp:72
++msgid "Scale & Crop"
++msgstr "Ölçekle & Kes"
++
++#: imageconfig.cpp:78
++msgid "Image covers sides"
++msgstr "Resim kenarları kaplasın"
++
++#: pref.cpp:44
++msgid "KoverArtist Preferences"
++msgstr "KoverArtist Seçenekler"
++
++#: pref.cpp:51
++msgid "General Options"
++msgstr "Genel Seçenekler"
++
++#: pref.cpp:56
++msgid "Audio-CDs"
++msgstr "Ses CD 'leri"
++
++#: pref.cpp:56
++msgid "Audio-CD And CDDB Options"
++msgstr "Ses CD'si ve CDDB Seçenekleri"
++
++#: prefcddb.cpp:55
++msgid "Set project title from CDDB information if the project title is empty."
++msgstr "Eğer proje başlığı boş ise proje başlığını CDDB bilgisinden ayarla."
++
++#: prefcddb.cpp:64
++msgid "Audio-CD Device"
++msgstr "Ses CD 'si Aygıtı"
++
++#: prefcddb.cpp:67
++msgid "Device"
++msgstr "Aygıt"
++
++#: prefcddb.cpp:77
++msgid "CDDB Access Mode"
++msgstr "CDDB Erişim Modu"
++
++#: prefcddb.cpp:84
++msgid "Only local"
++msgstr "Sadece yerel"
++
++#: prefcddb.cpp:85
++msgid "Only remote"
++msgstr "Sadece uzak"
++
++#: prefcddb.cpp:86
++msgid "Local and remote"
++msgstr "Yerel ve uzak"
++
++#: prefcddb.cpp:101
++msgid "Server For Remote CDDB Queries"
++msgstr "Uzak CDDB Sorguları için Sunucu"
++
++#: prefcddb.cpp:104
++msgid "CDDB-Server"
++msgstr "CDDB Sunucusu"
++
++#: prefcddb.cpp:110
++msgid "Port"
++msgstr "Port"
++
++#: prefcddb.cpp:116
++msgid "Mirrors"
++msgstr "Yansılar"
++
++#: prefcddb.cpp:119
++msgid "Select a mirror..."
++msgstr "Bir yansı seç..."
++
++#: prefcddb.cpp:130
++msgid "Local CDDB Cache Directories"
++msgstr "Yerel CDDB Klasörleri"
++
++#: prefcddb.cpp:137
++msgid ""
++"Audio-CD and CDDB support was disabled during compile time.\n"
++"Either manually during configure or because your system is not supported."
++msgstr "Elle ve sizteminiz desteklemediği için otomatik olarak, Ses-CDsi ve CDDB desteği derlenme süresince iptal edildi."
++
++#: prefcddb.cpp:206
++msgid "Select a CDDB Mirror"
++msgstr "CDDB Yansısını Seç"
++
++#: prefcddb.cpp:207
++msgid ""
++"Please select a CDDB mirror from\n"
++"the list below:"
++msgstr ""
++"Lütfen bir CDDB yansısını\n"
++"listeden seçin:"
++
++#: prefgeneral.cpp:46
++msgid "Copy pictures into the project directory when the project is saved."
++msgstr "Proje kaydedildiğinde resim dosyalarını proje klasörüne kopyala."
++
++#: prefgeneral.cpp:50
++msgid "When loading pictures, remove black borders on both sides."
++msgstr "Resim yüklerken, her iki taraftaki siyah çerçeveleri kaldır."
++
++#: prefgeneral.cpp:56
++msgid "URL for searching cover images (%1 is replaced by the search string):"
++msgstr "Kapak resimlerini aramak için URL (%1 sorgu metni olarak değiştirilecek):"
++
++#: prefgeneral.cpp:94
++msgid "The image search url must contain a %1"
++msgstr "Resim arama URL'si %1 içermelidir"
++
++#: cddbquery.cpp:78
++msgid ""
++"A cddb query is already active.\n"
++"Please try again afterwards."
++msgstr ""
++"Bir CDDB sorgusu halen aktif.\n"
++"Lütfen daha sonra tekrar deneyin."
++
++#: cddbquery.cpp:79 cddbquery.cpp:173 cddbquery.cpp:177 cddbquery.cpp:421
++#: cddbquery.cpp:510 cddbquery.cpp:518 cddbquery.cpp:544
++msgid "Error"
++msgstr "Hata"
++
++#: cddbquery.cpp:104
++msgid "Scanning local CDDB files..."
++msgstr "Yerel CDDB dosyaları taranıyor..."
++
++#: cddbquery.cpp:109 cddbquery.cpp:223
++msgid "Found: %1"
++msgstr "Bulundu: %1"
++
++#: cddbquery.cpp:114
++msgid "No matching local CDDB files found."
++msgstr "Uygun yerel CDDB dosyaları bulunamadı."
++
++#: cddbquery.cpp:119
++msgid "Querying CDDB server %1..."
++msgstr "CDDB sunucusu sorgulanıyor %1..."
++
++#: cddbquery.cpp:135
++msgid "Scanning audio-cd..."
++msgstr "Ses CD 'si taranıyor..."
++
++#: cddbquery.cpp:187
++msgid "Multiple Matches Found"
++msgstr "Birden Fazla Sonuç Bulundu"
++
++#: cddbquery.cpp:188
++msgid ""
++"Multiple database entries match.\n"
++"Please select the right one."
++msgstr ""
++"Çoklu veritabanı uyuşması.\n"
++"Lütfen doğru olanı seçin."
++
++#: cddbquery.cpp:218 cddbquery.cpp:241
++msgid "Fetching details..."
++msgstr "Ayrıntılar alınıyor..."
++
++#: cddbquery.cpp:249
++msgid "Unknown CDDB reply: %1"
++msgstr "Bilinmeyen CDDB cevabı: %1"
++
++#: cddbquery.cpp:378
++msgid "Cannot read temporary file: %1"
++msgstr "Geçici dosya okunamıyor: %1"
++
++#: cddbquery.cpp:420
++msgid "Cannot read %1: %2"
++msgstr "Okunamadı %1:%2"
++
++#: cddbquery.cpp:508
++msgid "Cannot create directory %1/%2 for cddb file storage: %3"
++msgstr "CDDB dosyaları için klasör %1/%2 oluşturulamadı: %3"
++
++#: cddbquery.cpp:516
++msgid "Cannot enter directory %1: %2"
++msgstr "Klasöre girilemiyor %1:%2"
++
++#: cddbquery.cpp:542
++msgid "Cannot write %1: %2"
++msgstr "Yazılamıyor %1:%2"
++
++#: cases/cd-multiple.koac:6
++msgid "Multi CD Case"
++msgstr "Çoklu CD Kutusu"
++
++#: cases/cd-slim-contents.koac:6
++msgid "Slim CD Case with Contents"
++msgstr "İnce CD Kutusu (İçerikli)"
++
++#: cases/cd-slim-simple.koac:6
++msgid "Slim CD Case without Contents"
++msgstr "İnce CD Kutusu (İçeriksiz)"
++
++#: cases/cd-standard.koac:6
++msgid "Standard CD Case"
++msgstr "Standart CD Kutusu"
++
++#: cases/cd-wideslim-contents.koac:6
++msgid "Slim CD Case with Side and Contents"
++msgstr "İnce Cd kutusu (içerikli)"
++
++#: cases/cd-wideslim-simple.koac:6
++msgid "Slim CD Case with Side no Contents"
++msgstr "İnce CD Kutusu (İçeriksiz)"
++
++#: cases/dvd-slim.koac:6
++msgid "Slim DVD Case"
++msgstr "İnce DVD Kutusu"
++
++#: cases/dvd-standard.koac:6
++msgid "Standard DVD Case"
++msgstr "Standart DVD Kutusu"
++

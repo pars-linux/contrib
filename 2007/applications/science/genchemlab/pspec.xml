@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>genchemlab</Name>
+        <Homepage>http://genchemlab.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <Icon>genchemlab</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>General Chemistry Lab Simulator</Summary>
+        <Description>GenChemLab is an OpenGL-based application intended to simulate several common general chemistry exercises.</Description>
+        <Archive sha1sum="3bafebfcbe79898bf49b7735b9989b39dd2219ad" type="targz">mirrors://sourceforge/sourceforge/genchemlab/genchemlab-1.0.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>genchemlab</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/genchemlab.desktop">genchemlab.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/genchemlab.png">genchemlab.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-15</Date>
+            <Version>1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

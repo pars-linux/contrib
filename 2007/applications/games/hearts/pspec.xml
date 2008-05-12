@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>hearts</Name>
+        <Homepage>http://hearts.luispedro.org/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL</License>
+        <Icon>hearts</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Hearts card game</Summary>
+        <Description>Hearts is a card game with beta support for network play</Description>
+        <Archive sha1sum="e8541e7f6b1c7ed6cc4b34e4da44406244b5a09a" type="tarbz2">mirrors://sourceforge/hearts/hearts-1.98.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="0">hearts-1.98-gcc.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>hearts</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/kde/3.5/share/locale/tr/LC_MESSAGES/hearts.mo" permission="0644" owner="root">hearts.mo</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-08-25</Date>
+            <Version>1.98</Version>
+            <Comment>Turkish translation.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-06</Date>
+            <Version>1.98</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ecamegapedal</Name>
+        <Homepage>http://www.wakkanet.fi/~kaiv/ecamegapedal/</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>A real-time effect processor software</Summary>
+        <Archive sha1sum="877cc50b341d8fcb6078547da648e58774d35ec1" type="targz">http://ecasound.seul.org/download/ecamegapedal-0.4.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ecasound</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">unicode.patch</Patch>
+        </Patches>
+    </Source>
+    
+    <Package>
+        <Name>ecamegapedal</Name>
+        <RuntimeDependencies>
+            <Dependency>ecasound</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/ecamegapedal.png">ecamegapedal.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/ecamegapedal.desktop">ecamegapedal.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    
+    <History>
+        <Update release="2">
+            <Date>2007-05-23</Date>
+            <Version>0.4.4</Version>
+            <Comment>Fix UTF-8 problems</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-01</Date>
+            <Version>0.4.4</Version>
+            <Comment>First release</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lmms</Name>
+        <Homepage>http://lmms.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Linux Multimedia Studio</Summary>
+        <Description>Linux Multimedia Studio Midi and Wave Editors</Description>
+        <Archive sha1sum="e5222a5babea3224d3b65c3c343639025d6e167a" type="tarbz2">mirrors://sourceforge/lmms/lmms-0.3.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.3.8">qt</Dependency>
+            <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="1.2.0">libvorbis</Dependency>
+            <Dependency versionFrom="1.0.17">libsdl</Dependency>
+            <Dependency versionFrom="1.12">ladspa-sdk</Dependency>
+            <Dependency versionFrom="1.1.2">flac</Dependency>
+            <Dependency versionFrom="1.0.16">alsa-lib</Dependency>
+            <Dependency versionFrom="1.0.1">sdl-sound</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktopfile-turkish.patch</Patch>
+            <Patch>lmms-0.3.2-fix-sample-track-removal.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lmms</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.3.8">qt</Dependency>
+            <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="1.2.0">libvorbis</Dependency>
+            <Dependency versionFrom="1.0.17">libsdl</Dependency>
+            <Dependency versionFrom="1.12">ladspa-sdk</Dependency>
+            <Dependency versionFrom="1.1.2">flac</Dependency>
+            <Dependency versionFrom="1.0.16">alsa-lib</Dependency>
+            <Dependency versionFrom="1.0.1">sdl-sound</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2008-03-17</Date>
+            <Version>0.3.2</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-01-21</Date>
+            <Version>0.3.1</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-09-14</Date>
+            <Version>0.3.0</Version>
+            <Comment>Remove duplicate of desktop file and add Turkish patch for it.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-08-20</Date>
+            <Version>0.3.0</Version>
+            <Comment>Version bump to stable.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-26</Date>
+            <Version>0.2.1</Version>
+            <Comment>Add missing dependencies, disable static libs and make correct installation by adding automake line before compiling process. Makefile.in in tarball was created with automake-1.4 which is bad, see; http://gcc.gnu.org/ml/gcc-bugs/2001-02/msg00543.html</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-11</Date>
+            <Version>0.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Update>
+    </History>
+</PISI>

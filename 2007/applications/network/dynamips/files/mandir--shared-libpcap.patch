@@ -1,0 +1,36 @@
+--- Makefile	2007-09-07 11:03:11.000000000 +0300
++++ Makefile2	2007-09-22 01:24:42.000000000 +0300
+@@ -44,7 +44,7 @@
+ 	-DHAS_RFC2553=$(HAS_RFC2553) \
+ 	-DHAS_POSIX_MEMALIGN=$(HAS_POSIX_MEMALIGN)
+ 
+-#PCAP_LIB=/usr/local/lib/libpcap.a
++#PCAP_LIB=/usr/lib/libpcap.so
+ PCAP_LIB=-lpcap
+ 
+ ifeq ($(shell uname), FreeBSD)
+@@ -70,7 +70,7 @@
+ 	-I /opt/csw/include -DSUNOS
+    LIBS=-L/usr/local/lib -L. -ldl -lelf -lpthread -L/opt/csw/lib \
+ 	-lsocket -lnsl -lresolv
+-   PCAP_LIB=/opt/csw/lib/libpcap.a
++   PCAP_LIB=/usr/lib/libpcap.so
+ else
+ ifeq ($(shell uname -o), Cygwin)
+    CFLAGS+=-I/usr/local/include -I/usr/local/include/libelf -DCYGWIN \
+@@ -251,11 +251,11 @@
+ 
+ install: $(PROG) nvram_export
+ 	@echo "Installing"
+-	install -d $(DESTDIR)/bin $(DESTDIR)/man/man1 $(DESTDIR)/man/man7 $(DESTDIR)/etc
++	install -d $(DESTDIR)/bin $(DESTDIR)/share/man/man1 $(DESTDIR)/share/man/man7 $(DESTDIR)/etc
+ 	install dynamips nvram_export   $(DESTDIR)/bin
+-	install -m644 dynamips.1        $(DESTDIR)/man/man1
+-	install -m644 nvram_export.1    $(DESTDIR)/man/man1
+-	install -m644 hypervisor_mode.7 $(DESTDIR)/man/man7
++	install -m644 dynamips.1        $(DESTDIR)/share/man/man1
++	install -m644 nvram_export.1    $(DESTDIR)/share/man/man1
++	install -m644 hypervisor_mode.7 $(DESTDIR)/share/man/man7
+ # install -m644 example         $(DESTDIR)/etc/dynamips
+ 
+ 

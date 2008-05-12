@@ -1,0 +1,13 @@
+Index: bindings/python/Makefile.am
+===================================================================
+--- bindings/python/Makefile.am	(revision 8738)
++++ bindings/python/Makefile.am	(working copy)
+@@ -6,7 +6,7 @@
+ 	$(PYTHON) setup.py build
+ 
+ install:
+-	$(PYTHON) setup.py install
++	$(PYTHON) setup.py install --prefix $(DESTDIR)$(prefix)
+ 
+ clean:
+ 	$(PYTHON) setup.py clean

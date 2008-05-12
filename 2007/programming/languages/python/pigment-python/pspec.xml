@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pigment-python</Name>
+        <Homepage>https://core.fluendo.com/pigment/trac/wiki</Homepage>
+        <Packager>
+            <Name>Nicolas E. Lara G.</Name>
+            <Email>nicolaslara@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>library</IsA>
+        <Summary>Python bindings for Pigment.</Summary>
+        <Description>Pigment is a GLib/GObject library library
+          designed to easily build user interfaces with embedded
+          multimedia. Its design allows to use it on several
+          platforms, thanks to a plugin system allowing to choose the
+          underlying graphical API. Pigment is the rendering engine of
+          Elisa, the Fluendo Media Center project.
+        </Description>
+        <Archive sha1sum="76fb5fa9cf38001ec891a4e0794298bd3c137ff4" type="targz">http://elisa.fluendo.com/static/download/pigment/pigment-python-0.3.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gst-python</Dependency>
+            <Dependency>pygobject</Dependency>
+            <Dependency versionFrom="0.3.5">pigment</Dependency>
+          </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pigment-python</Name>
+        <RuntimeDependencies>
+            <Dependency>gst-python</Dependency>
+            <Dependency>pygobject</Dependency>
+            <Dependency versionFrom="0.3.5">pigment</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <!-- pigment and pigment-python are now seperate packages. so pigment-python conflicts with old pigment -->
+            <Package versionTo="0.3.2">pigment</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pigment-python</Path>
+        </Files>
+   </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-04-14</Date>
+            <Version>0.3.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Nicolas E. Lara G.</Name>
+            <Email>nicolaslara@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

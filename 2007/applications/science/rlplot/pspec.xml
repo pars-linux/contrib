@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rlplot</Name>
+        <Homepage>http://rlplot.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>A plotting program to create high quality graphs from data</Summary>
+        <Description>RLPlot is is a plotting program to create high quality graphs from data. Based on values stored in a spreadsheet several menus help you to create graphs of your choice. The Graphs are displayed as you get them (Wysiwyg).</Description>
+        <Archive sha1sum="11069c26437ece1c06a4450facd98f854149ba8d" type="targz">mirrors://sourceforge/rlplot/rlplot_1.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>qt-dir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>rlplot</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/rlplot.png">rlplot.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/rlplot.desktop">rlplot.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-02-25</Date>
+            <Version>1.3</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-11</Date>
+            <Version>1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

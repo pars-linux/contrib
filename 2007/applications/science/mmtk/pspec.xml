@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mmtk</Name>
+        <Homepage>http://dirac.cnrs-orleans.fr/MMTK</Homepage>
+        <Packager>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>A library for molecular simulation applications</Summary>
+        <Archive sha1sum="3b6bb8d09b6eecf6f2f03ff63843a758a9d4838e" type="targz">http://sourcesup.cru.fr/frs/download.php/1412/MMTK-2.4.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>numeric</Dependency>
+            <Dependency>netcdf</Dependency>
+            <Dependency>scientificpython</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>mmtk</Name>
+        <RuntimeDependencies>
+            <Dependency>numeric</Dependency>
+            <Dependency>netcdf</Dependency>
+            <Dependency>scientificpython</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-23</Date>
+            <Version>2.4.10</Version>
+            <Comment>First Release</Comment>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

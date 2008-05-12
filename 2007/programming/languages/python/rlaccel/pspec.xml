@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>rlaccel</Name>
+        <Homepage>http://reportlab.org/downloads.html#rl_accel</Homepage>
+        <Packager>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Packager>
+        <License>Unknown</License>
+        <IsA>library</IsA>
+        <Summary>Accelerator for Reportlab</Summary>
+        <Description>Accelerator for Reportlab implemented as a C extension module</Description>
+        <Archive sha1sum="f74d7afd7400a00584f8d74ad35f8295a6f0417f" type="targz">http://reportlab.org/daily/rl_accel-0.60-daily-unix.tgz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>rlaccel</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency versionFrom="2.0">Reportlab</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-09</Date>
+            <Version>0.60</Version>
+            <Comment>First release</Comment>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,30 @@
+diff -Naur lilykde-0.4.10.orig/Makefile lilykde-0.4.10/Makefile
+--- lilykde-0.4.10.orig/Makefile	2008-03-26 08:24:31.000000000 +0200
++++ lilykde-0.4.10/Makefile	2008-03-28 00:30:01.000000000 +0200
+@@ -19,10 +19,7 @@
+ include VERSION
+ 
+ DESTDIR =
+-PREFIX  := $(shell kde-config --localprefix | sed 's,/$$,,')
+-ifeq ($(PREFIX),)
+-PREFIX  := $(HOME)/.kde
+-endif
++PREFIX  := /usr/kde/3.5
+ DATADIR := $(DESTDIR)$(PREFIX)/share
+ 
+ LILYKDE = $(DATADIR)/apps/lilykde
+diff -Naur lilykde-0.4.10.orig/po/Makefile lilykde-0.4.10/po/Makefile
+--- lilykde-0.4.10.orig/po/Makefile	2008-03-26 08:24:31.000000000 +0200
++++ lilykde-0.4.10/po/Makefile	2008-03-28 00:37:21.000000000 +0200
+@@ -5,10 +5,7 @@
+ MSGFMT = msgfmt
+ 
+ DESTDIR =
+-PREFIX  := $(shell kde-config --localprefix | sed 's,/$$,,')
+-ifeq ($(PREFIX),)
+-PREFIX  := $(HOME)/.kde
+-endif
++PREFIX  := /usr/kde/3.5
+ DATADIR := $(DESTDIR)$(PREFIX)/share
+ 
+ LILYKDE = $(DATADIR)/apps/lilykde

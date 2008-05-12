@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ncmpc</Name>
+        <Homepage>http://hem.bredband.net/kaw/ncmpc/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Curses client for the Music Player Daemon (MPD).</Summary>
+        <Archive sha1sum="f1998f1d245386eb103ae12c50cf1bf0f5985ed7" type="targz">http://hem.bredband.net/kaw/ncmpc/files/ncmpc-0.11.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>mpd</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">docdir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ncmpc</Name>
+        <RuntimeDependencies>
+            <Dependency>mpd</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-01-31</Date>
+            <Version>0.11.1</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>commons-logging</Name>
+        <Homepage>http://jakarta.apache.org/commons/logging/</Homepage>
+        <Packager>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <IsA>library</IsA>
+        <Summary>Jakarta-Commons Logging Component</Summary>
+        <Archive sha1sum="cbaf5c65979e6733b07b27b01af083965a55fbad" type="targz">mirrors://apache/jakarta/commons/logging/source/commons-logging-1.1-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+            <Dependency>tomcat-servlet-api</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>build.properties.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>commons-logging</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-29</Date>
+            <Version>1.1</Version>
+            <Comment>First release</Comment>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

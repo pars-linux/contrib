@@ -1,0 +1,38 @@
+--- cdcat.pro	2005-11-05 16:01:33.000000000 +0200
++++ cdcat2.pro	2007-07-30 00:45:35.000000000 +0300
+@@ -71,6 +71,7 @@
+ 	  	  lang/cdcat_it.ts \		  		  		  		  		  
+ 	  	  lang/cdcat_fr.ts \		  		  		  		  
+ 	  	  lang/cdcat_sr.ts \		  		  		  		  		  
++	  	  lang/cdcat_tr.ts \
+                   lang/start/cdcat_nolang.ts
+ 
+ translations.files += lang/cdcat_de.qm \
+@@ -84,13 +85,13 @@
+ 	       	      lang/cdcat_fr.qm \		      		  		  		      		      
+ 	       	      lang/cdcat_it.qm \		      		  		  		      		      		      
+ 	       	      lang/cdcat_sr.qm \		      		  		  		      		      		      		      
+-		      lang/cdcat_hu.qm
++		      lang/cdcat_hu.qm \
++		      lang/cdcat_tr.qm
+ 
+-unix:distfiles.files += ../README_CSV_IMPORT ../Authors ../README ../ChangeLog \
+-                        ../COPYING ../TRANSLATORS_README ../cdcat.png 
+-unix:distfiles.path = /usr/local/share/cdcat
+-unix:target.path += /usr/local/bin
+-unix:translations.path += /usr/local/share/cdcat/translations
++unix:distfiles.files += 
++unix:distfiles.path = /usr/share/cdcat
++unix:target.path += /usr/bin
++unix:translations.path += /usr/share/cdcat/translations
+ 
+ 
+ win32:distfiles.files += ..\README_CSV_IMPORT ..\Authors ..\README ..\ChangeLog \
+@@ -98,6 +99,6 @@
+ win32:target.path += c:\program files\cdcat
+ win32:translations.path += c:\program files\cdcat
+ win32:distfiles.path +=c:\program files\cdcat
+-INSTALLS += target translations distfiles
++INSTALLS += target translations
+ 
+ 

@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>jedit</Name>
+        <Homepage>http://www.jedit.org/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Programmer's editor written in Java</Summary>
+        <Description>jEdit is an Open Source, cross platform text editor written in Java. It has an extensive feature set that includes syntax highlighting, auto indent, folding, word wrap, abbreviation expansion, multiple clipboards, powerful search and replace, and much more.</Description>
+        <Archive sha1sum="d74add2a25bfe6bb115b660c40b653f414433529" type="tarbz2">mirrors://sourceforge/jedit/jedit4.3pre9source.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.5">sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+            <Dependency>docbook-xml4_5</Dependency>
+            <Dependency version="1.72.0">docbook-xsl</Dependency>
+            <Dependency>libxslt</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <!-- We hit a Turkish related bug, see http://forum.java.sun.com/thread.jspa?threadID=734671&tstart=60 -->
+            <Patch>javadoc-locale.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>jedit</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.5">sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/jEdit/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/jedit.desktop">jedit.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-17</Date>
+            <Version>4.3_pre9</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

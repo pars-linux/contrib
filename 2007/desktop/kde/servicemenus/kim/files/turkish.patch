@@ -1,0 +1,316 @@
+diff -Naur kim.orig/src/kim_compressandresize.desktop kim/src/kim_compressandresize.desktop
+--- kim.orig/src/kim_compressandresize.desktop	2007-12-27 21:28:38.000000000 +0200
++++ kim/src/kim_compressandresize.desktop	2007-12-27 21:37:59.000000000 +0200
+@@ -22,28 +22,33 @@
+ Encoding=UTF-8
+ X-KDE-Submenu=Kim - Compress and Resize
+ X-KDE-Submenu[fr]=Kim - Compresser et redimensionner
++X-KDE-Submenu[tr]=Kim - Sıkıştır ve Boyutlandır
+ 
+ [Desktop Action Rcprs75]
+ Name=Compress at 75 %
+ Name[fr]=Compresser à 75 %
++Name[tr]=%75 sıkıştır
+ Icon=tgz
+ Exec=kim_compress 75 %D %U
+ 
+ [Desktop Action Rcprs80]
+ Name=Compress at 80 %
+ Name[fr]=Compresser à 80 %
++Name[tr]=%80 sıkıştır
+ Icon=tgz
+ Exec=kim_compress 80 %D %U
+ 
+ [Desktop Action Rcprs90]
+ Name=Compress at 90 %
+ Name[fr]=Compresser à 90 %
++Name[tr]=%90 sıkıştır
+ Icon=tgz
+ Exec=kim_compress 90 %D %U
+ 
+ [Desktop Action RcprsCustom]
+ Name=Compress Custom...
+ Name[fr]=Compression personnalisée
++Name[tr]=Özel sıkıştır
+ Icon=tgz
+ Exec=kim_compress `kdialog --inputbox "Compression rate:" 60` %D %U
+ 
+@@ -51,59 +56,69 @@
+ [Desktop Action Rsize300]
+ Name=Resize (300x225 pixels)
+ Name[fr]=Redimensionner (300x225 pixels)
++Name[tr]=Boyutlandır (300x225 piksel)
+ Icon=crop
+ Exec=kim_resize 300x300 %D %U
+ 
+ [Desktop Action Rsize600]
+ Name=Resize (600x450 pixels)
+ Name[fr]=Redimensionner (600x450 pixels)
++Name[tr]=Boyutlandır (600x450 piksel)
+ Icon=crop
+ Exec=kim_resize 600x600 %D %U
+ 
+ [Desktop Action Rsize800]
+ Name=Resize (800x600 pixels)
+ Name[fr]=Redimensionner (800x600 pixels)
++Name[tr]=Boyutlandır (800x600 piksel)
+ Icon=crop
+ Exec=kim_resize 800x800 %D %U
+ 
+ [Desktop Action Rsize1024]
+ Name=Resize (1024x768 pixels)
+ Name[fr]=Redimensionner (1024x768 pixels)
++Name[tr]=Boyutlandır (1024x768 piksel)
+ Icon=crop
+ Exec=kim_resize 1024x1024 %D %U
+ 
+ [Desktop Action Rsize1200]
+ Name=Resize (1200x900 pixels)
+ Name[fr]=Redimensionner (1200x900 pixels)
++Name[tr]=Boyutlandır (1200x900 piksel)
+ Icon=crop
+ Exec=kim_resize 1200x1200 %D %U
+ 
+ [Desktop Action Rsize1400]
+ Name=Resize (1400x1050 pixels)
+ Name[fr]=Redimensionner (1400x1050 pixels)
++Name[tr]=Boyutlandır (1400x1050 piksel)
+ Icon=crop
+ Exec=kim_resize 1400x1400 %D %U
+ 
+ [Desktop Action RsizeCustom]
+ Name=Resize Custom...
+ Name[fr]=Redimensionnement personnalisé
++Name[tr]=Özel Boyutlandır...
+ Icon=crop
+ Exec=kim_resize `kdialog --inputbox "Resize dimension (max width x max height):" 300x300` %D %U
+ 
+ [Desktop Action WebExp75640]
+ Name=WebExport: 600x450 at 75 %
+ Name[fr]=Pour le web : 600x450 à 75 %
++Name[tr]=Web için aktar: 600x450 %75
+ Icon=html
+ Exec=kim_webexport 600x600 %D %U
+ 
+ [Desktop Action WebExp75800]
+ Name=WebExport: 800x600 at 75 %
+ Name[fr]=Pour le web : 800x600 à 75 %
++Name[tr]=Web için aktar: 800x600 %75
+ Icon=html
+ Exec=kim_webexport 800x800 %D %U
+ 
+ [Desktop Action WebExp751024]
+ Name=WebExport: 1024x768 at 75 %
+ Name[fr]=Pour le web : 1024x768 à 75 %
++Name[tr]=Web için aktar: 1024x768 %75
+ Icon=html
+ Exec=kim_webexport 1024x1024 %D %U
+diff -Naur kim.orig/src/kim_convertandrotate.desktop kim/src/kim_convertandrotate.desktop
+--- kim.orig/src/kim_convertandrotate.desktop	2007-12-27 21:28:38.000000000 +0200
++++ kim/src/kim_convertandrotate.desktop	2007-12-27 21:41:52.000000000 +0200
+@@ -22,82 +22,96 @@
+ Encoding=UTF-8
+ X-KDE-Submenu=Kim - Convert and Rotate
+ X-KDE-Submenu[fr]=Kim - Convertir et tourner
++X-KDE-Submenu[tr]=Kim - Dönüştür ve Çevir
+ 
+ [Desktop Action JPEG]
+ Name=Convert to JPEG
+ Name[fr]=Convertir en JPEG
++Name[tr]=JPEG'e dönüştür
+ Icon=image
+ Exec=kim_convert jpg %U
+ 
+ [Desktop Action PNG]
+ Name=Convert to PNG
+ Name[fr]=Convertir en PNG
++Name[tr]=PNG'ye dönüştür
+ Icon=image
+ Exec=kim_convert png %U
+ 
+ [Desktop Action GIF]
+ Name=Convert to GIF
+ Name[fr]=Convertir en GIF
++Name[tr]=GIF'e dönüştür
+ Icon=image
+ Exec=kim_convert gif %U
+ 
+ [Desktop Action TIF]
+ Name=Convert to TIF
+ Name[fr]=Convertir en TIF
++Name[tr]=TIF'e dönüştür
+ Icon=image
+ Exec=kim_convert tiff %U
+ 
+ [Desktop Action PDF]
+ Name=Convert to PDF
+ Name[fr]=Convertir en PDF
++Name[tr]=PDF'ye dönüştür
+ Icon=image
+ Exec=kim_convert pdf %U
+ 
+ [Desktop Action ConvCustom]
+ Name=Convert custom ...
+ Name[fr]=Conversion personnalisée
++Name[tr]=Özel dönüştür...
+ Icon=image
+ Exec=kim_convert `kdialog --inputbox "Choose format to convert:" ` %U;
+ 
+ [Desktop Action GrayScale]
+ Name=Convert to graysale
+ Name[fr]=Convertir en échelle de gris
++Name[tr]=Siyah-beyaz yap
+ Icon=image
+ Exec=kim_treatment gray %D %U
+ 
+ [Desktop Action Sepia]
+ Name=Convert in sepia tone
+ Name[fr]=Convertir en sépia
++Name[tr]=Karart
+ Icon=image
+ Exec=kim_treatment sepia %D %U
+ 
+ [Desktop Action AutoRot];
+ Name=Auto-rotate with EXIF
+ Name[fr]=Rotation automatique (EXIF)
++Name[tr]=EXIF ile otomatik çevir
+ Icon=rotate_cw
+ Exec=kim_rotate EXIF %U
+ 
+ [Desktop Action Rot90];
+ Name=Rotate (90°)
+ Name[fr]=Tourner de 90°
++Name[tr]=Çevir (90°)
+ Icon=rotate_cw
+ Exec=kim_rotate 90 %U
+ 
+ [Desktop Action Rot180]
+ Name=Rotate (180°)
+ Name[fr]=Tourner de 180°
++Name[tr]=Çevir (180°)
+ Icon=rotate_cw
+ Exec=kim_rotate 180 %U
+ 
+ [Desktop Action Rot270]
+ Name=Rotate (270°)
+ Name[fr]=Tourner de 270°
++Name[tr]=Çevir (270°)
+ Icon=rotate_cw
+ Exec=kim_rotate 270 %U
+ 
+ [Desktop Action RotCustom]
+ Name=Rotate custom...
+ Name[fr]=Rotation personnalisée
++Name[tr]=Özel çevir...
+ Icon=rotate_cw
+ Exec=kim_rotate `kdialog --inputbox "Rotate x degrees:" 45` %U;
+ 
+@@ -107,6 +121,7 @@
+ Name[fr]=Verticalement
+ Name[hu]=Tükrözés vízszintesen
+ Name[de]=Vertikal spiegeln
++Name[tr]=Dikey
+ Icon=2uparrow
+ Exec=kim_flipflop flip %U 
+ 
+@@ -116,5 +131,6 @@
+ Name[fr]=Horizontalement
+ Name[hu]=Tükrözés függőlegesen
+ Name[de]=Horizontal spiegeln
++Name[tr]=Yatay
+ Icon=2rightarrow
+ Exec=kim_flipflop flop %U 
+diff -Naur kim.orig/src/kim_publication.desktop kim/src/kim_publication.desktop
+--- kim.orig/src/kim_publication.desktop	2007-12-27 21:28:38.000000000 +0200
++++ kim/src/kim_publication.desktop	2007-12-27 21:43:49.000000000 +0200
+@@ -22,64 +22,75 @@
+ Encoding=UTF-8
+ X-KDE-Submenu=Kim - Treatment and publication
+ X-KDE-Submenu[fr]=Kim - Traitement et publication
++X-KDE-Submenu[tr]=Kim - Davranış ve yayımlama
+ 
+ [Desktop Action Slideshow]
+ Name=Create a Flash slideshow
+ Name[fr]=Créer un slideshow en Flash
++Name[tr]=Flash slayt şovu oluştur
+ Icon=html
+ Exec=kim_slideshow %U
+ 
+ [Desktop Action Galery]
+ Name=Create a html gallery
+ Name[fr]=Créer un album en html
++Name[tr]=html galerisi oluştur
+ Icon=html
+ Exec=kim_galery %U
+ 
+ [Desktop Action PeleMele]
+ Name=Create a photo montage
+ Name[fr]=Créer un pèle-mèle
++Name[tr]=Fotomontaj yap
+ Icon=image
+ Exec=kim_pelemele %U
+ 
+ [Desktop Action SendByMail]
+ Name=Send by mail
+ Name[fr]=Envoyer par mail
++Name[tr]=E-postayla gönder
+ Icon=kmail
+ Exec=kim_resizeandsend %U
+ 
+ [Desktop Action SortByDate]
+ Name=Sort by date
+ Name[fr]=Ordonner par date
++Name[tr]=Tarihe göre sırala
+ Icon=today
+ Exec=kim_sortbydate %D %U
+ 
+ [Desktop Action Rename]
+ Name=Rename images
+ Name[fr]=Renommer des images
++Name[tr]=Resimleri yeniden adlandır
+ Icon=run
+ Exec=kim_rename %D %U
+ 
+ [Desktop Action Adjoin]
+ Name=Create a multi-files Tiff image
+ Name[fr]=Créer une image Tiff multi-pages
++Name[tr]=Çok dosyalı Tiff resmi oluştur
+ Icon=attach
+ Exec=convert -adjoin %U %D/my_images.tiff
+ 
+ [Desktop Action Animation]
+ Name=Create a gif animation
+ Name[fr]=Créer une animation gif
++Name[tr]=Hareketli gif oluştur
+ Icon=video
+ Exec=convert -delay `kdialog --inputbox "Kim - Delay between images in delay/100 seconds:" 100` %U %D/my_animation.gif
+ 
+ [Desktop Action Multiburst]
+ Name=Multiburst image to gif animation
+ Name[fr]=image multiburst vers animation gif
++Name[tr]=Çok katmanlı resmi hareketli gif'e dönüştür
+ Icon=video
+ Exec=kim_multiburst %u
+ 
+ [Desktop Action Border]
+ Name=Add a border
+ Name[fr]=Ajouter une bordure
++Name[tr]=Çerçeve ekle
+ Icon=image
+ Exec=kim_treatment border %D %U
+ 
+@@ -92,12 +103,14 @@
+ [Desktop Action Watermark]
+ Name=Add text annotation
+ Name[fr]=Ajouter une annotation
++Name[tr]=Yazı ekle
+ Icon=text
+ Exec=kim_treatment mark %D %U
+ 
+ [Desktop Action Apropos]
+ Name=About Kim
+ Name[fr]=A propos de Kim
++Name[tr]=Kim hakkında
+ Icon=help
+ Exec=kim_other about %U
+ 

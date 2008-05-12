@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>smw</Name>
+        <Homepage>http://smw.72dpiarmy.com/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <Icon>swm</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Super Mario War</Summary>
+        <Archive sha1sum="6feac529df4e1bafe6fa8171ca340dbc026382f3" type="targz">http://www.alpersomuncu.com/dist/smw-1.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>smw</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>sdl-mixer</Dependency>
+            <Dependency>sdl-image</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/smw</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/smw.desktop" permission="0644" owner="root">smw.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/smw-leveledit.desktop" permission="0644" owner="root">smwleveledit.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/smw.png" permission="0644" owner="root">smw.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    <History>
+        <Update release="3">
+            <Date>2008-01-31</Date>
+            <Version>1.7</Version>
+            <Comment>Fix tarball, .desktop files, and icon, added Icon tag and docs.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-20</Date>
+            <Version>1.7</Version>
+            <Comment>svn version=57</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-01</Date>
+            <Version>0.0_20061229</Version>
+            <Comment>First Release</Comment>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>egetun@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

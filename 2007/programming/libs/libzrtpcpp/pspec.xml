@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libzrtpcpp</Name>
+        <Homepage>http://www.gnu.org/software/ccrtp/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>A separate extension package for CCRTP, which provides support for the ZRTP protocol.</Summary>
+        <Archive sha1sum="5fe6e00ff81ffd524ef702f6f5ff4cb8071517fd" type="targz">mirrors://gnu/ccrtp/libzrtpcpp-0.9.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.6.0">ccrtp</Dependency>
+            <Dependency versionFrom="1.6.1">commoncpp2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libzrtpcpp</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.6.0">ccrtp</Dependency>
+            <Dependency versionFrom="1.6.1">commoncpp2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-25</Date>
+            <Version>0.9.0</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

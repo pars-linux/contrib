@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gphpedit</Name>
+        <Homepage>http://www.gphpedit.org/</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>PHP/HTML/CSS Development Environment</Summary>
+        <Archive sha1sum="7662e2deb07fa223c511a82668d15899260f64e6" type="targz">http://www.gphpedit.org/download/files/gphpedit-0.9.91.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gtkhtml2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gphpedit</Name>
+        <RuntimeDependencies>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gtkhtml2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-29</Date>
+            <Version>0.9.91</Version>
+            <Comment>First release</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+    </History>
+</PISI>
