@@ -3,5 +3,5 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.chmod("/usr/sbin/fping", 04755)

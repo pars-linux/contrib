@@ -2,7 +2,7 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     # Set Amaya language
 
     lang = open("/etc/env.d/03locale").readline().strip("LANG=")[:5]

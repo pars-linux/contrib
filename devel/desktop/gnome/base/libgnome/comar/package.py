@@ -3,7 +3,7 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.environ['GCONF_CONFIG_SOURCE'] = 'xml:merged:/etc/gconf/gconf.xml.defaults'
     installedSchemas = ['desktop_gnome_accessibility_keyboard.schemas',
                         'desktop_gnome_accessibility_startup.schemas',

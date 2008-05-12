@@ -2,5 +2,5 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.system("gtk-update-icon-cache -qf /usr/share/icons/hicolor")

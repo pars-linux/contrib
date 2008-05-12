@@ -7,5 +7,5 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.system("chmod 777 -R /opt/TurquazLinux08Beta5/database")
