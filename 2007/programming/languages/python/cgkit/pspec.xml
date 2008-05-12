@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cgkit</Name>
+        <Homepage>http://cgkit.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2.1</License>
+        <License>MPL-1.1</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Python library for creating 3D images.</Summary>
+        <Archive sha1sum="18b7b30ea0b4a0931117586717dc512d0826f6a9" type="targz">mirrors://sourceforge/cgkit/cgkit-2.0.0alpha7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>wxPython2_8</Dependency>
+            <Dependency>PyOpenGL</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>PyProtocols</Dependency>
+            <Dependency>numarray</Dependency>
+            <Dependency>pygame</Dependency>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>lib3ds</Dependency>
+            <Dependency>PyODE</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">config_cfg.patch</Patch>
+            <Patch level="1">includedirfix.patch</Patch>
+            <Patch level="1">sconstruct.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cgkit</Name>
+        <RuntimeDependencies>
+            <Dependency>wxPython2_8</Dependency>
+            <Dependency>PyOpenGL</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>PyProtocols</Dependency>
+            <Dependency>numarray</Dependency>
+            <Dependency>pygame</Dependency>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>lib3ds</Dependency>
+            <Dependency>PyODE</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-30</Date>
+            <Version>2.0.0_alpha7</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

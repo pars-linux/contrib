@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>d-feet</Name>
+        <Homepage>https://fedorahosted.org/d-feet/</Homepage>
+        <Packager>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>dfeet-icon</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>D-Bus debugger written in PyGtk</Summary>
+        <Description>d-feet is a DBus debugger allows you to view exported objects, interfaces, methods and signals on DBus, and also execute methods with parameters on the bus and see their return values.</Description>
+        <Archive sha1sum="ea4e22eafc7a405542bc7d25ff2b0f6a352de487" type="targz">http://johnp.fedorapeople.org/d-feet-0.1.8.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">23ef7..0a86a.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>d-feet</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12">pygtk</Dependency>
+            <Dependency versionFrom="1.0">dbus</Dependency>
+            <Dependency versionFrom="0.82.3">dbus-python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-04-22</Date>
+            <Version>0.1.8_20080422</Version>
+            <Comment>Patches from git</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-01-29</Date>
+            <Version>0.1.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>soya</Name>
+        <Homepage>http://home.gna.org/oomadness/en/soya3d/index.html</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Soya 3D is an object oriented "high level" 3D engine for Python</Summary>
+        <Archive sha1sum="b085019f886ec2063d1ff8afe8292127ecb4020e" type="tarbz2">http://download.gna.org/soya/Soya-0.13.tar.bz2</Archive>
+        <BuildDependencies>
+           <Dependency>python-imaging</Dependency>
+           <Dependency>ode</Dependency>
+           <Dependency>cal3d</Dependency>
+           <Dependency>libsdl</Dependency>
+           <Dependency>glew</Dependency>
+           <Dependency>openal</Dependency>
+           <Dependency>pyrex</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>soya</Name>
+        <RuntimeDependencies>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>ode</Dependency>
+            <Dependency>cal3d</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>openal</Dependency>
+            <Dependency>freefont</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-04-30</Date>
+            <Version>0.13</Version>
+            <Comment>freefonts deps add.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-05</Date>
+            <Version>0.13</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

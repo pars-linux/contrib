@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sun-javamail</Name>
+        <Homepage>http://java.sun.com/products/javamail/index.html</Homepage>
+        <Packager>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Packager>
+        <License>CDDL</License>
+        <IsA>library</IsA>
+        <Summary>A Java-based framework to build multiplatform mail and messaging applications</Summary>
+        <Archive sha1sum="2aa4e91a0e82c2e2a709e1a73b30ad9b25f7e3bf" type="tarbz2">http://cekirdek.pardus.org.tr/~ismail/dist/sun-javamail-1.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+            <Dependency>sun-jaf</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>sun-javamail</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>sun-jaf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-28</Date>
+            <Version>1.4</Version>
+            <Comment>First release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

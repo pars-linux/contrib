@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>newt</Name>
+        <Homepage>http://packages.debian.org/unstable/source/newt</Homepage>
+        <Packager>
+            <Name>Fahri Tuğrul Gürkaynak</Name>
+            <Email>ftugrul@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>library</IsA>
+        <Summary>A windowing toolkit for text mode.</Summary>
+        <Description>Newt is a windowing toolkit for text mode, which provides many widgets and stackable windows.</Description>
+        <Archive type="targz" sha1sum="a09e3d9b90eaa26c01fcd7a0975327f4d54578d7">http://repo.pardus-linux.nl/sources/newt-0.52.2.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">newt-0.52.2.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>newt</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2007-03-27</Date>
+            <Version>0.52.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Fahri Tuğrul Gürkaynak</Name>
+            <Email>ftugrul@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

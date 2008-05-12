@@ -1,0 +1,24 @@
+diff -ur simias-1.4.6167.1.orig/other/SimpleServer/simpleserver.in simias-1.4.6167.1/other/SimpleServer/simpleserver.in
+--- simias-1.4.6167.1.orig/other/SimpleServer/simpleserver.in	2006-06-16 09:58:06.000000000 +0300
++++ simias-1.4.6167.1/other/SimpleServer/simpleserver.in	2006-06-30 17:19:19.000000000 +0300
+@@ -20,6 +20,8 @@
+ 	export LD_LIBRARY_PATH=@_webbindir_@:$LD_LIBRARY_PATH
+ fi
+ 
++export LC_ALL=C
++
+ cd @_bindir_@
+ mono @_webbindir_@/Simias.exe --datadir @_simiasdatadir_@ --runasserver $@
+ 
+diff -ur simias-1.4.6167.1.orig/src/SimiasApp/simias.in simias-1.4.6167.1/src/SimiasApp/simias.in
+--- simias-1.4.6167.1.orig/src/SimiasApp/simias.in	2006-06-16 09:58:19.000000000 +0300
++++ simias-1.4.6167.1/src/SimiasApp/simias.in	2006-06-30 17:19:41.000000000 +0300
+@@ -20,6 +20,8 @@
+ 	export LD_LIBRARY_PATH=@_webbindir_@:$LD_LIBRARY_PATH:/usr/lib
+ fi
+ 
++export LC_ALL=C 
++
+ cd @_bindir_@
+ mono @_webbindir_@/Simias.exe $@
+ 

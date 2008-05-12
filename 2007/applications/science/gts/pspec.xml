@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gts</Name>
+        <Homepage>http://gts.sourceforge.net/index.html</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <IsA>library</IsA>
+        <Summary>GNU Triangulated Surface Library</Summary>
+        <Description>An Open Source Free Software Library intended to provide a set of useful functions to deal with 3D surfaces meshed with interconnected triangles.</Description>
+        <Archive sha1sum="000720bebecf0b153eb28260bd30fbd979dcc040" type="targz">http://easynews.dl.sourceforge.net/sourceforge/gts/gts-0.7.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="10.34">netpbm</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gts</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="10.34">netpbm</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-10-21</Date>
+            <Version>0.7.6</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

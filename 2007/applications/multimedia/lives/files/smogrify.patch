@@ -1,0 +1,19 @@
+--- smogrify.orig	2008-03-10 09:25:28.000000000 +0200
++++ smogrify	2008-03-17 22:47:31.000000000 +0200
+@@ -261,11 +261,11 @@
+ 	&rc_set_if_not_set("default_image_format","jpeg");
+ 	&rc_set_if_not_set("default_fps",25);
+ 	&rc_set_if_not_set("bgcolour","black");
+-	&rc_set_if_not_set("vid_load_dir","/usr/local/");
+-	&rc_set_if_not_set("vid_save_dir","/usr/local/");
+-	&rc_set_if_not_set("image_dir","/usr/local/");
+-	&rc_set_if_not_set("proj_dir","/usr/local/");
+-	&rc_set_if_not_set("audio_dir","/usr/local/");
++	&rc_set_if_not_set("vid_load_dir",&get_home_dir);
++	&rc_set_if_not_set("vid_save_dir",&get_home_dir);
++	&rc_set_if_not_set("image_dir",&get_home_dir);
++	&rc_set_if_not_set("proj_dir",&get_home_dir);
++	&rc_set_if_not_set("audio_dir",&get_home_dir);
+ 	&rc_set_if_not_set("save_directories","false");
+ 	&rc_set_if_not_set("stop_screensaver","true");
+ 	&rc_set_if_not_set("open_maximised","true");

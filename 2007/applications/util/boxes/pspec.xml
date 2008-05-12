@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>boxes</Name>
+        <Homepage>http://boxes.thomasjensen.com/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>A utility for drawing boxes around the given texts.</Summary>
+        <Archive sha1sum="1fd6e875e9b3c84f2a71f6df73d9eddb37d11c93" type="targz">http://boxes.thomasjensen.com/download/boxes-1.1.src.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">default-config-directory.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>boxes</Name>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-09</Date>
+            <Version>1.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

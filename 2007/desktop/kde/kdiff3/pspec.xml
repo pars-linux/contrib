@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kdiff3</Name>
+        <Homepage>http://kdiff3.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Advanced Diff tool</Summary>
+        <Description>KDiff3 is a file and directory diff and merge tool which compares and merges two or three text input files or directories, shows the differences line by line and character by character(!), provides an automatic merge-facility, has an editor for comfortable solving of merge-conflicts, provides networktransparency via KIO, has options to highlight or hide changes in white-space or comments, supports Unicode, UTF-8 and other file encodings, prints differences, supports version control keyword and history merging.</Description>
+        <Archive sha1sum="e92778473d7267ea1c38855979840e74b261b31b" type="targz">http://kent.dl.sourceforge.net/sourceforge/kdiff3/kdiff3-0.9.91.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kdiff3</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-05</Date>
+            <Version>0.9.91</Version>
+            <Comment>First release</Comment>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

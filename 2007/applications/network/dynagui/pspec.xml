@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>dynagui</Name>
+        <Homepage>http://dynagui.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Gui for dynamips.</Summary>
+        <Description>Dynagui is a GUI frontend to the dynamips Cisco 7200/36XX router simulator.It uses the dyna-gen library in order to communicate with the dynamips hypervisor.</Description>
+        <Archive sha1sum="5d7be1fbba251f04c024b92ce5febe878a2be39e" type="targz">mirrors://sourceforge/dynagui/dynagui-0.3.1.tar.gz</Archive>
+        <Patches>
+            <Patch>correct_dynamips_lib_version.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>dynagui</Name>
+        <RuntimeDependencies>
+            <Dependency>dynagen</Dependency>
+            <Dependency>pygtk</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>cairo</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/dynagui.desktop">dynagui.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/dynagui.png">dynagui.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/dynagui">dynagui</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-01-07</Date>
+            <Version>0.3.1</Version>
+            <Comment>Bug Fixed:#6788</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-06-07</Date>
+            <Version>0.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

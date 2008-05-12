@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PyGPU</Name>
+        <Homepage>http://www.cs.lth.se/home/Calle_Lejdfors/pygpu/</Homepage>
+        <Packager>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>An embedded language in Python, that allow most of Python features to be used for constructing GPU algorithms</Summary>
+        <Description>PyGPU is a compiler that lets you write image processing programs in Python that execute on the graphics
+processing unit (GPU) present in modern graphics cards</Description>
+        <Archive sha1sum="4e6d3220a6774ee3fc7c44bdb73541f7b9c8c67a" type="targz">http://cenk35.googlepages.com/PyGPU-0.2.0a-11.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>numpy</Dependency>
+            <Dependency>pygame</Dependency>
+            <Dependency>PyGLEW</Dependency>
+            <Dependency>PyCg</Dependency>
+            <Dependency>doxygen</Dependency>
+            <Dependency>python-imaging</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>version.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>PyGPU</Name>
+        <RuntimeDependencies>
+            <Dependency>numpy</Dependency>
+            <Dependency>pygame</Dependency>
+            <Dependency>PyGLEW</Dependency>
+            <Dependency>PyCg</Dependency>
+            <Dependency>python-imaging</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-17</Date>
+            <Version>0.2.0</Version>
+            <Comment>First release</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

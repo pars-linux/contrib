@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scientificpython</Name>
+        <Homepage>http://dirac.cnrs-orleans.fr/plone/software/scientificpython/</Homepage>
+        <Packager>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>A Python library for common tasks in scientific computing.</Summary>
+        <Archive sha1sum="db5b0d369e8254130312553a13a70888537e637e" type="targz">http://sourcesup.cru.fr/frs/download.php/1034/ScientificPython-2.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>numeric</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>scientificpython</Name>
+        <RuntimeDependencies>
+            <Dependency>numeric</Dependency>
+            <Dependency>netcdf</Dependency>
+            <Dependency>openmpi</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-27</Date>
+            <Version>2.6</Version>
+            <Comment>First Release</Comment>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

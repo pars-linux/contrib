@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>renderPM</Name>
+        <Homepage>http://reportlab.org/rl_addons.html</Homepage>
+        <Packager>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Extra rendering targets for Reportlab - image formats, EPS, SVG, etc.</Summary>
+        <Description>Reportlab by default renders to PDF. renderPM allows the developer to render to other targets such as image files, EPS and SVG.
+        </Description>
+        <Archive sha1sum="ae604c84c54ae8b40551e80bc7f0fd26c5f3847d" type="targz">http://www.reportlab.com/ftp/renderPM-0-9.tgz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>renderPM</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency versionFrom="1.1.5">python-imaging</Dependency>
+            <Dependency versionFrom="2.0">Reportlab</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-09</Date>
+            <Version>0.9</Version>
+            <Comment>First release</Comment>
+            <Name>Rajeev J Sebastian</Name>
+            <Email>rajeev.sebastian@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

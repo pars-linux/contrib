@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>openjms-bin</Name>
+        <Homepage>http://openjms.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <IsA>library</IsA>
+        <Summary>OpenJMS is an open source implementation of Sun Microsystems's  Java Message Service API 1.1 Specification</Summary>
+        <Archive sha1sum="596ba4deb17fdcf60626c4190f3f768eb5117b89" type="targz">http://prdownloads.sourceforge.net/openjms/openjms-0.7.7-beta-1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>openjms-bin</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-03</Date>
+            <Version>0.7.7</Version>
+            <Comment>First release, 0.7.7-beta-1</Comment>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

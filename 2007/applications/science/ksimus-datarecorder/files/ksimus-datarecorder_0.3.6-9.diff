@@ -1,0 +1,646 @@
+--- ksimus-datarecorder-0.3.6.orig/debian/rules
++++ ksimus-datarecorder-0.3.6/debian/rules
+@@ -0,0 +1,110 @@
++#!/usr/bin/make -f
++# Sample debian/rules that uses debhelper.
++# GNU copyright 1997 to 1999 by Joey Hess.
++
++# Uncomment this to turn on verbose mode.
++#export DH_VERBOSE=1
++
++# These are used for cross-compiling and for saving the configure script
++# from having to guess our platform (since we know it already)
++DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
++DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
++
++ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
++	CFLAGS += -g
++endif
++ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
++	INSTALL_PROGRAM += -s
++endif
++		
++debian/debiandirs: admin/debianrules
++	perl -w admin/debianrules echodirs > debian/debiandirs
++
++configure:
++	dh_testdir
++
++	/usr/bin/libtoolize -f
++	cp -f /usr/share/aclocal/libtool.m4 admin/libtool.m4.in
++	$(MAKE) -f admin/Makefile.common
++
++-include debian/debiandirs
++
++config.status: configure
++	dh_testdir
++
++	CXXFLAGS=-fPIC QTDIR=/usr/share/qt3 ./configure \
++	                        --host=$(DEB_HOST_GNU_TYPE) \
++				--build=$(DEB_BUILD_GNU_TYPE) \
++	                        $(configkde) \
++				--disable-final
++
++build: build-stamp
++build-stamp:  config.status
++	dh_testdir
++	
++	$(MAKE)
++
++	touch build-stamp
++
++clean:
++	dh_testdir
++	dh_testroot
++	
++	-$(MAKE) distclean
++	-rm -f *-stamp
++	-rm -f debian/debiandirs
++	-rm -f admin/config.sub admin/config.guess admin/ltmain.sh configure
++	-rm -f admin/libtool.m4.in aclocal.m4 acinclude.m4
++	-rm -f config.log
++	-find $(CURDIR) -name Makefile.in -exec rm -f {} \;
++	dh_clean
++
++install: build
++	dh_testdir
++	dh_testroot
++	dh_clean -k
++	dh_installdirs
++
++	# Main install.
++	$(MAKE) install DESTDIR=$(CURDIR)/debian/ksimus-datarecorder
++
++	# Make common links for docs.
++	for p in 'ksimus-datarecorder'; do \
++	  for i in `find $(CURDIR)/debian/ksimus-datarecorder/usr/share/doc/kde/HTML -type d -name $$p -not -regex .*/en/$$p`; do \
++	    ln -f -n -s ../../en/common $$i/common; done; done
++
++
++# Build architecture-independent files here.
++binary-indep: build install
++
++# Build architecture-dependent files here.
++binary-arch: build install
++	dh_testdir 
++	dh_testroot 
++#	dh_installdebconf	
++	dh_installdocs 
++#	dh_installexamples
++#	dh_installmenu 
++#	dh_installlogrotate
++#	dh_installemacsen
++#	dh_installpam
++#	dh_installmime
++#	dh_installinit
++#	dh_installcron
++#	dh_installman 
++#	dh_installinfo
++	dh_installchangelogs ChangeLog
++	dh_link 
++	dh_strip
++	dh_compress --exclude=.docbook
++	dh_fixperms 
++#	dh_makeshlibs
++	dh_installdeb
++#	dh_perl
++	dh_shlibdeps
++	dh_gencontrol
++	dh_md5sums
++	dh_builddeb
++
++binary: binary-indep binary-arch
++.PHONY: build clean binary-indep binary-arch binary install
+--- ksimus-datarecorder-0.3.6.orig/debian/copyright
++++ ksimus-datarecorder-0.3.6/debian/copyright
+@@ -0,0 +1,12 @@
++This package was debianized by Aurelien Jarno <aurelien@aurel32.net> on
++Tue,  8 Jan 2002 22:48:38 +0100.
++
++It was downloaded from http://ksimus.berlios.de
++
++Upstream Author: Rasmus Diekenbrock <ksimus@gmx.de>
++
++Copyright:
++
++You are free to distribute this software under the terms of the GNU General
++Public License.  On Debian systems, the complete text of the GNU General Public
++License can be found in /usr/share/common-licenses/GPL file.
+--- ksimus-datarecorder-0.3.6.orig/debian/docs
++++ ksimus-datarecorder-0.3.6/debian/docs
+@@ -0,0 +1,3 @@
++AUTHORS
++README
++TODO
+--- ksimus-datarecorder-0.3.6.orig/debian/control
++++ ksimus-datarecorder-0.3.6/debian/control
+@@ -0,0 +1,22 @@
++Source: ksimus-datarecorder
++Section: electronics
++Priority: optional
++Maintainer: Aurelien Jarno <aurel32@debian.org>
++Build-Depends: debhelper (>> 4.0.0), coreutils (>= 4.5.1), ksimus-dev (>= 0.3.6-2-7), ksimus-dev (<< 0.3.6.0), libtool, automake1.7, autoconf, autotools-dev
++Standards-Version: 3.6.2
++
++Package: ksimus-datarecorder
++Architecture: any
++Depends: ksimus (>= 0.3.6-2-7), ksimus (<< 0.3.6.0), ${shlibs:Depends}, ${misc:Depends}
++Enhances: ksimus
++Description: KSimus datarecorder package
++ KSimus is an application for simulating networks with boolean and floating
++ point data type. Some more data types are planned. Currently there exists
++ only a few components, but because of the modular character of KSimus
++ extensions are easy to develop.
++ .
++ The DataRecorder package records the signal strength.
++ .
++  Author:   Rasmus Diekenbrock <ksimus@gmx.de>.
++  Homepage: http://ksimus.berlios.de
++
+--- ksimus-datarecorder-0.3.6.orig/debian/changelog
++++ ksimus-datarecorder-0.3.6/debian/changelog
+@@ -0,0 +1,163 @@
++ksimus-datarecorder (0.3.6-9) unstable; urgency=low
++
++  * Use automake-1.7 instead of automake-1.6 (closes: bug#335129). 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sat, 22 Oct 2005 12:44:40 +0200
++
++ksimus-datarecorder (0.3.6-8) unstable; urgency=low
++
++  * C++ transition: build-depends on ksimus-dev (>= 0.3.6-2-7).
++  * Bumped Standards-Version to 3.6.2 (no changes).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Thu, 18 Aug 2005 11:28:20 +0200
++
++ksimus-datarecorder (0.3.6-7) unstable; urgency=low
++
++  * Patch by Jens Seidel to fix German translation (closes: bug#313998).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Fri, 17 Jun 2005 12:25:26 +0200
++
++ksimus-datarecorder (0.3.6-6) unstable; urgency=low
++
++  * libtoolize before building.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed, 23 Mar 2005 07:59:42 +0100
++
++ksimus-datarecorder (0.3.6-5) unstable; urgency=low
++
++  * gcc-3.4 fixes. Thanks to Andreas Jochen for the patch (closes:
++    bug#265460). 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sat, 14 Aug 2004 19:19:32 +0200
++
++ksimus-datarecorder (0.3.6-4) unstable; urgency=low
++
++  * Don't depend on make and grep. They are build-essential packages.
++  * Bumped standards-version to 3.6.1
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon,  7 Jun 2004 00:27:40 +0200
++
++ksimus-datarecorder (0.3.6-3) unstable; urgency=low
++
++  * Bumped build-dependency on debhelper to (>> 4.0.0).
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun,  4 May 2003 18:07:18 +0200
++
++ksimus-datarecorder (0.3.6-2) unstable; urgency=low
++
++  * Fixed /lib64 detection.
++  * Bumped standards-version to 3.5.9.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon, 31 Mar 2003 07:20:05 +0200
++
++ksimus-datarecorder (0.3.6-1) unstable; urgency=low
++
++  * New upstream version.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 30 Mar 2003 01:30:11 +0100
++
++ksimus-datarecorder (0.3.5-1-kde3-4) unstable; urgency=low
++
++  * Added homepage and author to the description.
++  * Depends on ${misc:Depends}.
++  * Uses debian/compat instead of DH_COMPAT.
++  * Uses autotools-dev to update config.{guess,sub}.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Thu,  6 Mar 2003 21:15:24 +0100
++
++ksimus-datarecorder (0.3.5-1-kde3-3) unstable; urgency=low
++
++  * Build-depends on libqt3-compat-headers. 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 16 Feb 2003 01:08:59 +0100
++
++ksimus-datarecorder (0.3.5-1-kde3-2) unstable; urgency=low
++
++  * Fixed dependencies. 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun,  9 Feb 2003 02:24:54 +0100
++
++ksimus-datarecorder (0.3.5-1-kde3-1) unstable; urgency=low
++
++  * Built for Qt 3/KDE 3.1.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sat,  8 Feb 2003 04:34:02 +0100
++
++ksimus-datarecorder (0.3.5-1-3) unstable; urgency=low
++
++  * Force build with gcc-2.95 on most archs, gcc-2.96 on ia64 and gcc-3.0 on
++    hppa.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed,  8 Jan 2003 22:45:40 +0100
++
++ksimus-datarecorder (0.3.5-1-2) unstable; urgency=low
++
++  * Fixed debian/copyright.
++  * Standards-Version Bumped to 3.5.8.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Fri, 20 Dec 2002 13:47:27 +0100
++
++ksimus-datarecorder (0.3.5-1-1) unstable; urgency=low
++
++  * New upstream release which fixes various build problems.
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 20 Oct 2002 23:39:44 +0200
++
++ksimus-datarecorder (0.3.5-1) unstable; urgency=low
++
++  * New upstream release
++    Changelog:
++    - new components: Textrecorder (logs data to a file)
++    - a lot of bug fixes
++  * Updated Policy standard compliance to 3.5.7
++
++ -- Aurelien Jarno <aurel32@debian.org>  Sun, 13 Oct 2002 02:41:57 +0200
++
++ksimus-datarecorder (0.3.4-2) unstable; urgency=low
++
++  * Removed build dependencies on autoconf, automake and perl. 
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed,  3 Jul 2002 21:26:49 +0200
++
++ksimus-datarecorder (0.3.4-1) unstable; urgency=low
++
++  * New upstream version.
++    Changelog :
++    - Added floating point channel
++    - Component sensitive online help
++
++ -- Aurelien Jarno <aurel32@debian.org>  Wed,  3 Jul 2002 21:26:47 +0200
++
++ksimus-datarecorder (0.3.3-3) unstable; urgency=low
++
++  * Initial Debian upload.
++  * Changed my maintainer e-mail address to <aurel32@debian.org>.  :)
++
++ -- Aurelien Jarno <aurel32@debian.org>  Mon, 18 Mar 2002 23:12:49 +0100
++
++ksimus-datarecorder (0.3.3-2) unstable; urgency=low
++
++  * Add Build-Depends.
++    Update French translation.
++
++ -- Aurelien Jarno <aurelien@aurel32.net>  Thu, 24 Jan 2002 16:31:24 +0100
++
++ksimus-datarecorder (0.3.3-1) unstable; urgency=low
++
++  * New upstream release
++    Changelog :
++    - French and German translations
++    - Boolean7Segment uses ComponentStyle and friends (adjust color and frame)
++    - Gates are rotatable now.
++
++ -- Aurelien Jarno <aurelien@aurel32.net>  Thu, 24 Jan 2002 07:31:56 +0100
++
++ksimus-datarecorder (0.3.2-1) unstable; urgency=low
++
++  * Initial Release.
++
++ -- Aurelien Jarno <aurelien@aurel32.net>  Tue,  8 Jan 2002 22:48:38 +0100
++
++Local variables:
++mode: debian-changelog
++End:
+--- ksimus-datarecorder-0.3.6.orig/debian/compat
++++ ksimus-datarecorder-0.3.6/debian/compat
+@@ -0,0 +1 @@
++4
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderchannelfloat.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderchannelfloat.h
+@@ -87,6 +87,6 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderview.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderview.cpp
+@@ -90,5 +90,5 @@
+ 	onlinePopup->popup(QCursor::pos());
+ }
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderchannelboolean.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderchannelboolean.h
+@@ -82,6 +82,6 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/widgetcontrolbutton.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/widgetcontrolbutton.cpp
+@@ -187,5 +187,5 @@
+ }
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorder.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorder.h
+@@ -86,7 +86,7 @@
+ const ComponentInfo * getDataRecorderInfo();
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ /** The init function. KSIMUS_PACKAGE_INIT_FUNCTION is a macro which expands to the real function name. */
+ extern "C" const PackageInfo * KSIMUS_PACKAGE_INIT_FUNCTION(KLocale * ksimusLocale);
+@@ -178,6 +178,6 @@
+ 	void slotAddFloatChannel();
+ };
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderview.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderview.h
+@@ -73,6 +73,6 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderdataview.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderdataview.cpp
+@@ -140,7 +140,7 @@
+ 	CHECK_PTR(m_divGrid);
+ 	
+ 	VIEW_DEBUG_VAR("",m_snapHorizontal);
+-};
++}
+ 
+ DataRecorderDataView::~DataRecorderDataView()
+ {
+@@ -583,7 +583,7 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/widgetcontrolbutton.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/widgetcontrolbutton.h
+@@ -98,6 +98,6 @@
+ };
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/textrec.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/textrec.h
+@@ -352,7 +352,7 @@
+ //###############################################################
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderwidget.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderwidget.h
+@@ -121,6 +121,6 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/Makefile.am
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/Makefile.am
+@@ -5,7 +5,7 @@
+ ## INCLUDES were found outside kdevelop specific part
+ 
+ 
+-LDFLAGS =     -shared
++AM_LDFLAGS =     -shared
+ 
+ libksimus_datarecorder_la_METASOURCES = AUTO
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderchannelbase.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderchannelbase.h
+@@ -180,7 +180,7 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderwidget.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderwidget.cpp
+@@ -263,5 +263,5 @@
+ }
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderchannelfloat.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderchannelfloat.cpp
+@@ -257,5 +257,5 @@
+ 	return m_propertyWidget;	
+ }
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/channelpositionwidget.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/channelpositionwidget.h
+@@ -103,6 +103,6 @@
+ };
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorder.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorder.cpp
+@@ -174,7 +174,7 @@
+ KInstance * instance = 0;
+ const PackageInfo * packageInfo = 0;
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ 
+@@ -754,4 +754,4 @@
+ }
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/zoomwidget.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/zoomwidget.h
+@@ -137,7 +137,7 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/zoomwidget.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/zoomwidget.cpp
+@@ -395,6 +395,6 @@
+ 	
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/textrec.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/textrec.cpp
+@@ -1031,5 +1031,5 @@
+ 
+ }
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderchannelboolean.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderchannelboolean.cpp
+@@ -262,5 +262,5 @@
+ 	return m_propertyWidget;	
+ }
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderdataview.h
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderdataview.h
+@@ -222,7 +222,7 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ #endif
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/datarecorderchannelbase.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/datarecorderchannelbase.cpp
+@@ -52,7 +52,7 @@
+ 
+ static EnumDict<eChannelType> channelTypeDict;
+ 
+-EnumDict<eChannelType>::tData EnumDict<eChannelType>::data[]
++template <> EnumDict<eChannelType>::tData EnumDict<eChannelType>::data[]
+ 			= { {"Unknown", KSimLibDataRecorder::CT_Unknown},
+           {"Boolean",  KSimLibDataRecorder::CT_Boolean},
+           {"Floating Point",  KSimLibDataRecorder::CT_Float},
+@@ -206,7 +206,7 @@
+ {
+ 	m_serialNumber = no;
+ 	getConnector()->setWireName(QString("Input %1").arg(no));
+-};
++}
+ 
+ //#############################################################################
+ //#############################################################################
+@@ -246,7 +246,7 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+ 
+--- ksimus-datarecorder-0.3.6.orig/ksimus-datarecorder/channelpositionwidget.cpp
++++ ksimus-datarecorder-0.3.6/ksimus-datarecorder/channelpositionwidget.cpp
+@@ -190,6 +190,6 @@
+ 
+ 
+ 
+-};  //namespace KSimLibDataRecorder
++}  //namespace KSimLibDataRecorder
+ 
+ 
+--- ksimus-datarecorder-0.3.6.orig/admin/detect-autoconf.sh
++++ ksimus-datarecorder-0.3.6/admin/detect-autoconf.sh
+@@ -58,6 +58,9 @@
+     elif test -x "`$WHICH automake-1.6`" ; then
+       AUTOMAKE="`$WHICH automake-1.6`"
+       ACLOCAL="`$WHICH aclocal-1.6`"
++    elif test -x "`$WHICH automake-1.7`" ; then
++      AUTOMAKE="`$WHICH automake-1.7`"
++      ACLOCAL="`$WHICH aclocal-1.7`"
+     fi
+   else
+      AUTOMAKE="$UNSERMAKE"
+--- ksimus-datarecorder-0.3.6.orig/admin/acinclude.m4.in
++++ ksimus-datarecorder-0.3.6/admin/acinclude.m4.in
+@@ -2965,7 +2965,7 @@
+             kdelibsuff=$enableval)
+     if test "$kdelibsuff" = "none"; then
+         if test -d /lib64 ; then
+-            kdelibsuff=64
++            kdelibsuff=
+         else
+             kdelibsuff=
+         fi
+--- ksimus-datarecorder-0.3.6.orig/po/de.po
++++ ksimus-datarecorder-0.3.6/po/de.po
+@@ -89,7 +89,7 @@
+ 
+ #: textrec.cpp:632
+ msgid "Directory %1 not exists"
+-msgstr "Verzeichnis %1 exisitiert nicht"
++msgstr "Verzeichnis %1 existiert nicht"
+ 
+ #: textrec.cpp:676
+ msgid "File open failed (Filename %1)"
+@@ -141,7 +141,7 @@
+ "If checked an exisiting file will not be deleted before a new simulations is "
+ "started."
+ msgstr ""
+-"Wenn das Feld markiert ist wird die Datei gelöscht bevor eine neue "
++"Wenn das Feld markiert ist, wird eine existierende Datei nicht gelöscht, bevor eine neue "
+ "Simulation gestartet wird."
+ 
+ #: textrec.cpp:939

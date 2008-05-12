@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmobiletools</Name>
+        <Homepage>http://www.kmobiletools.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Kde Mobile Tool</Summary>
+        <Summary xml:lang="tr">Kde telefon aracı</Summary>
+        <Description>KMobiletools is a KDE-based application that allows to control mobile phones with your PC.</Description>
+        <Description xml:lang="tr">KMobileTools kde tabanlı, cep telefonunuzu bilgisayarınızdan kontrol etmeye yarayan bir uygulamadır</Description>
+        <Archive sha1sum="ce9b6d3a53ab0b771e8d4615d545625eccea54b6" type="tarbz2">mirrors://berlios/kmobiletools/kmobiletools-0.5.0-beta3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kdebluetooth</Dependency>
+            <Dependency>kdepim</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kmobiletools</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kdebluetooth</Dependency>
+            <Dependency>kdepim</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2007-08-28</Date>
+            <Version>0.5_beta3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-08</Date>
+            <Version>0.5_beta2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-28</Date>
+            <Version>0.5_beta1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-23</Date>
+            <Version>0.4.3.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,49 @@
+diff -Nur gedit-2.20.4.orig/help/eu/Makefile.in gedit-2.20.4/help/eu/Makefile.in
+--- gedit-2.20.4.orig/help/eu/Makefile.in	2008-01-26 09:03:00.000000000 +0200
++++ gedit-2.20.4/help/eu/Makefile.in	2008-01-26 09:04:58.000000000 +0200
+@@ -510,7 +510,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(DESTDIR)$(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -518,7 +517,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(DESTDIR)$(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nur gedit-2.20.4.orig/help/Makefile.in gedit-2.20.4/help/Makefile.in
+--- gedit-2.20.4.orig/help/Makefile.in	2008-01-26 09:03:00.000000000 +0200
++++ gedit-2.20.4/help/Makefile.in	2008-01-26 09:03:53.000000000 +0200
+@@ -1045,7 +1045,6 @@
+ 	done
+ 	@if test "x$(_ENABLE_SK)" = "xtrue"; then \
+ 	  echo "scrollkeeper-update -p $(DESTDIR)$(_sklocalstatedir) -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"; \
+-	  scrollkeeper-update -p "$(DESTDIR)$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"; \
+ 	fi;
+ 
+ install-doc-dsk:
+diff -Nur gedit-2.20.4.orig/help/ro/Makefile.in gedit-2.20.4/help/ro/Makefile.in
+--- gedit-2.20.4.orig/help/ro/Makefile.in	2008-01-26 09:03:00.000000000 +0200
++++ gedit-2.20.4/help/ro/Makefile.in	2008-01-26 09:04:43.000000000 +0200
+@@ -510,7 +510,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(DESTDIR)$(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -518,7 +517,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(DESTDIR)$(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \

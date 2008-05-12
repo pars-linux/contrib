@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>autopano-sift</Name>
+        <Homepage>http://user.cs.tu-berlin.de/~nowozin/autopano-sift/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+	<IsA>library</IsA>
+        <Summary>Autopano-SIFT is a helper program for panorama image generation. </Summary>
+        <Description>Autopano-SIFT is a helper program for panorama image generation. It automatically generates control point information for a number of image files for use with the hugin panorama generation software.</Description>
+        <Archive sha1sum="ecb83cb6a5b3cb43217aa0bfb93b6c8d10d1ca09" type="targz">http://user.cs.tu-berlin.de/~nowozin/autopano-sift/autopano-sift-2.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk-sharp</Dependency>
+            <Dependency>mono</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="2">autopano_pkgconfig.patch</Patch>
+            <Patch level="2">autopano_pkgconfig2.patch</Patch>
+            <Patch level="2">autopano_pkgconfig3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>autopano-sift</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk-sharp</Dependency>
+            <Dependency>mono</Dependency>
+            <Dependency>libsift</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-07-07</Date>
+            <Version>2.4</Version>
+            <Comment>Compile with catbox, add docs</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-04</Date>
+            <Version>2.4</Version>
+            <Comment>First release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

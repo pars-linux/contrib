@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lintouch</Name>
+        <Homepage>http://www.lintouch.org/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>LGPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Lintouch is an opensource HMI software.</Summary>
+        <Archive sha1sum="fcc8ff737e07ece14e0a345064ff96c6841a160e" type="targz">http://lintouch.org/download/lintouch-1.10/sources/lintouch-1.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>cppunit</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>doxygen</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>lintouch</Name>
+        <RuntimeDependencies>
+            <Dependency>cppunit</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/lintouch/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-24</Date>
+            <Version>1.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

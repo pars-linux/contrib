@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PEAR-MDB2_Driver_mysql</Name>
+        <Homepage>http://pear.php.net/package/MDB2_Driver_mysql/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>MDB2 MySQL Driver</Summary>
+        <Archive sha1sum="edbbc2e5e6074080650c5f6a21b7fe7fb8dededd" type="targz">http://download.pear.php.net/package/MDB2_Driver_mysql-1.4.1.tgz</Archive>
+        <Patches>
+            <Patch>bug-10024.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>PEAR-MDB2_Driver_mysql</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR</Dependency>
+            <Dependency releaseFrom="4">PEAR-MDB2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4" type="security">
+            <Date>2007-11-08</Date>
+            <Version>1.4.1</Version>
+            <Comment>Fix http://pear.php.net/bugs/bug.php?id=10024</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-03</Date>
+            <Version>1.4.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-03-14</Date>
+            <Version>1.4.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-22</Date>
+            <Version>1.3.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

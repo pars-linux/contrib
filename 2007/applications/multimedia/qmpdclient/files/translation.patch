@@ -1,0 +1,16 @@
+--- src/config.cpp	2007-06-27 20:24:16.000000000 +0300
++++ src/config.cpp	2008-02-01 16:47:28.000000000 +0200
+@@ -332,11 +332,11 @@
+ }
+ 
+ bool Config::translate() const {
+-	return value("/language/translate", false).toBool();
++	return value("/language/translate", true).toBool();
+ }
+ 
+ QString Config::locale() const {
+-	return value("/language/locale", "").toString();
++	return value("/language/locale", systemPath() + "/translations/" + QLocale::system().name() + ".qm").toString();
+ }
+ 
+ QString Config::localeFile() const {

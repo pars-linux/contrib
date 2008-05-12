@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>Terminal</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Terminal for XFCE</Summary>
+        <Archive sha1sum="9c4ae0422dea8161aa72659d3bd1b035688d70d7" type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/Terminal-0.2.8.tar.bz2</Archive>
+       <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency versionFrom="0.5">startup-notification</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency versionFrom="0.3.4">exo</Dependency>
+       </BuildDependencies>
+       <Patches>
+           <Patch>fix-desktop-menu-duplicate-with-kde.patch</Patch>
+       </Patches>
+    </Source>
+
+    <Package>
+        <Name>Terminal</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>startup-notification</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency versionFrom="0.3.4">exo</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="man">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="10">
+            <Date>2008-01-26</Date>
+            <Version>0.2.8</Version>
+            <Comment>Remove background image, it looks ugly.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2007-12-06</Date>
+            <Version>0.2.8</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="8" type="security">
+            <Date>2007-08-14</Date>
+            <Version>0.2.6</Version>
+            <Comment>Fully fix for CVE-2007-3770. Even ENV. veriables can't be reached with URL.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="7" type="security">
+            <Date>2007-08-12</Date>
+            <Version>0.2.6</Version>
+            <Comment>Fix CVE-2007-3770</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-05-08</Date>
+            <Version>0.2.6</Version>
+            <Comment>Fix desktop menu duplicate with KDE (#5626)</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-04-11</Date>
+            <Version>0.2.6</Version>
+            <Comment>Add Turkish translation.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-01-24</Date>
+            <Version>0.2.6</Version>
+            <Comment>Version bump to stable</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-11-09</Date>
+            <Version>0.2.5.8_rc2</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-17</Date>
+            <Version>0.2.5.6_rc1</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>0.2.5.4_beta2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

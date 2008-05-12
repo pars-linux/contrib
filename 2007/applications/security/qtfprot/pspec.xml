@@ -1,0 +1,58 @@
+<?xml version = '1.0'?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qtfprot</Name>
+        <Homepage>http://www.coffeecrew.org</Homepage>
+        <Packager>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Virus Browser and Anti-Virus Software</Summary>
+        <Description>Virus Browser and Anti-Virus Software</Description>
+        <Archive sha1sum="52125983e0e800affe71b70af941664f7f00bfb7" type="tarbz2" >http://www.coffeecrew.org/projects/qtfprot/qtfprot-0.2.1c.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>kdebase</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qtfprot</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>libICE</Dependency>
+            <Dependency>kdebase</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable" >/usr/bin</Path>
+            <Path fileType="data" >/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/qtfprot.desktop">qtfprot.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1" >
+            <Date>2006-12-11</Date>
+            <Version>0.2.1</Version>
+            <Comment>First release</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>rasimakar@pardusdepo.com</Email>
+        </Update>
+    </History>
+</PISI>

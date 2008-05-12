@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM 'http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd'>
+
+<PISI>
+    <Source>
+        <Name>enlightenment</Name>
+        <Homepage>http://www.enlightenment.org</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>app:gui</IsA>
+        <Summary>Enlightenment Window Manager</Summary>
+        <Archive sha1sum="fb9085f558d9745dd015b8fe1af48b4a6341d6ba" type="targz">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.037.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.2.19">esound</Dependency>
+            <Dependency versionFrom="2">freetype</Dependency>
+            <Dependency versionFrom="1.2.1">imlib2</Dependency>
+            <Dependency versionFrom="0.9.9.037">ecore</Dependency>
+            <Dependency versionFrom="1.0.5.007">edb</Dependency>
+            <Dependency versionFrom="0.5.0.037">edje</Dependency>
+            <Dependency versionFrom="0.9.10.037">eet</Dependency>
+            <Dependency versionFrom="0.9.1.037">embryo</Dependency>
+            <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+            <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+            <Dependency versionFrom="0.9.9.037">evas</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>enlightenment-tr.patch</Patch>
+            <Patch>enlightenment.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>enlightenment</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.2.19">esound</Dependency>
+            <Dependency versionFrom="2">freetype</Dependency>
+            <Dependency versionFrom="1.2.1">imlib2</Dependency>
+            <Dependency versionFrom="0.9.9.037">ecore</Dependency>
+            <Dependency versionFrom="1.0.5.007">edb</Dependency>
+            <Dependency versionFrom="0.5.0.037">edje</Dependency>
+            <Dependency versionFrom="0.9.10.037">eet</Dependency>
+            <Dependency versionFrom="0.9.1.037">embryo</Dependency>
+            <Dependency versionFrom="0.9.0.007">epeg</Dependency>
+            <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
+            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
+            <Dependency versionFrom="0.9.9.037">evas</Dependency>
+            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2006-12-09</Date>
+            <Version>0.16.999.037</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-11-04</Date>
+            <Version>0.16.999.036</Version>
+            <Comment>Launcher fix and desktop patch added</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-11-03</Date>
+            <Version>0.16.999.036</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-21</Date>
+            <Version>0.16.999.035</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-07-30</Date>
+            <Version>0.16.999.032</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-10</Date>
+            <Version>0.16.999.027</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

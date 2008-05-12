@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kismet</Name>
+        <Homepage>http://www.kismetwireless.net</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>802.11 layer2 wireless network detector, sniffer, and intrusion detection system.</Summary>
+        <Archive sha1sum="a1c682797ad6842b53f9e0f038254aa8326e0fb4" type="targz">http://www.kismetwireless.net/code/kismet-2007-10-R1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libpcap</Dependency>
+            <Dependency>wireless-tools</Dependency>
+            <Dependency>gmp</Dependency>
+            <Dependency>imagemagick</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kismet</Name>
+        <RuntimeDependencies>
+            <Dependency>libpcap</Dependency>
+            <Dependency>wireless-tools</Dependency>
+            <Dependency>gmp</Dependency>
+            <Dependency>imagemagick</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/kismet</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/conf.d/kismet" permission="0644" owner="root">kismet.confd</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+             <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2007-11-01</Date>
+            <Version>200710</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-20</Date>
+            <Version>200701</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-12-06</Date>
+            <Version>200604</Version>
+            <Comment>Service script and configuration file</Comment>
+            <Name>Bahadır Kandemir</Name>
+            <Email>bahadir@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-06</Date>
+            <Version>200604</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

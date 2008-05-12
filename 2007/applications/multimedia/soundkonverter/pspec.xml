@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>soundkonverter</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php/soundKonverter?content=29024</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>With soundKonverter you can convert between various audio file formats.</Summary>
+        <Description>With soundKonverter you can convert between various audio file formats.</Description>
+        <Archive sha1sum="93fa83ce6afab7e72a5264d14f08b06aedbde1b3" type="tarbz2">http://hessijames.googlepages.com/soundkonverter-0.3.6.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.96">lame</Dependency>
+            <Dependency versionFrom="1.0">vorbis-tools</Dependency>
+            <Dependency versionFrom="1.1.1">flac</Dependency>
+            <Dependency versionFrom="1.5.0.1">libmp4v2</Dependency>
+            <Dependency versionFrom="2.0">faad2</Dependency>
+            <Dependency versionFrom="1.4">taglib</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>cdparanoia</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>wavpack</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>soundkonverter.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>soundkonverter</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.96">lame</Dependency>
+            <Dependency versionFrom="1.0">vorbis-tools</Dependency>
+            <Dependency versionFrom="1.1.1">flac</Dependency>
+            <Dependency versionFrom="1.5.0.1">libmp4v2</Dependency>
+            <Dependency versionFrom="2.0">faad2</Dependency>
+            <Dependency versionFrom="1.4">taglib</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>cdparanoia</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>wavpack</Dependency>
+        </RuntimeDependencies>
+        <Files>
+           <Path fileType="executable">/usr/kde/3.5/bin</Path>
+           <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+           <Path fileType="data">/usr/kde/3.5/share</Path>
+           <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2007-10-21</Date>
+            <Version>0.3.6</Version>
+            <Comment>Stable update</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2007-09-01</Date>
+            <Version>0.3.5</Version>
+            <Comment>Stable update</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-07-29</Date>
+            <Version>0.3.4</Version>
+            <Comment>Stable update</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-03-09</Date>
+            <Version>0.3.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-02-26</Date>
+            <Version>0.3.1</Version>
+            <Comment>Stable update</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-12-27</Date>
+            <Version>0.2.95</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-30</Date>
+            <Version>0.2.90</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-26</Date>
+            <Version>0.2.80</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-11</Date>
+            <Version>0.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

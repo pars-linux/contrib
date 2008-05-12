@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sqlite3-ruby</Name>
+        <Homepage>http://sqlite-ruby.rubyforge.org</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>Ruby</License>
+        <IsA>library</IsA>
+        <Summary>SQLite database engine for Ruby</Summary>
+        <Description>This module allows Ruby programs to interface with the SQLite database engine.</Description>
+        <Archive sha1sum="3b8030b0530a8dc86763e241eb6175f341b058cb" type="targz">http://rubyforge.org/frs/download.php/17097/sqlite3-ruby-1.2.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ruby</Dependency>
+            <Dependency>sqlite</Dependency>
+            <Dependency>swig</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>defaults.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>sqlite3-ruby</Name>
+        <RuntimeDependencies>
+            <Dependency>ruby</Dependency>
+            <Dependency>sqlite</Dependency>
+            <Dependency>swig</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-08</Date>
+            <Version>1.2.1</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

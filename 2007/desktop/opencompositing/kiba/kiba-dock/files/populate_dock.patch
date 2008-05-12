@@ -1,0 +1,29 @@
+--- populate-dock.sh.in.orig	2007-12-29 00:39:28.000000000 +0200
++++ files/populate-dock.sh.in	2007-12-29 01:05:07.000000000 +0200
+@@ -1,6 +1,7 @@
+ #!/bin/sh
+ # Simple shell script to populate the dock by setting up some standard applications.
+ DESKTOP_DIR="/usr/share/applications"
++DESKTOP_KDEDIR="/usr/kde/3.5/share/applications/kde"
+ 
+ test -z ~/.kiba-dock/ || @mkdir_p@ ~/.kiba-dock/
+ test -z ~/.kiba-dock/launcher/ || @mkdir_p@ ~/.kiba-dock/launcher/
+@@ -11,10 +12,12 @@
+     cp $file ~/.kiba-dock/launcher/
+   fi
+ done <<EOF
+-    $(ls $DESKTOP_DIR/gnome-terminal*.desktop)
+-    $(ls $DESKTOP_DIR/gimp-2.2*.desktop)
+-    $(ls $DESKTOP_DIR/epiphany*.desktop)
+-    $(ls $DESKTOP_DIR/gaim*.desktop)
+-    $(ls $DESKTOP_DIR/gnome-cd*.desktop)
+-    $(ls $DESKTOP_DIR/background*.desktop)
++    $(ls $DESKTOP_DIR/mozillafirefox.desktop)
++    $(ls $DESKTOP_DIR/gimp*.desktop)
++    $(ls $DESKTOP_DIR/audacious*.desktop)
++    $(ls $DESKTOP_DIR/amsn*.desktop)
++    $(ls $DESKTOP_KDEDIR/tasma.desktop)
++    $(ls $DESKTOP_KDEDIR/gwenview*.desktop)
++    $(ls $DESKTOP_KDEDIR/amarok*.desktop)
++    $(ls $DESKTOP_KDEDIR/akregator*.desktop)
+ EOF
