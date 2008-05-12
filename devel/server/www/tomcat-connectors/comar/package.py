@@ -1,6 +1,6 @@
 import re
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     module_enable('JK')
 
 def preRemove():

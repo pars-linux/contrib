@@ -2,7 +2,7 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.system('/usr/bin/xmlcatalog --noout --add "public" \
                "-//OMF//DTD Scrollkeeper OMF Variant V1.0//EN" \
                "/usr/share/xml/scrollkeeper/dtds/scrollkeeper-omf.dtd" \

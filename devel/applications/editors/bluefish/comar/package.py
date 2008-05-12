@@ -2,7 +2,7 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.system("/usr/bin/update-mime-database /usr/share/mime")
 
 def preRemove():

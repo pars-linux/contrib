@@ -2,5 +2,5 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     os.system("/usr/bin/webcleaner-certificates install")
