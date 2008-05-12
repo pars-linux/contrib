@@ -19,4 +19,4 @@ def install():
 
     pisitools.insinto("/usr/share/applications","fedora/qcomicbook.desktop")
 
-    pisitools.dodoc("ChangeLog", "COPYING", "README", "AUTHORS", "TODO", "THANKS", "NEWS")
+    pisitools.dodoc("ChangeLog", "COPYING", "README", "AUTHORS", "TODO", "THANKS")
