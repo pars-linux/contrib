@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-notes-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce Notes Plugin</Summary>
+        <Archive sha1sum="6cc99392e44e94a81731dbd585a075c195f2a9d8" type="tarbz2">http://goodies.xfce.org/releases/xfce4-notes-plugin/xfce4-notes-plugin-1.4.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-notes-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-14</Date>
+            <Version>1.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
