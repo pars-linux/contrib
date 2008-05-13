@@ -17,8 +17,6 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.domo("po/tr.po", "tr", "Thunar.mo")
-
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
