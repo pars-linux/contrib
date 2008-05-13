@@ -15,6 +15,6 @@ def build():
 
 def install():
     autotools.install()
-    
+
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
