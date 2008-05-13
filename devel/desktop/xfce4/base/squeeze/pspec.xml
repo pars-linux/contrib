@@ -13,20 +13,20 @@
         <Summary>A modern and advanced archive manager for the Xfce Desktop Environment.</Summary>
         <Archive sha1sum="381ff08b033c0d8a51eda5d4d27bdf38e40fd9c7" type="tarbz2">http://squeeze.xfce.org/downloads/squeeze-0.2.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>Thunar</Dependency>
-            <Dependency versionFrom="1.0">dbus</Dependency>
+            <Dependency versionFrom="2.12.9">gtk2</Dependency>
             <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency>Thunar</Dependency>
+            <Dependency>dbus-glib</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>squeeze</Name>
         <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>Thunar</Dependency>
-            <Dependency versionFrom="1.0">dbus</Dependency>
+            <Dependency versionFrom="2.12.9">gtk2</Dependency>
             <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+            <Dependency>Thunar</Dependency>
+            <Dependency>dbus-glib</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -37,9 +37,6 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-        <Provides>
-            <COMAR script="package.py">System.Package</COMAR>
-        </Provides>
    </Package>
 
    <History>
