@@ -7,7 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-WorkDir = "smplayer-%s%s" % (get.srcVERSION().split("_", 1)[0],  get.srcVERSION().split("_", 1)[1])
+WorkDir = "smplayer-0.6.0final"
 
 def build():
     autotools.make("QMAKE=qmake-qt4 PREFIX=/usr")
