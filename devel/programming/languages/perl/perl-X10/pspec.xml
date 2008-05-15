@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-X10</Name>
+        <Homepage>http://search.cpan.org/dist/X10-0.03/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>app:console</IsA>
+        <Summary>Modules for communicating with X10 devices</Summary>
+        <Archive sha1sum="f4c1eac38e52e8c01b5b9e724162390975200dc7" type="targz">mirrors://cpan/authors/id/R/RO/ROBF/X10-0.03.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>perl-Device-SerialPort</Dependency>
+            <Dependency>perl-Astro-SunTime</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-X10</Name>
+        <RuntimeDependencies>
+            <Dependency>perl-Device-SerialPort</Dependency>
+            <Dependency>perl-Astro-SunTime</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>X10</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-10</Date>
+            <Version>0.03</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

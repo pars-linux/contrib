@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-ExtUtils-Depends</Name>
+        <Homepage>http://search.cpan.org/~rmcfarla/ExtUtils-Depends-0.205</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A library for easily build XS extensions that depend on XS extensions</Summary>
+        <Description>This module tries to make it easy to build Perl extensions that use functions and typemaps provided by other perl extensions.</Description>
+        <Archive sha1sum="58a2a648731060ba333517d7a93eaf47a87a291a" type="targz">mirrors://cpan/authors/id/R/RM/RMCFARLA/Gtk2-Perl/ExtUtils-Depends-0.205.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>perl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-ExtUtils-Depends</Name>
+        <RuntimeDependencies>
+            <Dependency>perl</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>ExtUtils-Depends</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-11-05</Date>
+            <Version>0.205</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
