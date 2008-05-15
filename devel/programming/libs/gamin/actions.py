@@ -10,12 +10,15 @@ from pisi.actionsapi import pisitools
 
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-static")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
+
+    # remove static lib.
+    pisitools.remove("/usr/lib/libgamin_shared.a")
 
     pisitools.dodoc("AUTHORS", "README", "Copyright", "COPYING", "doc/*")
