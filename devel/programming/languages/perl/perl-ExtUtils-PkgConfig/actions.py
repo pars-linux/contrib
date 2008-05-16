@@ -5,6 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import perlmodules
+from pisi.actionsapi import get
+
+WorkDir = "ExtUtils-PkgConfig-%s" % get.srcVERSION()
 
 def setup():
     perlmodules.configure()

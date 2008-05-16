@@ -6,6 +6,9 @@
 
 from pisi.actionsapi import perlmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "Device-SerialPort-%s" % get.srcVERSION()
 
 def setup():
     perlmodules.configure()
