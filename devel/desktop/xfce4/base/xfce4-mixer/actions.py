@@ -7,6 +7,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--with-sound=alsa")
@@ -15,7 +16,7 @@ def build():
     autotools.make("-j1")
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
