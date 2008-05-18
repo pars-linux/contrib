@@ -8,17 +8,17 @@
             <Name>Fahri Tuğrul Gürkaynak</Name>
             <Email>ftugrul@gmail.com</Email>
         </Packager>
-        <License>GPL</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
-        <Summary>Guitar Tuner</Summary>
+        <Summary>Musical instrument tuner</Summary>
         <Description>K3Guitune is a program that lets you tune a musical instrument using your computer and its microphone.</Description>
-        <Archive sha1sum="c3771e38477ceb8f6505fab6d4a552d5773a9506" type="tarbz2">http://home.planet.nl/~lamer024/files/k3guitune-1.0.tar.bz2</Archive>
+        <Archive sha1sum="60adc200670026e5ab49f9cb79539ab275be3bc8" type="targz">http://home.planet.nl/~lamer024/files/k3guitune-1.01.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>kdebase</Dependency>
             <Dependency>bio2jack</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="0">varsayilan_OSS.patch</Patch>
+            <Patch>varsayilan_OSS.patch</Patch>
+            <Patch>soundinput.patch</Patch>
             <Patch level="1">desktop-icon.patch</Patch>
         </Patches>
     </Source>
@@ -39,11 +39,18 @@
             <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
         <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/k3guitune.png">k3guitune.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/guitune_logo.xpm">guitune_logo.xpm</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-05-18</Date>
+            <Version>1.01</Version>
+            <Comment>Version bump, gcc 4.3 fix, icon changed to guitune logo and some makeup</Comment>
+            <Name>Fahri Tuğrul Gürkaynak</Name>
+            <Email>tugrul@pardus.org.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2007-05-08</Date>
             <Version>1.0</Version>
