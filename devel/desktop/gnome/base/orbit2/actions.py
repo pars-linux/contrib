@@ -12,7 +12,7 @@ from pisi.actionsapi import get
 WorkDir = "ORBit2-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--enable-static=no")
+    autotools.configure("--disable-static")
 
 def build():
     autotools.make()
@@ -20,5 +20,8 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "INSTALL", "NEWS", "README", "TODO")
+    # remove static lib
+    pisitools.remove("/usr/lib/libname-server-2.a")
+
+    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README", "TODO")
 
