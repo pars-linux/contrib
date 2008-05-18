@@ -17,32 +17,33 @@
         <BuildDependencies>
             <Dependency versionFrom="2.22.0">gconf</Dependency>
             <Dependency versionFrom="2.14.10">orbit2</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>neon</Dependency>
             <Dependency>gnome-mime-data</Dependency>
             <Dependency>shared-mime-info</Dependency>
-            <Dependency>intltool</Dependency>
             <Dependency>openssl</Dependency>
             <Dependency>samba</Dependency>
-            <Dependency>gamin</Dependency>
             <Dependency>dbus-glib</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>avahi-glib</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnome-vfs-2.16.0-no-dbus.patch</Patch>
+            <Patch level="1">gnome-vfs-2.20.0-ignore-certain-mountpoints.patch</Patch>
+            <Patch level="1">gnome-vfs-2.8.2-browser_default.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>gnome-vfs</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.22.0">gconf</Dependency>
-            <Dependency versionFrom="1.14.10">orbit2</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>neon</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
             <Dependency>gnome-mime-data</Dependency>
             <Dependency>shared-mime-info</Dependency>
-            <Dependency>intltool</Dependency>
             <Dependency>openssl</Dependency>
             <Dependency>samba</Dependency>
-            <Dependency>gamin</Dependency>
             <Dependency>dbus-glib</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>avahi-glib</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
