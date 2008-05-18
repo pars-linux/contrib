@@ -9,11 +9,13 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    # hmmm, we should do the hal mounting with gnome-mount?
     autotools.configure("--enable-ipv6 \
                          --enable-hal \
                          --disable-avahi \
                          --disable-static \
                          --disable-schemas-install \
+                         --disable-cdda \
                          --disable-howl \
                          --with-hal-mount=/usr/bin/mount \
                          --with-hal-umount=/usr/bin/umount \

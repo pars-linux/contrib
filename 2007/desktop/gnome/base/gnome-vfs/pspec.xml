@@ -18,31 +18,32 @@
             <Dependency versionFrom="2.22.0">gconf</Dependency>
             <Dependency versionFrom="2.14.10">orbit2</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>neon</Dependency>
             <Dependency>gnome-mime-data</Dependency>
             <Dependency>shared-mime-info</Dependency>
-            <Dependency>intltool</Dependency>
             <Dependency>openssl</Dependency>
             <Dependency>samba</Dependency>
-            <Dependency>gamin</Dependency>
             <Dependency>dbus-glib</Dependency>
+            <Dependency>hal</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnome-vfs-2.16.0-no-dbus.patch</Patch>
+            <Patch level="1">gnome-vfs-2.20.0-ignore-certain-mountpoints.patch</Patch>
+            <Patch level="1">gnome-vfs-2.8.2-browser_default.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>gnome-vfs</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.22.0">gconf</Dependency>
-            <Dependency versionFrom="1.14.10">orbit2</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
             <Dependency>libxml2</Dependency>
-            <Dependency>neon</Dependency>
             <Dependency>gnome-mime-data</Dependency>
             <Dependency>shared-mime-info</Dependency>
-            <Dependency>intltool</Dependency>
             <Dependency>openssl</Dependency>
             <Dependency>samba</Dependency>
-            <Dependency>gamin</Dependency>
             <Dependency>dbus-glib</Dependency>
+            <Dependency>hal</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -58,6 +59,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-05-18</Date>
+            <Version>2.22.0</Version>
+            <Comment>Add patches for setting firefox as default browser, ignoring /tmp as mountpoint and reducing warnings when can't connect to dbus.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-03-11</Date>
             <Version>2.22.0</Version>
