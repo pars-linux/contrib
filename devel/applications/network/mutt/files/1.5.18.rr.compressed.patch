@@ -1,59 +1,6 @@
-diff -udprP mutt-1.5.17.orig/Makefile.am mutt-1.5.17/Makefile.am
---- mutt-1.5.17.orig/Makefile.am	2007-11-01 01:28:09.000000000 +0200
-+++ mutt-1.5.17/Makefile.am	2007-11-04 09:45:47.000000000 +0200
-@@ -18,6 +18,7 @@ BUILT_SOURCES = keymap_defs.h patchlist.
- bin_PROGRAMS = mutt @DOTLOCK_TARGET@ @PGPAUX_TARGET@
- mutt_SOURCES = $(BUILT_SOURCES) \
- 	addrbook.c alias.c attach.c base64.c browser.c buffy.c color.c \
-+	compress.c \
- 	crypt.c cryptglue.c \
- 	commands.c complete.c compose.c copy.c curs_lib.c curs_main.c date.c \
- 	edit.c enter.c flags.c init.c filter.c from.c \
-@@ -67,6 +68,7 @@ EXTRA_mutt_SOURCES = account.c md5.c mut
- 
- EXTRA_DIST = COPYRIGHT GPL OPS OPS.PGP OPS.CRYPT OPS.SMIME TODO UPDATING \
- 	configure account.h \
-+	compress.h \
- 	attach.h buffy.h charset.h copy.h crypthash.h dotlock.h functions.h gen_defs \
- 	globals.h hash.h history.h init.h keymap.h mutt_crypt.h \
- 	mailbox.h mapping.h md5.h mime.h mutt.h mutt_curses.h mutt_menu.h \
-diff -udprP mutt-1.5.17.orig/Makefile.in mutt-1.5.17/Makefile.in
---- mutt-1.5.17.orig/Makefile.in	2007-11-01 21:13:14.000000000 +0200
-+++ mutt-1.5.17/Makefile.in	2007-11-04 09:45:47.000000000 +0200
-@@ -14,6 +14,10 @@
- 
- @SET_MAKE@
- 
-+mutt_SOURCES += compress.c
-+EXTRA_DIST += compress.h
-+mutt_OBJECTS += compress.o
-+
- 
- srcdir = @srcdir@
- top_srcdir = @top_srcdir@
-diff -udprP mutt-1.5.17.orig/Muttrc.head mutt-1.5.17/Muttrc.head
---- mutt-1.5.17.orig/Muttrc.head	2007-06-05 22:59:09.000000000 +0300
-+++ mutt-1.5.17/Muttrc.head	2007-11-04 09:45:47.000000000 +0200
-@@ -24,6 +24,11 @@ macro generic,pager <F1> "<shell-escape>
- macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
- bind browser y exit
- 
-+# Use folders which match on \\.gz$ as gzipped folders:
-+# open-hook \\.gz$ "gzip -cd %f > %t"
-+# close-hook \\.gz$ "gzip -c %t > %f"
-+# append-hook \\.gz$ "gzip -c %t >> %f"
-+
- # If Mutt is unable to determine your site's domain name correctly, you can
- # set the default here.
- #
-diff -udprP mutt-1.5.17.orig/PATCHES mutt-1.5.17/PATCHES
---- mutt-1.5.17.orig/PATCHES	2007-03-21 20:26:38.000000000 +0200
-+++ mutt-1.5.17/PATCHES	2007-11-04 09:45:47.000000000 +0200
-@@ -0,0 +1 @@
-+rr.compressed
-diff -udprP mutt-1.5.17.orig/compress.c mutt-1.5.17/compress.c
---- mutt-1.5.17.orig/compress.c	1970-01-01 03:00:00.000000000 +0300
-+++ mutt-1.5.17/compress.c	2007-11-04 09:45:47.000000000 +0200
+diff -Naur mutt-1.5.18.orig/compress.c mutt-1.5.18/compress.c
+--- mutt-1.5.18.orig/compress.c	1970-01-01 02:00:00.000000000 +0200
++++ mutt-1.5.18/compress.c	2008-05-11 01:55:15.000000000 +0300
 @@ -0,0 +1,490 @@
 +/*
 + * Copyright (C) 1997 Alain Penders <Alain@Finale-Dev.com>
@@ -545,9 +492,9 @@ diff -udprP mutt-1.5.17.orig/compress.c mutt-1.5.17/compress.c
 +}
 +
 +#endif /* USE_COMPRESSED */
-diff -udprP mutt-1.5.17.orig/compress.h mutt-1.5.17/compress.h
---- mutt-1.5.17.orig/compress.h	1970-01-01 03:00:00.000000000 +0300
-+++ mutt-1.5.17/compress.h	2007-11-04 09:45:47.000000000 +0200
+diff -Naur mutt-1.5.18.orig/compress.h mutt-1.5.18/compress.h
+--- mutt-1.5.18.orig/compress.h	1970-01-01 02:00:00.000000000 +0200
++++ mutt-1.5.18/compress.h	2008-05-11 01:55:15.000000000 +0300
 @@ -0,0 +1,27 @@
 +/*
 + * Copyright (C) 1997 Alain Penders <Alain@Finale-Dev.com>
@@ -576,23 +523,23 @@ diff -udprP mutt-1.5.17.orig/compress.h mutt-1.5.17/compress.h
 +int mutt_test_compress_command (const char *);
 +int mutt_check_mailbox_compressed (CONTEXT *);
 +void mutt_fast_close_compressed (CONTEXT *);
-diff -udprP mutt-1.5.17.orig/config.h.in mutt-1.5.17/config.h.in
---- mutt-1.5.17.orig/config.h.in	2007-11-01 21:13:54.000000000 +0200
-+++ mutt-1.5.17/config.h.in	2007-11-04 09:45:47.000000000 +0200
-@@ -509,6 +509,9 @@
- 
+diff -Naur mutt-1.5.18.orig/config.h.in mutt-1.5.18/config.h.in
+--- mutt-1.5.18.orig/config.h.in	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/config.h.in	2008-05-18 16:44:31.000000000 +0300
+@@ -516,6 +516,9 @@
  /* Define to enable Sun mailtool attachments support. */
  #undef SUN_ATTACHMENT
-+  
+ 
 +/* The compressed mailboxes support */
 +#undef USE_COMPRESSED
- 
++
  /* Define to use dotlocking for mailboxes. */
  #undef USE_DOTLOCK
-diff -udprP mutt-1.5.17.orig/configure mutt-1.5.17/configure
---- mutt-1.5.17.orig/configure	2007-11-01 21:13:15.000000000 +0200
-+++ mutt-1.5.17/configure	2007-11-04 09:45:47.000000000 +0200
-@@ -1366,6 +1366,7 @@ Optional Features:
+ 
+diff -Naur mutt-1.5.18.orig/configure mutt-1.5.18/configure
+--- mutt-1.5.18.orig/configure	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/configure	2008-05-18 16:50:13.000000000 +0300
+@@ -1482,6 +1482,7 @@
    --disable-warnings      Turn off compiler warnings (not recommended)
    --enable-nfs-fix        Work around an NFS with broken attributes caching
    --enable-mailtool       Enable Sun mailtool attachments support
@@ -600,11 +547,10 @@ diff -udprP mutt-1.5.17.orig/configure mutt-1.5.17/configure
    --enable-locales-fix    The result of isprint() is unreliable
    --enable-exact-address  Enable regeneration of email addresses
    --enable-hcache         Enable header caching
-@@ -12962,6 +12963,18 @@ echo "${ECHO_T}$mutt_cv_regex_broken" >&
+@@ -14421,6 +14422,17 @@
          fi
  fi
  
-+
 +# Check whether --enable-compressed or --disable-compressed was given.
 +if test "${enable_compressed+set}" = set; then
 +  enableval="$enable_compressed"
@@ -619,11 +565,21 @@ diff -udprP mutt-1.5.17.orig/configure mutt-1.5.17/configure
  if test $mutt_cv_regex = yes; then
  
  cat >>confdefs.h <<\_ACEOF
-diff -udprP mutt-1.5.17.orig/configure.ac mutt-1.5.17/configure.ac
---- mutt-1.5.17.orig/configure.ac	2007-11-01 21:10:06.000000000 +0200
-+++ mutt-1.5.17/configure.ac	2007-11-04 09:45:47.000000000 +0200
-@@ -786,6 +786,11 @@ AC_ARG_ENABLE(mailtool, AC_HELP_STRING([
-                 AC_DEFINE(SUN_ATTACHMENT,1,[ Define to enable Sun mailtool attachments support. ])
+@@ -22679,7 +22691,8 @@
+ if test -n "$CONFIG_FILES"; then
+ 
+ 
+-ac_cr=''
++ac_cr='
++'
+ ac_cs_awk_cr=`$AWK 'BEGIN { print "a\rb" }' </dev/null 2>/dev/null`
+ if test "$ac_cs_awk_cr" = "a${ac_cr}b"; then
+   ac_cs_awk_cr='\\r'
+diff -Naur mutt-1.5.18.orig/configure.ac mutt-1.5.18/configure.ac
+--- mutt-1.5.18.orig/configure.ac	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/configure.ac	2008-05-18 16:55:30.000000000 +0300
+@@ -786,6 +786,11 @@
+                 AC_DEFINE(LOCALES_HACK,1,[ Define if the result of isprint() is unreliable. ])
          fi])
  
 +AC_ARG_ENABLE(compressed, AC_HELP_STRING([--enable-compressed], [Enable compressed folders support]),
@@ -631,13 +587,13 @@ diff -udprP mutt-1.5.17.orig/configure.ac mutt-1.5.17/configure.ac
 +                AC_DEFINE(USE_COMPRESSED,1,[ Define to enable compressed folders support. ])
 +        fi])
 +
- AC_ARG_ENABLE(locales-fix, AC_HELP_STRING([--enable-locales-fix], [The result of isprint() is unreliable]),
-         [if test x$enableval = xyes; then
-                 AC_DEFINE(LOCALES_HACK,1,[ Define if the result of isprint() is unreliable. ])
-diff -udprP mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
---- mutt-1.5.17.orig/curs_main.c	2007-05-29 02:19:50.000000000 +0300
-+++ mutt-1.5.17/curs_main.c	2007-11-04 09:45:47.000000000 +0200
-@@ -1111,6 +1111,11 @@ int mutt_index_menu (void)
+ AC_ARG_WITH(exec-shell, AC_HELP_STRING([--with-exec-shell=SHELL], [Specify alternate shell (ONLY if /bin/sh is broken)]),
+         [if test $withval != yes; then
+                 AC_DEFINE_UNQUOTED(EXECSHELL, "$withval",
+diff -Naur mutt-1.5.18.orig/curs_main.c mutt-1.5.18/curs_main.c
+--- mutt-1.5.18.orig/curs_main.c	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/curs_main.c	2008-05-18 16:59:26.000000000 +0300
+@@ -1127,6 +1127,11 @@
          {
  	  int check;
  
@@ -649,10 +605,10 @@ diff -udprP mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
  	  mutt_str_replace (&LastFolder, Context->path);
  	  oldcount = Context ? Context->msgcount : 0;
  
-diff -udprP mutt-1.5.17.orig/doc/Makefile.am mutt-1.5.17/doc/Makefile.am
---- mutt-1.5.17.orig/doc/Makefile.am	2007-11-01 21:02:58.000000000 +0200
-+++ mutt-1.5.17/doc/Makefile.am	2007-11-04 09:47:06.000000000 +0200
-@@ -27,7 +27,8 @@ EXTRA_DIST = dotlock.man		\
+diff -Naur mutt-1.5.18.orig/doc/Makefile.am mutt-1.5.18/doc/Makefile.am
+--- mutt-1.5.18.orig/doc/Makefile.am	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/doc/Makefile.am	2008-05-18 17:00:27.000000000 +0300
+@@ -32,7 +32,8 @@
  
  HTML_DOCFILES = manual.html index.html intro.html gettingstarted.html \
  	configuration.html mimesupport.html advancedusage.html \
@@ -662,10 +618,10 @@ diff -udprP mutt-1.5.17.orig/doc/Makefile.am mutt-1.5.17/doc/Makefile.am
  
  BUILT_DISTFILES = stamp-doc-xml stamp-doc-chunked manual.txt $(HTML_DOCFILES)
  
-diff -udprP mutt-1.5.17.orig/doc/Makefile.in mutt-1.5.17/doc/Makefile.in
---- mutt-1.5.17.orig/doc/Makefile.in	2007-11-01 21:13:14.000000000 +0200
-+++ mutt-1.5.17/doc/Makefile.in	2007-11-04 09:47:31.000000000 +0200
-@@ -223,7 +223,8 @@ EXTRA_DIST = dotlock.man		\
+diff -Naur mutt-1.5.18.orig/doc/Makefile.in mutt-1.5.18/doc/Makefile.in
+--- mutt-1.5.18.orig/doc/Makefile.in	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/doc/Makefile.in	2008-05-18 17:01:09.000000000 +0300
+@@ -241,7 +241,8 @@
  
  HTML_DOCFILES = manual.html index.html intro.html gettingstarted.html \
  	configuration.html mimesupport.html advancedusage.html \
@@ -675,10 +631,10 @@ diff -udprP mutt-1.5.17.orig/doc/Makefile.in mutt-1.5.17/doc/Makefile.in
  
  BUILT_DISTFILES = stamp-doc-xml stamp-doc-chunked manual.txt $(HTML_DOCFILES)
  srcdir_DOCFILES = PGP-Notes.txt applying-patches.txt	\
-diff -udprP mutt-1.5.17.orig/doc/manual.xml.head mutt-1.5.17/doc/manual.xml.head
---- mutt-1.5.17.orig/doc/manual.xml.head	2007-11-01 21:02:58.000000000 +0200
-+++ mutt-1.5.17/doc/manual.xml.head	2007-11-04 09:45:47.000000000 +0200
-@@ -4208,6 +4208,24 @@ configuration option/command.  See
+diff -Naur mutt-1.5.18.orig/doc/manual.xml.head mutt-1.5.18/doc/manual.xml.head
+--- mutt-1.5.18.orig/doc/manual.xml.head	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/doc/manual.xml.head	2008-05-18 17:36:08.000000000 +0300
+@@ -4317,6 +4317,24 @@
  <link linkend="fcc-save-hook">fcc-save-hook</link>
  </para>
  </listitem>
@@ -703,7 +659,7 @@ diff -udprP mutt-1.5.17.orig/doc/manual.xml.head mutt-1.5.17/doc/manual.xml.head
  
  </itemizedlist>
  
-@@ -4654,6 +4672,254 @@ macro pager \cb |urlview\n
+@@ -4777,6 +4795,254 @@
  
  </chapter>
  
@@ -958,7 +914,7 @@ diff -udprP mutt-1.5.17.orig/doc/manual.xml.head mutt-1.5.17/doc/manual.xml.head
  <chapter id="mimesupport">
  <title>Mutt's MIME Support</title>
  
-@@ -6282,6 +6548,12 @@ The following are the commands understoo
+@@ -6451,6 +6717,12 @@
  <listitem>
  
  <para>
@@ -971,7 +927,7 @@ diff -udprP mutt-1.5.17.orig/doc/manual.xml.head mutt-1.5.17/doc/manual.xml.head
  <literal><link linkend="auto-view">auto&lowbar;view</link></literal> <emphasis>mimetype</emphasis> &lsqb; <emphasis>mimetype</emphasis> ... &rsqb;
  </para>
  </listitem>
-@@ -6312,6 +6584,12 @@ The following are the commands understoo
+@@ -6481,6 +6753,12 @@
  <listitem>
  
  <para>
@@ -984,7 +940,7 @@ diff -udprP mutt-1.5.17.orig/doc/manual.xml.head mutt-1.5.17/doc/manual.xml.head
  <literal><link linkend="color">color</link></literal> <emphasis>object</emphasis> <emphasis>foreground</emphasis> <emphasis>background</emphasis> &lsqb; <emphasis>regexp</emphasis> &rsqb;
  </para>
  </listitem>
-@@ -6444,6 +6722,12 @@ The following are the commands understoo
+@@ -6613,6 +6891,12 @@
  <listitem>
  
  <para>
@@ -997,10 +953,25 @@ diff -udprP mutt-1.5.17.orig/doc/manual.xml.head mutt-1.5.17/doc/manual.xml.head
  <literal><link linkend="crypt-hook">crypt-hook</link></literal> <emphasis>pattern</emphasis> <emphasis>key-id</emphasis>
  </para>
  </listitem>
-diff -udprP mutt-1.5.17.orig/doc/muttrc.man.head mutt-1.5.17/doc/muttrc.man.head
---- mutt-1.5.17.orig/doc/muttrc.man.head	2007-03-21 20:26:38.000000000 +0200
-+++ mutt-1.5.17/doc/muttrc.man.head	2007-11-04 09:45:47.000000000 +0200
-@@ -345,6 +345,24 @@ specify the ID of the public key to be u
+diff -Naur mutt-1.5.18.orig/doc/Muttrc.head mutt-1.5.18/doc/Muttrc.head
+--- mutt-1.5.18.orig/doc/Muttrc.head	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/doc/Muttrc.head	2008-05-18 16:40:01.000000000 +0300
+@@ -24,6 +24,11 @@
+ macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
+ bind browser y exit
+ 
++# Use folders which match on \\.gz$ as gzipped folders:
++# open-hook \\.gz$ "gzip -cd %f > %t"
++# close-hook \\.gz$ "gzip -c %t > %f"
++# append-hook \\.gz$ "gzip -c %t >> %f"
++
+ # If Mutt is unable to determine your site's domain name correctly, you can
+ # set the default here.
+ #
+diff -Naur mutt-1.5.18.orig/doc/muttrc.man.head mutt-1.5.18/doc/muttrc.man.head
+--- mutt-1.5.18.orig/doc/muttrc.man.head	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/doc/muttrc.man.head	2008-05-18 17:37:32.000000000 +0300
+@@ -345,6 +345,24 @@
  to a certain recipient.  The meaning of "key ID" is to be taken
  broadly: This can be a different e-mail address, a numerical key ID,
  or even just an arbitrary search string.
@@ -1025,21 +996,21 @@ diff -udprP mutt-1.5.17.orig/doc/muttrc.man.head mutt-1.5.17/doc/muttrc.man.head
  .TP
  \fBpush\fP \fIstring\fP
  This command adds the named \fIstring\fP to the keyboard buffer.
-diff -udprP mutt-1.5.17.orig/hook.c mutt-1.5.17/hook.c
---- mutt-1.5.17.orig/hook.c	2007-04-10 20:18:26.000000000 +0300
-+++ mutt-1.5.17/hook.c	2007-11-04 09:45:47.000000000 +0200
-@@ -24,6 +24,10 @@
- #include "mailbox.h"
- #include "mutt_crypt.h"
+diff -Naur mutt-1.5.18.orig/hook.c mutt-1.5.18/hook.c
+--- mutt-1.5.18.orig/hook.c	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/hook.c	2008-05-18 18:14:54.000000000 +0300
+@@ -30,6 +30,10 @@
+ #include <ctype.h>
+ #include <unistd.h>
  
 +#ifdef USE_COMPRESSED
 +#include "compress.h"
 +#endif
 +
- #include <limits.h>
- #include <string.h>
- #include <stdlib.h>
-@@ -92,6 +96,16 @@ int mutt_parse_hook (BUFFER *buf, BUFFER
+ typedef struct hook
+ {
+   int type;		/* hook type */
+@@ -92,6 +96,16 @@
      memset (&pattern, 0, sizeof (pattern));
      pattern.data = safe_strdup (path);
    }
@@ -1048,18 +1019,18 @@ diff -udprP mutt-1.5.17.orig/hook.c mutt-1.5.17/hook.c
 +  {
 +    if (mutt_test_compress_command (command.data))
 +    {
-+	strfcpy (err->data, _("bad formatted command string"), err->dsize);
-+	return (-1);
++       strfcpy (err->data, _("bad formatted command string"), err->dsize);
++       return (-1);
 +    }
 +  }
 +#endif
    else if (DefaultHook && !(data & (M_CHARSETHOOK | M_ICONVHOOK | M_ACCOUNTHOOK))
             && (!WithCrypto || !(data & M_CRYPTHOOK))
        )
-diff -udprP mutt-1.5.17.orig/init.h mutt-1.5.17/init.h
---- mutt-1.5.17.orig/init.h	2007-10-31 19:48:52.000000000 +0200
-+++ mutt-1.5.17/init.h	2007-11-04 09:45:47.000000000 +0200
-@@ -3156,6 +3156,11 @@ struct command_t Commands[] = {
+diff -Naur mutt-1.5.18.orig/init.h mutt-1.5.18/init.h
+--- mutt-1.5.18.orig/init.h	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/init.h	2008-05-18 18:19:35.000000000 +0300
+@@ -3234,6 +3234,11 @@
    { "fcc-hook",		mutt_parse_hook,	M_FCCHOOK },
    { "fcc-save-hook",	mutt_parse_hook,	M_FCCHOOK | M_SAVEHOOK },
    { "folder-hook",	mutt_parse_hook,	M_FOLDERHOOK },
@@ -1071,10 +1042,10 @@ diff -udprP mutt-1.5.17.orig/init.h mutt-1.5.17/init.h
    { "group",		parse_group,		0 },
    { "ungroup",		parse_ungroup,		0 },
    { "hdr_order",	parse_list,		UL &HeaderOrderList },
-diff -udprP mutt-1.5.17.orig/main.c mutt-1.5.17/main.c
---- mutt-1.5.17.orig/main.c	2007-09-18 00:24:22.000000000 +0300
-+++ mutt-1.5.17/main.c	2007-11-04 09:45:47.000000000 +0200
-@@ -318,6 +318,12 @@ static void show_version (void)
+diff -Naur mutt-1.5.18.orig/main.c mutt-1.5.18/main.c
+--- mutt-1.5.18.orig/main.c	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/main.c	2008-05-18 17:49:01.000000000 +0300
+@@ -312,6 +312,12 @@
  	"-USE_GNU_REGEX  "
  #endif
  
@@ -1087,9 +1058,41 @@ diff -udprP mutt-1.5.17.orig/main.c mutt-1.5.17/main.c
  	"\n"
  	
  #ifdef HAVE_COLOR
-diff -udprP mutt-1.5.17.orig/mbox.c mutt-1.5.17/mbox.c
---- mutt-1.5.17.orig/mbox.c	2007-03-02 20:44:44.000000000 +0200
-+++ mutt-1.5.17/mbox.c	2007-11-04 09:45:47.000000000 +0200
+diff -Naur mutt-1.5.18.orig/Makefile.am mutt-1.5.18/Makefile.am
+--- mutt-1.5.18.orig/Makefile.am	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/Makefile.am	2008-05-18 16:38:44.000000000 +0300
+@@ -18,6 +18,7 @@
+ bin_PROGRAMS = mutt @DOTLOCK_TARGET@ @PGPAUX_TARGET@
+ mutt_SOURCES = \
+ 	addrbook.c alias.c attach.c base64.c browser.c buffy.c color.c \
++	compress.c \
+ 	crypt.c cryptglue.c \
+ 	commands.c complete.c compose.c copy.c curs_lib.c curs_main.c date.c \
+ 	edit.c enter.c flags.c init.c filter.c from.c \
+@@ -59,6 +60,7 @@
+ 
+ EXTRA_DIST = COPYRIGHT GPL OPS OPS.PGP OPS.CRYPT OPS.SMIME TODO UPDATING \
+ 	configure account.h \
++	compress.h \
+ 	attach.h buffy.h charset.h copy.h crypthash.h dotlock.h functions.h gen_defs \
+ 	globals.h hash.h history.h init.h keymap.h mutt_crypt.h \
+ 	mailbox.h mapping.h md5.h mime.h mutt.h mutt_curses.h mutt_menu.h \
+diff -Naur mutt-1.5.18.orig/Makefile.in mutt-1.5.18/Makefile.in
+--- mutt-1.5.18.orig/Makefile.in	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/Makefile.in	2008-05-18 16:39:00.000000000 +0300
+@@ -14,6 +14,9 @@
+ 
+ @SET_MAKE@
+ 
++mutt_SOURCES += compress.c
++EXTRA_DIST += compress.h
++mutt_OBJECTS += compress.o
+ 
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
+diff -Naur mutt-1.5.18.orig/mbox.c mutt-1.5.18/mbox.c
+--- mutt-1.5.18.orig/mbox.c	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/mbox.c	2008-05-18 17:50:22.000000000 +0300
 @@ -29,6 +29,10 @@
  #include "copy.h"
  #include "mutt_curses.h"
@@ -1101,7 +1104,7 @@ diff -udprP mutt-1.5.17.orig/mbox.c mutt-1.5.17/mbox.c
  #include <sys/stat.h>
  #include <dirent.h>
  #include <string.h>
-@@ -1026,6 +1030,12 @@ bail:  /* Come here in case of disaster 
+@@ -1039,6 +1043,12 @@
  int mbox_close_mailbox (CONTEXT *ctx)
  {
    mx_unlock_file (ctx->path, fileno (ctx->fp), 1);
@@ -1114,10 +1117,10 @@ diff -udprP mutt-1.5.17.orig/mbox.c mutt-1.5.17/mbox.c
    mutt_unblock_signals ();
    mx_fastclose_mailbox (ctx);
    return 0;
-diff -udprP mutt-1.5.17.orig/mutt.h mutt-1.5.17/mutt.h
---- mutt-1.5.17.orig/mutt.h	2007-08-28 20:44:16.000000000 +0300
-+++ mutt-1.5.17/mutt.h	2007-11-04 09:45:47.000000000 +0200
-@@ -160,6 +160,11 @@ typedef enum
+diff -Naur mutt-1.5.18.orig/mutt.h mutt-1.5.18/mutt.h
+--- mutt-1.5.18.orig/mutt.h	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/mutt.h	2008-05-18 17:51:59.000000000 +0300
+@@ -160,6 +160,11 @@
  #define M_ACCOUNTHOOK	(1<<9)
  #define M_REPLYHOOK	(1<<10)
  #define M_SEND2HOOK     (1<<11)
@@ -1129,7 +1132,7 @@ diff -udprP mutt-1.5.17.orig/mutt.h mutt-1.5.17/mutt.h
  
  /* tree characters for linearize_tree and print_enriched_string */
  #define M_TREE_LLCORNER		1
-@@ -889,6 +894,11 @@ typedef struct _context
+@@ -891,6 +896,11 @@
  
    unsigned char rights[(RIGHTSMAX + 7)/8];	/* ACL bits */
  
@@ -1141,9 +1144,9 @@ diff -udprP mutt-1.5.17.orig/mutt.h mutt-1.5.17/mutt.h
    unsigned int locked : 1;	/* is the mailbox locked? */
    unsigned int changed : 1;	/* mailbox has been modified */
    unsigned int readonly : 1;    /* don't allow changes to the mailbox */
-diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
---- mutt-1.5.17.orig/mx.c	2007-07-11 20:52:55.000000000 +0300
-+++ mutt-1.5.17/mx.c	2007-11-04 09:45:47.000000000 +0200
+diff -Naur mutt-1.5.18.orig/mx.c mutt-1.5.18/mx.c
+--- mutt-1.5.18.orig/mx.c	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/mx.c	2008-05-18 17:58:59.000000000 +0300
 @@ -30,6 +30,10 @@
  #include "keymap.h"
  #include "url.h"
@@ -1155,7 +1158,7 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
  #ifdef USE_IMAP
  #include "imap.h"
  #endif
-@@ -445,6 +449,11 @@ int mx_get_magic (const char *path)
+@@ -445,6 +449,11 @@
      return (-1);
    }
  
@@ -1167,7 +1170,7 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
    return (magic);
  }
  
-@@ -484,6 +493,13 @@ static int mx_open_mailbox_append (CONTE
+@@ -484,6 +493,13 @@
  {
    struct stat sb;
  
@@ -1181,19 +1184,19 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
    ctx->append = 1;
  
  #ifdef USE_IMAP
-@@ -648,6 +664,11 @@ CONTEXT *mx_open_mailbox (const char *pa
+@@ -650,6 +666,11 @@
+   }
  
    ctx->magic = mx_get_magic (path);
-   
++
 +#ifdef USE_COMPRESSED
 +  if (ctx->magic == M_COMPRESSED)
 +    mutt_open_read_compressed (ctx);
 +#endif
-+
+   
    if(ctx->magic == 0)
      mutt_error (_("%s is not a mailbox."), path);
- 
-@@ -748,6 +769,10 @@ void mx_fastclose_mailbox (CONTEXT *ctx)
+@@ -763,6 +784,10 @@
      mutt_free_header (&ctx->hdrs[i]);
    FREE (&ctx->hdrs);
    FREE (&ctx->v2r);
@@ -1204,7 +1207,7 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
    FREE (&ctx->path);
    FREE (&ctx->pattern);
    if (ctx->limit_pattern) 
-@@ -800,6 +825,12 @@ static int sync_mailbox (CONTEXT *ctx, i
+@@ -815,6 +840,12 @@
    
    if (tmp && tmp->new == 0)
      mutt_update_mailbox (tmp);
@@ -1217,7 +1220,7 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
    return rc;
  }
  
-@@ -1001,6 +1032,11 @@ int mx_close_mailbox (CONTEXT *ctx, int 
+@@ -1016,6 +1047,11 @@
        !mutt_is_spool(ctx->path) && !option (OPTSAVEEMPTY))
      mx_unlink_empty (ctx->path);
  
@@ -1229,7 +1232,7 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
    mx_fastclose_mailbox (ctx);
  
    return 0;
-@@ -1310,6 +1346,11 @@ int mx_check_mailbox (CONTEXT *ctx, int 
+@@ -1325,6 +1361,11 @@
  {
    int rc;
  
@@ -1241,10 +1244,10 @@ diff -udprP mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
    if (ctx)
    {
      if (ctx->locked) lock = 0;
-diff -udprP mutt-1.5.17.orig/mx.h mutt-1.5.17/mx.h
---- mutt-1.5.17.orig/mx.h	2007-03-02 20:44:44.000000000 +0200
-+++ mutt-1.5.17/mx.h	2007-11-04 09:45:47.000000000 +0200
-@@ -40,6 +40,9 @@ enum
+diff -Naur mutt-1.5.18.orig/mx.h mutt-1.5.18/mx.h
+--- mutt-1.5.18.orig/mx.h	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/mx.h	2008-05-18 17:59:24.000000000 +0300
+@@ -40,6 +40,9 @@
  #ifdef USE_POP
    , M_POP
  #endif
@@ -1254,10 +1257,17 @@ diff -udprP mutt-1.5.17.orig/mx.h mutt-1.5.17/mx.h
  };
  
  WHERE short DefaultMagic INITVAL (M_MBOX);
-diff -udprP mutt-1.5.17.orig/po/POTFILES.in mutt-1.5.17/po/POTFILES.in
---- mutt-1.5.17.orig/po/POTFILES.in	2007-03-02 20:44:44.000000000 +0200
-+++ mutt-1.5.17/po/POTFILES.in	2007-11-04 09:45:47.000000000 +0200
-@@ -8,6 +8,7 @@ charset.c
+diff -Naur mutt-1.5.18.orig/PATCHES mutt-1.5.18/PATCHES
+--- mutt-1.5.18.orig/PATCHES	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/PATCHES	2008-05-18 16:40:55.000000000 +0300
+@@ -1 +1,2 @@
+ patch-1.5.18.sidebar.20080517.txt
++rr.compressed
+\ Dosya sonunda yenisatır yok.
+diff -Naur mutt-1.5.18.orig/po/POTFILES.in mutt-1.5.18/po/POTFILES.in
+--- mutt-1.5.18.orig/po/POTFILES.in	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/po/POTFILES.in	2008-05-18 17:59:48.000000000 +0300
+@@ -8,6 +8,7 @@
  color.c
  commands.c
  compose.c
@@ -1265,10 +1275,10 @@ diff -udprP mutt-1.5.17.orig/po/POTFILES.in mutt-1.5.17/po/POTFILES.in
  crypt-gpgme.c
  crypt.c
  cryptglue.c
-diff -udprP mutt-1.5.17.orig/status.c mutt-1.5.17/status.c
---- mutt-1.5.17.orig/status.c	2007-04-21 00:26:50.000000000 +0300
-+++ mutt-1.5.17/status.c	2007-11-04 09:45:47.000000000 +0200
-@@ -99,6 +99,14 @@ status_format_str (char *buf, size_t buf
+diff -Naur mutt-1.5.18.orig/status.c mutt-1.5.18/status.c
+--- mutt-1.5.18.orig/status.c	2008-05-18 16:37:17.000000000 +0300
++++ mutt-1.5.18/status.c	2008-05-18 18:01:13.000000000 +0300
+@@ -96,6 +96,14 @@
  
      case 'f':
        snprintf (fmt, sizeof(fmt), "%%%ss", prefix);
