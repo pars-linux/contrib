@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-vfs</Name>
+        <Homepage>http://www.gnome.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>LGPLv2</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Gnome Virtual Filesystem</Summary>
+        <Archive sha1sum="a58fb0654bb2c434372ee313a591ecfa8195fe18" type="tarbz2">mirrors://gnome/gnome-vfs/2.22/gnome-vfs-2.22.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.22.0">gconf</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
+            <Dependency>gnome-mime-data</Dependency>
+            <Dependency>shared-mime-info</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>samba</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>avahi-glib</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnome-vfs-2.16.0-no-dbus.patch</Patch>
+            <Patch level="1">gnome-vfs-2.20.0-ignore-certain-mountpoints.patch</Patch>
+            <Patch level="1">gnome-vfs-2.8.2-browser_default.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gnome-vfs</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.22.0">gconf</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
+            <Dependency>gnome-mime-data</Dependency>
+            <Dependency>shared-mime-info</Dependency>
+            <Dependency>openssl</Dependency>
+            <Dependency>samba</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>avahi-glib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share/dbus-1</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2008-05-18</Date>
+            <Version>2.22.0</Version>
+            <Comment>Add patches for setting firefox as default browser, ignoring /tmp as mountpoint and reducing warnings when can't connect to dbus.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-03-11</Date>
+            <Version>2.22.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-11-12</Date>
+            <Version>2.20.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-09-18</Date>
+            <Version>2.20.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-10</Date>
+            <Version>2.18.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-03-12</Date>
+            <Version>2.18.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-08</Date>
+            <Version>2.16.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
