@@ -18,7 +18,7 @@ def setup():
                    --mandir=/%s" % get.manDIR())
 
 def build():
-    kde.make("kvirc")
+    kde.make("kvirc -j1")
 
 def install():
     kde.install()
