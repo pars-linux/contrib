@@ -1,6 +1,6 @@
-diff -Naur mutt-1.5.17.orig/buffy.c mutt-1.5.17/buffy.c
---- mutt-1.5.17.orig/buffy.c	2007-03-21 20:26:38.000000000 +0200
-+++ mutt-1.5.17/buffy.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/buffy.c mutt-1.5.18/buffy.c
+--- mutt-1.5.18.orig/buffy.c	2008-01-28 04:20:21.000000000 +0200
++++ mutt-1.5.18/buffy.c	2008-05-18 16:05:19.000000000 +0300
 @@ -259,7 +259,7 @@
    char path[_POSIX_PATH_MAX];
    struct stat contex_sb;
@@ -19,7 +19,7 @@ diff -Naur mutt-1.5.17.orig/buffy.c mutt-1.5.17/buffy.c
  #ifdef USE_IMAP
      if (tmp->magic != M_IMAP)
  #endif
-@@ -350,48 +352,108 @@
+@@ -350,48 +352,112 @@
        case M_MBOX:
        case M_MMDF:
  
@@ -75,6 +75,7 @@ diff -Naur mutt-1.5.17.orig/buffy.c mutt-1.5.17/buffy.c
  	}
 + 	tmp->msgcount = 0;
 + 	tmp->msg_unread = 0;
++ 	tmp->msg_flagged = 0;
  	while ((de = readdir (dirp)) != NULL)
  	{
  	  char *p;
@@ -112,6 +113,9 @@ diff -Naur mutt-1.5.17.orig/buffy.c mutt-1.5.17/buffy.c
 + 	      (!(p = strstr (de->d_name, ":2,")) || !strchr (p + 3, 'T')))
 +  	  {
 +             tmp->msgcount++;
++             if (p && strchr(p + 3, 'F')) {
++               tmp->msg_flagged++;
++             }
  	  }
  	}
  	closedir (dirp);
@@ -142,10 +146,10 @@ diff -Naur mutt-1.5.17.orig/buffy.c mutt-1.5.17/buffy.c
  	break;
        }
      }
-diff -Naur mutt-1.5.17.orig/buffy.h mutt-1.5.17/buffy.h
---- mutt-1.5.17.orig/buffy.h	2007-03-21 20:26:38.000000000 +0200
-+++ mutt-1.5.17/buffy.h	2007-12-13 13:08:39.000000000 +0200
-@@ -25,7 +25,11 @@
+diff -Naur mutt-1.5.18.orig/buffy.h mutt-1.5.18/buffy.h
+--- mutt-1.5.18.orig/buffy.h	2008-01-28 04:20:21.000000000 +0200
++++ mutt-1.5.18/buffy.h	2008-05-18 16:05:19.000000000 +0300
+@@ -25,7 +25,12 @@
    char *path;
    long size;
    struct buffy_t *next;
@@ -154,23 +158,25 @@ diff -Naur mutt-1.5.17.orig/buffy.h mutt-1.5.17/buffy.h
 +  short has_new;		/* set it new if new and not read */
 +  int msgcount;			/* total number of messages */
 +  int msg_unread;		/* number of unread messages */
++  int msg_flagged;		/* number of flagged messages */
    short notified;		/* user has been notified */
    short magic;			/* mailbox type */
    short newly_created;		/* mbox or mmdf just popped into existence */
-diff -Naur mutt-1.5.17.orig/color.c mutt-1.5.17/color.c
---- mutt-1.5.17.orig/color.c	2007-03-05 21:01:36.000000000 +0200
-+++ mutt-1.5.17/color.c	2007-12-13 13:08:39.000000000 +0200
-@@ -93,6 +93,7 @@
+diff -Naur mutt-1.5.18.orig/color.c mutt-1.5.18/color.c
+--- mutt-1.5.18.orig/color.c	2008-01-30 06:26:49.000000000 +0200
++++ mutt-1.5.18/color.c	2008-05-18 16:05:19.000000000 +0300
+@@ -93,6 +93,8 @@
    { "bold",		MT_COLOR_BOLD },
    { "underline",	MT_COLOR_UNDERLINE },
    { "index",		MT_COLOR_INDEX },
 +  { "sidebar_new",	MT_COLOR_NEW },
++  { "sidebar_flagged",	MT_COLOR_FLAGGED },
    { NULL,		0 }
  };
  
-diff -Naur mutt-1.5.17.orig/compose.c mutt-1.5.17/compose.c
---- mutt-1.5.17.orig/compose.c	2007-10-01 03:46:20.000000000 +0300
-+++ mutt-1.5.17/compose.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/compose.c mutt-1.5.18/compose.c
+--- mutt-1.5.18.orig/compose.c	2008-03-09 22:52:24.000000000 +0200
++++ mutt-1.5.18/compose.c	2008-05-18 16:05:19.000000000 +0300
 @@ -72,7 +72,7 @@
  
  #define HDR_XOFFSET 10
@@ -296,9 +302,9 @@ diff -Naur mutt-1.5.17.orig/compose.c mutt-1.5.17/compose.c
  	  mutt_paddstr (W, fcc);
  	  fccSet = 1;
  	}
-diff -Naur mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
---- mutt-1.5.17.orig/curs_main.c	2007-05-29 02:19:50.000000000 +0300
-+++ mutt-1.5.17/curs_main.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/curs_main.c mutt-1.5.18/curs_main.c
+--- mutt-1.5.18.orig/curs_main.c	2008-05-15 08:48:37.000000000 +0300
++++ mutt-1.5.18/curs_main.c	2008-05-18 16:05:19.000000000 +0300
 @@ -29,6 +29,7 @@
  #include "sort.h"
  #include "buffy.h"
@@ -353,7 +359,7 @@ diff -Naur mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
        else if (option (OPTBRAILLEFRIENDLY))
  	move (menu->current - menu->top + menu->offset, 0);
        else
-@@ -1051,6 +1060,7 @@
+@@ -1052,6 +1061,7 @@
  	  menu->redraw = REDRAW_FULL;
  	break;
  
@@ -361,7 +367,7 @@ diff -Naur mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
        case OP_MAIN_CHANGE_FOLDER:
        case OP_MAIN_NEXT_UNREAD_MAILBOX:
        
-@@ -1082,7 +1092,11 @@
+@@ -1083,7 +1093,11 @@
  	{
  	  mutt_buffy (buf, sizeof (buf));
  
@@ -374,7 +380,7 @@ diff -Naur mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
  	  {
  	    if (menu->menu == MENU_PAGER)
  	    {
-@@ -1100,6 +1114,7 @@
+@@ -1101,6 +1115,7 @@
  	}
  
  	mutt_expand_path (buf, sizeof (buf));
@@ -382,7 +388,7 @@ diff -Naur mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
  	if (mx_get_magic (buf) <= 0)
  	{
  	  mutt_error (_("%s is not a mailbox."), buf);
-@@ -2179,6 +2194,12 @@
+@@ -2180,6 +2195,12 @@
  	mutt_what_key();
  	break;
  
@@ -395,9 +401,39 @@ diff -Naur mutt-1.5.17.orig/curs_main.c mutt-1.5.17/curs_main.c
        default:
  	if (menu->menu == MENU_MAIN)
  	  km_error_key (MENU_MAIN);
-diff -Naur mutt-1.5.17.orig/flags.c mutt-1.5.17/flags.c
---- mutt-1.5.17.orig/flags.c	2007-04-13 21:40:07.000000000 +0300
-+++ mutt-1.5.17/flags.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/doc/Muttrc mutt-1.5.18/doc/Muttrc
+--- mutt-1.5.18.orig/doc/Muttrc	2008-05-17 22:34:47.000000000 +0300
++++ mutt-1.5.18/doc/Muttrc	2008-05-18 16:05:19.000000000 +0300
+@@ -2085,6 +2085,26 @@
+ # function.
+ # 
+ # 
++# set sidebar_visible=no
++#
++# Name: sidebar_visible
++# Type: boolean
++# Default: no
++# 
++# 
++# This specifies whether or not to show sidebar (left-side list of folders).
++# 
++# 
++# set sidebar_width=0
++#
++# Name: sidebar_width
++# Type: number
++# Default: 0
++# 
++# 
++# The width of the sidebar.
++# 
++# 
+ # set crypt_autosign=no
+ #
+ # Name: crypt_autosign
+diff -Naur mutt-1.5.18.orig/flags.c mutt-1.5.18/flags.c
+--- mutt-1.5.18.orig/flags.c	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/flags.c	2008-05-18 16:05:19.000000000 +0300
 @@ -22,8 +22,10 @@
  
  #include "mutt.h"
@@ -417,9 +453,9 @@ diff -Naur mutt-1.5.17.orig/flags.c mutt-1.5.17/flags.c
  }
  
  void mutt_tag_set_flag (int flag, int bf)
-diff -Naur mutt-1.5.17.orig/functions.h mutt-1.5.17/functions.h
---- mutt-1.5.17.orig/functions.h	2007-05-07 21:45:34.000000000 +0300
-+++ mutt-1.5.17/functions.h	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/functions.h mutt-1.5.18/functions.h
+--- mutt-1.5.18.orig/functions.h	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/functions.h	2008-05-18 16:05:19.000000000 +0300
 @@ -168,6 +168,11 @@
    { "decrypt-save",		OP_DECRYPT_SAVE,		NULL },
  
@@ -444,10 +480,10 @@ diff -Naur mutt-1.5.17.orig/functions.h mutt-1.5.17/functions.h
    { NULL,		0,				NULL }
  };
  
-diff -Naur mutt-1.5.17.orig/globals.h mutt-1.5.17/globals.h
---- mutt-1.5.17.orig/globals.h	2007-04-12 23:44:40.000000000 +0300
-+++ mutt-1.5.17/globals.h	2007-12-13 13:08:39.000000000 +0200
-@@ -115,6 +115,7 @@
+diff -Naur mutt-1.5.18.orig/globals.h mutt-1.5.18/globals.h
+--- mutt-1.5.18.orig/globals.h	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/globals.h	2008-05-18 16:05:19.000000000 +0300
+@@ -116,6 +116,7 @@
  WHERE char *SendCharset;
  WHERE char *Sendmail;
  WHERE char *Shell;
@@ -455,7 +491,7 @@ diff -Naur mutt-1.5.17.orig/globals.h mutt-1.5.17/globals.h
  WHERE char *Signature;
  WHERE char *SimpleSearch;
  #if USE_SMTP
-@@ -207,6 +208,9 @@
+@@ -209,6 +210,9 @@
  WHERE short ScoreThresholdRead;
  WHERE short ScoreThresholdFlag;
  
@@ -465,9 +501,9 @@ diff -Naur mutt-1.5.17.orig/globals.h mutt-1.5.17/globals.h
  #ifdef USE_IMAP
  WHERE short ImapKeepalive;
  #endif
-diff -Naur mutt-1.5.17.orig/imap/command.c mutt-1.5.17/imap/command.c
---- mutt-1.5.17.orig/imap/command.c	2007-10-31 22:55:52.000000000 +0200
-+++ mutt-1.5.17/imap/command.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/imap/command.c mutt-1.5.18/imap/command.c
+--- mutt-1.5.18.orig/imap/command.c	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/imap/command.c	2008-05-18 16:05:19.000000000 +0300
 @@ -911,6 +911,13 @@
  	     opened */
  	  status->uidnext = oldun;
@@ -482,9 +518,9 @@ diff -Naur mutt-1.5.17.orig/imap/command.c mutt-1.5.17/imap/command.c
          FREE (&value);
          return;
        }
-diff -Naur mutt-1.5.17.orig/imap/imap.c mutt-1.5.17/imap/imap.c
---- mutt-1.5.17.orig/imap/imap.c	2007-10-31 22:56:52.000000000 +0200
-+++ mutt-1.5.17/imap/imap.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/imap/imap.c mutt-1.5.18/imap/imap.c
+--- mutt-1.5.18.orig/imap/imap.c	2008-05-13 09:13:38.000000000 +0300
++++ mutt-1.5.18/imap/imap.c	2008-05-18 16:05:19.000000000 +0300
 @@ -1484,7 +1484,7 @@
  
      imap_munge_mbox_name (munged, sizeof (munged), name);
@@ -494,10 +530,10 @@ diff -Naur mutt-1.5.17.orig/imap/imap.c mutt-1.5.17/imap/imap.c
  
      if (imap_cmd_queue (idata, command) < 0)
      {
-diff -Naur mutt-1.5.17.orig/init.h mutt-1.5.17/init.h
---- mutt-1.5.17.orig/init.h	2007-10-31 19:48:52.000000000 +0200
-+++ mutt-1.5.17/init.h	2007-12-13 13:08:39.000000000 +0200
-@@ -1474,6 +1474,22 @@
+diff -Naur mutt-1.5.18.orig/init.h mutt-1.5.18/init.h
+--- mutt-1.5.18.orig/init.h	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/init.h	2008-05-18 16:05:19.000000000 +0300
+@@ -1498,6 +1498,22 @@
    ** you may unset this setting.
    ** (Crypto only)
    */
@@ -520,9 +556,9 @@ diff -Naur mutt-1.5.17.orig/init.h mutt-1.5.17/init.h
    { "pgp_use_gpg_agent", DT_BOOL, R_NONE, OPTUSEGPGAGENT, 0},
    /*
    ** .pp
-diff -Naur mutt-1.5.17.orig/mailbox.h mutt-1.5.17/mailbox.h
---- mutt-1.5.17.orig/mailbox.h	2007-03-02 20:44:44.000000000 +0200
-+++ mutt-1.5.17/mailbox.h	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/mailbox.h mutt-1.5.18/mailbox.h
+--- mutt-1.5.18.orig/mailbox.h	2008-01-28 04:20:22.000000000 +0200
++++ mutt-1.5.18/mailbox.h	2008-05-18 16:05:19.000000000 +0300
 @@ -27,6 +27,7 @@
  #define M_NEWFOLDER	(1<<4) /* create a new folder - same as M_APPEND, but uses
  				* safe_fopen() for mbox-style folders.
@@ -531,9 +567,9 @@ diff -Naur mutt-1.5.17.orig/mailbox.h mutt-1.5.17/mailbox.h
  
  /* mx_open_new_message() */
  #define M_ADD_FROM	1	/* add a From_ line */
-diff -Naur mutt-1.5.17.orig/Makefile.am mutt-1.5.17/Makefile.am
---- mutt-1.5.17.orig/Makefile.am	2007-11-01 01:28:09.000000000 +0200
-+++ mutt-1.5.17/Makefile.am	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/Makefile.am mutt-1.5.18/Makefile.am
+--- mutt-1.5.18.orig/Makefile.am	2008-05-17 21:04:24.000000000 +0300
++++ mutt-1.5.18/Makefile.am	2008-05-18 16:05:19.000000000 +0300
 @@ -29,7 +29,8 @@
  	score.c send.c sendlib.c signal.c sort.c \
  	status.c system.c thread.c charset.c history.c lib.c \
@@ -542,22 +578,22 @@ diff -Naur mutt-1.5.17.orig/Makefile.am mutt-1.5.17/Makefile.am
 +	url.c ascii.c mutt_idna.c crypt-mod.c crypt-mod.h \
 +        sidebar.c
  
- mutt_LDADD = @MUTT_LIB_OBJECTS@ @LIBOBJS@ $(LIBIMAP) $(MUTTLIBS) \
- 	$(INTLLIBS) $(LIBICONV)  $(GPGME_LIBS)
-diff -Naur mutt-1.5.17.orig/Makefile.in mutt-1.5.17/Makefile.in
---- mutt-1.5.17.orig/Makefile.in	2007-11-01 21:13:14.000000000 +0200
-+++ mutt-1.5.17/Makefile.in	2007-12-13 13:08:39.000000000 +0200
-@@ -91,7 +91,8 @@
- 	thread.$(OBJEXT) charset.$(OBJEXT) history.$(OBJEXT) \
- 	lib.$(OBJEXT) muttlib.$(OBJEXT) editmsg.$(OBJEXT) \
- 	mbyte.$(OBJEXT) url.$(OBJEXT) ascii.$(OBJEXT) \
--	mutt_idna.$(OBJEXT) crypt-mod.$(OBJEXT)
-+	mutt_idna.$(OBJEXT) crypt-mod.$(OBJEXT) \
+ nodist_mutt_SOURCES = $(BUILT_SOURCES)
+ 
+diff -Naur mutt-1.5.18.orig/Makefile.in mutt-1.5.18/Makefile.in
+--- mutt-1.5.18.orig/Makefile.in	2008-05-17 21:04:33.000000000 +0300
++++ mutt-1.5.18/Makefile.in	2008-05-18 16:05:19.000000000 +0300
+@@ -87,7 +87,8 @@
+ 	system.$(OBJEXT) thread.$(OBJEXT) charset.$(OBJEXT) \
+ 	history.$(OBJEXT) lib.$(OBJEXT) muttlib.$(OBJEXT) \
+ 	editmsg.$(OBJEXT) mbyte.$(OBJEXT) url.$(OBJEXT) \
+-	ascii.$(OBJEXT) mutt_idna.$(OBJEXT) crypt-mod.$(OBJEXT)
++	ascii.$(OBJEXT) mutt_idna.$(OBJEXT) crypt-mod.$(OBJEXT) \
 +        sidebar.$(OBJEXT)
- mutt_OBJECTS = $(am_mutt_OBJECTS)
- am__DEPENDENCIES_1 =
- am_mutt_dotlock_OBJECTS = mutt_dotlock.$(OBJEXT)
-@@ -313,7 +314,8 @@
+ am__objects_1 = patchlist.$(OBJEXT)
+ nodist_mutt_OBJECTS = $(am__objects_1)
+ mutt_OBJECTS = $(am_mutt_OBJECTS) $(nodist_mutt_OBJECTS)
+@@ -303,7 +304,8 @@
  	score.c send.c sendlib.c signal.c sort.c \
  	status.c system.c thread.c charset.c history.c lib.c \
  	muttlib.c editmsg.c mbyte.c \
@@ -565,10 +601,10 @@ diff -Naur mutt-1.5.17.orig/Makefile.in mutt-1.5.17/Makefile.in
 +	url.c ascii.c mutt_idna.c crypt-mod.c crypt-mod.h \
 +        sidebar.c
  
+ nodist_mutt_SOURCES = $(BUILT_SOURCES)
  mutt_LDADD = @MUTT_LIB_OBJECTS@ @LIBOBJS@ $(LIBIMAP) $(MUTTLIBS) \
- 	$(INTLLIBS) $(LIBICONV)  $(GPGME_LIBS)
-@@ -347,7 +349,7 @@
- 	makedoc.c makedoc-defs.h stamp-doc-rc README.SSL smime.h \
+@@ -335,7 +337,7 @@
+ 	README.SSL smime.h \
  	muttbug pgppacket.h depcomp ascii.h BEWARE PATCHES patchlist.sh \
  	ChangeLog ChangeLog.old mkchangelog.sh mutt_idna.h \
 -	snprintf.c regex.c crypt-gpgme.h hcachever.sh.in
@@ -576,9 +612,9 @@ diff -Naur mutt-1.5.17.orig/Makefile.in mutt-1.5.17/Makefile.in
  
  EXTRA_SCRIPTS = smime_keys
  mutt_dotlock_SOURCES = mutt_dotlock.c
-diff -Naur mutt-1.5.17.orig/mbox.c mutt-1.5.17/mbox.c
---- mutt-1.5.17.orig/mbox.c	2007-03-02 20:44:44.000000000 +0200
-+++ mutt-1.5.17/mbox.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/mbox.c mutt-1.5.18/mbox.c
+--- mutt-1.5.18.orig/mbox.c	2008-03-12 02:08:24.000000000 +0200
++++ mutt-1.5.18/mbox.c	2008-05-18 16:05:19.000000000 +0300
 @@ -100,6 +100,7 @@
      mutt_perror (ctx->path);
      return (-1);
@@ -587,7 +623,7 @@ diff -Naur mutt-1.5.17.orig/mbox.c mutt-1.5.17/mbox.c
    ctx->mtime = sb.st_mtime;
    ctx->size = sb.st_size;
  
-@@ -251,6 +252,7 @@
+@@ -255,6 +256,7 @@
  
    ctx->size = sb.st_size;
    ctx->mtime = sb.st_mtime;
@@ -595,9 +631,9 @@ diff -Naur mutt-1.5.17.orig/mbox.c mutt-1.5.17/mbox.c
  
  #ifdef NFS_ATTRIBUTE_HACK
    if (sb.st_mtime > sb.st_atime)
-diff -Naur mutt-1.5.17.orig/menu.c mutt-1.5.17/menu.c
---- mutt-1.5.17.orig/menu.c	2007-10-01 03:46:20.000000000 +0300
-+++ mutt-1.5.17/menu.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/menu.c mutt-1.5.18/menu.c
+--- mutt-1.5.18.orig/menu.c	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/menu.c	2008-05-18 16:05:19.000000000 +0300
 @@ -24,6 +24,7 @@
  #include "mutt_curses.h"
  #include "mutt_menu.h"
@@ -701,9 +737,9 @@ diff -Naur mutt-1.5.17.orig/menu.c mutt-1.5.17/menu.c
      else if (option (OPTBRAILLEFRIENDLY))
        move (menu->current - menu->top + menu->offset, 0);
      else
-diff -Naur mutt-1.5.17.orig/mutt_curses.h mutt-1.5.17/mutt_curses.h
---- mutt-1.5.17.orig/mutt_curses.h	2007-03-05 21:01:36.000000000 +0200
-+++ mutt-1.5.17/mutt_curses.h	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/mutt_curses.h mutt-1.5.18/mutt_curses.h
+--- mutt-1.5.18.orig/mutt_curses.h	2008-01-30 06:26:51.000000000 +0200
++++ mutt-1.5.18/mutt_curses.h	2008-05-18 16:05:19.000000000 +0300
 @@ -64,6 +64,7 @@
  #undef lines
  #endif /* lines */
@@ -712,17 +748,18 @@ diff -Naur mutt-1.5.17.orig/mutt_curses.h mutt-1.5.17/mutt_curses.h
  #define CLEARLINE(x) move(x,0), clrtoeol()
  #define CENTERLINE(x,y) move(y, (COLS-strlen(x))/2), addstr(x)
  #define BEEP() do { if (option (OPTBEEP)) beep(); } while (0)
-@@ -126,6 +127,7 @@
+@@ -126,6 +127,8 @@
    MT_COLOR_BOLD,
    MT_COLOR_UNDERLINE,
    MT_COLOR_INDEX,
 +  MT_COLOR_NEW,
++  MT_COLOR_FLAGGED,
    MT_COLOR_MAX
  };
  
-diff -Naur mutt-1.5.17.orig/mutt.h mutt-1.5.17/mutt.h
---- mutt-1.5.17.orig/mutt.h	2007-08-28 20:44:16.000000000 +0300
-+++ mutt-1.5.17/mutt.h	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/mutt.h mutt-1.5.18/mutt.h
+--- mutt-1.5.18.orig/mutt.h	2008-01-30 06:26:50.000000000 +0200
++++ mutt-1.5.18/mutt.h	2008-05-18 16:05:19.000000000 +0300
 @@ -429,6 +429,7 @@
    OPTSAVEEMPTY,
    OPTSAVENAME,
@@ -747,178 +784,74 @@ diff -Naur mutt-1.5.17.orig/mutt.h mutt-1.5.17/mutt.h
  
    /* driver hooks */
    void *data;			/* driver specific data */
-diff -Naur mutt-1.5.17.orig/muttlib.c mutt-1.5.17/muttlib.c
---- mutt-1.5.17.orig/muttlib.c	2007-10-31 19:48:52.000000000 +0200
-+++ mutt-1.5.17/muttlib.c	2007-12-13 13:08:39.000000000 +0200
-@@ -1205,49 +1205,98 @@
+diff -Naur mutt-1.5.18.orig/muttlib.c mutt-1.5.18/muttlib.c
+--- mutt-1.5.18.orig/muttlib.c	2008-05-10 10:47:57.000000000 +0300
++++ mutt-1.5.18/muttlib.c	2008-05-18 16:05:19.000000000 +0300
+@@ -1205,6 +1205,8 @@
  	  pl = pw = 1;
  
  	/* see if there's room to add content, else ignore */
--	if ((col < COLS && wlen < destlen) || soft)
--	{
--	  int pad;
--
--	  /* get contents after padding */
--	  mutt_FormatString (buf, sizeof (buf), 0, src + pl, callback, data, flags);
--	  len = mutt_strlen (buf);
--	  wid = mutt_strwidth (buf);
--
--	  /* try to consume as many columns as we can, if we don't have
--	   * memory for that, use as much memory as possible */
--	  pad = (COLS - col - wid) / pw;
--	  if (pad > 0 && wlen + (pad * pl) + len > destlen)
--	    pad = ((signed)(destlen - wlen - len)) / pl;
--	  if (pad > 0)
 +        if ( DrawFullLine )
 +        {
-+	  if ((col < COLS && wlen < destlen) || soft)
- 	  {
--	    while (pad--)
-+	    int pad;
-+
-+	    /* get contents after padding */
-+	    mutt_FormatString (buf, sizeof (buf), 0, src + pl, callback, data, flags);
-+	    len = mutt_strlen (buf);
-+	    wid = mutt_strwidth (buf);
-+
-+	    /* try to consume as many columns as we can, if we don't have
-+	     * memory for that, use as much memory as possible */
-+	    pad = (COLS - col - wid) / pw;
-+	    if (pad > 0 && wlen + (pad * pl) + len > destlen)
-+	      pad = ((signed)(destlen - wlen - len)) / pl;
-+	    if (pad > 0)
- 	    {
--	      memcpy (wptr, src, pl);
--	      wptr += pl;
--	      wlen += pl;
--	      col += pw;
-+	      while (pad--)
-+	      {
-+	        memcpy (wptr, src, pl);
-+	        wptr += pl;
-+	        wlen += pl;
-+	        col += pw;
-+	      }  
- 	    }
-+	    else if (soft && pad < 0)
-+	    {
-+	      /* set wptr and wlen back just enough bytes to make sure buf
-+	       * fits on screen, \0-terminate dest so mutt_wstr_trunc()
-+	       * can correctly compute string's length */
-+	      if (pad < -wlen)
-+	        pad = -wlen;
-+	      *wptr = 0;
-+	      wlen = mutt_wstr_trunc (dest, wlen + pad, col + pad, &col);
-+	      wptr = dest + wlen;
-+	    }
-+	    if (len + wlen > destlen)
-+	      len = mutt_wstr_trunc (buf, destlen - wlen, COLS - col, NULL);
-+	    memcpy (wptr, buf, len);
-+	    wptr += len;
-+	    wlen += len;
-+	    col += wid;
-+	    src += pl;
- 	  }
--	  else if (soft && pad < 0)
+ 	if ((col < COLS && wlen < destlen) || soft)
+ 	{
+ 	  int pad;
+@@ -1247,6 +1249,52 @@
+ 	  col += wid;
+ 	  src += pl;
+ 	}
 +        }
 +        else
 +        {
-+	  if ((col < COLS-SidebarWidth && wlen < destlen) || soft)
- 	  {
--	    /* set wptr and wlen back just enough bytes to make sure buf
--	     * fits on screen, \0-terminate dest so mutt_wstr_trunc()
--	     * can correctly compute string's length */
--	    if (pad < -wlen)
--	      pad = -wlen;
--	    *wptr = 0;
--	    wlen = mutt_wstr_trunc (dest, wlen + pad, col + pad, &col);
--	    wptr = dest + wlen;
-+	    int pad;
++	if ((col < COLS-SidebarWidth && wlen < destlen) || soft)
++        {
++	  int pad;
 +
-+	    /* get contents after padding */
-+	    mutt_FormatString (buf, sizeof (buf), 0, src + pl, callback, data, flags);
-+	    len = mutt_strlen (buf);
-+	    wid = mutt_strwidth (buf);
++	  /* get contents after padding */
++	  mutt_FormatString (buf, sizeof (buf), 0, src + pl, callback, data, flags);
++	  len = mutt_strlen (buf);
++	  wid = mutt_strwidth (buf);
 +
-+	    /* try to consume as many columns as we can, if we don't have
-+	     * memory for that, use as much memory as possible */
-+	    pad = (COLS - SidebarWidth - col - wid) / pw;
-+	    if (pad > 0 && wlen + (pad * pl) + len > destlen)
-+	      pad = ((signed)(destlen - wlen - len)) / pl;
-+	    if (pad > 0)
++	  /* try to consume as many columns as we can, if we don't have
++	   * memory for that, use as much memory as possible */
++	  pad = (COLS - SidebarWidth - col - wid) / pw;
++	  if (pad > 0 && wlen + (pad * pl) + len > destlen)
++	    pad = ((signed)(destlen - wlen - len)) / pl;
++	  if (pad > 0)
++	  {
++	    while (pad--)
 +	    {
-+	      while (pad--)
-+	      {
-+	        memcpy (wptr, src, pl);
-+	        wptr += pl;
-+	        wlen += pl;
-+	        col += pw;
-+	      }
++	      memcpy (wptr, src, pl);
++	      wptr += pl;
++	      wlen += pl;
++	      col += pw;
 +	    }
-+	    else if (soft && pad < 0)
-+	    {
-+	      /* set wptr and wlen back just enough bytes to make sure buf
-+	       * fits on screen, \0-terminate dest so mutt_wstr_trunc()
-+	       * can correctly compute string's length */
-+	      if (pad < -wlen)
-+	        pad = -wlen;
-+	      *wptr = 0;
-+	      wlen = mutt_wstr_trunc (dest, wlen + pad, col + pad, &col);
-+	      wptr = dest + wlen;
-+	    }
-+	    if (len + wlen > destlen)
-+	      len = mutt_wstr_trunc (buf, destlen - wlen, COLS - SidebarWidth - col, NULL);
-+	    memcpy (wptr, buf, len);
-+	    wptr += len;
-+	    wlen += len;
-+	    col += wid;
-+	    src += pl;
- 	  }
--	  if (len + wlen > destlen)
--	    len = mutt_wstr_trunc (buf, destlen - wlen, COLS - col, NULL);
--	  memcpy (wptr, buf, len);
--	  wptr += len;
--	  wlen += len;
--	  col += wid;
--	  src += pl;
--	}
++	  }
++	  else if (soft && pad < 0)
++	  {
++	    /* \0-terminate dest for length computation in mutt_wstr_trunc() */
++	    *wptr = 0;
++	    /* make sure right part is at most as wide as display */
++	    len = mutt_wstr_trunc (buf, destlen, COLS, &wid);
++	    /* truncate left so that right part fits completely in */
++	    wlen = mutt_wstr_trunc (dest, destlen - len, col + pad, &col);
++	    wptr = dest + wlen;
++	  }
++	  if (len + wlen > destlen)
++	    len = mutt_wstr_trunc (buf, destlen - wlen, COLS - SidebarWidth - col, NULL);
++	  memcpy (wptr, buf, len);
++	  wptr += len;
++	  wlen += len;
++	  col += wid;
++	  src += pl;
++	}
 +        }
  	break; /* skip rest of input */
        }
        else if (ch == '|')
-diff -Naur mutt-1.5.17.orig/Muttrc mutt-1.5.17/Muttrc
---- mutt-1.5.17.orig/Muttrc	2007-11-01 23:05:26.000000000 +0200
-+++ mutt-1.5.17/Muttrc	2007-12-13 13:08:39.000000000 +0200
-@@ -2061,6 +2061,26 @@
- # function.
- # 
- # 
-+# set sidebar_visible=no
-+#
-+# Name: sidebar_visible
-+# Type: boolean
-+# Default: no
-+# 
-+# 
-+# This specifies whether or not to show sidebar (left-side list of folders).
-+# 
-+# 
-+# set sidebar_width=0
-+#
-+# Name: sidebar_width
-+# Type: number
-+# Default: 0
-+# 
-+# 
-+# The width of the sidebar.
-+# 
-+# 
- # set crypt_autosign=no
- #
- # Name: crypt_autosign
-diff -Naur mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
---- mutt-1.5.17.orig/mx.c	2007-07-11 20:52:55.000000000 +0300
-+++ mutt-1.5.17/mx.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/mx.c mutt-1.5.18/mx.c
+--- mutt-1.5.18.orig/mx.c	2008-03-09 22:53:18.000000000 +0200
++++ mutt-1.5.18/mx.c	2008-05-18 16:05:19.000000000 +0300
 @@ -611,6 +611,7 @@
   *		M_APPEND	open mailbox for appending
   *		M_READONLY	open mailbox in read-only mode
@@ -958,9 +891,9 @@ diff -Naur mutt-1.5.17.orig/mx.c mutt-1.5.17/mx.c
  
    if (ctx->mx_close)
      ctx->mx_close (ctx);
-diff -Naur mutt-1.5.17.orig/OPS mutt-1.5.17/OPS
---- mutt-1.5.17.orig/OPS	2007-05-07 21:46:12.000000000 +0300
-+++ mutt-1.5.17/OPS	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/OPS mutt-1.5.18/OPS
+--- mutt-1.5.18.orig/OPS	2008-01-30 06:26:49.000000000 +0200
++++ mutt-1.5.18/OPS	2008-05-18 16:05:19.000000000 +0300
 @@ -178,3 +178,8 @@
  OP_MAIN_SHOW_LIMIT "show currently active limit pattern"
  OP_MAIN_COLLAPSE_THREAD "collapse/uncollapse current thread"
@@ -970,9 +903,9 @@ diff -Naur mutt-1.5.17.orig/OPS mutt-1.5.17/OPS
 +OP_SIDEBAR_NEXT "go down to next mailbox"
 +OP_SIDEBAR_PREV "go to previous mailbox"
 +OP_SIDEBAR_OPEN "open hilighted mailbox"
-diff -Naur mutt-1.5.17.orig/pager.c mutt-1.5.17/pager.c
---- mutt-1.5.17.orig/pager.c	2007-09-05 21:28:05.000000000 +0300
-+++ mutt-1.5.17/pager.c	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/pager.c mutt-1.5.18/pager.c
+--- mutt-1.5.18.orig/pager.c	2008-01-30 06:26:51.000000000 +0200
++++ mutt-1.5.18/pager.c	2008-05-18 16:05:19.000000000 +0300
 @@ -30,6 +30,7 @@
  #include "pager.h"
  #include "attach.h"
@@ -1082,15 +1015,15 @@ diff -Naur mutt-1.5.17.orig/pager.c mutt-1.5.17/pager.c
        default:
  	ch = -1;
  	break;
-diff -Naur mutt-1.5.17.orig/PATCHES mutt-1.5.17/PATCHES
---- mutt-1.5.17.orig/PATCHES	2007-03-21 20:26:38.000000000 +0200
-+++ mutt-1.5.17/PATCHES	2007-12-13 13:08:39.000000000 +0200
+diff -Naur mutt-1.5.18.orig/PATCHES mutt-1.5.18/PATCHES
+--- mutt-1.5.18.orig/PATCHES	2008-01-28 04:20:20.000000000 +0200
++++ mutt-1.5.18/PATCHES	2008-05-18 16:05:19.000000000 +0300
 @@ -0,0 +1 @@
-+patch-1.5.17.sidebar.20071102.txt
-diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
---- mutt-1.5.17.orig/sidebar.c	1970-01-01 02:00:00.000000000 +0200
-+++ mutt-1.5.17/sidebar.c	2007-12-13 13:08:39.000000000 +0200
-@@ -0,0 +1,294 @@
++patch-1.5.18.sidebar.20080517.txt
+diff -Naur mutt-1.5.18.orig/sidebar.c mutt-1.5.18/sidebar.c
+--- mutt-1.5.18.orig/sidebar.c	1970-01-01 02:00:00.000000000 +0200
++++ mutt-1.5.18/sidebar.c	2008-05-18 16:05:19.000000000 +0300
+@@ -0,0 +1,328 @@
 +/*
 + * Copyright (C) ????-2004 Justin Hibbits <jrh29@po.cwru.edu>
 + * Copyright (C) 2004 Thomer M. Gil <mutt@thomer.com>
@@ -1173,7 +1106,7 @@ diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
 +	}
 +}
 +
-+char *make_sidebar_entry(char *box, int size, int new)
++char *make_sidebar_entry(char *box, int size, int new, int flagged)
 +{
 +	static char *entry = 0;
 +	char *c;
@@ -1189,12 +1122,21 @@ diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
 +
 +        if (size == -1)
 +                sprintf(entry + SidebarWidth - delim_len - 3, "?");
-+        else if ( new ) 
-+		sprintf(
-+			entry + SidebarWidth - delim_len - 3 - quick_log10(size) - quick_log10(new),
-+			"% d(%d)", size, new);
-+	else
-+		sprintf( entry + SidebarWidth - delim_len - 1 - quick_log10(size), "% d", size);
++        else if ( new ) {
++          if (flagged > 0) {
++              sprintf(
++		        entry + SidebarWidth - delim_len - 5 - quick_log10(size) - quick_log10(new) - quick_log10(flagged),
++		        "% d(%d)[%d]", size, new, flagged);
++          } else {
++              sprintf(
++                      entry + SidebarWidth - delim_len - 3 - quick_log10(size) - quick_log10(new),
++                      "% d(%d)", size, new);
++          }
++        } else if (flagged > 0) {
++              sprintf( entry + SidebarWidth - delim_len - 3 - quick_log10(size) - quick_log10(flagged), "% d[%d]", size, flagged);
++        } else {
++              sprintf( entry + SidebarWidth - delim_len - 1 - quick_log10(size), "% d", size);
++        }
 +	return entry;
 +}
 +
@@ -1221,6 +1163,8 @@ diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
 +int draw_sidebar(int menu) {
 +
 +	int lines = option(OPTHELP) ? 1 : 0;
++	int sidebar_folder_depth;
++	char *sidebar_folder_name;
 +	BUFFY *tmp;
 +#ifndef USE_SLANG_CURSES
 +        attr_t attrs;
@@ -1314,6 +1258,8 @@ diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
 +			SETCOLOR(MT_COLOR_INDICATOR);
 +		else if ( tmp->msg_unread > 0 )
 +			SETCOLOR(MT_COLOR_NEW);
++		else if ( tmp->msg_flagged > 0 )
++		        SETCOLOR(MT_COLOR_FLAGGED);
 +		else
 +			SETCOLOR(MT_COLOR_NORMAL);
 +
@@ -1321,17 +1267,37 @@ diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
 +		if ( Context && !strcmp( tmp->path, Context->path ) ) {
 +			tmp->msg_unread = Context->unread;
 +			tmp->msgcount = Context->msgcount;
++			tmp->msg_flagged = Context->flagged;
 +		}
++	sidebar_folder_depth = 0;
++	sidebar_folder_name = "<null>"; // ... just in case
++	if ( strlen(tmp->path) > strlen(Maildir) ) {
++		int i;
++		char *tmp_folder_name;
++		tmp_folder_name = tmp->path + strlen(Maildir);
++		for (i = 0; i < strlen(tmp->path) - strlen(Maildir); i++) {
++			if (tmp_folder_name[i] == '/') sidebar_folder_depth++;
++		}
++		if (sidebar_folder_depth > 0) {
++			sidebar_folder_name = malloc(strlen(basename(tmp->path)) + sidebar_folder_depth + 1);
++			for (i=0; i < sidebar_folder_depth; i++)
++				sidebar_folder_name[i]=' ';
++			sidebar_folder_name[i]=0;
++			strncat(sidebar_folder_name, basename(tmp->path), strlen(basename(tmp->path)) + sidebar_folder_depth);
++		}
++	} else sidebar_folder_name = "INBOX";
 +                printw( "%.*s", SidebarWidth - delim_len + 1,
-+                        make_sidebar_entry(basename(tmp->path), tmp->msgcount,
-+                        tmp->msg_unread));
++                       make_sidebar_entry(sidebar_folder_name, tmp->msgcount,
++                       tmp->msg_unread, tmp->msg_flagged));
++	if (sidebar_folder_depth > 0)
++		free(sidebar_folder_name);
 +		lines++;
 +	}
 +	SETCOLOR(MT_COLOR_NORMAL);
 +	for ( ; lines < LINES-1 - (menu != MENU_PAGER || option(OPTSTATUSONTOP)); lines++ ) {
 +		int i = 0;
 +		move( lines, 0 );
-+		for ( ; i < SidebarWidth - delim_len - 1; i++ )
++		for ( ; i < SidebarWidth - delim_len; i++ )
 +			addch(' ');
 +	}
 +	return 0;
@@ -1385,9 +1351,10 @@ diff -Naur mutt-1.5.17.orig/sidebar.c mutt-1.5.17/sidebar.c
 +	calc_boundaries(menu);
 +	draw_sidebar(menu);
 +}
-diff -Naur mutt-1.5.17.orig/sidebar.h mutt-1.5.17/sidebar.h
---- mutt-1.5.17.orig/sidebar.h	1970-01-01 02:00:00.000000000 +0200
-+++ mutt-1.5.17/sidebar.h	2007-12-13 13:08:39.000000000 +0200
++
+diff -Naur mutt-1.5.18.orig/sidebar.h mutt-1.5.18/sidebar.h
+--- mutt-1.5.18.orig/sidebar.h	1970-01-01 02:00:00.000000000 +0200
++++ mutt-1.5.18/sidebar.h	2008-05-18 16:05:19.000000000 +0300
 @@ -0,0 +1,36 @@
 +/*
 + * Copyright (C) ????-2004 Justin Hibbits <jrh29@po.cwru.edu>

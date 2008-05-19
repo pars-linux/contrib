@@ -1,13 +1,6 @@
---- Muttrc.orig	2007-11-01 23:05:26.000000000 +0200
-+++ Muttrc	2007-12-13 13:50:13.000000000 +0200
-@@ -19,11 +19,15 @@
- 
- # Show documentation when pressing F1
- macro generic,pager <F1> "<shell-escape> less /usr/local/doc/mutt/manual.txt<Enter>" "show Mutt documentation"
-+# and also F2, as some terminals use F1
-+macro generic,pager <F2> "<shell-escape> less @docdir@/manual.txt<Enter>" "show Mutt documentation"
- 
- # show the incoming mailboxes list (just like "mutt -y") and back when pressing "y"
+--- Muttrc.orig	2008-05-18 16:37:17.000000000 +0300
++++ doc/Muttrc	2008-05-18 18:24:23.000000000 +0300
+@@ -24,6 +24,8 @@
  macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
  bind browser y exit
  
@@ -16,7 +9,7 @@
  # If Mutt is unable to determine your site's domain name correctly, you can
  # set the default here.
  #
-@@ -4434,3 +4438,39 @@
+@@ -4525,3 +4527,39 @@
  # in this case.
  # 
  # 
@@ -56,4 +49,3 @@
 +# macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 +# macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 +#
-\ Dosya sonunda yenisatır yok.
