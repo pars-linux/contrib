@@ -20,8 +20,5 @@ def build():
 def install():
     autotools.install()
 
-    # remove static lib
-    pisitools.remove("/usr/lib/libname-server-2.a")
-
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README", "TODO")
 
