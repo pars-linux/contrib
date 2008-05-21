@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>jokosher</Name>
+        <Homepage>http://www.jokosher.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>jokosher</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A simple and easy to use audio multi-tracker</Summary>
+        <Archive sha1sum="56ec26d91e7a559514814fd01bca8d281f63c3da" type="targz">http://www.jokosher.org/downloads/source/jokosher-0.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>PyXML</Dependency>
+            <Dependency>setuptools</Dependency>
+            <Dependency>gst-python</Dependency>
+            <Dependency>gnonlin</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>setup.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>jokosher</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>PyXML</Dependency>
+            <Dependency>gst-python</Dependency>
+            <Dependency>gnonlin</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-06</Date>
+            <Version>0.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
