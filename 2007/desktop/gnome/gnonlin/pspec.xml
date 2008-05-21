@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnonlin</Name>
+        <Homepage>http://gnonlin.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A library built on top of GStreamer for writing non-linear audio and video editing applications</Summary>
+        <Archive sha1sum="44981f5b7cd8221c67eeee65a3ddce6df810572d" type="tarbz2">http://gstreamer.freedesktop.org/src/gnonlin/gnonlin-0.10.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.10.11">gstreamer</Dependency>
+            <Dependency versionFrom="0.10.11">gst-plugins-base</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnonlin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.10.11">gstreamer</Dependency>
+            <Dependency versionFrom="0.10.11">gst-plugins-base</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-04</Date>
+            <Version>0.10.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
