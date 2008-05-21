@@ -1,0 +1,19 @@
+diff -Nur vulcan-0.92-old/Makefile vulcan-0.92/Makefile
+--- vulcan-0.92-old/Makefile	2008-05-21 17:28:39.000000000 +0300
++++ vulcan-0.92/Makefile	2008-05-21 17:29:47.000000000 +0300
+@@ -8,12 +8,12 @@
+ MODEL_DIR = $(DATA_DIR)/models
+ TEXTURE_DIR = $(DATA_DIR)/textures
+ 
+-CC	= gcc
++CC	= pardusCC
+ MV	= mv
+-LD	= gcc
++LD	= pardusLD
+ YACC	= bison -y
+ LEX	= flex
+-CFLAGS	= -O2 -g -Wall \
++CFLAGS	= pardusCFLAGS \
+ 	-I/usr/X11R6/include -I/usr/local/include -Ilib3d \
+ 	-DDATA_DIR=\"$(DATA_DIR)\" -DFONT_DIR=\"$(FONT_DIR)\" \
+ 	-DMODEL_DIR=\"$(MODEL_DIR)\" -DTEXTURE_DIR=\"$(TEXTURE_DIR)\"
