@@ -9,15 +9,17 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure()
+    # FIXME: Compile with enchant support when enchant is ready.
+    autotools.configure("--enable-shm \
+                         --enable-spell=none")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-   
-    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "HACKING", "README")
 
     pisitools.insinto("/usr/share/pixmaps/", "xchat.png")
     pisitools.insinto("/usr/share/applications/", "xchat.desktop")
+
+    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "HACKING", "README")
