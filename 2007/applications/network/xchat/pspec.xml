@@ -8,36 +8,28 @@
             <Name>İlker Kesen</Name>
             <Email>ikesen92@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
-        <Summary>XChat is one of the gnome base irc client</Summary>
+        <Summary>GTK based IRC client</Summary>
         <Archive sha1sum="6ac509624c241edfac5d53d9d4ece63d917613d6" type="tarbz2">http://xchat.org/files/source/2.8/xchat-2.8.4.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>dbus</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>tcl</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libsexy</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>gtkmm</Dependency>
             <Dependency>gtk2</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>xchat_desktop.patch</Patch>
+            <Patch level="1">xchat-2.8.4-shm-pixmaps.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>xchat</Name>
         <RuntimeDependencies>
-            <Dependency>dbus</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>tcl</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libsexy</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>gtkmm</Dependency>
-            <Dependency>pango</Dependency>
+            <Dependency>libnotify</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -51,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="8">
+           <Date>2008-05-23</Date>
+           <Version>2.8.4</Version>
+           <Comment>Add patch to fix crash when transparent background is set.</Comment>
+           <Name>Eren Türkay</Name>
+           <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="7">
            <Date>2007-08-20</Date>
            <Version>2.8.4</Version>
