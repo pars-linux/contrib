@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--with-x")
@@ -14,7 +15,8 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
-    
-    pisitools.dodoc("NEWS", "TODO", "AUTHORS", "ChangeLog")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+
+    pisitools.dodoc("NEWS", "TODO", "AUTHORS", "ChangeLog")
