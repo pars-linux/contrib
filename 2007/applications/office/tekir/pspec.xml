@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tekir</Name>
+        <Homepage>http://www.tekir.com.tr</Homepage>
+        <Packager>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Packager>
+        <License>AGPLv3</License>
+        <Icon>tekir</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Tekir Ticari Otomasyon yazılımı</Summary>
+        <Archive sha1sum="5ba76c969c8d2be435b3cb4d7c8217fba7734d00" type="targz">mirrors://sourceforge/tekir/tekir-1.2.1-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ant</Dependency>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tekir</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>jboss4</Dependency>
+            <Dependency>apache</Dependency>
+            <Dependency>tomcat-connectors</Dependency>
+            <Dependency>xdg-utils</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/opt/jboss4</Path>
+            <Path fileType="config">/var/db/tekir/tekirDB.properties</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/tekir.desktop">tekir.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/tekir.png">tekir.png</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-09</Date>
+            <Version>1.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmai.com</Email>
+        </Update>
+    </History>
+</PISI>
