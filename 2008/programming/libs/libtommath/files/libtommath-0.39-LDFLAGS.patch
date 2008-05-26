@@ -1,0 +1,25 @@
+--- makefile.shared.orig	2006-04-05 06:01:40.000000000 +0300
++++ makefile.shared	2006-11-18 12:03:17.000000000 +0200
+@@ -83,7 +83,7 @@
+ objs: $(OBJECTS)
+ 
+ $(LIBNAME):  $(OBJECTS)
+-	libtool --mode=link gcc *.lo -o $(LIBNAME) -rpath $(LIBPATH) -version-info $(VERSION)
++	libtool --mode=link --tag=CC gcc $(LDFLAGS) *.lo -o $(LIBNAME) -rpath $(LIBPATH) -version-info $(VERSION)
+ 
+ install: $(LIBNAME)
+ 	install -d -g $(GROUP) -o $(USER) $(DESTDIR)$(LIBPATH)
+@@ -93,10 +93,10 @@
+ 
+ test: $(LIBNAME) demo/demo.o
+ 	gcc $(CFLAGS) -c demo/demo.c -o demo/demo.o
+-	libtool --mode=link gcc -o test demo/demo.o $(LIBNAME_S)
++	libtool --mode=link gcc $(LDFLAGS) -o test demo/demo.o $(LIBNAME)
+ 	
+ mtest: test	
+-	cd mtest ; gcc $(CFLAGS) mtest.c -o mtest
++	cd mtest ; gcc $(CFLAGS) $(LDFLAGS) mtest.c -o mtest
+         
+ timing: $(LIBNAME)
+-	gcc $(CFLAGS) -DTIMER demo/timing.c $(LIBNAME_S) -o ltmtest
++	libtool --mode=link gcc $(CFLAGS) $(LDFLAGS) -DTIMER demo/timing.c $(LIBNAME) -o ltmtest
