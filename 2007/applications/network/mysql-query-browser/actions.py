@@ -13,6 +13,7 @@ from pisi.actionsapi import shelltools
 def setup():
     shelltools.cd('mysql-gui-common')
     autotools.configure()
+
     shelltools.cd('../mysql-query-browser')
     pisitools.dosed('configure', 'gtkhtml=libgtkhtml-3.0', 'gtkhtml=libgtkhtml-3.14')  # fix gtkhtml version check
     autotools.configure()
@@ -20,10 +21,12 @@ def setup():
 def build():
     shelltools.cd('mysql-gui-common')
     autotools.make()
+
     shelltools.cd('../mysql-query-browser')
     autotools.make()
 
 def install():
     shelltools.cd('mysql-query-browser')
     autotools.install()
+
     pisitools.dodoc('COPYING', 'ChangeLog')
