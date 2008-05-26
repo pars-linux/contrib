@@ -8,14 +8,14 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
-        <License>LGPL-2</License>
+        <License>GPLv2</License>
+        <License>LGPLv2</License>
         <IsA>library</IsA>
         <Summary>Lightweight HTML Rendering/Printing/Editing Engine</Summary>
-        <Archive sha1sum="aede744b666fdefb9478e214aa5d38e0122aa289" type="tarbz2">mirrors://gnome/gtkhtml/3.14/gtkhtml-3.14.3.tar.bz2</Archive>
+        <Archive sha1sum="03cb5c873eea65dda63cc4452374a72ca8d92b19" type="tarbz2">mirrors://gnome/gtkhtml/3.18/gtkhtml-3.18.2.tar.bz2</Archive>
         <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
             <Dependency>gail</Dependency>
-            <Dependency versionFrom="1.15.2">pango</Dependency>
             <Dependency>libgnomeui</Dependency>
             <Dependency>libgnomeprintui</Dependency>
             <Dependency>libglade2</Dependency>
@@ -23,17 +23,15 @@
             <Dependency>orbit2</Dependency>
             <Dependency>libbonobo</Dependency>
             <Dependency>libsoup</Dependency>
-            <Dependency>gtk2</Dependency>
             <Dependency>gnome-icon-theme</Dependency>
-            <Dependency>intltool</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>gtkhtml3</Name>
         <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
             <Dependency>gail</Dependency>
-            <Dependency versionFrom="1.15.2">pango</Dependency>
             <Dependency>libgnomeui</Dependency>
             <Dependency>libgnomeprintui</Dependency>
             <Dependency>libglade2</Dependency>
@@ -41,9 +39,7 @@
             <Dependency>orbit2</Dependency>
             <Dependency>libbonobo</Dependency>
             <Dependency>libsoup</Dependency>
-            <Dependency>gtk2</Dependency>
             <Dependency>gnome-icon-theme</Dependency>
-            <Dependency>intltool</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="header">/usr/include</Path>
@@ -55,6 +51,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-05-26</Date>
+            <Version>3.18.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2007-07-03</Date>
             <Version>3.14.3</Version>
