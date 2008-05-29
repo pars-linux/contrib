@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 WorkDir="libast-0.7"
 
 def setup():
-    autotools.configure("--with-x \
+    autotools.configure("--disable-static \
+                         --with-x \
                          --with-imlib \
                          --enable-mmx \
                          --with-regexp \
