@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>itk</Name>
+        <Homepage>http://incrtcl.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Object Oriented Enhancements for Tcl/Tk</Summary>
+        <Archive sha1sum="b4c32898ff6dbf9da936977aefb80825712e92c4" type="tarbz2">http://cekirdek.pardus.org.tr/~ismail/dist/itk-3.3_20071111.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="8.5_beta2">tcltk</Dependency>
+            <Dependency versionFrom="3.3_20071111">itcl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>itk</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="8.5_beta2">tcltk</Dependency>
+            <Dependency versionFrom="3.3_20071111">itcl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-11-11</Date>
+            <Version>3.3_20071111</Version>
+            <Comment>Version bump from CVS</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>3.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
