@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+
+<PISI>
+    <Source>
+        <Name>hk-classes</Name>
+        <Homepage>http://hk-classes.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Rapid database application development library for KDE.</Summary>
+        <Description>In combination with hk_kdeclasses (which is part of the knoda package) hk_classes supports the rapid development of database applications for KDE. hk_classes is database and GUI independent.</Description>
+        <Archive sha1sum="ebd2f7d6835436e2e08d1cf65e6c28ef9fc0e312" type="tarbz2">http://switch.dl.sourceforge.net/sourceforge/hk-classes/hk_classes-0.8.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.17">file</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>mysql-lib</Dependency>
+            <Dependency>postgresql-lib</Dependency>
+            <Dependency>unixODBC</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">hk_classes-0.8.3-gcc43.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>hk-classes</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.17">file</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>mysql-lib</Dependency>
+            <Dependency>postgresql-lib</Dependency>
+            <Dependency>unixODBC</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-03-22</Date>
+            <Version>0.8.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2005-06-17</Date>
+            <Version>0.8.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
