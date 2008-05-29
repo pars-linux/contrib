@@ -15,7 +15,8 @@ def setup():
     shelltools.export("IMLIB2_CONFIG", "")
     shelltools.export("EDB_CONFIG", "")
     shelltools.export("EET_CONFIG", "")
-    autotools.configure("--enable-edb \
+    autotools.configure("--disable-static \
+                         --enable-edb \
                          --enable-eet \
                          --enable-xcf")
 
