@@ -20,6 +20,11 @@ def build():
 def install():
     pisitools.dodir("/usr/lib")
     pisitools.dodir("/usr/include")
+
     autotools.rawInstall("LIBDIR=%s/usr/lib INCDIR=%s/usr/include" % (get.installDIR(), get.installDIR()))
+
+    # remove static library
+    pisitools.remove("/usr/lib/libNL.a")
+
     pisitools.dodoc("samples/*")
 
