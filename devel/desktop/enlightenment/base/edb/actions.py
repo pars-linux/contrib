@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 WorkDir="edb-1.0.5.007"
 
 def setup():
-    autotools.configure("--enable-compat185 \
+    autotools.configure("--disable-static \
+                         --enable-compat185 \
                          --enable-dump185 \
                          --disable-bigfile \
                          --disable-gtk \
