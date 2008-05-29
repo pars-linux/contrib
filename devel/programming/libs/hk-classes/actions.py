@@ -7,6 +7,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 WorkDir ="hk_classes-0.8.3"
 def setup():
@@ -17,6 +18,8 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dohtml("documentation/tutorial/*")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
