@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="edb-1.0.5.007"
-
 def setup():
     autotools.configure("--disable-static \
                          --enable-compat185 \
@@ -24,4 +22,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.dodoc("AUTHORS", "COPYING*", "README*")
