@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
 
 def setup():
     autotools.configure("--disable-scrollkeeper \
@@ -17,6 +18,9 @@ def build():
 def install():
     autotools.install()
 
+    pythonmodules.fixCompiledPy(lookInto="/usr/share/gramps")
+
     # remove TR locale, it hasn't been translated completely
     pisitools.remove("/usr/share/locale/tr/LC_MESSAGES/gramps.mo")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "README","NEWS","FAQ","TODO")
