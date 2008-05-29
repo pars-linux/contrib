@@ -8,7 +8,7 @@
             <Name>Murat Şenel</Name>
             <Email>muratasenel@gmail.com</Email>
         </Packager>
-        <License>LGPL-2</License>
+        <License>LGPLv2</License>
         <IsA>library</IsA>
         <Summary>Library for reading TIFF files with embedded tags for geographic (cartographic) information</Summary>
         <Description>Library for reading TIFF files with embedded tags for geographic (cartographic) information</Description>
@@ -17,6 +17,10 @@
             <Dependency>tiff</Dependency>
             <Dependency versionFrom="4.5.0">proj</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">libgeotiff-multilib.patch</Patch>
+            <Patch level="1">libgeotiff-soname.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
