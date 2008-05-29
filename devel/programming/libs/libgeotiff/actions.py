@@ -23,8 +23,9 @@ def build():
 def install():
     autotools.install()
 
+    pisitools.dohtml("docs/*")
+
     pisitools.remove("/usr/lib/libgeotiff.a")
+    pisitools.remove("/usr/share/doc/%s/README.WIN" % get.srcTAG())
 
     pisitools.dodoc("ChangeLog", "Doxyfile", "HOWTO-RELEASE", "LICENSE", "README*", "docs/manual.txt")
-    pisitools.dohtml("docs/*")
-    pisitools.remove("/usr/share/doc/%s/README.WIN" % get.srcTAG())
