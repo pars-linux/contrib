@@ -17,6 +17,7 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
     pisitools.domove("/usr/share/doc/google-perftools-%s/*" % get.srcVERSION(), "/usr/share/doc/%s" % get.srcTAG())
     pisitools.removeDir("/usr/share/doc/google-perftools-%s" % get.srcVERSION())
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
