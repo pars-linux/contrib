@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-gnome-thumbnailers \
@@ -15,9 +16,7 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
-
-    pisitools.domo("po/tr.po", "tr", "Thunar.mo")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
