@@ -7,7 +7,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir = "stardict-essential-turkish-0.1"
+WorkDir = "stardict-essential-turkish-0.2"
 
 def install():
     pisitools.insinto("/usr/share/stardict/dic", "*")
