@@ -12,10 +12,9 @@
         <IsA>library</IsA>
         <Summary>Veusz is a scientific plotting package written in Python.</Summary>
         <Description>Veusz provides a GUI, command line and scripting interface (based on Python) to its plotting facilities. The plots are built using an object-based system to provide a consistent interface.</Description>
-        <Archive sha1sum="7caa17a21b93082ae11ffbd973c5e6bbbe55cf33" type="targz">http://download.gna.org/veusz/veusz-0.10.tar.gz</Archive>
+        <Archive sha1sum="7814f8eca9542d8fec3af5ed6726c9e1600ed2de" type="targz">http://download.gna.org/veusz/veusz-1.0.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.4">python</Dependency>
-            <Dependency versionFrom="1.5.2">numarray</Dependency>
+            <Dependency versionFrom="1.0.4">numpy</Dependency>
             <Dependency versionFrom="1.0">pyfits</Dependency>
         </BuildDependencies>
         <Patches>
@@ -26,8 +25,7 @@
     <Package>
         <Name>veusz</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.4">python</Dependency>
-            <Dependency versionFrom="1.5.2">numarray</Dependency>
+            <Dependency versionFrom="1.0.4">numpy</Dependency>
             <Dependency versionFrom="1.0">pyfits</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -41,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2007-12-18</Date>
+            <Version>1.0</Version>
+            <Comment>Version bump and depend to new numpy</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2006-12-08</Date>
             <Version>0.10</Version>
