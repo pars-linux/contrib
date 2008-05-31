@@ -4,7 +4,6 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import autotools
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
@@ -19,6 +18,6 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "windows/icons/veusz.png")
     pisitools.insinto("usr/share/applications", "veusz.desktop")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "Documents/*.txt", "Documents/*.pdf")
     pisitools.dohtml("Documents/*")
     pisitools.domove("/usr/share/doc/%s/html/*.png" % get.srcTAG(), "/usr/share/doc/%s/html/manimages" % get.srcTAG())
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "Documents/*.txt", "Documents/*.pdf")
