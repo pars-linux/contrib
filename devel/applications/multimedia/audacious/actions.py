@@ -11,9 +11,11 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--enable-nls \
                          --enable-ipv6 \
+                         --enable-chardet \
+                         --enable-dbus \
                          --enable-samplerate \
                          --enable-xspf \
-                         --enable-rpath \
+                         --enable-sm \
                          --disable-xmltest")
 def build():
     autotools.make()
@@ -21,4 +23,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "doc/libaudacious/*.txt")
+    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "COPYING", "HACKING", "NEWS", "README", "doc/NEW_FORMATS")
