@@ -12,16 +12,17 @@ WorkDir="confuse-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure("--enable-static=no \
-                                  --enable-shared=yes \
-                                  --enable-nls \
-                                  --disable-build-doc")
+                         --enable-shared=yes \
+                         --enable-nls \
+                         --disable-build-doc")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    
-    pisitools.dodoc("AUTHORS", "README", "ChangeLog", "TODO", "NEWS")
+
     # remove empty dir
     pisitools.removeDir("/usr/bin")
+
+    pisitools.dodoc("AUTHORS", "README", "ChangeLog", "TODO", "NEWS")
