@@ -8,13 +8,13 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--enable-static=no \
-                                  --enable-mono=no")
+    autotools.configure("--disable-static \
+                         --enable-mono=no")
 
 def build():
-    autotools.make()
+    autotools.make("-j1")
 
 def install():
     autotools.install()
-    
+
     pisitools.dodoc("TODO", "README", "NEWS", "AUTHORS", "ChangeLog")
