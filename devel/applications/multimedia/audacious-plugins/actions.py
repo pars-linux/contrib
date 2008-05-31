@@ -10,24 +10,19 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-nls \
-                         --enable-rpath \
+                         --disable-rpath \
                          --enable-ipv6 \
                          --enable-chardet \
-                         --disable-pulse \
+                         --disable-esd \
+                         --enable-pulse \
+                         --enable-arts \
                          --disable-coreaudio \
                          --disable-gconf \
                          --disable-gnomeshortcuts \
-                         --disable-neon \
                          --enable-amidiplug \
                          --enable-amidiplug-alsa \
                          --disable-amidiplug-flysn \
-                         --enable-amidiplug-dummy \
-                         --with-sidplay2=/usr \
-                         --with-sidplay2-lib=/usr/lib \
-                         --with-sidplay2-inc=/usr/include/sidplay \
-                         --with-sidbuilders=/usr \
-                         --with-builders-inc=/usr/include/sidplay/builders \
-                         --with-builders-lib=/usr/lib/sidplay/builders")
+                         --enable-amidiplug-dummy")
 
 def build():
     autotools.make()
@@ -35,4 +30,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("ChangeLog", "COPYING", "AUTHORS", "NEWS")
+    pisitools.dodoc("AUTHORS", "COPYING", "NEWS")
