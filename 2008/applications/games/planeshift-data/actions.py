@@ -12,7 +12,7 @@ import os
 
 NoStrip = "/"
 
-data = ["art", "data"]
+data = ["art", "data", "docs", "guide", "support"]
 datadir = "/usr/share/planeshift"
 
 def fixperms(d):
@@ -22,8 +22,13 @@ def fixperms(d):
         for name in files:
             shelltools.chmod(os.path.join(root, name), 0644)
 
+def setup():
+    # gui/ directory in the planeshift package is more recent
+    shelltools.unlinkDir("data/gui")
+
 def install():
-    pisitools.dodir(datadir)
+    for f in ("*.cfg", "*.xml"):
+        pisitools.insinto(datadir, f)
 
     for f in data:
         fixperms(f)
