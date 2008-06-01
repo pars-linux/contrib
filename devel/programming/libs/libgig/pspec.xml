@@ -8,23 +8,26 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>C++ library for loading Gigasampler files</Summary>
-        <Archive sha1sum="919fb46795d99461556427ca363f799552085fca" type="tarbz2">http://download.linuxsampler.org/packages/libgig-3.2.0.tar.bz2</Archive>
+        <Archive sha1sum="6abee09284e06f75e3fe403b9c93c41b231bd59d" type="tarbz2">http://download.linuxsampler.org/packages/libgig-3.2.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>libsndfile</Dependency>
-            <Dependency>audiofile</Dependency>
-            <Dependency>flac</Dependency>
+            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+            <Dependency versionFrom="0.2.6">audiofile</Dependency>
+            <Dependency versionFrom="1.2.1">flac</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">20_gcc43.dpatch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>libgig</Name>
         <RuntimeDependencies>
-            <Dependency>libsndfile</Dependency>
-            <Dependency>audiofile</Dependency>
-            <Dependency>flac</Dependency>
+            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+            <Dependency versionFrom="0.2.6">audiofile</Dependency>
+            <Dependency versionFrom="1.2.1">flac</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -36,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-06-01</Date>
+            <Version>3.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-11-10</Date>
             <Version>3.2.0</Version>
