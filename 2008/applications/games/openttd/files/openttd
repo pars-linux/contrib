@@ -1,0 +1,17 @@
+#!/bin/bash
+
+MAIN="openttd"
+DATADIR="/usr/share/$MAIN"
+TOCOPY="scenario"
+TARGET="$HOME/.$MAIN"
+CONFIGFILE="$HOME/.$MAIN/$MAIN.cfg"
+
+if [ ! -e $TARGET ]; then
+    mkdir $TARGET
+fi
+if [ ! -e "$TARGET/$TOCOPY" ]; then
+    mkdir "$TARGET/$TOCOPY"
+    cp $DATADIR/$TOCOPY/* $TARGET/$TOCOPY/
+fi
+
+exec /usr/share/openttd/openttd -c $CONFIGFILE $*
