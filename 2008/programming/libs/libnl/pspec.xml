@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libnl</Name>
+        <Homepage>http://people.suug.ch/~tgr/libnl/</Homepage>
+        <Packager>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A library for applications dealing with netlink sockets</Summary>
+        <Archive sha1sum="54c7d02f93b09b43338e5cbf42f1373e83566577" type="targz">http://people.suug.ch/~tgr/libnl/files/libnl-1.1.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">libnl-0.5.0-include.diff</Patch>
+            <Patch>gcc-4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libnl</Name>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/lib/pkgconfig/libnl-1.pc">libnl-1.pc</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-06-01</Date>
+            <Version>1.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-30</Date>
+            <Version>1.0_pre5</Version>
+            <Comment>First release.</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+
