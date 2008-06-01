@@ -8,8 +8,6 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
-WorkDir = "libnl-1.0-pre5"
-
 def setup():
     autotools.configure()
 
