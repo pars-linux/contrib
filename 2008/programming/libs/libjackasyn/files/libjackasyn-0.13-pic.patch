@@ -1,0 +1,42 @@
+--- Makefile.in.orig	2006-08-07 13:34:43.000000000 +0300
++++ Makefile.in	2007-03-11 01:36:32.000000000 +0200
+@@ -5,10 +5,10 @@
+ 
+ TARGET = libjackasyn
+ 
+-SRC_FILES = libjackasyn.c libjackoss.c clientfuncs.c
+-OBJ_FILES = $(SRC_FILES:.c=.o) libjackoss_pl.o
++SRC_FILES = libjackasyn.c libjackoss.c
++OBJ_FILES = $(SRC_FILES:.c=.o)
+ HEADERS = libjackasyn.h libjackoss.h
+-CFLAGS = -O2 -Wall -I. -fPIC -rdynamic -DMAJOR=$(MAJOR) -DMINOR=$(MINOR) @DEBUG@
++CFLAGS = -I. -rdynamic -DMAJOR=$(MAJOR) -DMINOR=$(MINOR) @DEBUG@
+ LIBS =  -lc @LIBS@
+ 
+ 
+@@ -17,12 +17,17 @@
+ 
+ all: static shared
+ 
++%.o : %.c
++	$(CC) $(CFLAGS) $(CFLAGS_ADD) -c $< -o $@
++
++%.opic : %.c
++	$(CC) $(CFLAGS) $(CFLAGS_ADD) -fPIC -c $< -o $@
+ 
+ static: $(OBJ_FILES)
+-	ar cr libjackasyn.a *.o 
++	ar cr libjackasyn.a $(OBJ_FILES)
+ 
+ shared:
+-	gcc -shared -Wl,-soname=libjackasyn.so.0 -o libjackasyn.so.$(VERSION) *.o $(LIBS)
++	$(CC) -shared -Wl,-soname=libjackasyn.so.0 $(LDFLAGS) -o libjackasyn.so.$(VERSION) $(OBJ_PIC) $(LIBS)
+ 
+ install:
+ 	-rm $(DESTDIR)/$(prefix)/lib/libjackasyn.so*
+@@ -58,4 +63,4 @@
+ $(OBJ_FILES) : $(HEADERS)
+ 
+ libjackoss_pl.o: libjackoss.c
+-	gcc -c $(CFLAGS) -DLD_PRELOAD -o $@ $<
++	$(CC) -c $(CFLAGS) $(CFLAGS_ADD) -fPIC -DLD_PRELOAD -o $@ $<
