@@ -1,0 +1,19 @@
+--- Makefile.orig	2008-06-01 09:47:35.000000000 +0300
++++ Makefile	2008-06-01 09:50:57.000000000 +0300
+@@ -1009,7 +1009,7 @@
+ 	# Compiler defines and flags
+ 
+ 	ifeq ($(compiler),g++)
+-		ccflags += -Wall -Werror -fPIC
++		ccflags += -Wall -fPIC
+ 		ifneq ($(target_processor_family),ia64)
+ 			ccflags += -m$(target_word_size)
+ 		endif
+@@ -1888,7 +1888,6 @@
+ 	cd $(lib_install_dir); ln -fs $(lib_prefix)$(project_name).so.$(so_current).$(so_revision) $(lib_prefix)$(project_name).so.$(so_current) 
+ endif
+ 	cd $(lib_install_dir); ln -fs $(lib_prefix)$(project_name).so.$(so_current) $(lib_prefix)$(project_name).so
+-	-ldconfig $(lib_install_dir)
+ 	$(ec)$(gprintf) "Installation complete.\n"
+ endif
+ 
