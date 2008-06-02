@@ -1,0 +1,59 @@
+--- test.rb_orj	2007-08-22 02:29:37.000000000 +0300
++++ test.rb	2007-09-14 17:08:50.000000000 +0300
+@@ -1,12 +1,17 @@
+-#!/usr/local/bin/ruby
++#!/usr/bin/ruby
+ # $Id: test.rb,v 1.24 2007-08-21 23:29:37 tommy Exp $
+ 
+ require "test/unit"
+-require "./mysql.o"
++require "mysql"
++
++ARGV.each do |a|
++    $argv ||= []
++    $argv << a
++end
+ 
+ class TC_Mysql < Test::Unit::TestCase
+   def setup()
+-    @host, @user, @pass, db, port, sock, flag = ARGV
++    @host, @user, @pass, db, port, sock, flag = $argv
+     @db = db || "test"
+     @port = port.to_i
+     @sock = sock.nil? || sock.empty? ? nil : sock
+@@ -95,7 +100,7 @@
+ 
+ class TC_Mysql2 < Test::Unit::TestCase
+   def setup()
+-    @host, @user, @pass, db, port, sock, flag = ARGV
++    @host, @user, @pass, db, port, sock, flag = $argv
+     @db = db || "test"
+     @port = port.to_i
+     @sock = sock.nil? || sock.empty? ? nil : sock
+@@ -203,7 +208,7 @@
+ 
+ class TC_MysqlRes < Test::Unit::TestCase
+   def setup()
+-    @host, @user, @pass, db, port, sock, flag = ARGV
++    @host, @user, @pass, db, port, sock, flag = $argv
+     @db = db || "test"
+     @port = port.to_i
+     @sock = sock.nil? || sock.empty? ? nil : sock
+@@ -403,7 +408,7 @@
+ 
+ class TC_MysqlStmt < Test::Unit::TestCase
+   def setup()
+-    @host, @user, @pass, db, port, sock, flag = ARGV
++    @host, @user, @pass, db, port, sock, flag = $argv
+     @db = db || "test"
+     @port = port.to_i
+     @sock = sock.nil? || sock.empty? ? nil : sock
+@@ -433,7 +438,7 @@
+ 
+ class TC_MysqlStmt2 < Test::Unit::TestCase
+   def setup()
+-    @host, @user, @pass, db, port, sock, flag = ARGV
++    @host, @user, @pass, db, port, sock, flag = $argv
+     @db = db || "test"
+     @port = port.to_i
+     @sock = sock.nil? || sock.empty? ? nil : sock
