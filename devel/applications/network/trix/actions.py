@@ -8,12 +8,12 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-rpath")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install() 
+    autotools.install()
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
