@@ -10,7 +10,7 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="OpenJPEG"
+WorkDir="OpenJPEG_v1_3"
 
 def setup():
     cmaketools.configure("-DBUILD_SHARED_LIBS=ON")
@@ -25,8 +25,7 @@ def build():
 def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/usr/include/openjpeg","%s/usr/include/*.h" % get.installDIR())
-    pisitools.remove("/usr/include/*.h")
+    pisitools.insinto("/usr/include/openjpeg","%s/openjpeg/openjpeg.h" % get.installDIR())
+    pisitools.removeDir("openjpeg")
 
     pisitools.dodoc("ChangeLog")
-    pisitools.dohtml("html/*")
