@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="lsdvd-0.16"
-
 def setup():
     autotools.configure()
 
