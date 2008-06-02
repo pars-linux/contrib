@@ -1,0 +1,218 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>herrie</Name>
+        <Homepage>http://www.herrie.info/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>app:console</IsA>
+        <Summary>Minimalistic music player that uses the command line</Summary>
+        <Description>Herrie has a split-screen file manager and playlist interface and supports a number of file formats (MP3, Ogg Vorbis, wave, FLAC, etc)</Description>
+        <Archive sha1sum="0d3bffb5fa592945995ab34d0611f563a9bae100" type="tarbz2">http://herrie.info/distfiles/herrie-2.0.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.8.6">libao</Dependency>
+            <Dependency versionFrom="0.15.1b">libid3tag</Dependency>
+            <Dependency versionFrom="0.15.1b">libmad</Dependency>
+            <Dependency versionFrom="1.0.15">libsndfile</Dependency>
+            <Dependency versionFrom="1.1.2">libvorbis</Dependency>
+            <Dependency releaseFrom="18">alsa-lib</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency versionFrom="0.8.2">libspiff</Dependency>
+            <Dependency>flac</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>herrie</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.8.6">libao</Dependency>
+            <Dependency versionFrom="0.15.1b">libid3tag</Dependency>
+            <Dependency versionFrom="0.15.1b">libmad</Dependency>
+            <Dependency versionFrom="1.0.15">libsndfile</Dependency>
+            <Dependency versionFrom="1.1.2">libvorbis</Dependency>
+            <Dependency releaseFrom="18">alsa-lib</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency versionFrom="0.8.2">libspiff</Dependency>
+            <Dependency>flac</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/herrie.conf">herrie.conf</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/herrie">herrie.py</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="23">
+            <Date>2008-04-24</Date>
+            <Version>2.0.2</Version>
+            <Comment>Version bump. ALSA support fixes.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="22">
+            <Date>2008-04-01</Date>
+            <Version>2.0.1</Version>
+            <Comment>Version bump. Herrie now supports ALSA volume control.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="21">
+            <Date>2008-03-16</Date>
+            <Version>2.0</Version>
+            <Comment>Version bump, not many features.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="20">
+            <Date>2008-02-08</Date>
+            <Version>1.9.2</Version>
+            <Comment>Depend on new libspiff and uriparser.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="19">
+            <Date>2008-01-19</Date>
+            <Version>1.9.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="18">
+            <Date>2007-12-17</Date>
+            <Version>1.9.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="17">
+            <Date>2007-12-02</Date>
+            <Version>1.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="16">
+            <Date>2007-10-05</Date>
+            <Version>1.8.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="15">
+            <Date>2007-09-16</Date>
+            <Version>1.8.3</Version>
+            <Comment>Version bump and add wrapper script for automatically creating ~/.herrie directory, herrie can't create directory if doesn't exist and can't save playlist file</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="14">
+            <Date>2007-07-09</Date>
+            <Version>1.8.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="13">
+            <Date>2007-07-01</Date>
+            <Version>1.8</Version>
+            <Comment>Version bump to stable release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="12">
+            <Date>2007-06-21</Date>
+            <Version>1.7_20070621</Version>
+            <Comment>Latest git snapshot. Herrie now supports ALSA and regexp searching.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="11">
+            <Date>2007-06-04</Date>
+            <Version>1.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="10">
+            <Date>2007-04-21</Date>
+            <Version>1.6.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2007-04-13</Date>
+            <Version>1.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2007-03-10</Date>
+            <Version>1.5.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-02-27</Date>
+            <Version>1.5</Version>
+            <Comment>Version bump. It contains xmms-like playlist and Turkish translation.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-02-11</Date>
+            <Version>1.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-01-31</Date>
+            <Version>1.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-01-31</Date>
+            <Version>1.2</Version>
+            <Comment>Add Turkish translation, fix actions.py</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-01-19</Date>
+            <Version>1.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-12-11</Date>
+            <Version>1.0.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-09</Date>
+            <Version>1.0.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
