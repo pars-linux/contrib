@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 
 
 def setup():
-    autotools.configure("--enable-static=no")
+    autotools.configure("--disable-static")
 
 def build():
 
