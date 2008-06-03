@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "etl-%s_20071011" % get.srcVERSION()
+WorkDir = "ETL-%s" % get.srcVERSION()
 
 def setup():
     shelltools.system("./bootstrap")
