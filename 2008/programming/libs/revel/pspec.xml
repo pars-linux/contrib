@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>revel</Name>
+        <Homepage>http://revel.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A library designed to be the shortest, simplest path between your application and high-quality well-compressed video output</Summary>
+        <Description>Revel makes it trivial to output MPEG-4-compressed AVI files from any C/C++ application</Description>
+        <Archive sha1sum="aaeb13d8ce84ac18b7cbda0050780a53da507d87" type="targz">mirrors://sourceforge/revel/revel-1.1.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xvid</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>make-shared.patch</Patch>
+            <Patch>gcc-4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>revel</Name>
+        <RuntimeDependencies>
+            <Dependency>xvid</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-23</Date>
+            <Version>1.1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
