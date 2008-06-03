@@ -1,0 +1,92 @@
+--- ext/sqlite3_api/Makefile	2007-01-29 19:34:58.000000000 +0200
++++ ext/sqlite3_api/Makefile	2007-10-16 14:42:40.000000000 +0300
+@@ -4,11 +4,11 @@
+ #### Start of system configuration section. ####
+ 
+ srcdir = .
+-topdir = /opt/local/lib/ruby/1.8/i686-darwin8.5.2
++topdir = /usr/lib/ruby/1.8/i686-linux
+ hdrdir = $(topdir)
+ VPATH = $(srcdir):$(topdir):$(hdrdir)
+-prefix = $(DESTDIR)/opt/local
+-exec_prefix = $(DESTDIR)/opt/local
++prefix = $(DESTDIR)/usr
++exec_prefix = $(DESTDIR)/usr
+ sitedir = $(prefix)/lib/ruby/site_ruby
+ rubylibdir = $(libdir)/ruby/$(ruby_version)
+ archdir = $(rubylibdir)/$(arch)
+@@ -18,8 +18,8 @@
+ includedir = $(prefix)/include
+ infodir = $(prefix)/info
+ sysconfdir = $(prefix)/etc
+-mandir = $(DESTDIR)/opt/local/share/man
+-libdir = $(DESTDIR)/opt/local/lib
++mandir = $(DESTDIR)/usr/share/man
++libdir = $(DESTDIR)/usr/lib
+ sharedstatedir = $(prefix)/com
+ oldincludedir = $(DESTDIR)/usr/include
+ sitearchdir = $(sitelibdir)/$(sitearch)
+@@ -36,21 +36,21 @@
+ LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
+ LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
+ 
+-CFLAGS   =  -fno-common -O -pipe -I/opt/local/include  -fno-common -pipe -fno-common 
+-CPPFLAGS = -I. -I$(topdir) -I$(hdrdir) -I$(srcdir) -DHAVE_SQLITE3_H -I/usr/local/include -O -pipe -I/opt/local/include
++CFLAGS   =  -fno-common -O -pipe -I/usr/lib/ruby/1.8/i686-linux  -fno-common -pipe -fno-common 
++CPPFLAGS = -I. -I$(topdir) -I$(hdrdir) -I$(srcdir) -DHAVE_SQLITE3_H -I/usr/include -O -pipe -I/usr/lib/ruby/1.8/i686-linux
+ CXXFLAGS = $(CFLAGS) 
+-DLDFLAGS = -L/opt/local/lib  
+-LDSHARED = cc -dynamic -bundle -undefined suppress -flat_namespace
++DLDFLAGS = -L/usr/lib  
++LDSHARED = ld -shared
+ AR = ar
+ EXEEXT = 
+ 
+ RUBY_INSTALL_NAME = ruby
+ RUBY_SO_NAME = ruby
+-arch = i686-darwin8.5.2
+-sitearch = i686-darwin8.5.2
+-vendorarch = i686-darwin8.5.2
++arch = i686-linux
++sitearch = i686-linux
++vendorarch = i686-linux
+ ruby_version = 1.8
+-ruby = /opt/local/bin/ruby
++ruby = /usr/bin/ruby
+ RUBY = $(ruby)
+ RM = rm -f
+ MAKEDIRS = mkdir -p
+@@ -63,8 +63,8 @@
+ 
+ preload = 
+ 
+-libpath = /usr/local/lib $(libdir)
+-LIBPATH =  -L"/usr/local/lib" -L"$(libdir)"
++libpath = /usr/lib $(libdir)
++LIBPATH =  -L"/usr/lib" -L"$(libdir)"
+ DEFFILE = 
+ 
+ CLEANFILES = 
+@@ -74,11 +74,11 @@
+ extout_prefix = 
+ target_prefix = 
+ LOCAL_LIBS = 
+-LIBS = $(LIBRUBYARG_SHARED) -lsqlite3  -lpthread -ldl -lobjc  
++LIBS = $(LIBRUBYARG_SHARED) -lsqlite3  -lpthread -ldl
+ SRCS = sqlite3_api_wrap.c
+ OBJS = sqlite3_api_wrap.o
+ TARGET = sqlite3_api
+-DLLIB = $(TARGET).bundle
++DLLIB = $(TARGET).so
+ STATIC_LIB = 
+ 
+ RUBYCOMMONDIR = $(sitedir)$(target_prefix)
+@@ -86,7 +86,7 @@
+ RUBYARCHDIR   = $(sitearchdir)$(target_prefix)
+ 
+ TARGET_SO     = $(DLLIB)
+-CLEANLIBS     = $(TARGET).bundle $(TARGET).il? $(TARGET).tds $(TARGET).map
++CLEANLIBS     = $(TARGET).so $(TARGET).il? $(TARGET).tds $(TARGET).map
+ CLEANOBJS     = *.o *.a *.s[ol] *.pdb *.exp *.bak
+ 
+ all:		$(DLLIB)
