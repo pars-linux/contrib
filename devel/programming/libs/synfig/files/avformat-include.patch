@@ -1,0 +1,24 @@
+diff -Nur synfig-0.61.08.orig/src/modules/mod_libavcodec/trgt_av.cpp synfig-0.61.08/src/modules/mod_libavcodec/trgt_av.cpp
+--- synfig-0.61.08.orig/src/modules/mod_libavcodec/trgt_av.cpp	2008-06-03 19:47:39.000000000 +0300
++++ synfig-0.61.08/src/modules/mod_libavcodec/trgt_av.cpp	2008-06-03 19:56:12.000000000 +0300
+@@ -35,7 +35,7 @@
+ 
+ extern "C"
+ {
+-#include <avformat.h>
++#include <libavformat/avformat.h>
+ }
+ 
+ #include <synfig/general.h>
+@@ -674,7 +674,11 @@
+ 			if(!(format->flags & AVFMT_NOFILE))
+ 			{
+ 				/* close the output file */
++#if LIBAVFORMAT_VERSION_INT >= (52<<16)
++				url_fclose(formatc->pb);
++#else
+ 				url_fclose(&formatc->pb);
++#endif
+ 			}
+ 
+ 			/* free the stream */
