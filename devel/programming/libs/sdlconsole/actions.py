@@ -8,13 +8,15 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-sdltest")
+    autotools.configure("--disable-sdltest \
+                         --disable-static")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    pisitools.dodoc("AUTHORS", "COPYING", "README")
+
     pisitools.dohtml("docs/index.html")
+    pisitools.dodoc("AUTHORS", "COPYING", "README")
 
