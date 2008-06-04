@@ -9,7 +9,8 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--disable-static \
-                         --disable-schemas-install")
+                         --disable-schemas-install \
+                         --disable-esd")
 
 def build():
     autotools.make()
