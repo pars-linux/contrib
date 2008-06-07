@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cssed</Name>
+        <Homepage>http://cssed.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>An application to help create and maintain CSS style sheets</Summary>
+        <Archive sha1sum="98ca1bcca97ee22516ca18ebfd832a48efb80e77" type="targz">mirrors://sourceforge/cssed/cssed-0.4.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>fontconfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>cssed</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>fontconfig</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/cssed</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/cssed.desktop">cssed.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-01-28</Date>
+            <Version>0.4.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
