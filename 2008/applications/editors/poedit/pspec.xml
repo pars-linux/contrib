@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>poedit</Name>
+        <Homepage>http://www.poedit.net</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <Icon>poedit</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A cross-platform Gettext catalogs (.po files) editor</Summary>
+        <Description>This program is GUI frontend to GNU Gettext utilities and catalogs editor/source code parser. It helps with translating application into another language. For details on principles of the solution used, see GNU Gettext documentation or wxWidgets' wxLocale class reference.</Description>
+        <Archive sha1sum="b1d45481a550ad253dc1c57fe791dded81923462" type="targz">mirrors://sourceforge/poedit/poedit-1.4.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>poedit</Name>
+        <RuntimeDependencies>
+            <Dependency>wxGTK</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-04-13</Date>
+            <Version>1.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
