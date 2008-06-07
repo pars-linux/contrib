@@ -7,8 +7,6 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
-WorkDir = "emesene-rc"
-
 def install():
     pythonmodules.install()
 
