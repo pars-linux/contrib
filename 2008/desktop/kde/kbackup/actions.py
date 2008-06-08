@@ -10,7 +10,7 @@ def setup():
     kde.configure()
 
 def build():
-    kde.make()
+    kde.make("-j1")
 
 def install():
     kde.install()
