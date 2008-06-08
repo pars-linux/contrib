@@ -8,11 +8,12 @@
             <Name>Nicolas E. Lara G.</Name>
             <Email>nicolaslara@gmail.com</Email>
         </Packager>
-        <License>LGPL-2.1</License>
+        <License>LGPLv2.1</License>
         <IsA>library</IsA>
         <Summary>GStreamer python bindings</Summary>
-        <Archive sha1sum="c8692dcaa15b59fcc4b1b706c75f908ceb657205" type="targz">http://gstreamer.freedesktop.org/src/gst-python/gst-python-0.10.9.tar.gz</Archive>
+        <Archive sha1sum="572b6c2e40562860edbb967fec32fbe9252e72b3" type="tarbz2">http://gstreamer.freedesktop.org/src/gst-python/gst-python-0.10.11.tar.bz2</Archive>
         <BuildDependencies>
+            <Dependency>pygtk</Dependency>
             <Dependency versionFrom="0.10.15">gstreamer</Dependency>
             <Dependency>gst-plugins-base</Dependency>
         </BuildDependencies>
@@ -21,6 +22,7 @@
     <Package>
         <Name>gst-python</Name>
         <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
             <Dependency versionFrom="0.10.15">gstreamer</Dependency>
             <Dependency>gst-plugins-base</Dependency>
         </RuntimeDependencies>
@@ -30,7 +32,14 @@
         </Files>
    </Package>
 
-    <History>
+   <History>
+        <Update release="3">
+            <Date>2008-06-08</Date>
+            <Version>0.10.11</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-11-28</Date>
             <Version>0.10.9</Version>
