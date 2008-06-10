@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pbzip2</Name>
+        <Homepage>http://compression.ca/pbzip2/</Homepage>
+        <Packager>
+            <Name>Christopher David Desjardins</Name>
+            <Email>cddesjardins@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <Summary>Parallel implementation of the bzip2</Summary>
+        <Description>PBZIP2 is a parallel implementation of the bzip2 block-sorting file compressor that uses pthreads and achieves near-linear speedup on SMP machines.</Description>
+        <Archive sha1sum="8ae0ebcd08761332ade6baa4b1172a3f97f71169" type="targz">http://compression.ca/pbzip2/pbzip2-1.0.2.tar.gz</Archive>
+        <Patches>
+            <Patch>flags.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pbzip2</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-02</Date>
+            <Version>1.0.2</Version>
+            <Comment>First release</Comment>
+            <Name>Christopher David Desjardins</Name>
+            <Email>cddesjardins@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
