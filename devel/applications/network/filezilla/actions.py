@@ -6,12 +6,15 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-static=no \
-                         --with-wx-config=/usr/bin/wx-config-2.8 \
-                         --with-wx-prefix=/usr/wx/2.8")
+    shelltools.export("WXRC", "/usr/bin/wxrc-2.8")
+    autotools.configure("--disable-static \
+                         --with-wx-config=/usr/bin/wx-config \
+                         --disable-manualupdatecheck \
+                         --disable-autoupdatecheck")
 
 def build():
     autotools.make()
@@ -23,5 +26,5 @@ def install():
     pisitools.domove("/usr/share/filezilla/docs/fzdefaults.xml.example", "/usr/share/filezilla")
     pisitools.removeDir("/usr/share/filezilla/docs")
 
-    pisitools.dohtml("docs/", "GPL.html")
-    pisitools.dodoc("ChangeLog", "COPYING", "README", "NEWS")
+    pisitools.dodoc("ChangeLog", "README", "AUTHORS", "docs/todo.txt")
+
