@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>trml2pdf</Name>
+        <Homepage>http://sourceforge.net/projects/kraft/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Tool to create PDF document.</Summary>
+        <Description>Tool to create PDF document. It can be used as a Python library or as a standalone binary. It converts a RML, an XML dialect that lets you define the precise appearance of a printed document, to a PDF. </Description>
+        <Archive sha1sum="56ee403fcc8882d0bb7c7d79809fe4a306f741da" type="tarbz2">mirrors://sourceforge/kraft/trml2pdf-1.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>reportlab</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>trml2pdf</Name>
+        <RuntimeDependencies>
+            <Dependency>python-imaging</Dependency>
+            <Dependency>reportlab</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2008-04-12</Date>
+            <Version>1.1</Version>
+            <Comment>Remove *.pyc files from package.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-12-30</Date>
+            <Version>1.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-17</Date>
+            <Version>1.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
