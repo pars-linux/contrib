@@ -6,8 +6,6 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir = "dynagui"
-
 def install():
     for data in ["dynagui.py", "libs", "img"]:
         pisitools.insinto("/usr/share/dynagui", data)
