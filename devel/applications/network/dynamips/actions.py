@@ -5,15 +5,14 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "dynamips-0.2.8-RC1"
+WorkDir = "dynamips-0.2.8-RC2"
 NoStrip = "/"
 
 def build():
-    shelltools.system("make")
+    autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s/usr" % get.installDIR())
