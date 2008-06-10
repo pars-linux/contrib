@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>azureus</Name>
+        <Homepage>http://azureus.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>BSD</License>
+        <IsA>app:gui</IsA>
+        <Summary>Java BitTorrent Client</Summary>
+        <Description>Azureus implements the BitTorrent protocol using java language and comes bundled with many invaluable features for both beginners and advanced users.</Description>
+        <Archive sha1sum="2074ebff8f7301327d35eddfe2149359e2a42a29" type="tarbz2">mirrors://sourceforge/azureus/Azureus_3.0.5.2_linux.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>azureus</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/azureus</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/azureus.desktop" permission="0644" owner="root">azureus.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2008-06-10</Date>
+            <Version>3.0.5.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-08-20</Date>
+            <Version>3.0.2.0</Version>
+            <Comment>Fix version number</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-08-20</Date>
+            <Version>3.0</Version>
+            <Comment>Stable Update</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-04-20</Date>
+            <Version>2.5.0.4</Version>
+            <Comment>Fix Dependency</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-02-01</Date>
+            <Version>2.5.0.4</Version>
+            <Comment>Version Bump</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-08-23</Date>
+            <Version>2.5.0.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-05-13</Date>
+            <Version>2.4.0.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-03-15</Date>
+            <Version>2.4.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
