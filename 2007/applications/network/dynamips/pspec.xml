@@ -11,12 +11,14 @@
         <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>Cisco rooter simulator</Summary>
-        <Archive sha1sum="cdbf276132b733a612fd7995d339eeb64a98ed77" type="targz">http://www.ipflow.utc.fr/dynamips/dynamips-0.2.8-RC1.tar.gz</Archive>
+        <Archive sha1sum="349270690996a1e260b3eceb51ea90f94c25a59e" type="targz">http://www.ipflow.utc.fr/dynamips/dynamips-0.2.8-RC2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libpcap</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>mandir--shared-libpcap.patch</Patch>
+            <Patch>use-correct-mandir.patch</Patch>
+            <Patch>fix-pcap-path.patch</Patch>
+            <Patch level="1">microcode-dumb-incs.patch</Patch>
         </Patches>
     </Source>
 
@@ -33,6 +35,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-06-10</Date>
+            <Version>0.2.8_rc2</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-09-22</Date>
             <Version>0.2.8_rc1</Version>
