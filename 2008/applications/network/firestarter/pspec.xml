@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>firestarter</Name>
+        <Homepage>http://www.fs-security.com</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK based firewall</Summary>
+        <Description>Firestarter is a GTK based firewall</Description>
+        <Archive sha1sum="26dbc59a726b102729f32b775a46284b047aa99d" type="targz">mirrors://sourceforge/firestarter/firestarter-1.0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>iptables</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">do-not-update-gconf-schemas.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>firestarter</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>iptables</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/firestarter.desktop" owner="root" permission="0644">firestarter.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/firestarter.png" owner="root" permission="0644">firestarter.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-08-13</Date>
+            <Version>1.0.3</Version>
+            <Comment>Depend on a new libgnome for proper installing of gconf schemas, fix critiacal bug #5685</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-05-28</Date>
+            <Version>1.0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
