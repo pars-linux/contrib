@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>d4x</Name>
+        <Homepage>http://www.krasu.ru/soft/chuchelo</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>app:gui</IsA>
+        <Summary>GTK based download manager for X</Summary>
+        <Description>GTK based download manager for X</Description>
+        <Archive sha1sum="10955550112bdf22ff91c6c9395afd1a5f15bff2" type="tarbz2">http://d4x.krasu.ru/files/d4x-2.5.7.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>boost</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>d4x-tr.patch</Patch>
+            <Patch level="1">d4x-2.5.7.1-libintl_fix.patch</Patch>
+            <Patch level="1">d4x-2.5.7.1-speed.patch</Patch>
+            <Patch>signal.patch</Patch>
+            <Patch>nt.desktop.patch</Patch>
+            <Patch level="1">enable-gtk-deprecated.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>d4x</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>boost</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2007-05-02</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>Don't freeze at startup</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-05-01</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>signal.patch added</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-11-06</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>Localization fix again</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-05</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>Enable sound and localization fix</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-31</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>tr.po file updated</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-18</Date>
+            <Version>2.5.7.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
