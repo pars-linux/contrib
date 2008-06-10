@@ -7,8 +7,6 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "dynagen-%s" % get.srcVERSION()
-
 def install():
     for data in ["dynagen","*.py"]:
         pisitools.insinto("/usr/lib/%s" % get.curPYTHON(), data)
