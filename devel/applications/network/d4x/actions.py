@@ -7,12 +7,11 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir="d4x-2.5.7.1"
-
 def setup():
+    # rebuild silly configure script
+    autotools.autoconf()
     autotools.configure("--enable-release \
                          --disable-libao \
-                         --enable-esd \
                          --enable-oss \
                          --enable-openssl \
                          --enable-nls \
@@ -20,8 +19,7 @@ def setup():
                          --disable-aotest \
                          --disable-glibtest \
                          --disable-gtktest \
-                         --with-gnu-ld \
-                         --with-included-gettext \
+                         --disable-esdtest \
                          --with-boost \
                          --with-x")
 

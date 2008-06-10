@@ -14,14 +14,8 @@
         <Description>GTK based download manager for X</Description>
         <Archive sha1sum="10955550112bdf22ff91c6c9395afd1a5f15bff2" type="tarbz2">http://d4x.krasu.ru/files/d4x-2.5.7.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency versionFrom="0.11.2">gettext</Dependency>
-            <Dependency versionFrom="0.9.7e">openssl</Dependency>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
             <Dependency>boost</Dependency>
-            <Dependency versionFrom="0.2.7">esound</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>fontconfig</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>d4x-tr.patch</Patch>
@@ -29,20 +23,15 @@
             <Patch level="1">d4x-2.5.7.1-speed.patch</Patch>
             <Patch>signal.patch</Patch>
             <Patch>nt.desktop.patch</Patch>
+            <Patch level="1">enable-gtk-deprecated.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>d4x</Name>
         <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency versionFrom="0.11.2">gettext</Dependency>
-            <Dependency versionFrom="0.9.7e">openssl</Dependency>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
             <Dependency>boost</Dependency>
-            <Dependency versionFrom="0.2.7">esound</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>fontconfig</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
