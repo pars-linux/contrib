@@ -29,7 +29,7 @@ diff -Naur aMule-2.1.3.orig/src/FileFunctions.cpp aMule-2.1.3/src/FileFunctions.
  
  	// Try to open the file, without overwriting existing files.
 -	int fd = open(fullName.fn_str(), O_WRONLY | O_CREAT | O_EXCL);
-+	int fd = open(fullName.fn_str(), O_WRONLY | O_CREAT | O_EXCL, 0755);
++	int fd = open(fullName.fn_str(), O_WRONLY | O_CREAT | O_EXCL, 0644);
  	if (fd != -1) {
  		// Success, the file-system cant be FAT32
  		close(fd);
