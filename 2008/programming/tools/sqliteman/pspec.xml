@@ -17,6 +17,10 @@
         <BuildDependencies>
             <Dependency>qt4-sql-sqlite</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch>installdirs.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -31,12 +35,16 @@
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/sqliteman</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/sqliteman.desktop">sqliteman.desktop</AdditionalFile>
-        </AdditionalFiles>
    </Package>
 
    <History>
+        <Update release="9">
+            <Date>2008-06-10</Date>
+            <Version>1.0.1</Version>
+            <Comment>Fix installation.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="8">
             <Date>2007-09-25</Date>
             <Version>1.0.1</Version>

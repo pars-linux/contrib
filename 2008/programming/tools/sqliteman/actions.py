@@ -16,5 +16,4 @@ def build():
 
 def install():
     cmaketools.install()
-    pisitools.domove("/usr/share/icons/sqliteman.png", "/usr/share/pixmaps/")
     pisitools.dodoc("AUTHORS", "README", "VERSION", "COPYING")
