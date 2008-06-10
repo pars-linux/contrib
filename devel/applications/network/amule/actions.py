@@ -13,9 +13,7 @@ WorkDir = "aMule-%s" % get.srcVERSION()
 def setup():
     autotools.configure("--enable-amulecmd \
                          --enable-webserver \
-                         --enable-amule-daemon \
-                         --with-wx-prefix=/usr/wx/2.8 \
-                         --with-wx-config=/usr/wx/2.8/bin/wx-config")
+                         --enable-amule-daemon")
 
 def build():
     autotools.make()

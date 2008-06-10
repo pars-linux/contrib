@@ -8,26 +8,26 @@
             <Name>İlker Kesen</Name>
             <Email>ikesen92@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>aMule, the all-platform eMule p2p client</Summary>
         <Description>aMule, the all-platform eMule p2p client</Description>
         <Archive sha1sum="dd47deb38e7a5b823550b85150f5a814c597b273" type="tarbz2">mirrors://sourceforge/amule/aMule-2.1.3.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="1.2.1">zlib</Dependency>
-            <Dependency>wxGTK2_8</Dependency>
+            <Dependency versionFrom="2.8">wxGTK</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>amule_desktop.patch</Patch>
             <Patch level="1">aMule-2.1.3-wxGTK-2.8.patch</Patch>
             <Patch level="1">update.patch</Patch>
+            <Patch level="1">gcc-4.3.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>amule</Name>
         <RuntimeDependencies>
-            <Dependency>wxGTK2_8</Dependency>
+            <Dependency versionFrom="2.8">wxGTK</Dependency>
         </RuntimeDependencies>
         <Conflicts>
             <Package>xmule</Package>
