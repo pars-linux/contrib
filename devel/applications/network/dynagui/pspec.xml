@@ -12,19 +12,14 @@
         <IsA>app:gui</IsA>
         <Summary>Gui for dynamips.</Summary>
         <Description>Dynagui is a GUI frontend to the dynamips Cisco 7200/36XX router simulator.It uses the dyna-gen library in order to communicate with the dynamips hypervisor.</Description>
-        <Archive sha1sum="5d7be1fbba251f04c024b92ce5febe878a2be39e" type="targz">mirrors://sourceforge/dynagui/dynagui-0.3.1.tar.gz</Archive>
-        <Patches>
-            <Patch>correct_dynamips_lib_version.patch</Patch>
-        </Patches>
+        <Archive sha1sum="9c3a67ebcea823eb8ccabb2a65cdf492a5833551" type="targz">mirrors://sourceforge/dynagui/dynagui-0.4.tar.gz</Archive>
     </Source>
 
     <Package>
         <Name>dynagui</Name>
         <RuntimeDependencies>
-            <Dependency>dynagen</Dependency>
-            <Dependency>pygtk</Dependency>
-            <Dependency>libgnomecanvas</Dependency>
-            <Dependency>cairo</Dependency>
+            <Dependency version="0.10.1">dynagen</Dependency>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -39,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-06-10</Date>
+            <Version>0.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2008-01-07</Date>
             <Version>0.3.1</Version>
