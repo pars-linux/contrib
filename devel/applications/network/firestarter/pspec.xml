@@ -8,30 +8,31 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>A GTK based firewall</Summary>
         <Description>Firestarter is a GTK based firewall</Description>
-        <Archive sha1sum="26dbc59a726b102729f32b775a46284b047aa99d" type="targz">http://surfnet.dl.sourceforge.net/sourceforge/firestarter/firestarter-1.0.3.tar.gz</Archive>
+        <Archive sha1sum="26dbc59a726b102729f32b775a46284b047aa99d" type="targz">mirrors://sourceforge/firestarter/firestarter-1.0.3.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency releaseFrom="3">libgnome</Dependency>
-            <Dependency>libgnomeui</Dependency>
-            <Dependency>iptables</Dependency>
-            <Dependency>gnome-vfs</Dependency>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
             <Dependency>libglade2</Dependency>
+            <Dependency>iptables</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">do-not-update-gconf-schemas.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>firestarter</Name>
         <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency releaseFrom="3">libgnome</Dependency>
-            <Dependency>libgnomeui</Dependency>
-            <Dependency>iptables</Dependency>
-            <Dependency>gnome-vfs</Dependency>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
             <Dependency>libglade2</Dependency>
+            <Dependency>iptables</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
