@@ -1,0 +1,13 @@
+diff -up aircrack-ng-1.0-rc1/src/wesside-ng.c.O_CREAT aircrack-ng-1.0-rc1/src/wesside-ng.c
+--- aircrack-ng-1.0-rc1/src/wesside-ng.c.O_CREAT	2008-06-09 21:55:09.000000000 +0200
++++ aircrack-ng-1.0-rc1/src/wesside-ng.c	2008-06-10 00:42:34.000000000 +0200
+@@ -1591,7 +1591,8 @@ static void save_key(unsigned char *key,
+ 			strncat(k, ":", 1);
+ 	}
+ 
+-	fd = open(KEY_FILE, O_WRONLY | O_CREAT | 0644);
++	fd = open(KEY_FILE, O_WRONLY | O_CREAT, 
++                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+ 	if (fd == -1)
+ 		err(1, "open()");
+ 
