@@ -27,8 +27,7 @@ def setup():
     shelltools.unlinkDir("data/gui")
 
 def install():
-    for f in ("*.cfg", "*.xml"):
-        pisitools.insinto(datadir, f)
+    pisitools.insinto(datadir, "*.xml")
 
     for f in data:
         fixperms(f)
