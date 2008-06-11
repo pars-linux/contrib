@@ -9,9 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    # FIXME: Compile with enchant support when enchant is ready.
     autotools.configure("--enable-shm \
-                         --enable-spell=none")
+                         --enable-spell=gtkspell")
 
 def build():
     autotools.make()
