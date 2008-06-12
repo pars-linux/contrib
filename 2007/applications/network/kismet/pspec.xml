@@ -8,10 +8,10 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>802.11 layer2 wireless network detector, sniffer, and intrusion detection system.</Summary>
-        <Archive sha1sum="a1c682797ad6842b53f9e0f038254aa8326e0fb4" type="targz">http://www.kismetwireless.net/code/kismet-2007-10-R1.tar.gz</Archive>
+        <Archive sha1sum="8355aeb0374a39549dfdc0c73160125eadd7c6e2" type="targz">http://www.kismetwireless.net/code/kismet-2008-05-R1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libpcap</Dependency>
             <Dependency>wireless-tools</Dependency>
@@ -35,15 +35,16 @@
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="data">/usr/share/kismet</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile target="/etc/conf.d/kismet" permission="0644" owner="root">kismet.confd</AdditionalFile>
-        </AdditionalFiles>
-        <Provides>
-             <COMAR script="service.py">System.Service</COMAR>
-        </Provides>
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2008-06-12</Date>
+            <Version>200805</Version>
+            <Comment>Update to 2008-05-R1 release. Remove server script as kismet is not needed to run daemon mode.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2007-11-01</Date>
             <Version>200710</Version>
