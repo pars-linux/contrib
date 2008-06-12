@@ -25,5 +25,6 @@ def build():
 
 def install():
     autotools.rawInstall("INSTALL_PREFIX=%s" % get.installDIR())
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "README", "TODO")
 
