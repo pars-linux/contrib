@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="kismet-2007-10-R1"
+WorkDir="kismet-2008-05-R1"
 
 def setup():
     autotools.configure()
