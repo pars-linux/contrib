@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtkterm</Name>
+        <Homepage>http://www.jls-info.com/julien/linux/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A serial port terminal written in GTK+, similar to Windows' HyperTerminal</Summary>
+        <Description>It is a "clone" of the famous Hyperterminal. But it is much more simple, that is to say, that it can only communicate with a serial link and that it does not support all the modem protocols. If you are searching for a more complete application of that kind that is more dedicated to be used with a modem, have a look at minicom.</Description>
+        <Archive sha1sum="ec91d7e1045b707029ad11259468337e48867f95" type="targz">http://www.jls-info.com/julien/linux/gtkterm-0.99.5.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>vte</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtkterm</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>vte</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+         <Update release="2">
+            <Date>2007-11-15</Date>
+            <Version>0.99.5</Version>
+            <Comment>Fix dependencies.</Comment>
+            <Name>Ekin Meroğlu</Name>
+            <Email>ekin@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>0.99.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
