@@ -6,12 +6,11 @@
 
 from pisi.actionsapi import autotools
 
-
-def install():
-    autotools.install()
+def setup():
+    autotools.configure()
 
 def build():
     autotools.make()
 
-def setup():
-    autotools.configure()
+def install():
+    autotools.install()
