@@ -8,24 +8,31 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>Gtk+ frontend to su and sudo</Summary>
         <Archive sha1sum="f15d568f43ecbeedd050b8f09b1da94a7d574de5" type="targz">http://people.debian.org/~kov/gksu/gksu-2.0.0.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency releaseFrom="2">libgksu</Dependency>
-            <Dependency>dbus</Dependency>
+            <Dependency versionFrom="2.0.7">libgksu</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">quote_fix.patch</Patch>
+            <Patch level="1">01_always_ask.patch</Patch>
+            <Patch>01_nautilus_crash.diff</Patch>
+            <Patch>02_fr.po.diff</Patch>
+            <Patch level="1">07_desktop_in_ship.patch</Patch>
+            <Patch level="1">10_quote_fix.patch</Patch>
+            <Patch level="1">14_set_http_proxy_env.patch</Patch>
+            <Patch level="1">15_configure.patch</Patch>
+            <Patch level="1">16_fix_ftbfs.patch</Patch>
+            <Patch level="1">20_move_to_extensions-2.0.patch</Patch>
+            <Patch level="1">99_autoreconf.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>gksu</Name>
         <RuntimeDependencies>
-            <Dependency releaseFrom="2">libgksu</Dependency>
-            <Dependency>dbus</Dependency>
+            <Dependency versionFrom="2.0.7">libgksu</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -37,6 +44,13 @@
    </Package>
 
    <History>
+        <Update release="3">
+            <Date>2008-06-13</Date>
+            <Version>2.0.0</Version>
+            <Comment>Depend on latest libgksu and add ubuntu patches.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-09-14</Date>
             <Version>2.0.0</Version>
