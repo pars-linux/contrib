@@ -7,16 +7,21 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import libtools
 
 def setup():
-    autotools.configure("--enable-static=no \
-                                  --enable-gtk-doc=no \
-                                  --enable-nautilus-extension=no")
+    autotools.aclocal()
+    autotools.autoconf()
+    autotools.automake()
+    libtools.libtoolize("--copy --force")
+    autotools.configure("--disable-static \
+                         --disable-gtk-doc \
+                         --enable-nautilus-extension=no")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
-    
+
     pisitools.dodoc("AUTHORS", "README", "NEWS", "ChangeLog")
