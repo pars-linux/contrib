@@ -1,6 +1,6 @@
---- sonata/main.py.orig	2008-04-04 02:28:12.000000000 +0300
-+++ sonata/main.py	2008-04-10 20:43:35.000000000 +0300
-@@ -259,7 +259,7 @@
+--- sonata/main.py.orig	2008-06-13 04:20:26.000000000 +0300
++++ sonata/main.py	2008-06-13 04:36:02.000000000 +0300
+@@ -262,7 +262,7 @@
  		
  		self.gnome_session_management()
  		
@@ -9,7 +9,7 @@
  
  		# Initialize vars for GUI
  		self.current_tab = self.TAB_CURRENT
-@@ -3010,7 +3010,7 @@
+@@ -3054,7 +3054,7 @@
  					lyrics = misc.wiki_to_html(lyrics)
  					gobject.idle_add(self.info_show_lyrics, lyrics, filename_artist, filename_title)
  					# Save lyrics to file:
@@ -18,7 +18,7 @@
  					f = open(filename, 'w')
  					lyrics = misc.unescape_html(lyrics)
  					try:
-@@ -3976,7 +3976,7 @@
+@@ -4036,7 +4036,7 @@
  			self.artwork_set_default_icon()
  	
  	def artwork_stream_filename(self, streamname):
@@ -27,7 +27,16 @@
  	
  	def artwork_create_none_file(self):
  		# If this file exists, Sonata will use the "blank" default artwork for the song
-@@ -4889,8 +4889,8 @@
+@@ -4578,7 +4578,7 @@
+ 			dialog.destroy()
+ 			# Delete current lyrics:
+ 			fname = misc.strip_all_slashes(artist + '-' + title + '.txt')
+-			filename = os.path.expanduser('~/.lyrics/' + fname)
++			filename = os.path.expanduser('~/.sonata/lyrics/' + fname)
+ 			misc.remove_file(filename)
+ 			# Search for new lyrics:
+ 			lyricThread = threading.Thread(target=self.info_get_lyrics, args=(artist_entry.get_text(), title_entry.get_text(), artist, title))
+@@ -4952,8 +4952,8 @@
  					filename = os.path.split(path)[1]
  					if img.extension_is_valid(extension):
  						# Save to temp dir.. we will delete the image afterwards
@@ -38,7 +47,7 @@
  						urllib.urlretrieve(paths[i], dest_file)
  						paths[i] = dest_file
  						remove_after_set = True
-@@ -4923,7 +4923,7 @@
+@@ -4986,7 +4986,7 @@
  			else:
  				lyrics_loc = self.lyrics_location
  			if lyrics_loc == self.LYRICS_LOCATION_HOME:
@@ -46,8 +55,8 @@
 +				targetfile = os.path.expanduser("~/.sonata/lyrics/" + artist + "-" + title + ".txt")
  			elif lyrics_loc == self.LYRICS_LOCATION_PATH:
  				targetfile = self.musicdir[self.profile_num] + os.path.dirname(mpdh.get(self.songinfo, 'file')) + "/" + artist + "-" + title + ".txt"
- 			return misc.file_from_utf8(targetfile)
-@@ -4947,7 +4947,7 @@
+ 			targetfile = misc.file_exists_insensitive(targetfile)
+@@ -5011,7 +5011,7 @@
  			else:
  				art_loc = self.art_location
  			if art_loc == self.ART_LOCATION_HOMECOVERS:
@@ -56,25 +65,25 @@
  			elif art_loc == self.ART_LOCATION_COVER:
  				targetfile = self.musicdir[self.profile_num] + songpath + "/cover.jpg"
  			elif art_loc == self.ART_LOCATION_FOLDER:
-@@ -4958,7 +4958,7 @@
+@@ -5022,7 +5022,7 @@
  				targetfile = self.musicdir[self.profile_num] + songpath + "/" + self.art_location_custom_filename
  			elif art_loc == self.ART_LOCATION_NONE:
  				# flag filename to indicate that we should use the default Sonata icons:
 -				targetfile = os.path.expanduser("~/.covers/" + artist + "-" + album + "-" + self.ART_LOCATION_NONE_FLAG + ".jpg")
 +				targetfile = os.path.expanduser("~/.sonata/covers/" + artist + "-" + album + "-" + self.ART_LOCATION_NONE_FLAG + ".jpg")
+ 			targetfile = misc.file_exists_insensitive(targetfile)
  			return misc.file_from_utf8(targetfile)
  		
- 	def album_return_artist_name(self):
-@@ -5070,7 +5070,7 @@
+@@ -5135,7 +5135,7 @@
  	def artwork_remove_none_file(self, artist, album):
  		# If the flag file exists (to tell Sonata to use the default artwork 
  		# icons), remove the file
 -		delfile = os.path.expanduser("~/.covers/" + artist + "-" + album + "-" + self.ART_LOCATION_NONE_FLAG + ".jpg")
 +		delfile = os.path.expanduser("~/.sonata/covers/" + artist + "-" + album + "-" + self.ART_LOCATION_NONE_FLAG + ".jpg")
+ 		delfile = misc.file_exists_insensitive(delfile)
  		misc.remove_file(delfile)
  
- 	def image_remote(self, widget):
-@@ -5154,7 +5154,7 @@
+@@ -5220,7 +5220,7 @@
  		if len(artist_search) == 0 and len(album_search) == 0:
  			gobject.idle_add(self.image_remote_no_tag_found, imagewidget)
  			return
@@ -83,7 +92,7 @@
  		misc.remove_dir(os.path.dirname(filename))
  		misc.create_dir(os.path.dirname(filename))
  		imgfound = self.artwork_download_img_to_file(artist_search, album_search, filename, True)
-@@ -5777,7 +5777,7 @@
+@@ -5843,7 +5843,7 @@
  		display_art_hbox.set_sensitive(self.show_covers)
  		display_art_location_hbox = gtk.HBox()
  		display_art_location_hbox.pack_start(ui.label(text=_("Save art to:"), x=1))
@@ -92,7 +101,7 @@
  		for item in ["/cover.jpg", "/album.jpg", "/folder.jpg", "/" + _("custom")]:
  			list.append("../" + _("file_path") + item)
  		display_art_location = ui.combo(list=list, active=self.art_location, changed_cb=self.prefs_art_location_changed)
-@@ -5798,7 +5798,7 @@
+@@ -5864,7 +5864,7 @@
  		display_lyrics_location_hbox = gtk.HBox()
  		savelyrics_label = ui.label(text=_("Save lyrics to:"), x=1)
  		display_lyrics_location_hbox.pack_start(savelyrics_label)
