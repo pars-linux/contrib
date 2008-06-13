@@ -1,0 +1,87 @@
+diff -Naur uudeview-0.5.20.orig/unix/uudeview.c uudeview-0.5.20/unix/uudeview.c
+--- uudeview-0.5.20.orig/unix/uudeview.c	2003-04-13 02:33:55.000000000 +0300
++++ uudeview-0.5.20/unix/uudeview.c	2007-09-05 02:39:53.000000000 +0300
+@@ -449,7 +449,7 @@
+     return 0;
+   }
+ 
+-  if ((stdfile = tempnam (NULL, "uu")) == NULL) {
++  if ((stdfile = mkstemp_tempname (NULL, "uu")) == NULL) {
+     fprintf (stderr, "proc_stdin: cannot get temporary file\n");
+     return 0;
+   }
+diff -Naur uudeview-0.5.20.orig/uulib/fptools.c uudeview-0.5.20/uulib/fptools.c
+--- uudeview-0.5.20.orig/uulib/fptools.c	2004-02-24 02:05:32.000000000 +0200
++++ uudeview-0.5.20/uulib/fptools.c	2007-09-05 02:40:30.000000000 +0300
+@@ -516,13 +516,3 @@
+ 
+   return number;
+ }
+-
+-/*
+- * tempnam is not ANSI, but tmpnam is. Ignore the prefix here.
+- */
+-
+-char * TOOLEXPORT
+-_FP_tempnam (char *dir, char *pfx)
+-{
+-  return _FP_strdup (tmpnam (NULL));
+-}
+diff -Naur uudeview-0.5.20.orig/uulib/uudeview.h uudeview-0.5.20/uulib/uudeview.h
+--- uudeview-0.5.20.orig/uulib/uudeview.h	2003-09-30 02:27:47.000000000 +0300
++++ uudeview-0.5.20/uulib/uudeview.h	2007-09-05 02:41:11.000000000 +0300
+@@ -257,6 +257,7 @@
+ 						     int, long, long, char *,
+ 						     char *, char *, char *,
+ 						     int));
++char* mkstemp_tempname(const char* dir, const char* pfx);
+ #ifdef __cplusplus
+ }
+ #endif
+diff -Naur uudeview-0.5.20.orig/uulib/uunconc.c uudeview-0.5.20/uulib/uunconc.c
+--- uudeview-0.5.20.orig/uulib/uunconc.c	2004-03-02 00:52:27.000000000 +0200
++++ uudeview-0.5.20/uulib/uunconc.c	2007-09-05 02:42:51.000000000 +0300
+@@ -49,6 +49,25 @@
+ #include <errno.h>
+ #endif
+ 
++#include <limits.h>
++char* mkstemp_tempname(const char* dir, const char* pfx)
++{
++    int fd;
++    char* tmp;
++    if ( (tmp = malloc(PATH_MAX+1)) == NULL )
++    {
++        return NULL;
++    }
++    strcpy(tmp,"uudeview.tmp.XXXXXX");
++    if ( (fd = mkstemp(tmp)) == (-1) ) 
++    {
++        free (tmp);
++        return NULL;
++    }
++    close(fd);
++    return tmp;
++}
++
+ #include <crc32.h>
+ #include <uudeview.h>
+ #include <uuint.h>
+@@ -1329,7 +1348,7 @@
+   else
+     mode = "wb";	/* otherwise in binary          */
+ 
+-  if ((data->binfile = tempnam (NULL, "uu")) == NULL) {
++  if ((data->binfile = mkstemp_tempname (NULL, "uu")) == NULL) {
+     UUMessage (uunconc_id, __LINE__, UUMSG_ERROR,
+ 	       uustring (S_NO_TEMP_NAME));
+     return UURET_NOMEM;
+@@ -1496,7 +1515,7 @@
+    */
+ 
+   if (data->uudet == BH_ENCODED && data->binfile) {
+-    if ((ntmp = tempnam (NULL, "uu")) == NULL) {
++    if ((ntmp = mkstemp_tempname (NULL, "uu")) == NULL) {
+       UUMessage (uunconc_id, __LINE__, UUMSG_ERROR,
+ 		 uustring (S_NO_TEMP_NAME));
+       progress.action = 0;
