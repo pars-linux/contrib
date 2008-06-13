@@ -1,0 +1,28 @@
+diff -Nur gksu-2.0.0/gksu/gksu.c gksu-2.0.0.new/gksu/gksu.c
+--- gksu-2.0.0/gksu/gksu.c	2006-09-15 04:45:04.000000000 +0200
++++ gksu-2.0.0.new/gksu/gksu.c	2007-02-27 17:23:24.000000000 +0100
+@@ -670,6 +670,24 @@
+ 
+       for (i = optind + 1; i < newargc; i++)
+ 	{
++	   // in sudo mode, check for ' and \ in string and escape it
++	  if(run_mode == SUDO_MODE && 
++	     (strchr(newargv[i],'\'') || strchr(newargv[i],'\\'))) 
++	       {
++		  const gchar *p = newargv[i];
++		  gchar *q,*dest;
++		  dest = q = g_malloc(strlen(newargv[i])*2+1);
++		  while(*p) {
++		     if (*p == '\'')
++			*q++ = '\\';
++		     else if (*p == '\\')
++			*q++ = '\\';
++		     *q++ = *p++;
++		  }
++		  *q = 0;
++		  g_free(newargv[i]);
++		  newargv[i] = dest;
++	       }
+ 	  tmp = g_strconcat (command, " '", newargv[i], "'", NULL);
+ 	  g_free (command);
+ 	  command = tmp;
