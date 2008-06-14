@@ -11,6 +11,7 @@ WorkDir="Mixminion-0.0.8alpha3"
 
 def install():
     pythonmodules.install()
+
     pisitools.insinto("/etc","etc/*.conf")
 
     pisitools.dodoc("PKG-INFO", "README","doc/*.txt")
