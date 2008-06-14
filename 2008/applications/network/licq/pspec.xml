@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>licq</Name>
+    <Homepage>http://www.licq.org/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <Icon>licq</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Multi-threaded / multi-protocol ICQ clone</Summary>
+        <Description>Licq is a multi-threaded ICQ (originally; now it supports AOL and MSN as well) clone written mostly in C++. It uses an extensive plugin system to manage many different functions.</Description>
+        <Archive sha1sum="a1059173f36694e6e5ec9ba62ced6e9738807916" type="tarbz2">mirrors://sourceforge/licq/licq-1.3.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>cdk</Dependency>
+            <Dependency>xosd</Dependency>
+            <Dependency>gpgme</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>fixcrashuponexit.patch</Patch>
+            <Patch>CVE-2008-1996.patch</Patch>
+            <Patch level="1">gcc-4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>licq</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>gpgme</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include/licq</Path>
+            <Path fileType="library">/usr/lib/licq</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale/de/LC_MESSAGES/licq.mo</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-msn</Name>
+        <Summary>Licq MSN plugin</Summary>
+        <Description>Licq MSN plugin.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="data">/usr/lib/licq/protocol_msn.la</Path>
+            <Path fileType="data">/usr/lib/licq/protocol_msn.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-osd</Name>
+        <Summary>Licq OSD plugin</Summary>
+        <Description>On Screen Display (OSD) plugin display messages on the screen transparently as soon as they are received.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+            <Dependency>xosd</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_osd.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_osd.so</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-rms</Name>
+        <Summary>Licq remote management (RMS) plugin</Summary>
+        <Description>This plugin opens a TCP server on the Licq box which allows you to telnet in and perform commands and get information. It works with the new licqweb web interface. It acts much like the FIFO only it is two way. Currently it supports viewing/changing status, viewing the user list, viewing groups, sending messages/urls, and dumping the network log.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_rms.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_rms.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-console</Name>
+        <Summary>Licq console plugin</Summary>
+        <Description>This is a console interface plugin for Licq using ncurses. It features multiple command windows, and much of the basic icq functionality.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+            <Dependency>cdk</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_console.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_console.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-forwarder</Name>
+        <Summary>Licq e-mail forwarder plugin</Summary>
+        <Description>A simple plugin to forward incoming ICQ events to either an email address or another ICQ account. This is great for forwarding a secondary ICQ account or forwarding to a pager/mobile phone. Also included in the main distribution.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_forwarder.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_forwarder.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-autoreply</Name>
+        <Summary>Licq Autoresponder Plugin</Summary>
+        <Description>Plugin to automatically respond to any incoming event with the output of a given program, which can be passed user arguments, or event the message text itself. Often used in conjunction with "fortune" to send people fortunes.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="library">/usr/lib/licq/licq_autoreply.la</Path>
+            <Path fileType="library">/usr/lib/licq/licq_autoreply.so</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>licq-web</Name>
+        <Summary>Licq web interface plugin</Summary>
+        <Description>licqweb is a Web frontend for licq. It interfaces with the Remote Management Service plugin and uses AJAX to provide real-time communication. It is useful for people who use IMs from multiple locations and want a 'centralised' application that means no more logging off and on, consolidates chat history to the one location, and prevents problems where messages are missed because another IM client received them.</Description>
+        <RuntimeDependencies>
+            <Dependency>licq</Dependency>
+            <Dependency>licq-rms</Dependency>
+            <Dependency>apache</Dependency>
+            <Dependency>mod_php</Dependency>
+        </RuntimeDependencies> 
+        <Files>
+            <Path fileType="data">/var/www/localhost/htdocs/licqweb</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5" type="security">
+            <Date>2008-04-29</Date>
+            <Version>1.3.5</Version>
+            <Comment>Fix CVE-2008-1996.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-01-31</Date>
+            <Version>1.3.5</Version>
+            <Comment>Fix crash upon exit.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-12-22</Date>
+            <Version>1.3.5</Version>
+            <Comment>Version bump, fix sandbox issues.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-02</Date>
+            <Version>1.3.4</Version>
+            <Comment>Version bump, split some plugins, package cleanup.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-03-09</Date>
+            <Version>1.3.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
