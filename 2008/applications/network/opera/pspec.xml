@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>opera</Name>
+        <Homepage>http://www.opera.com</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>OPERA-9.0</License>
+        <Icon>opera</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Opera web browser</Summary>
+        <Archive sha1sum="964b9c6f81396679638d90f22d1db9a1b55fcfe8" type="tarbz2">http://opera.tradebit.com/pub/linux/950/final/en/i386/shared/opera-9.50.gcc4-shared-qt3.i386.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>opera</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>flashplugin</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man/man1</Path>
+            <Path fileType="data">/usr/share/opera</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/opera.desktop" permission="0644" owner="root">opera.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="12">
+            <Date>2008-06-14</Date>
+            <Version>9.50</Version>
+            <Comment>Update to gcc4 pre-compiled one. Pardus 2008 has gcc 4.3.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="11" type="security">
+            <Date>2008-06-13</Date>
+            <Version>9.50</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="10" type="security">
+            <Date>2008-04-14</Date>
+            <Version>9.27</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="9" type="security">
+            <Date>2008-03-03</Date>
+            <Version>9.26</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="8" type="security">
+            <Date>2007-12-19</Date>
+            <Version>9.25</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="7" type="security">
+            <Date>2007-10-17</Date>
+            <Version>9.24</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="6" type="security">
+            <Date>2007-08-15</Date>
+            <Version>9.23</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="5" type="security">
+            <Date>2007-07-19</Date>
+            <Version>9.22</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="4" type="security">
+            <Date>2007-05-21</Date>
+            <Version>9.21</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-16</Date>
+            <Version>9.20</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-12-20</Date>
+            <Version>9.10</Version>
+            <Comment>Version bump</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-17</Date>
+            <Version>9.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
