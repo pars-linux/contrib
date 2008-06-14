@@ -18,6 +18,10 @@ def setup():
     li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
     for name in li:
         shelltools.cd("../%s" % name)
+        # msn, auto-reply, email plugins have deprecated vector.h check, configure.ac has been patched
+        # and ./configure should be re-created
+        autotools.aclocal()
+        autotools.autoconf()
         autotools.configure()
 
 def build():
