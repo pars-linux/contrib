@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qlandkarte</Name>
+        <Homepage>http://qlandkarte.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Garmin GPS Application</Summary>
+        <Description>View and upload map files, track and waypoint data to your Garmin GPS.</Description>
+        <Archive sha1sum="a81db59032ecc843bcee4403914311aeb77e697c" type="targz">mirrors://sourceforge/qlandkarte/QLandkarte-0.7.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.2">qt4</Dependency>
+            <Dependency versionFrom="4.4">proj</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>menuicon.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qlandkarte</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.2">qt4</Dependency>
+            <Dependency versionFrom="4.4">proj</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/qlandkarte.png">qlandkarte.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-06-16</Date>
+            <Version>0.7.2</Version>
+            <Comment>Version bump, add menu icon.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-03-01</Date>
+            <Version>0.7.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>
