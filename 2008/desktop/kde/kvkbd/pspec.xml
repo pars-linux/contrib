@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kvkbd</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php/Kvkbd?content=56019</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A nice virtual keyboard for KDE. Have systray and dockwidget</Summary>
+        <Summary xml:lang="tr">Kde için sistem çekmecesine yerleşen sanal klavye uygulaması.</Summary>
+        <Archive sha1sum="a53231621148a1c27913df1382827ce3b851b672" type="tarbz2">http://www.kde-apps.org/CONTENT/content-files/56019-kvkbd-0.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+         </BuildDependencies>
+         <Patches>
+            <Patch>gcc-4.3.patch</Patch>
+         </Patches>
+    </Source>
+
+    <Package>
+        <Name>kvkbd</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2008-06-16</Date>
+            <Version>0.5</Version>
+            <Comment>Version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-11-25</Date>
+            <Version>0.4.7</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-08-07</Date>
+            <Version>0.4.5</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-08-06</Date>
+            <Version>0.4</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-13</Date>
+            <Version>0.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-11</Date>
+            <Version>0.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-10</Date>
+            <Version>0.1</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
