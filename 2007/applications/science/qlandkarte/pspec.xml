@@ -12,11 +12,14 @@
         <IsA>app:gui</IsA>
         <Summary>Garmin GPS Application</Summary>
         <Description>View and upload map files, track and waypoint data to your Garmin GPS.</Description>
-        <Archive sha1sum="6e5d12f77386863f268489d9833b266943bac6b6" type="targz">mirrors://sourceforge/qlandkarte/QLandkarte-0.7.1.tar.gz</Archive>
+        <Archive sha1sum="a81db59032ecc843bcee4403914311aeb77e697c" type="targz">mirrors://sourceforge/qlandkarte/QLandkarte-0.7.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.2">qt4</Dependency>
             <Dependency versionFrom="4.4">proj</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>menuicon.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -31,10 +34,21 @@
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/qlandkarte.png">qlandkarte.png</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-06-16</Date>
+            <Version>0.7.2</Version>
+            <Comment>Version bump, add menu icon.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2008-03-01</Date>
             <Version>0.7.1</Version>
