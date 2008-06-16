@@ -3,19 +3,22 @@
 <PISI>
     <Source>
         <Name>kvkbd</Name>
-        <Homepage>http://pan4os.info/</Homepage>
+        <Homepage>http://www.kde-apps.org/content/show.php/Kvkbd?content=56019</Homepage>
         <Packager>
             <Name>Türker Sezer</Name>
             <Email>turkersezer@tsdesign.info</Email>
         </Packager>
-        <License>GPL</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>A nice virtual keyboard for KDE. Have systray and dockwidget</Summary>
         <Summary xml:lang="tr">Kde için sistem çekmecesine yerleşen sanal klavye uygulaması.</Summary>
-	<Archive sha1sum="14042254c8a42efdc3027c00de032337059930c7" type="targz">http://pan4os.info/apps/kvkbd-0.4.7.tar.gz</Archive>
+        <Archive sha1sum="a53231621148a1c27913df1382827ce3b851b672" type="tarbz2">http://www.kde-apps.org/CONTENT/content-files/56019-kvkbd-0.5.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs</Dependency>
          </BuildDependencies>
+         <Patches>
+            <Patch>gcc-4.3.patch</Patch>
+         </Patches>
     </Source>
 
     <Package>
@@ -32,6 +35,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-06-16</Date>
+            <Version>0.5</Version>
+            <Comment>Version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
         <Update release="6">
             <Date>2007-11-25</Date>
             <Version>0.4.7</Version>
