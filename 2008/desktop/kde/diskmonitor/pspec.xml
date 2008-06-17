@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>diskmonitor</Name>
+        <Homepage>http://www.kde-apps.org/content/show.php?content=45015</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A simple kicker disk monitor</Summary>
+        <Summary xml:lang="tr">Kicker'a yerleşen bir disk izleme eklentisi.</Summary>
+        <Archive sha1sum="de0dca4716dc72f39a937e050b3faf4d8bfaffb0" type="targz">http://kde-apps.org/CONTENT/content-files/45015-diskmonitor-0.4.1.tar.gz</Archive>
+	<BuildDependencies>
+            <Dependency>kdebase</Dependency>
+	</BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>diskmonitor</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+	</RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-16</Date>
+            <Version>0.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
