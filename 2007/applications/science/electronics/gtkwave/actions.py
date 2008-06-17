@@ -15,4 +15,5 @@ def build():
 
 def install():
     autotools.install()
+
     pisitools.dodoc("ANALOG_README.TXT","CHANGELOG.TXT")
