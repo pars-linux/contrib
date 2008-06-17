@@ -17,3 +17,5 @@ def install():
     pisitools.domo("po/tr.po", "tr", "dolphin.mo")
     pisitools.domove("/usr/share/locale/*", "/usr/kde/3.5/share/locale/")
     kde.install()
+
+    pisitools.dodoc("COPYING", "TODO", "ChangeLog", "AUTHORS")
