@@ -8,10 +8,10 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
-        <Summary>GTK2/Gnome cd burning application.</Summary>
-        <Archive sha1sum="0c4581eb9639172d1221817e621582b22c54a236" type="targz">mirrors://sourceforge/gnomebaker/gnomebaker-0.6.2.tar.gz</Archive>
+        <Summary>GTK2/Gnome cd burning application</Summary>
+        <Archive sha1sum="ead0fe0091a1de7ae9197bf8e1b374749fc7c61b" type="targz">mirrors://sourceforge/gnomebaker/gnomebaker-0.6.4.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libglade2</Dependency>
             <Dependency>libgnomeui</Dependency>
@@ -22,7 +22,6 @@
             <Dependency>cdrdao</Dependency>
             <Dependency>cdrtools</Dependency>
             <Dependency releaseFrom="4">libnotify</Dependency>
-            <Dependency>esound</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
@@ -41,7 +40,6 @@
             <Dependency>cdrdao</Dependency>
             <Dependency>cdrtools</Dependency>
             <Dependency releaseFrom="4">libnotify</Dependency>
-            <Dependency>esound</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -49,12 +47,16 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-        <Provides>
-            <COMAR script="package.py">System.Package</COMAR>
-        </Provides>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2008-06-18</Date>
+            <Version>0.6.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2007-09-17</Date>
             <Version>0.6.2</Version>
