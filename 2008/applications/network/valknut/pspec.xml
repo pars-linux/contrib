@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>valknut</Name>
+        <Homepage>http://wxdcgui.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A program the uses the Direct Connect protocol</Summary>
+        <Description>Valknut is a program the uses the Direct Connect protocol. It is compatible with other DC clients, such as the original DC from Neomodus, DC++ and derivatives. Valknut also interoperates with all common DC hub software.</Description>
+        <Archive sha1sum="f9369f334690973423bd0b4fbfa59baf4fb8c7e1" type="tarbz2">mirrors://sourceforge/wxdcgui/valknut-0.3.16.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4.22">libxml2</Dependency>
+            <Dependency versionFrom="0.3.16">dclib</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch compressionType="bz2">i18n.patch.tar.bz2</Patch>
+            <Patch>flag_turkey.xpm.patch</Patch>
+            <Patch level="1">turkish_menu.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>valknut</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4.22">libxml2</Dependency>
+            <Dependency versionFrom="0.3.16">dclib</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>xorg-server</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/valknut.desktop">valknut.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2008-06-18</Date>
+            <Version>0.3.16</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-01-30</Date>
+            <Version>0.3.12</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-10-15</Date>
+            <Version>0.3.11</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-07-20</Date>
+            <Version>0.3.10</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-15</Date>
+            <Version>0.3.9</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-03-29</Date>
+            <Version>0.3.8.1</Version>
+            <Comment>Turkish translation added</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-14</Date>
+            <Version>0.3.8.1</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

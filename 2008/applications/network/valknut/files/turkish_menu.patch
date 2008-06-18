@@ -1,0 +1,150 @@
+diff -Naur valknut-0.3.16.orig/valknut/dciconloader.cpp valknut-0.3.16/valknut/dciconloader.cpp
+--- valknut-0.3.16.orig/valknut/dciconloader.cpp	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dciconloader.cpp	2008-06-18 10:40:46.000000000 +0300
+@@ -158,7 +158,8 @@
+ 	m_PixmapMap[eiFLAG_LATVIAN] = LoadPixmap("flag_latvian.xpm");
+ 	m_PixmapMap[eiFLAG_RUSSIA] = LoadPixmap("flag_russia.xpm");
+ 	m_PixmapMap[eiFLAG_SLOVAK] = LoadPixmap("flag_slovak.xpm");
+-	
++	m_PixmapMap[eiFLAG_TURKEY] = LoadPixmap("flag_turkey.xpm");
++
+ 	m_PixmapMap[eiFILETYPE_MP3] = LoadPixmap("filetype-audio.xpm");
+ 	m_PixmapMap[eiFILETYPE_ARCHIVE] = LoadPixmap("filetype-archive.xpm");
+ 	m_PixmapMap[eiFILETYPE_DOCUMENT] = LoadPixmap("filetype-document.xpm");
+diff -Naur valknut-0.3.16.orig/valknut/dciconloader.h valknut-0.3.16/valknut/dciconloader.h
+--- valknut-0.3.16.orig/valknut/dciconloader.h	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dciconloader.h	2008-06-18 10:41:20.000000000 +0300
+@@ -99,6 +99,7 @@
+     eiFLAG_SWEDEN,
+     eiFLAG_LATVIAN,
+     eiFLAG_RUSSIA,
++    eiFLAG_TURKEY,
+     eiFLAG_SLOVAK,
+     eiFILETYPE_MP3,
+     eiFILETYPE_ARCHIVE,
+diff -Naur valknut-0.3.16.orig/valknut/dcmenuhandler.cpp valknut-0.3.16/valknut/dcmenuhandler.cpp
+--- valknut-0.3.16.orig/valknut/dcmenuhandler.cpp	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dcmenuhandler.cpp	2008-06-18 10:42:06.000000000 +0300
+@@ -426,6 +426,10 @@
+ 				popupmenu->insertItem( QIconSet( g_pIconLoader->GetPixmap(eiFLAG_SWEDEN) ), QObject::tr("Swedish"), menuitems );
+ 				popupmenu->setItemEnabled( menuitems, enabled );
+ 				break;
++		case emiLANGUAGE_TURKISH:
++				popupmenu->insertItem( QIconSet( g_pIconLoader->GetPixmap(eiFLAG_TURKEY) ), QObject::tr("Turkish"), menuitems );
++				popupmenu->setItemEnabled( menuitems, enabled );
++				break;
+ 		// submenus
+ 		case emisGROUP:
+ 				menu = new QPopupMenu(popupmenu);
+diff -Naur valknut-0.3.16.orig/valknut/dcmenuhandler.h valknut-0.3.16/valknut/dcmenuhandler.h
+--- valknut-0.3.16.orig/valknut/dcmenuhandler.h	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dcmenuhandler.h	2008-06-18 10:42:42.000000000 +0300
+@@ -123,6 +123,7 @@
+ 	emiLANGUAGE_SLOVAKIAN,
+ 	emiLANGUAGE_SPANISH,
+ 	emiLANGUAGE_SWEDISH,
++	emiLANGUAGE_TURKISH,
+ 	// submenus
+ 	emisGROUP,
+ 	emisCHAT_RIGHTCLICK_USER,
+diff -Naur valknut-0.3.16.orig/valknut/dcoptions.cpp valknut-0.3.16/valknut/dcoptions.cpp
+--- valknut-0.3.16.orig/valknut/dcoptions.cpp	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dcoptions.cpp	2008-06-18 10:43:45.000000000 +0300
+@@ -2138,6 +2138,7 @@
+ 	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SLOVAKIAN );
+ 	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SPANISH );
+ 	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SWEDISH );
++	DCMenuHandler::InsertMenu( m, emiLANGUAGE_TURKISH );
+ 
+ 	id = m->exec(QCursor::pos());
+ 
+@@ -2185,6 +2186,8 @@
+ 		s = "valknut.es.qm";
+ 	else if ( id == emiLANGUAGE_SWEDISH )
+ 		s = "valknut.sv.qm";
++	else if ( id == emiLANGUAGE_TURKISH )
++		s = "valknut.tr.qm";
+ 
+ 	if ( s != "" )
+ 	{
+diff -Naur valknut-0.3.16.orig/valknut/icons/Makefile.am valknut-0.3.16/valknut/icons/Makefile.am
+--- valknut-0.3.16.orig/valknut/icons/Makefile.am	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/icons/Makefile.am	2008-06-18 10:44:17.000000000 +0300
+@@ -1,7 +1,7 @@
+ # icons
+ ICONS_EMOT = emoticons.xml emoticons.xpm
+ ICONS_EMOT_SIMPLE_TANGO = simple-tango.xml simple-tango.xpm
+-ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm
++ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm flag_turkey.xpm
+ ICONS_USER = usericons.xml usericons.xpm
+ ICONS_APPL = \
+ back.xpm ball_green.xpm ball_red.xpm ball_yellow.xpm bookmark_add.xpm bookmark_folder.xpm \
+diff -Naur valknut-0.3.16.orig/valknut/icons/Makefile.in valknut-0.3.16/valknut/icons/Makefile.in
+--- valknut-0.3.16.orig/valknut/icons/Makefile.in	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/icons/Makefile.in	2008-06-18 10:45:17.000000000 +0300
+@@ -234,7 +234,7 @@
+ # icons
+ ICONS_EMOT = emoticons.xml emoticons.xpm
+ ICONS_EMOT_SIMPLE_TANGO = simple-tango.xml simple-tango.xpm
+-ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm
++ICONS_FLAG = flag_brazilian.xpm flag_bosnian.xpm flag_czech.xpm flag_denmark.xpm flag_english.xpm flag_finland.xpm flag_france.xpm flag_germany.xpm flag_greek.xpm flag_hungary.xpm flag_iceland.xpm flag_italy.xpm flag_latvian.xpm flag_netherland.xpm flag_norway.xpm flag_poland.xpm flag_romania.xpm flag_russia.xpm flag_slovak.xpm flag_spain.xpm flag_sweden.xpm flag_turkey.xpm
+ ICONS_USER = usericons.xml usericons.xpm
+ ICONS_APPL = \
+ back.xpm ball_green.xpm ball_red.xpm ball_yellow.xpm bookmark_add.xpm bookmark_folder.xpm \
+@@ -504,7 +504,7 @@
+ .NOEXPORT:
+ 
+ #>+ 2
+-KDE_DIST=icon_user_away.xpm usericons.xml simple-tango.xml configure.xpm up.xpm flag_finland.xpm flag_hungary.xpm editdelete.xpm info_22x22.xpm reload.xpm filetype-picture.xpm flag_russia.xpm folder_red.xpm player_pause.xpm help.xpm save.xpm decrypted.xpm online.xpm gv.xpm filefind.xpm icon_24x24.png icon_22x22.png filetype-audio.xpm icon_22x22.xpm simple-tango.xpm flag_sweden.xpm icon_operator.xpm spy.xpm exit.xpm folder_blue_open.xpm find_22x22.xpm bookmark_add.xpm flag_greek.xpm connect_no.xpm flag_poland.xpm player_play.xpm flag_germany.xpm flag_czech.xpm ValknutVolumeIcon.icns icon_16x16.png emoticons.xpm icon_128x128.png ssl_yes.xpm offline.xpm connected.xpm notconnected.xpm upgrade.xpm icon_64x64.png message.xpm globe.xpm down.xpm flag_bosnian.xpm ball_yellow.xpm open.xpm editcopy.xpm splash.xpm info.xpm flag_brazilian.xpm icon_user.xpm icon_128x128.icns world2.xpm flag_france.xpm flag_netherland.xpm translate.xpm filetype-video.xpm download.xpm flag_spain.xpm connect_creating.xpm back.xpm flag_slovak.xpm filetype-application.xpm ball_green.xpm reload_22x22.xpm configure_22x22.xpm folder_blue.xpm server.xpm plushub.xpm flag_romania.xpm icon_48x48.png flag_latvian.xpm flag_iceland.xpm fileclose.xpm editadd.xpm edit.xpm Makefile.in ball_red.xpm flag_english.xpm flag_italy.xpm view_sidetree.xpm filetype-document.xpm icon_32x32.png filetype-unknown.xpm ssl_no.xpm usericons.xpm bookmark_folder.xpm find.xpm encrypted.xpm filetype-archive.xpm fileopen.xpm flag_denmark.xpm transfer.xpm emoticons.xml flag_norway.xpm Makefile.am 
++KDE_DIST=icon_user_away.xpm usericons.xml simple-tango.xml configure.xpm up.xpm flag_finland.xpm flag_hungary.xpm editdelete.xpm info_22x22.xpm reload.xpm filetype-picture.xpm flag_russia.xpm folder_red.xpm player_pause.xpm help.xpm save.xpm decrypted.xpm online.xpm gv.xpm filefind.xpm icon_24x24.png icon_22x22.png filetype-audio.xpm icon_22x22.xpm simple-tango.xpm flag_sweden.xpm icon_operator.xpm spy.xpm exit.xpm folder_blue_open.xpm find_22x22.xpm bookmark_add.xpm flag_greek.xpm connect_no.xpm flag_poland.xpm player_play.xpm flag_germany.xpm flag_czech.xpm ValknutVolumeIcon.icns icon_16x16.png emoticons.xpm icon_128x128.png ssl_yes.xpm offline.xpm connected.xpm notconnected.xpm upgrade.xpm icon_64x64.png message.xpm globe.xpm down.xpm flag_bosnian.xpm ball_yellow.xpm open.xpm editcopy.xpm splash.xpm info.xpm flag_brazilian.xpm icon_user.xpm icon_128x128.icns world2.xpm flag_france.xpm flag_netherland.xpm translate.xpm filetype-video.xpm download.xpm flag_spain.xpm connect_creating.xpm back.xpm flag_slovak.xpm filetype-application.xpm ball_green.xpm reload_22x22.xpm configure_22x22.xpm folder_blue.xpm server.xpm plushub.xpm flag_romania.xpm icon_48x48.png flag_latvian.xpm flag_iceland.xpm fileclose.xpm editadd.xpm edit.xpm Makefile.in ball_red.xpm flag_english.xpm flag_italy.xpm view_sidetree.xpm filetype-document.xpm icon_32x32.png filetype-unknown.xpm ssl_no.xpm usericons.xpm bookmark_folder.xpm find.xpm encrypted.xpm filetype-archive.xpm fileopen.xpm flag_denmark.xpm transfer.xpm emoticons.xml flag_norway.xpm flag_turkey.xpm Makefile.am
+ 
+ #>+ 2
+ docs-am:
+diff -Naur valknut-0.3.16.orig/valknut/Makefile.tr valknut-0.3.16/valknut/Makefile.tr
+--- valknut-0.3.16.orig/valknut/Makefile.tr	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/Makefile.tr	2008-06-18 10:45:56.000000000 +0300
+@@ -122,4 +122,5 @@
+ 	       ts/valknut.ro.ts \
+ 	       ts/valknut.rus.ts \
+ 	       ts/valknut.sk.ts \
+-	       ts/valknut.sv.ts
++	       ts/valknut.sv.ts \
++	       ts/valknut.tr.ts
+diff -Naur valknut-0.3.16.orig/valknut/ts/Makefile.in valknut-0.3.16/valknut/ts/Makefile.in
+--- valknut-0.3.16.orig/valknut/ts/Makefile.in	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/ts/Makefile.in	2008-06-18 10:47:02.000000000 +0300
+@@ -230,7 +230,7 @@
+ top_srcdir = @top_srcdir@
+ x_includes = @x_includes@
+ x_libraries = @x_libraries@
+-EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts
++EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts valknut.tr.ts
+ #>- all: all-am
+ #>+ 1
+ all: docs-am  all-am
+diff -Naur valknut-0.3.16.orig/valknut/ts/README valknut-0.3.16/valknut/ts/README
+--- valknut-0.3.16.orig/valknut/ts/README	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/ts/README	2008-06-18 10:47:20.000000000 +0300
+@@ -22,3 +22,4 @@
+ valknut.rus.ts   - Russian
+ valknut.sk.ts    - Slovak
+ valknut.sv.ts    - Swedish
++valknut.tr.ts    - Turkish
+diff -Naur valknut-0.3.16.orig/valknut/ts/README.tr valknut-0.3.16/valknut/ts/README.tr
+--- valknut-0.3.16.orig/valknut/ts/README.tr	1970-01-01 02:00:00.000000000 +0200
++++ valknut-0.3.16/valknut/ts/README.tr	2008-06-18 10:48:08.000000000 +0300
+@@ -0,0 +1,14 @@
++Turkish  Declaration
++
++Turkce cevirisinde gordugunuz hatalari lutfen bana bildirin.Bildirmek icinde
++PardoX2006 at hotmail dot com adresine mesaj atabilirsiniz.
++
++Ayrica yardimlarindan dolayi
++irc.freenode.org #pardus-devel kanalindaki arkadaslara ve abilere tesekkurler ederim.
++
++Not:Sohbet pencerelerindeki karakter sorununu sohbet pencerenin ustune gidip mausun 
++sag tusuna bir defa tiklama neticesinde ekrana gelen menuden Text Encoding secenegi altinda bulunan Input ve Output seceneklerini iso-8859-9 koduna ayarlamanizda sorun giderilecektir.
++Ayrica menulerdeki karakterleride Ayarlar-->Arayuz-->Uygulama fontlari (Options-->GUI-->Application Font) altindan yapabilirisniz.
++
++						PardoX2006 at hotmail dot com
++						Siradan Vatandas
