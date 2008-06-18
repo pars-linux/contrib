@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>QtTube</Name>
+        <Homepage>https://launchpad.net/qttube/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical application to download videos from YouTube</Summary>
+        <Description>QtTube is a simple application that allows you to download videos from YouTube (either by writing the URL where you can view them or their ID), and convert them to .ogg or another format you want.</Description>
+        <Archive sha1sum="7d1c41159ec26a5c66a2a9cc33d2fba86c43d439" type="targz">http://launchpad.net/qttube/0.x/0.1/+download/QtTube-0.1.tar.gz</Archive>
+        <Patches>
+            <Patch>path.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>QtTube</Name>
+        <RuntimeDependencies>
+            <Dependency>PyQt4</Dependency>
+            <Dependency>youtube-dl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-08</Date>
+            <Version>0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
