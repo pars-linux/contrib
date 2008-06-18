@@ -1,64 +1,30 @@
-diff -Naur valknut-0.3.12.orig/valknut/dciconloader.cpp valknut-0.3.12/valknut/dciconloader.cpp
---- valknut-0.3.12.orig/valknut/dciconloader.cpp	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/dciconloader.cpp	2008-01-30 10:00:59.000000000 +0200
-@@ -2,7 +2,7 @@
-                           dciconloader.cpp  -  description
-                              -------------------
-     begin                : Fri Jan 23 2004
--    copyright            : (C) 2004 by Mathias Küster
-+    copyright            : (C) 2004 by Mathias Kster
-     email                : mathen@users.berlios.de
-  ***************************************************************************/
- 
-@@ -142,6 +142,7 @@
+diff -Naur valknut-0.3.16.orig/valknut/dciconloader.cpp valknut-0.3.16/valknut/dciconloader.cpp
+--- valknut-0.3.16.orig/valknut/dciconloader.cpp	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dciconloader.cpp	2008-06-18 10:40:46.000000000 +0300
+@@ -158,7 +158,8 @@
  	m_PixmapMap[eiFLAG_LATVIAN] = LoadPixmap("flag_latvian.xpm");
  	m_PixmapMap[eiFLAG_RUSSIA] = LoadPixmap("flag_russia.xpm");
  	m_PixmapMap[eiFLAG_SLOVAK] = LoadPixmap("flag_slovak.xpm");
+-	
 +	m_PixmapMap[eiFLAG_TURKEY] = LoadPixmap("flag_turkey.xpm");
- 	
++
  	m_PixmapMap[eiFILETYPE_MP3] = LoadPixmap("filetype-audio.xpm");
  	m_PixmapMap[eiFILETYPE_ARCHIVE] = LoadPixmap("filetype-archive.xpm");
-diff -Naur valknut-0.3.12.orig/valknut/dciconloader.h valknut-0.3.12/valknut/dciconloader.h
---- valknut-0.3.12.orig/valknut/dciconloader.h	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/dciconloader.h	2008-01-30 10:01:59.000000000 +0200
-@@ -2,7 +2,7 @@
-                           dciconloader.h  -  description
-                              -------------------
-     begin                : Fri Jan 23 2004
--    copyright            : (C) 2004 by Mathias Küster
-+    copyright            : (C) 2004 by Mathias Kster
-     email                : mathen@users.berlios.de
-  ***************************************************************************/
- 
-@@ -23,7 +23,7 @@
- #include <qmap.h>
- 
- /**
--  *@author Mathias Küster
-+  *@author Mathias Kï¿½ster
-   */
- 
- typedef enum eIcons {
-@@ -100,6 +100,7 @@
+ 	m_PixmapMap[eiFILETYPE_DOCUMENT] = LoadPixmap("filetype-document.xpm");
+diff -Naur valknut-0.3.16.orig/valknut/dciconloader.h valknut-0.3.16/valknut/dciconloader.h
+--- valknut-0.3.16.orig/valknut/dciconloader.h	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dciconloader.h	2008-06-18 10:41:20.000000000 +0300
+@@ -99,6 +99,7 @@
+     eiFLAG_SWEDEN,
      eiFLAG_LATVIAN,
      eiFLAG_RUSSIA,
-     eiFLAG_SLOVAK,
 +    eiFLAG_TURKEY,
+     eiFLAG_SLOVAK,
      eiFILETYPE_MP3,
      eiFILETYPE_ARCHIVE,
-     eiFILETYPE_DOCUMENT,
-diff -Naur valknut-0.3.12.orig/valknut/dcmenuhandler.cpp valknut-0.3.12/valknut/dcmenuhandler.cpp
---- valknut-0.3.12.orig/valknut/dcmenuhandler.cpp	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/dcmenuhandler.cpp	2008-01-30 10:03:14.000000000 +0200
-@@ -2,7 +2,7 @@
-                           dcmenuhandler.cpp  -  description
-                              -------------------
-     begin                : Don Mai 16 2002
--    copyright            : (C) 2002-2004 by Mathias Küster
-+    copyright            : (C) 2002-2004 by Mathias Kster
-     email                : mathen@users.berlios.de
-  ***************************************************************************/
- 
+diff -Naur valknut-0.3.16.orig/valknut/dcmenuhandler.cpp valknut-0.3.16/valknut/dcmenuhandler.cpp
+--- valknut-0.3.16.orig/valknut/dcmenuhandler.cpp	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dcmenuhandler.cpp	2008-06-18 10:42:06.000000000 +0300
 @@ -426,6 +426,10 @@
  				popupmenu->insertItem( QIconSet( g_pIconLoader->GetPixmap(eiFLAG_SWEDEN) ), QObject::tr("Swedish"), menuitems );
  				popupmenu->setItemEnabled( menuitems, enabled );
@@ -70,27 +36,9 @@ diff -Naur valknut-0.3.12.orig/valknut/dcmenuhandler.cpp valknut-0.3.12/valknut/
  		// submenus
  		case emisGROUP:
  				menu = new QPopupMenu(popupmenu);
-diff -Naur valknut-0.3.12.orig/valknut/dcmenuhandler.h valknut-0.3.12/valknut/dcmenuhandler.h
---- valknut-0.3.12.orig/valknut/dcmenuhandler.h	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/dcmenuhandler.h	2008-01-30 10:04:42.000000000 +0200
-@@ -2,7 +2,7 @@
-                           dcmenuhandler.h  -  description
-                              -------------------
-     begin                : Don Mai 16 2002
--    copyright            : (C) 2002-2004 by Mathias Küster
-+    copyright            : (C) 2002-2004 by Mathias Kster
-     email                : mathen@users.berlios.de
-  ***************************************************************************/
- 
-@@ -19,7 +19,7 @@
- #define DCMENUHANDLER_H
- 
- /**
--  *@author Mathias Küster
-+  *@author Mathias Kster
-   */
- 
- #include <qstring.h>
+diff -Naur valknut-0.3.16.orig/valknut/dcmenuhandler.h valknut-0.3.16/valknut/dcmenuhandler.h
+--- valknut-0.3.16.orig/valknut/dcmenuhandler.h	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dcmenuhandler.h	2008-06-18 10:42:42.000000000 +0300
 @@ -123,6 +123,7 @@
  	emiLANGUAGE_SLOVAKIAN,
  	emiLANGUAGE_SPANISH,
@@ -99,19 +47,10 @@ diff -Naur valknut-0.3.12.orig/valknut/dcmenuhandler.h valknut-0.3.12/valknut/dc
  	// submenus
  	emisGROUP,
  	emisCHAT_RIGHTCLICK_USER,
-diff -Naur valknut-0.3.12.orig/valknut/dcoptions.cpp valknut-0.3.12/valknut/dcoptions.cpp
---- valknut-0.3.12.orig/valknut/dcoptions.cpp	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/dcoptions.cpp	2008-01-30 10:06:31.000000000 +0200
-@@ -2,7 +2,7 @@
-                           dcoptions.cpp  -  description
-                              -------------------
-     begin                : Sun Feb 24 2002
--    copyright            : (C) 2002 by Mathias Küster
-+    copyright            : (C) 2002 by Mathias Kster
-     email                : mathen@users.berlios.de
-  ***************************************************************************/
- 
-@@ -2059,6 +2059,7 @@
+diff -Naur valknut-0.3.16.orig/valknut/dcoptions.cpp valknut-0.3.16/valknut/dcoptions.cpp
+--- valknut-0.3.16.orig/valknut/dcoptions.cpp	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/dcoptions.cpp	2008-06-18 10:43:45.000000000 +0300
+@@ -2138,6 +2138,7 @@
  	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SLOVAKIAN );
  	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SPANISH );
  	DCMenuHandler::InsertMenu( m, emiLANGUAGE_SWEDISH );
@@ -119,20 +58,18 @@ diff -Naur valknut-0.3.12.orig/valknut/dcoptions.cpp valknut-0.3.12/valknut/dcop
  
  	id = m->exec(QCursor::pos());
  
-@@ -2106,7 +2107,9 @@
+@@ -2185,6 +2186,8 @@
  		s = "valknut.es.qm";
  	else if ( id == emiLANGUAGE_SWEDISH )
  		s = "valknut.sv.qm";
--
 +	else if ( id == emiLANGUAGE_TURKISH )
 +		s = "valknut.tr.qm";
-+ 
+ 
  	if ( s != "" )
  	{
- 		LineEdit_LANGUAGEFILE->setText(LineEdit_DATAFOLDER->text()+DIRSEPARATOR+"translation"+DIRSEPARATOR+s.Data());
-diff -Naur valknut-0.3.12.orig/valknut/icons/Makefile.am valknut-0.3.12/valknut/icons/Makefile.am
---- valknut-0.3.12.orig/valknut/icons/Makefile.am	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/icons/Makefile.am	2008-01-30 10:07:13.000000000 +0200
+diff -Naur valknut-0.3.16.orig/valknut/icons/Makefile.am valknut-0.3.16/valknut/icons/Makefile.am
+--- valknut-0.3.16.orig/valknut/icons/Makefile.am	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/icons/Makefile.am	2008-06-18 10:44:17.000000000 +0300
 @@ -1,7 +1,7 @@
  # icons
  ICONS_EMOT = emoticons.xml emoticons.xpm
@@ -142,10 +79,10 @@ diff -Naur valknut-0.3.12.orig/valknut/icons/Makefile.am valknut-0.3.12/valknut/
  ICONS_USER = usericons.xml usericons.xpm
  ICONS_APPL = \
  back.xpm ball_green.xpm ball_red.xpm ball_yellow.xpm bookmark_add.xpm bookmark_folder.xpm \
-diff -Naur valknut-0.3.12.orig/valknut/icons/Makefile.in valknut-0.3.12/valknut/icons/Makefile.in
---- valknut-0.3.12.orig/valknut/icons/Makefile.in	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/icons/Makefile.in	2008-01-30 10:08:18.000000000 +0200
-@@ -273,7 +273,7 @@
+diff -Naur valknut-0.3.16.orig/valknut/icons/Makefile.in valknut-0.3.16/valknut/icons/Makefile.in
+--- valknut-0.3.16.orig/valknut/icons/Makefile.in	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/icons/Makefile.in	2008-06-18 10:45:17.000000000 +0300
+@@ -234,7 +234,7 @@
  # icons
  ICONS_EMOT = emoticons.xml emoticons.xpm
  ICONS_EMOT_SIMPLE_TANGO = simple-tango.xml simple-tango.xpm
@@ -154,54 +91,49 @@ diff -Naur valknut-0.3.12.orig/valknut/icons/Makefile.in valknut-0.3.12/valknut/
  ICONS_USER = usericons.xml usericons.xpm
  ICONS_APPL = \
  back.xpm ball_green.xpm ball_red.xpm ball_yellow.xpm bookmark_add.xpm bookmark_folder.xpm \
-@@ -499,7 +499,7 @@
+@@ -504,7 +504,7 @@
  .NOEXPORT:
  
  #>+ 2
--KDE_DIST=icon_user_away.xpm simple-tango.xml usericons.xml up.xpm configure.xpm flag_finland.xpm flag_hungary.xpm editdelete.xpm info_22x22.xpm reload.xpm filetype-picture.xpm flag_russia.xpm folder_red.xpm player_pause.xpm help.xpm save.xpm decrypted.xpm gv.xpm filefind.xpm online.xpm icon_24x24.png icon_22x22.png filetype-audio.xpm simple-tango.xpm icon_22x22.xpm flag_sweden.xpm icon_operator.xpm spy.xpm exit.xpm folder_blue_open.xpm find_22x22.xpm bookmark_add.xpm connect_no.xpm flag_greek.xpm flag_poland.xpm flag_germany.xpm player_play.xpm flag_czech.xpm icon_16x16.png ValknutVolumeIcon.icns emoticons.xpm icon_128x128.png ssl_yes.xpm offline.xpm connected.xpm notconnected.xpm upgrade.xpm globe.xpm message.xpm icon_64x64.png down.xpm flag_bosnian.xpm ball_yellow.xpm open.xpm splash.xpm editcopy.xpm info.xpm flag_brazilian.xpm icon_128x128.icns icon_user.xpm world2.xpm flag_france.xpm translate.xpm flag_netherland.xpm filetype-video.xpm download.xpm flag_spain.xpm back.xpm flag_slovak.xpm connect_creating.xpm filetype-application.xpm ball_green.xpm reload_22x22.xpm configure_22x22.xpm folder_blue.xpm server.xpm flag_romania.xpm plushub.xpm flag_latvian.xpm icon_48x48.png flag_iceland.xpm fileclose.xpm editadd.xpm edit.xpm flag_english.xpm ball_red.xpm flag_italy.xpm view_sidetree.xpm filetype-document.xpm filetype-unknown.xpm icon_32x32.png ssl_no.xpm usericons.xpm bookmark_folder.xpm find.xpm encrypted.xpm filetype-archive.xpm fileopen.xpm flag_denmark.xpm transfer.xpm emoticons.xml flag_norway.xpm 
-+KDE_DIST=icon_user_away.xpm simple-tango.xml usericons.xml up.xpm configure.xpm flag_finland.xpm flag_hungary.xpm editdelete.xpm info_22x22.xpm reload.xpm filetype-picture.xpm flag_russia.xpm folder_red.xpm player_pause.xpm help.xpm save.xpm decrypted.xpm gv.xpm filefind.xpm online.xpm icon_24x24.png icon_22x22.png filetype-audio.xpm simple-tango.xpm icon_22x22.xpm flag_sweden.xpm icon_operator.xpm spy.xpm exit.xpm folder_blue_open.xpm find_22x22.xpm bookmark_add.xpm connect_no.xpm flag_greek.xpm flag_poland.xpm flag_germany.xpm player_play.xpm flag_czech.xpm icon_16x16.png ValknutVolumeIcon.icns emoticons.xpm icon_128x128.png ssl_yes.xpm offline.xpm connected.xpm notconnected.xpm upgrade.xpm globe.xpm message.xpm icon_64x64.png down.xpm flag_bosnian.xpm ball_yellow.xpm open.xpm splash.xpm editcopy.xpm info.xpm flag_brazilian.xpm icon_128x128.icns icon_user.xpm world2.xpm flag_france.xpm translate.xpm flag_netherland.xpm filetype-video.xpm download.xpm flag_spain.xpm back.xpm flag_slovak.xpm connect_creating.xpm filetype-application.xpm ball_green.xpm reload_22x22.xpm configure_22x22.xpm folder_blue.xpm server.xpm flag_romania.xpm plushub.xpm flag_latvian.xpm icon_48x48.png flag_iceland.xpm fileclose.xpm editadd.xpm edit.xpm flag_english.xpm ball_red.xpm flag_italy.xpm view_sidetree.xpm filetype-document.xpm filetype-unknown.xpm icon_32x32.png ssl_no.xpm usericons.xpm bookmark_folder.xpm find.xpm encrypted.xpm filetype-archive.xpm fileopen.xpm flag_denmark.xpm transfer.xpm emoticons.xml flag_norway.xpm flag_turkey.xpm 
+-KDE_DIST=icon_user_away.xpm usericons.xml simple-tango.xml configure.xpm up.xpm flag_finland.xpm flag_hungary.xpm editdelete.xpm info_22x22.xpm reload.xpm filetype-picture.xpm flag_russia.xpm folder_red.xpm player_pause.xpm help.xpm save.xpm decrypted.xpm online.xpm gv.xpm filefind.xpm icon_24x24.png icon_22x22.png filetype-audio.xpm icon_22x22.xpm simple-tango.xpm flag_sweden.xpm icon_operator.xpm spy.xpm exit.xpm folder_blue_open.xpm find_22x22.xpm bookmark_add.xpm flag_greek.xpm connect_no.xpm flag_poland.xpm player_play.xpm flag_germany.xpm flag_czech.xpm ValknutVolumeIcon.icns icon_16x16.png emoticons.xpm icon_128x128.png ssl_yes.xpm offline.xpm connected.xpm notconnected.xpm upgrade.xpm icon_64x64.png message.xpm globe.xpm down.xpm flag_bosnian.xpm ball_yellow.xpm open.xpm editcopy.xpm splash.xpm info.xpm flag_brazilian.xpm icon_user.xpm icon_128x128.icns world2.xpm flag_france.xpm flag_netherland.xpm translate.xpm filetype-video.xpm download.xpm flag_spain.xpm connect_creating.xpm back.xpm flag_slovak.xpm filetype-application.xpm ball_green.xpm reload_22x22.xpm configure_22x22.xpm folder_blue.xpm server.xpm plushub.xpm flag_romania.xpm icon_48x48.png flag_latvian.xpm flag_iceland.xpm fileclose.xpm editadd.xpm edit.xpm Makefile.in ball_red.xpm flag_english.xpm flag_italy.xpm view_sidetree.xpm filetype-document.xpm icon_32x32.png filetype-unknown.xpm ssl_no.xpm usericons.xpm bookmark_folder.xpm find.xpm encrypted.xpm filetype-archive.xpm fileopen.xpm flag_denmark.xpm transfer.xpm emoticons.xml flag_norway.xpm Makefile.am 
++KDE_DIST=icon_user_away.xpm usericons.xml simple-tango.xml configure.xpm up.xpm flag_finland.xpm flag_hungary.xpm editdelete.xpm info_22x22.xpm reload.xpm filetype-picture.xpm flag_russia.xpm folder_red.xpm player_pause.xpm help.xpm save.xpm decrypted.xpm online.xpm gv.xpm filefind.xpm icon_24x24.png icon_22x22.png filetype-audio.xpm icon_22x22.xpm simple-tango.xpm flag_sweden.xpm icon_operator.xpm spy.xpm exit.xpm folder_blue_open.xpm find_22x22.xpm bookmark_add.xpm flag_greek.xpm connect_no.xpm flag_poland.xpm player_play.xpm flag_germany.xpm flag_czech.xpm ValknutVolumeIcon.icns icon_16x16.png emoticons.xpm icon_128x128.png ssl_yes.xpm offline.xpm connected.xpm notconnected.xpm upgrade.xpm icon_64x64.png message.xpm globe.xpm down.xpm flag_bosnian.xpm ball_yellow.xpm open.xpm editcopy.xpm splash.xpm info.xpm flag_brazilian.xpm icon_user.xpm icon_128x128.icns world2.xpm flag_france.xpm flag_netherland.xpm translate.xpm filetype-video.xpm download.xpm flag_spain.xpm connect_creating.xpm back.xpm flag_slovak.xpm filetype-application.xpm ball_green.xpm reload_22x22.xpm configure_22x22.xpm folder_blue.xpm server.xpm plushub.xpm flag_romania.xpm icon_48x48.png flag_latvian.xpm flag_iceland.xpm fileclose.xpm editadd.xpm edit.xpm Makefile.in ball_red.xpm flag_english.xpm flag_italy.xpm view_sidetree.xpm filetype-document.xpm icon_32x32.png filetype-unknown.xpm ssl_no.xpm usericons.xpm bookmark_folder.xpm find.xpm encrypted.xpm filetype-archive.xpm fileopen.xpm flag_denmark.xpm transfer.xpm emoticons.xml flag_norway.xpm flag_turkey.xpm Makefile.am
  
  #>+ 2
  docs-am:
-diff -Naur valknut-0.3.12.orig/valknut/Makefile.tr valknut-0.3.12/valknut/Makefile.tr
---- valknut-0.3.12.orig/valknut/Makefile.tr	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/Makefile.tr	2008-01-30 10:09:50.000000000 +0200
-@@ -5,4 +5,4 @@
- dcapplicationevents.cpp dcchat.cpp dcclient.cpp dcconfig.cpp dcconnectionmanager.cpp dcdebug.cpp dceditserver.cpp dcedittransfer.cpp dcevent.cpp dcfilebrowser.cpp dcfiletool.cpp dcfiletransferinfo.cpp dcgeturl.cpp dcgui.cpp dchubfilter.cpp dchublistmanager.cpp dchubprofile.cpp dchubsearch.cpp dciconloader.cpp dcmenuhandler.cpp dcoptions.cpp dcpluginmanager.cpp dcsplash.cpp dcspy.cpp dctransferview.cpp dctranslator.cpp dcupdatemanager.cpp dcuserslist.cpp main.cpp 
- 
- INTERFACES = ui/DCDialogEditSharePath.ui ui/DCDialogConnectionManager.ui ui/DCDialogHubListManager.ui ui/DCDialogFileTransferInfo.ui ui/DCDialogHubFilter.ui ui/DCDialogTransfer.ui ui/DCDialogUpdateManager.ui ui/DCDialogClient.ui ui/DCDialogSplash.ui ui/DCDialogAbout.ui ui/DCDialogDebug.ui ui/DCDialogFileBrowser.ui ui/DCDialogHubSearch.ui ui/DCDialogHubProfile.ui ui/DCDialogSpy.ui ui/DCDialogMessage.ui ui/DCDialogGetURL.ui ui/DCDialogEditTransfer.ui ui/DCDialogServerList.ui ui/DCDialogChat.ui ui/DCDialogUsersList.ui ui/DCDialogEditServer.ui ui/DCDialogOptions.ui
--TRANSLATIONS = ts/valknut.bs.ts ts/valknut.rus.ts ts/valknut.lv.ts ts/valknut.sk.ts ts/valknut.hu.ts ts/valknut.is.ts ts/valknut.nb.ts ts/valknut.ro.ts ts/valknut.nl.ts ts/valknut.da.ts ts/valknut.es.ts ts/valknut.pl.ts ts/valknut.sv.ts ts/valknut.fi.ts ts/valknut.it.ts ts/valknut.cs.ts ts/valknut.en_GB.ts ts/valknut.fr.ts ts/valknut.de.ts ts/valknut.el.ts ts/valknut.pt_br.ts
-+TRANSLATIONS = ts/valknut.bs.ts ts/valknut.rus.ts ts/valknut.lv.ts ts/valknut.sk.ts ts/valknut.hu.ts ts/valknut.is.ts ts/valknut.nb.ts ts/valknut.ro.ts ts/valknut.nl.ts ts/valknut.da.ts ts/valknut.es.ts ts/valknut.pl.ts ts/valknut.sv.ts ts/valknut.fi.ts ts/valknut.it.ts ts/valknut.cs.ts ts/valknut.en_GB.ts ts/valknut.fr.ts ts/valknut.de.ts ts/valknut.el.ts ts/valknut.pt_br.ts ts/valknut.tr.ts
-diff -Naur valknut-0.3.12.orig/valknut/ts/Makefile.am valknut-0.3.12/valknut/ts/Makefile.am
---- valknut-0.3.12.orig/valknut/ts/Makefile.am	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/ts/Makefile.am	2008-01-30 10:10:26.000000000 +0200
-@@ -1 +1 @@
+diff -Naur valknut-0.3.16.orig/valknut/Makefile.tr valknut-0.3.16/valknut/Makefile.tr
+--- valknut-0.3.16.orig/valknut/Makefile.tr	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/Makefile.tr	2008-06-18 10:45:56.000000000 +0300
+@@ -122,4 +122,5 @@
+ 	       ts/valknut.ro.ts \
+ 	       ts/valknut.rus.ts \
+ 	       ts/valknut.sk.ts \
+-	       ts/valknut.sv.ts
++	       ts/valknut.sv.ts \
++	       ts/valknut.tr.ts
+diff -Naur valknut-0.3.16.orig/valknut/ts/Makefile.in valknut-0.3.16/valknut/ts/Makefile.in
+--- valknut-0.3.16.orig/valknut/ts/Makefile.in	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/ts/Makefile.in	2008-06-18 10:47:02.000000000 +0300
+@@ -230,7 +230,7 @@
+ top_srcdir = @top_srcdir@
+ x_includes = @x_includes@
+ x_libraries = @x_libraries@
 -EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts
 +EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts valknut.tr.ts
-diff -Naur valknut-0.3.12.orig/valknut/ts/Makefile.in valknut-0.3.12/valknut/ts/Makefile.in
---- valknut-0.3.12.orig/valknut/ts/Makefile.in	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/ts/Makefile.in	2008-01-30 10:10:56.000000000 +0200
-@@ -269,7 +269,7 @@
- xdg_appsdir = @xdg_appsdir@
- xdg_directorydir = @xdg_directorydir@
- xdg_menudir = @xdg_menudir@
--EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts
-+EXTRA_DIST = README.rus valknut.bs.ts valknut.rus.ts valknut.lv.ts valknut.sk.ts valknut.hu.ts valknut.cs.ts valknut.da.ts valknut.de.ts valknut.en_GB.ts valknut.es.ts valknut.fi.ts valknut.fr.ts valknut.is.ts valknut.it.ts valknut.nb.ts valknut.nl.ts valknut.pl.ts valknut.ro.ts valknut.sv.ts valknut.el.ts valknut.pt_br.ts valknut.tr.ts
- subdir = valknut/ts
- mkinstalldirs = $(SHELL) $(top_srcdir)/admin/mkinstalldirs
- CONFIG_HEADER = $(top_builddir)/config.h
-diff -Naur valknut-0.3.12.orig/valknut/ts/README valknut-0.3.12/valknut/ts/README
---- valknut-0.3.12.orig/valknut/ts/README	2008-01-30 09:41:46.000000000 +0200
-+++ valknut-0.3.12/valknut/ts/README	2008-01-30 10:11:47.000000000 +0200
+ #>- all: all-am
+ #>+ 1
+ all: docs-am  all-am
+diff -Naur valknut-0.3.16.orig/valknut/ts/README valknut-0.3.16/valknut/ts/README
+--- valknut-0.3.16.orig/valknut/ts/README	2008-06-18 10:39:35.000000000 +0300
++++ valknut-0.3.16/valknut/ts/README	2008-06-18 10:47:20.000000000 +0300
 @@ -22,3 +22,4 @@
  valknut.rus.ts   - Russian
  valknut.sk.ts    - Slovak
  valknut.sv.ts    - Swedish
 +valknut.tr.ts    - Turkish
-diff -Naur valknut-0.3.12.orig/valknut/ts/Readme.tr valknut-0.3.12/valknut/ts/Readme.tr
---- valknut-0.3.12.orig/valknut/ts/Readme.tr	1970-01-01 02:00:00.000000000 +0200
-+++ valknut-0.3.12/valknut/ts/Readme.tr	2008-01-30 10:13:03.000000000 +0200
-@@ -0,0 +1,15 @@
+diff -Naur valknut-0.3.16.orig/valknut/ts/README.tr valknut-0.3.16/valknut/ts/README.tr
+--- valknut-0.3.16.orig/valknut/ts/README.tr	1970-01-01 02:00:00.000000000 +0200
++++ valknut-0.3.16/valknut/ts/README.tr	2008-06-18 10:48:08.000000000 +0300
+@@ -0,0 +1,14 @@
 +Turkish  Declaration
 +
 +Turkce cevirisinde gordugunuz hatalari lutfen bana bildirin.Bildirmek icinde
@@ -216,4 +148,3 @@ diff -Naur valknut-0.3.12.orig/valknut/ts/Readme.tr valknut-0.3.12/valknut/ts/Re
 +
 +						PardoX2006 at hotmail dot com
 +						Siradan Vatandas
-+
