@@ -6,9 +6,6 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
-
-WorkDir="%s" % get.srcNAME()
 
 def setup():
     autotools.configure()
@@ -21,4 +18,5 @@ def install():
 
     pisitools.domo("po/tr.po", "tr", "wput.mo")
     pisitools.insinto("/etc", "doc/wputrc")
+
     pisitools.dodoc("doc/*","TODO","ChangeLog")
