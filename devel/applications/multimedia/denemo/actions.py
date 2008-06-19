@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--enable-static=no \
+    autotools.configure("--disable-static \
                          --enable-alsa")
 
 def build():
