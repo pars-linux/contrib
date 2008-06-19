@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cdcat</Name>
+        <Homepage>http://cdcat.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>cdcat</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A catalog program which scans the directories/drives</Summary>
+        <Description>The cdcat is graphical (Qt based) multiplatform (Linux/Windows/MacOS) catalog program which scans the directories/drives you want and memoryze the filesystem (including the tags of mp3's) and store it in a small file.</Description>
+        <Archive sha1sum="67f4212ddfe5582ce2a02dd01d86481548b2ec8b" type="tarbz2">http://cdcat.sourceforge.net/cdcat-1.01b.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>turkish.patch</Patch>
+            <Patch>cdcat-pro.patch</Patch>
+            <Patch>desktop.patch</Patch>
+            <Patch>gcc4.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cdcat</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/cdcat</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-28</Date>
+            <Version>1.01b</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>
