@@ -1,0 +1,19 @@
+--- install.py	2007-05-26 19:30:16.000000000 +0300
++++ installyeni.py	2007-07-08 20:07:36.000000000 +0300
+@@ -145,15 +145,13 @@
+     if opt == "--installdir":
+         install_dir = value
+         if not os.path.isdir(install_dir):
+-            print "\n*** Error:", install_dir, "does not exist.\n" 
+-            info()
++            os.makedirs(install_dir)
+     elif opt == "--no-mime":
+         no_mime = True
+     elif opt == "--no-balloon":
+         no_balloon = True
+ 
+ if args == ["install"]:
+-    check_dependencies()
+     print "Installing Comix in", install_dir, "...\n"
+     install("comix", "bin/comix")
+     install("comix.1.gz", "share/man/man1/comix.1.gz")
