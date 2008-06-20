@@ -16,8 +16,6 @@ def build():
 
 def install():
     autotools.install()
-
-    pisitools.removeDir("/usr/share/gst-python")
     pythonmodules.fixCompiledPy()
 
     pisitools.dodoc("AUTHORS","ChangeLog","COPYING","README","RELASE","TODO")
