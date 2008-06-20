@@ -5,14 +5,18 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
+from pisi.actionsapi import autotools
 from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 
 def setup():
-    kde.configure()
+    autotools.aclocal()
+    kde.configure("--disable-rpath")
+
 
 def build():
-    kde.make()
+    kde.make("-f Makefile.cvs")
+
 
 def install():
     kde.install()
