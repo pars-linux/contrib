@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xvibs</Name>
+        <Homepage>http://xvibs.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>A utility for animating molecular vibrations.</Summary>
+        <Description>A utility for animating molecular vibrations.</Description>
+        <Archive sha1sum="e54d3f365e56d44ac5fcbb4940db172a1ebcf45d" type="targz">mirrors://sourceforge/xvibs/xvibs-17.tgz</Archive>
+        <BuildDependencies>
+            <Dependency>ant</Dependency>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xvibs</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/bin</Path>
+            <Path fileType="executable">/usr/share/java</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/xvibs">xvibs</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-15</Date>
+            <Version>17</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>
