@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xjavac</Name>
+        <Homepage>http://cvs.apache.org/viewcvs.cgi/xml-xerces/java/tools/src/XJavac.java</Homepage>
+        <Packager>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <IsA>library</IsA>
+        <Summary>The implementation of the javac compiler for IBM JDK 1.4 (needed for xerces-2)</Summary>
+        <Archive sha1sum="be52abeadcaff8ac44c87b2b6b13cad49f583b4a" type="targz">http://cekirdek.pardus.org.tr/~ismail/dist/xjavac-20041208.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>build.patch</Patch>
+            <Patch>xjavac-ibm-1_5.patch</Patch>
+            <Patch level="1">xjavac-more-vendors.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xjavac</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-03-29</Date>
+            <Version>0.0_20041208</Version>
+            <Comment>First release</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
