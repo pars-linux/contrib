@@ -10,7 +10,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--with-wx-config=/usr/bin/wx-config-2.8 \
+    autotools.configure("--with-wx-config=/usr/bin/wx-config \
                          --disable-static")
 
 def build():
