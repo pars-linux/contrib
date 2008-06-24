@@ -1,0 +1,27 @@
+--- setup.py.orig	2008-05-06 17:34:38.000000000 +0300
++++ setup.py	2008-05-06 17:52:28.000000000 +0300
+@@ -94,19 +94,19 @@
+ 			installedOmfFiles[fileNum], installedOmfFiles[fileNum]])
+ 		
+ 	#Update the scrollkeeper catalog
+-	if os.geteuid() == 0:
+-		print "Updating the scrollkeeper index..."
+-		call(["scrollkeeper-update", "-o", installroot + omfdir])
++	#if os.geteuid() == 0:
++	#	print "Updating the scrollkeeper index..."
++	#	call(["scrollkeeper-update", "-o", installroot + omfdir])
+ 
+ # Update the mime types
+ if os.geteuid() == 0 and dist != None:
+ 	print "Updating the mime-types...."
+ 	
+ 	#update the mimetypes database
+-	call(["update-mime-database", "/usr/share/mime/"])
++	#call(["update-mime-database", "/usr/share/mime/"])
+ 	
+ 	#update the .desktop file database
+-	call(["update-desktop-database"])
++	#call(["update-desktop-database"])
+ 
+ print "\nInstallation finished! You can now run Jokosher by typing 'jokosher' or through your applications menu icon."
+ 	
