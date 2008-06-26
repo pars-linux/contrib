@@ -1,0 +1,79 @@
+diff --git a/dfeet/_ui/executemethoddialog.py b/dfeet/_ui/executemethoddialog.py
+index 9d30fbd..1d667da 100644
+--- a/dfeet/_ui/executemethoddialog.py
++++ b/dfeet/_ui/executemethoddialog.py
+@@ -49,7 +49,7 @@ class ExecuteMethodDialog:
+                              #        from parameter errors?
+             result = str(e) 
+ 
+-        if not result:
++        if result is None:
+             result = 'This method did not return anything'
+         else:
+             result = str(result)
+diff --git a/dfeet/dbus_utils.py b/dfeet/dbus_utils.py
+index e495798..10554bf 100644
+--- a/dfeet/dbus_utils.py
++++ b/dfeet/dbus_utils.py
+@@ -67,10 +67,18 @@ def convert_complex_type(subsig):
+ def convert_simple_type(c):
+     result = None
+ 
+-    if c == 'i':
++    if c == 'n':
++        result = 'Int16'
++    elif c == 'q':
++        result = 'UInt16'
++    elif c == 'i':
+         result = 'Int32'
+     elif c == 'u':
+         result = 'UInt32'
++    elif c == 'x':
++        result = 'Int64'
++    elif c == 't':
++        result = 'UInt64'
+     elif c == 's':
+         result = 'String'
+     elif c == 'b':
+@@ -79,6 +87,8 @@ def convert_simple_type(c):
+         result = 'Byte'
+     elif c == 'o':
+         result = 'Object Path'
++    elif c == 'g':
++        result = 'Signature'
+     elif c == 'd':
+         result = 'Double'
+     elif c == 'v':
+diff --git a/ui/executedialog.ui b/ui/executedialog.ui
+index 7611b47..92b8c0c 100644
+--- a/ui/executedialog.ui
++++ b/ui/executedialog.ui
+@@ -116,7 +116,8 @@
+             <property name="visible">True</property>
+             <child>
+               <object class="GtkButton" id="closebutton1">
+-                <property name="label" context="yes" translatable="yes">Close</property>
++                <property name="label" context="yes" translatable="yes">gtk-close</property>
++	        <property name="use_stock">True</property>
+                 <property name="visible">True</property>
+                 <signal handler="execute_dialog_close_cb" name="clicked"/>
+               </object>
+@@ -124,7 +125,8 @@
+             <child>
+               <object class="GtkButton" id="executebutton1">
+                 <property name="is_focus">True</property>
+-                <property name="label" context="yes" translatable="yes">Execute</property>
++                <property name="use_underline">True</property>
++                <property name="label" context="yes" translatable="yes">_Execute</property>
+                 <property name="visible">True</property>
+                 <signal handler="execute_dbus_method_cb" name="clicked"/>
+               </object>
+@@ -132,7 +134,7 @@
+                 <property name="position">1</property>
+               </packing>
+             </child>
+-          </object>
++         </object>
+           <packing>
+             <property name="expand">False</property>
+             <property name="pack_type">end</property>
