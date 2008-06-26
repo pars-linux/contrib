@@ -7,6 +7,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir="sourceinstall-2.5"
+
 def setup():
     autotools.configure()
 
