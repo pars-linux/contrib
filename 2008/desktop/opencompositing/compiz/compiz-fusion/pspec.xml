@@ -60,7 +60,28 @@
         </AdditionalFiles>
     </Package>
 
+    <Package>
+        <Name>compiz-fusion-auto-start</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-manager</Dependency>
+            <Dependency>compiz-fusion</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/etc/env.d/80compiz</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/env.d/80compiz">patch/80compiz</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
     <History>
+        <Update release="18">
+            <Date>2008-06-28</Date>
+            <Version>0.7.6</Version>
+            <Comment>Add new environment variable and split compiz-fusion-auto-start package</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="17">
             <Date>2008-05-31</Date>
             <Version>0.7.6</Version>
