@@ -11,7 +11,7 @@
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>News Aggregator for RDF/RSS/CDF/Atom/Echo/etc feeds</Summary>
-        <Archive sha1sum="3a6c9a5d1a4b3563d945c8bdc3eab17650d5b5e7" type="targz">mirrors://sourceforge/liferea/liferea-1.4.9.tar.gz</Archive>
+        <Archive sha1sum="cf6264716c7c9a2eebfe776c4113bf2a1bf74f32" type="targz">mirrors://sourceforge/liferea/liferea-1.4.16b.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>pango</Dependency>
@@ -27,7 +27,8 @@
         </BuildDependencies>
         <Patches>
             <Patch level="1">feedlist-tr-update.patch</Patch>
-            <Patch>feedlist-en.patch</Patch>
+            <Patch level="1">liferea-1.4.16b-xulrunner-1.9.patch</Patch>
+            <!--<Patch>feedlist-en.patch</Patch>-->
         </Patches>
     </Source>
 
@@ -62,6 +63,13 @@
     </Package>
 
     <History>
+        <Update release="25">
+            <Date>2008-06-29</Date>
+            <Version>1.4.16b</Version>
+            <Comment>Version bump, make it compile with Firefox</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
         <Update release="24">
             <Date>2008-03-06</Date>
             <Version>1.4.9</Version>
