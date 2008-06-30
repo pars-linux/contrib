@@ -1,0 +1,23 @@
+--- cairo-dock-menu.c.orig	2008-06-16 22:19:13.000000000 +0300
++++ src/cairo-dock-menu.c	2008-06-16 22:21:50.000000000 +0300
+@@ -332,7 +332,7 @@
+ 		GTK_RESPONSE_CANCEL,
+ 		NULL);
+ 
+-	gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (pFileChooserDialog), "/usr/share/app-install/");
++	gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (pFileChooserDialog), "/usr/share/applications/");
+ 	gtk_file_chooser_set_select_multiple (GTK_FILE_CHOOSER (pFileChooserDialog), TRUE);
+ 	gtk_widget_show (pFileChooserDialog);
+ 
+@@ -1134,9 +1134,9 @@
+ 
+ 	_add_entry_in_menu (_("About"), GTK_STOCK_ABOUT, _cairo_dock_about, pSubMenu);
+ 
+-	_add_entry_in_menu (_("Development's site"), GTK_STOCK_REFRESH, _cairo_dock_check_for_updates, pSubMenu);
++	//_add_entry_in_menu (_("Development's site"), GTK_STOCK_REFRESH, _cairo_dock_check_for_updates, pSubMenu);
+ 
+-	_add_entry_in_menu (_("Community's site"), GTK_STOCK_HELP, _cairo_dock_help, pSubMenu);
++	//_add_entry_in_menu (_("Community's site"), GTK_STOCK_HELP, _cairo_dock_help, pSubMenu);
+ 
+ 	if (CAIRO_DOCK_IS_DOCK (pContainer) && ! CAIRO_DOCK (pContainer)->bAutoHide)
+ 	{
