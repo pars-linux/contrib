@@ -4,25 +4,21 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
+from pisi.actionsapi import pisitools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    for package in shelltools.ls("."):
-        shelltools.cd(package)
-        autotools.autoreconf("-isvf")
-        autotools.configure("--disable-static")
-        shelltools.cd("../")
+    autotools.autoreconf("-isvf")
+    autotools.configure("--disable-static \
+                         --disable-old-gnome-integration \
+                         --disable-gnome-integration \
+                         --disable-xfce-integration \
+                         --enable-alsa-mixer")
 
 def build():
-    for package in shelltools.ls("."):
-        shelltools.cd(package)
-        autotools.make("-j1")
-        shelltools.cd("../")
+    autotools.make("-j1")
 
 def install():
-    for package in shelltools.ls("."):
-        shelltools.cd(package)
-        autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-        shelltools.cd("../")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
