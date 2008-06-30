@@ -13,14 +13,15 @@
         <IsA>app:gui</IsA>
         <Summary>An AIGLX dock with physics</Summary>
         <Description>Cairo-dock is an animated application launch bar displayed on the desktop comparable to Mac OS X's Dock.It is compatible with Beryl, Compiz, Metacity+xcompmgr and probably KDE since Kwin now manage composite display.</Description>
-        <Archive sha1sum="1a6984d4b88ea0bd43d6b1546fad39e0c681d9d3" type="tarbz2">http://sudrap.org/dist/files/cairo-dock-1.5.5.4_20080513.tar.bz2</Archive>
+        <Archive sha1sum="091b117866da4694e7f9092f3a9ce2cc0f21c428" type="tarbz2">http://kpelit.com/dist/files/cairo-dock-1.6.1_1160.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.12.5">gtk2</Dependency>
             <Dependency>librsvg</Dependency>
             <Dependency>glitz</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>disable-menu.patch</Patch>
+            <Patch>pardus-conf.patch</Patch>
+            <Patch level="1">default_desktop.patch</Patch>
         </Patches>
     </Source>
 
@@ -48,6 +49,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2008-06-30</Date>
+            <Version>1.6.1_1160</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2008-05-13</Date>
             <Version>1.5.5.4_20080513</Version>
