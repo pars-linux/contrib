@@ -10,8 +10,6 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    pisitools.dosed("src/xsane.h", "# include \"lcms.h\"", "# include \"lcms/lcms.h\"")
-
     shelltools.export("CXXFLAGS", "%s -I/usr/include/lcms" % get.CXXFLAGS())
     shelltools.export("LDFLAGS", "%s -L/usr/lib -llcms" % get.LDFLAGS())
 
