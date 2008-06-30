@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xsane</Name>
+        <Homepage>http://www.xsane.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical scanning frontend</Summary>
+        <Description>XSane uses the SANE-library to talk to scanners. This means that XSane does not support any scanners itself.</Description>
+        <Archive sha1sum="9d4e8050f5b61034e20adbb5cf88b50e3e744050" type="targz">http://www.xsane.org/download/xsane-0.995.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.19">sane-backends</Dependency>
+            <Dependency versionFrom="2.12.10">gtk2</Dependency>
+            <Dependency versionFrom="1.17">lcms</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xsane</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.19">sane-backends</Dependency>
+            <Dependency versionFrom="2.12.10">gtk2</Dependency>
+            <Dependency versionFrom="1.17">lcms</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/xsane.desktop">xsane.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2008-06-30</Date>
+            <Version>0.995</Version>
+            <Comment>Fix dep versions</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-12-18</Date>
+            <Version>0.995</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-03-15</Date>
+            <Version>0.994</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-09</Date>
+            <Version>0.993</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-01</Date>
+            <Version>0.992</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-29</Date>
+            <Version>0.991</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
