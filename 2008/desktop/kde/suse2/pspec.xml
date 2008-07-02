@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>suse2</Name>
+        <Homepage>http://www.kde-look.org/content/show.php?content=23579</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxed.up@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Kde window decoration</Summary>
+        <Summary xml:lang="tr">Kde window decoration</Summary>
+        <Description>This is the SUSE windeco from 9.3/10.0/10.1 - improved.
+
+                -Additional features:
+                -round or sharp top edges
+                -more options for title placement and shadow etc.
+                -toggable and changeable logo
+                -more button types
+                -custom button colors and shadow
+                -better transition from top to side borders</Description>
+	<Description xml:lang="tr">Bu SUSE 9.3/10.0/10.1 sürümündeki pencere dekorasyonudur - geliştirilmiş
+
+                -yuvarlak veya keskin üst köşeler
+                -başlık yerleşimi ve gölgesi için daha fazla seçenek
+                -seçimlik ve değiştirilebilir logo
+                -daha fazla düğme tipi
+                -özel düğme renkleri ve gölgeleri
+                -üst kenarlıklardan yan kenarlıklara daha iyi geçiş
+        </Description>
+	<Archive type="tarbz2" sha1sum="a850a40deb0e1d423aed09e87022c5a944d22ffc">http://www.gerdfleischer.de/kwin-decor-suse2/kwin-decor-suse2-0.4.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>suse2</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/lib/</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+        </Files>
+   </Package>
+
+   <History>
+       <Update release="2">
+           <Date>2007-03-01</Date>
+           <Version>0.4.1</Version>
+           <Comment>Version bump</Comment>
+           <Name>Michael Austin</Name>
+           <Email>tuxed.up@gmail.com</Email>
+       </Update>   
+       <Update release="1">
+           <Date>2007-03-01</Date>
+           <Version>0.4</Version>
+           <Comment>Initial version</Comment>
+           <Name>Michael Austin</Name>
+           <Email>tuxedup@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
