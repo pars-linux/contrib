@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmymoney</Name>
+        <Homepage>http://kmymoney2.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Personal Finances Manager for KDE</Summary>
+        <Summary xml:lang="tr">KDE için kisişel finans yöneticisi</Summary>
+        <Description>Useful Personal Finances Manager for KDE</Description>
+        <Description xml:lang="tr">KDE için kullanışlı bir kisişel finans yöneticisi.</Description>
+        <Archive sha1sum="19543bc682f2b475830d4e0d585c8318931c18df" type="tarbz2">mirrors://sourceforge/kmymoney2/kmymoney2-0.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>icu4c</Dependency>
+            <Dependency>pardus-support</Dependency>
+            <Dependency>kdebase</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libmng</Dependency>
+            <Dependency>libSM</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>mime.patch</Patch>
+            <Patch>desktop.patch</Patch>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kmymoney</Name>
+        <RuntimeDependencies>
+            <Dependency>gnupg</Dependency>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="header">/usr/kde/3.5/include</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/man</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/kde/3.5/share/apps/kmymoney2/html/home_tr.html" permission="0755" owner="root">home_tr.html</AdditionalFile>
+            <AdditionalFile target="/usr/kde/3.5/share/apps/kmymoney2/html/whats_new_tr.html" permission="0755" owner="root">whats_new_tr.html</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2008-07-05</Date>
+            <Version>0.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-08-27</Date>
+            <Version>0.8.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-03-17</Date>
+            <Version>0.8.6</Version>
+            <Comment>Many enhancements.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-15</Date>
+            <Version>0.8.6</Version>
+            <Comment>Version bump,fix manpath</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-18</Date>
+            <Version>0.8.5</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-14</Date>
+            <Version>0.8.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+
