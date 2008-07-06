@@ -1,0 +1,29 @@
+diff -upNr hardinfo-0.4.2.2.orign/arch/common/zlib.h hardinfo-0.4.2.2/arch/common/zlib.h
+--- hardinfo-0.4.2.2.orign/arch/common/zlib.h	2007-07-20 16:44:59.000000000 +0200
++++ hardinfo-0.4.2.2/arch/common/zlib.h	2007-09-02 11:01:14.000000000 +0200
+@@ -24,15 +24,20 @@ benchmark_zlib(void)
+     static gint (*compress) (gchar *dst, glong *dstlen,
+                              const gchar *src, glong srclen) = NULL;
+ 
++    char* libz_locations[5] = {"libz","/lib/libz.so","/lib64/libz.so","/lib/libz.so.1","/lib64/libz.so.1"};
++    int z;
++
+     if (!(compress && compressBound)) {
+-	libz = g_module_open("libz", G_MODULE_BIND_LAZY);
++	
++	for(z = 0; z<5; z++) {
++		libz = g_module_open(libz_locations[z] , G_MODULE_BIND_LAZY);
++		if(libz) break;
++	}
++
+ 	if (!libz) {
+-            libz = g_module_open("/usr/lib/libz.so", G_MODULE_BIND_LAZY);
+-            if (!libz) {
+                 g_warning("Cannot load ZLib: %s", g_module_error());
+                 return;
+-            }
+-	}
++        }	
+ 
+ 	if (!g_module_symbol(libz, "compress", (gpointer) & compress)
+ 	    || !g_module_symbol(libz, "compressBound", (gpointer) & compressBound)) {
