@@ -7,11 +7,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
 def setup():
-    autotools.rawConfigure("--prefix %s/usr \
-                            --with-contrib-plugins=all" % get.installDIR())
+    autotools.configure("--with-contrib-plugins=all")
 
 def build():
     autotools.make()
