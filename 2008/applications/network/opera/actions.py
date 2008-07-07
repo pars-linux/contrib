@@ -9,12 +9,14 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="opera-9.50-2042.gcc4-shared-qt3.i386"
+WorkDir="opera-9.51-2061.gcc4-shared-qt3.i386"
 
 def install():
     shelltools.system("./install.sh DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/etc","config/opera6rc")
+    pisitools.insinto("/etc","etc/opera6rc")
+
+    pisitools.insinto("/usr/share/pixmaps", "usr/share/pixmaps/opera.xpm")
 
     for size in ["16x16","22x22","32x32","48x48"]:
-        pisitools.insinto("/usr/share/icons/hicolor/%s/apps" % size, "images/opera_%s.png" % size , "opera.png")
+      pisitools.insinto("/usr/share/icons/hicolor/%s/apps" % size, "usr/share/icons/hicolor/%s/apps/opera.png" % size)
