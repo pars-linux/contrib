@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfmpc</Name>
+        <Homepage>http://goodies.xfce.org/projects/applications/xfmpc</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfmpc</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A graphical GTK+ MPD client focusing on low footprint</Summary>
+        <Archive sha1sum="00bfb023b2e771eae3646328523e2625834f5bcc" type="tarbz2">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.0.6.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
+            <Dependency versionFrom="0.15.0">libmpd</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xfmpc</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
+            <Dependency versionFrom="0.15.0">libmpd</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+   </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-21</Date>
+            <Version>0.0.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
