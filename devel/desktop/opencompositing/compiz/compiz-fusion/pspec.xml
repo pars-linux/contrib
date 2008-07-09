@@ -44,11 +44,12 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share</Path>
-            <Path fileType="config">/etc</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/compiz</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/kde</Path>
         </Files>
         <AdditionalFiles>
@@ -66,10 +67,12 @@
             <Dependency>compiz-fusion</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="data">/etc/env.d/80compiz</Path>
+            <Path fileType="config">/etc/env.d/80compiz</Path>
+            <Path fileType="data">/usr/share/autostart/fusion-icon-auto-start.desktop</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/etc/env.d/80compiz">patch/80compiz</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/autostart/fusion-icon-auto-start.desktop">desktop/fusion-icon-auto-start.desktop</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
