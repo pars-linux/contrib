@@ -7,6 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
 def setup():
     # there is no rpl_mallock function and gives error
@@ -23,4 +24,6 @@ def build():
 
 def install():
     autotools.install()
+
+    pisitools.dodoc("AUTHORS","BUGS","COPYING","ChangeLog","TODO")
 
