@@ -12,12 +12,13 @@
         <IsA>app:gui</IsA>
         <Summary>Program that manages the compiz fusion on system tray.</Summary>
         <Description>This program manages the compiz fusion on system tray, right click to view available options.</Description>
-        <Archive sha1sum="80b8952094b25f0f0b8145c428fa664ce7a2a94f" type="tarbz2">http://sudrap.org/dist/compiz/fusion-icon-0.1.0_20080218.tar.bz2</Archive>
+        <Archive sha1sum="7ffa01cfb944f4c28e141148a3ca97f0abcc5f2d" type="tarbz2">http://kpelit.com/dist/files/fusion-icon-0.1.0_20080711.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.6.2">compiz-fusion</Dependency>
-            <Dependency versionFrom="0.6.99">compizconfig-python</Dependency>
+            <Dependency versionFrom="0.7.6">compiz-fusion</Dependency>
+            <Dependency versionFrom="0.7.6">compizconfig-python</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch level="1">qt4-interface.patch</Patch>
             <Patch>desktop.patch</Patch>
             <Patch>turkish.patch</Patch>
             <Patch level="1">gettext-support.patch</Patch>
@@ -27,8 +28,8 @@
     <Package>
         <Name>compiz-fusion-icon</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.6.2">compiz-fusion</Dependency>
-            <Dependency versionFrom="0.6.99">compizconfig-python</Dependency>
+            <Dependency versionFrom="0.7.6">compiz-fusion</Dependency>
+            <Dependency versionFrom="0.7.6">compizconfig-python</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -39,6 +40,13 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2008-07-12</Date>
+            <Version>0.1.0_20080711</Version>
+            <Comment>New snapshot. Use qt4 as default interface if available.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2008-02-18</Date>
             <Version>0.1.0_20080218</Version>
