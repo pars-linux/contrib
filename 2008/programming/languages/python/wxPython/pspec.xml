@@ -6,15 +6,18 @@
         <Homepage>http://www.wxpython.org/</Homepage>
         <Packager>
             <Name>Fatih Aşıcı</Name>
-            <Email>fatih.asici@gmail.com</Email>
+            <Email>fatih@pardus.org.tr</Email>
         </Packager>
         <License>wxWinLL-3</License>
         <IsA>library</IsA>
-        <Summary>Python bindings for wxGTK 2.8</Summary>
-        <Archive sha1sum="5b9282e99c0369e6c0b9ea980101cce4cfc33446" type="tarbz2">mirrors://sourceforge/wxpython/wxPython-src-2.8.8.0.tar.bz2</Archive>
+        <Summary>Python bindings for wxGTK</Summary>
+        <Archive sha1sum="5526ee4c4cc57bcebb4950ea05e24639ef8b02dd" type="tarbz2">mirrors://sourceforge/wxpython/wxPython-src-2.8.7.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>wxGTK</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="2">wxPython-src-2.8.7.1-bug450073.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -27,7 +30,7 @@
         </Replaces>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/wx/2.8/include</Path>
+            <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
@@ -35,8 +38,8 @@
 
     <History>
         <Update release="3">
-            <Date>2008-06-24</Date>
-            <Version>2.8.8.0</Version>
+            <Date>2008-07-12</Date>
+            <Version>2.8.7.1</Version>
             <Comment>Version bump, rename and fix for Pardus 2008.</Comment>
             <Name>Jérôme Schneider</Name>
             <Email>jerome.schneider@pgmail.com</Email>
