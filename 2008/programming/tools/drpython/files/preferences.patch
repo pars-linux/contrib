@@ -1,0 +1,38 @@
+Index: drpython/drPreferences.py
+===================================================================
+--- drpython.orig/drPreferences.py
++++ drpython/drPreferences.py
+@@ -267,7 +267,7 @@ class drPreferences:
+         self.rememberdialogsizesandpositions = 1
+         self.rememberpanelsizes = 1
+         self.autodetectencoding = 1
+-        self.defaultencoding = 'latin-1'
++        self.defaultencoding = 'utf-8'
+         self.saveonrun = 1
+         self.checksyntaxonsave = 1
+         self.checksyntaxextensions = ''
+@@ -338,7 +338,7 @@ class drPreferences:
+             defaultfont0="Courier" #monospaced
+             defaultfont1="MS Sans Serif" #proportional
+         else:
+-            defaultfont0="Courier 10 Pitch" #monospaced
++            defaultfont0="Monospace" #monospaced
+             defaultfont1="Sans" #proportional
+         
+         #check if those fonts exists, else use system default
+@@ -519,7 +519,7 @@ class drPreferences:
+         self.printtabwidth = 4
+ 
+         #Documentation Settings
+-        self.documentationbrowser = "mozilla"
++        self.documentationbrowser = "xdg-open"
+         if self.platform_is_windows:
+             self.documentationbrowser = "<os.startfile>"
+         self.documentationpythonlocation = "http://www.python.org/doc/current/"
+@@ -558,4 +558,4 @@ class drPreferences:
+         prefsdictionary = GetPreferencesDictionary()
+         for Entry in prefsdictionary:
+             for Preference in prefsdictionary[Entry]:
+-                self[Preference[0]] = target[Preference[0]]
+\ Dosya sonunda yenisatır yok.
++                self[Preference[0]] = target[Preference[0]]
