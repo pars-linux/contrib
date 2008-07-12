@@ -6,20 +6,25 @@
         <Homepage>http://drpython.sourceforge.net</Homepage>
         <Packager>
             <Name>Fatih Aşıcı</Name>
-            <Email>fatih.asici@gmail.com</Email>
+            <Email>fatih@pardus.org.tr</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <Icon>drpython</Icon>
         <IsA>app:gui</IsA>
         <Summary>A powerful cross-platform IDE for Python</Summary>
         <Description>DrPython is a highly customizable cross-platform ide to aid programming in Python. It was developed with teaching in mind, and has a clean, simple interface. It is written in Python, using wxPython as the gui.</Description>
-        <Archive sha1sum="069d0424dbe8df3ee34fce921f69e4fad6563629" type="zip">mirrors://sourceforge/drpython/drpython165.zip</Archive>
+        <Archive sha1sum="1b01c3ba8e8d41f2aa78184ca1f794fdad73390a" type="zip">mirrors://sourceforge/drpython/drpython-3.11.0.zip</Archive>
+        <Patches>
+            <Patch level="1">script.patch</Patch>
+            <Patch level="1">preferences.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>drpython</Name>
         <RuntimeDependencies>
-            <Dependency>wxPython2_8</Dependency>
+            <Dependency>wxPython</Dependency>
+            <Dependency>xdg-utils</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -34,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-07-12</Date>
+            <Version>3.11.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2007-05-26</Date>
             <Version>1.65</Version>
