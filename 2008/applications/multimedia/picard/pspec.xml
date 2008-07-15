@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>picard</Name>
+        <Homepage>http://musicbrainz.org/doc/PicardTagger</Homepage>
+        <Packager>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>picard-32</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Music tagging application</Summary>
+        <Description>Picard is the next generation MusicBrainz tagging application.</Description>
+        <Archive sha1sum="45d04acfc1daef405e1b0e2a1779802c663ce8dc" type="targz">ftp://ftp.musicbrainz.org/pub/musicbrainz/picard/picard-0.9.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>mutagen</Dependency>
+            <Dependency>libofa</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>PyQt4</Dependency>
+            <Dependency>ctypes</Dependency>
+            <Dependency>libdiscid</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>picard</Name>
+        <RuntimeDependencies>
+            <Dependency>mutagen</Dependency>
+            <Dependency>libofa</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>PyQt4</Dependency>
+            <Dependency>ctypes</Dependency>
+            <Dependency>libdiscid</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-01-18</Date>
+            <Version>0.9.0</Version>
+            <Comment>libdiscid dep added.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-01-09</Date>
+            <Version>0.9.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
