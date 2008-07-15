@@ -7,12 +7,15 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 def setup():
     pisitools.dosed('picard/ui/options/cdlookup.py', '""', '"/dev/cdrom"')
     pythonmodules.run('setup.py config')
 
 def install():
+    shelltools.export("CFLAGS", "%s -I/usr/include/libavcodec -I/usr/include/libavformat" % get.CFLAGS())
     pythonmodules.install('--disable-autoupdate')
 
     pisitools.dodoc('AUTHORS.txt', 'COPYING.txt', 'NEWS.txt')
