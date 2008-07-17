@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>jboss4</Name>
+        <Homepage>http://www.jboss.org/</Homepage>
+        <Packager>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <IsA>service</IsA>
+        <Summary>JBoss J2EE Application Server</Summary>
+        <Description>An open source, standards-compliant, J2EE-based application server implemented in 100% Pure Java.</Description>
+        <Archive sha1sum="fb31bc61d3579cef016231f44728d6bf7fc91285" type="targz">mirrors://sourceforge/jboss/jboss-4.2.2.GA-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ant</Dependency>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>jboss4</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/opt/jboss4</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/var/log</Path>
+        </Files>
+        <Provides>
+             <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-03-25</Date>
+            <Version>4.2.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
