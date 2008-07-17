@@ -10,7 +10,8 @@ from pisi.actionsapi import pythonmodules
 
 def setup():
     autotools.configure("--disable-scrollkeeper \
-                         --disable-schemas-install")
+                         --disable-schemas-install \
+                         --disable-mime-install")
 
 def build():
     autotools.make()
