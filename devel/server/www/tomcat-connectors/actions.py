@@ -13,7 +13,7 @@ WorkDir = "tomcat-connectors-%s-src" % get.srcVERSION()
 
 def setup():
     shelltools.cd("native") # Change to build directory
-    autotools.configure("--with-apxs=/usr/sbin/apxs2")
+    autotools.configure("--with-apxs=/usr/sbin/apxs")
 
 def build():
     shelltools.cd("native") # Change to build directory
