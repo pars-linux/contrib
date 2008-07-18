@@ -14,7 +14,7 @@ diff -Naur K7Z-0.6-orig/Build/Makefile K7Z-0.6/Build/Makefile
  ifndef USER
  	USER = $(LOGNAME)
  endif
-@@ -58,28 +58,23 @@
+@@ -58,30 +58,26 @@
  	@echo "Only root can run 'make install'.  Others should instead run: 'make install-user'"
  	@echo "Before using this unstable script, please thoroughly read the Installation section of the README."
  	@echo ""
@@ -24,36 +24,41 @@ diff -Naur K7Z-0.6-orig/Build/Makefile K7Z-0.6/Build/Makefile
 -	mkdir -p $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
 -	cp -r ../Doc/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
 -	cp -r ../Desktop/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
--	cp -r ../Source/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
--	chmod 777 $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/Source/
--	chmod 775 $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw
+-	cp -r --preserve=mode ../Source/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
+-	#chmod 777 $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/Source/
+-	#chmod 775 $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw
 -	mkdir -p $(DESTDIR)$(KDEDIR)/bin/
 -	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw $(DESTDIR)$(KDEDIR)/bin/Q7Z.pyw
 -	mkdir -p $(DESTDIR)$(KDEDIR)/share/apps/konqueror/servicemenus/
--	cp -u ../Desktop/Context/Live/* $(DESTDIR)$(KDEDIR)/share/apps/konqueror/servicemenus/
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/apps/dolphin/servicemenus/
+-	cp ../Desktop/Context/*.desktop $(DESTDIR)$(KDEDIR)/share/apps/konqueror/servicemenus/
+-	cp ../Desktop/Context/*.desktop $(DESTDIR)$(KDEDIR)/share/apps/dolphin/servicemenus/
 -	rm -f $(DESTDIR)~$(USER)/.kde/share/apps/konqueror/servicemenus/?7Z*
 -	rm -rf $(DESTDIR)~$(USER)/Profiles/
--	mkdir -p $(DESTDIR)$(KDEDIR)/share/applnk/Utilities/File/
--	cp ../Desktop/KMenu/* $(DESTDIR)$(KDEDIR)/share/applnk/Utilities/File/
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/applications/kde/
+-	cp ../Desktop/KMenu/* $(DESTDIR)$(KDEDIR)/share/applications/kde/
 -	mkdir -p $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
--	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/actions/ark* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
--	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/actions/endturn* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	cp ../Source/Images/actions/ark* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	cp ../Source/Images/actions/endturn* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
 -	mkdir -p $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/apps/
--	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/apps/Q7Z* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/apps/
+-	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/apps/Q7Z.png $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/apps/
 +	mkdir -p $(DESTDIR)/share/apps/Q7Z/
 +	cp -r ../Doc/ $(DESTDIR)/share/apps/Q7Z/
 +	cp -r ../Desktop/ $(DESTDIR)/share/apps/Q7Z/
-+	cp -r ../Source/ $(DESTDIR)/share/apps/Q7Z/
-+	chmod 777 $(DESTDIR)/share/apps/Q7Z/Source/
-+	chmod 775 $(DESTDIR)/share/apps/Q7Z/Source/Q7Z.pyw
++	cp -r --preserve=mode ../Source/ $(DESTDIR)/share/apps/Q7Z/
++	#chmod 777 $(DESTDIR)/share/apps/Q7Z/Source/
++	#chmod 775 $(DESTDIR)/share/apps/Q7Z/Source/Q7Z.pyw
 +	mkdir -p $(DESTDIR)/bin/
 +	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw $(DESTDIR)/bin/Q7Z.pyw
 +	mkdir -p $(DESTDIR)/share/apps/konqueror/servicemenus/
-+	cp -u ../Desktop/Context/Live/* $(DESTDIR)/share/apps/konqueror/servicemenus/
-+	mkdir -p $(DESTDIR)/share/applnk/Utilities/File/
-+	cp ../Desktop/KMenu/* $(DESTDIR)/share/applnk/Utilities/File/
++	mkdir -p $(DESTDIR)/share/apps/dolphin/servicemenus/
++	cp ../Desktop/Context/*.desktop $(DESTDIR)/share/apps/konqueror/servicemenus/
++	cp ../Desktop/Context/*.desktop $(DESTDIR)/share/apps/dolphin/servicemenus/
++	mkdir -p $(DESTDIR)/share/applications/kde/
++	cp ../Desktop/KMenu/* $(DESTDIR)/share/applications/kde/
 +	mkdir -p $(DESTDIR)/share/icons/hicolor/32x32/actions/
-+	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/actions/endturn.png $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	cp ../Source/Images/actions/ark* $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	cp ../Source/Images/actions/endturn* $(DESTDIR)/share/icons/hicolor/32x32/actions/
 +	mkdir -p $(DESTDIR)/share/icons/hicolor/32x32/apps/
 +	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/apps/Q7Z.png $(DESTDIR)/share/icons/hicolor/32x32/apps/
  	@echo ""
