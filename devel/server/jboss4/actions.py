@@ -24,6 +24,7 @@ DIRS = ('server',
         'bin')
 
 def build():
+    shelltools.export("JAVA_HOME", "/opt/sun-java5-jdk")
     shelltools.cd("build")
     shelltools.system("sh build.sh -Dgroups=all")
 
