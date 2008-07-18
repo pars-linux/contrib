@@ -5,6 +5,7 @@
 # doesn't exist by default and herrie doesn't create that directory. Control whether ~/.herrie exits and create it if doesn't exist
 
 import os
+import subprocess
 import sys
 
 HERRIE_DIR = "%s/.herrie" % os.environ['HOME']
@@ -12,8 +13,5 @@ HERRIE_DIR = "%s/.herrie" % os.environ['HOME']
 if not os.path.exists(HERRIE_DIR):
     os.mkdir(HERRIE_DIR, 0744)
 
-args = ''
-for arg in sys.argv[1:]:
-    args += "%s " % arg
-
-os.system("/usr/bin/herrie-bin %s" % args)
+args = " ".join(sys.argv[1:])
+subprocess.call(["/usr/bin/herrie-bin", args])
