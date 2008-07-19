@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libtorrent</Name>
+        <Homepage>http://www.rasterbar.com/products/libtorrent/</Homepage>
+        <Packager>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Full featured torrent client library</Summary>
+        <Description>C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
+        <Archive sha1sum="010c02e350dc68263bb791bc8c37df341301e9bb" type="targz">http://mesh.dl.sourceforge.net/sourceforge/libtorrent/libtorrent-0.13.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsigc++</Dependency>
+            <Dependency>boost</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libtorrent</Name>
+        <RuntimeDependencies>
+            <Dependency>libsigc++</Dependency>
+            <Dependency>boost</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-17</Date>
+            <Version>0.13</Version>
+            <Comment>First Release</Comment>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
