@@ -11,7 +11,7 @@ WorkDir="camstream-070511"
 
 def setup():
     autotools.autoreconf("-fi")
-    autotools.configure()
+    autotools.configure("--with-qt=/usr/qt/3")
 
 def build():
     autotools.make()
@@ -19,7 +19,7 @@ def build():
 def install():
     autotools.install()
 
-#   No libs. and headers needed
+    # No libs and headers needed
     pisitools.removeDir("/usr/lib")
     pisitools.removeDir("/usr/include")
 
