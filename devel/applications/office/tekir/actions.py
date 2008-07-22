@@ -8,6 +8,7 @@ from pisi.actionsapi import get
 WorkDir = "tekir-%s-src" % get.srcVERSION()
 
 def install():
+    pisitools.export("JAVA_HOME", "/opt/sun-jdk")
     pisitools.dosed("resources/tekir-prod-ds.xml",
                     "<connection-url>jdbc:hsqldb:.</connection-url>",
                     "<connection-url>jdbc:hsqldb:file:/var/db/tekir/tekirDB</connection-url>")
