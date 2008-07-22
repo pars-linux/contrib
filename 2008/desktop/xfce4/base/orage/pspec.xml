@@ -9,15 +9,20 @@
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
         <License>LGPLv2</License>
+        <Icon>xfcalendar</Icon>
         <IsA>app:gui</IsA>
         <Summary>A Calendar for Xfce</Summary>
-        <Archive sha1sum="bc026bf95a4f372a86ea115547272f4b99109bdd" type="tarbz2">http://www.ca-us.xfce.org/archive/xfce-4.4.2/src/orage-4.4.2.tar.bz2</Archive>
+        <Archive sha1sum="db25bfbce129632625b4bdfb8b45ccccd79a9f64" type="tarbz2">http://www.kolumbus.fi/~w408237/orage/orage-4.5.14.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.4.1">libxfce4mcs</Dependency>
             <Dependency versionFrom="4.4.1">libxfcegui4</Dependency>
             <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
             <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+	    <Patch>panel_desktop.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -29,17 +34,25 @@
             <Dependency versionFrom="4.4.1">xfce-mcs-manager</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="library">/usr/lib</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/icons</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-07-22</Date>
+            <Version>4.5.14.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-05-26</Date>
             <Version>4.4.2</Version>
