@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>codeine</Name>
+    <Homepage>http://kde-apps.org/content/show.php?content=17161</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE media player developed for simplicity</Summary>
+        <Description>Codeine is a simple media player for KDE using the Xine engine. Codeine is aimed at the task of primaraly playing video media files. All video formats supported by Xine play in Codeine, including DVD's.</Description>
+        <Archive sha1sum="606069da00a573c15c3fb01f718ee7638d090169" type="tarbz2">http://www.methylblue.com/codeine/packages/codeine-1.0.1-3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>xine-lib</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">codeine_gcc-4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>codeine</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>xine-lib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="data">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share/services</Path>
+        </Files>
+   </Package>
+
+   <History>
+       <Update release="2">
+           <Date>2008-07-30</Date>
+           <Version>1.0.1</Version>
+           <Comment>Patched for GCC 4.3</Comment>
+           <Name>Michael Austin</Name>
+           <Email>tuxedup@gmx.co.uk</Email>
+       </Update>
+       <Update release="1">
+           <Date>2007-02-20</Date>
+           <Version>1.0.1</Version>
+           <Comment>Initial version</Comment>
+           <Name>Michael Austin</Name>
+           <Email>tuxed.up@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
