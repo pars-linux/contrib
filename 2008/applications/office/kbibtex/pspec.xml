@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kbibtex</Name>
+        <Homepage>http://www.unix-ag.uni-kl.de/~fischer/kbibtex/</Homepage>
+        <Packager>
+            <Name>Selim Ok</Name>
+            <Email>selimok@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A BibTeX editor for KDE to edit bibliographies used with LaTeX</Summary>
+        <Description>Features include comfortable input masks, starting web queries (e. g. Google or PubMed) and exporting to PDF, PostScript, RTF and XML/HTML.</Description>
+        <Archive sha1sum="2448b8c8358ed1999858e8069dfe523aa1029d70" type="tarbz2">http://www.unix-ag.uni-kl.de/~fischer/kbibtex/download/kbibtex-0.2.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop_file.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kbibtex</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+       </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="library">/usr/kde/3.5/lib/kde3</Path>
+            <Path fileType="data">/usr/kde/3.5/share/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/kde/3.5/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-05-22</Date>
+            <Version>0.2.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Selim Ok</Name>
+            <Email>selimok@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-11-25</Date>
+            <Version>0.2</Version>
+            <Comment>Initial release</Comment>
+            <Name>Selim Ok</Name>
+            <Email>selimok@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
