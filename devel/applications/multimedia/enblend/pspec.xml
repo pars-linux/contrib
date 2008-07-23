@@ -12,19 +12,15 @@
         <IsA>app:console</IsA>
         <Summary>Enblend is a tool for compositing images</Summary>
         <Description>Enblend is a tool for compositing images</Description>
-        <Archive sha1sum="98f001a4eddb3fd1f9ab7def00d8655d4fb726ea" type="targz">mirrors://sourceforge/enblend/enblend-3.0.tar.gz</Archive>
+        <Archive sha1sum="5d3579e3d47cf200dcfc23208c939bad2700ea41" type="targz">http://ertugrulerata.googlepages.com/enblend-3.1_20080723.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>boost</Dependency>
             <Dependency>tiff</Dependency>
             <Dependency>glew</Dependency>
             <Dependency>libxmi</Dependency>
             <Dependency>lcms</Dependency>
+            <Dependency>openexr</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>enblend-3.0-endless_loop_anneal.patch</Patch>
-            <Patch>enblend-3.0-amd64_compilation.patch</Patch>
-            <Patch level="1">enblend-3.0-gcc43.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -35,6 +31,7 @@
             <Dependency>glew</Dependency>
             <Dependency>libxmi</Dependency>
             <Dependency>lcms</Dependency>
+            <Dependency>openexr</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -44,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2008-07-23</Date>
+            <Version>3.1_20080723</Version>
+            <Comment>Cvs version,add deps.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2008-07-03</Date>
             <Version>3.0</Version>
