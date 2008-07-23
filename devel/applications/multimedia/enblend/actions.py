@@ -9,8 +9,8 @@ from pisi.actionsapi import pisitools
 
 
 def setup():
+    autotools.make("-f Makefile.cvs")
     autotools.configure()
-
 
 def build():
     autotools.make()
