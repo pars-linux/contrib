@@ -1,33 +1,10 @@
-+++ CMakeLists.txt	2007-09-25 10:23:33.000000000 +0300
---- CMakeLists.txt	2008-06-10 06:39:51.000000000 +0300
-@@ -6,19 +6,20 @@
- SET (VERSION_MINOR "0")
- SET (VERSION_PATCH "1")
- SET (VERSION_SUFFIX "")
-+SET (DESTINATION_PREFIX "/usr")
- SET (VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}${VERSION_SUFFIX})
- ADD_DEFINITIONS("-DSQLITEMAN_VERSION=\\\"${VERSION}\\\"")
- MESSAGE(STATUS "Sqliteman ${VERSION} will be built to install into ${CMAKE_INSTALL_PREFIX}")
- 
- SET(TRANSLATION_DIR "share/sqliteman/")
--ADD_DEFINITIONS("-DTRANSLATION_DIR=\\\"${CMAKE_INSTALL_PREFIX}/${TRANSLATION_DIR}\\\"")
-+ADD_DEFINITIONS("-DTRANSLATION_DIR=\\\"${DESTINATION_PREFIX}/${TRANSLATION_DIR}\\\"")
- 
- #SET(DOC_DIR "share/sqliteman/doc/en")
- SET(DOC_DIR "share/sqliteman/doc/")
--ADD_DEFINITIONS("-DDOC_DIR=\\\"${CMAKE_INSTALL_PREFIX}/${DOC_DIR}\\\"")
-+ADD_DEFINITIONS("-DDOC_DIR=\\\"${DESTINATION_PREFIX}/${DOC_DIR}\\\"")
- 
- SET(ICON_DIR "share/sqliteman/icons")
--ADD_DEFINITIONS("-DICON_DIR=\\\"${CMAKE_INSTALL_PREFIX}/${ICON_DIR}\\\"")
-+ADD_DEFINITIONS("-DICON_DIR=\\\"${DESTINATION_PREFIX}/${ICON_DIR}\\\"")
- 
- ADD_DEFINITIONS("-DSQLITE_BINARY=\\\"sqlite3\\\"")
- 
-@@ -63,5 +64,5 @@
- )
- INSTALL(FILES
-     sqliteman/icons/sqliteman.png
--    DESTINATION "share/icons"
-+    DESTINATION "share/pixmaps"
- )
+--- CMakeLists.txt	2008-07-24 15:49:06.000000000 +0300
++++ CMakeLists.txt	2008-07-24 15:52:41.000000000 +0300
+@@ -154,6 +154,6 @@
+     )
+     INSTALL(FILES
+         sqliteman/icons/sqliteman.png
+-        DESTINATION "share/icons"
++        DESTINATION "share/pixmaps"
+     )
+ ENDIF (WIN32)
