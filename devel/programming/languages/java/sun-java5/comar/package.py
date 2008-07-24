@@ -2,7 +2,7 @@
 
 import os
 
-def postInstall():
+def postInstall(fromVersion, fromRelease, toVersion, toRelease):
 
         # Create files used as storage for system preferences.
         PREFS_LOCATION = "/opt/sun-java5-jdk/jre"
