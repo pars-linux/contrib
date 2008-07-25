@@ -10,7 +10,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-taskstats \
+                         --enable-unicode")
 
 def build():
     autotools.make("-j1")
@@ -18,5 +19,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.doman("htop.1")
     pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
