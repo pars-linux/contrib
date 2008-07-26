@@ -11,12 +11,14 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--with-audacious \
                          --with-uade123 \
-                         --without-xmms")
+                         --without-xmms \
+                         --with-text-scope \
+                         --package-prefix=%s" % get.installDIR())
 
 def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README")
