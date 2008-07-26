@@ -6,5 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
+WorkDir="LimeWire"
+
 def install():
     pisitools.insinto("/opt/limewire","*")
