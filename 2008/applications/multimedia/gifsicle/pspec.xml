@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gifsicle</Name>
+        <Homepage>http://www.lcdf.org/gifsicle/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Command-line tool for GIF images</Summary>
+        <Description>Gifsicle is a UNIX command-line tool for creating, editing, and getting information about GIF images and animations. Making a GIF animation with gifsicle is easy.</Description>
+        <Archive sha1sum="c79a9cdfa5efa07b1b9998654540a1c906a873c7" type="targz">http://www.lcdf.org/gifsicle/gifsicle-1.48.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-proto</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gifsicle</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-proto</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2008-07-27</Date>
+            <Version>1.52</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-08</Date>
+            <Version>1.48</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-20</Date>
+            <Version>1.44</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
