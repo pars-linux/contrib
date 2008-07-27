@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-ungif")
 
 def build():
     autotools.make()
@@ -16,4 +16,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("README", "ChangeLog", "COPYING", "NEWS")
+    pisitools.dodoc("COPYING", "README*", "NEWS")
