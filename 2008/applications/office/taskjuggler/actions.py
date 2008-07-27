@@ -7,7 +7,7 @@
 from pisi.actionsapi import kde
 
 def setup():
-    kde.configure()
+    kde.configure("--disable-docs")
 
 def build():
     kde.make()
