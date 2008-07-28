@@ -1,33 +1,10 @@
 #!/bin/bash
 
 MAIN="planeshift"
-
 DATADIR="/usr/share/$MAIN"
 
-TARGET="$HOME/.$MAIN"
+cd $DATADIR
 
-TOSYMLINK="art data lang ase_2_spr eedit pawseditor paws_generic psclient
-           psnpcclient pssetup texparse"
+export LC_ALL=C
 
-TOCOPY="eedit.cfg npcclient.cfg partview.cfg pawseditor.cfg paws_generic.cfg
-        planeshift.cfg psclient.cfg psserver.cfg pssetup.cfg psupdater.cfg vfs.cfg"
-
-if [ ! -e "$TARGET" ]; then
-        mkdir "$TARGET"
-fi
-for d in $TOSYMLINK; do
-        if [ ! -e "$TARGET/$d" ] ; then
-                ln -s "$DATADIR/$d" "$TARGET/$d"
-        fi
-done
-for f in $TOCOPY; do
-        if [ ! -e "$TARGET/$f" ] ; then
-                cp -R "$DATADIR/$f" "$TARGET/"
-        fi
-done
-
-cd "$TARGET"
-
-export CEL=/usr/lib/cel-1.2
-
-LC_ALL=C ./pssetup "$@"
+./pssetup "$@"
