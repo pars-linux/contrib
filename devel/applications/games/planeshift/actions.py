@@ -14,19 +14,16 @@ datadir = "/usr/share/planeshift"
 def setup():
     shelltools.system("./autogen.sh")
 
-    autotools.configure("--disable-debug \
-                         --enable-optimize-mode-debug-info=no \
-                         --with-optimize-debug-info=no \
+    autotools.configure("--datadir=%s \
+                         --docdir=/usr/share/doc/%s \
                          --enable-separate-debug-info=no \
+                         --with-optimize-debug-info=no \
                          --enable-cpu-specific-optimizations=no \
                          --with-cs-prefix=/usr \
-                         --with-cel-prefix=/usr \
-                         --with-x \
-                         --with-cal3d \
-                         --with-bfd")
+                         --with-cel-prefix=/usr" % (datadir, get.srcTAG()))
 
 def build():
-    pisitools.dosed("Jamconfig", "-O3", get.CXXFLAGS())
+    #pisitools.dosed("Jamconfig", "-O3", get.CXXFLAGS())
 
     # Let's only build client for now.
     shelltools.system("jam -aq client")
@@ -34,16 +31,18 @@ def build():
 def install():
     shelltools.system("jam -s DESTDIR=%s install_bin" % get.installDIR())
 
-    for data in ["data/eedit", "data/npcbehave.xml", "data/npcdefs.xml", "data/pvp_regions.xml"]:
+    for data in ["data/npcbehave.xml", "data/npcdefs.xml", "data/pvp_regions.xml"]:
         pisitools.insinto("%s/data" % datadir, data)
 
-    for f in ["lang", "*.cfg"]:
+    for f in ["eedit.cfg", "npcclient.cfg", "pslaunch.cfg", "psserver.cfg"]:
         pisitools.insinto(datadir, f)
 
-    pisitools.dosym("/usr/share/fonts/dejavu/DejaVuSerif.ttf", "%s/data/ttf/arial.ttf" % datadir)
+    shelltools.copytree("lang", "%s/%s" % (get.installDIR(), datadir))
+    shelltools.copytree("data/eedit", "%s/%s/data" % (get.installDIR(), datadir))
+    shelltools.copytree("data/gui", "%s/%s/data" % (get.installDIR(), datadir))
 
     pisitools.domove("/usr/bin/*", datadir)
     pisitools.removeDir("/usr/bin")
 
-    pisitools.dodoc("docs/*.txt")
     pisitools.dohtml("docs/*.html")
+    pisitools.dodoc("docs/*.txt")
