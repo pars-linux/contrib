@@ -15,6 +15,6 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install("DESTDIR=%s" % get.installDIR())
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dohtml("docs/*")
