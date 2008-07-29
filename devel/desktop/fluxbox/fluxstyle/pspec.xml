@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fluxstyle</Name>
+        <Homepage>http://fluxbox-wiki.org/index.php/FluxStyle</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Graphical style manager for Fluxbox</Summary>
+        <Archive sha1sum="dbde214c97203ee14a5b27f89172a2d262e9d891" type="tarbz2">http://errr-online.com/fluxstyle/1.0.1/fluxstyle-1.0.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libglade2</Dependency>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fluxstyle</Name>
+        <RuntimeDependencies>
+            <Dependency>libglade2</Dependency>
+            <Dependency>pygtk</Dependency>
+            <Dependency>fluxbox</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/fluxstyle</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+             <Date>2008-07-28</Date>
+            <Version>1.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
