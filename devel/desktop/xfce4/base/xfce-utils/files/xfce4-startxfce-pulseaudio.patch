@@ -1,0 +1,13 @@
+--- scripts/startxfce4.in.orig	2008-07-30 17:06:01.000000000 +0300
++++ scripts/startxfce4.in	2008-07-30 17:06:58.000000000 +0300
+@@ -19,6 +19,10 @@
+ #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ #
+ 
++if [ -x /usr/bin/pulseaudio ]; then
++	/usr/bin/pulseaudio -D
++fi
++
+ if test "x$XDG_CONFIG_HOME" = "x"
+ then
+   BASEDIR="$HOME/.config/xfce4/"
