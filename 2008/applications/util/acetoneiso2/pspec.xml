@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>acetoneiso2</Name>
+        <Homepage>http://www.acetoneiso.netsons.org</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>Acetino2</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An ISO-Tool program for KDE</Summary>
+        <Archive sha1sum="036653d1dfbf21cae418b0fcfd91d99ac32d114c" type="tarbz2">mirrors://sourceforge/acetoneiso2/acetoneiso2_2.0.2_source.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>acetoneiso2</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>fuseiso</Dependency>
+            <Dependency>p7zip</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency>cdrtools</Dependency>
+            <Dependency>cdrdao</Dependency>
+            <Dependency>gnupg</Dependency>
+            <Dependency>pinentry</Dependency>
+            <Dependency>poweriso</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/opt/acetoneiso</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/AcetoneISO.desktop">AcetoneISO.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-24</Date>
+            <Version>2.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+    </History>
+</PISI>
