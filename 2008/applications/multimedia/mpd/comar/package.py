@@ -4,8 +4,7 @@
 import os
 
 def postInstall(fromVersion, fromRelease, toVersion, toRelease):
-    os.system("chmod 740 /etc/mpd.conf")
-    if not os.path.exists("/var/lib/mpd") or not os.path.exists("/var/log/mpd"):
-        os.mkdir("/var/lib/mpd")
-        os.mkdir("/var/lib/mpd/playlists")
-        os.mkdir("/var/log/mpd")
+    for d in ["/var/lib/mpd", "/var/lib/mpd/playlists", "/var/log/mpd"]:
+        if not os.path.exists(d):
+            os.mkdir(d)
+
