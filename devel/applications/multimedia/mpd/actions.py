@@ -19,9 +19,6 @@ def build():
 def install():
     autotools.install()
 
-    # copy default configuration file, and set it to non-readable by others since it may contain password
-    pisitools.insinto("/etc", "doc/mpdconf.example", "mpd.conf")
-
     # remove built-in files and add these to valid directory
     pisitools.removeDir("/usr/share/doc/mpd")
     pisitools.dodoc("AUTHORS", "README", "COMMANDS", "TODO")
