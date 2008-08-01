@@ -13,4 +13,4 @@ WorkDir="GeoIP-Python-1.2.1"
 def install():
     pythonmodules.install()
 
-    pisitools.dodoc("ChangeLog","README")
+    pisitools.dodoc("ChangeLog", "LICENSE", "README", "test*.py")
