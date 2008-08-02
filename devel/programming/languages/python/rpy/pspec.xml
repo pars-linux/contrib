@@ -8,14 +8,17 @@
             <Name>Ertuğrul Erata</Name>
             <Email>ertugrulerata@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>RPy is a very simple, yet robust, Python interface to the R Programming Language.</Summary>
-        <Archive sha1sum="58a11668da93f3be8ca42ea2440cf0223ab1769d" type="targz">mirrors://sourceforge/rpy/rpy-1.0.1.tar.gz</Archive>
+        <Archive sha1sum="492be646603be4a2ce1ff37d329df65a5203dabf" type="targz">mirrors://sourceforge/rpy/rpy-1.0.3.tar.gz</Archive>
        <BuildDependencies>
            <Dependency versionFrom="1.0.4">numpy</Dependency>
            <Dependency>R</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">use_external_lapack.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -31,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2008-08-03</Date>
+            <Version>1.0.3</Version>
+            <Comment>Version bump,external lapack patch added.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2007-12-25</Date>
             <Version>1.0.1</Version>
