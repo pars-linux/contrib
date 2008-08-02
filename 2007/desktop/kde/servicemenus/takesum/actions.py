@@ -7,7 +7,7 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "takesum_0.5/src"
+WorkDir = "takesum_%s/src" % get.srcVERSION()
 
 def install():
     pisitools.dobin("takesum")
