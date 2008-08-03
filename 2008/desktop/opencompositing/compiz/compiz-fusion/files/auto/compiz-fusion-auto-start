@@ -1,0 +1,57 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+# See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+
+# This is a simple script to start compiz-manager automatically in accordance with the  # desktop environment
+
+import os,sys
+
+user = unicode(os.getenv('USER'))
+
+desktop_session = unicode(os.getenv("DESKTOP_SESSION"))
+pathKDE3 = os.path.join('/home', user, '.kde3.5/Autostart')
+pathKDE4 = os.path.join('/home', user, '.kde4/Autostart')
+
+desktop_pathKDE3 = os.path.join(pathKDE3, 'fusion-icon-auto-start.desktop')
+desktop_pathKDE4 = os.path.join(pathKDE4, 'fusion-icon-auto-start.desktop')
+
+# Detect if direct rendering is supported
+cmd = os.popen('glxinfo | grep -i "direct rendering"')
+direct_rendering = cmd.read().strip().split(":")[-1]
+cmd.close()
+
+# Autostart desktop file
+desktop_file = ('''[Desktop Entry]
+Encoding=UTF-8
+Exec=fusion-icon --no-start
+Type=Application
+X-KDE-autostart-after=kdesktop
+
+Name=Fusion-icon
+''')
+
+def main():
+    if direct_rendering == ' Yes':
+        for path in (desktop_pathKDE3, desktop_pathKDE4):
+            _file = file(path, 'w')
+            _file.write(desktop_file)
+            _file.close()
+
+        # Everything is fine so far and we are ready to power up...
+        os.system("/usr/bin/compiz-manager")
+    else:
+        for path in (desktop_pathKDE3, desktop_pathKDE4):
+            if os.path.exists(path):
+                os.remove(path)
+
+        print 'Direct rendering is not suppported.\nCompiz-manager is not started...'
+        sys.exit()
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(main())
