@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+    SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>epdfview</Name>
+        <Homepage>http://trac.emma-soft.com/epdfview/</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@tuxedup.greenisp.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>icon_epdfview-48</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>ePDFView is a free lightweight PDF document viewer using Poppler and GTK+ libraries.</Summary>
+        <Description>The aim of ePDFView is to make a simple PDF document viewer, in the lines of Evince but without using the Gnome libraries</Description>
+        <Archive sha1sum="59f98666a1bae958802e63334fd216333e9a0007" type="targz">http://trac.emma-soft.com/epdfview/chrome/site/releases/epdfview-0.1.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency> 
+            <Dependency>poppler</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">epdfview-gcc-4.3.patch</Patch>
+        </Patches>
+
+    </Source>
+
+    <Package>
+        <Name>epdfview</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>poppler</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/mime/packages</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-20</Date>
+            <Version>0.1.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@tuxedup.greenisp.org</Email>
+        </Update>
+    </History>
+</PISI>
