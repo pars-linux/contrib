@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>enblend</Name>
+        <Homepage>http://enblend.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Enblend is a tool for compositing images</Summary>
+        <Description>Enblend is a tool for compositing images</Description>
+        <Archive sha1sum="5d3579e3d47cf200dcfc23208c939bad2700ea41" type="targz">http://ertugrulerata.googlepages.com/enblend-3.1_20080723.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>boost</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>libxmi</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>openexr</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>enblend</Name>
+        <RuntimeDependencies>
+            <Dependency>boost</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>libxmi</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>openexr</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2008-07-23</Date>
+            <Version>3.1_20080723</Version>
+            <Comment>Cvs version,add deps.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-07-03</Date>
+            <Version>3.0</Version>
+            <Comment>gcc43 patch added, unneeded lcms patch removed.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-07-05</Date>
+            <Version>3.0</Version>
+            <Comment>360 degree patch, Fix compile with AMD patch added.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-16</Date>
+            <Version>3.0</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-04</Date>
+            <Version>2.5</Version>
+            <Comment>First release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
