@@ -67,10 +67,12 @@
             <Dependency>compiz-fusion</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="executable">/usr/bin/compiz-auto</Path>
             <Path fileType="config">/etc/env.d/80compiz</Path>
             <Path fileType="data">/usr/share/autostart/fusion-icon-auto-start.desktop</Path>
         </Files>
         <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/compiz-auto">patch/compiz-auto</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/etc/env.d/80compiz">patch/80compiz</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/autostart/fusion-icon-auto-start.desktop">desktop/fusion-icon-auto-start.desktop</AdditionalFile>
         </AdditionalFiles>

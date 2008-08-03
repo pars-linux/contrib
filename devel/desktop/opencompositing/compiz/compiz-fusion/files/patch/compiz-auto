@@ -1,0 +1,11 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+import os
+
+a = os.popen('glxinfo | grep -i "direct rendering"')
+b = a.read()
+a.close()
+
+if b == 'direct rendering: Yes\n':
+    os.system("/usr/bin/compiz-manager")
