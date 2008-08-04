@@ -7,8 +7,11 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 def install():
+    shelltools.export("CFLAGS", "%s -I/usr/include/gammu" % get.CFLAGS())
     pythonmodules.install()
 
     pisitools.dodoc("AUTHORS", "COPYING", "NEWS", "README")
