@@ -1,0 +1,21 @@
+diff -Nur hugin-0.7.0-old/src/hugin1/hugin/xrc/Makefile.am hugin-0.7.0/src/hugin1/hugin/xrc/Makefile.am
+--- hugin-0.7.0-old/src/hugin1/hugin/xrc/Makefile.am	2008-07-17 03:04:32.000000000 +0300
++++ hugin-0.7.0/src/hugin1/hugin/xrc/Makefile.am	2008-07-17 03:07:35.000000000 +0300
+@@ -46,4 +46,4 @@
+ dist_xrc_DATA = $(XRC_FILES)
+ 
+ .xrc.xrs: 
+-	-wxrc -g -o $(srcdir)/$@ $<
++	-wxrc-2.8 -g -o $(srcdir)/$@ $<
+diff -Nur hugin-0.7.0-old/src/translations/extract-messages.sh hugin-0.7.0/src/translations/extract-messages.sh
+--- hugin-0.7.0-old/src/translations/extract-messages.sh	2008-07-17 03:04:32.000000000 +0300
++++ hugin-0.7.0/src/translations/extract-messages.sh	2008-07-17 03:07:53.000000000 +0300
+@@ -10,7 +10,7 @@
+ 
+ cd ${BASEDIR}
+ find . -name '*.xrc' | sort > ${WDIR}/xrcfiles.list
+-xargs --arg-file=${WDIR}/xrcfiles.list wxrc -g > ${WDIR}/xrc.cpp
++xargs --arg-file=${WDIR}/xrcfiles.list wxrc-2.8 -g > ${WDIR}/xrc.cpp
+ cd ${WDIR}
+ echo "Done preparing rc files"
+        
