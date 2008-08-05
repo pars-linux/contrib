@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wxdfast</Name>
+        <Homepage>http://dfast.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>wxdfast</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An open source and multi-threaded download manager</Summary>
+        <Description>wxDownload Fast is a multi-platform download manager. It downloads faster by getting segments from multiple locations at the same time.</Description>
+        <Archive sha1sum="09f8a13c399e6e8f40e9b0a2776acd4133f0f1f6" type="targz">mirrors://sourceforge/dfast/wxdfast_0.6.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>wxdfast-autotools.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>wxdfast</Name>
+        <RuntimeDependencies>
+            <Dependency>wxGTK</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/wxdfast</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-08-05</Date>
+            <Version>0.6.0</Version>
+            <Comment>Fix compiler flags</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-05-26</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
