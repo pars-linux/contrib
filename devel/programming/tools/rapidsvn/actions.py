@@ -16,7 +16,9 @@ from pisi.actionsapi import autotools
 
 
 def setup():
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --with-apr-config=/usr/bin/apr-1-config \
+                         --with-apu-config=/usr/bin/apu-1-config")
 
 def build():
     autotools.make()

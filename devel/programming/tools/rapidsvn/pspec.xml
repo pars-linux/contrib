@@ -8,21 +8,19 @@
             <Name>Ertuğrul Erata</Name>
             <Email>ertugrulerata@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>GUI frontend to the Subversion revision system.</Summary>
         <Description> Frontend for the Subversion revision system written in wxGTK</Description>
-        <Archive sha1sum="0f8eff53964f641253d6a4be82187ab9f30168c7" type="targz">http://www.rapidsvn.org/download/release/0.9.4/rapidsvn-0.9.4.tar.gz</Archive>
+        <Archive sha1sum="266f846437e3bbce1707799ec0d95c2d1be43b4a" type="targz">http://www.rapidsvn.org/download/release/0.9.6/rapidsvn-0.9.6.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>wxGTK</Dependency>
             <Dependency>doxygen</Dependency>
             <Dependency>subversion</Dependency>
             <Dependency>libcaca</Dependency>
             <Dependency>xorg-server</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>cairo</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency>openssl</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>apr-util</Dependency>
             <Dependency>DirectFB</Dependency>
         </BuildDependencies>
     </Source>
@@ -31,14 +29,11 @@
         <Name>rapidsvn</Name>
         <RuntimeDependencies>
             <Dependency>wxGTK</Dependency>
-            <Dependency>doxygen</Dependency>
             <Dependency>subversion</Dependency>
             <Dependency>libcaca</Dependency>
             <Dependency>xorg-server</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>cairo</Dependency>
-            <Dependency>glib2</Dependency>
-            <Dependency>openssl</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>apr-util</Dependency>
             <Dependency>DirectFB</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -53,6 +48,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-08-07</Date>
+            <Version>0.9.6</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2005-12-11</Date>
             <Version>0.9.4</Version>
