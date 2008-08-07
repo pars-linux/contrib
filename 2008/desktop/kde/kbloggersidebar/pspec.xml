@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kbloggersidebar</Name>
+        <Homepage>http://www.korjaussarja.net/kblogger-sidebar</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A simple to use blogging application for the Konqueror</Summary>
+        <Description>A blogger sidebar plugin for konqueror based on Christian Weilbach's KBlogger. Supports the Blogger and MetaWeblog APIs. Also has support for the Blogger variant Geeklog Blog plugin uses.</Description>
+        <Archive sha1sum="b55dd0e61fe75793560cc6c86e80faa027d0cbfc" type="targz">http://www.korjaussarja.net/kblogger-sidebar/kbloggersidebar-0.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kbloggersidebar</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kblogger</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-21</Date>
+            <Version>0.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
