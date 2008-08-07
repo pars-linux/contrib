@@ -12,10 +12,10 @@
         <IsA>app:gui</IsA>
         <Summary>wxWidgets GUI for PostgreSQL</Summary>
         <Description>Graphical client for PostgreSQL</Description>
-        <Archive sha1sum="3c56fbbec37a6d4ef5def0c1c0f775b177d4805d" type="targz">ftp://ftp6.tr.postgresql.org/postgresql/pgadmin3/release/v1.6.3/src/pgadmin3-1.6.3.tar.gz</Archive>
+        <Archive sha1sum="c3103792c678183c5a9081daac56ebf467d674ff" type="targz">ftp://ftp.tr.postgresql.org/pub/PostgreSQL//pgadmin3/release/v1.8.4/src/pgadmin3-1.8.4.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
-            <Dependency>wxGTK2_8</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
+            <Dependency>wxGTK</Dependency>
             <Dependency>libxslt</Dependency>
         </BuildDependencies>
     </Source>
@@ -23,8 +23,8 @@
     <Package>
         <Name>pgadmin3</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
-            <Dependency>wxGTK2_8</Dependency>
+            <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
+            <Dependency>wxGTK</Dependency>
             <Dependency>libxslt</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -39,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-08-07</Date>
+            <Version>1.8.4</Version>
+            <Comment>version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
         <Update release="1">
             <Date>2007-07-24</Date>
             <Version>1.6.3</Version>
