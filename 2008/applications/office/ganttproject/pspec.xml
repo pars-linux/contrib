@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ganttproject</Name>
+        <Homepage>http://ganttproject.biz/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>ganttproject</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Gantt diagram creator</Summary>
+        <Description>GanttProject is a project scheduling application written in Java. You may print your charts, generate PDF and HTML reports, exchange data with Microsoft(R) Project(TM) and spreadsheet applications.</Description>
+        <Archive type="zip" sha1sum="a979de12f771c09d620d705fbc054c0a6cf5e71c">mirrors://sourceforge/ganttproject/ganttproject-2.0.7-src.zip</Archive>
+        <BuildDependencies>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>gp_home.patch</Patch>
+            <Patch>browser.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ganttproject</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/ganttproject.desktop">ganttproject.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/mimelnk/application/gan.desktop">gan.desktop</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+        <Update release="6">
+            <Date>2008-08-05</Date>
+            <Version>2.0.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-12-21</Date>
+            <Version>2.0.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-10-13</Date>
+            <Version>2.0.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-07</Date>
+            <Version>2.0.4</Version>
+            <Comment>Fix #5598.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-13</Date>
+            <Version>2.0.4</Version>
+            <Comment>Version bump, added mime type, package icon and a better description.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-02</Date>
+            <Version>2.0.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
