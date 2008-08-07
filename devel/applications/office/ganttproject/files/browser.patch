@@ -1,12 +1,8 @@
---- ../ganttproject/src/net/sourceforge/ganttproject/util/BrowserControl.java	2007-12-21 12:40:56.000000000 +0200
-+++ ../ganttproject/src/net/sourceforge/ganttproject/util/BrowserControl.java	2007-12-21 12:56:47.000000000 +0200
-@@ -33,193 +33,12 @@
-      *            or "file://").
-      */
-     public static boolean displayURL(String url) {
--
--        // Opening a browser, even when running sandbox-restricted
--        // in JavaWebStart.
+--- ../ganttproject/src/net/sourceforge/ganttproject/util/BrowserControl.java	2008-08-07 07:34:04.000000000 +0300
++++ ../ganttproject/src/net/sourceforge/ganttproject/util/BrowserControl.java	2008-08-07 07:37:20.000000000 +0300
+@@ -37,189 +37,13 @@
+         // Opening a browser, even when running sandbox-restricted
+         // in JavaWebStart.
          try {
 -            Class serManClass = Class.forName("javax.jnlp.ServiceManager");
 -            Class basSerClass = Class.forName("javax.jnlp.BasicService");
@@ -23,8 +19,8 @@
 +            runtime.exec("kfmclient exec " + url);
              return true;
          } catch (Exception e) {
--            // Not running in JavaWebStart or service is not supported.
--            // We continue with the methods below ...
+             // Not running in JavaWebStart or service is not supported.
+             // We continue with the methods below ...
 +            return false;
          }
 -
@@ -197,21 +193,3 @@
 -    };
 -
  }
---- ../ganttproject/src/net/sourceforge/ganttproject/GanttProject.java   2007-12-21 14:20:01.000000000 +0200
-+++ ../ganttproject/src/net/sourceforge/ganttproject/GanttProject.java   2007-12-21 14:45:20.000000000 +0200
-@@ -2016,6 +2016,6 @@
-     /** Open the web page */
-     public void openWebPage() throws IOException {
--        if (!BrowserControl.displayURL("http://ganttproject.org/")) {
-+        if (!BrowserControl.displayURL("http://ganttproject.biz/")) {
-             GanttDialogInfo gdi = new GanttDialogInfo(this,
-                     GanttDialogInfo.ERROR, GanttDialogInfo.YES_OPTION, language
-                             .getText("msg4"), language.getText("error"));
-@@ -2024,7 +2024,7 @@
-             return;
-         }
-         getUIFacade().setStatusText(GanttLanguage.getInstance().getText("opening")
--                + " www.ganttproject.org");
-+                + " ganttproject.biz");
-     }
-     // change by G. Herrmann

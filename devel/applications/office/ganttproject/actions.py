@@ -11,6 +11,7 @@ from pisi.actionsapi import shelltools
 WorkDir = "%s-%s-src/%s-builder" % (get.srcNAME(), get.srcVERSION(), get.srcNAME())
 
 def build():
+    shelltools.export("JAVA_HOME", "/opt/sun-jre")
     shelltools.system("ant")
 
 def install():
