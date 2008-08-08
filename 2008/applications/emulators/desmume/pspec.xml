@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>desmume</Name>
+        <Homepage>http://desmume.org/</Homepage>
+        <Packager>
+            <Name>Uğur Tutar</Name>
+            <Email>tutarugur@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>desmume</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Nintendo DS emulator</Summary>
+        <Archive sha1sum="2cd567ccd737dc90f601f711e0bee32d78aee9de" type="targz">http://prdownloads.sourceforge.net/desmume/desmume-0.8.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>gtkglext</Dependency>
+            <Dependency>zziplib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>desmume</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>gtkglext</Dependency>
+            <Dependency>zziplib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/desmume-glade.desktop">desmume-glade.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/desmume.desktop">desmume.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-29</Date>
+            <Version>0.8</Version>
+            <Comment>First Release</Comment>
+            <Name>Uğur Tutar</Name>
+            <Email>tutarugur@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
