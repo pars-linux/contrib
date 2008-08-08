@@ -5,9 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
 from pisi.actionsapi import autotools
-from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
-WorkDir = "qca-ossl-0.1-20070904"
+WorkDir = "qca-ossl-2.0.0-beta3"
 
 def setup():
     autotools.rawConfigure("--qtdir=/usr/qt/4")
@@ -16,4 +16,6 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
+    pisitools.dolib("lib/libqca-ossl.so", "/usr/qt/4/plugins/crypto")
+
+    pisitools.dodoc("COPYING", "README", "TODO")
