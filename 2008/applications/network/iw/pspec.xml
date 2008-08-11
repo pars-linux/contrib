@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>iw</Name>
+        <Homepage>http://aircrack-ng.org/doku.php</Homepage>
+        <Packager>
+            <Name>İşbaran Akçayır</Name>
+            <Email>isbaran@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>app:console</IsA>
+        <Summary>nl80211 userspace tool</Summary>
+        <Description>802.11 netlink interface userspace tool</Description>
+        <Archive sha1sum="08fc8dc80f8a792faa212cf69fc7788e3a2b4060" type="tarbz2">http://ish.kodzilla.org/pardus/paketler/kaynak/iw-0.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libnl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>iw</Name>
+        <RuntimeDependencies>
+            <Dependency>libnl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/sbin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-09</Date>
+            <Version>0.1</Version>
+            <Comment>First Release</Comment>
+            <Name>İşbaran Akçayır</Name>
+            <Email>isbaran@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
