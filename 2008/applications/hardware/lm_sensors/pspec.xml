@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lm_sensors</Name>
+        <Homepage>http://www.lm-sensors.org</Homepage>
+        <Packager>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Hardware temperature monitor</Summary>
+        <Description>SMBus and acpi hardware monitoring</Description>
+        <Archive sha1sum="8f28c11d00e68fc4b8249e02d224427f8f836d68" type="tarbz2">http://dl.lm-sensors.org/lm-sensors/releases/lm_sensors-3.0.2.tar.bz2</Archive>
+        <Patches>
+            <Patch>pardus-dirs.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lm_sensors</Name>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-10</Date>
+            <Version>3.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
