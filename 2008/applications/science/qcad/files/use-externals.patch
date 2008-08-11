@@ -1,0 +1,85 @@
+diff -ur qcad-2.0.5.0-1-community.src-org/qcad/src/qcad.pro qcad-2.0.5.0-1-community.src/qcad/src/qcad.pro
+--- qcad-2.0.5.0-1-community.src-org/qcad/src/qcad.pro	2005-11-22 13:49:37.000000000 +0200
++++ qcad-2.0.5.0-1-community.src/qcad/src/qcad.pro	2008-02-02 12:42:47.000000000 +0200
+@@ -101,8 +101,8 @@
+ }
+ LIBS += \
+         -L../../qcadlib/lib -lqcad \
+-        -L../../dxflib/lib -ldxf \
+-        -L../../fparser/lib -lfparser
++        -L/usr/lib -ldxf \
++        -L/usr/lib -lfparser
+ rs_cam {
+     LIBS += -L../../qcadcam/lib -lqcadcam
+ }
+@@ -115,8 +115,8 @@
+ }
+ 
+ # include paths:
+-INCLUDEPATH += ../../fparser/include \
+-               ../../dxflib/include \
++INCLUDEPATH += /usr/include/fparser \
++               /usr/include/dxflib \
+                ../../qcadlib/include \
+                ../../qcadcmd/include \
+                ../../qcadactions/include \
+diff -ur qcad-2.0.5.0-1-community.src-org/qcadactions/src/qcadactions.pro qcad-2.0.5.0-1-community.src/qcadactions/src/qcadactions.pro
+--- qcad-2.0.5.0-1-community.src-org/qcadactions/src/qcadactions.pro	2005-11-22 13:51:28.000000000 +0200
++++ qcad-2.0.5.0-1-community.src/qcadactions/src/qcadactions.pro	2008-02-02 11:34:44.000000000 +0200
+@@ -3,7 +3,7 @@
+ DESTDIR     = ../lib
+ CONFIG      += qt staticlib warn_on
+ INCLUDEPATH += ../include
+-INCLUDEPATH += ../../dxflib/include ../../qcadlib/include ../../fparser/include ../../qcadcmd/include
++INCLUDEPATH += /usr/include/dxflib /usr/include/fparser ../../qcadlib/include ../../qcadcmd/include
+ 
+ HEADERS     = rs_actionblocksadd.h \
+               rs_actionblocksattributes.h \
+diff -ur qcad-2.0.5.0-1-community.src-org/qcadcmd/src/qcadcmd.pro qcad-2.0.5.0-1-community.src/qcadcmd/src/qcadcmd.pro
+--- qcad-2.0.5.0-1-community.src-org/qcadcmd/src/qcadcmd.pro	2005-11-22 13:51:51.000000000 +0200
++++ qcad-2.0.5.0-1-community.src/qcadcmd/src/qcadcmd.pro	2008-02-02 11:35:46.000000000 +0200
+@@ -3,7 +3,7 @@
+ DESTDIR     = ../lib
+ CONFIG      += qt staticlib warn_on
+ INCLUDEPATH += ../include
+-INCLUDEPATH += ../../qcadlib/include ../../fparser/include
++INCLUDEPATH += ../../qcadlib/include /usr/include/fparser
+ 
+ HEADERS     = rs_commands.h
+ SOURCES     = rs_commands.cpp 
+diff -ur qcad-2.0.5.0-1-community.src-org/qcadguiqt/src/qcadguiqt.pro qcad-2.0.5.0-1-community.src/qcadguiqt/src/qcadguiqt.pro
+--- qcad-2.0.5.0-1-community.src-org/qcadguiqt/src/qcadguiqt.pro	2005-11-22 13:51:57.000000000 +0200
++++ qcad-2.0.5.0-1-community.src/qcadguiqt/src/qcadguiqt.pro	2008-02-02 11:37:06.000000000 +0200
+@@ -3,7 +3,7 @@
+ DESTDIR     = ../lib
+ CONFIG      += qt staticlib warn_on
+ INCLUDEPATH += ../include
+-INCLUDEPATH += ../../qcadlib/include ../../qcadactions/include ../../dxflib/include ../../fparser/include ../../qcadcmd/include
++INCLUDEPATH += ../../qcadlib/include ../../qcadactions/include /usr/include/dxflib /usr/include/fparser ../../qcadcmd/include
+ 
+ HEADERS     = \
+               qg_actionfactory.h \
+diff -ur qcad-2.0.5.0-1-community.src-org/qcadlib/src/math/rs_math.h qcad-2.0.5.0-1-community.src/qcadlib/src/math/rs_math.h
+--- qcad-2.0.5.0-1-community.src-org/qcadlib/src/math/rs_math.h	2005-11-22 13:52:42.000000000 +0200
++++ qcad-2.0.5.0-1-community.src/qcadlib/src/math/rs_math.h	2008-02-02 12:15:57.000000000 +0200
+@@ -36,7 +36,7 @@
+ #include <errno.h>
+ 
+ #ifndef RS_NO_FPARSER
+-#include "fparser.h"
++#include <fparser.h>
+ #endif
+ 
+ #include "rs.h"
+diff -ur qcad-2.0.5.0-1-community.src-org/qcadlib/src/qcadlib.pro qcad-2.0.5.0-1-community.src/qcadlib/src/qcadlib.pro
+--- qcad-2.0.5.0-1-community.src-org/qcadlib/src/qcadlib.pro	2005-11-22 13:52:42.000000000 +0200
++++ qcad-2.0.5.0-1-community.src/qcadlib/src/qcadlib.pro	2008-02-02 11:37:49.000000000 +0200
+@@ -4,7 +4,7 @@
+ CONFIG      += qt staticlib warn_on release
+ DEFINES     += RS_NO_COMPLEX_ENTITIES
+ INCLUDEPATH += ../include
+-INCLUDEPATH += ../../dxflib/include ../../fparser/include ../../qcadcmd/include
++INCLUDEPATH += /usr/include/dxflib /usr/include/fparser ../../qcadcmd/include
+ 
+ HEADERS     = \
+               actions/rs_actioninterface.h \
