@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>teamspeak-client</Name>
+        <Homepage>http://www.goteamspeak.com</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <Icon>teamspeak-client</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A quality, scalable application which enables people to speak with one another over the Internet</Summary>
+        <Description>TeamSpeak consists of both client and server software. The server acts as a host to multiple client connections, capable of handling literally thousands of simultaneous users. This results in an Internet based conferencing solution that works in a variety of applications such as team mates speaking with one another while playing their favorite online game, small businesses cutting costs on long distance charges, or for personal communication with friends and family.</Description>
+        <Archive sha1sum="d54c9c19a2e70cee11f9a04a3523c71da802ee8d" type="tarbz2">ftp://ftp.freenet.de/pub/4players/teamspeak.org/releases/ts2_client_rc2_2032.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>teamspeak-client</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin/teamspeak-client</Path>
+            <Path fileType="executable">/usr/share/teamspeak/client_sdk/tsControl</Path>
+            <Path fileType="executable">/usr/share/teamspeak/TeamSpeak.bin</Path>
+            <Path fileType="library">/usr/share/teamspeak/*.so.*</Path>
+            <Path fileType="library">/usr/share/teamspeak/client_sdk/*.so.*</Path>
+            <Path fileType="data">/usr/share/teamspeak</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/teamspeak-client.desktop">teamspeak-client.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/teamspeak-client.png">teamspeak-client.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-17</Date>
+            <Version>2.0.32.60</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
