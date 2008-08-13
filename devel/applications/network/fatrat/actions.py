@@ -9,13 +9,11 @@ from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 
-WorkDir = "fatrat-1.0_rc1"
-
 def setup():
     cmaketools.configure("-DWITH_NLS=ON \
-                          -DWITH_BITTORRENT=ON \
                           -DWITH_JABBER=ON \
-                          -DWITH_SFTP=ON")
+                          -DWITH_SFTP=ON \
+                          -DWITH_BITTORRENT=OFF")
 
 def build():
     cmaketools.make()
