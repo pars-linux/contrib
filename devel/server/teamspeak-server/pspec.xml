@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>teamspeak-server</Name>
+        <Homepage>http://www.goteamspeak.com</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>service</IsA>
+        <Summary>TeamSpeak server</Summary>
+        <Description>TeamSpeak server acts as a host to multiple client connections, capable of handling literally thousands of simultaneous users. This results in an Internet based conferencing solution that works in a variety of applications such as team mates speaking with one another while playing their favorite online game, small businesses cutting costs on long distance charges, or for personal communication with friends and family.</Description>
+        <Archive sha1sum="645dc564a7dda61212c8c6e7f2d5e6a3094f9c74" type="tarbz2">ftp://ftp.freenet.de/pub/4players/teamspeak.org/releases/ts2_server_rc2_202319.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>teamspeak-server</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.4.2">sqlite</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/share/sqlite.so</Path>
+            <Path fileType="config">/etc/teamspeak</Path>
+            <Path fileType="data">/var</Path>
+            <Path fileType="data">/usr/share/teamspeak</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/teamspeak-server">teamspeak-server</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+             <COMAR script="package.py">System.Package</COMAR>
+             <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-13</Date>
+            <Version>2.0.24.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
