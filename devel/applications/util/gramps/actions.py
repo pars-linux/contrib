@@ -24,4 +24,14 @@ def install():
     # remove TR locale, it hasn't been translated completely
     pisitools.remove("/usr/share/locale/tr/LC_MESSAGES/gramps.mo")
 
+    mimeFiles = ["/usr/share/mime/XMLnamespaces",
+                 "/usr/share/mime/aliases",
+                 "/usr/share/mime/globs",
+                 "/usr/share/mime/magic",
+                 "/usr/share/mime/mime.cache",
+                 "/usr/share/mime/subclasses"]
+
+    for file in mimeFiles:
+        pisitools.remove(file)
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "README","NEWS","FAQ","TODO")
