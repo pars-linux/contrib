@@ -7,23 +7,11 @@
 # (at your option) any later version.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-# This is a simple script to start compiz-manager automatically in accordance with the  # desktop environment
+# This is a simple script to start compiz-manager automatically
+# in accordance with the desktop environment.
 
 import os,sys
-
-user = unicode(os.getenv('USER'))
-
-desktop_session = unicode(os.getenv("DESKTOP_SESSION"))
-pathKDE3 = os.path.join('/home', user, '.kde3.5/Autostart')
-pathKDE4 = os.path.join('/home', user, '.kde4/Autostart')
-
-desktop_pathKDE3 = os.path.join(pathKDE3, 'fusion-icon-auto-start.desktop')
-desktop_pathKDE4 = os.path.join(pathKDE4, 'fusion-icon-auto-start.desktop')
-
-# Detect if direct rendering is supported
-cmd = os.popen('glxinfo | grep -i "direct rendering"')
-direct_rendering = cmd.read().strip().split(":")[-1]
-cmd.close()
+from subprocess import call
 
 # Autostart desktop file
 desktop_file = ('''[Desktop Entry]
@@ -35,19 +23,69 @@ X-KDE-autostart-after=kdesktop
 Name=Fusion-icon
 ''')
 
+COMPIZ = '/usr/bin/compiz-manager'
+
+def user():
+    return unicode(os.getenv('USER'))
+
+def desktopSession():
+    return unicode(os.getenv("DESKTOP_SESSION"))
+
+def kdeSessionVersion():
+    return unicode(os.getenv("KDE_SESSION_VERSION"))
+
+def kdeVersion():
+    if kdeSessionVersion() == 4:
+        VERSION = 4
+
+    else:
+        if desktopSession() in ('default', 'kde'):
+            VERSION = 3.5
+
+    return VERSION
+
+def kWin():
+    if kdeVersion():
+        KWIN = '/usr/kde%s/bin/kwin --replace' % kdeVersion()
+    else:
+        KWIN = None
+
+    return KWIN
+
+def kdePath(kde_version):
+    path = os.path.join('/home', user(), '.kde%s/Autostart' % kde_version)
+    if not os.path.exists(path):
+        os.mkdir(path)
+
+    return path
+
+def desktopKdePath():
+    return os.path.join(kdePath(kdeVersion()), 'fusion-icon-auto-start.desktop')
+
+def directRendering():
+    cmd = os.popen('glxinfo | grep -i "direct rendering"')
+    direct_rendering = cmd.read().strip().split(":")[-1]
+    cmd.close()
+
+    return direct_rendering
+
+def writeDesktopFile(path):
+    _file = file(os.path.join(path), 'w')
+    _file.write(desktop_file)
+    _file.close()
+
 def main():
-    if direct_rendering == ' Yes':
-        for path in (desktop_pathKDE3, desktop_pathKDE4):
-            _file = file(path, 'w')
-            _file.write(desktop_file)
-            _file.close()
+    if directRendering() == ' Yes' and kWin() != None:
+        writeDesktopFile(desktopKdePath())
 
         # Everything is fine so far and we are ready to power up...
-        os.system("/usr/bin/compiz-manager")
+        call(COMPIZ)
+
     else:
-        for path in (desktop_pathKDE3, desktop_pathKDE4):
-            if os.path.exists(path):
-                os.remove(path)
+        if os.path.exists(desktopKdePath()):
+            os.remove(desktopKdePath())
+
+        call(kWin())
 
         print 'Direct rendering is not suppported.\nCompiz-manager is not started...'
         sys.exit()
