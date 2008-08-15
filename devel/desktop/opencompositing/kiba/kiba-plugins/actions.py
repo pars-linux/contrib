@@ -11,7 +11,10 @@ from pisi.actionsapi import get
 
 def setup():
     shelltools.system("./autogen.sh")
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --disable-trash \
+                         --disable-gmenu \
+                         --disable-stack")
 
 def build():
     autotools.make()
