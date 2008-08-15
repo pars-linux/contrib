@@ -29,16 +29,16 @@ def user():
     return unicode(os.getenv('USER'))
 
 def desktopSession():
-    return unicode(os.getenv("DESKTOP_SESSION"))
+    return os.getenv("DESKTOP_SESSION")
 
 def kdeSessionVersion():
-    return unicode(os.getenv("KDE_SESSION_VERSION"))
+    return os.getenv("KDE_SESSION_VERSION")
 
 def kdeVersion():
-    if kdeSessionVersion() == 4:
-        VERSION = 4
+    if kdeSessionVersion() == '4':
+        VERSION = '4'
     elif desktopSession() in ('default', 'kde'):
-        VERSION = 3.5
+        VERSION = '3.5'
 
     return VERSION
 
