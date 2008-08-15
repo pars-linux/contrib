@@ -45,7 +45,7 @@
         <Files>
             <Path fileType="executable">/usr/bin/compiz</Path>
             <Path fileType="executable">/usr/bin/kde-window-decorator</Path>
-            <Path fileType="executable">/usr/bin/gtk-window-decorator</Path>
+            <Path fileType="executable">/usr/bin/compiz-decorator</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/share/compiz</Path>
@@ -55,6 +55,7 @@
             <Path fileType="data">/usr/kde</Path>
         </Files>
         <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/compiz-decorator">patch/compiz-decorator</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/kde/3.5/etc/xdg/menus/applications-merged/compiz.menu">directory/compiz.menu</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/kde/3.5/share/desktop-directories/compiz.directory">directory/compiz.directory</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/compizfusion.png">icons/compizfusion.png</AdditionalFile>
@@ -71,7 +72,6 @@
         <Files>
             <Path fileType="executable">/usr/bin/compiz-fusion-auto-start</Path>
             <Path fileType="config">/etc/env.d/80compiz</Path>
-            <Path fileType="data">/usr/share/autostart/fusion-icon-auto-start.desktop</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0755" target="/usr/bin/compiz-fusion-auto-start">auto/compiz-fusion-auto-start</AdditionalFile>
@@ -79,7 +79,37 @@
         </AdditionalFiles>
     </Package>
 
+    <Package>
+        <Name>compiz-fusion-gtk</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-manager</Dependency>
+            <Dependency>compiz-fusion</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/gtk-window-decorator</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>compiz-fusion-kde4</Name>
+        <RuntimeDependencies>
+            <Dependency>compiz-manager</Dependency>
+            <Dependency>compiz-fusion</Dependency>
+            <Dependency versionFrom="4.1">kdebase4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/kde4-window-decorator</Path>
+        </Files>
+    </Package>
+
     <History>
+        <Update release="21">
+            <Date>2008-08-15</Date>
+            <Version>0.7.6</Version>
+            <Comment>Enable KDE4, split package</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="20">
             <Date>2008-08-04</Date>
             <Version>0.7.6</Version>
