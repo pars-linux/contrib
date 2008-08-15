@@ -10,7 +10,7 @@
 # This is a simple script to start compiz-manager automatically
 # in accordance with the desktop environment.
 
-import os,sys
+import os
 from subprocess import call
 
 # Autostart desktop file
@@ -37,37 +37,35 @@ def kdeSessionVersion():
 def kdeVersion():
     if kdeSessionVersion() == 4:
         VERSION = 4
-
-    else:
-        if desktopSession() in ('default', 'kde'):
-            VERSION = 3.5
+    elif desktopSession() in ('default', 'kde'):
+        VERSION = 3.5
 
     return VERSION
 
 def kWin():
     if kdeVersion():
-        KWIN = '/usr/kde%s/bin/kwin --replace' % kdeVersion()
+        KWIN = '/usr/kde%s/bin/kwin' % kdeVersion()
     else:
         KWIN = None
 
     return KWIN
 
-def kdePath(kde_version):
-    path = os.path.join('/home', user(), '.kde%s/Autostart' % kde_version)
-    if not os.path.exists(path):
-        os.mkdir(path)
+def kdePath(version):
+    PATH = os.path.join('/home', user(), '.kde%s/Autostart' % version)
+    if not os.path.exists(PATH):
+        os.mkdir(PATH)
 
-    return path
+    return PATH
 
 def desktopKdePath():
     return os.path.join(kdePath(kdeVersion()), 'fusion-icon-auto-start.desktop')
 
 def directRendering():
     cmd = os.popen('glxinfo | grep -i "direct rendering"')
-    direct_rendering = cmd.read().strip().split(":")[-1]
+    DIRECT_RENDERING = cmd.read().strip().split(":")[-1]
     cmd.close()
 
-    return direct_rendering
+    return DIRECT_RENDERING
 
 def writeDesktopFile(path):
     _file = file(os.path.join(path), 'w')
@@ -85,9 +83,9 @@ def main():
         if os.path.exists(desktopKdePath()):
             os.remove(desktopKdePath())
 
-        call(kWin())
+        call(kWin(), '--replace')
 
-        print 'Direct rendering is not suppported.\nCompiz-manager is not started...'
+        print 'Direct rendering is not suppported.\nCompiz-manager will not start...'
         sys.exit()
 
 if __name__ == '__main__':
