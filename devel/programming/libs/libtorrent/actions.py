@@ -18,5 +18,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.insinto('/usr/include/libtorrent/asio/', 'include/libtorrent/asio/*')
 
     pisitools.dohtml("docs/*")
