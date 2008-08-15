@@ -18,4 +18,14 @@ def build():
 def install():
     autotools.install()
 
+    mimeFiles = ["/usr/share/mime/XMLnamespaces",
+                 "/usr/share/mime/aliases",
+                 "/usr/share/mime/globs",
+                 "/usr/share/mime/magic",
+                 "/usr/share/mime/mime.cache",
+                 "/usr/share/mime/subclasses"]
+
+    for file in mimeFiles:
+        pisitools.remove(file)
+
     pisitools.dodoc("AUTHORS", "Changelog", "NEWS", "README", "COPYING")
