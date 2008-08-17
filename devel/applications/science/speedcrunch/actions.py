@@ -19,6 +19,7 @@ def build():
     cmaketools.make()
 
 def install():
+    shelltools.system("lrelease speedcrunch.pro")
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     shelltools.cd("..")
