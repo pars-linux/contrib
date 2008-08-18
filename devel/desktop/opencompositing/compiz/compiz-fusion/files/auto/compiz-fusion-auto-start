@@ -40,6 +40,9 @@ def kdeVersion():
         VERSION = '4'
     elif desktopSession() in ('default', 'kde'):
         VERSION = '3.5'
+    else:
+        print 'No supported Desktop Environment found...\nExiting...'
+        sys.exit()
 
     return VERSION
 
@@ -47,7 +50,7 @@ def kWin():
     if kdeVersion():
         KWIN = '/usr/kde%s/bin/kwin' % kdeVersion()
     else:
-        print 'No window decorator...\nExiting...'
+        print 'No supported window decorator found...\nExiting...'
         sys.exit()
 
     return KWIN
