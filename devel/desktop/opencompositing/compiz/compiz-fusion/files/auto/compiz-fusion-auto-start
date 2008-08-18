@@ -18,6 +18,7 @@ desktop_file = ('''[Desktop Entry]
 Encoding=UTF-8
 Exec=fusion-icon --no-start
 Type=Application
+StartupNotify=false
 X-KDE-autostart-after=kdesktop
 
 Name=Fusion-icon
@@ -46,7 +47,8 @@ def kWin():
     if kdeVersion():
         KWIN = '/usr/kde%s/bin/kwin' % kdeVersion()
     else:
-        KWIN = None
+        print 'No window decorator...\nExiting...'
+        sys.exit()
 
     return KWIN
 
@@ -73,7 +75,7 @@ def writeDesktopFile(path):
     _file.close()
 
 def main():
-    if directRendering() == ' Yes' and kWin() != None:
+    if kWin() and directRendering() == ' Yes':
         writeDesktopFile(desktopKdePath())
 
         # Everything is fine so far and we are ready to power up...
@@ -82,8 +84,6 @@ def main():
     else:
         if os.path.exists(desktopKdePath()):
             os.remove(desktopKdePath())
-
-        call([kWin(), '--replace'])
 
         print 'Direct rendering is not suppported.\nCompiz-manager will not start...'
         sys.exit()
