@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libzzub</Name>
+        <Homepage>http://trac.zeitherrschaft.org/zzub/</Homepage>
+        <Packager>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>A C/C++ music tracking and sequencing library</Summary>
+        <Description>An open source platform independent C/C++ music tracking and sequencing library compatible to Jeskola Buzz.</Description>
+        <Archive sha1sum="c14461a32d645e1a854eab627d435ae4c13d689e" type="tarbz2">mirrors://sourceforge/aldrin/libzzub-0.2.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>flac</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>ladspa-sdk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>SConstruct.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libzzub</Name>
+        <RuntimeDependencies>
+            <Dependency>flac</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>ladspa-sdk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-15</Date>
+            <Version>0.2.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
