@@ -1,0 +1,20 @@
+--- SConstruct.orig	2008-05-05 11:21:26.000000000 +0300
++++ SConstruct	2008-08-18 10:07:22.000000000 +0300
+@@ -195,6 +195,7 @@
+   elif env['SSE'] == True:
+     if not x86_64:
+       env.Append(CCFLAGS=[
++        '-mtune=generic',
+         '-march=i686',
+       ])
+     env.Append(CCFLAGS=[
+@@ -442,9 +443,6 @@
+   
+   if conf.CheckCPUFlag('sse'):
+     env['SSE'] = True
+-  if conf.CheckCPUFlag('sse2'):
+-    env['SSE'] = False
+-    env['SSE2'] = True
+   
+   if env['LUNAR'] == True: # user wants to build lunar
+     # needs LLVM for that
