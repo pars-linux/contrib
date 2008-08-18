@@ -22,7 +22,7 @@ def setup():
                          --enable-inotify \
                          --enable-glib \
                          --enable-kde \
-                         --enable-kde4 \
+                         --disable-kde4 \
                          --enable-kconfig \
                          --enable-dbus \
                          --enable-annotate \
