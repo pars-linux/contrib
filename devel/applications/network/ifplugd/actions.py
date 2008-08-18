@@ -9,7 +9,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-xmltoman --disable-subversion")
+    autotools.configure("--disable-xmltoman \
+                         --disable-subversion \
+                         --disable-lynx")
 
 def build():
     autotools.make()
