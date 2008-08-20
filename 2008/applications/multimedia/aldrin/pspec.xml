@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>aldrin</Name>
+        <Homepage>http://trac.zeitherrschaft.org/aldrin</Homepage>
+        <Packager>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>aldrin</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Modular music sequencer/tracker</Summary>
+        <Description>Aldrin is an open source modular music sequencer/tracker for the GNU/Linux operating system. It features a flexible audio routing system commonly found in expensive audio software, enabling you to mix, split, mutilate and modify audio signals emitted by software synthesizers and samples. </Description>
+        <Archive sha1sum="85c521c7ccb18bd9cea8d2b579a7ed0c12af9c15" type="tarbz2">mirrors://sourceforge/aldrin/aldrin-0.12.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>wxPython</Dependency>
+            <Dependency>libzzub</Dependency>
+        </BuildDependencies>
+       <Patches>
+             <Patch level="1">aldrin.desktop.patch</Patch>
+       </Patches>
+    </Source>
+
+    <Package>
+        <Name>aldrin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.6">wxPython</Dependency>
+            <Dependency>libzzub</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-18</Date>
+            <Version>0.12</Version>
+            <Comment>First release.</Comment>
+            <Name>Semen Cirit</Name>
+            <Email>semen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+
