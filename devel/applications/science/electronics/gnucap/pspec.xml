@@ -8,13 +8,16 @@
             <Name>Türker Sezer</Name>
             <Email>turkersezer@tsdesign.info</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>GNU Circuit Analysis Package</Summary>
         <Archive sha1sum="fa4da0ca4a36ca509d00b7c7286ffb8a008ceaaf" type="targz">ftp://ftp.geda.seul.org/pub/geda/dist/gnucap-0.35.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>tetex</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">gcc4.3.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -24,7 +27,7 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="doc">/usr/share/gnucap/doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/gnucap</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
