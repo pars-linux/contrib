@@ -8,10 +8,15 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 WorkDir="Elixir-%s" % get.srcVERSION()
+examples = "%s/%s/examples" % (get.docDIR(), get.srcTAG())
 
 def install():
     pythonmodules.install()
+    
+    shelltools.chmod("examples/*", 0644)
+    pisitools.insinto(examples, "examples/*")
 
-    pisitools.dodoc("CHANGES", "LICENSE", "README")
+    pisitools.dodoc("AUTHORS", "CHANGES", "LICENSE", "README", "TODO")
