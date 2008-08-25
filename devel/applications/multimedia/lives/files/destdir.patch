@@ -1,0 +1,24 @@
+diff -Nuar lives-0.9.9.1.orig/Makefile.am lives-0.9.9.1/Makefile.am
+--- lives-0.9.9.1.orig/Makefile.am	2008-07-01 19:13:35.000000000 +0300
++++ lives-0.9.9.1/Makefile.am	2008-08-24 16:25:26.000000000 +0300
+@@ -60,7 +60,7 @@
+ 	cp -f $(srcdir)/build-lives-rfx-plugin $(DESTDIR)$(bindir) && chmod a+rx $(DESTDIR)$(bindir)/build-lives-rfx-plugin
+ 	cp -f $(srcdir)/build-lives-rfx-plugin-multi $(DESTDIR)$(bindir) && chmod a+rx $(DESTDIR)$(bindir)/build-lives-rfx-plugin-multi
+ 	cp -f $(srcdir)/default.keymap $(DESTDIR)$(datadir)/$(PACKAGE)/
+-	$(DESTDIR)$(bindir)/build-lives-rfx-plugin-multi builtin $(DESTDIR)$(datadir) $(libdir) $(DESTDIR)$(bindir)
++	$(DESTDIR)$(bindir)/build-lives-rfx-plugin-multi builtin $(DESTDIR)$(datadir) $(DESTDIR)$(libdir) $(DESTDIR)$(bindir)
+ 	mkdir -p $(DESTDIR)$(sharedir)/applications/
+ 	cp -f $(srcdir)/menu-entries/LiVES.desktop $(DESTDIR)$(sharedir)/applications/
+ 	mkdir -p $(DESTDIR)$(sharedir)/pixmaps/
+diff -Nuar lives-0.9.9.1.orig/Makefile.in lives-0.9.9.1/Makefile.in
+--- lives-0.9.9.1.orig/Makefile.in	2008-07-14 02:39:56.000000000 +0300
++++ lives-0.9.9.1/Makefile.in	2008-08-24 16:24:46.000000000 +0300
+@@ -754,7 +754,7 @@
+ 	cp -f $(srcdir)/build-lives-rfx-plugin $(DESTDIR)$(bindir) && chmod a+rx $(DESTDIR)$(bindir)/build-lives-rfx-plugin
+ 	cp -f $(srcdir)/build-lives-rfx-plugin-multi $(DESTDIR)$(bindir) && chmod a+rx $(DESTDIR)$(bindir)/build-lives-rfx-plugin-multi
+ 	cp -f $(srcdir)/default.keymap $(DESTDIR)$(datadir)/$(PACKAGE)/
+-	$(DESTDIR)$(bindir)/build-lives-rfx-plugin-multi builtin $(DESTDIR)$(datadir) $(libdir) $(DESTDIR)$(bindir)
++	$(DESTDIR)$(bindir)/build-lives-rfx-plugin-multi builtin $(DESTDIR)$(datadir) $(DESTDIR)$(libdir) $(DESTDIR)$(bindir)
+ 	mkdir -p $(DESTDIR)$(sharedir)/applications/
+ 	cp -f $(srcdir)/menu-entries/LiVES.desktop $(DESTDIR)$(sharedir)/applications/
+ 	mkdir -p $(DESTDIR)$(sharedir)/pixmaps/
