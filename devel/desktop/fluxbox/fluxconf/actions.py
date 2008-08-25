@@ -16,4 +16,8 @@ def build():
 def install():
     autotools.install()
 
+    for files in ("fluxbare", "fluxkeys", "fluxmenu"):
+        pisitools.remove("/usr/bin/%s" % files)
+        pisitools.dosym("/usr/bin/fluxconf", "/usr/bin/%s" % files)
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README*", "ABOUT*", "TODO")
