@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>grisbi</Name>
+        <Homepage>http://www.grisbi.org/</Homepage>
+        <Packager>
+            <Name>Hüseyin Berberoğlu</Name>
+            <Email>hberberoglu@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>grisbi</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Personal Finance Manager</Summary>
+        <Description>Grisbi is a personnal accounting application. Grisbi can manage multiple accounts, currencies and users.</Description>
+        <Archive sha1sum="6fb6ebf5855ac9275c4da539ff94479d2e486261" type="tarbz2">mirrors://sourceforge/grisbi/grisbi-0.5.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+        </BuildDependencies>
+	<Patches>
+	    <Patch>browser.patch</Patch>
+	</Patches>
+    </Source>
+
+    <Package>
+        <Name>grisbi</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+	    <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/mime-info</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/grisbi.desktop">grisbi.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-15</Date>
+            <Version>0.5.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Hüseyin Berberoğlu</Name>
+            <Email>hberberoglu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
