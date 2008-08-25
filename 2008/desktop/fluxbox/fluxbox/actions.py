@@ -15,15 +15,15 @@ def setup():
                          --enable-imlib2 \
                          --enable-xinerama \
                          --enable-xft \
-                         --enable-nls")
+                         --enable-nls \
+                         --with-style=/usr/share/fluxbox/styles/solaris")
 
 def build():
     autotools.make()
 
 def install():
-    pisitools.dosed("data/init", "bloe", "Solaris")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/usr/share/fluxbox", "data/pixmaps")
+    pisitools.insinto("/usr/share/fluxbox", "data/icons")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
