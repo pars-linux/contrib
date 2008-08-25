@@ -1,0 +1,76 @@
+[begin] (FluxBox)
+[encoding] {UTF-8}
+        [exec] (Run) {fbrun} </usr/share/fluxbox/icons/flux-flux.png>
+        [exec] (Konsole) {konsole} </usr/share/fluxbox/icons/flux-terminal.png>
+        [exec] (FireFox) {firefox} </usr/share/fluxbox/icons/flux-firefox.png>
+    [separator] (--------)
+        [submenu] (Favori) </usr/share/fluxbox/icons/flux-gg.png>
+            [exec] (Konqueror) {konqueror --profile filemanagement} </usr/share/fluxbox/icons/flux-konq.png>
+            [exec] (MC) {konsole -e mc} </usr/share/fluxbox/icons/flux-filemanager.png>
+            [exec] (BasKet Note Pads) {basket} </usr/kde/3.5/share/icons/crystalsvg/16x16/apps/basket.png>
+            [exec] (Kopete) {kopete} </usr/kde/3.5/share/icons/hicolor/16x16/apps/kopete.png>
+            [exec] (Ncmpc) {konsole -e ncmpc -c} </usr/share/fluxbox/flux-mpd.png>
+            [exec] (Mplayer) {gmplayer -really-quiet 1> /dev/null 2>&1} </usr/share/fluxbox/flux-movie.png>
+            [exec] (GIMP) {gimp} </usr/share/fluxbox/icons/flux-gimp.png>
+        [end]
+        [submenu] (Apps) </usr/share/fluxbox/icons/flux-apps.png>
+            [include] (/usr/share/fluxbox/menu-apps)
+        [end]
+    [submenu] (Tools) </usr/share/fluxbox/icons/flux-tool.png>
+        [submenu] (Composite)
+           [exec] (On) {xcompmgr -c -t-5 -l-5 -r8 -o.55 -f -F -I.1}
+           [exec] (Off) {killall xcompmgr}
+        [end]
+        [submenu] (Conky)
+           [exec] (On) {/usr/bin/conky}
+           [exec] (Off) {killall conky}
+        [end]
+        [submenu] (Screenshot) </usr/share/fluxbox/icons/flux-img.png>
+           [exec] (Screenshot - JPG) {import screenshot.jpg && display -resize 50% screenshot.jpg}
+           [exec] (Screenshot - PNG) {import screenshot.png && display -resize 50% screenshot.png}
+        [end]
+        [submenu] (X11) </usr/share/fluxbox/icons/flux-x11.png>
+           [exec] (Xkill) {xkill} </usr/share/fluxbox/icons/flux-xkill.png>
+        [end]
+    [end]
+    [separator] (--------)
+    [submenu] (Fluxbox) </usr/share/fluxbox/icons/flux-settings.png>
+        [submenu] (Settings) </usr/share/fluxbox/icons/flux-settings.png>
+           [exec] (fluxbare) {fluxbare}
+           [exec] (fluxconf) {fluxconf}
+           [exec] (fluxkeys) {fluxkeys}
+           [exec] (fluxmenu) {fluxmenu}
+           [exec] (Window name) {xprop WM_CLASS|cut -d \" -f 2|xmessage -file - -center}
+        [end]
+        [submenu] (Backgrounds) {Set the Background} </usr/share/fluxbox/icons/flux-wallpaper.png>
+           [exec] (Random System) {wpsetters=feh fbsetbg -r /usr/kde/3.5/share/wallpapers}
+           [exec] (Random Background) {wpsetters=feh fbsetbg -r ~/.fluxbox/backgrounds} </usr/share/fluxbox/icons/flux-wallpaper.png>
+           [exec] (Default) {wpsetters=feh fbsetbg -f "/usr/share/fluxbox/backgrounds/default.png" } </usr/share/fluxbox/icons/flux-wallpaper.png>
+        [end]
+        [submenu] (Menu Style)
+#        [submenu] (Regen Menu)
+           [exec] (Default Menu) {rm -rf ~/.fluxbox/menu ; cp /usr/share/fluxbox/menu ~/.fluxbox/menu}
+#           [exec] (Regen Kde) {fluxbox-generate_menu -ds -is -i /usr/kde/3.5/share/icons/crystalsvg/16x16  -q /usr/kde/3.5 -t konsole -d /usr/share/applications -B}
+#           [exec] (Regen Min) {fluxbox-generate_menu -t konsole}
+        [end]
+        [workspaces] (Workspaces)
+        [submenu] (Styles) </usr/share/fluxbox/icons/flux-style.png>
+            [exec] (FluxStyle) {fluxStyle} </usr/share/fluxbox/icons/flux-style.png>
+            [submenu] (System Styles) {Choose a style...} </usr/share/fluxbox/icons/flux-style.png>
+                [stylesdir] (/usr/share/fluxbox/styles) </usr/share/fluxbox/icons/flux-style.png>
+            [end]
+            [submenu] (User Styles) {Choose a style...} </usr/share/fluxbox/icons/flux-style.png>
+                [stylesdir] (~/.fluxbox/styles) </usr/share/fluxbox/icons/flux-style.png>
+            [end]
+        [end]
+        [config] (Configure)
+        [reconfig] (Reconfig)
+        [restart] (Restart)
+    [end]
+    [submenu] (Power) </usr/share/fluxbox/icons/flux-kill.png>
+        [exec] (Reboot) {sudo /sbin/shutdown -r now} </usr/share/fluxbox/icons/flux-halt.png>
+        [exec] (Shutdown) {sudo /sbin/shutdown -h now} </usr/share/fluxbox/icons/flux-reboot.png>
+        [exit] (Exit) </usr/share/fluxbox/icons/flux-exit.png>
+    [end]
+[encoding]
+[end]
