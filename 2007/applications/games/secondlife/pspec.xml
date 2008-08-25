@@ -5,43 +5,29 @@
         <Name>secondlife</Name>
         <Homepage>http://www.secondlife.com</Homepage>
         <Packager>
-            <Name>Murat Şenel</Name>
-            <Email>muratasenel@gmail.com</Email>
+            <Name>Rasim AKAR</Name>
+            <Email>alsaberk@gmail.com</Email>
         </Packager>
-        <License>GPL</License>
+        <License>GPLv2</License>
         <Icon>secondlife</Icon>
         <IsA>app:gui</IsA>
         <Summary>Client for SecondLife</Summary>
-        <Archive sha1sum="fb7bd6959bc59305677e10d8f0c958ccf82b4e60" type="targz">http://s3.amazonaws.com/viewer-source-downloads/2007/11/slviewer-src-1.18.5.3.tar.gz</Archive>
+        <Archive sha1sum="cb7f1a2ac03b227130b67d9faa695e0205c3605b" type="tarbz2">http://download-secondlife-com.s3.amazonaws.com/SecondLife_i686_1_20_15_92456.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency releaseFrom="5">jpeg</Dependency>
             <Dependency>libsdl</Dependency>
             <Dependency>apr1</Dependency>
-            <Dependency>apr-util1</Dependency>
+            <Dependency>apr-util</Dependency>
             <Dependency>boost</Dependency>
             <Dependency>xmlrpc-epi</Dependency>
             <Dependency>libvorbis</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency versionFrom="1.1.1">openjpeg</Dependency>
+            <Dependency>openjpeg</Dependency>
             <Dependency>curl</Dependency>
             <Dependency>openal</Dependency>
             <Dependency>freealut</Dependency>
             <Dependency>google-perftools</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">no-mozlib.patch</Patch>
-            <Patch level="1">no-fmod.patch</Patch>
-            <Patch level="1">no-elfio.patch</Patch>
-            <Patch level="1">system-headers-libs.patch</Patch>
-            <Patch level="1">system-gstreamer.patch</Patch>
-            <Patch level="1">debian_put_AppROData_in_usr_share_secondlife.patch</Patch>
-            <Patch level="1">use_pardus-included_fonts.patch</Patch>
-            <Patch level="1">freetype2.patch</Patch>
-            <Patch level="1">slviewer-1.17.0.12-openal-20070625.patch</Patch>
-            <Patch level="1">boost_regex.patch</Patch>
-            <Patch level="1">voiceclient-expat.patch</Patch>
-            <Patch level="1">openssl.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -49,47 +35,38 @@
         <RuntimeDependencies>
             <Dependency>libsdl</Dependency>
             <Dependency>apr1</Dependency>
-            <Dependency>apr-util1</Dependency>
+            <Dependency>apr-util</Dependency>
             <Dependency>boost</Dependency>
             <Dependency>xmlrpc-epi</Dependency>
             <Dependency>libvorbis</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency versionFrom="1.1.1">openjpeg</Dependency>
+            <Dependency>openjpeg</Dependency>
             <Dependency>curl</Dependency>
             <Dependency>openal</Dependency>
             <Dependency>freealut</Dependency>
             <Dependency>google-perftools</Dependency>
-            <Dependency version="1.18.5.3">secondlife-artwork</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="executable">/usr/share/secondlife/secondlife-i686-bin-globalsyms</Path>
-            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/share/secondlife</Path>
+            <Path fileType="data">/usr/share/</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
-            <Path fileType="data">/usr/share/secondlife/app_settings</Path>
-            <Path fileType="data">/usr/share/secondlife/character</Path>
-            <Path fileType="data">/usr/share/secondlife/fonts</Path>
-            <Path fileType="data">/usr/share/secondlife/help</Path>
-            <Path fileType="data">/usr/share/secondlife/res-sdl</Path>
-            <Path fileType="data">/usr/share/secondlife/skins</Path>
-            <Path fileType="data">/usr/share/secondlife/featuretable.txt</Path>
-            <Path fileType="data">/usr/share/secondlife/gpu_table.txt</Path>
-            <Path fileType="data">/usr/share/secondlife/launch_url.sh</Path>
-            <Path fileType="data">/usr/share/secondlife/unicode.ttf</Path>
-            <Path fileType="data">/usr/share/secondlife/secondlife.ico</Path>
-            <Path fileType="data">/usr/share/secondlife/gridargs.dat</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0755" target="/usr/bin/secondlife">secondlife</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/secondlife.desktop">secondlife.desktop</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/secondlife.png">secondlife.png</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/secondlife/gridargs.dat">gridargs.dat</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/SecondLife.desktop">SecondLife.desktop</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="17">
+            <Date>2008-08-24</Date>
+            <Version>1.20.15</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>alsaberk@gmail.com</Email>
+        </Update>
         <Update release="16">
             <Date>2007-11-30</Date>
             <Version>1.18.5.3</Version>
