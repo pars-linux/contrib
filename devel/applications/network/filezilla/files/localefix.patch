@@ -1,0 +1,20 @@
+--- src/interface/themeprovider.cpp.orig	2008-08-11 17:29:04.000000000 +0300
++++ src/interface/themeprovider.cpp	2008-08-26 11:22:12.000000000 +0300
+@@ -38,9 +38,17 @@
+ 	dirs.push_back(m_themePath + _T("16x16/"));
+ 	dirs.push_back(resourceDir + _T("16x16/"));
+ 
++    // MakeLower's behaviour is not true for filenames
++    // Fixes #7669
++
++    char *locale_tmp = setlocale(LC_ALL, "");
++    setlocale(LC_ALL, "C");
++
+ 	wxString name = id.Mid(4);
+ 	name.MakeLower();
+ 
++    setlocale(LC_ALL, locale_tmp);
++
+ 	wxLogNull logNull;
+ 
+ 	for (std::list<wxString>::const_iterator iter = dirs.begin(); iter != dirs.end(); iter++)
