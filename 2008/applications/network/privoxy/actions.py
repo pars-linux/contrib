@@ -8,7 +8,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
-WorkDir = "privoxy-3.0.8-stable"
+WorkDir = "privoxy-3.0.10-stable"
 
 def setup():
     autotools.autoheader()
