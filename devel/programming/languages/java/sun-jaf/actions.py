@@ -8,10 +8,11 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir="activation"
+WorkDir="jaf-1.1.1"
 
 def setup():
     shelltools.system("ant jar")
 
 def install():
-    pisitools.insinto("/usr/share/java","build/release/*.jar")
+    pisitools.insinto("/usr/share/java","*.jar")
+    pisitools.dodoc("distributionREADME.txt","README.txt")
