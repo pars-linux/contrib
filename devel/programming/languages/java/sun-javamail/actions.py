@@ -8,10 +8,10 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir="mail"
+WorkDir="javamail-1.4.1"
 
 def setup():
     shelltools.system("JAVA_PKG_STRICT=true ant -Djavaee.jar=/usr/share/java/activation.jar jar")
 
 def install():
-    pisitools.insinto("/usr/share/java","build/release/*.jar")
+    pisitools.insinto("/usr/share/java","*.jar")
