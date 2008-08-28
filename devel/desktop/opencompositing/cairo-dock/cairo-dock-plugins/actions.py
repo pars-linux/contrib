@@ -10,7 +10,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.autoreconf("-isvf")
+    # autotools.autoreconf("-isvf")
     autotools.configure("--disable-static \
                          --disable-old-gnome-integration \
                          --disable-gnome-integration \
