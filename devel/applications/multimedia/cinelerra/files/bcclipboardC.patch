@@ -1,0 +1,19 @@
+--- guicast/bcclipboard.C.orig	2008-06-17 22:31:39.000000000 +0300
++++ guicast/bcclipboard.C	2008-07-24 10:13:11.000000000 +0300
+@@ -1,5 +1,6 @@
+ #include "bcclipboard.h"
+ #include "bcwindowbase.h"
++#include <X11/Xlibint.h>
+ #include <string.h>
+ 
+ BC_Clipboard::BC_Clipboard(char *display_name) : Thread()
+@@ -60,7 +61,8 @@
+ 	ptr->message_type = completion_atom;
+ 	ptr->format = 32;
+ 	XSendEvent(out_display, out_win, 0, 0, &event);
+-	XFlush(out_display);
++	_XSend(out_display, 0, 0);
++/*      XFlush(out_display);*/
+ 	Thread::join();
+ 	return 0;
+ }
