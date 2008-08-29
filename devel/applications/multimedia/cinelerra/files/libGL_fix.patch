@@ -1,0 +1,31 @@
+--- configure.in.orig	2008-08-14 23:11:32.000000000 +0300
++++ configure.in	2008-08-14 23:16:36.000000000 +0300
+@@ -435,26 +435,11 @@
+ 	[ enable_opengl=$enableval ],
+ 	[ enable_opengl=yes ])
+ if test "x$enableval" = "xyes"; then
+-	AC_CHECK_LIB([GL], [glUseProgram],
+-		[OPENGL_LIBS="-lGL"; libGL=yes],
+-# On SUSE/OpenSUSE, NVidia places the OpenGL 2.0 capable library in /usr/X11R6/lib
+-# but it doesn't place a libGL.so there, so the linker won't pick it up
+-# we have to use the explicit libGL.so.1 path.
+-		save_LIBS="$LIBS"
+-		for l in /usr/X11R6/lib /usr/X11R6/lib64; do
+-			LIBS="$l/libGL.so.1"
+-			AC_MSG_CHECKING(for glUseProgram in $l/libGL.so.1)
+-			AC_TRY_LINK([],[extern int glUseProgram(); glUseProgram();],
+-				[OPENGL_LIBS="$l/libGL.so.1"; libGL=yes],[libGL=no])
+-			AC_MSG_RESULT([$libGL])
+-			test $libGL = yes && break
+-		done
+-		LIBS="$save_LIBS"
+-	)
++       AC_CHECK_LIB([GL], [glUseProgram],[libGL=yes],[libGL=no])
+ fi
+ if test "x$libGL" = "xyes"; then
+ 	enable_opengl=ok
+-	OPENGL_LIBS="-lGLU $OPENGL_LIBS"
++	OPENGL_LIBS="-lGL -lGLU "
+ 	AC_DEFINE(HAVE_GL)
+ fi
+ AC_SUBST(OPENGL_LIBS)
