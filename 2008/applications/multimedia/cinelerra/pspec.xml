@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cinelerra</Name>
+        <Homepage>http://cvs.cinelerra.org/</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>multimedia</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Non-Linear Video Editing Suite - Community version</Summary>
+        <Description>Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
+        <Archive sha1sum="a7d4b9eebd62b6d7259a45afd843cc1a274d61f3" type="tarbz2">http://pardus.kilu.de/dist/cinelerra_cv1061.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.7.4">a52dec</Dependency>
+            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency versionFrom="3.1.2">fftw3</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency versionFrom="1.6.1">openexr</Dependency>
+            <Dependency>libtheora</Dependency>
+            <Dependency versionFrom="0.5.3">libavc1394</Dependency>
+            <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>bcclipboardC.patch</Patch>
+            <Patch level="1">ffmpeg_external.patch</Patch>
+            <Patch>fix_lib.patch</Patch>
+            <Patch>libGL_fix.patch</Patch>
+            <Patch level="1">configure_in.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cinelerra</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.7.4">a52dec</Dependency>
+            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+            <Dependency versionFrom="3.8.2">tiff</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency versionFrom="3.1.2">fftw3</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency versionFrom="1.6.1">openexr</Dependency>
+            <Dependency>libtheora</Dependency>
+            <Dependency versionFrom="0.5.3">libavc1394</Dependency>
+            <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/cinelerra</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-24</Date>
+            <Version>2.1_20080724</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
