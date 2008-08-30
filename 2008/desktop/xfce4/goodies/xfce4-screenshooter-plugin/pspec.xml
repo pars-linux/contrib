@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-screenshooter-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>applets-screenshooter</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A plugin for the Xfce panel to take screenshots</Summary>
+        <Archive sha1sum="6af7e727a9c5840c8ee868cf56690e33dce04687" type="targz">http://goodies.xfce.org/releases/xfce4-screenshooter-plugin/xfce4-screenshooter-plugin-1.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </BuildDependencies>
+        <Patches>
+          <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xfce4-screenshooter-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/48x48/apps/applets-screenshooter.png">applets-screenshooter.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-18</Date>
+            <Version>1.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
