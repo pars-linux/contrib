@@ -14,5 +14,5 @@ def install():
 
     shelltools.system('doxygen doc/GNUmakefile')
     pisitools.dohtml('doc/html/*')
-    pisitools.dodoc('documentation.rst')
+    pisitools.dodoc('documentation.rst', 'LICENSE', 'README', 'UPGRADING')
 
