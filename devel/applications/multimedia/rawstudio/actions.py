@@ -7,11 +7,11 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
+WorkDir = "rawstudio-1.0rc1"
+
 def setup():
-    shelltools.export("CPPFLAGS", "%s -I/usr/include/lcms" % get.CXXFLAGS())
     autotools.configure()
 
 def build():
