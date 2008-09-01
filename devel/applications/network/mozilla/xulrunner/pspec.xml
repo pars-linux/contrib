@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xulrunner</Name>
+        <Homepage>http://mozilla.org</Homepage>
+        <Packager>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Packager>
+        <License>MPL-1.1</License>
+        <IsA>library</IsA>
+        <Summary>Mozilla XUL+XPCOM application runner</Summary>
+        <Archive sha1sum="ba3bb0b02404cf1abfb6189b156b2f4eb02e8975" type="tarbz2">ftp://ftp.mozilla.org/pub/xulrunner/releases/1.9.0.1/source/xulrunner-1.9.0.1-source.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>nss</Dependency>
+            <Dependency>nspr</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">xulrunner-path.patch</Patch>
+            <Patch level="1">xulrunner-version.patch</Patch>
+            <Patch level="1">mozilla-sqlite.patch</Patch>
+            <Patch level="1">mozilla-mochitest.patch</Patch>
+            <Patch level="1">mozilla-pkgconfig.patch</Patch>
+            <Patch level="1">mozilla-ps-pdf-simplify-operators.patch</Patch>
+            <Patch>xulrunner-mozconfig.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xulrunner</Name>
+        <RuntimeDependencies>
+            <Dependency>nss</Dependency>
+            <Dependency>nspr</Dependency>
+            <Dependency>lcms</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/gre.d</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/xulrunner-1.9</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>xulrunner-devel</Name>
+        <RuntimeDependencies>
+            <Dependency>xulrunner</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include/xulrunner-sdk-1.9</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
+            <Path fileType="library">/usr/lib/xulrunner-sdk-1.9</Path>
+            <Path fileType="data">/usr/share/idl/xulrunner-sdk-1.9</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-08</Date>
+            <Version>1.9.0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
