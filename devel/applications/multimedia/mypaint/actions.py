@@ -19,4 +19,6 @@ def install():
 
     pisitools.domove("/usr/share/pixmaps/mypaint_48.png" , "/usr/share/pixmaps/" , "mypaint.png")
 
-    pisitools.dodoc("COPYING", "README", "PLAN")
+    pisitools.dohtml("html/*")
+    pisitools.dodoc("COPYING", "README", "PLAN", "html/tutorial.txt")
+
