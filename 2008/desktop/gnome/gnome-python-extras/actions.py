@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
 def setup():
-    autotools.configure("--with-gtkmozembed=firefox")
+    autotools.configure("--with-gtkmozembed=mozilla")
 
 def build():
     autotools.make()
