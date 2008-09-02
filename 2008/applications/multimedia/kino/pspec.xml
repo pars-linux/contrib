@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kino</Name>
+        <Homepage>http://www.kinodv.org/</Homepage>
+        <Packager>
+            <Name>Koray Löker</Name>
+            <Email>loker@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>kino</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Kino is a non-linear DV editor for GNU/Linux</Summary>
+        <Description>Kino is a non-linear DV editor for GNU/Linux.</Description>
+        <Archive sha1sum="c59a3967432a450cb278601c961da1c946c72cfa" type="targz">mirrors://sourceforge/kino/kino-1.3.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libiec61883</Dependency>
+            <Dependency versionFrom="1.0.0">libraw1394</Dependency>
+            <Dependency versionFrom="0.4.1">libavc1394</Dependency>
+            <Dependency versionFrom="0.103">libdv</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>audiofile</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libquicktime</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libXv</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>potfiles.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kino</Name>
+        <RuntimeDependencies>
+            <Dependency>libiec61883</Dependency>
+            <Dependency versionFrom="1.0.0">libraw1394</Dependency>
+            <Dependency versionFrom="0.4.1">libavc1394</Dependency>
+            <Dependency versionFrom="0.103">libdv</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>audiofile</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libquicktime</Dependency>
+            <Dependency>qdvdauthor</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libXv</Dependency>
+            <Dependency>dvdauthor</Dependency>
+            <Dependency>rawrec</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency>dvd+rw-tools</Dependency>
+            <Dependency>gpac</Dependency>
+            <Dependency>lame</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>sox</Dependency>
+            <Dependency>vorbis-tools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+           <Path fileType="localedata">/usr/share/locale</Path>
+           <Path fileType="header">/usr/include</Path>
+           <Path fileType="man">/usr/share/man</Path>
+           <Path fileType="doc">/usr/share/doc</Path>
+           <Path fileType="config">/etc</Path>
+           <Path fileType="executable">/usr/bin/</Path>
+           <Path fileType="library">/usr/lib/</Path>
+           <Path fileType="data">/usr/share/kino</Path>
+           <Path fileType="data">/usr/share/mime</Path>
+           <Path fileType="data">/usr/share/applications</Path>
+           <Path fileType="data">/usr/share/pixmaps</Path>
+       </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2008-09-02</Date>
+            <Version>1.3.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-03-02</Date>
+            <Version>1.3.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Koray Löker</Name>
+            <Email>loker@pardus.org.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-02-18</Date>
+            <Version>1.2.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-03-24</Date>
+            <Version>1.0.0</Version>
+            <Comment>Version bump and bugfix #5321</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-01-28</Date>
+            <Version>0.9.5</Version>
+            <Comment>Version bump and takeover</Comment>
+            <Name>Koray Löker</Name>
+            <Email>loker@pardus.org.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-09-20</Date>
+            <Version>0.9.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-08-20</Date>
+            <Version>0.9.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-30</Date>
+            <Version>0.8.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+    </History>
+</PISI>
