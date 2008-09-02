@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mypaint</Name>
+        <Homepage>http://people.ee.ethz.ch/~mrenold/mypaint/</Homepage>
+        <Packager>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Painting application</Summary>
+        <Description>MyPaint is a fast and easy painting application. It lets you focus on the art instead of the program</Description>
+        <Archive sha1sum="c1e02ba4ecc50cef842c320a40ea21f2d7474ee6" type="tarbz2">http://ee-staff.ethz.ch/%7Emrenold/mypaint/mypaint-0.5.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mypaint</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/mypaint</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-09-02</Date>
+            <Version>0.5.1</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-07-31</Date>
+            <Version>0.5.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>
