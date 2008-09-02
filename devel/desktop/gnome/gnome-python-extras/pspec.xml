@@ -16,11 +16,15 @@
             <Dependency>pygtk</Dependency>
             <Dependency>gnome-python</Dependency>
             <Dependency>gtkhtml2</Dependency>
-            <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
-            <Dependency>gdl</Dependency>
             <Dependency>gtkspell</Dependency>
-            <!-- <Dependency>gda</Dependency> -->
+            <Dependency>xulrunner-devel</Dependency>
+            <!--<Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>-->
+            <Dependency>gdl</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnome-python-extras-2.19.1-pkg-config.patch</Patch>
+            <Patch level="1">gnome-python-extras-2.19.1-xulrunner.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -29,25 +33,26 @@
             <Dependency>pygtk</Dependency>
             <Dependency>gnome-python</Dependency>
             <Dependency>gtkhtml2</Dependency>
-            <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
-            <Dependency>gdl</Dependency>
             <Dependency>gtkspell</Dependency>
-            <!-- <Dependency>gda</Dependency> -->
+            <Dependency>xulrunner</Dependency>
+            <!--<Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>-->
+            <Dependency>gdl</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
             <Path fileType="data">/usr/share/pygtk</Path>
         </Files>
     </Package>
 
     <History>
         <Update release="4">
-            <Date>2008-06-09</Date>
+            <Date>2008-09-03</Date>
             <Version>2.19.1</Version>
-            <Comment>Add gtkspell dependency. Gtkspell is now in main repository.</Comment>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Comment>Patch for latest Xulrunner</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
         </Update>
         <Update release="3">
             <Date>2008-06-08</Date>
