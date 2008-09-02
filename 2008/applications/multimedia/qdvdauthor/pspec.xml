@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qdvdauthor</Name>
+        <Homepage>http://qdvdauthor.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Qt based DVD tool</Summary>
+        <Description>Qt based set of tools to help you author a DVD</Description>
+        <Archive sha1sum="68ff58cd92e587bd427b35edff595305633bc93c" type="targz">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.5.0-2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xine-lib</Dependency>
+            <Dependency>netpbm</Dependency>
+            <Dependency>dvd-slideshow</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>mjpegtools</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qdvdauthor</Name>
+        <RuntimeDependencies>
+            <Dependency>xine-lib</Dependency>
+            <Dependency>netpbm</Dependency>
+            <Dependency>dvd-slideshow</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>mjpegtools</Dependency>
+            <Dependency>videotrans</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/qdvdauthor</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2008-09-02</Date>
+            <Version>1.5.0</Version>
+            <Comment>Version Bump, add some comments to actions.py .</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-10-17</Date>
+            <Version>1.0.0</Version>
+            <Comment>Added new optional dependency</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-09-13</Date>
+            <Version>1.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>
