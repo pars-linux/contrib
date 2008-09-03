@@ -1,0 +1,52 @@
+--- configure.orig        2007-07-08 04:03:53.000000000 +0300
++++ configure     2008-09-03 02:16:16.000000000 +0300
+@@ -1342,49 +1342,7 @@
+
+
+ videotrans_warnings=""
+-# Extract the first word of "mplayer", so it can be a program name with args.
+-set dummy mplayer; ac_word=$2
+-echo "$as_me:$LINENO: checking for $ac_word" >&5
+-echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6
+-if test "${ac_cv_prog_MPLAYER+set}" = set; then
+-  echo $ECHO_N "(cached) $ECHO_C" >&6
+-else
+-  if test -n "$MPLAYER"; then
+-  ac_cv_prog_MPLAYER="$MPLAYER" # Let the user override the test.
+-else
+-as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+-for as_dir in $PATH
+-do
+-  IFS=$as_save_IFS
+-  test -z "$as_dir" && as_dir=.
+-  for ac_exec_ext in '' $ac_executable_extensions; do
+-  if $as_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
+-    ac_cv_prog_MPLAYER="yes"
+-    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+-    break 2
+-  fi
+-done
+-done
+-
+-  test -z "$ac_cv_prog_MPLAYER" && ac_cv_prog_MPLAYER="no"
+-fi
+-fi
+-MPLAYER=$ac_cv_prog_MPLAYER
+-if test -n "$MPLAYER"; then
+-  echo "$as_me:$LINENO: result: $MPLAYER" >&5
+-echo "${ECHO_T}$MPLAYER" >&6
+-else
+-  echo "$as_me:$LINENO: result: no" >&5
+-echo "${ECHO_T}no" >&6
+-fi
+
+-if test x$MPLAYER = xno ; then { { echo "$as_me:$LINENO: error: mplayer is required, please get it from http://www.mplayerhq.hu/" >&5
+-echo "$as_me: error: mplayer is required, please get it from http://www.mplayerhq.hu/" >&2;}
+-   { (exit 1); exit 1; }; } ; fi
+-mplayer_version="`mplayer -h | head -1 | sed 's,^[^ ]* \([^- ]*\).*,\1,'`"
+-if test x$mplayer_version != x1.0pre7try2 ; then if test x$mplayer_version != x1.0rc1 ; then { echo "$as_me:$LINENO: WARNING: This program is known to work correctly with mplayer version 1.0pre7try2 and 1.0rc1. Your mplayer version is $mplayer_version, which might not work correctly and even crash during conversion. Please consider upgrading mplayer if it is older than 1.0pre7try2. If your mplayer is newer than 1.0rc1 and crashes during conversion, please consider downgrading it to 1.0rc1." >&5
+-echo "$as_me: WARNING: This program is known to work correctly with mplayer version 1.0pre7try2 and 1.0rc1. Your mplayer version is $mplayer_version, which might not work correctly and even crash during conversion. Please consider upgrading mplayer if it is older than 1.0pre7try2. If your mplayer is newer than 1.0rc1 and crashes during conversion, please consider downgrading it to 1.0rc1." >&2;} ; videotrans_warnings="$videotrans_warnings This program is known to work correctly with mplayer version 1.0pre7try2 and 1.0rc1. Your mplayer version is $mplayer_version, which might not work correctly and even crash during conversion. Please consider upgrading mplayer if it is older than 1.0pre7try2. If your mplayer is newer than 1.0rc1 and crashes during conversion, please consider downgrading it to 1.0rc1." ; fi ; fi
+-# Extract the first word of "ffmpeg", so it can be a program name with args.
+ set dummy ffmpeg; ac_word=$2
+ echo "$as_me:$LINENO: checking for $ac_word" >&5
+ echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6
