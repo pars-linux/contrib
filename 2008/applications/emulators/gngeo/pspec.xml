@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gngeo</Name>
+        <Homepage>http://vba.ngemu.com/</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxed.up@gmx.co.uk</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Neogeo emulator</Summary>
+        <Description>An emulator for the Neogeo.  The neogeo bios is required to run games.</Description>
+        <Archive type="targz" sha1sum="1da0daa0f2af0c3964fc857b68900c46015d09ac">mirrors://berlios/gngeo/gngeo-0.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gngeo</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/gngeo</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-02</Date>
+            <Version>0.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxed.up@gmx.co.uk</Email>
+        </Update>
+    </History>
+</PISI>
