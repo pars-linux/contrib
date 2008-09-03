@@ -6,23 +6,24 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
+from pisi.actionsapi import libtools
 
 NoStrip = "/"
 
 def setup():
-    shelltools.export("MOZILLA_CFLAGS", "-I/usr/lib/MozillaFirefox/include -I/usr/lib/MozillaFirefox/include/xpcom -I/usr/lib/MozillaFirefox/include/string -I/usr/include/nspr -I/usr/lib/MozillaFirefox/include/gtkembedmoz -I/usr/lib/MozillaFirefox/include/webbrwsr -I/usr/lib/MozillaFirefox/include/dom -I/usr/lib/MozillaFirefox/include/pref -I/usr/lib/MozillaFirefox/include/necko")
-    shelltools.export("MOZILLA_LIBS", "-Wl,-R/usr/lib/MozillaFirefox -L/usr/lib/MozillaFirefox -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl")
+    autotools.aclocal()
+    autotools.autoconf()
+    autotools.automake("--add-missing")
+    libtools.libtoolize("--copy --force")
 
     autotools.configure("--with-x \
                          --disable-nm \
-                         --disable-lua \
-                         --disable-gtkhtml2 \
-                         --disable-xulrunner \
-                         --enable-gecko=firefox \
+                         --disable-webkit \
+                         --enable-gecko=xulrunner \
                          --enable-gnutls \
                          --enable-dbus \
-                         --enable-libnotify")
+                         --enable-libnotify \
+                         --disable-schemas-install")
 
 def build():
     autotools.make()
