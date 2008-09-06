@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>webkit-gtk</Name>
+        <Homepage>http://webkit.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+	<Summary>An opensource web browser engine</Summary>
+	<Description>Webkit-Gtk supplies Webkit framework for GTK applications.</Description>
+        <Archive sha1sum="e6fe3832e08f0c62b386f4e622b7885ee5e95592" type="tarbz2">http://builds.nightly.webkit.org/files/trunk/src/WebKit-r36004.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+            <Dependency versionFrom="3.6">icu4c</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>webkit-gtk</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+            <Dependency versionFrom="3.6">icu4c</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-31</Date>
+            <Version>0.0_36004</Version>
+            <Comment>First release</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
