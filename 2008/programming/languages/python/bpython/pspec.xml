@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bpython</Name>
+        <Homepage>http://www.noiseforfree.com/bpython/index.html</Homepage>
+        <Packager>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>app:console</IsA>
+        <Summary>A fancy interface to the Python interpreter</Summary>
+        <Archive sha1sum="8cd454301029c58733d2cfde333aa0061a3adcc5" type="targz">http://www.noiseforfree.com/bpython/bpython-0.7.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>Pygments</Dependency>
+            <Dependency>pyparsing</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>bpython</Name>
+        <RuntimeDependencies>
+            <Dependency>Pygments</Dependency>
+            <Dependency>pyparsing</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-29</Date>
+            <Version>0.7.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
