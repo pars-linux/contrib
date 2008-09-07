@@ -1,0 +1,23 @@
+diff -Naur rlplot.orig/Makefile rlplot/Makefile
+--- Makefile	2008-05-02 18:48:33.000000000 +0300
++++ Makefile	2008-09-07 19:15:53.000000000 +0300
+@@ -24,8 +24,8 @@
+ 
+ #######
+ #######   Declarations for Qt3
+-QT3DIR = /usr/lib/qt-3.3
+-QT3MOC = /usr/lib/qt-3.3/bin/moc
++QT3DIR = /usr/qt/3
++QT3MOC = /usr/qt/3/bin/moc
+ MOC3FLAGS =
+ QT3CFLAGS = "-I$(QT3DIR)/include -pipe -O2"
+ QT3H = QT3_Spec.h
+@@ -64,7 +64,7 @@
+ 
+ #######
+ all:
+-	make Qt4
++	make Qt3
+ 	make exprlp
+ 
+ Qt4:
