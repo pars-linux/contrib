@@ -9,11 +9,11 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    cmaketools.configure(installPrefix = "%s/usr" % get.installDIR())
+    cmaketools.configure()
 
 def build():
     cmaketools.make()
 
 def install():
-    cmaketools.install()
+    cmaketools.install("DESTDIR=%s" % get.installDIR())
     pisitools.dodoc("AUTHORS", "README", "VERSION", "COPYING")
