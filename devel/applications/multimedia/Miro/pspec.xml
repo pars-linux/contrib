@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>Miro</Name>
+        <Homepage>http://www.getmiro.com</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <Icon>Miro</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Miro turns your computer into an internet TV.</Summary>
+        <Description>Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
+        <Archive sha1sum="8b914e441084abf92c802fa1ee62c388bf87aca9" type="targz">http://ftp.osuosl.org/pub/pculture.org/miro/src/Miro-1.2.7.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pyrex</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>xulrunner-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">dontchecksvn.patch</Patch>
+            <Patch level="1">miro-gcc-4.3.patch</Patch>
+            <Patch level="1">noautoupdate.patch</Patch>
+            <Patch level="1">xulrunner.patch</Patch>
+            <Patch level="1">pardus.patch</Patch>
+            <Patch level="1">work-around-python-problem.patch</Patch>
+            <Patch level="1">utf8.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>Miro</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="4">gnome-python-extras</Dependency>
+            <Dependency>xulrunner</Dependency>
+            <Dependency>gst-python</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>pyrex</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="library">/usr/lib/python2.5</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-30</Date>
+            <Version>1.2.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

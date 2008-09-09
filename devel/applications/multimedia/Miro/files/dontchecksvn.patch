@@ -1,0 +1,13 @@
+diff -Naur Miro-1.2.7/platform/gtk-x11/setup.py Miro-1.2.7_patched/platform/gtk-x11/setup.py
+--- Miro-1.2.7/platform/gtk-x11/setup.py	2008-08-16 22:21:54.000000000 +0300
++++ Miro-1.2.7_patched/platform/gtk-x11/setup.py	2008-09-07 21:28:25.000000000 +0300
+@@ -412,7 +412,8 @@
+     def install_app_config(self):
+         source = os.path.join(resource_dir, 'app.config.template')
+         dest = '/usr/share/miro/resources/app.config'
+-        revision = util.queryRevision(root_dir)
++#        revision = util.queryRevision(root_dir)
++        revision = None
+         if revision is None:
+             revision = "unknown"
+             revisionurl = "unknown"
