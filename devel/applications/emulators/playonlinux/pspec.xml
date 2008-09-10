@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>playonlinux</Name>
+        <Homepage>http://www.playonlinux.com</Homepage>
+        <Packager>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>denizutkan@lanetlidiyarlar.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>PlayOnLinux</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>PlayOnLinux</Summary>
+        <Description>PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft's Windows.</Description>
+        <Archive sha1sum="de312ca18976b86ab9fc232ccb5dd72c67dc448b" type="targz">http://www.playonlinux.com/script_files/PlayOnLinux/3.1/PlayOnLinux_3.1.tar.gz</Archive>
+        <Patches>
+            <Patch>konsole.patch</Patch>
+            <Patch>bin_path.patch</Patch>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>playonlinux</Name>
+        <RuntimeDependencies>
+            <Dependency>lynx</Dependency>
+            <Dependency>wxPython</Dependency>
+            <Dependency>wine</Dependency>
+            <Dependency>wget</Dependency>
+            <Dependency>binutils</Dependency>
+            <Dependency>imagemagick</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/playonlinux</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/PlayOnLinux.desktop">PlayOnLinux.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/share/pixmaps/playonlinux.png">playonlinux.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-09-10</Date>
+            <Version>3.1</Version>
+            <Comment>Stable update.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-09-04</Date>
+            <Version>3.0.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>denizutkan@lanetlidiyarlar.com</Email>
+        </Update>
+    </History>
+</PISI>
