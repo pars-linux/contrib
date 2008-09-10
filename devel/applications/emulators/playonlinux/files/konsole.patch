@@ -1,0 +1,72 @@
+diff -Nuar playonlinux.orig/bash/expert/PolScriptCreator playonlinux/bash/expert/PolScriptCreator
+--- playonlinux/bash/expert/PolScriptCreator	2008-06-30 19:15:20.000000000 +0300
++++ playonlinux/bash/expert/PolScriptCreator	2008-07-21 09:03:14.000000000 +0300
+@@ -25,5 +25,5 @@
+ cfg_check
+ message "$LNG_POLSC"
+ cd $HOME/Desktop
+-xterm -e $PLAYONLINUX/bin/POLSC/PolScriptCreator
++konsole -e $PLAYONLINUX/bin/POLSC/PolScriptCreator
+ message "$LNG_FINISHED"
+diff -Nuar playonlinux.orig/lib/check_depend playonlinux/lib/check_depend
+--- playonlinux/lib/check_depend	2008-06-30 19:15:20.000000000 +0300
++++ playonlinux/lib/check_depend	2008-07-21 09:05:59.000000000 +0300
+@@ -53,7 +53,7 @@
+ 	check_one wine "wine"
+ 	check_one unzip "unzip"
+ 	check_one ar "binutils" 
+-	check_one xterm "xterm"
++	check_one konsole "konsole"
+ 	check_one convert "imagemagick"
+ 	check_one cabextract "cabextract" 
+ 	check_one lzma "lzma"
+diff -Nuar playonlinux.orig/lib/variables playonlinux/lib/variables
+--- playonlinux/lib/variables	2008-07-01 18:11:20.000000000 +0300
++++ playonlinux/lib/variables	2008-07-21 09:04:48.000000000 +0300
+@@ -43,14 +43,14 @@
+ fi	
+ 
+ ### Terminal
+-export POL_TERM="xterm"
++export POL_TERM="konsole"
+ if [ -e "$REPERTOIRE/configurations/options/terminal" ]
+ then
+ 	export POL_TERM=$(cat $REPERTOIRE/configurations/options/terminal)
+ fi
+ if [ $POL_TERM = "" ]
+ then
+-	export POL_TERM="xterm"
++	export POL_TERM="konsole"
+ fi
+ 
+ ### Desktop
+@@ -70,7 +70,7 @@
+ fi
+ if [ $POL_TERM = "" ]
+ then
+-	export POL_TERM="xterm"
++	export POL_TERM="konsole"
+ fi
+ 
+ ### Language
+@@ -126,7 +126,7 @@
+ 
+ if [ $POL_TERM = "" ]
+ then
+-	export POL_TERM="xterm"
++	export POL_TERM="konsole"
+ fi
+ 
+ export POL_LANG=$(echo "$LANG" | cut -d\_ -f 1)
+diff -Nuar playonlinux.orig/python/options.py playonlinux/python/options.py
+--- playonlinux/python/options.py	2008-07-01 18:25:04.000000000 +0300
++++ playonlinux/python/options.py	2008-07-21 09:05:19.000000000 +0300
+@@ -62,7 +62,7 @@
+ 		if(os.path.exists(Variables.playonlinux_rep+"/configurations/options/terminal")):
+ 			default_terminal = open(Variables.playonlinux_rep+"/configurations/options/terminal","r").read()
+ 		else:
+-			default_terminal = "xterm"
++			default_terminal = "konsole"
+ 		self.Term = wx.ComboBox(self.panelGeneral, -1, value=default_terminal, choices=os.listdir(Variables.playonlinux_env+"/bash/terminals"), pos=(20,120),style=wx.CB_READONLY)
+ 		self.buttonTestT = wx.Button(self.panelGeneral, 111, _("Tests"), pos=(230,120), size=(80,27))
+ 
