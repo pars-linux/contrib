@@ -13245,7 +13245,7 @@
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">SQL toolkit and Object Relational Mapper for Python</Summary>
             <Description xml:lang="en">SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</Description>
-            <Archive type="targz" sha1sum="e0104149a268c4a591af696f09e605bfd6bc8457">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.4.6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b4f158cf7930234b8be8794e481a79ebcbf3fbf0">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.4.7p1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>setuptools</Dependency>
             </BuildDependencies>
@@ -13253,16 +13253,26 @@
         </Source>
         <Package>
             <Name>sqlalchemy</Name>
-            <RuntimeDependencies>
-                <Dependency>pysqlite</Dependency>
-                <Dependency>ElementTree</Dependency>
-            </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-09-06</Date>
+                <Version>0.4.7_p1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
+            <Update release="6">
+                <Date>2008-06-24</Date>
+                <Version>0.4.6</Version>
+                <Comment>Remove useless dependencies for Pardus 2008</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2008-05-22</Date>
                 <Version>0.4.6</Version>
@@ -35733,45 +35743,31 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>secondlife</Name>
             <Homepage>http://www.secondlife.com</Homepage>
             <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
+                <Name>Rasim AKAR</Name>
+                <Email>alsaberk@gmail.com</Email>
             </Packager>
-            <License>GPL</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.games</PartOf>
             <Summary xml:lang="en">Client for SecondLife</Summary>
             <Summary xml:lang="tr">SecondLife istemcisi</Summary>
             <Icon>secondlife</Icon>
-            <Archive type="targz" sha1sum="fb7bd6959bc59305677e10d8f0c958ccf82b4e60">http://s3.amazonaws.com/viewer-source-downloads/2007/11/slviewer-src-1.18.5.3.tar.gz</Archive>
+            <Archive type="tarbz2" sha1sum="cb7f1a2ac03b227130b67d9faa695e0205c3605b">http://download-secondlife-com.s3.amazonaws.com/SecondLife_i686_1_20_15_92456.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency releaseFrom="5">jpeg</Dependency>
                 <Dependency>libsdl</Dependency>
                 <Dependency>apr1</Dependency>
-                <Dependency>apr-util1</Dependency>
+                <Dependency>apr-util</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>xmlrpc-epi</Dependency>
                 <Dependency>libvorbis</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency versionFrom="1.1.1">openjpeg</Dependency>
+                <Dependency>openjpeg</Dependency>
                 <Dependency>curl</Dependency>
                 <Dependency>openal</Dependency>
                 <Dependency>freealut</Dependency>
                 <Dependency>google-perftools</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">no-mozlib.patch</Patch>
-                <Patch level="1">no-fmod.patch</Patch>
-                <Patch level="1">no-elfio.patch</Patch>
-                <Patch level="1">system-headers-libs.patch</Patch>
-                <Patch level="1">system-gstreamer.patch</Patch>
-                <Patch level="1">debian_put_AppROData_in_usr_share_secondlife.patch</Patch>
-                <Patch level="1">use_pardus-included_fonts.patch</Patch>
-                <Patch level="1">freetype2.patch</Patch>
-                <Patch level="1">slviewer-1.17.0.12-openal-20070625.patch</Patch>
-                <Patch level="1">boost_regex.patch</Patch>
-                <Patch level="1">voiceclient-expat.patch</Patch>
-                <Patch level="1">openssl.patch</Patch>
-            </Patches>
             <SourceURI>applications/games/secondlife/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -35779,46 +35775,37 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <RuntimeDependencies>
                 <Dependency>libsdl</Dependency>
                 <Dependency>apr1</Dependency>
-                <Dependency>apr-util1</Dependency>
+                <Dependency>apr-util</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>xmlrpc-epi</Dependency>
                 <Dependency>libvorbis</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency versionFrom="1.1.1">openjpeg</Dependency>
+                <Dependency>openjpeg</Dependency>
                 <Dependency>curl</Dependency>
                 <Dependency>openal</Dependency>
                 <Dependency>freealut</Dependency>
                 <Dependency>google-perftools</Dependency>
-                <Dependency version="1.18.5.3">secondlife-artwork</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/share/secondlife/secondlife-i686-bin-globalsyms</Path>
-                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="executable">/usr/share/secondlife</Path>
+                <Path fileType="data">/usr/share/</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-                <Path fileType="data">/usr/share/secondlife/app_settings</Path>
-                <Path fileType="data">/usr/share/secondlife/character</Path>
-                <Path fileType="data">/usr/share/secondlife/fonts</Path>
-                <Path fileType="data">/usr/share/secondlife/help</Path>
-                <Path fileType="data">/usr/share/secondlife/res-sdl</Path>
-                <Path fileType="data">/usr/share/secondlife/skins</Path>
-                <Path fileType="data">/usr/share/secondlife/featuretable.txt</Path>
-                <Path fileType="data">/usr/share/secondlife/gpu_table.txt</Path>
-                <Path fileType="data">/usr/share/secondlife/launch_url.sh</Path>
-                <Path fileType="data">/usr/share/secondlife/unicode.ttf</Path>
-                <Path fileType="data">/usr/share/secondlife/secondlife.ico</Path>
-                <Path fileType="data">/usr/share/secondlife/gridargs.dat</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/bin/secondlife" permission="0755" owner="root">secondlife</AdditionalFile>
-                <AdditionalFile target="/usr/share/applications/secondlife.desktop" permission="0644" owner="root">secondlife.desktop</AdditionalFile>
-                <AdditionalFile target="/usr/share/pixmaps/secondlife.png" permission="0644" owner="root">secondlife.png</AdditionalFile>
-                <AdditionalFile target="/usr/share/secondlife/gridargs.dat" permission="0644" owner="root">gridargs.dat</AdditionalFile>
+                <AdditionalFile target="/usr/share/applications/SecondLife.desktop" permission="0644" owner="root">SecondLife.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2008-08-24</Date>
+                <Version>1.20.15</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Rasim AKAR</Name>
+                <Email>alsaberk@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2007-11-30</Date>
                 <Version>1.18.5.3</Version>
@@ -39899,7 +39886,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">Opera web browser</Summary>
             <Summary xml:lang="tr">Opera internet tarayıcısı</Summary>
             <Icon>opera</Icon>
-            <Archive type="tarbz2" sha1sum="c8a556809e3031a789ced816018310c40d22a5ac">http://opera.tradebit.com/pub/linux/951/final/en/i386/shared/opera-9.51.gcc3-shared-qt3.i386.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="3fc6194b73e285d196b9834d8e1543e72b0279f0">http://get.opera.com/pub/opera/linux/952/final/en/i386/shared/opera-9.52-2091.gcc3-shared-qt3.i386.tar.bz2</Archive>
             <SourceURI>applications/network/opera/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39927,10 +39914,24 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
-            <Update release="12" type="security">
+            <Update release="14" type="security">
+                <Date>2008-08-21</Date>
+                <Version>9.52</Version>
+                <Comment>Version bump to fix multiple vulnerabilities (secunia#SA31549).</Comment>
+                <Name>Pınar Yanardağ</Name>
+                <Email>pinar@pardus.org.tr</Email>
+            </Update>
+            <Update release="13" type="security">
                 <Date>2008-07-07</Date>
                 <Version>9.51</Version>
                 <Comment>Version bump to 9.51, security fix release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="12">
+                <Date>2008-06-14</Date>
+                <Version>9.50</Version>
+                <Comment>Update to gcc4 pre-compiled one. Pardus 2008 has gcc 4.3.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
             </Update>
