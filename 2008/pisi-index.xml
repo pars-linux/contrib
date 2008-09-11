@@ -5,6 +5,9 @@
         <Description xml:lang="tr">Pardus 2008 Katkıcılar Deposu</Description>
         <Version>2008</Version>
         <Type>Core</Type>
+        <Obsoletes>
+            <Package>ctypes</Package>
+        </Obsoletes>
     </Distribution>
     <SpecFile>
         <Source>
@@ -3254,6 +3257,89 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>lxml</Name>
+            <Homepage>http://codespeak.net/lxml/</Homepage>
+            <Packager>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <License>BSD</License>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <Summary xml:lang="en">lxml is the most feature-rich and easy-to-use library</Summary>
+            <Description xml:lang="en">lxml is the most feature-rich and easy-to-use library for working with XML and HTML in the Python language.</Description>
+            <Archive type="targz" sha1sum="797c996d3381f59495582336daceaf50b9c14fff">http://pypi.python.org/packages/source/l/lxml/lxml-2.1.1.tar.gz</Archive>
+            <SourceURI>programming/libs/lxml/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>lxml</Name>
+            <Files>
+                <Path fileType="library">/usr/lib/</Path>
+                <Path fileType="doc">/usr/share/doc/</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-31</Date>
+                <Version>2.1.1</Version>
+                <Comment>First Release</Comment>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>webkit-gtk</Name>
+            <Homepage>http://webkit.org</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <Summary xml:lang="en">An opensource web browser engine</Summary>
+            <Summary xml:lang="tr">Açık kaynak internet tarayıcısı motoru</Summary>
+            <Description xml:lang="en">Webkit-Gtk supplies Webkit framework for GTK applications.</Description>
+            <Description xml:lang="tr">Webkit-Gtk, Gtk uygulamaları için Webkit altyapısını sunar.</Description>
+            <Archive type="tarbz2" sha1sum="e6fe3832e08f0c62b386f4e622b7885ee5e95592">http://builds.nightly.webkit.org/files/trunk/src/WebKit-r36004.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="3.6">icu4c</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/libs/webkit-gtk/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>webkit-gtk</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="3.6">icu4c</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-31</Date>
+                <Version>0.0_36004</Version>
+                <Comment>First release</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>hk-classes</Name>
             <Homepage>http://hk-classes.sourceforge.net</Homepage>
             <Packager>
@@ -4785,6 +4871,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2008-09-06</Date>
+                <Version>1.2.0</Version>
+                <Comment>Fix the icon problems, #8112</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
             <Update release="10">
                 <Date>2008-07-24</Date>
                 <Version>1.2.0</Version>
@@ -5406,45 +5499,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>ctypes</Name>
-            <Homepage>http://starship.python.net/crew/theller/ctypes/</Homepage>
-            <Packager>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Packager>
-            <License>MIT</License>
-            <IsA>library</IsA>
-            <PartOf>programming.languages.python</PartOf>
-            <Summary xml:lang="en">ctypes is an advanced ffi (Foreign Function Interface) package for Python 2.3 and higher</Summary>
-            <Archive type="targz" sha1sum="7f77f2b507a50f292297831ee50e310037398e14">mirrors://sourceforge/ctypes/ctypes-1.0.2.tar.gz</Archive>
-            <SourceURI>programming/languages/python/ctypes/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>ctypes</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-08-17</Date>
-                <Version>1.0.2</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-01-20</Date>
-                <Version>1.0.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>geoip-python</Name>
             <Homepage>http://www.maxmind.com/app/python</Homepage>
             <Packager>
@@ -5501,9 +5555,8 @@
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">PyFITS provides an interface to FITS formatted files under the Python scripting language and PyRAF, the Python-based interface to IRAF.</Summary>
             <Description xml:lang="en">PyFITS provides an interface to FITS formatted files under the Python scripting language and PyRAF, the Python-based interface to IRAF.</Description>
-            <Archive type="targz" sha1sum="7da81e8098545b8148a2f23c9f597bcc3a90440c">http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-1.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="280f29e2ae4b7ded3cb44fc545e8c7217266fbc4">http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-1.3.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.4">python</Dependency>
                 <Dependency versionFrom="1.5.2">numarray</Dependency>
             </BuildDependencies>
             <SourceURI>programming/languages/python/pyfits/pspec.xml</SourceURI>
@@ -5511,14 +5564,21 @@
         <Package>
             <Name>pyfits</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.4">python</Dependency>
                 <Dependency versionFrom="1.5.2">numarray</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-09-10</Date>
+                <Version>1.3</Version>
+                <Comment>Version bump, remove system.base dependencies and add documentation.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="3">
                 <Date>2007-07-12</Date>
                 <Version>1.1</Version>
@@ -5539,6 +5599,84 @@
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>uuid</Name>
+            <Homepage>http://zesty.ca/python/uuid.html</Homepage>
+            <Packager>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Packager>
+            <License>GPL-2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">Module provides immutable UUID objects</Summary>
+            <Archive type="targz" sha1sum="fe592b737499c1fd4822332dec62fcbc72a7d9f7">http://www.rkirmizi.net/pisi/uuid-1.30.tar.gz</Archive>
+            <SourceURI>programming/languages/python/uuid/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>uuid</Name>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2007-09-30</Date>
+                <Version>1.30</Version>
+                <Comment>First release.</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>python2-biggles</Name>
+            <Homepage>http://biggles.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">Python module for creating publication-quality 2D scientific plots</Summary>
+            <Description xml:lang="en">It supports multiple output formats (postscript, x11, png, svg, gif), understands simple TeX, and sports a high-level, elegant interface. It&apos;s intended for technical users with sophisticated plotting needs.</Description>
+            <Archive type="targz" sha1sum="067f7fd2803bbdf148a29c48da10a667cf304aed">mirrors://sourceforge/biggles/python2-biggles-1.6.5.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>numpy</Dependency>
+                <Dependency>plotutils</Dependency>
+                <Dependency>setuptools</Dependency>
+                <Dependency>xorg-server</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">numpy.patch</Patch>
+            </Patches>
+            <SourceURI>programming/languages/python/python2-biggles/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>python2-biggles</Name>
+            <RuntimeDependencies>
+                <Dependency>plotutils</Dependency>
+                <Dependency>numpy</Dependency>
+                <Dependency>xorg-server</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-01-31</Date>
+                <Version>1.6.5</Version>
+                <Comment>First release.</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -5605,7 +5743,7 @@
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">SQL toolkit and Object Relational Mapper for Python</Summary>
             <Description xml:lang="en">SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</Description>
-            <Archive type="targz" sha1sum="e0104149a268c4a591af696f09e605bfd6bc8457">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.4.6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b4f158cf7930234b8be8794e481a79ebcbf3fbf0">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.4.7p1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>setuptools</Dependency>
             </BuildDependencies>
@@ -5619,6 +5757,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-09-06</Date>
+                <Version>0.4.7_p1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-06-24</Date>
                 <Version>0.4.6</Version>
@@ -5772,6 +5917,58 @@
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>pyro</Name>
+            <Homepage>http://pyro.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Packager>
+            <License>MIT</License>
+            <IsA>library</IsA>
+            <IsA>app:gui</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">remote objects for Python</Summary>
+            <Archive type="targz" sha1sum="c6af1e8fe266a3b3fa3e95369d614c7447470092">mirrors://sourceforge/pyro/Pyro-3.8.tar.gz</Archive>
+            <Patches>
+                <Patch>pyro-setup.cfg.patch</Patch>
+                <Patch level="1">pyro-set-pidfile.patch</Patch>
+            </Patches>
+            <SourceURI>programming/languages/python/pyro/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pyro</Name>
+            <RuntimeDependencies>
+                <Dependency releaseFrom="17">comar-api</Dependency>
+                <Dependency>wxPython</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <Provides>
+                <COMAR script="service.py">System.Service</COMAR>
+            </Provides>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-01</Date>
+                <Version>3.8</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-02-10</Date>
+                <Version>3.7</Version>
+                <Comment>First release.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -5983,6 +6180,51 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>flickrapi</Name>
+            <Homepage>http://flickrapi.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">Flicker python bindings</Summary>
+            <Archive type="targz" sha1sum="b7b80cdf89264c53b35931dc5a2b34fe6237f36d">mirrors://sourceforge/flickrapi/flickrapi-1.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>uuid</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/python/flickrapi/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>flickrapi</Name>
+            <RuntimeDependencies>
+                <Dependency>uuid</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-08-30</Date>
+                <Version>1.1</Version>
+                <Comment>Bump.</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-09-30</Date>
+                <Version>0.14</Version>
+                <Comment>First release.</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>python-gammu</Name>
             <Homepage>http://cihar.com/gammu/python/</Homepage>
             <Packager>
@@ -6035,6 +6277,46 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>pyusb</Name>
+            <Homepage>http://pyusb.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">PyUSB provides USB access on the Python language.</Summary>
+            <Description xml:lang="en">The PyUSB module provides Python with easy access to the host machine&apos;s Universal Serial Bus (USB) system.  Although not yet complete, PyUSB does provide a core set of functionality around which useful applications can be developed.</Description>
+            <Archive type="targz" sha1sum="2673dc6d4532f1a07e4a5131eebce2489bf11111">mirrors://sourceforge/pyusb/pyusb-0.4.1.tar.gz</Archive>
+            <SourceURI>programming/languages/python/pyusb/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pyusb</Name>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-08</Date>
+                <Version>0.4.1</Version>
+                <Comment>Version bump and add documentation</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-01-14</Date>
+                <Version>0.3.5</Version>
+                <Comment>First release</Comment>
+                <Name>İlker Kesen</Name>
+                <Email>ikesen92@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>python-mpd</Name>
             <Homepage>http://www.musicpd.org/~jat/python-mpd/</Homepage>
             <Packager>
@@ -6074,6 +6356,49 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>bpython</Name>
+            <Homepage>http://www.noiseforfree.com/bpython/index.html</Homepage>
+            <Packager>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Packager>
+            <License>MIT</License>
+            <IsA>app:console</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">A fancy interface to the Python interpreter</Summary>
+            <Archive type="targz" sha1sum="8cd454301029c58733d2cfde333aa0061a3adcc5">http://www.noiseforfree.com/bpython/bpython-0.7.0.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>Pygments</Dependency>
+                <Dependency>pyparsing</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/python/bpython/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bpython</Name>
+            <RuntimeDependencies>
+                <Dependency>Pygments</Dependency>
+                <Dependency>pyparsing</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-29</Date>
+                <Version>0.7.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>elixir</Name>
             <Homepage>http://elixir.ematia.de/</Homepage>
             <Packager>
@@ -6085,7 +6410,7 @@
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">Declarative Mapper for SQLAlchemy</Summary>
             <Description xml:lang="en">Elixir is intended to replace the ActiveMapper SQLAlchemy extension, and the TurboEntity project but does not intend to replace SQLAlchemy&apos;s core features, and instead focuses on providing a simpler syntax for defining model objects when you do not need the full expressiveness of SQLAlchemy&apos;s manual mapper definitions</Description>
-            <Archive type="targz" sha1sum="90a36f6f01767170cc366081d1ba4bb6710c498c">http://pypi.python.org/packages/source/E/Elixir/Elixir-0.5.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="7ba8ae5a8cb3a70201ed97aca3a3acf89255c6a2">http://pypi.python.org/packages/source/E/Elixir/Elixir-0.6.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>sqlalchemy</Dependency>
             </BuildDependencies>
@@ -6102,6 +6427,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-25</Date>
+                <Version>0.6.1</Version>
+                <Comment>Version bump with adding the examples.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-04-05</Date>
                 <Version>0.5.2</Version>
@@ -7057,9 +7389,14 @@
                 <Dependency>pygtk</Dependency>
                 <Dependency>gnome-python</Dependency>
                 <Dependency>gtkhtml2</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
+                <Dependency>gtkspell</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
                 <Dependency>gdl</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">gnome-python-extras-2.19.1-pkg-config.patch</Patch>
+                <Patch level="1">gnome-python-extras-2.19.1-xulrunner.patch</Patch>
+            </Patches>
             <SourceURI>desktop/gnome/gnome-python-extras/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -7068,16 +7405,25 @@
                 <Dependency>pygtk</Dependency>
                 <Dependency>gnome-python</Dependency>
                 <Dependency>gtkhtml2</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
+                <Dependency>gtkspell</Dependency>
+                <Dependency>xulrunner</Dependency>
                 <Dependency>gdl</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/gtk-doc</Path>
                 <Path fileType="data">/usr/share/pygtk</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-09-03</Date>
+                <Version>2.19.1</Version>
+                <Comment>Patch for latest Xulrunner</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-06-08</Date>
                 <Version>2.19.1</Version>
@@ -8111,6 +8457,100 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>gtksourceview</Name>
+            <Homepage>http://www.gnome.org/</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>desktop.gnome.base</PartOf>
+            <Summary xml:lang="en">A text widget implementing syntax highlighting and other features</Summary>
+            <Summary xml:lang="tr">Sözdizimi vurgulaması için araçlar</Summary>
+            <Description xml:lang="en">Gtksourceview improves the gtk+ text widget by implementing syntax highlighting and other features typical of a source editor.</Description>
+            <Description xml:lang="tr">Gtksourceview, gtk+ metin kütüphanesini geliştiren ve bir kaynak kodu düzenleyicisinde olması gereken sözdizimi vurgulaması gibi özellikleri sağlayan bir araçtır.</Description>
+            <Archive type="tarbz2" sha1sum="220e49ad8348a0a746ce48300222892ec281397d">mirrors://gnome/gtksourceview/2.2/gtksourceview-2.2.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.12.0">gtk2</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>libgnomeprint</Dependency>
+                <Dependency>intltool</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/gnome/base/gtksourceview/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gtksourceview</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.12.0">gtk2</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>libgnomeprint</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/gtk-doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/gtksourceview-2.0/styles</Path>
+                <Path fileType="data">/usr/share/gtksourceview-2.0/language-specs</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="7">
+                <Date>2008-08-24</Date>
+                <Version>2.2.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="6">
+                <Date>2008-04-10</Date>
+                <Version>2.2.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="5">
+                <Date>2008-03-10</Date>
+                <Version>2.2.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2008-01-26</Date>
+                <Version>2.1.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2007-10-27</Date>
+                <Version>2.0.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-02-13</Date>
+                <Version>1.8.4</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-08-30</Date>
+                <Version>1.6.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>pyorbit</Name>
             <Homepage>http://www.pygtk.org</Homepage>
             <Packager>
@@ -8564,6 +9004,241 @@
             <Update release="1">
                 <Date>2007-02-11</Date>
                 <Version>2.12.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>liferea</Name>
+            <Homepage>http://liferea.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.gnome</PartOf>
+            <Summary xml:lang="en">News Aggregator for RDF/RSS/CDF/Atom/Echo/etc feeds</Summary>
+            <Summary xml:lang="tr">RDF/RSS/CDF/Atom/Echo  beslemeler için okuyucu</Summary>
+            <Archive type="targz" sha1sum="f57d7ad947583ee9bc33ef862b97aaf642de6b25">mirrors://sourceforge/liferea/liferea-1.4.19.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gconf</Dependency>
+                <Dependency releaseFrom="4">libnotify</Dependency>
+                <Dependency>lua</Dependency>
+                <Dependency>gtkhtml2</Dependency>
+                <Dependency>gnutls</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">liferea-1.4.17-xulrunner-1.9.patch</Patch>
+                <Patch level="1">feedlist-tr-update.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/gnome/liferea/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>liferea</Name>
+            <RuntimeDependencies>
+                <Dependency releaseFrom="4">libnotify</Dependency>
+                <Dependency>lua</Dependency>
+                <Dependency>gtkhtml2</Dependency>
+                <Dependency>gnutls</Dependency>
+                <Dependency>xulrunner</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+            <Provides>
+                <COMAR script="package.py">System.Package</COMAR>
+            </Provides>
+        </Package>
+        <History>
+            <Update release="26">
+                <Date>2008-09-03</Date>
+                <Version>1.4.19</Version>
+                <Comment>Version bump, make it compile with Xulrunner</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="25">
+                <Date>2008-06-29</Date>
+                <Version>1.4.16b</Version>
+                <Comment>Version bump, make it compile with Firefox</Comment>
+                <Name>Gökçen Eraslan</Name>
+                <Email>gokcen@pardus.org.tr</Email>
+            </Update>
+            <Update release="24">
+                <Date>2008-03-06</Date>
+                <Version>1.4.9</Version>
+                <Comment>Version bump, bugfix release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="23" type="security">
+                <Date>2007-11-22</Date>
+                <Version>1.4.8</Version>
+                <Comment>Version bump, translation update. This release also includes previous security fix.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="22" type="security">
+                <Date>2007-11-16</Date>
+                <Version>1.4.6</Version>
+                <Comment>Fix CVE-2005-4791</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="21" type="security">
+                <Date>2007-10-30</Date>
+                <Version>1.4.6</Version>
+                <Comment>Bugfix release, fixes http://secunia.com/advisories/27438/</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="20">
+                <Date>2007-10-12</Date>
+                <Version>1.4.4</Version>
+                <Comment>Bugfix release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="19">
+                <Date>2007-09-14</Date>
+                <Version>1.4.2</Version>
+                <Comment>Bugfix release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="18">
+                <Date>2007-07-03</Date>
+                <Version>1.4.1</Version>
+                <Comment>Bugfix release. Turkish translation and feedlist now in the upstream.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="17">
+                <Date>2007-07-03</Date>
+                <Version>1.4.0</Version>
+                <Comment>Stable bump. This release adds comment feed support and duplicate detection. It improves the proxy handling and uses a sqlite backend for headlines storage.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="16">
+                <Date>2007-07-03</Date>
+                <Version>1.2.22</Version>
+                <Comment>Version bump, bugfix release. This adds latin translation and fix negative unread message counts in the feed list.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="15">
+                <Date>2007-07-03</Date>
+                <Version>1.2.19</Version>
+                <Comment>Version bump. This release fixes broken HTTP Digest authentication.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="14">
+                <Date>2007-06-30</Date>
+                <Version>1.2.18</Version>
+                <Comment>Version bump. This release fixes memory leaks.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="13">
+                <Date>2007-06-25</Date>
+                <Version>1.2.17</Version>
+                <Comment>Enable firefox rendering, gtkmozembed now works.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="12">
+                <Date>2007-06-16</Date>
+                <Version>1.2.17</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="11">
+                <Date>2007-06-09</Date>
+                <Version>1.2.16</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="10">
+                <Date>2007-05-19</Date>
+                <Version>1.2.15</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2007-05-07</Date>
+                <Version>1.2.14</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2007-04-29</Date>
+                <Version>1.2.12</Version>
+                <Comment>Fix bug #5563</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2007-04-21</Date>
+                <Version>1.2.12</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="6">
+                <Date>2007-04-18</Date>
+                <Version>1.2.11</Version>
+                <Comment>Version bump. This release includes French and Swedish translation updates.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-03-28</Date>
+                <Version>1.2.10</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2007-03-24</Date>
+                <Version>1.2.9</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2007-03-15</Date>
+                <Version>1.2.8</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-02-22</Date>
+                <Version>1.2.7</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-02-14</Date>
+                <Version>1.2.6</Version>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
@@ -9387,7 +10062,7 @@
             <IsA>library</IsA>
             <PartOf>desktop.kde</PartOf>
             <Summary xml:lang="en">Set of tools to integrate the LilyPond music typesetter into KDE</Summary>
-            <Archive type="targz" sha1sum="f6b01fa1adf0eadd2844faf9794b7a4b23c2b9f4">http://lilykde.googlecode.com/files/lilykde-0.6.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0ead9043505bd650486ec9a5e1c2ac3b3027cb2e">http://lilykde.googlecode.com/files/lilykde-0.6.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="3.16">PyKDE</Dependency>
                 <Dependency>lilypond</Dependency>
@@ -9412,6 +10087,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2008-08-31</Date>
+                <Version>0.6.2</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2008-07-21</Date>
                 <Version>0.6.1</Version>
@@ -11394,6 +12076,57 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>tweak</Name>
+            <Homepage>http://beta.smileaf.org/projects/</Homepage>
+            <Packager>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <Summary xml:lang="en">KDE configuration tweak utility</Summary>
+            <Summary xml:lang="tr">KDE&apos;nin gizli kalmış ayarları için bir arayüz</Summary>
+            <Archive type="tarbz2" sha1sum="c5dd5fdb9dd598e253d73d86cbf7d3274dc02c9d">http://beta.smileaf.org/files/tweaK/tweaK-0.2.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>kdebase</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/kde/tweak/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>tweak</Name>
+            <RuntimeDependencies>
+                <Dependency>kdebase</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/kde/3.5/lib</Path>
+                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/kde/3.5/share/applications/kde</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2007-06-25</Date>
+                <Version>0.2.2</Version>
+                <Comment>Version Bump, bugfixes</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-01-18</Date>
+                <Version>0.1</Version>
+                <Comment>First release</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>amarokFS</Name>
             <Homepage>http://www.kde-apps.org/content/show.php?content=52641</Homepage>
             <Packager>
@@ -12070,6 +12803,49 @@
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>krusader4</Name>
+            <Homepage>http://krusader.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde4</PartOf>
+            <Summary xml:lang="en">Advanced KDE4 twin-panel(commander-style) file-manager</Summary>
+            <Icon>krusader_user</Icon>
+            <Archive type="targz" sha1sum="1476425654aa08e408a18d8ad3c418694a724119">mirrors://sourceforge/krusader/krusader-2.0.0-beta1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>kdebase4</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/kde4/krusader4/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>krusader4</Name>
+            <RuntimeDependencies>
+                <Dependency>kdebase4</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
+                <Path fileType="library">/usr/kde/4/lib</Path>
+                <Path fileType="man">/usr/kde/4/man</Path>
+                <Path fileType="data">/usr/kde/4/share</Path>
+                <Path fileType="doc">/usr/kde/4/share/doc</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-13</Date>
+                <Version>2.0.0_beta1</Version>
+                <Comment>Firt release</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -14587,6 +15363,55 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-screenshooter-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">A plugin for the Xfce panel to take screenshots</Summary>
+            <Icon>applets-screenshooter</Icon>
+            <Archive type="targz" sha1sum="6af7e727a9c5840c8ee868cf56690e33dce04687">http://goodies.xfce.org/releases/xfce4-screenshooter-plugin/xfce4-screenshooter-plugin-1.3.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/xfce4/goodies/xfce4-screenshooter-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-screenshooter-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/icons/hicolor/48x48/apps/applets-screenshooter.png" permission="0644" owner="root">applets-screenshooter.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-18</Date>
+                <Version>1.3.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xfmpc</Name>
             <Homepage>http://goodies.xfce.org/projects/applications/xfmpc</Homepage>
             <Packager>
@@ -14599,7 +15424,7 @@
             <Summary xml:lang="en">A graphical GTK+ MPD client focusing on low footprint</Summary>
             <Summary xml:lang="tr">Az yer kaplama amaçlı GTK+ arayüzlü MPD istemcisi</Summary>
             <Icon>xfmpc</Icon>
-            <Archive type="tarbz2" sha1sum="00bfb023b2e771eae3646328523e2625834f5bcc">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.0.6.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a9585992134aa26a23b7b799e6b2d8b019c932e9">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.0.7.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.8">gtk2</Dependency>
                 <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
@@ -14627,6 +15452,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-01</Date>
+                <Version>0.0.7</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-05-21</Date>
                 <Version>0.0.6</Version>
@@ -14906,10 +15738,11 @@
                 <Email>kpelit@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
+            <License>BSD</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.fluxbox</PartOf>
             <Summary xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar</Summary>
-            <Archive type="tarbz2" sha1sum="4d883244fa7dcd75b1a11cac969fd5837bb36646">http://kpelit.com/dist/files/fluxbox-1.0.1_20080730.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="4caeaec8fc1c8481c44d04281c0b22e2dae2be92">http://kpelit.com/dist/files/fluxbox-1.0.1_20080825.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xorg-server</Dependency>
                 <Dependency>imlib2</Dependency>
@@ -14918,7 +15751,9 @@
                 <Patch>fluxbox-gcc43.patch</Patch>
                 <Patch>fluxbox-startfluxbox-pulseaudio.patch</Patch>
                 <Patch level="1">turkish.patch</Patch>
+                <Patch level="1">default-theme-solaris.patch</Patch>
                 <Patch level="1">pardus-default-configuration.patch</Patch>
+                <Patch compressionType="bz2" level="1">icons.patch.tar.bz2</Patch>
             </Patches>
             <SourceURI>desktop/fluxbox/fluxbox/pspec.xml</SourceURI>
         </Source>
@@ -14927,6 +15762,8 @@
             <RuntimeDependencies>
                 <Dependency>xorg-server</Dependency>
                 <Dependency>imlib2</Dependency>
+                <Dependency>feh</Dependency>
+                <Dependency>rxvt-unicode</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -14938,9 +15775,19 @@
             <AdditionalFiles>
                 <AdditionalFile target="/etc/X11/Sessions/fluxbox" permission="0644" owner="root">fluxbox</AdditionalFile>
                 <AdditionalFile target="/usr/share/fluxbox/menu" permission="0644" owner="root">menu</AdditionalFile>
+                <AdditionalFile target="/usr/share/fluxbox/menu-kde" permission="0644" owner="root">menu-kde</AdditionalFile>
+                <AdditionalFile target="/usr/share/fluxbox/menu-apps" permission="0644" owner="root">menu-apps</AdditionalFile>
+                <AdditionalFile target="/usr/share/fluxbox/backgrounds/default.png" permission="0644" owner="root">default.png</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-08-25</Date>
+                <Version>1.0.1_20080825</Version>
+                <Comment>New snapshot</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-07-31</Date>
                 <Version>1.0.1_20080730</Version>
@@ -14998,6 +15845,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-08-25</Date>
+                <Version>0.9.9</Version>
+                <Comment>Make up</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-07-28</Date>
                 <Version>0.9.9</Version>
@@ -15085,16 +15939,16 @@
             <IsA>library</IsA>
             <PartOf>desktop.opencompositing.cairo</PartOf>
             <Summary xml:lang="en">Plugins for cairo-dock</Summary>
-            <Archive type="tarbz2" sha1sum="83f85be0936429fb34634b7a5a2054de4bc5eaa0">http://kpelit.com/dist/files/cairo-dock-plugins-1.6.1_1196.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="29a4310cf782e6d74051fc6e8deba4cc9d0d8b23">http://download.berlios.de/cairo-dock/cairo-dock-plugins-1.6.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="1.6.0">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/opencompositing/cairo-dock/cairo-dock-plugins/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>cairo-dock-plugins</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="1.6.0">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="data">/usr/share/cairo-dock</Path>
@@ -15103,6 +15957,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-28</Date>
+                <Version>1.6.2</Version>
+                <Comment>Stable update</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-07-13</Date>
                 <Version>1.6.1_1196</Version>
@@ -15161,7 +16022,7 @@
             <Summary xml:lang="en">An AIGLX dock with physics</Summary>
             <Description xml:lang="en">Cairo-dock is an animated application launch bar displayed on the desktop comparable to Mac OS X&apos;s Dock.It is compatible with Beryl, Compiz, Metacity+xcompmgr and probably KDE since Kwin now manage composite display.</Description>
             <Icon>cairo-dock</Icon>
-            <Archive type="tarbz2" sha1sum="b4a1fa2bcf8ae6e96f0951800ae64009d1e63d28">http://kpelit.com/dist/files/cairo-dock-1.6.1_1196.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8be9ab47e004878da38877362387ca6cc5f6398b">http://download.berlios.de/cairo-dock/cairo-dock-1.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.5">gtk2</Dependency>
                 <Dependency>librsvg</Dependency>
@@ -15197,6 +16058,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-28</Date>
+                <Version>1.6.2</Version>
+                <Comment>Stable update</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-07-13</Date>
                 <Version>1.6.1_1196</Version>
@@ -15254,16 +16122,16 @@
             <PartOf>desktop.opencompositing.cairo</PartOf>
             <Summary xml:lang="en">Themes for cairo-dock</Summary>
             <Icon>cairo-dock</Icon>
-            <Archive type="tarbz2" sha1sum="5d961919da61474167fb43c78893dfb61ec5c2e5">http://kpelit.com/dist/files/cairo-dock-themes-1.6.1_1196.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="ec8cc81fa0b22e88906156f46ed8b81b82d37c92">http://download.berlios.de/cairo-dock/cairo-dock-themes-1.6.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency releaseFrom="4">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/opencompositing/cairo-dock/cairo-dock-themes/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>cairo-dock-themes</Name>
             <RuntimeDependencies>
-                <Dependency releaseFrom="4">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="data">/usr/share/cairo-dock</Path>
@@ -15273,6 +16141,13 @@
             </Conflicts>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-28</Date>
+                <Version>1.6.2</Version>
+                <Comment>Stable update</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-07-13</Date>
                 <Version>1.6.1_1196</Version>
@@ -15656,7 +16531,7 @@
             <Icon>compizfusion</Icon>
             <Archive type="tarbz2" sha1sum="a3796864b56fdf2bd871d7154016fdcbb9866943">http://releases.compiz-fusion.org/0.7.6/compiz/compiz-0.7.6.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency releaseFrom="8">compiz-manager</Dependency>
+                <Dependency releaseFrom="9">compiz-manager</Dependency>
                 <Dependency>libxslt</Dependency>
                 <Dependency>startup-notification</Dependency>
                 <Dependency versionFrom="0.1.4">libsvg</Dependency>
@@ -15675,7 +16550,7 @@
         <Package>
             <Name>compiz-fusion</Name>
             <RuntimeDependencies>
-                <Dependency releaseFrom="8">compiz-manager</Dependency>
+                <Dependency releaseFrom="9">compiz-manager</Dependency>
                 <Dependency>libxslt</Dependency>
                 <Dependency>startup-notification</Dependency>
                 <Dependency versionFrom="0.1.4">libsvg</Dependency>
@@ -15684,7 +16559,7 @@
             <Files>
                 <Path fileType="executable">/usr/bin/compiz</Path>
                 <Path fileType="executable">/usr/bin/kde-window-decorator</Path>
-                <Path fileType="executable">/usr/bin/gtk-window-decorator</Path>
+                <Path fileType="executable">/usr/bin/compiz-decorator</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="data">/usr/share/compiz</Path>
@@ -15694,6 +16569,7 @@
                 <Path fileType="data">/usr/kde</Path>
             </Files>
             <AdditionalFiles>
+                <AdditionalFile target="/usr/bin/compiz-decorator" permission="0755" owner="root">patch/compiz-decorator</AdditionalFile>
                 <AdditionalFile target="/usr/kde/3.5/etc/xdg/menus/applications-merged/compiz.menu" permission="0644" owner="root">directory/compiz.menu</AdditionalFile>
                 <AdditionalFile target="/usr/kde/3.5/share/desktop-directories/compiz.directory" permission="0644" owner="root">directory/compiz.directory</AdditionalFile>
                 <AdditionalFile target="/usr/share/pixmaps/compizfusion.png" permission="0644" owner="root">icons/compizfusion.png</AdditionalFile>
@@ -15709,14 +16585,30 @@
             <Files>
                 <Path fileType="executable">/usr/bin/compiz-fusion-auto-start</Path>
                 <Path fileType="config">/etc/env.d/80compiz</Path>
-                <Path fileType="data">/usr/share/autostart/fusion-icon-auto-start.desktop</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/bin/compiz-fusion-auto-start" permission="0755" owner="root">auto/compiz-fusion-auto-start</AdditionalFile>
                 <AdditionalFile target="/etc/env.d/80compiz" permission="0644" owner="root">auto/80compiz</AdditionalFile>
             </AdditionalFiles>
         </Package>
+        <Package>
+            <Name>compiz-fusion-gtk</Name>
+            <RuntimeDependencies>
+                <Dependency>compiz-manager</Dependency>
+                <Dependency>compiz-fusion</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin/gtk-window-decorator</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="21">
+                <Date>2008-08-15</Date>
+                <Version>0.7.6</Version>
+                <Comment>Enable KDE4, split package. Buggy compiz-fusion-auto-start really fixed</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="20">
                 <Date>2008-08-04</Date>
                 <Version>0.7.6</Version>
@@ -15879,13 +16771,12 @@
                 <Email>kpelit@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
-            <IsA>app</IsA>
+            <IsA>app:console</IsA>
             <PartOf>desktop.opencompositing.compiz</PartOf>
             <Summary xml:lang="en">Starting script for compiz</Summary>
-            <Archive type="tarbz2" sha1sum="3827359d7c16fc8d9f0866cab87e55e77cc9e036">http://kpelit.com/dist/files/compiz-manager-0.6.0_20080218.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="11bddd880c19d0c0a09516e69257abcf4d0db489">http://kpelit.com/dist/files/compiz-manager-0.6.0_20080815.tar.bz2</Archive>
             <Patches>
                 <Patch>pardus_issues.patch</Patch>
-                <Patch>default_kde_decorator.patch</Patch>
             </Patches>
             <SourceURI>desktop/opencompositing/compiz/compiz-manager/pspec.xml</SourceURI>
         </Source>
@@ -15902,6 +16793,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2008-08-15</Date>
+                <Version>0.6.0_20080815</Version>
+                <Comment>New snapshot</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2008-07-10</Date>
                 <Version>0.6.0_20080218</Version>
@@ -18502,6 +19400,60 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>fprint_demo</Name>
+            <Homepage>http://www.reactivated.net/fprint/wiki/Fprint_demo</Homepage>
+            <Packager>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.util</PartOf>
+            <Summary xml:lang="en">A simple application to demonstrate and test libfprint&apos;s capabilities</Summary>
+            <Description xml:lang="en">fprint_demo is a simple GTK+ application to demonstrate and test libfprint&apos;s capabilities. It provides access to many of the features offered by the backing library, libfprint.</Description>
+            <Archive type="tarbz2" sha1sum="c15fb94a7439fa18def73a47b32edb203b1c834f">mirrors://sourceforge/fprint/fprint_demo-0.4.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>pam_fprint</Dependency>
+                <Dependency>gtk2</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/util/fprint_demo/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fprint_demo</Name>
+            <RuntimeDependencies>
+                <Dependency>pam_fprint</Dependency>
+                <Dependency>gtk2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/fprint_demo.desktop" permission="0644" owner="root">fprint_demo.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/fprint_demo.png" permission="0644" owner="root">fprint_demo.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-01-28</Date>
+                <Version>0.4</Version>
+                <Comment>Version bump</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-11-22</Date>
+                <Version>0.3</Version>
+                <Comment>First release</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>openttd-scenarios</Name>
             <Homepage>http://www.openttd.org/</Homepage>
             <Packager>
@@ -18538,6 +19490,180 @@
                 <Comment>First release.</Comment>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gcompris</Name>
+            <Homepage>http://gcompris.net</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.games</PartOf>
+            <Summary xml:lang="en">Full featured educational application for children from 2 to 10</Summary>
+            <Summary xml:lang="tr">2-10 yaş arası çocuklar için eğitici uygulamalar</Summary>
+            <Description xml:lang="en">GCompris is an educational software suite comprising of numerous activities for children aged 2 to 10. Some of the activities are game orientated, but nonetheless still educational</Description>
+            <Description xml:lang="tr">GCompris, 2-10 yaş arası çocuklar için bir çok etkinliği kapsayan eğitim amaçlı bir yazılım paketidir. Bazı etkinlikler, eğitim amaçlı oyunlardan oluşmaktadır.</Description>
+            <Archive type="targz" sha1sum="a93e58d7b281c5840ec35417211469fff9462be4">mirrors://sourceforge/gcompris/gcompris-8.4.4.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.0.2">libgnomecanvas</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>sdl-mixer</Dependency>
+                <Dependency>libsdl</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>popt</Dependency>
+                <Dependency>texinfo</Dependency>
+                <Dependency>texi2html</Dependency>
+                <Dependency>PyXML</Dependency>
+                <Dependency versionFrom="2.3.2">pysqlite</Dependency>
+                <Dependency versionFrom="2.0.0">gnome-python</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>aalib</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>libcaca</Dependency>
+                <Dependency>DirectFB</Dependency>
+                <Dependency>sqlite</Dependency>
+                <Dependency>gnuchess</Dependency>
+                <Dependency>numeric</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>lang-tr.patch</Patch>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/games/gcompris/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gcompris</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.0.2">libgnomecanvas</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>sdl-mixer</Dependency>
+                <Dependency>libsdl</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>popt</Dependency>
+                <Dependency>texinfo</Dependency>
+                <Dependency>texi2html</Dependency>
+                <Dependency>PyXML</Dependency>
+                <Dependency versionFrom="2.3.2">pysqlite</Dependency>
+                <Dependency versionFrom="2.0.0">gnome-python</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>aalib</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>libcaca</Dependency>
+                <Dependency>DirectFB</Dependency>
+                <Dependency>sqlite</Dependency>
+                <Dependency>gnuchess</Dependency>
+                <Dependency>numeric</Dependency>
+                <Dependency>gnucap</Dependency>
+                <Dependency>tuxpaint</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="13">
+                <Date>2008-08-22</Date>
+                <Version>8.4.4</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Update>
+            <Update release="12">
+                <Date>2007-11-30</Date>
+                <Version>8.4.2</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="11">
+                <Date>2007-08-20</Date>
+                <Version>8.3.3</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="10">
+                <Date>2007-05-25</Date>
+                <Version>8.3.1</Version>
+                <Comment>Fix dep</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2007-05-25</Date>
+                <Version>8.3.1</Version>
+                <Comment>Fix dep</Comment>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Update>
+            <Update release="8">
+                <Date>2007-04-30</Date>
+                <Version>8.3.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2007-01-25</Date>
+                <Version>8.2.2_2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="6">
+                <Date>2006-10-24</Date>
+                <Version>8.2_beta1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="5">
+                <Date>2006-10-16</Date>
+                <Version>8.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2006-09-23</Date>
+                <Version>8.0_beta6</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2006-09-05</Date>
+                <Version>8.0_beta4</Version>
+                <Comment>Full Turkish patch added</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2006-08-20</Date>
+                <Version>8.0_beta4</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-08-18</Date>
+                <Version>8.0_beta3</Version>
+                <Comment>First release</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -18677,6 +19803,188 @@
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>secondlife</Name>
+            <Homepage>http://www.secondlife.com</Homepage>
+            <Packager>
+                <Name>Rasim AKAR</Name>
+                <Email>alsaberk@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.games</PartOf>
+            <Summary xml:lang="en">Client for SecondLife</Summary>
+            <Summary xml:lang="tr">SecondLife istemcisi</Summary>
+            <Icon>secondlife</Icon>
+            <Archive type="tarbz2" sha1sum="cb7f1a2ac03b227130b67d9faa695e0205c3605b">http://download-secondlife-com.s3.amazonaws.com/SecondLife_i686_1_20_15_92456.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency releaseFrom="5">jpeg</Dependency>
+                <Dependency>libsdl</Dependency>
+                <Dependency>apr1</Dependency>
+                <Dependency>apr-util</Dependency>
+                <Dependency>boost</Dependency>
+                <Dependency>xmlrpc-epi</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>openjpeg</Dependency>
+                <Dependency>curl</Dependency>
+                <Dependency>openal</Dependency>
+                <Dependency>freealut</Dependency>
+                <Dependency>google-perftools</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/games/secondlife/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>secondlife</Name>
+            <RuntimeDependencies>
+                <Dependency>libsdl</Dependency>
+                <Dependency>apr1</Dependency>
+                <Dependency>apr-util</Dependency>
+                <Dependency>boost</Dependency>
+                <Dependency>xmlrpc-epi</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>openjpeg</Dependency>
+                <Dependency>curl</Dependency>
+                <Dependency>openal</Dependency>
+                <Dependency>freealut</Dependency>
+                <Dependency>google-perftools</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/share/secondlife</Path>
+                <Path fileType="data">/usr/share/</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/bin/secondlife" permission="0755" owner="root">secondlife</AdditionalFile>
+                <AdditionalFile target="/usr/share/applications/SecondLife.desktop" permission="0644" owner="root">SecondLife.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="17">
+                <Date>2008-08-24</Date>
+                <Version>1.20.15</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Rasim AKAR</Name>
+                <Email>alsaberk@gmail.com</Email>
+            </Update>
+            <Update release="16">
+                <Date>2007-11-30</Date>
+                <Version>1.18.5.3</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="15">
+                <Date>2007-10-13</Date>
+                <Version>1.18.3.5_rc1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="14">
+                <Date>2007-07-03</Date>
+                <Version>1.17.2.0</Version>
+                <Comment>Version bump and libxmlrpc-epi fix</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="13">
+                <Date>2007-06-18</Date>
+                <Version>1.17.0.12</Version>
+                <Comment>Patch for libxmlrpc-epi</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="12">
+                <Date>2007-06-18</Date>
+                <Version>1.17.0.12</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="11">
+                <Date>2007-05-25</Date>
+                <Version>1.16.0.5</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="10">
+                <Date>2007-05-02</Date>
+                <Version>1.15.0.2</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2007-04-04</Date>
+                <Version>1.14.1.1_beta1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2007-03-29</Date>
+                <Version>1.14.0.0</Version>
+                <Comment>Stable update</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2007-03-17</Date>
+                <Version>1.13.3.59315</Version>
+                <Comment>New snapshot</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="6">
+                <Date>2007-02-25</Date>
+                <Version>1.13.3.58390</Version>
+                <Comment>New snapshot</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-02-21</Date>
+                <Version>1.13.3.58185</Version>
+                <Comment>New snapshot</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="4">
+                <Date>2007-02-08</Date>
+                <Version>1.13.3.57679</Version>
+                <Comment>New snapshot</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="3">
+                <Date>2007-02-01</Date>
+                <Version>1.13.3.2</Version>
+                <Comment>New snapshot</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-01-28</Date>
+                <Version>1.13.2.57209</Version>
+                <Comment>New snapshot</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-01-22</Date>
+                <Version>1.13.2.12</Version>
+                <Comment>First release.</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -19013,6 +20321,51 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>enemy-territory</Name>
+            <Homepage>http://www.idsoftware.com</Homepage>
+            <Packager>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Packager>
+            <License>RTCW-ETEULA</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.games</PartOf>
+            <Summary xml:lang="en">A Multiplayer fps game</Summary>
+            <Summary xml:lang="tr">Çok oyunculu bir fps oyunu</Summary>
+            <Archive type="binary" sha1sum="9a66247affcdf804a7341c7630e5610d1ae5d39f">ftp://ftp.red.telefonica-wholesale.net/GAMES/ET/linux/et-linux-2.60.x86.run</Archive>
+            <BuildDependencies>
+                <Dependency>xorg-server</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/games/enemy-territory/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>enemy-territory</Name>
+            <RuntimeDependencies>
+                <Dependency>xorg-server</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/opt</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/et.desktop" permission="0755" owner="root">et.desktop</AdditionalFile>
+                <AdditionalFile target="/opt/enemy-territory/et" permission="0755" owner="root">et</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2006-12-20</Date>
+                <Version>2.60</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>desmume</Name>
             <Homepage>http://desmume.org/</Homepage>
             <Packager>
@@ -19121,6 +20474,159 @@
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>mednafen</Name>
+            <Homepage>http://trac.emma-soft.com/epdfview/</Homepage>
+            <Packager>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.emulators</PartOf>
+            <Summary xml:lang="en">Multi console emulator</Summary>
+            <Description xml:lang="en">An emulator capable of playing Atari Lynx, Gameboy (Colour), Gameboy Advance, NES, Pc Engine, SuperGrafx, Neo Geo Pocket (Colour), PC-FX and WonderSwan (Colour) games.</Description>
+            <Archive type="tarbz2" sha1sum="ae9285da64c534b6053bdd19b9da64a4a0c00b4f">mirrors://sourceforge/mednafen/mednafen-0.8.9.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>libsdl</Dependency>
+                <Dependency>sdl-net</Dependency>
+                <Dependency>libcdio</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsndfile</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/emulators/mednafen/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>mednafen</Name>
+            <RuntimeDependencies>
+                <Dependency>libsdl</Dependency>
+                <Dependency>sdl-net</Dependency>
+                <Dependency>libcdio</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsndfile</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-22</Date>
+                <Version>0.8.9</Version>
+                <Comment>First release</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>playonlinux</Name>
+            <Homepage>http://www.playonlinux.com</Homepage>
+            <Packager>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.emulators</PartOf>
+            <Summary xml:lang="en">PlayOnLinux tool to help Linux users run Windows games on linux</Summary>
+            <Description xml:lang="en">PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft&apos;s Windows.</Description>
+            <Icon>PlayOnLinux</Icon>
+            <Archive type="targz" sha1sum="de312ca18976b86ab9fc232ccb5dd72c67dc448b">http://www.playonlinux.com/script_files/PlayOnLinux/3.1/PlayOnLinux_3.1.tar.gz</Archive>
+            <Patches>
+                <Patch>konsole.patch</Patch>
+                <Patch>bin_path.patch</Patch>
+                <Patch>turkish.patch</Patch>
+            </Patches>
+            <SourceURI>applications/emulators/playonlinux/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>playonlinux</Name>
+            <RuntimeDependencies>
+                <Dependency>lynx</Dependency>
+                <Dependency>wxPython</Dependency>
+                <Dependency>wine</Dependency>
+                <Dependency>wget</Dependency>
+                <Dependency>binutils</Dependency>
+                <Dependency>imagemagick</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/playonlinux</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/PlayOnLinux.desktop" permission="0644" owner="root">PlayOnLinux.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/playonlinux.png" permission="0755" owner="root">playonlinux.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-10</Date>
+                <Version>3.1</Version>
+                <Comment>Stable update.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-09-04</Date>
+                <Version>3.0.8</Version>
+                <Comment>First release.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gngeo</Name>
+            <Homepage>http://vba.ngemu.com/</Homepage>
+            <Packager>
+                <Name>Michael Austin</Name>
+                <Email>tuxed.up@gmx.co.uk</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.emulators</PartOf>
+            <Summary xml:lang="en">Neogeo emulator</Summary>
+            <Summary xml:lang="tr">Neogeo emülatör</Summary>
+            <Description xml:lang="en">An emulator for the Neogeo.  The neogeo bios is required to run games.</Description>
+            <Description xml:lang="tr">Neogeo için bir emülatör.  Oyunları çalıştırmak için Neogeo bios&apos;u gereklidir</Description>
+            <Archive type="targz" sha1sum="1da0daa0f2af0c3964fc857b68900c46015d09ac">mirrors://berlios/gngeo/gngeo-0.7.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>libsdl</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/emulators/gngeo/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gngeo</Name>
+            <RuntimeDependencies>
+                <Dependency>libsdl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/gngeo</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2007-09-02</Date>
+                <Version>0.7</Version>
+                <Comment>First release.</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxed.up@gmx.co.uk</Email>
             </Update>
         </History>
     </SpecFile>
@@ -19970,7 +21476,7 @@
             <PartOf>applications.network</PartOf>
             <Summary xml:lang="en">A web proxy with advanced filtering capabilities for protecting privacy against internet junk</Summary>
             <Description xml:lang="en">A web proxy with advanced filtering capabilities for protecting privacy against internet junk</Description>
-            <Archive type="targz" sha1sum="7fe2b7afde4066ef1f170f5f11850cf9da428a42">mirrors://sourceforge/ijbswa/privoxy-3.0.8-stable-src.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0ce51a8dc938fe6412daa7f6edf159b98fd66d54">mirrors://sourceforge/ijbswa/privoxy-3.0.10-stable-src.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>tor</Dependency>
             </BuildDependencies>
@@ -19987,6 +21493,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-08-27</Date>
+                <Version>3.0.10</Version>
+                <Comment>Stable update.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-05-08</Date>
                 <Version>3.0.8</Version>
@@ -21886,7 +23399,7 @@
             <Summary xml:lang="en">Opera web browser</Summary>
             <Summary xml:lang="tr">Opera internet tarayıcısı</Summary>
             <Icon>opera</Icon>
-            <Archive type="tarbz2" sha1sum="7b8f7dd531f19fd74e7d4c162ec3958fc11be432">http://opera.tradebit.com/pub/linux/951/final/en/i386/shared/opera-9.51.gcc4-shared-qt3.i386.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="55afc797029830bd73b36707d877b0aa1bdd2e55">http://get.opera.com/pub/opera/linux/952/final/en/i386/shared/opera-9.52-2091.gcc4-shared-qt3.i386.tar.bz2</Archive>
             <SourceURI>applications/network/opera/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -21914,6 +23427,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="14" type="security">
+                <Date>2008-08-21</Date>
+                <Version>9.52</Version>
+                <Comment>Version bump to fix multiple vulnerabilities (secunia#SA31549).</Comment>
+                <Name>Pınar Yanardağ</Name>
+                <Email>pinar@pardus.org.tr</Email>
+            </Update>
             <Update release="13" type="security">
                 <Date>2008-07-07</Date>
                 <Version>9.51</Version>
@@ -22384,6 +23904,76 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xulrunner</Name>
+            <Homepage>http://mozilla.org</Homepage>
+            <Packager>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Packager>
+            <License>MPL-1.1</License>
+            <IsA>library</IsA>
+            <PartOf>applications.network.mozilla</PartOf>
+            <Summary xml:lang="en">Mozilla XUL+XPCOM application runner</Summary>
+            <Archive type="tarbz2" sha1sum="ba3bb0b02404cf1abfb6189b156b2f4eb02e8975">ftp://ftp.mozilla.org/pub/xulrunner/releases/1.9.0.1/source/xulrunner-1.9.0.1-source.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>sun-jdk</Dependency>
+                <Dependency>nss</Dependency>
+                <Dependency>nspr</Dependency>
+                <Dependency>lcms</Dependency>
+                <Dependency>libgnomeui</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">xulrunner-path.patch</Patch>
+                <Patch level="1">xulrunner-version.patch</Patch>
+                <Patch level="1">mozilla-sqlite.patch</Patch>
+                <Patch level="1">mozilla-mochitest.patch</Patch>
+                <Patch level="1">mozilla-pkgconfig.patch</Patch>
+                <Patch level="1">mozilla-ps-pdf-simplify-operators.patch</Patch>
+                <Patch>xulrunner-mozconfig.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/mozilla/xulrunner/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xulrunner</Name>
+            <RuntimeDependencies>
+                <Dependency>nss</Dependency>
+                <Dependency>nspr</Dependency>
+                <Dependency>lcms</Dependency>
+                <Dependency>libgnomeui</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>sun-jre</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc/gre.d</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib/xulrunner-1.9</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>xulrunner-devel</Name>
+            <RuntimeDependencies>
+                <Dependency>xulrunner</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include/xulrunner-sdk-1.9</Path>
+                <Path fileType="library">/usr/lib/pkgconfig</Path>
+                <Path fileType="library">/usr/lib/xulrunner-sdk-1.9</Path>
+                <Path fileType="data">/usr/share/idl/xulrunner-sdk-1.9</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-08</Date>
+                <Version>1.9.0.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>wput</Name>
             <Homepage>http://wput.sourceforge.net</Homepage>
             <Packager>
@@ -22444,7 +24034,7 @@
     <SpecFile>
         <Source>
             <Name>transmission</Name>
-            <Homepage>http://www.transmissionbt.com/</Homepage>
+            <Homepage>http://www.transmissionbt.com</Homepage>
             <Packager>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -22456,7 +24046,7 @@
             <Summary xml:lang="en">A fast, easy, and free BitTorrent client</Summary>
             <Summary xml:lang="tr">Hızlı, basit ve özgür BitTorrent istemcisi</Summary>
             <Icon>transmission</Icon>
-            <Archive type="tarbz2" sha1sum="f40604aca6896c9f6773a4fee832e889499b6348">http://download.m0k.org/transmission/files/transmission-1.32.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="dcabfc887af0695abdcce902dc29ea3fb728288c">http://mirrors.m0k.org/transmission/files/transmission-1.33.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.8">gtk2</Dependency>
                 <Dependency>libnotify</Dependency>
@@ -22471,15 +24061,20 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-09-01</Date>
+                <Version>1.33</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-08-09</Date>
                 <Version>1.32</Version>
@@ -23459,6 +25054,61 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>ifplugd</Name>
+            <Homepage>http://0pointer.de/lennart/projects/ifplugd/</Homepage>
+            <Packager>
+                <Name>Nihat Ciddi</Name>
+                <Email>nakof@zig.gen.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>service</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">Brings up/down ethernet ports automatically with cable detection</Summary>
+            <Archive type="targz" sha1sum="0f00e6b544c0b7ed6c66fc58cb74f038d3fba77a">http://0pointer.de/lennart/projects/ifplugd/ifplugd-0.28.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>libdaemon</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>ifplugd-0.28-nlapi.diff</Patch>
+                <Patch>ifplugd-0.28-interface.patch</Patch>
+                <Patch>ifplugd-0.28-strictalias.patch</Patch>
+                <Patch level="1">ifplugd-0.28-noip.patch</Patch>
+                <Patch>ifplugd-0.28-noinitscript.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/ifplugd/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ifplugd</Name>
+            <RuntimeDependencies>
+                <Dependency>libdaemon</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/sbin</Path>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <Provides>
+                <COMAR script="service.py">System.Service</COMAR>
+            </Provides>
+            <AdditionalFiles>
+                <AdditionalFile target="/etc/conf.d/ifplugd" permission="0644" owner="root">ifplugd.confd</AdditionalFile>
+                <AdditionalFile target="/etc/ifplugd/ifplugd.action" permission="0755" owner="root">ifplugd.action</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-04</Date>
+                <Version>0.28</Version>
+                <Comment>First release</Comment>
+                <Name>Nihat Ciddi</Name>
+                <Email>nakof@zig.gen.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>valknut</Name>
             <Homepage>http://wxdcgui.sourceforge.net/</Homepage>
             <Packager>
@@ -23875,7 +25525,7 @@
             <PartOf>applications.network</PartOf>
             <Summary xml:lang="en">Java Gnutella client</Summary>
             <Summary xml:lang="tr">Java ile yazılmış bir Gnutella istemcisi</Summary>
-            <Archive type="zip" sha1sum="7f4b2cf7c1a1dd85baa59777e0042d252ef559eb">http://www.limewire.com/LimeWireSoftOther</Archive>
+            <Archive type="zip" sha1sum="2fa9ff73eaa3dd92ceb1c7bfeaf243988b196090">http://www.limewire.com/LimeWireSoftOther</Archive>
             <SourceURI>applications/network/limewire/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -23896,6 +25546,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-25</Date>
+                <Version>4.18.6</Version>
+                <Comment>Stable Update.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-07-25</Date>
                 <Version>4.18.3</Version>
@@ -24461,13 +26118,14 @@
             <Summary xml:lang="en">Simple FTP Client.</Summary>
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Icon>download</Icon>
-            <Archive type="tarbz2" sha1sum="76f2bb4e507abd0423beab34a5c94bc48969e21d">mirrors://sourceforge/filezilla/FileZilla_3.1.0.1_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="b6e376a0967ba292c307b4af8b3fc8fdb40bec1d">mirrors://sourceforge/filezilla/FileZilla_3.1.2_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8">wxGTK</Dependency>
                 <Dependency versionFrom="2.2">gnutls</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>i18n-filezilla.desktop.patch</Patch>
+                <Patch>localefix.patch</Patch>
             </Patches>
             <SourceURI>applications/network/filezilla/pspec.xml</SourceURI>
         </Source>
@@ -24489,6 +26147,27 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2008-09-01</Date>
+                <Version>3.1.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2008-08-26</Date>
+                <Version>3.1.1.1</Version>
+                <Comment>Fixes the problem of undisplayed icons reported in #7669.</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-08-23</Date>
+                <Version>3.1.1.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="6" type="security">
                 <Date>2008-07-28</Date>
                 <Version>3.1.0.1</Version>
@@ -25708,7 +27387,7 @@
             <PartOf>applications.office</PartOf>
             <Summary xml:lang="en">A text-based calendar and scheduling application</Summary>
             <Summary xml:lang="tr">Metin tabanlı takvim ve zamanlama uygulaması</Summary>
-            <Archive type="targz" sha1sum="324c82f55e519259606ba871abc7c0590497a2ba">http://culot.org/cgi-bin/get.cgi?calcurse-2.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="a4cb2774bdacec1ced335a9cae84e3ceb02d7418">http://culot.org/cgi-bin/get.cgi?calcurse-2.2.tar.gz</Archive>
             <SourceURI>applications/office/calcurse/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -25721,6 +27400,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-30</Date>
+                <Version>2.2</Version>
+                <Comment>version bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-06-15</Date>
                 <Version>2.1</Version>
@@ -25790,6 +27476,57 @@
                 <Comment>First release</Comment>
                 <Name>Michael Austin</Name>
                 <Email>tuxedup@tuxedup.greenisp.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>grisbi</Name>
+            <Homepage>http://www.grisbi.org/</Homepage>
+            <Packager>
+                <Name>Hüseyin Berberoğlu</Name>
+                <Email>hberberoglu@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.office</PartOf>
+            <Summary xml:lang="en">Personal Finance Manager</Summary>
+            <Summary xml:lang="tr">Kişisel Finans Yönetim Sistemi</Summary>
+            <Description xml:lang="en">Grisbi is a personnal accounting application. Grisbi can manage multiple accounts, currencies and users.</Description>
+            <Description xml:lang="tr">Kişisel finans işlemlerinizi kayıt altında tutabileceğiniz, birden çok hesap, kullanıcı ile çalışabileceğiniz bir uygulama.</Description>
+            <Icon>grisbi</Icon>
+            <Archive type="tarbz2" sha1sum="6fb6ebf5855ac9275c4da539ff94479d2e486261">mirrors://sourceforge/grisbi/grisbi-0.5.9.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxml2</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>browser.patch</Patch>
+            </Patches>
+            <SourceURI>applications/office/grisbi/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>grisbi</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/mime-info</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/grisbi.desktop" permission="0644" owner="root">grisbi.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-15</Date>
+                <Version>0.5.9</Version>
+                <Comment>First release.</Comment>
+                <Name>Hüseyin Berberoğlu</Name>
+                <Email>hberberoglu@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -26246,6 +27983,67 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>Miro</Name>
+            <Homepage>http://www.getmiro.com</Homepage>
+            <Packager>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Packager>
+            <License>GPLv2+</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Miro turns your computer into an internet TV.</Summary>
+            <Description xml:lang="en">Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
+            <Icon>Miro</Icon>
+            <Archive type="targz" sha1sum="8b914e441084abf92c802fa1ee62c388bf87aca9">http://ftp.osuosl.org/pub/pculture.org/miro/src/Miro-1.2.7.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>pyrex</Dependency>
+                <Dependency>boost</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">dontchecksvn.patch</Patch>
+                <Patch level="1">miro-gcc-4.3.patch</Patch>
+                <Patch level="1">noautoupdate.patch</Patch>
+                <Patch level="1">xulrunner.patch</Patch>
+                <Patch level="1">pardus.patch</Patch>
+                <Patch level="1">work-around-python-problem.patch</Patch>
+                <Patch level="1">utf8.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/Miro/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>Miro</Name>
+            <RuntimeDependencies>
+                <Dependency releaseFrom="4">gnome-python-extras</Dependency>
+                <Dependency>xulrunner</Dependency>
+                <Dependency>gst-python</Dependency>
+                <Dependency>boost</Dependency>
+                <Dependency>pyrex</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="library">/usr/lib/python2.5</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-30</Date>
+                <Version>1.2.7</Version>
+                <Comment>First release.</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>comix</Name>
             <Homepage>http://comix.sourceforge.net/</Homepage>
             <Packager>
@@ -26309,6 +28107,49 @@
                 <Comment>Initial release.</Comment>
                 <Name>İlker Kesen</Name>
                 <Email>ikesen92@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>rawrec</Name>
+            <Homepage>http://rawrec.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">CLI program to play and record audiofiles.</Summary>
+            <Summary xml:lang="tr">Ses dosyalarını çalmak ve kaydetmek için komut satırında çalışan bir uygulama.</Summary>
+            <Description xml:lang="en">CLI program to play and record audiofiles.</Description>
+            <Description xml:lang="tr">Ses dosyalarını çalmak ve kaydetmek için komut satırında çalışan bir uygulama.</Description>
+            <Archive type="targz" sha1sum="cd3892a6bb6d8c6f19e12d29cf30cf5d0e2bd343">mirrors://sourceforge/rawrec/rawrec-0.9.991.tar.gz</Archive>
+            <SourceURI>applications/multimedia/rawrec/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>rawrec</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>0.9.991</Version>
+                <Comment>Correct the Download Link.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-30</Date>
+                <Version>0.9.991</Version>
+                <Comment>First release.</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -26748,6 +28589,57 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>libzzub</Name>
+            <Homepage>http://trac.zeitherrschaft.org/zzub/</Homepage>
+            <Packager>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <IsA>app:console</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">A C/C++ music tracking and sequencing library</Summary>
+            <Description xml:lang="en">An open source platform independent C/C++ music tracking and sequencing library compatible to Jeskola Buzz.</Description>
+            <Archive type="tarbz2" sha1sum="c14461a32d645e1a854eab627d435ae4c13d689e">mirrors://sourceforge/aldrin/libzzub-0.2.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>flac</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsamplerate</Dependency>
+                <Dependency>ladspa-sdk</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>SConstruct.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/libzzub/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>libzzub</Name>
+            <RuntimeDependencies>
+                <Dependency>flac</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsamplerate</Dependency>
+                <Dependency>ladspa-sdk</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-15</Date>
+                <Version>0.2.5</Version>
+                <Comment>First release.</Comment>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>jokosher</Name>
             <Homepage>http://www.jokosher.org</Homepage>
             <Packager>
@@ -26760,7 +28652,7 @@
             <Summary xml:lang="en">A simple and easy to use audio multi-tracker</Summary>
             <Summary xml:lang="tr">Basit ve sade bir çoklu ses kayıt izleyicisi</Summary>
             <Icon>jokosher</Icon>
-            <Archive type="targz" sha1sum="56ec26d91e7a559514814fd01bca8d281f63c3da">http://www.jokosher.org/downloads/source/jokosher-0.9.tar.gz</Archive>
+            <Archive type="targz" sha1sum="005172d8b5703caa13f80d853448f6b7aea72518">http://launchpad.net/jokosher/0.10/0.10/+download/jokosher-0.10.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>PyXML</Dependency>
@@ -26794,6 +28686,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-09-01</Date>
+                <Version>0.10</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-07-31</Date>
                 <Version>0.9</Version>
@@ -26811,6 +28710,184 @@
             <Update release="1">
                 <Date>2008-05-06</Date>
                 <Version>0.9</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>kino</Name>
+            <Homepage>http://www.kinodv.org/</Homepage>
+            <Packager>
+                <Name>Koray Löker</Name>
+                <Email>loker@pardus.org.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Kino is a non-linear DV editor for GNU/Linux</Summary>
+            <Summary xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir</Summary>
+            <Description xml:lang="en">Kino is a non-linear DV editor for GNU/Linux.</Description>
+            <Description xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir.</Description>
+            <Icon>kino</Icon>
+            <Archive type="targz" sha1sum="c59a3967432a450cb278601c961da1c946c72cfa">mirrors://sourceforge/kino/kino-1.3.2.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>libiec61883</Dependency>
+                <Dependency>libquicktime</Dependency>
+                <Dependency>libglade2</Dependency>
+                <Dependency>audiofile</Dependency>
+                <Dependency>libsamplerate</Dependency>
+                <Dependency>libxml2</Dependency>
+                <Dependency>alsa-lib</Dependency>
+                <Dependency>libXv</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>potfiles.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/kino/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>kino</Name>
+            <RuntimeDependencies>
+                <Dependency>libiec61883</Dependency>
+                <Dependency>libquicktime</Dependency>
+                <Dependency>libglade2</Dependency>
+                <Dependency>audiofile</Dependency>
+                <Dependency>gpac</Dependency>
+                <Dependency>qdvdauthor</Dependency>
+                <Dependency>libXv</Dependency>
+                <Dependency>dvdauthor</Dependency>
+                <Dependency>rawrec</Dependency>
+                <Dependency>dvd+rw-tools</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>sox</Dependency>
+                <Dependency>vorbis-tools</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin/</Path>
+                <Path fileType="library">/usr/lib/</Path>
+                <Path fileType="data">/usr/share/kino</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="8">
+                <Date>2008-09-02</Date>
+                <Version>1.3.2</Version>
+                <Comment>Version bump and remove unneccessary dependencies.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-03-02</Date>
+                <Version>1.3.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Koray Löker</Name>
+                <Email>loker@pardus.org.tr</Email>
+            </Update>
+            <Update release="6">
+                <Date>2008-02-18</Date>
+                <Version>1.2.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökçen Eraslan</Name>
+                <Email>gokcen@pardus.org.tr</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-03-24</Date>
+                <Version>1.0.0</Version>
+                <Comment>Version bump and bugfix #5321</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2007-01-28</Date>
+                <Version>0.9.5</Version>
+                <Comment>Version bump and takeover</Comment>
+                <Name>Koray Löker</Name>
+                <Email>loker@pardus.org.tr</Email>
+            </Update>
+            <Update release="3">
+                <Date>2006-09-20</Date>
+                <Version>0.9.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+            <Update release="2">
+                <Date>2006-08-20</Date>
+                <Version>0.9.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-04-30</Date>
+                <Version>0.8.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>rawstudio</Name>
+            <Homepage>http://rawstudio.org</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">An open-source program to read and manipulate RAW images from most digital cameras</Summary>
+            <Description xml:lang="en">Rawstudio will convert your RAW files into JPEG, PNG or TIF images which you can then print or send to friends and clients.</Description>
+            <Archive type="targz" sha1sum="fdea7b9a88f69ea3a12a309863831f5e0ee8e2b8">http://rawstudio.org/files/release/rawstudio-1.0rc1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.12.8">gtk2</Dependency>
+                <Dependency>gconf</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/rawstudio/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>rawstudio</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.12.8">gtk2</Dependency>
+                <Dependency>gconf</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/rawstudio</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>1.0_rc1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-04-26</Date>
+                <Version>1.0</Version>
                 <Comment>First release.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -26880,6 +28957,107 @@
                 <Comment>First release.</Comment>
                 <Name>Furkan Duman</Name>
                 <Email>coderlord@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>aldrin</Name>
+            <Homepage>http://trac.zeitherrschaft.org/aldrin</Homepage>
+            <Packager>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Modular music sequencer/tracker</Summary>
+            <Description xml:lang="en">Aldrin is an open source modular music sequencer/tracker for the GNU/Linux operating system. It features a flexible audio routing system commonly found in expensive audio software, enabling you to mix, split, mutilate and modify audio signals emitted by software synthesizers and samples.</Description>
+            <Icon>aldrin</Icon>
+            <Archive type="tarbz2" sha1sum="85c521c7ccb18bd9cea8d2b579a7ed0c12af9c15">mirrors://sourceforge/aldrin/aldrin-0.12.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>wxPython</Dependency>
+                <Dependency>libzzub</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">aldrin.desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/aldrin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>aldrin</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.6">wxPython</Dependency>
+                <Dependency>libzzub</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-18</Date>
+                <Version>0.12</Version>
+                <Comment>First release.</Comment>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>mypaint</Name>
+            <Homepage>http://people.ee.ethz.ch/~mrenold/mypaint/</Homepage>
+            <Packager>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Painting application</Summary>
+            <Summary xml:lang="tr">Boyama programı</Summary>
+            <Description xml:lang="en">MyPaint is a fast and easy painting application. It lets you focus on the art instead of the program</Description>
+            <Description xml:lang="tr">MyPaint hızlı ve kolay bir boyama programıdır. Programa yoğunlaşacağınıza sanata yoğunlaşmanızı sağlar.</Description>
+            <Archive type="tarbz2" sha1sum="c1e02ba4ecc50cef842c320a40ea21f2d7474ee6">http://ee-staff.ethz.ch/%7Emrenold/mypaint/mypaint-0.5.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>pygtk</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/mypaint/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>mypaint</Name>
+            <RuntimeDependencies>
+                <Dependency>pygtk</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/mypaint</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>0.5.1</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-07-31</Date>
+                <Version>0.5.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Alper Somuncu</Name>
+                <Email>alper@alpersomuncu.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -27080,7 +29258,7 @@
             <Summary xml:lang="tr">GTK+2 ile yapılmış altyazı düzenleme aracı</Summary>
             <Description xml:lang="en">It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
             <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
-            <Archive type="targz" sha1sum="75b9a24b83d997620d211d50107d75bc23affbfa">http://download.gna.org/subtitleeditor/0.21/subtitleeditor-0.21.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f04a2ce7ac8ebe830e3349beff779057891bec20">http://download.gna.org/subtitleeditor/0.22/subtitleeditor-0.22.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.4">libglademm</Dependency>
                 <Dependency>libxmlpp2</Dependency>
@@ -27090,7 +29268,6 @@
             <Patches>
                 <Patch>desktop.patch</Patch>
                 <Patch>sandbox.patch</Patch>
-                <Patch>encoding_const.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/subtitleeditor/pspec.xml</SourceURI>
         </Source>
@@ -27113,6 +29290,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2008-08-30</Date>
+                <Version>0.22.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-07-12</Date>
                 <Version>0.21.3</Version>
@@ -27177,7 +29361,7 @@
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">An advance Kde mplayer interface</Summary>
             <Description xml:lang="en">SMPlayer intends to be a complete front-end for MPlayer, from basic features like playing videos, DVDs, and VCDs to more advanced features like support for MPlayer filters and more.</Description>
-            <Archive type="tarbz2" sha1sum="b9dd657b3fd24bda951ed942d5698ae85a24b52b">mirrors://berlios/smplayer/smplayer-0.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="902b86242ff483f603dbb52d39f342093a50e5d8">mirrors://berlios/smplayer/smplayer-0.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
             </BuildDependencies>
@@ -27629,6 +29813,133 @@
                 <Comment>First release.</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>qdvdauthor</Name>
+            <Homepage>http://qdvdauthor.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Mustafa Günay</Name>
+                <Email>mgunay@pardusman.org</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Qt based DVD tool</Summary>
+            <Description xml:lang="en">Qt based set of tools to help you author a DVD</Description>
+            <Archive type="targz" sha1sum="68ff58cd92e587bd427b35edff595305633bc93c">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.5.0-2.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xine-lib</Dependency>
+                <Dependency>netpbm</Dependency>
+                <Dependency>dvd-slideshow</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>mjpegtools</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/qdvdauthor/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>qdvdauthor</Name>
+            <RuntimeDependencies>
+                <Dependency>xine-lib</Dependency>
+                <Dependency>netpbm</Dependency>
+                <Dependency>dvd-slideshow</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency>videotrans</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/qdvdauthor</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2008-09-02</Date>
+                <Version>1.5.0</Version>
+                <Comment>Version Bump, add some comments to actions.py .</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-10-17</Date>
+                <Version>1.0.0</Version>
+                <Comment>Added new optional dependency</Comment>
+                <Name>Mustafa Günay</Name>
+                <Email>mgunay@pardusman.org</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-09-13</Date>
+                <Version>1.0.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Mustafa Günay</Name>
+                <Email>mgunay@pardusman.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gtkpod</Name>
+            <Homepage>http://www.gtkpod.org</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">A GUI for Apple&apos;s iPod using GTK2</Summary>
+            <Icon>gtkpod</Icon>
+            <Archive type="targz" sha1sum="ab7c03ee1a875fe2bab953d5805a2a4d65fcd669">mirrors://sourceforge/gtkpod/gtkpod-0.99.12.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
+                <Dependency versionFrom="0.6.0">libgpod</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>libid3tag</Dependency>
+                <Dependency>flac</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libmp4v2</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/gtkpod/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gtkpod</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
+                <Dependency versionFrom="0.6.0">libgpod</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>libid3tag</Dependency>
+                <Dependency>flac</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libmp4v2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/gtkpod</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-16</Date>
+                <Version>0.99.12</Version>
+                <Comment>First release</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -28102,11 +30413,70 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>videotrans</Name>
+            <Homepage>http://videotrans.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Mustafa Günay</Name>
+                <Email>mgunay@pardusman.org</Email>
+            </Packager>
+            <License>BSD</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">A set of scripts that allow its user to reformat existing movies into the VOB format that is used on DVDs.</Summary>
+            <Description xml:lang="en">Videotrans supplies programs which allow its user to create a complete DVD, including selection menus which allow the viewer to choose which movie he/she wants to see, if more than one movie fits onto a DVD.</Description>
+            <Archive type="targz" sha1sum="ac1b0ebb432188b98a0438fbc98397a04d0a86d4">mirrors://sourceforge/videotrans/videotrans-1.6.0.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency>dvdauthor</Dependency>
+                <Dependency>imagemagick</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>do-not-check-mplayer.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/videotrans/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>videotrans</Name>
+            <RuntimeDependencies>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency>dvdauthor</Dependency>
+                <Dependency>imagemagick</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/videotrans</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>1.6.0</Version>
+                <Comment>Add aspects.txt and make ready for 2008</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-10-09</Date>
+                <Version>1.6.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Mustafa Günay</Name>
+                <Email>mgunay@pardusman.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>recordmydesktop</Name>
             <Homepage>http://recordmydesktop.iovar.org/</Homepage>
             <Packager>
                 <Name>Michael Austin</Name>
-                <Email>tuxedup@tuxedup.greenisp.org</Email>
+                <Email>tuxedup@gmx.co.uk</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:console</IsA>
@@ -28115,7 +30485,7 @@
             <Summary xml:lang="tr">Masaüstü Kayıt Aracı</Summary>
             <Description xml:lang="en">recordMyDesktop is a desktop session recorder.  It is a command line tool that allows you to record your desktop (including the sound) and output the contents to an OGG video file.</Description>
             <Description xml:lang="tr">Masaüstü oturum kayıt edicisi. Masaüstünüzü (ses ile beraber) komut satırından kayıt etmenize yarayan bir uygulama</Description>
-            <Archive type="targz" sha1sum="c98c7ddbf42006bac37efbdfc3308528e5e423f5">mirrors://sourceforge/recordmydesktop/recordmydesktop-0.3.7.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0b3603f862eab714ae17c554992f37a6f9f118b7">mirrors://sourceforge/recordmydesktop/recordmydesktop-0.3.7.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libvorbis</Dependency>
                 <Dependency>vorbis-tools</Dependency>
@@ -28137,6 +30507,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2008-09-03</Date>
+                <Version>0.3.7.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
             <Update release="8">
                 <Date>2008-01-28</Date>
                 <Version>0.3.7.1</Version>
@@ -29034,6 +31411,78 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>cinelerra</Name>
+            <Homepage>http://cvs.cinelerra.org/</Homepage>
+            <Packager>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Non-Linear Video Editing Suite - Community version</Summary>
+            <Summary xml:lang="tr">Profesyonel vidyo düzenleme programı</Summary>
+            <Description xml:lang="en">Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
+            <Description xml:lang="tr">Paket kurulumu yaptıktan sonra root olarak /etc/sysctl.conf dosyasının en alt satırına kernel/shmmax=0x7fffffff satırını ekleyip sysctl -p komutunu uygulayın.</Description>
+            <Icon>multimedia</Icon>
+            <Archive type="tarbz2" sha1sum="a7d4b9eebd62b6d7259a45afd843cc1a274d61f3">http://pardus.kilu.de/dist/cinelerra_cv1061.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.7.4">a52dec</Dependency>
+                <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+                <Dependency versionFrom="3.8.2">tiff</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency versionFrom="3.1.2">fftw3</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency versionFrom="1.6.1">openexr</Dependency>
+                <Dependency>libtheora</Dependency>
+                <Dependency versionFrom="0.5.3">libavc1394</Dependency>
+                <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>bcclipboardC.patch</Patch>
+                <Patch level="1">ffmpeg_external.patch</Patch>
+                <Patch>fix_lib.patch</Patch>
+                <Patch>libGL_fix.patch</Patch>
+                <Patch level="1">configure_in.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/cinelerra/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>cinelerra</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.7.4">a52dec</Dependency>
+                <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+                <Dependency versionFrom="3.8.2">tiff</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency versionFrom="3.1.2">fftw3</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency versionFrom="1.6.1">openexr</Dependency>
+                <Dependency>libtheora</Dependency>
+                <Dependency versionFrom="0.5.3">libavc1394</Dependency>
+                <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/cinelerra</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-24</Date>
+                <Version>2.1_20080724</Version>
+                <Comment>First release.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>lives</Name>
             <Homepage>http://lives.sf.net</Homepage>
             <Packager>
@@ -29044,22 +31493,23 @@
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">Linux Video Editing System</Summary>
-            <Archive type="tarbz2" sha1sum="eb43753f69e610366e31f04a37958b5e019127c1">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-0.9.8.12.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="5ce4f6181ae8c182cfb8f6c688909971e82dbc9d">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-0.9.9.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>mplayer</Dependency>
-                <Dependency versionFrom="6.3.8.3">imagemagick</Dependency>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="1.2.11">libsdl</Dependency>
+                <Dependency versionFrom="6.4.1.5">imagemagick</Dependency>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="1.2.13">libsdl</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency versionFrom="13.0.0">sox</Dependency>
+                <Dependency versionFrom="14.0.1">sox</Dependency>
                 <Dependency>cdrtools</Dependency>
-                <Dependency versionFrom="1.8.0">mjpegtools</Dependency>
+                <Dependency>mjpegtools</Dependency>
                 <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
                 <Dependency versionFrom="3.1">dvgrab</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop-tr.patch</Patch>
                 <Patch>smogrify.patch</Patch>
+                <Patch level="1">destdir.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/lives/pspec.xml</SourceURI>
         </Source>
@@ -29067,24 +31517,35 @@
             <Name>lives</Name>
             <RuntimeDependencies>
                 <Dependency>mplayer</Dependency>
-                <Dependency versionFrom="6.3.8.3">imagemagick</Dependency>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="1.2.11">libsdl</Dependency>
+                <Dependency versionFrom="6.4.1.5">imagemagick</Dependency>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="1.2.13">libsdl</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency versionFrom="13.0.0">sox</Dependency>
+                <Dependency versionFrom="14.0.1">sox</Dependency>
                 <Dependency>cdrtools</Dependency>
-                <Dependency versionFrom="1.8.0">mjpegtools</Dependency>
+                <Dependency>mjpegtools</Dependency>
                 <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
                 <Dependency versionFrom="3.1">dvgrab</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/lives</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-08-25</Date>
+                <Version>0.9.9.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-06-17</Date>
                 <Version>0.9.8.12</Version>
@@ -29643,6 +32104,45 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>hddtemp</Name>
+            <Homepage>http://www.guzu.net/linux/hddtemp.php</Homepage>
+            <Packager>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.hardware</PartOf>
+            <Summary xml:lang="en">hddtemp gives temperature of hard drive</Summary>
+            <Description xml:lang="en">hddtemp is a small utility (daemonizable) that gives you the temperature of your hard drive by reading S.M.A.R.T. informations (for drives that support this feature).</Description>
+            <Archive type="tarbz2" sha1sum="65393b0a4d9862c030c81702d95c1acd00da275b">http://download.savannah.gnu.org/releases/hddtemp/hddtemp-0.3-beta15.tar.bz2</Archive>
+            <SourceURI>applications/hardware/hddtemp/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>hddtemp</Name>
+            <Files>
+                <Path fileType="executable">/usr/sbin/</Path>
+                <Path fileType="doc">/usr/share/doc/</Path>
+                <Path fileType="man">/usr/share/man/</Path>
+                <Path fileType="localedata">/usr/share/locale/</Path>
+                <Path fileType="data">/usr/share/misc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/misc/hddtemp.db" permission="0755" owner="root">hddtemp.db</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-06</Date>
+                <Version>0.3_beta15</Version>
+                <Comment>First Release</Comment>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>calcoo</Name>
             <Homepage>http://calcoo.sourceforge.net/</Homepage>
             <Packager>
@@ -29780,6 +32280,68 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>rlplot</Name>
+            <Homepage>http://rlplot.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.science</PartOf>
+            <Summary xml:lang="en">A plotting program to create high quality graphs from data</Summary>
+            <Description xml:lang="en">RLPlot is is a plotting program to create high quality graphs from data. Based on values stored in a spreadsheet several menus help you to create graphs of your choice. The Graphs are displayed as you get them (Wysiwyg).</Description>
+            <Archive type="targz" sha1sum="9f6d3ae9f3e023cf20134105d5460fb597be6cc8">mirrors://sourceforge/rlplot/rlplot_1.5.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>qt</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>qt3-dir-for-rplot_1.5.patch</Patch>
+            </Patches>
+            <SourceURI>applications/science/rlplot/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>rlplot</Name>
+            <RuntimeDependencies>
+                <Dependency>qt</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/pixmaps/rlplot.png" permission="0644" owner="root">rlplot.png</AdditionalFile>
+                <AdditionalFile target="/usr/share/applications/rlplot.desktop" permission="0644" owner="root">rlplot.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2008-09-07</Date>
+                <Version>1.5</Version>
+                <Comment>Stable update and package takeover</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-02-25</Date>
+                <Version>1.3</Version>
+                <Comment>Stable update</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-01-11</Date>
+                <Version>1.2</Version>
+                <Comment>First release.</Comment>
+                <Name>İsmail Dönmez</Name>
+                <Email>ismail@pardus.org.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xvibs</Name>
             <Homepage>http://xvibs.sourceforge.net/</Homepage>
             <Packager>
@@ -29819,6 +32381,235 @@
                 <Comment>First release</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gerbv</Name>
+            <Homepage>http://gerbv.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.science.electronics</PartOf>
+            <Summary xml:lang="en">Gerber file viewer for PCB design</Summary>
+            <Summary xml:lang="tr">Gerber dosya görüntüleyici</Summary>
+            <Description xml:lang="en">gerbv is a utility for viewing Gerber files. Gerber files are used for communicating printed circuit board (PCB) designs to PCB manufacturers.</Description>
+            <Description xml:lang="tr">gerbv, Gerber dosyalarını görüntülemek için bir araçtır. Gerber dosyaları baskili devre levhasi (PCB) tasarımlarını üreticilere iletmede kullanılır.</Description>
+            <Icon>gerbv</Icon>
+            <Archive type="targz" sha1sum="751912d0efa6b1db91d0a8703774df825bc9b79e">mirrors://sourceforge/gerbv/gerbv-2.0.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>cairo</Dependency>
+                <Dependency>gtk2</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/science/electronics/gerbv/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gerbv</Name>
+            <RuntimeDependencies>
+                <Dependency>cairo</Dependency>
+                <Dependency>gtk2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/gerbv.desktop" permission="0644" owner="root">gerbv.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/gerbv.png" permission="0644" owner="root">gerbv.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="4">
+                <Date>2008-02-09</Date>
+                <Version>2.0.1</Version>
+                <Comment>bugfix release</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2008-01-17</Date>
+                <Version>2.0.0</Version>
+                <Comment>version bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-12-01</Date>
+                <Version>1.0.3</Version>
+                <Comment>stable update</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-05-02</Date>
+                <Version>1.0.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gnucap</Name>
+            <Homepage>http://geda.seul.org/tools/gnucap/index.html</Homepage>
+            <Packager>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.science.electronics</PartOf>
+            <Summary xml:lang="en">GNU Circuit Analysis Package</Summary>
+            <Archive type="targz" sha1sum="fa4da0ca4a36ca509d00b7c7286ffb8a008ceaaf">ftp://ftp.geda.seul.org/pub/geda/dist/gnucap-0.35.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>tetex</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">gcc4.3.patch</Patch>
+            </Patches>
+            <SourceURI>applications/science/electronics/gnucap/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gnucap</Name>
+            <RuntimeDependencies>
+                <Dependency>tetex</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/gnucap</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2007-05-25</Date>
+                <Version>0.35</Version>
+                <Comment>First release</Comment>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gtkwave</Name>
+            <Homepage>http://home.nc.rr.com/gtkwave/</Homepage>
+            <Packager>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <License>MIT</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.science.electronics</PartOf>
+            <Summary xml:lang="en">A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files</Summary>
+            <Summary xml:lang="tr">LXT, LXT2, VZT, GHW ve VCD/EVCD dosyaları için dalga görüntüleyici</Summary>
+            <Description xml:lang="en">GTKWave is a fully featured GTK+ based wave viewer for Unix and Win32 which reads LXT, LXT2, VZT, and GHW files as well as standard Verilog VCD/EVCD files and allows their viewing.</Description>
+            <Archive type="targz" sha1sum="b4e882b3ce96bd5ebf9f007221cd088ff41465a4">http://home.nc.rr.com/gtkwave/gtkwave-3.1.13.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gperf</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/science/electronics/gtkwave/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gtkwave</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gperf</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/gtkwave</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="11">
+                <Date>2008-08-30</Date>
+                <Version>3.1.13</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="10">
+                <Date>2008-06-18</Date>
+                <Version>3.1.10</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2008-04-19</Date>
+                <Version>3.1.8</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2008-01-28</Date>
+                <Version>3.1.3</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-01-08</Date>
+                <Version>3.1.2</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="6">
+                <Date>2007-09-21</Date>
+                <Version>3.1.1</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-06-11</Date>
+                <Version>3.0.29</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2007-05-02</Date>
+                <Version>3.0.28</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2007-04-18</Date>
+                <Version>3.0.25</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-04-06</Date>
+                <Version>3.0.24</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-01-27</Date>
+                <Version>3.0.20</Version>
+                <Comment>First release</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -30516,6 +33307,17 @@
         <VisibleTo>user</VisibleTo>
     </Component>
     <Component>
+        <Name>desktop.kde4</Name>
+        <LocalName xml:lang="en">KDE4 Desktop</LocalName>
+        <LocalName xml:lang="tr">KDE4 Masaüstü</LocalName>
+        <Summary xml:lang="en">Yeni nesil masaüstü ortamı KDE4</Summary>
+        <Summary xml:lang="tr">KDE4, next-generation desktop environment</Summary>
+        <Description xml:lang="en">Contains various applications and related packages of the KDE4 desktop.</Description>
+        <Description xml:lang="tr">KDE4 masaüstünde çalışan çeşitli uygulamaları ve ilgili kütüphanelerini içerir.</Description>
+        <Icon>konqueror</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
         <Name>desktop.xfce4</Name>
         <LocalName xml:lang="en">Xfce Desktop</LocalName>
         <LocalName xml:lang="tr">Xfce Masaüstü</LocalName>
@@ -30676,6 +33478,15 @@
         <Description xml:lang="en">Amsn themes, plugins</Description>
     </Component>
     <Component>
+        <Name>applications.network.mozilla</Name>
+        <LocalName xml:lang="en">Mozilla</LocalName>
+        <LocalName xml:lang="tr">Mozilla</LocalName>
+        <Summary xml:lang="en">Mozilla applications and related plugins</Summary>
+        <Summary xml:lang="tr">Mozilla programları ve ilgili eklentiler</Summary>
+        <Description xml:lang="en">This component contains Mozilla applications and plugins needed for them to function properly.</Description>
+        <Description xml:lang="tr">Bu bölümde Mozilla Suite, Thunderbird, Firefox gibi Mozilla yazılımları ve bunların işlevselliğine yönelik hazırlanmış eklentiler (örn. Flash) bulunur.</Description>
+    </Component>
+    <Component>
         <Name>applications.editors</Name>
         <LocalName xml:lang="en">Document editors</LocalName>
         <LocalName xml:lang="tr">Metin düzenleyiciler</LocalName>
@@ -30736,6 +33547,13 @@
         <Description xml:lang="tr">Bu bileşende astronomi, matematik ve kimya gibi çeşitli bilim dallarıyla ilgili yazılımlar bulunur.</Description>
         <Icon>edu_science</Icon>
         <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>applications.science.electronics</Name>
+        <LocalName xml:lang="en">Electronics</LocalName>
+        <LocalName xml:lang="tr">Elektronik</LocalName>
+        <Summary xml:lang="tr">Elektronik devre çizim ve tasarım programları</Summary>
+        <Description xml:lang="tr">...</Description>
     </Component>
     <Component>
         <Name>applications.security</Name>
