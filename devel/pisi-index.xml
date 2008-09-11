@@ -3519,6 +3519,89 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>lxml</Name>
+            <Homepage>http://codespeak.net/lxml/</Homepage>
+            <Packager>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <License>BSD</License>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <Summary xml:lang="en">lxml is the most feature-rich and easy-to-use library</Summary>
+            <Description xml:lang="en">lxml is the most feature-rich and easy-to-use library for working with XML and HTML in the Python language.</Description>
+            <Archive type="targz" sha1sum="797c996d3381f59495582336daceaf50b9c14fff">http://pypi.python.org/packages/source/l/lxml/lxml-2.1.1.tar.gz</Archive>
+            <SourceURI>programming/libs/lxml/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>lxml</Name>
+            <Files>
+                <Path fileType="library">/usr/lib/</Path>
+                <Path fileType="doc">/usr/share/doc/</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-31</Date>
+                <Version>2.1.1</Version>
+                <Comment>First Release</Comment>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>webkit-gtk</Name>
+            <Homepage>http://webkit.org</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <Summary xml:lang="en">An opensource web browser engine</Summary>
+            <Summary xml:lang="tr">Açık kaynak internet tarayıcısı motoru</Summary>
+            <Description xml:lang="en">Webkit-Gtk supplies Webkit framework for GTK applications.</Description>
+            <Description xml:lang="tr">Webkit-Gtk, Gtk uygulamaları için Webkit altyapısını sunar.</Description>
+            <Archive type="tarbz2" sha1sum="e6fe3832e08f0c62b386f4e622b7885ee5e95592">http://builds.nightly.webkit.org/files/trunk/src/WebKit-r36004.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="3.6">icu4c</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/libs/webkit-gtk/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>webkit-gtk</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="3.6">icu4c</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-31</Date>
+                <Version>0.0_36004</Version>
+                <Comment>First release</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>hk-classes</Name>
             <Homepage>http://hk-classes.sourceforge.net</Homepage>
             <Packager>
@@ -3958,47 +4041,6 @@
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libssh2</Name>
-            <Homepage>http://www.libssh2.org/wiki/index.php/Main_Page</Homepage>
-            <Packager>
-                <Name>Şuayip Özmen</Name>
-                <Email>ozmen@suayip.com</Email>
-            </Packager>
-            <License>BSD</License>
-            <IsA>library</IsA>
-            <PartOf>programming.libs</PartOf>
-            <Summary xml:lang="en">Library implementing the SSH2 protocol</Summary>
-            <Description xml:lang="en">Library implementing the SSH2 protocol as defined by Internet Drafts: SECSH-TRANS, SECSH-USERAUTH, SECSH-CONNECTION, SECSH-ARCH, SECSH-FILEXFER, SECSH-DHGEX, SECSH-NUMBERS, and SECSH-PUBLICKEY.</Description>
-            <Archive type="targz" sha1sum="9bc6148869fca08350e27ea2c9fc44917ac027ff">mirrors://sourceforge/libssh2/libssh2-0.18.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>libgcrypt</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/libs/libssh2/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libssh2</Name>
-            <RuntimeDependencies>
-                <Dependency>libgcrypt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-07-17</Date>
-                <Version>0.18</Version>
-                <Comment>First Release</Comment>
-                <Name>Şuayip Özmen</Name>
-                <Email>ozmen@suayip.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -5320,6 +5362,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2008-09-06</Date>
+                <Version>1.2.0</Version>
+                <Comment>Fix the icon problems, #8112</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
             <Update release="10">
                 <Date>2008-07-24</Date>
                 <Version>1.2.0</Version>
@@ -12074,7 +12123,7 @@
             <IsA>library</IsA>
             <PartOf>programming.languages.java</PartOf>
             <Summary xml:lang="en">A Java-based framework to build multiplatform mail and messaging applications</Summary>
-            <Archive type="tarbz2" sha1sum="2aa4e91a0e82c2e2a709e1a73b30ad9b25f7e3bf">http://cekirdek.pardus.org.tr/~ismail/dist/sun-javamail-1.4.tar.bz2</Archive>
+            <Archive type="zip" sha1sum="a570f0340765013fec6cc14d11315f65fe528e2b">http://cekirdek.pardus.org.tr/~semen/javamail-1_4_1.zip</Archive>
             <BuildDependencies>
                 <Dependency>sun-jdk</Dependency>
                 <Dependency>ant</Dependency>
@@ -12093,6 +12142,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-08-28</Date>
+                <Version>1.4.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-03-28</Date>
                 <Version>1.4</Version>
@@ -12362,7 +12418,7 @@
             <IsA>library</IsA>
             <PartOf>programming.languages.java</PartOf>
             <Summary xml:lang="en">Sun&apos;s JavaBeans Activation Framework (JAF)</Summary>
-            <Archive type="tarbz2" sha1sum="5beb2a91e2f2f059cb2e4bd930b1acb6b538ebfb">http://cekirdek.pardus.org.tr/~ismail/dist/sun-jaf-1.1.tar.bz2</Archive>
+            <Archive type="zip" sha1sum="ce547d5bf929d1e318cc8559426db1e871aeabc8">http://cekirdek.pardus.org.tr/~semen/jaf-1_1_1.zip</Archive>
             <BuildDependencies>
                 <Dependency>sun-jdk</Dependency>
                 <Dependency>ant</Dependency>
@@ -12376,9 +12432,17 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/share/java</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-08-28</Date>
+                <Version>1.1.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-03-28</Date>
                 <Version>1.1</Version>
@@ -13058,9 +13122,8 @@
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">PyFITS provides an interface to FITS formatted files under the Python scripting language and PyRAF, the Python-based interface to IRAF.</Summary>
             <Description xml:lang="en">PyFITS provides an interface to FITS formatted files under the Python scripting language and PyRAF, the Python-based interface to IRAF.</Description>
-            <Archive type="targz" sha1sum="7da81e8098545b8148a2f23c9f597bcc3a90440c">http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-1.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="280f29e2ae4b7ded3cb44fc545e8c7217266fbc4">http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-1.3.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.4">python</Dependency>
                 <Dependency versionFrom="1.5.2">numarray</Dependency>
             </BuildDependencies>
             <SourceURI>programming/languages/python/pyfits/pspec.xml</SourceURI>
@@ -13068,14 +13131,21 @@
         <Package>
             <Name>pyfits</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.4">python</Dependency>
                 <Dependency versionFrom="1.5.2">numarray</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-09-10</Date>
+                <Version>1.3</Version>
+                <Comment>Version bump, remove system.base dependencies and add documentation.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="3">
                 <Date>2007-07-12</Date>
                 <Version>1.1</Version>
@@ -13240,7 +13310,7 @@
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">SQL toolkit and Object Relational Mapper for Python</Summary>
             <Description xml:lang="en">SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</Description>
-            <Archive type="targz" sha1sum="e0104149a268c4a591af696f09e605bfd6bc8457">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.4.6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b4f158cf7930234b8be8794e481a79ebcbf3fbf0">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.4.7p1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>setuptools</Dependency>
             </BuildDependencies>
@@ -13254,6 +13324,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-09-06</Date>
+                <Version>0.4.7_p1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-06-24</Date>
                 <Version>0.4.6</Version>
@@ -13511,7 +13588,7 @@
             <IsA>app:gui</IsA>
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">remote objects for Python</Summary>
-            <Archive type="targz" sha1sum="f5c42e451950b9b6c05f0769ced576ed18cad3c0">mirrors://sourceforge/pyro/Pyro-3.7.tar.gz</Archive>
+            <Archive type="targz" sha1sum="c6af1e8fe266a3b3fa3e95369d614c7447470092">mirrors://sourceforge/pyro/Pyro-3.8.tar.gz</Archive>
             <Patches>
                 <Patch>pyro-setup.cfg.patch</Patch>
                 <Patch level="1">pyro-set-pidfile.patch</Patch>
@@ -13522,7 +13599,6 @@
             <Name>pyro</Name>
             <RuntimeDependencies>
                 <Dependency releaseFrom="17">comar-api</Dependency>
-                <Dependency>python-tk</Dependency>
                 <Dependency>wxPython</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -13535,6 +13611,13 @@
             </Provides>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-01</Date>
+                <Version>3.8</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-02-10</Date>
                 <Version>3.7</Version>
@@ -14426,17 +14509,14 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Name>Recep Kırmızı</Name>
                 <Email>rkirmizi@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">Flicker python bindings</Summary>
-            <Archive type="targz" sha1sum="728f533243884baa9440127db2982013248c775f">mirrors://sourceforge/flickrapi/flickrapi-0.14.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b7b80cdf89264c53b35931dc5a2b34fe6237f36d">mirrors://sourceforge/flickrapi/flickrapi-1.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>uuid</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch>all.patch</Patch>
-            </Patches>
             <SourceURI>programming/languages/python/flickrapi/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -14446,9 +14526,17 @@ processing unit (GPU) present in modern graphics cards</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-08-30</Date>
+                <Version>1.1</Version>
+                <Comment>Bump.</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-09-30</Date>
                 <Version>0.14</Version>
@@ -14652,24 +14740,32 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>pyusb</Name>
             <Homepage>http://pyusb.sourceforge.net/</Homepage>
             <Packager>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">PyUSB provides USB access on the Python language.</Summary>
             <Description xml:lang="en">The PyUSB module provides Python with easy access to the host machine&apos;s Universal Serial Bus (USB) system.  Although not yet complete, PyUSB does provide a core set of functionality around which useful applications can be developed.</Description>
-            <Archive type="targz" sha1sum="c88810596cba57d71cf349e41f50782b725da08a">mirrors://sourceforge/pyusb/pyusb-0.3.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2673dc6d4532f1a07e4a5131eebce2489bf11111">mirrors://sourceforge/pyusb/pyusb-0.4.1.tar.gz</Archive>
             <SourceURI>programming/languages/python/pyusb/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>pyusb</Name>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-08</Date>
+                <Version>0.4.1</Version>
+                <Comment>Version bump and add documentation</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-01-14</Date>
                 <Version>0.3.5</Version>
@@ -15044,6 +15140,49 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>bpython</Name>
+            <Homepage>http://www.noiseforfree.com/bpython/index.html</Homepage>
+            <Packager>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Packager>
+            <License>MIT</License>
+            <IsA>app:console</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">A fancy interface to the Python interpreter</Summary>
+            <Archive type="targz" sha1sum="8cd454301029c58733d2cfde333aa0061a3adcc5">http://www.noiseforfree.com/bpython/bpython-0.7.0.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>Pygments</Dependency>
+                <Dependency>pyparsing</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/python/bpython/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>bpython</Name>
+            <RuntimeDependencies>
+                <Dependency>Pygments</Dependency>
+                <Dependency>pyparsing</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-29</Date>
+                <Version>0.7.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>elixir</Name>
             <Homepage>http://elixir.ematia.de/</Homepage>
             <Packager>
@@ -15055,7 +15194,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">Declarative Mapper for SQLAlchemy</Summary>
             <Description xml:lang="en">Elixir is intended to replace the ActiveMapper SQLAlchemy extension, and the TurboEntity project but does not intend to replace SQLAlchemy&apos;s core features, and instead focuses on providing a simpler syntax for defining model objects when you do not need the full expressiveness of SQLAlchemy&apos;s manual mapper definitions</Description>
-            <Archive type="targz" sha1sum="90a36f6f01767170cc366081d1ba4bb6710c498c">http://pypi.python.org/packages/source/E/Elixir/Elixir-0.5.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="7ba8ae5a8cb3a70201ed97aca3a3acf89255c6a2">http://pypi.python.org/packages/source/E/Elixir/Elixir-0.6.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>sqlalchemy</Dependency>
             </BuildDependencies>
@@ -15072,6 +15211,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-25</Date>
+                <Version>0.6.1</Version>
+                <Comment>Version bump with adding the examples.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-04-05</Date>
                 <Version>0.5.2</Version>
@@ -17340,7 +17486,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>server</PartOf>
             <Summary xml:lang="en">JBoss J2EE Application Server</Summary>
             <Description xml:lang="en">An open source, standards-compliant, J2EE-based application server implemented in 100% Pure Java.</Description>
-            <Archive type="targz" sha1sum="fb31bc61d3579cef016231f44728d6bf7fc91285">mirrors://sourceforge/jboss/jboss-4.2.2.GA-src.tar.gz</Archive>
+            <Archive type="targz" sha1sum="1763f61554fc90a3787ec63f013cde51f9e25cad">mirrors://sourceforge/jboss/jboss-4.2.3.GA-src.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>ant</Dependency>
                 <Dependency>sun-java5-jdk</Dependency>
@@ -17362,6 +17508,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Provides>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2008-08-21</Date>
+                <Version>4.2.3</Version>
+                <Comment>Stable update</Comment>
+                <Name>Ekrem SEREN</Name>
+                <Email>ekrem.seren@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-07-18</Date>
                 <Version>4.2.2</Version>
@@ -18128,10 +18281,14 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>pygtk</Dependency>
                 <Dependency>gnome-python</Dependency>
                 <Dependency>gtkhtml2</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
-                <Dependency>gdl</Dependency>
                 <Dependency>gtkspell</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
+                <Dependency>gdl</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">gnome-python-extras-2.19.1-pkg-config.patch</Patch>
+                <Patch level="1">gnome-python-extras-2.19.1-xulrunner.patch</Patch>
+            </Patches>
             <SourceURI>desktop/gnome/gnome-python-extras/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -18140,23 +18297,24 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>pygtk</Dependency>
                 <Dependency>gnome-python</Dependency>
                 <Dependency>gtkhtml2</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
-                <Dependency>gdl</Dependency>
                 <Dependency>gtkspell</Dependency>
+                <Dependency>xulrunner</Dependency>
+                <Dependency>gdl</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/gtk-doc</Path>
                 <Path fileType="data">/usr/share/pygtk</Path>
             </Files>
         </Package>
         <History>
             <Update release="4">
-                <Date>2008-06-09</Date>
+                <Date>2008-09-03</Date>
                 <Version>2.19.1</Version>
-                <Comment>Add gtkspell dependency. Gtkspell is now in main repository.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
+                <Comment>Patch for latest Xulrunner</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Update>
             <Update release="3">
                 <Date>2008-06-08</Date>
@@ -19204,7 +19362,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Sözdizimi vurgulaması için araçlar</Summary>
             <Description xml:lang="en">Gtksourceview improves the gtk+ text widget by implementing syntax highlighting and other features typical of a source editor.</Description>
             <Description xml:lang="tr">Gtksourceview, gtk+ metin kütüphanesini geliştiren ve bir kaynak kodu düzenleyicisinde olması gereken sözdizimi vurgulaması gibi özellikleri sağlayan bir araçtır.</Description>
-            <Archive type="tarbz2" sha1sum="457ea2ab8add927ab55e105892c21a440b18603f">mirrors://gnome/gtksourceview/2.2/gtksourceview-2.2.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="220e49ad8348a0a746ce48300222892ec281397d">mirrors://gnome/gtksourceview/2.2/gtksourceview-2.2.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.0">gtk2</Dependency>
                 <Dependency>libxml2</Dependency>
@@ -19232,6 +19390,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-24</Date>
+                <Version>2.2.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-04-10</Date>
                 <Version>2.2.1</Version>
@@ -19803,7 +19968,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>liferea</Name>
-            <Homepage>http://liferea.sourceforge.net/</Homepage>
+            <Homepage>http://liferea.sourceforge.net</Homepage>
             <Packager>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
@@ -19813,21 +19978,17 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome</PartOf>
             <Summary xml:lang="en">News Aggregator for RDF/RSS/CDF/Atom/Echo/etc feeds</Summary>
             <Summary xml:lang="tr">RDF/RSS/CDF/Atom/Echo  beslemeler için okuyucu</Summary>
-            <Archive type="targz" sha1sum="cf6264716c7c9a2eebfe776c4113bf2a1bf74f32">mirrors://sourceforge/liferea/liferea-1.4.16b.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f57d7ad947583ee9bc33ef862b97aaf642de6b25">mirrors://sourceforge/liferea/liferea-1.4.19.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>gtk2</Dependency>
-                <Dependency>pango</Dependency>
                 <Dependency>gconf</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency versionFrom="1.1.19">libxslt</Dependency>
-                <Dependency versionFrom="1.0">dbus</Dependency>
                 <Dependency releaseFrom="4">libnotify</Dependency>
+                <Dependency>lua</Dependency>
+                <Dependency>gtkhtml2</Dependency>
                 <Dependency>gnutls</Dependency>
-                <Dependency>intltool</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
-                <Dependency>sqlite</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
             </BuildDependencies>
             <Patches>
+                <Patch level="1">liferea-1.4.17-xulrunner-1.9.patch</Patch>
                 <Patch level="1">feedlist-tr-update.patch</Patch>
             </Patches>
             <SourceURI>desktop/gnome/liferea/pspec.xml</SourceURI>
@@ -19835,18 +19996,11 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>liferea</Name>
             <RuntimeDependencies>
-                <Dependency>gtk2</Dependency>
-                <Dependency>pango</Dependency>
-                <Dependency>gconf</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency versionFrom="1.1.19">libxslt</Dependency>
-                <Dependency versionFrom="1.0">dbus</Dependency>
                 <Dependency releaseFrom="4">libnotify</Dependency>
+                <Dependency>lua</Dependency>
+                <Dependency>gtkhtml2</Dependency>
                 <Dependency>gnutls</Dependency>
-                <Dependency>intltool</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox</Dependency>
-                <Dependency>sqlite</Dependency>
-                <Dependency releaseFrom="3">libgnome</Dependency>
+                <Dependency>xulrunner</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -19862,6 +20016,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Provides>
         </Package>
         <History>
+            <Update release="26">
+                <Date>2008-09-03</Date>
+                <Version>1.4.19</Version>
+                <Comment>Version bump, make it compile with Xulrunner</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="25">
                 <Date>2008-06-29</Date>
                 <Version>1.4.16b</Version>
@@ -21886,7 +22047,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>library</IsA>
             <PartOf>desktop.kde</PartOf>
             <Summary xml:lang="en">Set of tools to integrate the LilyPond music typesetter into KDE</Summary>
-            <Archive type="targz" sha1sum="f6b01fa1adf0eadd2844faf9794b7a4b23c2b9f4">http://lilykde.googlecode.com/files/lilykde-0.6.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0ead9043505bd650486ec9a5e1c2ac3b3027cb2e">http://lilykde.googlecode.com/files/lilykde-0.6.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="3.16">PyKDE</Dependency>
                 <Dependency>lilypond</Dependency>
@@ -21911,6 +22072,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2008-08-31</Date>
+                <Version>0.6.2</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2008-07-21</Date>
                 <Version>0.6.1</Version>
@@ -30380,6 +30548,55 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-screenshooter-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-screenshooter-plugin</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">A plugin for the Xfce panel to take screenshots</Summary>
+            <Icon>applets-screenshooter</Icon>
+            <Archive type="targz" sha1sum="6af7e727a9c5840c8ee868cf56690e33dce04687">http://goodies.xfce.org/releases/xfce4-screenshooter-plugin/xfce4-screenshooter-plugin-1.3.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/xfce4/goodies/xfce4-screenshooter-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-screenshooter-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/icons/hicolor/48x48/apps/applets-screenshooter.png" permission="0644" owner="root">applets-screenshooter.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-18</Date>
+                <Version>1.3.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xfmpc</Name>
             <Homepage>http://goodies.xfce.org/projects/applications/xfmpc</Homepage>
             <Packager>
@@ -30392,7 +30609,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">A graphical GTK+ MPD client focusing on low footprint</Summary>
             <Summary xml:lang="tr">Az yer kaplama amaçlı GTK+ arayüzlü MPD istemcisi</Summary>
             <Icon>xfmpc</Icon>
-            <Archive type="tarbz2" sha1sum="00bfb023b2e771eae3646328523e2625834f5bcc">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.0.6.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a9585992134aa26a23b7b799e6b2d8b019c932e9">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.0.7.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.8">gtk2</Dependency>
                 <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
@@ -30420,6 +30637,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-01</Date>
+                <Version>0.0.7</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-05-21</Date>
                 <Version>0.0.6</Version>
@@ -30699,10 +30923,11 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Email>kpelit@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
+            <License>BSD</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.fluxbox</PartOf>
             <Summary xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar</Summary>
-            <Archive type="tarbz2" sha1sum="4d883244fa7dcd75b1a11cac969fd5837bb36646">http://kpelit.com/dist/files/fluxbox-1.0.1_20080730.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="4caeaec8fc1c8481c44d04281c0b22e2dae2be92">http://kpelit.com/dist/files/fluxbox-1.0.1_20080825.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xorg-server</Dependency>
                 <Dependency>imlib2</Dependency>
@@ -30711,7 +30936,9 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Patch>fluxbox-gcc43.patch</Patch>
                 <Patch>fluxbox-startfluxbox-pulseaudio.patch</Patch>
                 <Patch level="1">turkish.patch</Patch>
+                <Patch level="1">default-theme-solaris.patch</Patch>
                 <Patch level="1">pardus-default-configuration.patch</Patch>
+                <Patch compressionType="bz2" level="1">icons.patch.tar.bz2</Patch>
             </Patches>
             <SourceURI>desktop/fluxbox/fluxbox/pspec.xml</SourceURI>
         </Source>
@@ -30720,6 +30947,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <RuntimeDependencies>
                 <Dependency>xorg-server</Dependency>
                 <Dependency>imlib2</Dependency>
+                <Dependency>feh</Dependency>
+                <Dependency>rxvt-unicode</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -30731,9 +30960,19 @@ processing unit (GPU) present in modern graphics cards</Description>
             <AdditionalFiles>
                 <AdditionalFile target="/etc/X11/Sessions/fluxbox" permission="0644" owner="root">fluxbox</AdditionalFile>
                 <AdditionalFile target="/usr/share/fluxbox/menu" permission="0644" owner="root">menu</AdditionalFile>
+                <AdditionalFile target="/usr/share/fluxbox/menu-kde" permission="0644" owner="root">menu-kde</AdditionalFile>
+                <AdditionalFile target="/usr/share/fluxbox/menu-apps" permission="0644" owner="root">menu-apps</AdditionalFile>
+                <AdditionalFile target="/usr/share/fluxbox/backgrounds/default.png" permission="0644" owner="root">default.png</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-08-25</Date>
+                <Version>1.0.1_20080825</Version>
+                <Comment>New snapshot</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-07-31</Date>
                 <Version>1.0.1_20080730</Version>
@@ -30791,6 +31030,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-08-25</Date>
+                <Version>0.9.9</Version>
+                <Comment>Make up</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-07-28</Date>
                 <Version>0.9.9</Version>
@@ -30878,16 +31124,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>library</IsA>
             <PartOf>desktop.opencompositing.cairo</PartOf>
             <Summary xml:lang="en">Plugins for cairo-dock</Summary>
-            <Archive type="tarbz2" sha1sum="83f85be0936429fb34634b7a5a2054de4bc5eaa0">http://kpelit.com/dist/files/cairo-dock-plugins-1.6.1_1196.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="29a4310cf782e6d74051fc6e8deba4cc9d0d8b23">http://download.berlios.de/cairo-dock/cairo-dock-plugins-1.6.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="1.6.0">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/opencompositing/cairo-dock/cairo-dock-plugins/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>cairo-dock-plugins</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="1.6.0">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="data">/usr/share/cairo-dock</Path>
@@ -30896,6 +31142,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-28</Date>
+                <Version>1.6.2</Version>
+                <Comment>Stable update</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-07-13</Date>
                 <Version>1.6.1_1196</Version>
@@ -30954,7 +31207,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">An AIGLX dock with physics</Summary>
             <Description xml:lang="en">Cairo-dock is an animated application launch bar displayed on the desktop comparable to Mac OS X&apos;s Dock.It is compatible with Beryl, Compiz, Metacity+xcompmgr and probably KDE since Kwin now manage composite display.</Description>
             <Icon>cairo-dock</Icon>
-            <Archive type="tarbz2" sha1sum="b4a1fa2bcf8ae6e96f0951800ae64009d1e63d28">http://kpelit.com/dist/files/cairo-dock-1.6.1_1196.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8be9ab47e004878da38877362387ca6cc5f6398b">http://download.berlios.de/cairo-dock/cairo-dock-1.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.5">gtk2</Dependency>
                 <Dependency>librsvg</Dependency>
@@ -30990,6 +31243,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-28</Date>
+                <Version>1.6.2</Version>
+                <Comment>Stable update</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-07-13</Date>
                 <Version>1.6.1_1196</Version>
@@ -31047,16 +31307,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.opencompositing.cairo</PartOf>
             <Summary xml:lang="en">Themes for cairo-dock</Summary>
             <Icon>cairo-dock</Icon>
-            <Archive type="tarbz2" sha1sum="5d961919da61474167fb43c78893dfb61ec5c2e5">http://kpelit.com/dist/files/cairo-dock-themes-1.6.1_1196.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="ec8cc81fa0b22e88906156f46ed8b81b82d37c92">http://download.berlios.de/cairo-dock/cairo-dock-themes-1.6.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency releaseFrom="4">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/opencompositing/cairo-dock/cairo-dock-themes/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>cairo-dock-themes</Name>
             <RuntimeDependencies>
-                <Dependency releaseFrom="4">cairo-dock</Dependency>
+                <Dependency versionFrom="1.6.2">cairo-dock</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="data">/usr/share/cairo-dock</Path>
@@ -31066,6 +31326,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Conflicts>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-28</Date>
+                <Version>1.6.2</Version>
+                <Comment>Stable update</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-07-13</Date>
                 <Version>1.6.1_1196</Version>
@@ -31519,22 +31786,11 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="executable">/usr/bin/gtk-window-decorator</Path>
             </Files>
         </Package>
-        <Package>
-            <Name>compiz-fusion-kde4</Name>
-            <RuntimeDependencies>
-                <Dependency>compiz-manager</Dependency>
-                <Dependency>compiz-fusion</Dependency>
-                <Dependency versionFrom="4.1">kdebase4</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin/kde4-window-decorator</Path>
-            </Files>
-        </Package>
         <History>
             <Update release="21">
                 <Date>2008-08-15</Date>
                 <Version>0.7.6</Version>
-                <Comment>Enable KDE4, split package</Comment>
+                <Comment>Enable KDE4, split package. Buggy compiz-fusion-auto-start really fixed</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
             </Update>
@@ -35005,11 +35261,12 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Recep Kırmızı</Name>
                 <Email>rkirmizi@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.util</PartOf>
-            <Summary xml:lang="en">A simple GTK+ application to demonstrate and test libfprint&apos;s capabilities</Summary>
-            <Archive type="tarbz2" sha1sum="96a82462e8324472861ba928bf52f59aad2fe8c2">mirrors://sourceforge/fprint/fprint_demo-0.3.tar.bz2</Archive>
+            <Summary xml:lang="en">A simple application to demonstrate and test libfprint&apos;s capabilities</Summary>
+            <Description xml:lang="en">fprint_demo is a simple GTK+ application to demonstrate and test libfprint&apos;s capabilities. It provides access to many of the features offered by the backing library, libfprint.</Description>
+            <Archive type="tarbz2" sha1sum="c15fb94a7439fa18def73a47b32edb203b1c834f">mirrors://sourceforge/fprint/fprint_demo-0.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>pam_fprint</Dependency>
                 <Dependency>gtk2</Dependency>
@@ -35034,6 +35291,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-01-28</Date>
+                <Version>0.4</Version>
+                <Comment>Version bump</Comment>
+                <Name>Recep Kırmızı</Name>
+                <Email>rkirmizi@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-11-22</Date>
                 <Version>0.3</Version>
@@ -35334,14 +35598,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.games</PartOf>
             <Summary xml:lang="en">Full featured educational application for children from 2 to 10</Summary>
             <Summary xml:lang="tr">2-10 yaş arası çocuklar için eğitici uygulamalar</Summary>
             <Description xml:lang="en">GCompris is an educational software suite comprising of numerous activities for children aged 2 to 10. Some of the activities are game orientated, but nonetheless still educational</Description>
             <Description xml:lang="tr">GCompris, 2-10 yaş arası çocuklar için bir çok etkinliği kapsayan eğitim amaçlı bir yazılım paketidir. Bazı etkinlikler, eğitim amaçlı oyunlardan oluşmaktadır.</Description>
-            <Archive type="targz" sha1sum="7040ec1b1e95761c96c9bf21e55040c6cb8d70c0">mirrors://sourceforge/gcompris/gcompris-8.4.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="a93e58d7b281c5840ec35417211469fff9462be4">mirrors://sourceforge/gcompris/gcompris-8.4.4.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.0.2">libgnomecanvas</Dependency>
                 <Dependency>gtk2</Dependency>
@@ -35391,6 +35655,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>sqlite</Dependency>
                 <Dependency>gnuchess</Dependency>
                 <Dependency>numeric</Dependency>
+                <Dependency>gnucap</Dependency>
+                <Dependency>tuxpaint</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -35405,6 +35671,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2008-08-22</Date>
+                <Version>8.4.4</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Update>
             <Update release="12">
                 <Date>2007-11-30</Date>
                 <Version>8.4.2</Version>
@@ -35488,108 +35761,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>secondlife-artwork</Name>
-            <Homepage>http://www.secondlife.com</Homepage>
-            <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Packager>
-            <License>Creative Commons Attribution-Share Alike 2.5</License>
-            <IsA>data</IsA>
-            <PartOf>applications.games</PartOf>
-            <Summary xml:lang="en">Data files for SecondLife Client</Summary>
-            <Summary xml:lang="tr">SecondLife istemcisi için data dosyaları</Summary>
-            <Archive type="zip" sha1sum="863fbb1515edbd7d6c0443661d6fb568a55f8d50">http://s3.amazonaws.com/viewer-source-downloads/2007/11/slviewer-artwork-1.18.5.3.zip</Archive>
-            <SourceURI>applications/games/secondlife-artwork/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>secondlife-artwork</Name>
-            <Files>
-                <Path fileType="data">/usr/share/secondlife</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="11">
-                <Date>2007-11-30</Date>
-                <Version>1.18.5.3</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="10">
-                <Date>2007-10-13</Date>
-                <Version>1.18.3.5</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="9">
-                <Date>2007-07-03</Date>
-                <Version>1.17.2.0</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2007-06-17</Date>
-                <Version>1.17.0.12</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2007-05-25</Date>
-                <Version>1.16.0.5</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-05-02</Date>
-                <Version>1.15.0.2</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-04-04</Date>
-                <Version>1.14.1.1_beta1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-03-29</Date>
-                <Version>1.14.0.0</Version>
-                <Comment>Stable update</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-03-17</Date>
-                <Version>1.13.3.59315</Version>
-                <Comment>New snapshot</Comment>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-02-25</Date>
-                <Version>1.13.3.58390</Version>
-                <Comment>New snapshot</Comment>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-02-21</Date>
-                <Version>1.13.3.58185</Version>
-                <Comment>First release.</Comment>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -36470,45 +36641,31 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>secondlife</Name>
             <Homepage>http://www.secondlife.com</Homepage>
             <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
+                <Name>Rasim AKAR</Name>
+                <Email>alsaberk@gmail.com</Email>
             </Packager>
-            <License>GPL</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.games</PartOf>
             <Summary xml:lang="en">Client for SecondLife</Summary>
             <Summary xml:lang="tr">SecondLife istemcisi</Summary>
             <Icon>secondlife</Icon>
-            <Archive type="targz" sha1sum="fb7bd6959bc59305677e10d8f0c958ccf82b4e60">http://s3.amazonaws.com/viewer-source-downloads/2007/11/slviewer-src-1.18.5.3.tar.gz</Archive>
+            <Archive type="tarbz2" sha1sum="cb7f1a2ac03b227130b67d9faa695e0205c3605b">http://download-secondlife-com.s3.amazonaws.com/SecondLife_i686_1_20_15_92456.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency releaseFrom="5">jpeg</Dependency>
                 <Dependency>libsdl</Dependency>
                 <Dependency>apr1</Dependency>
-                <Dependency>apr-util1</Dependency>
+                <Dependency>apr-util</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>xmlrpc-epi</Dependency>
                 <Dependency>libvorbis</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency versionFrom="1.1.1">openjpeg</Dependency>
+                <Dependency>openjpeg</Dependency>
                 <Dependency>curl</Dependency>
                 <Dependency>openal</Dependency>
                 <Dependency>freealut</Dependency>
                 <Dependency>google-perftools</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">no-mozlib.patch</Patch>
-                <Patch level="1">no-fmod.patch</Patch>
-                <Patch level="1">no-elfio.patch</Patch>
-                <Patch level="1">system-headers-libs.patch</Patch>
-                <Patch level="1">system-gstreamer.patch</Patch>
-                <Patch level="1">debian_put_AppROData_in_usr_share_secondlife.patch</Patch>
-                <Patch level="1">use_pardus-included_fonts.patch</Patch>
-                <Patch level="1">freetype2.patch</Patch>
-                <Patch level="1">slviewer-1.17.0.12-openal-20070625.patch</Patch>
-                <Patch level="1">boost_regex.patch</Patch>
-                <Patch level="1">voiceclient-expat.patch</Patch>
-                <Patch level="1">openssl.patch</Patch>
-            </Patches>
             <SourceURI>applications/games/secondlife/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -36516,46 +36673,37 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <RuntimeDependencies>
                 <Dependency>libsdl</Dependency>
                 <Dependency>apr1</Dependency>
-                <Dependency>apr-util1</Dependency>
+                <Dependency>apr-util</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>xmlrpc-epi</Dependency>
                 <Dependency>libvorbis</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency versionFrom="1.1.1">openjpeg</Dependency>
+                <Dependency>openjpeg</Dependency>
                 <Dependency>curl</Dependency>
                 <Dependency>openal</Dependency>
                 <Dependency>freealut</Dependency>
                 <Dependency>google-perftools</Dependency>
-                <Dependency version="1.18.5.3">secondlife-artwork</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/share/secondlife/secondlife-i686-bin-globalsyms</Path>
-                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="executable">/usr/share/secondlife</Path>
+                <Path fileType="data">/usr/share/</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-                <Path fileType="data">/usr/share/secondlife/app_settings</Path>
-                <Path fileType="data">/usr/share/secondlife/character</Path>
-                <Path fileType="data">/usr/share/secondlife/fonts</Path>
-                <Path fileType="data">/usr/share/secondlife/help</Path>
-                <Path fileType="data">/usr/share/secondlife/res-sdl</Path>
-                <Path fileType="data">/usr/share/secondlife/skins</Path>
-                <Path fileType="data">/usr/share/secondlife/featuretable.txt</Path>
-                <Path fileType="data">/usr/share/secondlife/gpu_table.txt</Path>
-                <Path fileType="data">/usr/share/secondlife/launch_url.sh</Path>
-                <Path fileType="data">/usr/share/secondlife/unicode.ttf</Path>
-                <Path fileType="data">/usr/share/secondlife/secondlife.ico</Path>
-                <Path fileType="data">/usr/share/secondlife/gridargs.dat</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/bin/secondlife" permission="0755" owner="root">secondlife</AdditionalFile>
-                <AdditionalFile target="/usr/share/applications/secondlife.desktop" permission="0644" owner="root">secondlife.desktop</AdditionalFile>
-                <AdditionalFile target="/usr/share/pixmaps/secondlife.png" permission="0644" owner="root">secondlife.png</AdditionalFile>
-                <AdditionalFile target="/usr/share/secondlife/gridargs.dat" permission="0644" owner="root">gridargs.dat</AdditionalFile>
+                <AdditionalFile target="/usr/share/applications/SecondLife.desktop" permission="0644" owner="root">SecondLife.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2008-08-24</Date>
+                <Version>1.20.15</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Rasim AKAR</Name>
+                <Email>alsaberk@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2007-11-30</Date>
                 <Version>1.18.5.3</Version>
@@ -37460,13 +37608,123 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>mednafen</Name>
+            <Homepage>http://trac.emma-soft.com/epdfview/</Homepage>
+            <Packager>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.emulators</PartOf>
+            <Summary xml:lang="en">Multi console emulator</Summary>
+            <Description xml:lang="en">An emulator capable of playing Atari Lynx, Gameboy (Colour), Gameboy Advance, NES, Pc Engine, SuperGrafx, Neo Geo Pocket (Colour), PC-FX and WonderSwan (Colour) games.</Description>
+            <Archive type="tarbz2" sha1sum="ae9285da64c534b6053bdd19b9da64a4a0c00b4f">mirrors://sourceforge/mednafen/mednafen-0.8.9.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>libsdl</Dependency>
+                <Dependency>sdl-net</Dependency>
+                <Dependency>libcdio</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsndfile</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/emulators/mednafen/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>mednafen</Name>
+            <RuntimeDependencies>
+                <Dependency>libsdl</Dependency>
+                <Dependency>sdl-net</Dependency>
+                <Dependency>libcdio</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsndfile</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-22</Date>
+                <Version>0.8.9</Version>
+                <Comment>First release</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>playonlinux</Name>
+            <Homepage>http://www.playonlinux.com</Homepage>
+            <Packager>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.emulators</PartOf>
+            <Summary xml:lang="en">PlayOnLinux tool to help Linux users run Windows games on linux</Summary>
+            <Description xml:lang="en">PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft&apos;s Windows.</Description>
+            <Icon>PlayOnLinux</Icon>
+            <Archive type="targz" sha1sum="de312ca18976b86ab9fc232ccb5dd72c67dc448b">http://www.playonlinux.com/script_files/PlayOnLinux/3.1/PlayOnLinux_3.1.tar.gz</Archive>
+            <Patches>
+                <Patch>konsole.patch</Patch>
+                <Patch>bin_path.patch</Patch>
+                <Patch>turkish.patch</Patch>
+            </Patches>
+            <SourceURI>applications/emulators/playonlinux/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>playonlinux</Name>
+            <RuntimeDependencies>
+                <Dependency>lynx</Dependency>
+                <Dependency>wxPython</Dependency>
+                <Dependency>wine</Dependency>
+                <Dependency>wget</Dependency>
+                <Dependency>binutils</Dependency>
+                <Dependency>imagemagick</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/playonlinux</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/PlayOnLinux.desktop" permission="0644" owner="root">PlayOnLinux.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/playonlinux.png" permission="0755" owner="root">playonlinux.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2008-09-10</Date>
+                <Version>3.1</Version>
+                <Comment>Stable update.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-09-04</Date>
+                <Version>3.0.8</Version>
+                <Comment>First release.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>gngeo</Name>
             <Homepage>http://vba.ngemu.com/</Homepage>
             <Packager>
                 <Name>Michael Austin</Name>
-                <Email>tuxed.up@gmail.com</Email>
+                <Email>tuxed.up@gmx.co.uk</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>applications.emulators</PartOf>
             <Summary xml:lang="en">Neogeo emulator</Summary>
@@ -37497,7 +37755,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Version>0.7</Version>
                 <Comment>First release.</Comment>
                 <Name>Michael Austin</Name>
-                <Email>tuxed.up@gmail.com</Email>
+                <Email>tuxed.up@gmx.co.uk</Email>
             </Update>
         </History>
     </SpecFile>
@@ -38718,7 +38976,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.network</PartOf>
             <Summary xml:lang="en">A web proxy with advanced filtering capabilities for protecting privacy against internet junk</Summary>
             <Description xml:lang="en">A web proxy with advanced filtering capabilities for protecting privacy against internet junk</Description>
-            <Archive type="targz" sha1sum="7fe2b7afde4066ef1f170f5f11850cf9da428a42">mirrors://sourceforge/ijbswa/privoxy-3.0.8-stable-src.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0ce51a8dc938fe6412daa7f6edf159b98fd66d54">mirrors://sourceforge/ijbswa/privoxy-3.0.10-stable-src.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>tor</Dependency>
             </BuildDependencies>
@@ -38735,6 +38993,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-08-27</Date>
+                <Version>3.0.10</Version>
+                <Comment>Stable update.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-05-08</Date>
                 <Version>3.0.8</Version>
@@ -39292,9 +39557,9 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.network</PartOf>
             <Summary xml:lang="en">Mysql Database control interface</Summary>
-            <Summary xml:lang="tr">Mysql veritabanınızı arayüz ile kotrol etmenizi saylayan bir araç.</Summary>
+            <Summary xml:lang="tr">Mysql veritabanınızı arayüz ile kontrol etmenizi saylayan bir araç.</Summary>
             <Description xml:lang="en">Mysql Database control interface</Description>
-            <Description xml:lang="tr">Mysql veritabanınızı arayüz ile kotrol etmenizi saylayan bir araç.</Description>
+            <Description xml:lang="tr">Mysql veritabanınızı arayüz ile kontrol etmenizi saylayan bir araç.</Description>
             <Archive type="targz" sha1sum="d85b9fd480a2e8eef01ac62d62642c0375be9ea0">mirrors://sourceforge/mysqlcc/mysqlcc-0.9.8-src.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="3.3">qt</Dependency>
@@ -41070,7 +41335,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">Opera web browser</Summary>
             <Summary xml:lang="tr">Opera internet tarayıcısı</Summary>
             <Icon>opera</Icon>
-            <Archive type="tarbz2" sha1sum="7b8f7dd531f19fd74e7d4c162ec3958fc11be432">http://opera.tradebit.com/pub/linux/951/final/en/i386/shared/opera-9.51.gcc4-shared-qt3.i386.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="55afc797029830bd73b36707d877b0aa1bdd2e55">http://get.opera.com/pub/opera/linux/952/final/en/i386/shared/opera-9.52-2091.gcc4-shared-qt3.i386.tar.bz2</Archive>
             <SourceURI>applications/network/opera/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41098,6 +41363,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="14" type="security">
+                <Date>2008-08-21</Date>
+                <Version>9.52</Version>
+                <Comment>Version bump to fix multiple vulnerabilities (secunia#SA31549).</Comment>
+                <Name>Pınar Yanardağ</Name>
+                <Email>pinar@pardus.org.tr</Email>
+            </Update>
             <Update release="13" type="security">
                 <Date>2008-07-07</Date>
                 <Version>9.51</Version>
@@ -41568,6 +41840,76 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xulrunner</Name>
+            <Homepage>http://mozilla.org</Homepage>
+            <Packager>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Packager>
+            <License>MPL-1.1</License>
+            <IsA>library</IsA>
+            <PartOf>applications.network.mozilla</PartOf>
+            <Summary xml:lang="en">Mozilla XUL+XPCOM application runner</Summary>
+            <Archive type="tarbz2" sha1sum="ba3bb0b02404cf1abfb6189b156b2f4eb02e8975">ftp://ftp.mozilla.org/pub/xulrunner/releases/1.9.0.1/source/xulrunner-1.9.0.1-source.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>sun-jdk</Dependency>
+                <Dependency>nss</Dependency>
+                <Dependency>nspr</Dependency>
+                <Dependency>lcms</Dependency>
+                <Dependency>libgnomeui</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">xulrunner-path.patch</Patch>
+                <Patch level="1">xulrunner-version.patch</Patch>
+                <Patch level="1">mozilla-sqlite.patch</Patch>
+                <Patch level="1">mozilla-mochitest.patch</Patch>
+                <Patch level="1">mozilla-pkgconfig.patch</Patch>
+                <Patch level="1">mozilla-ps-pdf-simplify-operators.patch</Patch>
+                <Patch>xulrunner-mozconfig.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/mozilla/xulrunner/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xulrunner</Name>
+            <RuntimeDependencies>
+                <Dependency>nss</Dependency>
+                <Dependency>nspr</Dependency>
+                <Dependency>lcms</Dependency>
+                <Dependency>libgnomeui</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>sun-jre</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc/gre.d</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib/xulrunner-1.9</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>xulrunner-devel</Name>
+            <RuntimeDependencies>
+                <Dependency>xulrunner</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include/xulrunner-sdk-1.9</Path>
+                <Path fileType="library">/usr/lib/pkgconfig</Path>
+                <Path fileType="library">/usr/lib/xulrunner-sdk-1.9</Path>
+                <Path fileType="data">/usr/share/idl/xulrunner-sdk-1.9</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-08</Date>
+                <Version>1.9.0.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>wput</Name>
             <Homepage>http://wput.sourceforge.net</Homepage>
             <Packager>
@@ -41628,7 +41970,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>transmission</Name>
-            <Homepage>http://www.transmissionbt.com/</Homepage>
+            <Homepage>http://www.transmissionbt.com</Homepage>
             <Packager>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -41640,7 +41982,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">A fast, easy, and free BitTorrent client</Summary>
             <Summary xml:lang="tr">Hızlı, basit ve özgür BitTorrent istemcisi</Summary>
             <Icon>transmission</Icon>
-            <Archive type="tarbz2" sha1sum="f40604aca6896c9f6773a4fee832e889499b6348">http://download.m0k.org/transmission/files/transmission-1.32.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="dcabfc887af0695abdcce902dc29ea3fb728288c">http://mirrors.m0k.org/transmission/files/transmission-1.33.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.8">gtk2</Dependency>
                 <Dependency>libnotify</Dependency>
@@ -41655,15 +41997,20 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-09-01</Date>
+                <Version>1.33</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-08-09</Date>
                 <Version>1.32</Version>
@@ -42811,6 +43158,61 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>ifplugd</Name>
+            <Homepage>http://0pointer.de/lennart/projects/ifplugd/</Homepage>
+            <Packager>
+                <Name>Nihat Ciddi</Name>
+                <Email>nakof@zig.gen.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>service</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">Brings up/down ethernet ports automatically with cable detection</Summary>
+            <Archive type="targz" sha1sum="0f00e6b544c0b7ed6c66fc58cb74f038d3fba77a">http://0pointer.de/lennart/projects/ifplugd/ifplugd-0.28.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>libdaemon</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>ifplugd-0.28-nlapi.diff</Patch>
+                <Patch>ifplugd-0.28-interface.patch</Patch>
+                <Patch>ifplugd-0.28-strictalias.patch</Patch>
+                <Patch level="1">ifplugd-0.28-noip.patch</Patch>
+                <Patch>ifplugd-0.28-noinitscript.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/ifplugd/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>ifplugd</Name>
+            <RuntimeDependencies>
+                <Dependency>libdaemon</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/sbin</Path>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <Provides>
+                <COMAR script="service.py">System.Service</COMAR>
+            </Provides>
+            <AdditionalFiles>
+                <AdditionalFile target="/etc/conf.d/ifplugd" permission="0644" owner="root">ifplugd.confd</AdditionalFile>
+                <AdditionalFile target="/etc/ifplugd/ifplugd.action" permission="0755" owner="root">ifplugd.action</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-04</Date>
+                <Version>0.28</Version>
+                <Comment>First release</Comment>
+                <Name>Nihat Ciddi</Name>
+                <Email>nakof@zig.gen.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>valknut</Name>
             <Homepage>http://wxdcgui.sourceforge.net/</Homepage>
             <Packager>
@@ -43357,7 +43759,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.network</PartOf>
             <Summary xml:lang="en">Java Gnutella client</Summary>
             <Summary xml:lang="tr">Java ile yazılmış bir Gnutella istemcisi</Summary>
-            <Archive type="zip" sha1sum="7f4b2cf7c1a1dd85baa59777e0042d252ef559eb">http://www.limewire.com/LimeWireSoftOther</Archive>
+            <Archive type="zip" sha1sum="2fa9ff73eaa3dd92ceb1c7bfeaf243988b196090">http://www.limewire.com/LimeWireSoftOther</Archive>
             <SourceURI>applications/network/limewire/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -43378,6 +43780,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2008-08-25</Date>
+                <Version>4.18.6</Version>
+                <Comment>Stable Update.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-07-25</Date>
                 <Version>4.18.3</Version>
@@ -44103,13 +44512,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">Simple FTP Client.</Summary>
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Icon>download</Icon>
-            <Archive type="tarbz2" sha1sum="76f2bb4e507abd0423beab34a5c94bc48969e21d">mirrors://sourceforge/filezilla/FileZilla_3.1.0.1_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="b6e376a0967ba292c307b4af8b3fc8fdb40bec1d">mirrors://sourceforge/filezilla/FileZilla_3.1.2_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8">wxGTK</Dependency>
                 <Dependency versionFrom="2.2">gnutls</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>i18n-filezilla.desktop.patch</Patch>
+                <Patch>localefix.patch</Patch>
             </Patches>
             <SourceURI>applications/network/filezilla/pspec.xml</SourceURI>
         </Source>
@@ -44131,6 +44541,27 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2008-09-01</Date>
+                <Version>3.1.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2008-08-26</Date>
+                <Version>3.1.1.1</Version>
+                <Comment>Fixes the problem of undisplayed icons reported in #7669.</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-08-23</Date>
+                <Version>3.1.1.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="6" type="security">
                 <Date>2008-07-28</Date>
                 <Version>3.1.0.1</Version>
@@ -45338,41 +45769,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>unalz</Name>
-            <Homepage>http://www.kipple.pe.kr/win/unalz</Homepage>
-            <Packager>
-                <Name>Recep Kırmızı</Name>
-                <Email>rkirmizi@gmail.com</Email>
-            </Packager>
-            <License>GPL-2</License>
-            <IsA>app:console</IsA>
-            <PartOf>applications.archive</PartOf>
-            <Summary xml:lang="en">A utility to decompress alzip format files</Summary>
-            <Archive type="tarbz2" sha1sum="21e57fa0aadd7cb24c8054c543577ada75cb22df">http://cekirdek.pardus.org.tr/~ismail/dist/unalz-0.61.tar.bz2</Archive>
-            <Patches>
-                <Patch>systemlibs.patch</Patch>
-                <Patch>flags.patch</Patch>
-            </Patches>
-            <SourceURI>applications/archive/unalz/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>unalz</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-10-30</Date>
-                <Version>0.61</Version>
-                <Comment>First release.</Comment>
-                <Name>Recep Kırmızı</Name>
-                <Email>rkirmizi@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>komparator</Name>
             <Homepage>http://komparator.sourceforge.net</Homepage>
             <Packager>
@@ -46302,7 +46698,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.office</PartOf>
             <Summary xml:lang="en">A text-based calendar and scheduling application</Summary>
             <Summary xml:lang="tr">Metin tabanlı takvim ve zamanlama uygulaması</Summary>
-            <Archive type="targz" sha1sum="324c82f55e519259606ba871abc7c0590497a2ba">http://culot.org/cgi-bin/get.cgi?calcurse-2.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="a4cb2774bdacec1ced335a9cae84e3ceb02d7418">http://culot.org/cgi-bin/get.cgi?calcurse-2.2.tar.gz</Archive>
             <SourceURI>applications/office/calcurse/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -46315,6 +46711,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-30</Date>
+                <Version>2.2</Version>
+                <Comment>version bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-06-15</Date>
                 <Version>2.1</Version>
@@ -46384,6 +46787,57 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Michael Austin</Name>
                 <Email>tuxedup@tuxedup.greenisp.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>grisbi</Name>
+            <Homepage>http://www.grisbi.org/</Homepage>
+            <Packager>
+                <Name>Hüseyin Berberoğlu</Name>
+                <Email>hberberoglu@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.office</PartOf>
+            <Summary xml:lang="en">Personal Finance Manager</Summary>
+            <Summary xml:lang="tr">Kişisel Finans Yönetim Sistemi</Summary>
+            <Description xml:lang="en">Grisbi is a personnal accounting application. Grisbi can manage multiple accounts, currencies and users.</Description>
+            <Description xml:lang="tr">Kişisel finans işlemlerinizi kayıt altında tutabileceğiniz, birden çok hesap, kullanıcı ile çalışabileceğiniz bir uygulama.</Description>
+            <Icon>grisbi</Icon>
+            <Archive type="tarbz2" sha1sum="6fb6ebf5855ac9275c4da539ff94479d2e486261">mirrors://sourceforge/grisbi/grisbi-0.5.9.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxml2</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>browser.patch</Patch>
+            </Patches>
+            <SourceURI>applications/office/grisbi/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>grisbi</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/mime-info</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/grisbi.desktop" permission="0644" owner="root">grisbi.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-15</Date>
+                <Version>0.5.9</Version>
+                <Comment>First release.</Comment>
+                <Name>Hüseyin Berberoğlu</Name>
+                <Email>hberberoglu@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -46951,6 +47405,67 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>Miro</Name>
+            <Homepage>http://www.getmiro.com</Homepage>
+            <Packager>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Packager>
+            <License>GPLv2+</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Miro turns your computer into an internet TV.</Summary>
+            <Description xml:lang="en">Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
+            <Icon>Miro</Icon>
+            <Archive type="targz" sha1sum="8b914e441084abf92c802fa1ee62c388bf87aca9">http://ftp.osuosl.org/pub/pculture.org/miro/src/Miro-1.2.7.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>pyrex</Dependency>
+                <Dependency>boost</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">dontchecksvn.patch</Patch>
+                <Patch level="1">miro-gcc-4.3.patch</Patch>
+                <Patch level="1">noautoupdate.patch</Patch>
+                <Patch level="1">xulrunner.patch</Patch>
+                <Patch level="1">pardus.patch</Patch>
+                <Patch level="1">work-around-python-problem.patch</Patch>
+                <Patch level="1">utf8.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/Miro/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>Miro</Name>
+            <RuntimeDependencies>
+                <Dependency releaseFrom="4">gnome-python-extras</Dependency>
+                <Dependency>xulrunner</Dependency>
+                <Dependency>gst-python</Dependency>
+                <Dependency>boost</Dependency>
+                <Dependency>pyrex</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="library">/usr/lib/python2.5</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-30</Date>
+                <Version>1.2.7</Version>
+                <Comment>First release.</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>comix</Name>
             <Homepage>http://comix.sourceforge.net/</Homepage>
             <Packager>
@@ -47061,14 +47576,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">CLI program to play and record audiofiles.</Summary>
             <Summary xml:lang="tr">Ses dosyalarını çalmak ve kaydetmek için komut satırında çalışan bir uygulama.</Summary>
             <Description xml:lang="en">CLI program to play and record audiofiles.</Description>
             <Description xml:lang="tr">Ses dosyalarını çalmak ve kaydetmek için komut satırında çalışan bir uygulama.</Description>
-            <Archive type="targz" sha1sum="cd3892a6bb6d8c6f19e12d29cf30cf5d0e2bd343">http://heanet.dl.sourceforge.net/sourceforge/rawrec/rawrec-0.9.991.tar.gz</Archive>
+            <Archive type="targz" sha1sum="cd3892a6bb6d8c6f19e12d29cf30cf5d0e2bd343">mirrors://sourceforge/rawrec/rawrec-0.9.991.tar.gz</Archive>
             <SourceURI>applications/multimedia/rawrec/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -47080,6 +47595,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>0.9.991</Version>
+                <Comment>Correct the Download Link.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-04-30</Date>
                 <Version>0.9.991</Version>
@@ -47746,7 +48268,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">A webcam streaming image viewer</Summary>
-            <Summary xml:lang="tr">Webcam ve Görüntü aygıları için bir araç.</Summary>
+            <Summary xml:lang="tr">Webcam ve Görüntü aygıtları için bir araç.</Summary>
             <Description xml:lang="en">CamStream is (going to be) a collection of tools for webcams and other video-devices, enhancing your Linux system with multimedia video.</Description>
             <Icon>camstream</Icon>
             <Archive type="targz" sha1sum="4d6600947398c11e34f6a1b631a5e270a46956ab">http://www.smcc.demon.nl/camstream/download/camstream-snapshot-070511.tar.gz</Archive>
@@ -47784,6 +48306,57 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>libzzub</Name>
+            <Homepage>http://trac.zeitherrschaft.org/zzub/</Homepage>
+            <Packager>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <IsA>app:console</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">A C/C++ music tracking and sequencing library</Summary>
+            <Description xml:lang="en">An open source platform independent C/C++ music tracking and sequencing library compatible to Jeskola Buzz.</Description>
+            <Archive type="tarbz2" sha1sum="c14461a32d645e1a854eab627d435ae4c13d689e">mirrors://sourceforge/aldrin/libzzub-0.2.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>flac</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsamplerate</Dependency>
+                <Dependency>ladspa-sdk</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>SConstruct.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/libzzub/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>libzzub</Name>
+            <RuntimeDependencies>
+                <Dependency>flac</Dependency>
+                <Dependency>jack-audio-connection-kit</Dependency>
+                <Dependency>libsamplerate</Dependency>
+                <Dependency>ladspa-sdk</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-15</Date>
+                <Version>0.2.5</Version>
+                <Comment>First release.</Comment>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -47932,7 +48505,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">A simple and easy to use audio multi-tracker</Summary>
             <Summary xml:lang="tr">Basit ve sade bir çoklu ses kayıt izleyicisi</Summary>
             <Icon>jokosher</Icon>
-            <Archive type="targz" sha1sum="56ec26d91e7a559514814fd01bca8d281f63c3da">http://www.jokosher.org/downloads/source/jokosher-0.9.tar.gz</Archive>
+            <Archive type="targz" sha1sum="005172d8b5703caa13f80d853448f6b7aea72518">http://launchpad.net/jokosher/0.10/0.10/+download/jokosher-0.10.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>PyXML</Dependency>
@@ -47966,6 +48539,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-09-01</Date>
+                <Version>0.10</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-07-31</Date>
                 <Version>0.9</Version>
@@ -48005,20 +48585,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Kino is a non-linear DV editor for GNU/Linux.</Description>
             <Description xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir.</Description>
             <Icon>kino</Icon>
-            <Archive type="targz" sha1sum="272860f89888a5e475a8dd792c6d8df2f7128695">mirrors://sourceforge/kino/kino-1.3.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="c59a3967432a450cb278601c961da1c946c72cfa">mirrors://sourceforge/kino/kino-1.3.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libiec61883</Dependency>
-                <Dependency versionFrom="1.0.0">libraw1394</Dependency>
-                <Dependency versionFrom="0.4.1">libavc1394</Dependency>
-                <Dependency versionFrom="0.103">libdv</Dependency>
-                <Dependency>gtk2</Dependency>
+                <Dependency>libquicktime</Dependency>
                 <Dependency>libglade2</Dependency>
                 <Dependency>audiofile</Dependency>
                 <Dependency>libsamplerate</Dependency>
                 <Dependency>libxml2</Dependency>
-                <Dependency>libquicktime</Dependency>
                 <Dependency>alsa-lib</Dependency>
-                <Dependency>ffmpeg</Dependency>
                 <Dependency>libXv</Dependency>
             </BuildDependencies>
             <Patches>
@@ -48030,25 +48605,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>kino</Name>
             <RuntimeDependencies>
                 <Dependency>libiec61883</Dependency>
-                <Dependency versionFrom="1.0.0">libraw1394</Dependency>
-                <Dependency versionFrom="0.4.1">libavc1394</Dependency>
-                <Dependency versionFrom="0.103">libdv</Dependency>
-                <Dependency>gtk2</Dependency>
+                <Dependency>libquicktime</Dependency>
                 <Dependency>libglade2</Dependency>
                 <Dependency>audiofile</Dependency>
-                <Dependency>libsamplerate</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>libquicktime</Dependency>
+                <Dependency>gpac</Dependency>
                 <Dependency>qdvdauthor</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>ffmpeg</Dependency>
                 <Dependency>libXv</Dependency>
                 <Dependency>dvdauthor</Dependency>
                 <Dependency>rawrec</Dependency>
-                <Dependency>mjpegtools</Dependency>
                 <Dependency>dvd+rw-tools</Dependency>
-                <Dependency>gpac</Dependency>
-                <Dependency>lame</Dependency>
                 <Dependency>gst-plugins-base</Dependency>
                 <Dependency>sox</Dependency>
                 <Dependency>vorbis-tools</Dependency>
@@ -48068,6 +48633,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2008-09-02</Date>
+                <Version>1.3.2</Version>
+                <Comment>Version bump and remove unneccessary dependencies.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-03-02</Date>
                 <Version>1.3.0</Version>
@@ -48122,7 +48694,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>rawstudio</Name>
-            <Homepage>http://rawstudio.org/</Homepage>
+            <Homepage>http://rawstudio.org</Homepage>
             <Packager>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -48132,11 +48704,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">An open-source program to read and manipulate RAW images from most digital cameras</Summary>
             <Description xml:lang="en">Rawstudio will convert your RAW files into JPEG, PNG or TIF images which you can then print or send to friends and clients.</Description>
-            <Archive type="targz" sha1sum="14e8f09107a24c2ec7fc07505c1d774833bb6458">http://rawstudio.org/files/release/rawstudio-1.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="fdea7b9a88f69ea3a12a309863831f5e0ee8e2b8">http://rawstudio.org/files/release/rawstudio-1.0rc1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.8">gtk2</Dependency>
                 <Dependency>gconf</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
             <SourceURI>applications/multimedia/rawstudio/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -48156,6 +48731,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>1.0_rc1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-04-26</Date>
                 <Version>1.0</Version>
@@ -48233,20 +48815,66 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>aldrin</Name>
+            <Homepage>http://trac.zeitherrschaft.org/aldrin</Homepage>
+            <Packager>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Modular music sequencer/tracker</Summary>
+            <Description xml:lang="en">Aldrin is an open source modular music sequencer/tracker for the GNU/Linux operating system. It features a flexible audio routing system commonly found in expensive audio software, enabling you to mix, split, mutilate and modify audio signals emitted by software synthesizers and samples.</Description>
+            <Icon>aldrin</Icon>
+            <Archive type="tarbz2" sha1sum="85c521c7ccb18bd9cea8d2b579a7ed0c12af9c15">mirrors://sourceforge/aldrin/aldrin-0.12.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>wxPython</Dependency>
+                <Dependency>libzzub</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">aldrin.desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/aldrin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>aldrin</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.6">wxPython</Dependency>
+                <Dependency>libzzub</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-18</Date>
+                <Version>0.12</Version>
+                <Comment>First release.</Comment>
+                <Name>Semen Cirit</Name>
+                <Email>semen@pardus.org.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>mypaint</Name>
             <Homepage>http://people.ee.ethz.ch/~mrenold/mypaint/</Homepage>
             <Packager>
-                <Name>Alper Somuncu</Name>
-                <Email>alper@alpersomuncu.com</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">Painting application</Summary>
             <Summary xml:lang="tr">Boyama programı</Summary>
-            <Description xml:lang="en">Mypaint is a painting application that uses pygtk with C extensions</Description>
-            <Description xml:lang="tr">Mypaint, C eklentileri ile birlikte pygtk kullanan bir boyama programıdır.</Description>
-            <Archive type="tarbz2" sha1sum="cd9a81f1bdd517cf3313a0561d96b8ed8ed5c3ab">http://people.ee.ethz.ch/~mrenold/mypaint/mypaint-0.5.0.tar.bz2</Archive>
+            <Description xml:lang="en">MyPaint is a fast and easy painting application. It lets you focus on the art instead of the program</Description>
+            <Description xml:lang="tr">MyPaint hızlı ve kolay bir boyama programıdır. Programa yoğunlaşacağınıza sanata yoğunlaşmanızı sağlar.</Description>
+            <Archive type="tarbz2" sha1sum="c1e02ba4ecc50cef842c320a40ea21f2d7474ee6">http://ee-staff.ethz.ch/%7Emrenold/mypaint/mypaint-0.5.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
             </BuildDependencies>
@@ -48261,17 +48889,22 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>pygtk</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share/mypaint</Path>
-                <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>0.5.1</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-07-31</Date>
                 <Version>0.5.0</Version>
@@ -48478,7 +49111,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">GTK+2 ile yapılmış altyazı düzenleme aracı</Summary>
             <Description xml:lang="en">It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
             <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
-            <Archive type="targz" sha1sum="75b9a24b83d997620d211d50107d75bc23affbfa">http://download.gna.org/subtitleeditor/0.21/subtitleeditor-0.21.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f04a2ce7ac8ebe830e3349beff779057891bec20">http://download.gna.org/subtitleeditor/0.22/subtitleeditor-0.22.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.4">libglademm</Dependency>
                 <Dependency>libxmlpp2</Dependency>
@@ -48488,7 +49121,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Patches>
                 <Patch>desktop.patch</Patch>
                 <Patch>sandbox.patch</Patch>
-                <Patch>encoding_const.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/subtitleeditor/pspec.xml</SourceURI>
         </Source>
@@ -48511,6 +49143,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2008-08-30</Date>
+                <Version>0.22.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-07-12</Date>
                 <Version>0.21.3</Version>
@@ -48876,7 +49515,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">An advance Kde mplayer interface</Summary>
             <Description xml:lang="en">SMPlayer intends to be a complete front-end for MPlayer, from basic features like playing videos, DVDs, and VCDs to more advanced features like support for MPlayer filters and more.</Description>
-            <Archive type="tarbz2" sha1sum="b9dd657b3fd24bda951ed942d5698ae85a24b52b">mirrors://berlios/smplayer/smplayer-0.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="902b86242ff483f603dbb52d39f342093a50e5d8">mirrors://berlios/smplayer/smplayer-0.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
             </BuildDependencies>
@@ -49450,7 +50089,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">Qt based DVD tool</Summary>
             <Description xml:lang="en">Qt based set of tools to help you author a DVD</Description>
-            <Archive type="targz" sha1sum="ea317f1d6ec009ef0bedcae3727110cfc21405fb">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.0.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="68ff58cd92e587bd427b35edff595305633bc93c">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.5.0-2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>xine-lib</Dependency>
                 <Dependency>netpbm</Dependency>
@@ -49482,6 +50121,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2008-09-02</Date>
+                <Version>1.5.0</Version>
+                <Comment>Version Bump, add some comments to actions.py .</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-10-17</Date>
                 <Version>1.0.0</Version>
@@ -49556,6 +50202,65 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gtkpod</Name>
+            <Homepage>http://www.gtkpod.org</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">A GUI for Apple&apos;s iPod using GTK2</Summary>
+            <Icon>gtkpod</Icon>
+            <Archive type="targz" sha1sum="ab7c03ee1a875fe2bab953d5805a2a4d65fcd669">mirrors://sourceforge/gtkpod/gtkpod-0.99.12.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
+                <Dependency versionFrom="0.6.0">libgpod</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>libid3tag</Dependency>
+                <Dependency>flac</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libmp4v2</Dependency>
+                <Dependency>pkgconfig</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/gtkpod/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gtkpod</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
+                <Dependency versionFrom="0.6.0">libgpod</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>libid3tag</Dependency>
+                <Dependency>flac</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libmp4v2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/gtkpod</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-16</Date>
+                <Version>0.99.12</Version>
+                <Comment>First release</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -49666,12 +50371,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency versionFrom="1.4">libbinio</Dependency>
                 <Dependency versionFrom="1.0.17">libsndfile</Dependency>
                 <Dependency versionFrom="1.3.0">libcddb</Dependency>
-                <Dependency versionFrom="0.2.6.1">libmtp</Dependency>
+                <Dependency versionFrom="0.3.0">libmtp</Dependency>
                 <Dependency versionFrom="0.7.1">libmcs</Dependency>
                 <Dependency versionFrom="1.1">libprojectM</Dependency>
                 <Dependency versionFrom="1.2.0">gtkglext</Dependency>
                 <Dependency>lirc</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>libmtp.patch</Patch>
+            </Patches>
             <SourceURI>applications/multimedia/audacious-plugins/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -49717,6 +50425,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="21">
+                <Date>2008-08-25</Date>
+                <Version>1.5.1</Version>
+                <Comment>Fix for libmtp 0.3.0 api break</Comment>
+                <Name>İşbaran Akçayır</Name>
+                <Email>isbaran@comu.edu.tr</Email>
+            </Update>
             <Update release="20">
                 <Date>2008-05-31</Date>
                 <Version>1.5.1</Version>
@@ -50231,6 +50946,9 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>dvdauthor</Dependency>
                 <Dependency>imagemagick</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>do-not-check-mplayer.patch</Patch>
+            </Patches>
             <SourceURI>applications/multimedia/videotrans/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -50250,6 +50968,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2008-09-02</Date>
+                <Version>1.6.0</Version>
+                <Comment>Add aspects.txt and make ready for 2008</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-10-09</Date>
                 <Version>1.6.0</Version>
@@ -51823,6 +52548,78 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>cinelerra</Name>
+            <Homepage>http://cvs.cinelerra.org/</Homepage>
+            <Packager>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Non-Linear Video Editing Suite - Community version</Summary>
+            <Summary xml:lang="tr">Profesyonel vidyo düzenleme programı</Summary>
+            <Description xml:lang="en">Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
+            <Description xml:lang="tr">Paket kurulumu yaptıktan sonra root olarak /etc/sysctl.conf dosyasının en alt satırına kernel/shmmax=0x7fffffff satırını ekleyip sysctl -p komutunu uygulayın.</Description>
+            <Icon>multimedia</Icon>
+            <Archive type="tarbz2" sha1sum="a7d4b9eebd62b6d7259a45afd843cc1a274d61f3">http://pardus.kilu.de/dist/cinelerra_cv1061.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.7.4">a52dec</Dependency>
+                <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+                <Dependency versionFrom="3.8.2">tiff</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency versionFrom="3.1.2">fftw3</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency versionFrom="1.6.1">openexr</Dependency>
+                <Dependency>libtheora</Dependency>
+                <Dependency versionFrom="0.5.3">libavc1394</Dependency>
+                <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>bcclipboardC.patch</Patch>
+                <Patch level="1">ffmpeg_external.patch</Patch>
+                <Patch>fix_lib.patch</Patch>
+                <Patch>libGL_fix.patch</Patch>
+                <Patch level="1">configure_in.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/cinelerra/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>cinelerra</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.7.4">a52dec</Dependency>
+                <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+                <Dependency versionFrom="3.8.2">tiff</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency versionFrom="3.1.2">fftw3</Dependency>
+                <Dependency>mjpegtools</Dependency>
+                <Dependency versionFrom="1.6.1">openexr</Dependency>
+                <Dependency>libtheora</Dependency>
+                <Dependency versionFrom="0.5.3">libavc1394</Dependency>
+                <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/cinelerra</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-07-24</Date>
+                <Version>2.1_20080724</Version>
+                <Comment>First release.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>lives</Name>
             <Homepage>http://lives.sf.net</Homepage>
             <Packager>
@@ -51833,22 +52630,23 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
             <Summary xml:lang="en">Linux Video Editing System</Summary>
-            <Archive type="tarbz2" sha1sum="eb43753f69e610366e31f04a37958b5e019127c1">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-0.9.8.12.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="5ce4f6181ae8c182cfb8f6c688909971e82dbc9d">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-0.9.9.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>mplayer</Dependency>
-                <Dependency versionFrom="6.3.8.3">imagemagick</Dependency>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="1.2.11">libsdl</Dependency>
+                <Dependency versionFrom="6.4.1.5">imagemagick</Dependency>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="1.2.13">libsdl</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency versionFrom="13.0.0">sox</Dependency>
+                <Dependency versionFrom="14.0.1">sox</Dependency>
                 <Dependency>cdrtools</Dependency>
-                <Dependency versionFrom="1.8.0">mjpegtools</Dependency>
+                <Dependency>mjpegtools</Dependency>
                 <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
                 <Dependency versionFrom="3.1">dvgrab</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop-tr.patch</Patch>
                 <Patch>smogrify.patch</Patch>
+                <Patch level="1">destdir.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/lives/pspec.xml</SourceURI>
         </Source>
@@ -51856,24 +52654,35 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>lives</Name>
             <RuntimeDependencies>
                 <Dependency>mplayer</Dependency>
-                <Dependency versionFrom="6.3.8.3">imagemagick</Dependency>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="1.2.11">libsdl</Dependency>
+                <Dependency versionFrom="6.4.1.5">imagemagick</Dependency>
+                <Dependency versionFrom="2.12.11">gtk2</Dependency>
+                <Dependency versionFrom="1.2.13">libsdl</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency versionFrom="13.0.0">sox</Dependency>
+                <Dependency versionFrom="14.0.1">sox</Dependency>
                 <Dependency>cdrtools</Dependency>
-                <Dependency versionFrom="1.8.0">mjpegtools</Dependency>
+                <Dependency>mjpegtools</Dependency>
                 <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
                 <Dependency versionFrom="3.1">dvgrab</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/lives</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2008-08-25</Date>
+                <Version>0.9.9.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-06-17</Date>
                 <Version>0.9.8.12</Version>
@@ -53152,6 +53961,45 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>hddtemp</Name>
+            <Homepage>http://www.guzu.net/linux/hddtemp.php</Homepage>
+            <Packager>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.hardware</PartOf>
+            <Summary xml:lang="en">hddtemp gives temperature of hard drive</Summary>
+            <Description xml:lang="en">hddtemp is a small utility (daemonizable) that gives you the temperature of your hard drive by reading S.M.A.R.T. informations (for drives that support this feature).</Description>
+            <Archive type="tarbz2" sha1sum="65393b0a4d9862c030c81702d95c1acd00da275b">http://download.savannah.gnu.org/releases/hddtemp/hddtemp-0.3-beta15.tar.bz2</Archive>
+            <SourceURI>applications/hardware/hddtemp/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>hddtemp</Name>
+            <Files>
+                <Path fileType="executable">/usr/sbin/</Path>
+                <Path fileType="doc">/usr/share/doc/</Path>
+                <Path fileType="man">/usr/share/man/</Path>
+                <Path fileType="localedata">/usr/share/locale/</Path>
+                <Path fileType="data">/usr/share/misc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/misc/hddtemp.db" permission="0755" owner="root">hddtemp.db</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-08-06</Date>
+                <Version>0.3_beta15</Version>
+                <Comment>First Release</Comment>
+                <Name>Uğur Tutar</Name>
+                <Email>tutarugur@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>gperiodic</Name>
             <Homepage>http://www.frantz.fi/software/gperiodic.php</Homepage>
             <Packager>
@@ -53339,20 +54187,20 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>rlplot</Name>
             <Homepage>http://rlplot.sourceforge.net/</Homepage>
             <Packager>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
             </Packager>
-            <License>GPL</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.science</PartOf>
             <Summary xml:lang="en">A plotting program to create high quality graphs from data</Summary>
             <Description xml:lang="en">RLPlot is is a plotting program to create high quality graphs from data. Based on values stored in a spreadsheet several menus help you to create graphs of your choice. The Graphs are displayed as you get them (Wysiwyg).</Description>
-            <Archive type="targz" sha1sum="11069c26437ece1c06a4450facd98f854149ba8d">mirrors://sourceforge/rlplot/rlplot_1.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="9f6d3ae9f3e023cf20134105d5460fb597be6cc8">mirrors://sourceforge/rlplot/rlplot_1.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>qt-dir.patch</Patch>
+                <Patch>qt3-dir-for-rplot_1.5.patch</Patch>
             </Patches>
             <SourceURI>applications/science/rlplot/pspec.xml</SourceURI>
         </Source>
@@ -53373,6 +54221,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2008-09-07</Date>
+                <Version>1.5</Version>
+                <Comment>Stable update and package takeover</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-02-25</Date>
                 <Version>1.3</Version>
@@ -54617,7 +55472,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Türker Sezer</Name>
                 <Email>turkersezer@tsdesign.info</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>applications.science.electronics</PartOf>
             <Summary xml:lang="en">GNU Circuit Analysis Package</Summary>
@@ -54625,6 +55480,9 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <BuildDependencies>
                 <Dependency>tetex</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">gcc4.3.patch</Patch>
+            </Patches>
             <SourceURI>applications/science/electronics/gnucap/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -54634,7 +55492,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/gnucap/doc</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share/gnucap</Path>
                 <Path fileType="man">/usr/share/man</Path>
             </Files>
@@ -54962,7 +55820,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files</Summary>
             <Summary xml:lang="tr">LXT, LXT2, VZT, GHW ve VCD/EVCD dosyaları için dalga görüntüleyici</Summary>
             <Description xml:lang="en">GTKWave is a fully featured GTK+ based wave viewer for Unix and Win32 which reads LXT, LXT2, VZT, and GHW files as well as standard Verilog VCD/EVCD files and allows their viewing.</Description>
-            <Archive type="targz" sha1sum="67bf267a4b35068a06b2a67cb1751127e81c33df">mirrors://sourceforge/gtkwave/gtkwave-3.1.10.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b4e882b3ce96bd5ebf9f007221cd088ff41465a4">http://home.nc.rr.com/gtkwave/gtkwave-3.1.13.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gperf</Dependency>
@@ -54983,6 +55841,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2008-08-30</Date>
+                <Version>3.1.13</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2008-06-18</Date>
                 <Version>3.1.10</Version>
@@ -56999,7 +57864,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <IsA>app:gui</IsA>
             <PartOf>applications.science</PartOf>
             <Summary xml:lang="en">FET is open source/free software for automatically scheduling the timetable of a school, high-school or university</Summary>
-            <Archive type="tarbz2" sha1sum="9462d35605ef4fdcdd6e5aa3349c54d33f6924e8">http://www.lalescu.ro/liviu/fet/download/fet-5.4.17.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="7c494efc3b5c0a0384090db812b217e33ae9df61">http://timetabling.de/download/fet-5.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="4.3">qt4</Dependency>
             </BuildDependencies>
@@ -57024,6 +57889,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2008-08-21</Date>
+                <Version>5.6.2</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Ertan Güven</Name>
+                <Email>ertan95@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-01-04</Date>
                 <Version>5.4.17</Version>
@@ -57909,6 +58781,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
         <Summary xml:lang="en">Amsn themes, plugins</Summary>
         <Summary xml:lang="tr">Amsn temaları, eklentileri</Summary>
         <Description xml:lang="en">Amsn themes, plugins</Description>
+    </Component>
+    <Component>
+        <Name>applications.network.mozilla</Name>
+        <LocalName xml:lang="en">Mozilla</LocalName>
+        <LocalName xml:lang="tr">Mozilla</LocalName>
+        <Summary xml:lang="en">Mozilla applications and related plugins</Summary>
+        <Summary xml:lang="tr">Mozilla programları ve ilgili eklentiler</Summary>
+        <Description xml:lang="en">This component contains Mozilla applications and plugins needed for them to function properly.</Description>
+        <Description xml:lang="tr">Bu bölümde Mozilla Suite, Thunderbird, Firefox gibi Mozilla yazılımları ve bunların işlevselliğine yönelik hazırlanmış eklentiler (örn. Flash) bulunur.</Description>
     </Component>
     <Component>
         <Name>applications.editors</Name>
