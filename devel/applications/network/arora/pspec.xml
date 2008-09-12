@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>arora</Name>
+        <Homepage>http://code.google.com/p/arora/</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <Icon>arora</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A simple cross platform web browser</Summary>
+        <Description>Arora is a fast, easy QtWebkit based cross platform browser.</Description>
+        <Archive sha1sum="560707e2e20bbc18f3692f227033111b0f41af34"  type="targz">http://arora.googlecode.com/files/arora-0.3.tar.gz</Archive>
+        <BuildDependencies>
+             <Dependency>qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>arora</Name>
+        <RuntimeDependencies>
+             <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/arora/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-31</Date>
+            <Version>0.3</Version>
+            <Comment>First Release</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
