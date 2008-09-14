@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>abakus</Name>
+        <Homepage>http://purinchu.net/abakus/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Abakus is a simple calculator for KDE</Summary>
+        <Summary xml:lang="tr">Abakus , KDE için basit bir hesap makinesidir.</Summary>
+        <Description>Abakus is a simple calculator for KDE.</Description>
+        <Description xml:lang="tr">Abakus , KDE için basit bir hesap makinesidir.</Description>
+        <Archive sha1sum="c08b2db5920418d38813f3947530d9f17c72bf0a" type="tarbz2">http://purinchu.net/abakus/abakus-0.91.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>mpfr</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>abakus</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>mpfr</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-09-14</Date>
+            <Version>0.91</Version>
+            <Comment>Add documentation and ready for 2008</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-24</Date>
+            <Version>0.91</Version>
+            <Comment>First Release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
