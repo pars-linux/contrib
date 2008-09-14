@@ -30,4 +30,3 @@ def install():
     pisitools.removeDir("/usr/share/playonlinux/lang/po")
     pisitools.remove("/usr/share/playonlinux/LICENCE")
     pisitools.remove("/usr/share/playonlinux/CHANGELOG")
-    pisitools.remove("/usr/share/playonlinux/playonlinux")
