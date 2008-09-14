@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>devede</Name>
+        <Homepage>http://www.rastersoft.com/programas/devede.html</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:gui</IsA>
+        <Summary>DVD and CD Video Creator</Summary>
+        <Description>DeVeDe is a program to create video DVDs and CDs (VCD, sVCD or CVD)</Description>
+        <Archive sha1sum="cc84eefbe7ee15cf88d790a3820d925cc29463dd" type="tarbz2">http://www.rastersoft.com/descargas/devede-3.11b.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency versionFrom="0.6.14">dvdauthor</Dependency>
+            <Dependency versionFrom="0.7.23">vcdimager</Dependency>
+            <Dependency versionFrom="1.6">psyco</Dependency>
+            <Dependency>cdrtools</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>devede</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency versionFrom="0.6.14">dvdauthor</Dependency>
+            <Dependency versionFrom="0.7.23">vcdimager</Dependency>
+            <Dependency versionFrom="1.6">psyco</Dependency>
+            <Dependency>cdrtools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/devede</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/devede.png">devede.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-09-14</Date>
+            <Version>3.11b</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
