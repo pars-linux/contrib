@@ -6,9 +6,11 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
-    autotools.configure()
+    shelltools.export("CPPFLAGS","-D_GNU_SOURCE")
+    autotools.configure("--disable-static")
 
 def build():
     autotools.make()
@@ -16,4 +18,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangLog", "README", "NEWS", "MAINTAINERS")
+    pisitools.dodoc("AUTHORS", "ChangLog", "README", "NEWS", "MAINTAINERS","COPYING")
