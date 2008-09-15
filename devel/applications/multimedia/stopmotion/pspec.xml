@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>stopmotion</Name>
+        <Homepage>http://stopmotion.bjoernen.com</Homepage>
+        <Packager>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>stopmotion</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Program for creating stop motion animations</Summary>
+        <Description>Stopmotion is a free application for creating stop-motion animation movies. The users will be able to create stop-motions from pictures imported from a camera or from the harddrive, add sound effects and export the animation to different video formats such as mpeg or avi.</Description>
+        <Archive sha1sum="606c585cb6de1c5ac308dcc8eb9df7f1844ec31b" type="targz">http://developer.skolelinux.no/info/studentgrupper/2005-hig-stopmotion/project_management/webpage/releases/stopmotion-0.6.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>libtar</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>vorbis-tools</Dependency>
+            <Dependency>inotify-tools</Dependency>
+            <Dependency>gamin</Dependency>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>fixtranslations.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>stopmotion</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>libtar</Dependency>
+            <Dependency>sdl-image</Dependency>
+            <Dependency>vorbis-tools</Dependency>
+            <Dependency>inotify-tools</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>dvgrab</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/stopmotion</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/stopmotion.desktop">stopmotion.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-06-14</Date>
+            <Version>0.6.2</Version>
+            <Comment>First release.</Comment>
+            <Name>İnanç Yıldırgan</Name>
+            <Email>inancyildirgan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
