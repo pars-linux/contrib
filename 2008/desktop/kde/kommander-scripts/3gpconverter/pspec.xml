@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>3gp-converter</Name>
+        <Homepage>http://convert3gp.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv1</License>
+        <IsA>app:gui</IsA>
+        <Summary>3gp converter is a GUI(kommander script) that uses ffmpeg to convert video files in the 3gp format, which is used by mobile phones</Summary>
+        <Summary xml:lang="tr">3gp dönüştürücü arayüzüdür. Görüntü dosyalarını ffmpeg kullanarak 3gp biçimine çevirir, bu dosyalar mobil telefonlar tarafından kullanılır.</Summary>
+        <Archive type="tarbz2" sha1sum="7a7bd55f94d5c9c81df2d2626d9e493eb74483f6">mirrors://sourceforge/convert3gp/3gpconverter-0.6.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kdewebdev</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>amr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>3gp-converter</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>kdewebdev</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/share/doc/</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/kde/3.5/bin/3gpconverter">3gpconverter</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/kde/3.5/share/applnk/Utilities/3gpconverter.desktop">3gpconverter.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2008-09-15</Date>
+            <Version>0.6</Version>
+            <Comment>add documentation and ready to merge to contrib-2008 repo</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-11-11</Date>
+            <Version>0.6</Version>
+            <Comment>Fix audiocodec problem. Thanks Uğur Çetin.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-15</Date>
+            <Version>0.6</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-27</Date>
+            <Version>0.4</Version>
+            <Comment>First version</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
