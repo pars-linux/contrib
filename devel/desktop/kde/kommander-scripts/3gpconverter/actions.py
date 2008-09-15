@@ -11,3 +11,5 @@ WorkDir="3gpconverter-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/kde/3.5/bin", "3gpconverter-0.6.kmdr","3gpconverter.kmdr")
+
+    pisitools.dodoc("changelog", "readme")
