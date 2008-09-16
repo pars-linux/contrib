@@ -7,22 +7,20 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-static=no \
-                                  --disable-scrollkeeper \
-                                  --enable-pdf \
-                                  --enable-tiff \
-                                  --enable-djvu \
-                                  --enable-dvi \
-                                  --enable-t1lib \
-                                  --enable-pixbuf")
+    autotools.configure("--disable-static\
+                         --disable-scrollkeeper\
+                         --disable-schemas-install\
+                         --enable-pixbuf\
+                         --enable-impress")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
     pisitools.dodoc("README", "TODO", "AUTHORS", "ChangeLog")
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
