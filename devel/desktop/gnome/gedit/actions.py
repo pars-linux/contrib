@@ -6,20 +6,17 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import pythonmodules
+from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-static \
-                         --disable-scrollkeeper \
-                         --disable-spell \
-                         --enable-python")
+    autotools.configure("--disable-static\
+                         --disable-scrollkeeper\
+                         --disable-schemas-install")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
-
-    pythonmodules.fixCompiledPy(lookInto="/usr/lib/gedit-2/plugins")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("NEWS", "TODO", "README", "BUGS", "AUTHORS", "ChangeLog")
