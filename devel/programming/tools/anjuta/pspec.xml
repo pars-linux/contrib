@@ -5,10 +5,11 @@
         <Name>anjuta</Name>
         <Homepage>http://anjuta.sourceforge.net/</Homepage>
         <Packager>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>anjuta</Icon>
         <IsA>app:gui</IsA>
         <Summary>Versatile Integrated Development Environment (IDE) for C and C++ on GNU/Linux</Summary>
         <Archive sha1sum="4cba75f0e99e03bb1c8623a9b50a3d6038a9bba4" type="tarbz2">mirrors://gnome/anjuta/2.4/anjuta-2.4.2.tar.bz2</Archive>
@@ -23,13 +24,10 @@
             <Dependency versionFrom="2.20.0">gnome-vfs</Dependency>
             <Dependency versionFrom="2.20.0">gconf</Dependency>
             <Dependency>vte</Dependency>
-            <Dependency>libxml2</Dependency>
             <Dependency versionFrom="0.7.7">gdl</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
             <Dependency versionFrom="0.2.0">gnome-build</Dependency>
-            <Dependency>libpcre</Dependency>
             <Dependency>libwnck</Dependency>
-            <Dependency>libxslt</Dependency>
             <Dependency>binutils</Dependency>
             <Dependency>autogen</Dependency>
             <Dependency>graphviz</Dependency>
@@ -39,9 +37,6 @@
             <Dependency>glade</Dependency>
             <Dependency>gdb</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -57,12 +52,9 @@
             <Dependency versionFrom="2.20.0">gnome-vfs</Dependency>
             <Dependency versionFrom="2.20.0">gconf</Dependency>
             <Dependency>vte</Dependency>
-            <Dependency>libxml2</Dependency>
             <Dependency versionFrom="0.7.7">gdl</Dependency>
             <Dependency versionFrom="0.2.0">gnome-build</Dependency>
-            <Dependency>libpcre</Dependency>
             <Dependency>libwnck</Dependency>
-            <Dependency>libxslt</Dependency>
             <Dependency>binutils</Dependency>
             <Dependency>autogen</Dependency>
             <Dependency>graphviz</Dependency>
@@ -86,6 +78,13 @@
    </Package>
 
    <History>
+       <Update release="8">
+           <Date>2008-09-16</Date>
+           <Version>2.4.2</Version>
+           <Comment>Remove system.base dependencies and unnecessary patch, ready to merge 2008 and package takeover.</Comment>
+           <Name>Serdar Dalgıç</Name>
+           <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="7">
             <Date>2008-05-27</Date>
             <Version>2.4.2</Version>
