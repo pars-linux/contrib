@@ -8,7 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-docs")
+    autotools.configure("--disable-static\
+                         --disable-docs")
 
 def build():
     autotools.make()
