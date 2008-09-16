@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>anjuta</Name>
+        <Homepage>http://anjuta.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>anjuta</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Versatile Integrated Development Environment (IDE) for C and C++ on GNU/Linux</Summary>
+        <Archive sha1sum="4cba75f0e99e03bb1c8623a9b50a3d6038a9bba4" type="tarbz2">mirrors://gnome/anjuta/2.4/anjuta-2.4.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.20.1">libgnome</Dependency>
+            <Dependency versionFrom="2.20.0">libgnomeui</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency versionFrom="2.20.0">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.20.0">gconf</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency versionFrom="0.7.7">gdl</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency versionFrom="0.2.0">gnome-build</Dependency>
+            <Dependency>libwnck</Dependency>
+            <Dependency>binutils</Dependency>
+            <Dependency>autogen</Dependency>
+            <Dependency>graphviz</Dependency>
+            <Dependency versionFrom="2.2.1">gtksourceview</Dependency>
+            <Dependency>subversion</Dependency>
+            <Dependency>valgrind</Dependency>
+            <Dependency>glade</Dependency>
+            <Dependency>gdb</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>anjuta</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency versionFrom="2.14.10">orbit2</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.20.1">libgnome</Dependency>
+            <Dependency versionFrom="2.20.0">libgnomeui</Dependency>
+            <Dependency>libgnomeprint</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency versionFrom="2.20.0">gnome-vfs</Dependency>
+            <Dependency versionFrom="2.20.0">gconf</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency versionFrom="0.7.7">gdl</Dependency>
+            <Dependency versionFrom="0.2.0">gnome-build</Dependency>
+            <Dependency>libwnck</Dependency>
+            <Dependency>binutils</Dependency>
+            <Dependency>autogen</Dependency>
+            <Dependency>graphviz</Dependency>
+            <Dependency versionFrom="2.2.1">gtksourceview</Dependency>
+            <Dependency>subversion</Dependency>
+            <Dependency>valgrind</Dependency>
+            <Dependency>glade</Dependency>
+            <Dependency>gdb</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+   </Package>
+
+   <History>
+       <Update release="8">
+           <Date>2008-09-16</Date>
+           <Version>2.4.2</Version>
+           <Comment>Remove system.base dependencies and unnecessary patch, ready to merge 2008 and package takeover.</Comment>
+           <Name>Serdar Dalgıç</Name>
+           <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-05-27</Date>
+            <Version>2.4.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-02-11</Date>
+            <Version>2.3.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-11-03</Date>
+            <Version>2.3.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-09-10</Date>
+            <Version>2.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-06-26</Date>
+            <Version>2.2.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+       <Update release="2">
+            <Date>2007-05-12</Date>
+            <Version>2.1.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-30</Date>
+            <Version>2.1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
