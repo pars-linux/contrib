@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gedit</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Default text editor for the GNOME desktop</Summary>
+        <Archive sha1sum="3582e532c6c18f1b49b92878540484693976307b" type="tarbz2">mirrors://gnome/gedit/2.22/gedit-2.22.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.2.0">pygtksourceview</Dependency>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency versionFrom="2.16.0">libgnomeui</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.16.0">gnome-vfs</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>docbook-xml4_1_2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+            <Patch level="1">do-not-compile-pyo-files.patch</Patch>
+            <!--<Patch>gedit.desktop.patch</Patch>-->
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gedit</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.2.0">pygtksourceview</Dependency>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency versionFrom="2.16.0">libgnomeui</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="2.16.0">gnome-vfs</Dependency>
+            <Dependency>gconf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/gconf</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/gedit-2</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <!--<AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/gedit.png">gedit.png</AdditionalFile>
+        </AdditionalFiles>-->
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2008-09-16</Date>
+            <Version>2.22.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-04-08</Date>
+            <Version>2.22.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-03-11</Date>
+            <Version>2.22.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-01-25</Date>
+            <Version>2.20.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-07-06</Date>
+            <Version>2.18.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-05-06</Date>
+            <Version>2.18.1</Version>
+            <Comment>Fix KDE menu duplicate. Bug #5608</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-10</Date>
+            <Version>2.18.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-03-11</Date>
+            <Version>2.18.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-15</Date>
+            <Version>2.16.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
