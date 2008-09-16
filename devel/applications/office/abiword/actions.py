@@ -8,22 +8,21 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="%s/abi" % get.srcDIR()
-
 def setup():
     autotools.configure("--with-x \
                                   --with-ImageMagick \
                                   --with-libxml2 \
-                                  --with-sys-wv \
                                   --with-zlib \
                                   --with-libpng \
                                   --with-popt \
-                                  --with-builtin-plugins")
+                                  --with-fribidi \
+                                  --enable-scripting \
+                                  --enable-printing")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     
     pisitools.dodoc("docs/Abi*")
