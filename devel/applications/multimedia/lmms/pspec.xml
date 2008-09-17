@@ -3,59 +3,57 @@
 <PISI>
     <Source>
         <Name>lmms</Name>
-        <Homepage>http://lmms.sourceforge.net/</Homepage>
+        <Homepage>http://lmms.sourceforge.net</Homepage>
         <Packager>
-            <Name>Rasim AKAR</Name>
-            <Email>rasimakar@pardusdepo.com</Email>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv2+</License>
+        <Icon>lmms</Icon>
         <IsA>app:gui</IsA>
         <Summary>Linux Multimedia Studio</Summary>
-        <Description>Linux Multimedia Studio Midi and Wave Editors</Description>
-        <Archive sha1sum="e5222a5babea3224d3b65c3c343639025d6e167a" type="tarbz2">mirrors://sourceforge/lmms/lmms-0.3.2.tar.bz2</Archive>
+        <Description>LMMS is a free alternative to popular programs like FruityLoops/FL Studio, Cubase and Logic allowing you to produce music with your computer. This includes creation of loops, synthesizing and mixing sounds, arranging samples, having fun with your MIDI-keyboard and much more.</Description>
+        <Archive sha1sum="f698c22f3eee7d0485046da4cb0f686917711dd1" type="tarbz2">mirrors://sourceforge/lmms/lmms-0.4.0-rc1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="3.3.8">qt</Dependency>
-            <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
-            <Dependency versionFrom="1.2.0">libvorbis</Dependency>
-            <Dependency versionFrom="1.0.17">libsdl</Dependency>
-            <Dependency versionFrom="1.12">ladspa-sdk</Dependency>
-            <Dependency versionFrom="1.1.2">flac</Dependency>
-            <Dependency versionFrom="1.0.16">alsa-lib</Dependency>
-            <Dependency versionFrom="1.0.1">sdl-sound</Dependency>
+            <Dependency versionFrom="4.3.0">qt4</Dependency>
+            <Dependency>sdl-sound</Dependency>
             <Dependency>libsamplerate</Dependency>
-            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+            <Dependency>fluidsynth</Dependency>
+            <Dependency>wine-devel</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>desktopfile-turkish.patch</Patch>
-            <Patch>lmms-0.3.2-fix-sample-track-removal.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
         <Name>lmms</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="3.3.8">qt</Dependency>
-            <Dependency versionFrom="0.109.2">jack-audio-connection-kit</Dependency>
-            <Dependency versionFrom="1.2.0">libvorbis</Dependency>
-            <Dependency versionFrom="1.0.17">libsdl</Dependency>
-            <Dependency versionFrom="1.12">ladspa-sdk</Dependency>
-            <Dependency versionFrom="1.1.2">flac</Dependency>
-            <Dependency versionFrom="1.0.16">alsa-lib</Dependency>
-            <Dependency versionFrom="1.0.1">sdl-sound</Dependency>
+            <Dependency versionFrom="4.3.0">qt</Dependency>
+            <Dependency>sdl-sound</Dependency>
             <Dependency>libsamplerate</Dependency>
-            <Dependency versionFrom="1.0.17">libsndfile</Dependency>
+            <Dependency>fluidsynth</Dependency>
+            <Dependency>wine</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="library">/usr/lib</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="library">/usr/lib/lmms</Path>
+            <Path fileType="header">/usr/include/lmms</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="localedata">/usr/share/lmms/locale</Path>
+            <Path fileType="data">/usr/share/lmms</Path>
+            <Path fileType="data">/usr/share/menu</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="man">/usr/share/man</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-09-16</Date>
+            <Version>0.4.0_rc1</Version>
+            <Comment>Version bump. Deps and filetypes rearranged. Unneded patches removed. Licence fix. Now build with cmake.Icon tag added.And takeover the package.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-03-17</Date>
             <Version>0.3.2</Version>

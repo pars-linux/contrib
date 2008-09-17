@@ -1,26 +1,27 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright 2005-2007 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import autotools
-from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
+
+WorkDir = "lmms-0.4.0-rc1"
 
 def setup():
-    autotools.configure("--disable-static \
-                         --enable-hqsinc \
-                         --without-vst \
-                         --without-stk \
-                         --without-singerbot \
-                         --with-x")
+    shelltools.makedirs("build")
+    shelltools.cd("build")
+    cmaketools.configure("-DCMAKE_INSTALL_PREFIX=/usr", sourceDir="..")
 
 def build():
-    autotools.make()
+    shelltools.cd("build")
+    cmaketools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    shelltools.cd("build")
+    cmaketools.rawInstall('DESTDIR="%s"' % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "TODO", "ChangeLog", "NEWS")
+    pisitools.dodoc("../AUTHORS", "../COPYING", "../ChangeLog", "../TODO","../README")
