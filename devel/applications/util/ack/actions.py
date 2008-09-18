@@ -16,4 +16,4 @@ def build():
 def install():
     perlmodules.install()
 
-    pisitools.dodoc("ack-help.txt", "README", "ack-help-types.txt", "Changes")
+    pisitools.dodoc("ack-help*.txt", "README", "Changes", "TODO")
