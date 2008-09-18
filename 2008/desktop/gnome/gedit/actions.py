@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--disable-static\
                          --disable-scrollkeeper\
-                         --disable-schemas-install")
+                         --disable-schemas-install\
+                         --disable-spell")
 
 def build():
     autotools.make()
