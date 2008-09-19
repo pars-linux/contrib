@@ -3,19 +3,18 @@
 <PISI>
     <Source>
         <Name>kmetronome</Name>
-        <Homepage>http://sourceforge.net/project/kmetronome</Homepage>
+        <Homepage>http://kmetronome.sourceforge.net/</Homepage>
         <Packager>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>Metronome application for KDE</Summary>
         <Summary xml:lang="tr">KDE için metronom uygulaması</Summary>
-        <Archive sha1sum="e4a0a6b11758ad6cfbd7aa680450b86b6dd0f90c" type="tarbz2">mirrors://sourceforge/kmetronome/kmetronome-0.8.0.tar.bz2</Archive>
+        <Archive sha1sum="dcaca316ba371ed21204b980eed679890ad6cfd2" type="tarbz2">mirrors://sourceforge/kmetronome/kmetronome-0.8.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs</Dependency>
-            <Dependency>alsa-lib</Dependency>
             <Dependency>cmake</Dependency>
         </BuildDependencies>
     </Source>
@@ -24,18 +23,25 @@
         <Name>kmetronome</Name>
         <RuntimeDependencies>
             <Dependency>kdelibs</Dependency>
-            <Dependency>alsa-lib</Dependency>
             <Dependency>cmake</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-09-19</Date>
+            <Version>0.8.2</Version>
+            <Comment>Version bump, remove alsa-lib as it's a dependency of kdelibs, organize Files section and package takeover.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2007-02-25</Date>
             <Version>0.8.0</Version>
