@@ -5,25 +5,25 @@
         <Name>bluefish</Name>
         <Homepage>http://bluefish.openoffice.nl/</Homepage>
         <Packager>
-            <Name>Ertuğrul Erata</Name>
-            <Email>ertugrulerata@gmail.com</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
+        <Icon>bluefish</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Bluefish is a powerful editor for experienced web designers and programmers</Summary>
+        <Summary>A powerful editor for experienced web designers and programmers</Summary>
         <Description>Bluefish is a powerful editor for experienced web designers and programmers. Bluefish supports many programming and markup languages, but it focuses on editing dynamic and interactive websites.</Description>
         <Archive sha1sum="c61d6271c49e9fa8c728724e6aadde33a227bdea" type="tarbz2">http://www.bennewitz.com/bluefish/stable/source/bluefish-1.0.7.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>aspell</Dependency>
             <Dependency>desktop-file-utils</Dependency>
-            <Dependency>orbit2</Dependency>
-            <Dependency>gconf</Dependency>
-            <Dependency>libxml2</Dependency>
             <Dependency>gnome-vfs</Dependency>
-            <Dependency>dbus-glib</Dependency>
             <Dependency>libgnomeui</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>bluefish-desktop.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -32,18 +32,20 @@
             <Dependency>gtk2</Dependency>
             <Dependency>aspell</Dependency>
             <Dependency>desktop-file-utils</Dependency>
-            <Dependency>orbit2</Dependency>
-            <Dependency>gconf</Dependency>
-            <Dependency>libxml2</Dependency>
             <Dependency>gnome-vfs</Dependency>
-            <Dependency>dbus-glib</Dependency>
             <Dependency>libgnomeui</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/application-registry</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/bluefish</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/mime-info</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
         <Provides>
             <COMAR script="package.py">System.Package</COMAR>
@@ -51,6 +53,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2008-09-19</Date>
+            <Version>1.0.7</Version>
+            <Comment>Remove unneeded system.base dependencies and gconf,orbit2 dependencies as orbit2 is a dependency of gconf which is a dependency of gnome-vfs, arrange Files part of pspec.xml, add documentation and package takeover.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2007-02-05</Date>
             <Version>1.0.7</Version>
