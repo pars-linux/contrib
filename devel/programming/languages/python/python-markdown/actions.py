@@ -8,9 +8,9 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "markdown-%s" % get.srcVERSION().replace('a', '')
+WorkDir = "markdown-%s" % get.srcVERSION()
 
 def install():
     pythonmodules.install()
 
-    pisitools.dodoc("CHANGELOG", "README", "TODO", "KNOWN_BUGS", "doc/*")
+    pisitools.dodoc("CHANGE_LOG.txt", "README*")
