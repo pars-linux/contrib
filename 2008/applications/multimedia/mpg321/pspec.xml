@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mpg321</Name>
+        <Homepage>http://sourceforge.net/projects/mpg321</Homepage>
+        <Packager>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Free MP3 player</Summary>
+        <Archive sha1sum="90268d0d187ddd7625d143b95791cb39a1630b79" type="targz">mirrors://sourceforge/mpg321/mpg321-0.2.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libmad</Dependency>
+            <Dependency>libid3tag</Dependency>
+            <Dependency versionFrom="0.8.0">libao</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">mpg321-0.2.10-file-descriptors-leak.patch</Patch>
+            <Patch>mpg321-0.2.10-useragent.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mpg321</Name>
+        <RuntimeDependencies>
+            <Dependency>libmad</Dependency>
+            <Dependency>libid3tag</Dependency>
+            <Dependency versionFrom="0.8.0">libao</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-09-19</Date>
+            <Version>0.2.10</Version>
+            <Comment>Minor fixes for contrib-2008, add two patches and package takeover.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-27</Date>
+            <Version>0.2.10</Version>
+            <Comment>First release</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
