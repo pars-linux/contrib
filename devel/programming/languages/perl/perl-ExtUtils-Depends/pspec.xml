@@ -3,36 +3,38 @@
 <PISI>
     <Source>
         <Name>perl-ExtUtils-Depends</Name>
-        <Homepage>http://search.cpan.org/~rmcfarla/ExtUtils-Depends-0.205</Homepage>
+        <Homepage>http://search.cpan.org/~tsch/ExtUtils-Depends-0.301/</Homepage>
         <Packager>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>A library for easily build XS extensions that depend on XS extensions</Summary>
         <Description>This module tries to make it easy to build Perl extensions that use functions and typemaps provided by other perl extensions.</Description>
-        <Archive sha1sum="c21300397e5ffbb5861a6dbf294eddd4b4104411" type="targz">mirrors://sourceforge/gtk2-perl/ExtUtils-Depends-0.300.tar.gz</Archive>
-        <BuildDependencies>
-            <Dependency>perl</Dependency>
-        </BuildDependencies>
+        <Archive sha1sum="52608feb9563f328bf644aead0e02ecf1d5a6845" type="targz">mirrors://sourceforge/gtk2-perl/ExtUtils-Depends-0.301.tar.gz</Archive>
     </Source>
 
     <Package>
         <Name>perl-ExtUtils-Depends</Name>
-        <RuntimeDependencies>
-            <Dependency>perl</Dependency>
-        </RuntimeDependencies>
         <Replaces>
             <Package>ExtUtils-Depends</Package>
         </Replaces>
         <Files>
             <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-09-20</Date>
+            <Version>0.301</Version>
+            <Comment>Version bump, remove system.base dependency perl, add documentation and package takeover.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2008-06-26</Date>
             <Version>0.300</Version>
