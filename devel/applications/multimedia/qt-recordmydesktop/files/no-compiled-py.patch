@@ -1,0 +1,21 @@
+diff -Naur qt-recordmydesktop-0.3.7.2.orig/src/Makefile.in qt-recordmydesktop-0.3.7.2/src/Makefile.in
+--- qt-recordmydesktop-0.3.7.2.orig/src/Makefile.in	2008-02-04 20:01:24.000000000 +0200
++++ qt-recordmydesktop-0.3.7.2/src/Makefile.in	2008-09-21 01:31:41.000000000 +0300
+@@ -158,7 +158,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-py_compile = $(top_srcdir)/m4/py-compile-destdir --destdir $(DESTDIR)
++# py_compile = $(top_srcdir)/m4/py-compile-destdir --destdir $(DESTDIR)
+ 
+ bin_SCRIPTS = qt-recordMyDesktop
+ 
+@@ -258,7 +258,7 @@
+ 	    $(qt_recordMyDesktopPYTHON_INSTALL) $$b$$p $(DESTDIR)$(qt_recordMyDesktopdir)/$$d; \
+ 	  else :; fi; \
+ 	done; \
+-	PYTHON=$(PYTHON) $(py_compile) --basedir $(DESTDIR)$(qt_recordMyDesktopdir) $$dlist
++# 	PYTHON=$(PYTHON) $(py_compile) --basedir $(DESTDIR)$(qt_recordMyDesktopdir) $$dlist
+ 
+ uninstall-qt_recordMyDesktopPYTHON:
+ 	@$(NORMAL_UNINSTALL)

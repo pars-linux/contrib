@@ -8,16 +8,18 @@
             <Name>Serdar Dalgıç</Name>
             <Email>serdar@cclub.metu.edu.tr</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv2+</License>
+        <Icon>qt-recordmydesktop</Icon>
         <IsA>app:gui</IsA>
-        <Summary>A graphical frontend for recordMyDesktop</Summary>
+        <Summary>Graphical frontend for the recordmydesktop</Summary>
+        <Description>recordMyDesktop is a desktop session recorder for linux that attempts to be easy to use, yet also effective at it's primary task.</Description>
         <Archive sha1sum="83a762cc9ba7f384f127b6b3863cbd69ccae5ca8" type="targz">mirrors://sourceforge/recordmydesktop/qt-recordmydesktop-0.3.7.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>PyQt4</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>PyQt4.patch</Patch>
             <Patch>desktop-tr.patch</Patch>
+            <Patch level="1">no-compiled-py.patch</Patch>
         </Patches>
     </Source>
 
@@ -41,7 +43,7 @@
         <Update release="7">
             <Date>2008-09-20</Date>
             <Version>0.3.7.2</Version>
-            <Comment>Version bump and package takeover</Comment>
+            <Comment>Version bump, fix licence, remove PyQt4.patch, add no-compiled-py.patch and package takeover</Comment>
             <Name>Serdar Dalgıç</Name>
             <Email>serdar@cclub.metu.edu.tr</Email>
         </Update>
