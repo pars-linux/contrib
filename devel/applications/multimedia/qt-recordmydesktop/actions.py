@@ -8,7 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--prefix=/usr/")
+    autotools.configure()
+    #autotools.configure("--prefix=/usr/")
 
 def build():
     autotools.make()
@@ -16,4 +17,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "README")
+    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "README")
