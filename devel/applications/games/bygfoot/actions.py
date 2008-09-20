@@ -19,6 +19,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/usr/share/applications", "bygfoot.desktop")
-
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "ReleaseNotes", "TODO", "UPDATE")
