@@ -6,13 +6,14 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def build():
     autotools.make()
 
 def install():
-    pisitools.dobin("tennix")
+    autotools.install("PREFIX=/usr DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto("/usr/share/pixmaps", "data/icon.png", "tennix.png")
 
-    pisitools.dodoc("README", "COPYING", "TODO")
+    pisitools.dodoc("ChangeLog", "README", "COPYING", "TODO")
