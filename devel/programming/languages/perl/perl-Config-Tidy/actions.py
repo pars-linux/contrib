@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import perlmodules
 from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
 WorkDir = "Config-Tiny-%s" % get.srcVERSION()
 
@@ -17,3 +18,5 @@ def build():
 
 def install():
     perlmodules.install()
+
+    pisitools.dodoc("Changes", "LICENSE", "README")
