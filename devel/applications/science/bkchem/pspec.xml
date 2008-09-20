@@ -3,20 +3,24 @@
 <PISI>
     <Source>
         <Name>bkchem</Name>
-        <Homepage>http://bkchem.zirael.org/</Homepage>
+        <Homepage>http://bkchem.zirael.org</Homepage>
         <Packager>
             <Name>Cenk Güre</Name>
             <Email>gure.cenk@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
+        <Icon>bkchem</Icon>
         <IsA>app:gui</IsA>
         <Summary>A free chemical drawing program</Summary>
-        <Archive sha1sum="a7cfc5fb9edca159fb0799c0f4114193c66a6a9f" type="targz">http://bkchem.zirael.org/download/bkchem-0.12.0.tar.gz</Archive>
+        <Archive sha1sum="550da553469ed75a6e79f6227c74d339eec2de99" type="targz">http://bkchem.zirael.org/download/bkchem-0.12.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>pycairo</Dependency>
             <Dependency>python-tk</Dependency>
             <Dependency>inchi</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>inchi-path.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -41,6 +45,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-09-20</Date>
+            <Version>0.12.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>gure.cenk@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-12-18</Date>
             <Version>0.12.0</Version>
