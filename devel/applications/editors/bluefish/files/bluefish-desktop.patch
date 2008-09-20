@@ -1,5 +1,24 @@
---- /usr/share/applications/bluefish.desktop	2008-09-19 03:27:29.000000000 +0300
-+++ bluefish.desktop	2008-09-19 03:46:46.000000000 +0300
+diff -Naur bluefish-1.0.7.orig/data/bluefish.desktop.in bluefish-1.0.7/data/bluefish.desktop.in
+--- bluefish-1.0.7.orig/data/bluefish.desktop.in	2006-01-31 08:23:18.000000000 +0200
++++ bluefish-1.0.7/data/bluefish.desktop.in	2008-09-20 02:24:28.000000000 +0300
+@@ -2,11 +2,13 @@
+ Name=Bluefish Editor
+ Name[de]=Bluefish Editor
+ Name[fr]=Éditeur Bluefish
++Name[tr]=Bluefish Editörü
+ Comment=Create web pages
+ Comment[de]=Webseiten erstellen
+ Comment[fr]=Éditeur pour développeurs web
++Comment[tr]=Web dizaynır ve programcıları için güçlü bir editör
+ Exec=bluefish %F
+-Icon=ICONDIR/bluefish-icon.png
++Icon=bluefish
+ Terminal=false
+ Type=Application
+ Categories=GTK;GNOME;Application;Development;WebDevelopment;
+diff -Naur bluefish-1.0.7.orig/data/bluefish-project.desktop.in bluefish-1.0.7/data/bluefish-project.desktop.in
+--- bluefish-1.0.7.orig/data/bluefish-project.desktop.in	2006-01-31 08:23:18.000000000 +0200
++++ bluefish-1.0.7/data/bluefish-project.desktop.in	2008-09-20 02:24:33.000000000 +0300
 @@ -2,11 +2,15 @@
  Name=Bluefish Editor
  Name[de]=Bluefish Editor
@@ -7,13 +26,13 @@
 +Name[tr]=Bluefish Editörü
 +GenericName=Create web pages
 +GenericName[tr]=Web sayfası yaratmaya yarar
- Comment=Create web pages
- Comment[de]=Webseiten erstellen
+ Comment=Web Development Editor
+ Comment[de]=Editor für Web-Entwickler
  Comment[fr]=Éditeur pour développeurs web
 +Comment[tr]=Web dizaynır ve programcıları için güçlü bir editör
- Exec=bluefish %F
--Icon=/usr/share/pixmaps/bluefish-icon.png
-+Icon=/usr/share/pixmaps/bluefish.png
+ Exec=bluefish -n -p %f
+-Icon=ICONDIR/bluefish-icon.png
++Icon=bluefish
  Terminal=false
  Type=Application
- Categories=GTK;GNOME;Application;Development;WebDevelopment;
+ NoDisplay=true

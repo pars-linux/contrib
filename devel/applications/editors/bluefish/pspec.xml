@@ -18,11 +18,11 @@
             <Dependency>gtk2</Dependency>
             <Dependency>aspell</Dependency>
             <Dependency>desktop-file-utils</Dependency>
-            <Dependency>gnome-vfs</Dependency>
             <Dependency>libgnomeui</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>bluefish-desktop.patch</Patch>
+            <Patch level="1">bluefish-desktop.patch</Patch>
+            <Patch>bluefish-1.0.7-syntax-highlight.patch</Patch>
         </Patches>
     </Source>
 
@@ -32,7 +32,6 @@
             <Dependency>gtk2</Dependency>
             <Dependency>aspell</Dependency>
             <Dependency>desktop-file-utils</Dependency>
-            <Dependency>gnome-vfs</Dependency>
             <Dependency>libgnomeui</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -56,7 +55,7 @@
         <Update release="4">
             <Date>2008-09-19</Date>
             <Version>1.0.7</Version>
-            <Comment>Remove unneeded system.base dependencies and gconf,orbit2 dependencies as orbit2 is a dependency of gconf which is a dependency of gnome-vfs, arrange Files part of pspec.xml, add documentation and package takeover.</Comment>
+            <Comment>Remove unneeded system.base dependencies and clean up in the dependency list, arrange Files part of pspec.xml, add documentation, add desktop and syntax highlighting patches and package takeover.</Comment>
             <Name>Serdar Dalgıç</Name>
             <Email>serdar@cclub.metu.edu.tr</Email>
         </Update>
