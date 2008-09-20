@@ -20,4 +20,4 @@ def build():
 def install():
     perlmodules.install()
 
-    pisitools.dodoc("CHANGES", "README")
+    pisitools.dodoc("Changes", "README")
