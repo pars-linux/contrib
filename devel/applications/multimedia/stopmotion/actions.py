@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--prefix=/usr \
-                         --with-html-dir=--docdir=/usr/share/doc/%s/html" % (get.srcTAG()))
+                         --with-html-dir=/usr/share/doc/%s/html" % get.srcTAG())
 
 def build():
     autotools.make()
