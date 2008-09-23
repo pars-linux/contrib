@@ -15,5 +15,6 @@ def build():
 
 def install():
     autotools.install()
+    pisitools.domove("/usr/share/pkgconfig/gnome-icon-theme.pc","/usr/lib/pkgconfig")
 
     pisitools.dodoc("TODO", "README", "NEWS", "AUTHORS")
