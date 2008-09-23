@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>gnome-icon-theme</Name>
-        <Homepage>http://www.gnome.org/</Homepage>
+        <Homepage>http://www.gnome.org</Homepage>
         <Packager>
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
@@ -11,9 +11,9 @@
         <License>GPLv2</License>
         <IsA>data</IsA>
         <Summary>GNOME 2 default icon themes</Summary>
-        <Archive sha1sum="d492b459d7b0a34e2303cba663536b9026dddeb4" type="tarbz2">mirrors://gnome/gnome-icon-theme/2.22/gnome-icon-theme-2.22.0.tar.bz2</Archive>
+        <Archive sha1sum="4f4df55d7f91890456f11ba645903fecbcdaff51" type="tarbz2">mirrors://gnome/gnome-icon-theme/2.24/gnome-icon-theme-2.24.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>icon-naming-utils</Dependency>
+            <Dependency versionFrom="0.8.7">icon-naming-utils</Dependency>
             <Dependency>hicolor-icon-theme</Dependency>
         </BuildDependencies>
     </Source>
@@ -21,17 +21,26 @@
     <Package>
         <Name>gnome-icon-theme</Name>
         <RuntimeDependencies>
-            <Dependency>icon-naming-utils</Dependency>
+            <Dependency versionFrom="0.8.7">icon-naming-utils</Dependency>
             <Dependency>hicolor-icon-theme</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib/pkgconfig</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/gnome-icon-theme</Path>
+            <Path fileType="data">/usr/share/icons</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2008-09-24</Date>
+            <Version>2.24.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
     	<Update release="4">
             <Date>2008-05-03</Date>
             <Version>2.22.0</Version>
