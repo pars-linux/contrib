@@ -3,45 +3,43 @@
 <PISI>
     <Source>
         <Name>libgnome</Name>
-        <Homepage>http://www.gnome.org/</Homepage>
+        <Homepage>http://www.gnome.org</Homepage>
         <Packager>
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
         <License>LGPLv2</License>
         <IsA>library</IsA>
-        <Summary>Essential Gnome Libraries</Summary>
-        <Archive sha1sum="2d263acdd313d37d1018356c74e9d1cc7a9c2e0d" type="tarbz2">mirrors://gnome/libgnome/2.22/libgnome-2.22.0.tar.bz2</Archive>
+        <Summary>Essential GNOME Libraries</Summary>
+        <Archive sha1sum="f9d1d922569cb8f8a44834f5eadc42ac21d184e1" type="tarbz2">mirrors://gnome/libgnome/2.24/libgnome-2.24.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.22.0">libbonobo</Dependency>
-            <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
-            <Dependency versionFrom="2.12.0">gtk2</Dependency>
-            <Dependency>intltool</Dependency>
-            <Dependency versionFrom="2.22.0">gconf</Dependency>
+            <Dependency versionFrom="2.13.0">libbonobo</Dependency>
+            <Dependency versionFrom="2.5.3">gnome-vfs</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>popt</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>libgnome</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.22.0">libbonobo</Dependency>
-            <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
-            <Dependency versionFrom="2.12.0">gtk2</Dependency>
-            <Dependency>intltool</Dependency>
-            <Dependency versionFrom="2.22.0">gconf</Dependency>
-            <Dependency releaseFrom="2">scrollkeeper</Dependency>
+            <Dependency versionFrom="2.13.0">libbonobo</Dependency>
+            <Dependency versionFrom="2.5.3">gnome-vfs</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>popt</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="config">/etc</Path>
+            <Path fileType="config">/etc/gconf</Path>
+            <Path fileType="config">/etc/sound</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="doc">/usr/share/gtk-doc</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/gnome-background-properties</Path>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
         <Provides>
             <COMAR script="package.py">System.Package</COMAR>
@@ -49,6 +47,13 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2008-09-24</Date>
+            <Version>2.24.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-03-11</Date>
             <Version>2.22.0</Version>
