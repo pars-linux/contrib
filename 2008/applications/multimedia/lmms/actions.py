@@ -9,7 +9,7 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "lmms-0.4.0-rc1"
+WorkDir = "lmms-0.4.0-rc2"
 
 def setup():
     shelltools.makedirs("build")
