@@ -17,7 +17,6 @@ def install():
     autotools.install()
 
     pisitools.removeDir("/usr/doc")
-    pisitools.removeDir("/usr/share/feh/images")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "README", "COPYING", "TODO")
 
