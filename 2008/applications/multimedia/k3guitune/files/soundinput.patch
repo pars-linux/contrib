@@ -1,0 +1,20 @@
+--- k3guitune/soundinput.h	2008-05-18 19:02:11.000000000 +0300
++++ k3guitune/soundinput.h	2008-05-18 19:01:51.000000000 +0300
+@@ -41,7 +41,7 @@
+   */
+  class SoundInput {
+   public:
+-    static SoundInput *autodetect( const char *alsa_devicename, const char *dsp_devicename, int &blksize, int &sampfreq, double &sampfreq );
++    static SoundInput *autodetect( const char *alsa_devicename, const char *dsp_devicename, int &blksize, int &sampfreq, double &sampfreq_exact );
+     virtual ~SoundInput();
+     virtual int getData( short int *buf, int blksize ) = 0;
+  };
+@@ -85,7 +85,7 @@
+ #ifdef USE_JACK
+ class JACKSoundInput : public SoundInput {
+ 	public:
+-		JACKSoundInput::JACKSoundInput(int &blksize, int &sampfreq, double &sampfreq_exact);
++		JACKSoundInput(int &blksize, int &sampfreq, double &sampfreq_exact);
+ 		~JACKSoundInput();
+ 		int getData(short int *buf, int blksize);
+ 	private:
