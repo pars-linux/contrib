@@ -8,14 +8,17 @@
             <Name>Uğur Çetin</Name>
             <Email>jnmbk@users.sourceforge.net</Email>
         </Packager>
-        <License>GPL</License>
+        <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>Linux support for Easy Access and Internet Keyboards</Summary>
         <Description>LinEAK is a utility designed to enable the use and configuration of those special keys on Internet, Easy Access and Multimedia keyboards in Linux. If your keyboard is not directly supported by lineakd, klineakconfig provides an easy to use graphic interface to both getting your keyboard working, and submitting your keyboard for inclusion into lineakd.</Description>
-        <Archive sha1sum="6943bc5849c1a792e2ea0d58211fafeb1e57c201" type="targz">mirrors://sourceforge/lineak/lineakd-0.8.4.tar.gz</Archive>
+        <Archive sha1sum="c678e6cf72bc54a6bfe76a41ba53e401732a7d4d" type="targz">mirrors://sourceforge/lineak/lineakd-0.9.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xorg-input</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">gcc4.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -29,11 +32,19 @@
             <Path fileType="header">/usr/include/lineak</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-09-27</Date>
+            <Version>0.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="1">
             <Date>2006-04-30</Date>
             <Version>0.8.4</Version>
