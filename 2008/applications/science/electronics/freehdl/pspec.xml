@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freehdl</Name>
+        <Homepage>http://freehdl.seul.org/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A free VHDL simulator.</Summary>
+        <Archive sha1sum="3742570543d271823433298ee67d441199ef6fbf" type="targz">http://freehdl.seul.org/~enaroska/freehdl-0.0.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.4.3">gcc</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>freehdl</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2">guile</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/include/freehdl</Path>
+            <Path fileType="data">/usr/share/freehdl</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="info">/usr/share/info</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2008-06-18</Date>
+            <Version>0.0.6</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-06</Date>
+            <Version>0.0.4</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-28</Date>
+            <Version>0.0.3</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
