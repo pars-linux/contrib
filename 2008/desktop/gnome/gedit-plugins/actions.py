@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-schemas-install")
 
 def build():
     autotools.make()
