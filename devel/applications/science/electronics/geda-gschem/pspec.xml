@@ -12,13 +12,13 @@
         <Icon>gschem</Icon>
         <IsA>app:gui</IsA>
         <Summary>gschem is the schematic capture program/tool which is part of gEDA.</Summary>
-        <Archive sha1sum="0bdc4e350019f2193eda6f065277008538f06747" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.4/1.4.0/geda-gschem-1.4.0.tar.gz</Archive>
+        <Archive sha1sum="755468f04c3f8929c5db1c7a9966a8b4d72d1f6f" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.4/1.4.1/geda-gschem-1.4.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency version="1.4.0">libgeda</Dependency>
-            <Dependency version="1.4.0">geda-symbols</Dependency>
-            <Dependency version="1.4.0">geda-gnetlist</Dependency>
-            <Dependency version="1.4.0">geda-docs</Dependency>
+            <Dependency version="1.4.1">libgeda</Dependency>
+            <Dependency version="1.4.1">geda-symbols</Dependency>
+            <Dependency version="1.4.1">geda-gnetlist</Dependency>
+            <Dependency version="1.4.1">geda-docs</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -26,18 +26,21 @@
         <Name>geda-gschem</Name>
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency version="1.4.0">libgeda</Dependency>
-            <Dependency version="1.4.0">geda-symbols</Dependency>
-            <Dependency version="1.4.0">geda-gattrib</Dependency>
-            <Dependency version="1.4.0">geda-gnetlist</Dependency>
-            <Dependency version="1.4.0">geda-docs</Dependency>
+            <Dependency version="1.4.1">libgeda</Dependency>
+            <Dependency version="1.4.1">geda-symbols</Dependency>
+            <Dependency version="1.4.1">geda-gattrib</Dependency>
+            <Dependency version="1.4.1">geda-gnetlist</Dependency>
+            <Dependency version="1.4.1">geda-docs</Dependency>
         </RuntimeDependencies>
         <Conflicts>
             <Package version="20070216">geda-utils</Package>
         </Conflicts>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/gEDA</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -49,6 +52,13 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2008-09-29</Date>
+            <Version>1.4.1</Version>
+            <Comment>Version bump, fix documentation and Files part of pspec.xml.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="8">
             <Date>2008-02-06</Date>
             <Version>1.4.0</Version>
