@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geda-gschem</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gschem</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>gschem is the schematic capture program/tool which is part of gEDA.</Summary>
+        <Archive sha1sum="755468f04c3f8929c5db1c7a9966a8b4d72d1f6f" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.4/1.4.1/geda-gschem-1.4.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency version="1.4.1">libgeda</Dependency>
+            <Dependency version="1.4.1">geda-symbols</Dependency>
+            <Dependency version="1.4.1">geda-gnetlist</Dependency>
+            <Dependency version="1.4.1">geda-docs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geda-gschem</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency version="1.4.1">libgeda</Dependency>
+            <Dependency version="1.4.1">geda-symbols</Dependency>
+            <Dependency version="1.4.1">geda-gattrib</Dependency>
+            <Dependency version="1.4.1">geda-gnetlist</Dependency>
+            <Dependency version="1.4.1">geda-docs</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package version="20070216">geda-utils</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/gEDA</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gschem.desktop">gschem.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/gschem.png">gschem.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2008-09-29</Date>
+            <Version>1.4.1</Version>
+            <Comment>Version bump, fix documentation and Files part of pspec.xml.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-02-06</Date>
+            <Version>1.4.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-09-10</Date>
+            <Version>1.2.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-06-29</Date>
+            <Version>1.0.1_20070626</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-06-26</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Depend on new libgeda.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-05-27</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-03</Date>
+            <Version>0.0_20070216</Version>
+            <Comment>add some turkish translation</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-15</Date>
+            <Version>0.0_20070216</Version>
+            <Comment>add bugfix patch</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-09</Date>
+            <Version>0.0_20070216</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
