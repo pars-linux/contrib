@@ -15,4 +15,3 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "README", "TODO")
-    pisitools.removeDir("/usr/share/doc/geda-doc")
