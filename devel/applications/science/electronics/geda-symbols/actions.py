@@ -6,9 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
+from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "README", "TODO")
+    pisitools.removeDir("/usr/share/doc/geda-doc")
