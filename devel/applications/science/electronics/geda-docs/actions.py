@@ -16,7 +16,7 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    
-    docs = ['AUTHORS','ChangeLog','NEWS','README']
+
+    docs = ['AUTHORS', 'ChangeLog*', 'COPYING', 'README']
     for i in docs:
         pisitools.insinto("/usr/share/doc/geda-doc", i)
