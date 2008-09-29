@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fet</Name>
+        <Homepage>http://www.lalescu.ro/liviu/fet/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>fet</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>FET is open source/free software for automatically scheduling the timetable of a school, high-school or university</Summary>
+        <Archive sha1sum="5de54a4628be7e0a9da182a2208eed0bb3f537d2" type="tarbz2">http://timetabling.de/download/fet-5.7.0.tar.bz2</Archive>
+        <BuildDependencies>
+             <Dependency versionFrom="4.3">qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fet</Name>
+        <RuntimeDependencies>
+             <Dependency versionFrom="4.3">qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/fet</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/pixmaps/fet.png" permission="0644" owner="root">fet.png</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/fet.desktop" permission="0644" owner="root">fet.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2008-09-30</Date>
+            <Version>5.7.0</Version>
+            <Comment>Version Bump with bug fixes and enhancements, add Icon tag.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-08-21</Date>
+            <Version>5.6.2</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertan Güven</Name>
+            <Email>ertan95@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-01-04</Date>
+            <Version>5.4.17</Version>
+            <Comment>Much better algorithm,Version Bump.</Comment>
+            <Name>Mehmet Ş. Çatalbaş</Name>
+            <Email>mehmet.catalbas@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-06</Date>
+            <Version>4.2.8</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-11-15</Date>
+            <Version>4.2.6</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-24</Date>
+            <Version>4.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
