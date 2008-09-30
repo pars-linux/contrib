@@ -1,0 +1,205 @@
+--- main.cc.orig	2008-09-06 00:00:38.979152371 -0300
++++ main.cc	2008-09-06 00:01:23.144980862 -0300
+@@ -41,6 +41,7 @@
+ ;
+ 
+ # include  <stdio.h>
++# include  <string.h>
+ # include  <iostream>
+ # include  <fstream>
+ # include  <queue>
+--- elab_expr.cc.orig	2008-09-06 00:02:10.981643298 -0300
++++ elab_expr.cc	2008-09-06 00:02:27.255720965 -0300
+@@ -20,6 +20,7 @@
+ #ident "$Id: elab_expr.cc,v 1.91.2.2 2006/11/02 02:13:15 steve Exp $"
+ #endif
+ 
++# include <string.h>
+ # include "config.h"
+ # include "compiler.h"
+ 
+--- elab_net.cc.orig	2008-09-06 00:02:33.829140478 -0300
++++ elab_net.cc	2008-09-06 00:02:48.014972038 -0300
+@@ -28,6 +28,7 @@
+ # include  "compiler.h"
+ 
+ # include  <iostream>
++# include  <string.h>
+ 
+ /*
+  * This is a state flag that determines whether an elaborate_net must
+--- t-dll-proc.cc.orig	2008-09-06 00:17:53.628215487 -0300
++++ t-dll-proc.cc	2008-09-06 00:18:02.425268608 -0300
+@@ -33,6 +33,7 @@
+ # include  <malloc.h>
+ #endif
+ # include  <stdlib.h>
++# include  <string.h>
+ 
+ 
+ bool dll_target::process(const NetProcTop*net)
+--- elab_sig.cc.orig	2008-09-06 00:03:09.721637174 -0300
++++ elab_sig.cc	2008-09-06 00:03:18.961635218 -0300
+@@ -23,6 +23,7 @@
+ # include "config.h"
+ 
+ # include  <iostream>
++# include  <stdlib.h>
+ 
+ # include  "Module.h"
+ # include  "PExpr.h"
+--- elab_scope.cc.orig	2008-09-06 00:03:31.638301570 -0300
++++ elab_scope.cc	2008-09-06 00:03:47.284966707 -0300
+@@ -24,6 +24,7 @@
+ # include  "compiler.h"
+ # include  <iostream>
+ # include  <stdio.h>
++# include  <string.h>
+ 
+ /*
+  * Elaboration happens in two passes, generally. The first scans the
+--- emit.cc.orig	2008-09-06 00:03:56.641631661 -0300
++++ emit.cc	2008-09-06 00:04:16.818297245 -0300
+@@ -23,6 +23,7 @@
+ # include "config.h"
+ 
+ # include  <iostream>
++# include  <string.h>
+ 
+ /*
+  * The emit function is called to generate the output required of the
+--- load_module.cc.orig	2008-09-06 00:04:34.904962569 -0300
++++ load_module.cc	2008-09-06 00:04:47.562277772 -0300
+@@ -31,6 +31,8 @@
+ # include  <dirent.h>
+ # include  <ctype.h>
+ # include  <assert.h>
++# include  <string.h>
++# include  <stdlib.h>
+ 
+ /*
+  * The module library items are maps of key names to file name within
+--- net_design.cc.orig	2008-09-06 00:05:31.408290160 -0300
++++ net_design.cc	2008-09-06 00:06:24.498802238 -0300
+@@ -23,6 +23,7 @@
+ # include "config.h"
+ 
+ # include  <iostream>
++# include  <string.h>
+ 
+ /*
+  * This source file contains all the implementations of the Design
+--- t-dll-expr.cc.orig	2008-09-06 00:16:37.064889658 -0300
++++ t-dll-expr.cc	2008-09-06 00:16:46.571842236 -0300
+@@ -31,6 +31,7 @@
+ # include  <malloc.h>
+ #endif
+ # include  <stdlib.h>
++# include  <string.h>
+ 
+ /*
+  * This is a little convenience function for converting a NetExpr
+--- net_nex_input.cc.orig	2008-09-06 00:06:35.124950250 -0300
++++ net_nex_input.cc	2008-09-06 00:06:42.008634538 -0300
+@@ -23,6 +23,7 @@
+ # include "config.h"
+ 
+ # include <iostream>
++# include <string.h>
+ 
+ # include  <cassert>
+ # include  <typeinfo>
+--- net_link.cc.orig	2008-09-06 00:06:50.371615401 -0300
++++ net_link.cc	2008-09-06 00:06:57.918280392 -0300
+@@ -23,6 +23,7 @@
+ # include "config.h"
+ 
+ # include  <iostream>
++# include  <string.h>
+ 
+ # include  "netlist.h"
+ # include  <sstream>
+--- net_scope.cc.orig	2008-09-06 00:07:05.712446990 -0300
++++ net_scope.cc	2008-09-06 00:07:12.851612880 -0300
+@@ -25,6 +25,7 @@
+ 
+ # include  "netlist.h"
+ # include  <sstream>
++# include  <string.h>
+ 
+ /*
+  * The NetScope class keeps a scope tree organized. Each node of the
+--- parse.y.orig	2008-09-06 00:07:48.948276104 -0300
++++ parse.y	2008-09-06 00:07:56.091917973 -0300
+@@ -28,6 +28,7 @@
+ # include  "compiler.h"
+ # include  "pform.h"
+ # include  <sstream>
++# include  <string.h>
+ 
+ extern void lex_start_table();
+ extern void lex_end_table();
+--- pform.cc.orig	2008-09-06 00:08:19.464939938 -0300
++++ pform.cc	2008-09-06 00:08:40.378270961 -0300
+@@ -34,6 +34,8 @@
+ # include  <assert.h>
+ # include  <typeinfo>
+ # include  <sstream>
++# include  <string.h>
++# include  <stdlib.h>
+ 
+ map<perm_string,Module*> pform_modules;
+ map<perm_string,PUdp*> pform_primitives;
+--- sys_funcs.cc.orig	2008-09-06 00:08:56.221602890 -0300
++++ sys_funcs.cc	2008-09-06 00:09:49.872264758 -0300
+@@ -23,6 +23,8 @@
+ # include  "config.h"
+ # include  "compiler.h"
+ # include  <stdio.h>
++# include  <string.h>
++# include  <stdlib.h>
+ 
+ /*
+  * Manage the information about system functions. This information is
+--- verireal.cc.orig	2008-09-06 00:10:00.911596590 -0300
++++ verireal.cc	2008-09-06 00:10:22.594927049 -0300
+@@ -29,6 +29,7 @@
+ # include  <iostream>
+ # include  <math.h>
+ # include  <assert.h>
++# include  <string.h>
+ 
+ verireal::verireal()
+ {
+--- synth2.cc.orig	2008-09-06 00:14:57.258232265 -0300
++++ synth2.cc	2008-09-06 00:15:06.678231634 -0300
+@@ -28,6 +28,7 @@
+ #include <cassert>
+ #include "NetLatch.h"
+ #include <climits>
++#include <stdlib.h>
+ 
+ #include <new> // standard operator new
+ using std::bad_alloc;
+--- t-dll.cc.orig	2008-09-06 00:15:55.521561088 -0300
++++ t-dll.cc	2008-09-06 00:16:05.711559628 -0300
+@@ -32,6 +32,7 @@
+ # include  <malloc.h>
+ #endif
+ # include  <stdlib.h>
++# include  <string.h>
+ 
+ #include <new> // standard operator new
+ using std::bad_alloc;
+--- vvp/main.cc.orig	2008-09-06 00:18:48.518210599 -0300
++++ vvp/main.cc	2008-09-06 00:18:55.122486218 -0300
+@@ -34,9 +34,6 @@
+ #if defined(HAVE_SYS_RESOURCE_H)
+ # include  <sys/time.h>
+ # include  <sys/resource.h>
+-# if defined(LINUX)
+-#  include <asm/page.h>
+-# endif
+ #endif // defined(HAVE_SYS_RESOURCE_H)
+ 
+ #if defined(HAVE_GETOPT_H)
