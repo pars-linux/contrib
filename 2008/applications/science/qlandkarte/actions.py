@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = 'QLandkarte-%s' % get.srcVERSION()
+WorkDir = 'QLandkarte_%s' % get.srcVERSION()
 
 def setup():
     autotools.configure()
