@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>merkaartor</Name>
+        <Homepage>http://www.irule.be/bvh/c++/merkaartor/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>merkaartor</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Qt4 map editor for OpenStreetMap</Summary>
+        <Description>This is a Qt4-based editor for the OpenStreetMap with features such as map view near-WYSIWYG, style editor, transparent display of map features, support for handling seperate highways, import NMEA-files, etc.</Description>
+        <Archive sha1sum="ef086d3444df096b67cd977eb50d05c0c26c73ba" type="tarbz2">http://zzz.fisek.com.tr/files/sources/merkaartor-0.11_p11021.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4">qt4</Dependency>
+            <Dependency>exiv2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>merkaartor</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4">qt4</Dependency>
+            <Dependency>exiv2</Dependency>
+            <Dependency>inkscape</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/merkaartor/translations</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/merkaartor.desktop">merkaartor.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/merkaartor.png">merkaartor.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-02</Date>
+            <Version>0.11_p11021</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>
