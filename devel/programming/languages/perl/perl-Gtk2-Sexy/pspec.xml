@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Gtk2-Sexy</Name>
+        <Homepage>http://search.cpan.org/perldoc?Gtk2::Sexy</Homepage>
+        <Packager>
+            <Name>Nathan Hourt</Name>
+            <Email>nat.hourt@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>library</IsA>
+        <Summary>Gtk2::Sexy module for perl</Summary>
+        <Archive sha1sum="42f94fe44f2c45842326de428efee6ce0d640d2c" type="targz">mirrors://cpan/authors/id/F/FL/FLORA/Gtk2-Sexy-0.04.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency>perl-Gtk2</Dependency>
+            <Dependency>perl-ExtUtils-Depends</Dependency>
+            <Dependency>perl-ExtUtils-PkgConfig</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Gtk2-Sexy</Name>
+        <RuntimeDependencies>
+           <Dependency>libsexy</Dependency>
+           <Dependency>perl-Gtk2</Dependency>
+           <Dependency>perl-ExtUtils-Depends</Dependency>
+           <Dependency>perl-ExtUtils-PkgConfig</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-09-17</Date>
+            <Version>0.04</Version>
+            <Comment>Fix Dependency part of pspec.xml, add examples</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-09-17</Date>
+            <Version>0.04</Version>
+            <Comment>First release.</Comment>
+            <Name>Nathan Hourt</Name>
+            <Email>nat.hourt@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
