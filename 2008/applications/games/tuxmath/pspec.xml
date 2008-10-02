@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tuxmath</Name>
+        <Homepage>http://www.newbreedsoftware.com/tuxmath/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>"Tux, of Math Command" ("TuxMath," for short) is an educational arcade game starring Tux, the Linux mascot!</Summary>
+        <Description>"Tux, of Math Command" ("TuxMath," for short) is an educational arcade game starring Tux, the Linux mascot!</Description>
+        <Archive sha1sum="f5362c36840d97f3219101f516c51306efc83e94" type="tarbz2">http://zzz.fisek.com.tr/files/sources/tuxmath-0.0_p75.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.2.0">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.0">sdl-mixer</Dependency>
+            <Dependency versionFrom="2.0">sdl-ttf</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>tuxmath</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.2.0">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.0">sdl-mixer</Dependency>
+            <Dependency versionFrom="2.0">sdl-ttf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/tuxmath</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/tuxmath.desktop" permission="0644" owner="root">tuxmath.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2008-10-02</Date>
+            <Version>0.0_p75</Version>
+            <Comment>Version bump to svn r75 for cool new features.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-04-20</Date>
+            <Version>20010907_0102</Version>
+            <Comment>Fix dep and version</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-10-28</Date>
+            <Version>2001.09.07_0102</Version>
+            <Comment>Add a patch for makefile to fix installation</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-10-27</Date>
+            <Version>2001.09.07_0102</Version>
+            <Comment>installation sync</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-27</Date>
+            <Version>2001.09.07_0102</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
