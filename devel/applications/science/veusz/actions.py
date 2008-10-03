@@ -20,4 +20,4 @@ def install():
 
     pisitools.dohtml("Documents/*")
     pisitools.domove("/usr/share/doc/%s/html/*.png" % get.srcTAG(), "/usr/share/doc/%s/html/manimages" % get.srcTAG())
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "Documents/*.txt", "Documents/*.pdf")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "VERSION", "Documents/*.txt", "Documents/*.pdf")
