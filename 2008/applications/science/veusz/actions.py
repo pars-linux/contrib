@@ -7,17 +7,21 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
-def install():
+examples = "%s/%s/examples" % (get.docDIR(), get.srcTAG())
+
+def setup():
     pythonmodules.compile()
+    shelltools.chmod("examples/*", 0644)
 
 def install():
     pythonmodules.install()
 
-    pisitools.insinto("/usr/share/veusz/examples", "examples/*")
+    pisitools.insinto(examples, "examples/*") 
     pisitools.insinto("/usr/share/pixmaps", "windows/icons/veusz.png")
     pisitools.insinto("usr/share/applications", "veusz.desktop")
 
     pisitools.dohtml("Documents/*")
     pisitools.domove("/usr/share/doc/%s/html/*.png" % get.srcTAG(), "/usr/share/doc/%s/html/manimages" % get.srcTAG())
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "Documents/*.txt", "Documents/*.pdf")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "VERSION", "Documents/*.txt", "Documents/*.pdf")
