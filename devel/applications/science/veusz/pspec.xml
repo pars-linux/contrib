@@ -9,13 +9,15 @@
             <Email>muratasenel@gmail.com</Email>
         </Packager>
         <License>BSD</License>
+        <Icon>veusz</Icon>
         <IsA>library</IsA>
         <Summary>Veusz is a scientific plotting package written in Python.</Summary>
         <Description>Veusz provides a GUI, command line and scripting interface (based on Python) to its plotting facilities. The plots are built using an object-based system to provide a consistent interface.</Description>
-        <Archive sha1sum="7814f8eca9542d8fec3af5ed6726c9e1600ed2de" type="targz">http://download.gna.org/veusz/veusz-1.0.tar.gz</Archive>
+        <Archive sha1sum="6c1cb36e24c021c0835ff03276dff688037c12d6" type="targz">http://download.gna.org/veusz/veusz-1.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.0.4">numpy</Dependency>
             <Dependency versionFrom="1.0">pyfits</Dependency>
+            <Dependency versionFrom="4.3">PyQt4</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>veusz.desktop.patch</Patch>
@@ -27,6 +29,7 @@
         <RuntimeDependencies>
             <Dependency versionFrom="1.0.4">numpy</Dependency>
             <Dependency versionFrom="1.0">pyfits</Dependency>
+            <Dependency versionFrom="4.3">PyQt4</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -39,6 +42,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2008-10-03</Date>
+            <Version>1.1</Version>
+            <Comment>Version bump,add icon tag and add PyQt4 as a dependency.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2007-12-18</Date>
             <Version>1.0</Version>
