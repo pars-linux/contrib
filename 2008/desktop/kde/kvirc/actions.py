@@ -9,6 +9,8 @@ from pisi.actionsapi import kde
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "kvirc-3.4.2"
+
 def setup():
     kde.configure("--with-aa-fonts \
                    --with-big-channels \
