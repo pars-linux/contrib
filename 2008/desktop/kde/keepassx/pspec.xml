@@ -5,38 +5,50 @@
         <Name>keepassx</Name>
         <Homepage>http://www.keepassx.org/</Homepage>
         <Packager>
-            <Name>Kenan Pelit</Name>
-            <Email>kpelit@gmail.com</Email>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>keepassx</Icon>
         <IsA>app:gui</IsA>
         <Summary>Cross-platform password manager</Summary>
-        <Description>KeePassX is an application for people with extremly high demands on secure personal data management.It has a light interface.</Description>
-        <Archive sha1sum="848f8f03b8c829d18e9b244b96859d52db23eb56"  type="targz">mirrors://sourceforge/keepassx/KeePassX-0.3.1.tar.gz</Archive>
+        <Summary xml:lang="tr">Çoklu platform destekli parola yöneticisi</Summary>
+        <Description>KeePassX is a free/open-source password manager which helps you to manage your passwords in a secure way. You can put all your passwords in one database, which is locked with one master key or a key-disk.</Description>
+        <Archive sha1sum="6c6405a1ea8e75c568688094bb576fae5c501b7e"  type="targz">mirrors://sourceforge/keepassx/KeePassX-0.3.3.tar.gz</Archive>
         <BuildDependencies>
-             <Dependency>qt4</Dependency>
-             <Dependency>xorg-server</Dependency>
+             <Dependency versionFrom="4.3.0">qt4</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch level="1">gcc43.patch</Patch>
             <Patch>turkish.ts.patch</Patch>
-            <Patch>desktop.patch</Patch>
+            <Patch level="1">add.turkish.patch</Patch>
+            <Patch level="1">desktop.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>keepassx</Name>
         <RuntimeDependencies>
-             <Dependency>qt4</Dependency>
-             <Dependency>xorg-server</Dependency>
+             <Dependency versionFrom="4.3.0">qt4</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/keepassx</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/keepassx/i18n</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-10-04</Date>
+            <Version>0.3.3</Version>
+            <Comment>Version bump, translations added, description change, patches for Turkish translation and gcc4.3, now using make install instead of insinto, some other fine tunings and takeover package</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-03-17</Date>
             <Version>0.3.1</Version>
