@@ -20,7 +20,7 @@ def build():
 def install():
     autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
 
-    # Add translations
+    # Get all translations to the package
     shelltools.system("lrelease-qt4 src/src.pro")
     pisitools.insinto("/usr/share/keepassx/i18n/", "src/translations/*.qm")
 
