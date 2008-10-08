@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk-recordmydesktop</Name>
+        <Homepage>http://recordmydesktop.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gtk-recordmydesktop</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>GTK interface for recordMyDesktop</Summary>
+        <Description>recordMyDesktop is a desktop session recorder for linux that attempts to be easy to use, yet also effective at it's primary task. Gtk-recordmydesktop is a gtk-based graphical frontend for recordMyDesktop</Description>
+        <Archive sha1sum="7a92a5e5195f7902dffaae9e4233fb4f8ca0c426" type="targz">mirrors://sourceforge/recordmydesktop/gtk-recordmydesktop-0.3.7.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch>no-compiled-py.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gtk-recordmydesktop</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.3.7.3">recordmydesktop</Dependency>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-06</Date>
+            <Version>0.3.7.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
