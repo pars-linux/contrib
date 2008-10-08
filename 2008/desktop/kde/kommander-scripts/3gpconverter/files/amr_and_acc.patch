@@ -1,16 +1,18 @@
---- 3gpconverter-0.6.kmdr.orig	2007-05-08 06:36:56.000000000 +0300
-+++ 3gpconverter-0.6.kmdr	2007-11-11 21:55:40.000000000 +0200
-@@ -39,8 +39,8 @@
+--- 3gpconverter-0.6.kmdr.orig	2008-10-07 23:58:35.000000000 +0300
++++ 3gpconverter-0.6.kmdr	2008-10-08 00:05:43.000000000 +0300
+@@ -39,9 +39,9 @@
              <string></string>
              <string>
              @LineEdit1.setText(@exec(which ffmpeg ))
 -            @LineEdit2.setText(@exec(ffmpeg -formats |grep amr_nb |awk {'print $2'} ))
 -            @LineEdit3.setText(@exec(ffmpeg -formats |grep amr_wb |awk {'print $2'} ))
+-            @LineEdit4.setText(@exec(ffmpeg -formats |grep "DEA    aac"|awk {'print $2'} ))
 +            @LineEdit2.setText(@exec(ffmpeg -formats |grep libamr_nb |awk {'print $2'} ))
 +            @LineEdit3.setText(@exec(ffmpeg -formats |grep libamr_wb |awk {'print $2'} ))
-             @LineEdit4.setText(@exec(ffmpeg -formats |grep "DEA    aac"|awk {'print $2'} ))
++            @LineEdit4.setText(@exec(ffmpeg -formats |grep libfaac |awk {'print $2'} ))
              @LineEdit5.setText(@exec(ffmpeg -formats |grep "DEVSDT h263"  |awk {'print $2'} ))
              @LineEdit6.setText(@exec(ffmpeg -formats |grep "DEVSDT mpeg4"  |awk {'print $2'} ))
+             @LineEdit7.setText(@exec(ffmpeg -formats |grep "E 3gp"  |awk {'print $2'} ))
 @@ -1261,7 +1261,7 @@
          message_error("No 3gp codec support,please recompile ffmpeg", "warning")
  
@@ -25,7 +27,7 @@
                  </property>
                  <property name="toolTip" stdset="0">
 -                    <string>Audio codecs supported by ffmmeg (must be amr_nb,amr_wb,aac)</string>
-+                    <string>Audio codecs supported by ffmmeg (must be libamr_nb,libamr_wb,aac)</string>
++                    <string>Audio codecs supported by ffmmeg (must be libamr_nb,libamr_wb,libfaac)</string>
                  </property>
              </widget>
              <widget class="Label">
@@ -38,12 +40,19 @@
  @setGlobal(kbau,@kbaud.text )
  @Global(verbose) nice -n @priority.text ffmpeg -y -i "@audiosourse.text" -ab "@Global(kbau)" -ac 1 -ar "@Global(audiosample)" -vol "@volume.text" -acodec "@Global(audiocodec)" "@audiodest.text".amr   
  </string>
-@@ -2787,7 +2787,7 @@
+@@ -2787,13 +2787,13 @@
  
  @if(!@aac.checked)
    @setGlobal(audiosample, 8000)
 -  @setGlobal(audiocodec, amr_nb)
 +  @setGlobal(audiocodec, libamr_nb)
    @setGlobal(kbau,@kbaud.text )
+ @endif
+ 
+ @if(@aac.checked)
+   @setGlobal(audiosample,@samplerate.text )
+-  @setGlobal(audiocodec, aac)
++  @setGlobal(audiocodec, libfaac)
+   @setGlobal(kbau,@kbaud2.text )
  @endif
  
