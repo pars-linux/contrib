@@ -6,10 +6,12 @@
 
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 WorkDir="3gpconverter-%s" % get.srcVERSION()
 
 def install():
+    shelltools.chmod("3gpconverter-0.6.kmdr")
     pisitools.insinto("/usr/kde/3.5/bin", "3gpconverter-0.6.kmdr","3gpconverter.kmdr")
 
     pisitools.dodoc("changelog", "readme")
