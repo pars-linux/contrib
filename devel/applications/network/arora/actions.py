@@ -18,4 +18,7 @@ def build():
 def install():
     autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
 
+    # Don't know, why package manager can't show the icon when there is a .svg
+    pisitools.remove("/usr/share/icons/hicolor/scalable/apps/arora.svg")
+
     pisitools.dodoc("AUTHORS", "README", "ChangeLog")
