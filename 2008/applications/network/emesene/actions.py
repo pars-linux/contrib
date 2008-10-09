@@ -11,5 +11,6 @@ def install():
     pythonmodules.install()
 
     pisitools.insinto("/usr/bin", "emesene.bin", "emesene")
+    pisitools.remove("/usr/share/icons/hicolor/scalable/apps/emesene.svg")
 
     pisitools.dodoc("COPYING", "docs/TRANSLATORS")
