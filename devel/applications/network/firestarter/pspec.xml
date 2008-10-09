@@ -22,6 +22,14 @@
         </BuildDependencies>
         <Patches>
             <Patch level="1">do-not-update-gconf-schemas.patch</Patch>
+            <Patch level="1">browser_nonroot.patch</Patch>
+            <Patch level="1">fix_ip_up.patch</Patch>
+            <Patch level="1">update_sv_po.patch</Patch>
+            <Patch level="1">update_docs_uri.patch</Patch>
+            <Patch level="1">update_non_routables.patch</Patch>
+            <Patch level="1">xpm_icon.patch</Patch>
+            <Patch level="1">dhcp_hook.patch</Patch>
+            <Patch level="1">firestarter_transparent_icon.patch</Patch>
         </Patches>
     </Source>
 
@@ -35,7 +43,7 @@
             <Dependency>iptables</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
             <Path fileType="config">/etc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -48,10 +56,22 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-10-09</Date>
+            <Version>1.0.3</Version>
+            <Comment>
+                - Fix desktop file so that it asks root password before launching firestarter (Fixes #7918),
+                - Install the binary into /usr/sbin instead of /usr/bin as it needs root privileges,
+                - Let tray icon be transparent,
+                - Grab debian patches to fix some memleak issues, wrong website addresses, etc.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2007-08-13</Date>
             <Version>1.0.3</Version>
-            <Comment>Depend on a new libgnome for proper installing of gconf schemas, fix critiacal bug #5685</Comment>
+            <Comment>Depend on a new libgnome for proper installing of gconf schemas, fix critical bug #5685</Comment>
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Update>

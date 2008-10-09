@@ -1,0 +1,12 @@
+diff -urNad firestarter-1.0.1/src/scriptwriter.c /tmp/dpep.GLxFE0/firestarter-1.0.1/src/scriptwriter.c
+--- firestarter-1.0.1/src/scriptwriter.c	2004-12-17 21:33:26.000000000 +0100
++++ /tmp/dpep.GLxFE0/firestarter-1.0.1/src/scriptwriter.c	2004-12-17 21:33:56.000000000 +0100
+@@ -473,7 +473,7 @@
+ 			list = g_list_append (list, g_strdup (buf));
+ 	}
+ 
+-	rewind (f);
++	fprintf (f, "\n");
+ 	fprintf (f, FIRESTARTER_HOOK);
+ 
+ 	link = list;

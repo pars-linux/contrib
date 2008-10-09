@@ -17,4 +17,7 @@ def build():
 def install():
     autotools.install()
 
+    pisitools.remove("/usr/bin/firestarter")
+    pisitools.dosbin("src/firestarter")
+
     pisitools.dodoc("AUTHORS", "TODO", "NEWS", "ChangeLog")
