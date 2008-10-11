@@ -1,0 +1,34 @@
+--- scripts/startxfce4.in.orig	2008-10-10 08:14:21.000000000 +0300
++++ scripts/startxfce4.in	2008-10-10 11:30:55.000000000 +0300
+@@ -19,6 +19,16 @@
+ #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ #
+ 
++# For Pulse Audio
++if [ -x /usr/bin/pulseaudio ]; then
++    /usr/bin/pulseaudio -D
++fi
++
++# For D-Bus session bus
++if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
++    eval `dbus-launch --sh-syntax --exit-with-session`
++fi
++
+ if test "x$XDG_CONFIG_HOME" = "x"
+ then
+   BASEDIR="$HOME/.config/xfce4/"
+@@ -26,11 +36,12 @@
+   BASEDIR="$XDG_CONFIG_HOME/xfce4"
+ fi
+ 
++# Edit XDG_DATA Paths for Pardus
+ if test "x$XDG_DATA_DIRS" = "x"
+ then
+-  XDG_DATA_DIRS="/usr/local/share:/usr/share:@datadir@"
++  XDG_DATA_DIRS="/etc/xdg/:/etc/X11/xdg/:/usr/local/share:/usr/share:/usr/kde/3.5/share:@datadir@"
+ else
+-  XDG_DATA_DIRS="$XDG_DATA_DIRS:@datadir@"
++  XDG_DATA_DIRS="/etc/xdg/:/etc/X11/xdg/:$XDG_DATA_DIRS:@datadir@"
+ fi
+ export XDG_DATA_DIRS
+ 
