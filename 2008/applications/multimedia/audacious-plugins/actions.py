@@ -16,13 +16,14 @@ def setup():
                          --disable-esd \
                          --enable-pulse \
                          --enable-arts \
+                         --with-artsc-prefix=%s \
                          --disable-coreaudio \
                          --disable-gconf \
                          --disable-gnomeshortcuts \
                          --enable-amidiplug \
                          --enable-amidiplug-alsa \
                          --disable-amidiplug-flysn \
-                         --enable-amidiplug-dummy")
+                         --enable-amidiplug-dummy" % get.kdeDIR())
 
 def build():
     autotools.make()
