@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "Risk"
+WorkDir = "Domination"
 datadir = "/usr/share/risk"
 
 def fixperms(d):
@@ -25,9 +25,7 @@ def build():
     shelltools.system("ant")
 
 def install():
-    shelltools.cd("build/game")
-
-    pisitools.insinto(datadir, "Risk.jar")
+    pisitools.insinto(datadir, "Domination.jar", "Risk.jar")
 
     for f in ["help", "maps", "resources" ,"saves"]:
         fixperms(f)
