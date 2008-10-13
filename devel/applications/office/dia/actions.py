@@ -6,8 +6,10 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
+    autotools.autoreconf("-fi")
     autotools.configure("--with-python \
                          --with-gnomeprint \
                          --with-gnome \
@@ -18,5 +20,5 @@ def build():
 
 def install():
     autotools.install()
-    
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
