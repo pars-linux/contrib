@@ -19,3 +19,7 @@ def install():
     pythonmodules.install('--disable-autoupdate')
 
     pisitools.dodoc('AUTHORS.txt', 'COPYING.txt', 'NEWS.txt')
+
+    pisitools.insinto("/usr/share/icons/hicolor/16x16/apps", "picard.ico")
+    pisitools.insinto("/usr/share/pixmaps", "picard-32.png")
+    pisitools.insinto("/usr/share/applications", "picard.desktop")
