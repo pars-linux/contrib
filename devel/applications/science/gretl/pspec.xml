@@ -12,21 +12,18 @@
         <Icon>gretl</Icon>
         <IsA>app:gui</IsA>
         <Summary>A cross-platform software package for econometric analysis</Summary>
-        <Archive sha1sum="c276fd7643e105dff74a5b84410fc9a071686e34" type="tarbz2">mirrors://sourceforge/gretl/gretl-1.7.6.tar.bz2</Archive>
+        <Archive sha1sum="7fec10313577a98c9940f48ac644452131272002" type="tarbz2">mirrors://sourceforge/gretl/gretl-1.7.9.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.0.1">gmp</Dependency>
-            <Dependency versionFrom="2.2.0">mpfr</Dependency>
+            <Dependency versionFrom="4.2.2">gmp</Dependency>
+            <Dependency versionFrom="2.3.1">mpfr</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>gnuplot</Dependency>
             <Dependency versionFrom="3.1.1">lapack</Dependency>
             <Dependency versionFrom="3.1.2">fftw3</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libxslt</Dependency>
             <Dependency>tetex</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">fix-makefile.patch</Patch>
-            <Patch>workaround_unicode_prb.patch</Patch>
+            <Patch>fix-makefile.patch</Patch>
             <Patch>settings.patch</Patch>
             <Patch>desktop.patch</Patch>
         </Patches>
@@ -35,14 +32,12 @@
     <Package>
         <Name>gretl</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.0.1">gmp</Dependency>
-            <Dependency versionFrom="2.2.0">mpfr</Dependency>
+            <Dependency versionFrom="4.2.2">gmp</Dependency>
+            <Dependency versionFrom="2.3.1">mpfr</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>gnuplot</Dependency>
             <Dependency versionFrom="3.1.1">lapack</Dependency>
             <Dependency versionFrom="3.1.2">fftw3</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libxslt</Dependency>
             <Dependency>tetex</Dependency>
             <Dependency>R</Dependency>
             <Dependency>firefox</Dependency>
@@ -75,6 +70,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2008-10-13</Date>
+            <Version>1.7.9</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-08-06</Date>
             <Version>1.7.6</Version>
