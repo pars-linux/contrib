@@ -10,7 +10,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--with-sound=alsa")
+    autotools.configure("--with-sound=alsa \
+                         --enable-final \
+                         --disable-static")
 
 def build():
     autotools.make("-j1")
