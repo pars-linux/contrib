@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 
 def setup():
     pisitools.dosed("epdfview.desktop", "icon_epdfview-24.png",  "icon_epdfview-48.png")
-    autotools.configure()
+    autotools.configure("--disable-rpath \
+                         --with-cups")
 
 def build():
     autotools.make()
@@ -19,9 +20,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodir("/usr/share/pixmaps")
-    pisitools.insinto("/usr/share/pixmaps", "*.png")
+    pisitools.dosym("/usr/share/epdfview/pixmaps/icon_epdfview-48.png", "/usr/share/pixmaps/epdfview.png")
 
-    pisitools.insinto("/usr/share/applications", "epdfview.desktop")
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS*", "README*", "TODO*")
 
