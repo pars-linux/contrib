@@ -10,17 +10,18 @@
             <Email>tuxedup@tuxedup.greenisp.org</Email>
         </Packager>
         <License>GPLv2</License>
-        <Icon>icon_epdfview-48</Icon>
+        <Icon>epdfview</Icon>
         <IsA>app:gui</IsA>
         <Summary>ePDFView is a free lightweight PDF document viewer using Poppler and GTK+ libraries.</Summary>
         <Description>The aim of ePDFView is to make a simple PDF document viewer, in the lines of Evince but without using the Gnome libraries</Description>
         <Archive sha1sum="59f98666a1bae958802e63334fd216333e9a0007" type="targz">http://trac.emma-soft.com/epdfview/chrome/site/releases/epdfview-0.1.6.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency> 
+            <Dependency>gtk2</Dependency>
             <Dependency>poppler</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">epdfview-gcc-4.3.patch</Patch>
+            <Patch level="1">epdfview-0.1.6-fix-printing.patch</Patch>
         </Patches>
 
     </Source>
@@ -43,6 +44,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-10-14</Date>
+            <Version>0.1.6</Version>
+            <Comment>Fix compiling, edit icon tag and add printing patch.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-05-20</Date>
             <Version>0.1.6</Version>
