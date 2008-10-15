@@ -8,6 +8,8 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir = "httrack-3.43.1"
+
 def setup():
     autotools.configure("--disable-static")
 
