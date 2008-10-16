@@ -22,23 +22,23 @@ diff -Naur arora-0.4.orig/src/browserapplication.cpp arora-0.4/src/browserapplic
 
  BrowserApplication::~BrowserApplication()
 diff -Naur arora-0.4.orig/src/languagemanager.cpp arora-0.4/src/languagemanager.cpp
---- arora-0.4.orig/src/languagemanager.cpp	2008-10-01 04:17:22.000000000 +0300
-+++ arora-0.4/src/languagemanager.cpp	2008-10-11 20:14:20.000000000 +0300
+--- arora-0.4.orig/src/languagemanager.cpp  2008-10-01 04:17:22.000000000 +0300
++++ arora-0.4/src/languagemanager.cpp   2008-10-16 06:38:44.000000000 +0300
 @@ -48,6 +48,13 @@
      , m_appTranslator(0)
      , m_loaded(false)
  {
-+     QSettings settings;
-+     settings.beginGroup(QLatin1String("LanguageManager"));
-+     if (settings.contains(QLatin1String("language"))) {
-+         setCurrentLanguage(settings.value(QLatin1String("language")).toString());
-+     } else if (!currentLanguage().isEmpty()) {
-+         setCurrentLanguage(currentLanguage());
-+     }
++    QSettings settings;
++    settings.beginGroup(QLatin1String("LanguageManager"));
++    if (settings.contains(QLatin1String("language"))) {
++        setCurrentLanguage(settings.value(QLatin1String("language")).toString());
++    } else if (!currentLanguage().isEmpty()) {
++        setCurrentLanguage(currentLanguage());
++    }
  }
 
  QString LanguageManager::currentLanguage() const
-@@ -126,12 +126,12 @@
+@@ -126,26 +133,29 @@
      loadAvailableLanguages();
 
      QStringList items;
@@ -48,13 +48,47 @@ diff -Naur arora-0.4.orig/src/languagemanager.cpp arora-0.4/src/languagemanager.
 -        // this is for pretty RTL support
 -        .arg(QChar(0x200E)); // LRM = 0x200E;
 -    items << systemLocaleString;
-+//     QString systemLocaleString = QLocale::system().name();
-+//     systemLocaleString = tr("System locale (%1) %2")
-+//         .arg(systemLocaleString)
-+//         // this is for pretty RTL support
-+//         .arg(QChar(0x200E)); // LRM = 0x200E;
-+//     items << systemLocaleString;
-
-     int defaultItem = 0;
+-
+-    int defaultItem = 0;
++    int defaultItem = -1;
++    QString current = currentLanguage();
      foreach (QString name, m_languages) {
+         QLocale locale(name);
+-        if (name == m_currentLanguage)
+-            defaultItem = items.count();
+         QString string = QString(QLatin1String("%1, %2 (%3) %4"))
+             .arg(QLocale::languageToString(locale.language()))
+             .arg(QLocale::countryToString(locale.country()))
+             .arg(name)
+             // this is for pretty RTL support
+             .arg(QChar(0x200E)); // LRM = 0x200E
++        if (name == current)
++            defaultItem = items.count();
+         items << string;
+     }
++    if (defaultItem == -1) {
++        QString systemLocaleString = QLocale::system().name();
++        systemLocaleString = tr("System locale (%1) %2")
++            .arg(systemLocaleString)
++            // this is for pretty RTL support
++            .arg(QChar(0x200E)); // LRM = 0x200E;
++        items << systemLocaleString;
++        defaultItem = items.count();
++    }
 
+     bool ok;
+     QString item = QInputDialog::getItem(0,
+@@ -158,11 +168,8 @@
+         return;
+
+     int selection = items.indexOf(item);
+-    if (selection == 0) {
+-        setCurrentLanguage(QString());
+-    } else {
+-        setCurrentLanguage(m_languages.value(selection - 1));
+-    }
++    if (selection != m_languages.count())
++        setCurrentLanguage(m_languages.value(selection));
+ }
+
+ QString LanguageManager::translationLocation() const
