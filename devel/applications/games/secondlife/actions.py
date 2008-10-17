@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="SecondLife_i686_1_20_15_92456"
+WorkDir="SecondLife_i686_1_20_17_98669"
 
 def install():
     pisitools.insinto("/usr/share/SecondLife",  "*")
