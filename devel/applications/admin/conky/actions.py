@@ -14,7 +14,7 @@ def setup():
                          --disable-xmms2 \
                          --disable-bmpx \
                          --disable-audacious \
-                         --disable-mpd \
+                         --enable-mpd \
                          --disable-debug \
                          --enable-smapi \
                          --enable-wlan \
@@ -28,7 +28,8 @@ def setup():
                          --enable-double-buffer \
                          --enable-xdamage \
                          --enable-wlan \
-                         --enable-xft")
+                         --enable-xft \
+                         --disable-rpath")
 
 def build():
     autotools.make()
