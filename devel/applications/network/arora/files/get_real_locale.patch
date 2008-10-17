@@ -21,9 +21,8 @@ diff -Naur arora-0.4.orig/src/browserapplication.cpp arora-0.4/src/browserapplic
  }
 
  BrowserApplication::~BrowserApplication()
-diff -Naur arora-0.4.orig/src/languagemanager.cpp arora-0.4/src/languagemanager.cpp
 --- arora-0.4.orig/src/languagemanager.cpp  2008-10-01 04:17:22.000000000 +0300
-+++ arora-0.4/src/languagemanager.cpp   2008-10-16 06:38:44.000000000 +0300
++++ arora-0.4/src/languagemanager.cpp   2008-10-17 17:17:06.000000000 +0300
 @@ -48,6 +48,13 @@
      , m_appTranslator(0)
      , m_loaded(false)
@@ -38,7 +37,7 @@ diff -Naur arora-0.4.orig/src/languagemanager.cpp arora-0.4/src/languagemanager.
  }
 
  QString LanguageManager::currentLanguage() const
-@@ -126,26 +133,29 @@
+@@ -126,26 +133,24 @@
      loadAvailableLanguages();
 
      QStringList items;
@@ -50,9 +49,10 @@ diff -Naur arora-0.4.orig/src/languagemanager.cpp arora-0.4/src/languagemanager.
 -    items << systemLocaleString;
 -
 -    int defaultItem = 0;
+-    foreach (QString name, m_languages) {
 +    int defaultItem = -1;
 +    QString current = currentLanguage();
-     foreach (QString name, m_languages) {
++    foreach (const QString name, m_languages) {
          QLocale locale(name);
 -        if (name == m_currentLanguage)
 -            defaultItem = items.count();
@@ -67,18 +67,13 @@ diff -Naur arora-0.4.orig/src/languagemanager.cpp arora-0.4/src/languagemanager.
          items << string;
      }
 +    if (defaultItem == -1) {
-+        QString systemLocaleString = QLocale::system().name();
-+        systemLocaleString = tr("System locale (%1) %2")
-+            .arg(systemLocaleString)
-+            // this is for pretty RTL support
-+            .arg(QChar(0x200E)); // LRM = 0x200E;
-+        items << systemLocaleString;
 +        defaultItem = items.count();
++        items << tr("Default");
 +    }
 
      bool ok;
      QString item = QInputDialog::getItem(0,
-@@ -158,11 +168,8 @@
+@@ -158,11 +163,8 @@
          return;
 
      int selection = items.indexOf(item);
