@@ -14,18 +14,13 @@ datadir = "/usr/share/planeshift"
 def setup():
     shelltools.system("./autogen.sh")
 
-    autotools.configure("--disable-debug \
-                         --datadir=%s \
+    autotools.configure("--datadir=%s \
                          --docdir=/usr/share/doc/%s \
-                         --enable-optimize-mode-debug-info=no \
-                         --with-optimize-debug-info=no \
                          --enable-separate-debug-info=no \
+                         --with-optimize-debug-info=no \
                          --enable-cpu-specific-optimizations=no \
                          --with-cs-prefix=/usr \
-                         --with-cel-prefix=/usr \
-                         --with-x \
-                         --with-cal3d \
-                         --with-bfd" % (datadir, get.srcTAG()))
+                         --with-cel-prefix=/usr" % (datadir, get.srcTAG()))
 
 def build():
     #pisitools.dosed("Jamconfig", "-O3", get.CXXFLAGS())
@@ -45,12 +40,6 @@ def install():
     shelltools.copytree("lang", "%s/%s" % (get.installDIR(), datadir))
     shelltools.copytree("data/eedit", "%s/%s/data" % (get.installDIR(), datadir))
     shelltools.copytree("data/gui", "%s/%s/data" % (get.installDIR(), datadir))
-    shelltools.copytree("art/music", "%s/%s/art" % (get.installDIR(), datadir))
-    shelltools.copytree("art/runes", "%s/%s/art" % (get.installDIR(), datadir))
-
-    pisitools.insinto("%s/art/world" % datadir, "art/world/sound.xml")
-    pisitools.insinto("%s/art" % datadir, "art/racelib.xml")
-    pisitools.insinto("%s/art" % datadir, "art/sfxfiles.dtd")
 
     pisitools.domove("/usr/bin/*", datadir)
     pisitools.removeDir("/usr/bin")
