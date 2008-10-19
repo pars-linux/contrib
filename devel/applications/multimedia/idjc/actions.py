@@ -17,7 +17,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.remove("/usr/share/doc/idjc-%s/*.gz" % get.srcVERSION())
+    pisitools.removeDir("/usr/share/doc/idjc-%s/" % get.srcVERSION())
 
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "README")
 
