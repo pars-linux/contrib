@@ -9,7 +9,7 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir = "lmms-0.4.0-rc2"
+WorkDir ="%s-%s" % (get.srcNAME(), get.srcVERSION().replace('_','-'))
 
 def setup():
     shelltools.makedirs("build")
@@ -23,5 +23,7 @@ def build():
 def install():
     shelltools.cd("build")
     cmaketools.rawInstall('DESTDIR="%s"' % get.installDIR())
+
+    pisitools.insinto("/usr/share/pixmaps", "/usr/share/lmms/themes/default/icon.png", "lmms.png")
 
     pisitools.dodoc("../AUTHORS", "../COPYING", "../ChangeLog", "../TODO","../README")
