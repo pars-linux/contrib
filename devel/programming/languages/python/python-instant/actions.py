@@ -9,12 +9,9 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "instant"
+WorkDir = "instant-%s" % get.srcVERSION()
 
 def install():
     pythonmodules.install()
-
-    for i in ["makedoc.sh","maketarball.sh", "TODO"]:
-        pisitools.remove("/%s/%s/%s/" % (get.docDIR(), get.srcTAG(), i))
-
-    pisitools.dodoc("ChangeLog", "RELEASENOTES", "AUTHORS")
+    #fix .gz files in /usr/share/man when bug #8426 is reflected to pisi.
+    pisitools.dodoc("ChangeLog", "RELEASENOTES", "AUTHORS", "LICENSE", "TODO")
