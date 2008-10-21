@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="opera-9.52-2091.gcc4-shared-qt3.i386"
+WorkDir="opera-9.61-2456.gcc4-shared-qt3.i386"
 
 def install():
     shelltools.system("./install.sh DESTDIR=%s" % get.installDIR())
