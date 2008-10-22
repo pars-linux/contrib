@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>takenote</Name>
+        <Homepage>http://rasm.ods.org/takenote</Homepage>
+        <Packager>
+            <Name>Mirat Can Bayrak</Name>
+            <Email>miratcanbayrak@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>takenote</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A note taking application</Summary>
+        <Description>TakeNote is designed to be cross-platform (implemented in Python and PyGTK) and stores your notes in simple and easy to manipulate file formats (HTML and XML). Archiving and transferring your notes is as easy as zipping or copying a folder.</Description>
+        <Archive sha1sum="9862661e3da7305a2c991514775577795eb3847e" type="targz">http://rasm.ods.org/takenote/download/takenote-0.4.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+        </BuildDependencies>
+    </Source>
+    <Package>
+        <Name>takenote</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/takenote.desktop">takenote.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2008-10-17</Date>
+            <Version>0.4.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Mirat Can Bayrak</Name>
+            <Email>miratcanbayrak@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
