@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cmus</Name>
+        <Homepage>http://cmus.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Small and fast text mode music player</Summary>
+        <Description>Cmus is a small and fast text mode music player for Linux and many other UNIX like operating systems.</Description>
+        <Archive sha1sum="e20f9cd362541ea58e32d72651df4595bf082cf3" type="targz">http://www.cclub.metu.edu.tr/~serdar/cmus-2.2.0_10092008.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libao</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency versionFrom="0.4.9_20080626">ffmpeg</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>libmpcdec</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency>libmikmod</Dependency>
+            <Dependency>wavpack</Dependency>
+            <!--Dependency>libvorbis</Dependency> <dependency of ffmpeg -->
+            <!--Dependency>faad2</Dependency> <dependency of ffmpeg -->
+            <!--Dependency>alsa-lib</Dependency> <dependency of libao and libmikmod-->
+            <!--Dependency>arts</Dependency> <dependency of libao-->
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">cmus_audioscrobbler.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cmus</Name>
+        <RuntimeDependencies>
+            <Dependency>libao</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>libmpcdec</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency>libmikmod</Dependency>
+            <Dependency>wavpack</Dependency>
+            <!--Dependency>libvorbis</Dependency> <dependency of ffmpeg -->
+            <!--Dependency>faad2</Dependency> <dependency of ffmpeg -->
+            <!--Dependency>alsa-lib</Dependency> <dependency of libao and libmikmod-->
+            <!--Dependency>arts</Dependency> <dependency of libao-->
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/cmus</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/doc/cmus-2.2.0-1/Audioscrobbler-Lastfm_Usage.txt">Audioscrobbler-Lastfm_Usage.txt</AdditionalFile>
+        </AdditionalFiles>
+   </Package>
+
+   <History>
+       <Update release="1">
+            <Date>2008-09-09</Date>
+            <Version>2.2.0</Version>
+            <Comment>First Release.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+       </Update>
+    </History>
+</PISI>
