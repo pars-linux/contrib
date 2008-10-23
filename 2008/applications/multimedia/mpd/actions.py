@@ -10,7 +10,7 @@ from pisi.actionsapi import shelltools
 
 def setup():
     autotools.configure("--disable-static \
-                         --disable-pulse \
+                         --enable-pulse \
                          --enable-ao")
 
 def build():
