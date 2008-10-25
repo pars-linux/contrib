@@ -10,13 +10,14 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
 def setup():
-    shelltools.system("qmake-qt4")
+    shelltools.system("qmake-qt4 boncuk.pro")
 
     # Change C/XXFLAGS
     pisitools.dosed("Makefile", "CFLAGS        = -pipe -O2", "CFLAGS        = %s" % get.CFLAGS())
     pisitools.dosed("Makefile", "CXXFLAGS      = -pipe -O2", "CXXFLAGS      = %s" % get.CXXFLAGS())
 
 def build():
+    shelltools.system("lupdate-qt4 boncuk.pro")
     shelltools.system("lrelease-qt4 boncuk.pro")
     autotools.make()
 
