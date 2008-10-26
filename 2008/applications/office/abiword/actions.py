@@ -17,12 +17,13 @@ def setup():
                                   --with-popt \
                                   --with-fribidi \
                                   --enable-scripting \
-                                  --enable-printing")
+                                  --enable-printing \
+                                  --enable-gnomeui")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    
+
     pisitools.dodoc("docs/Abi*")
