@@ -8,6 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
+    pisitools.dosed("decoder_plugins/ffmpeg/ffmpeg.c", "ffmpeg/avformat", "libavformat/avformat")
     autotools.configure()
 
 def build():
@@ -16,4 +17,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("COPYING", "AUTHORS", "ChangeLog")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "THANKS", "TODO")
