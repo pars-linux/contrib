@@ -9,7 +9,8 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--enable-unit-mm \
-                         --disable-update-desktop-database")
+                         --disable-update-desktop-database \
+                         --disable-static")
 
 def build():
     autotools.make()
