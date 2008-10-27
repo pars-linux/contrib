@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-places-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-places-plugin</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce Places Plugin</Summary>
+        <Archive sha1sum="599ab07f7d4bd9bb24af69ffba74f88dfe01b38e" type="tarbz2">http://goodies.xfce.org/releases/xfce4-places-plugin/xfce4-places-plugin-1.1.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-places-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-12</Date>
+            <Version>1.1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Update>
+    </History>
+</PISI>
