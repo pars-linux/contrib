@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pidgin-libnotify</Name>
+        <Homepage>http://gaim-libnotify.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <IsA>library</IsA>
+        <Summary>Popup for Pidgin via libnotify and the notification-daemon</Summary>
+        <Description>This plugin adds a libnotify interface to pidgin, enabling popups much like guifications. It has some configuration options, to show popups when a buddy signs on, on new messages and on new conversations only.</Description>
+        <Archive sha1sum="d3fb0363bef48aa9dd5cd3396125408836f7ad59" type="targz">mirrors://sourceforge/gaim-libnotify/pidgin-libnotify-0.13.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pidgin</Dependency>
+            <Dependency versionFrom="0.3.2">libnotify</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">only_available.patch</Patch>
+            <Patch level="1">fix_show_button.patch</Patch>
+            <Patch level="1">add_turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pidgin-libnotify</Name>
+        <RuntimeDependencies>
+            <Dependency>pidgin</Dependency>
+            <Dependency versionFrom="0.3.2">libnotify</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale/</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-18</Date>
+            <Version>0.13</Version>
+            <Comment>First Release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

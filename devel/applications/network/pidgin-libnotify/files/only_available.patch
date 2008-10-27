@@ -1,0 +1,15 @@
+diff -Nur pidgin-libnotify-0.13/src/pidgin-libnotify.c pidgin-libnotify-0.13.new/src/pidgin-libnotify.c
+--- pidgin-libnotify-0.13/src/pidgin-libnotify.c	2007-07-23 11:28:45.000000000 -0300
++++ pidgin-libnotify-0.13.new/src/pidgin-libnotify.c	2007-07-23 11:29:31.000000000 -0300
+@@ -77,6 +77,11 @@
+                             _("Buddy signs off"));
+ 	purple_plugin_pref_frame_add (frame, ppref);
+ 
++	ppref = purple_plugin_pref_new_with_name_and_label (
++                            "/plugins/gtk/libnotify/only_available",
++                            _("Only when available"));
++	purple_plugin_pref_frame_add (frame, ppref);
++
+ 	return frame;
+ }
+ 
