@@ -1,0 +1,19 @@
+--- Makefile.orig	2008-09-29 15:26:30.000000000 +0300
++++ Makefile	2008-09-29 15:36:35.000000000 +0300
+@@ -1,5 +1,5 @@
+ CC = gcc -g
+-CFLAGS=-Wall `pkg-config --cflags gtk+-2.0 gthread-2.0` -DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
++CFLAGS=-Wall `pkg-config --cflags gtk+-2.0 gthread-2.0` -DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED
+ LIBS=`pkg-config --libs gtk+-2.0 gthread-2.0`
+ bindir ?= /usr/bin
+ 
+@@ -29,7 +29,8 @@
+ 	rm *.o gdpc
+ 
+ install:
+-	install gdpc $(bindir)
++	mkdir -p $(DESTDIR)$(bindir)
++	install -m 755 gdpc $(DESTDIR)$(bindir)
+ 
+ uninstall:
+ 	rm $(bindir)/gdpc
