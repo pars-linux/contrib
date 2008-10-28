@@ -5,37 +5,26 @@
         <Name>xfdesktop</Name>
         <Homepage>http://www.xfce.org</Homepage>
         <Packager>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
         <IsA>app:gui</IsA>
         <Summary>Xfce desktop manager</Summary>
-        <Archive sha1sum="f2ff4d429c0241401bdeebd3dc9b71b35dbe9ae8"  type="tarbz2">http://www.us.xfce.org/archive/xfce-4.4.2/src/xfdesktop-4.4.2.tar.bz2</Archive>
+        <Archive sha1sum="6ba60fd7f8f57104195e3e17551315d0c3c2381e"  type="tarbz2">http://mocha.xfce.org/archive/xfce-4.4.3/src/xfdesktop-4.4.3.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
-            <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
-            <Dependency versionFrom="4.4.2">libxfce4mcs</Dependency>
-            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
-            <Dependency versionFrom="4.4.2">xfce-mcs-manager</Dependency>
-            <Dependency versionFrom="0.9.0">Thunar</Dependency>
-            <Dependency>dbus-glib</Dependency>
+            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+            <Dependency versionFrom="0.9.3">Thunar</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>xfdesktop</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
-            <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
-            <Dependency versionFrom="4.4.2">libxfce4mcs</Dependency>
-            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
-            <Dependency versionFrom="4.4.2">xfce-mcs-manager</Dependency>
-            <Dependency versionFrom="0.9.0">Thunar</Dependency>
-            <Dependency>dbus-glib</Dependency>
+            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+            <Dependency versionFrom="0.9.3">Thunar</Dependency>
             <!-- for default configuration -->
-            <Dependency>tango-icon-theme</Dependency>
             <Dependency>murrine</Dependency>
             <Dependency>xfce4-datetime-plugin</Dependency>
         </RuntimeDependencies>
@@ -51,28 +40,26 @@
         </Files>
         <AdditionalFiles>
             <!-- wallpapers -->
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/aqua-sphere-xfce.jpg">wallpapers/aqua-sphere-xfce.jpg</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/park.jpg">wallpapers/park.jpg</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/pardus.png">wallpapers/pardus.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/mouse.png">wallpapers/mouse.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/mouse.svg">wallpapers/mouse.svg</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/xfce4/backdrops/mouse_1280_800.svg">wallpapers/mouse_1280_800.svg</AdditionalFile>
             <!-- mcs settings -->
             <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/mcs_settings/workspaces.xml">mcs_settings/workspaces.xml</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/mcs_settings/desktop.xml">mcs_settings/desktop.xml</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/mcs_settings/gtk.xml">mcs_settings/gtk.xml</AdditionalFile>
             <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/mcs_settings/xfwm4.xml">mcs_settings/xfwm4.xml</AdditionalFile>
-            <!-- panel settings -->
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/xfce4-menu.png">panel_settings/xfce4-menu.png</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/panels.xml">panel_settings/panels.xml</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/xfce4-menu-1.rc">panel_settings/xfce4-menu-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/pager-2.rc">panel_settings/pager-2.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-3.rc">panel_settings/launcher-3.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-4.rc">panel_settings/launcher-4.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/datetime-8.rc">panel_settings/datetime-8.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/systray-7.rc">panel_settings/systray-7.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/tasklist-6.rc">panel_settings/tasklist-6.rc</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2008-10-28</Date>
+            <Version>4.4.3</Version>
+            <Comment>Version bump and package takeover.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-01-26</Date>
             <Version>4.4.2</Version>
