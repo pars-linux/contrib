@@ -1,0 +1,16 @@
+diff -Naur solfege-3.10.4/run-solfege.py.in solfege-3.10.4-patched/run-solfege.py.in
+--- solfege-3.10.4/run-solfege.py.in	2008-10-28 16:08:36.000000000 +0200
++++ solfege-3.10.4-patched/run-solfege.py.in	2008-10-28 16:09:39.000000000 +0200
+@@ -67,10 +67,9 @@
+ # the _ and _i functions for the whole program.
+ import src.i18n
+ # MIGRATION from 2.9.2 to 2.9.3
+-if src.cfg.get_string("app/lc_messages") == 'C (english)':
+-    src.cfg.set_string("app/lc_messages", "C")
+ 
+-src.i18n.setup(prefix, src.cfg.get_string("app/lc_messages"))
++import locale
++src.i18n.setup(prefix, ".".join(locale.getdefaultlocale()))
+ 
+ import src.mainwin
+ src.mainwin.start_app(os.path.join(prefix, "share", "solfege"))

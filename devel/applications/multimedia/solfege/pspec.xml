@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>solfege</Name>
+        <Homepage>http://www.solfege.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>solfege</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A program written to help you practice ear training</Summary>
+        <Description>Solfege is a free ear training program written in python using gtk+ and PyGTK.</Description>
+        <Archive sha1sum="8fab6608f6de9f63c1b23ca2b380c1016f5ab733" type="targz">mirrors://sourceforge/solfege/solfege-3.10.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>gtkhtml3</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>makefile.patch</Patch>
+            <Patch>desktop.patch</Patch>
+            <Patch level="1">i18n.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>solfege</Name>
+        <RuntimeDependencies>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>gtkhtml3</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>timidity</Dependency>
+            <Dependency>docbook-xsl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/solfege</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/solfege">solfege-example-configuration</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-08</Date>
+            <Version>3.10.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
