@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>battery-applet-for-xfce4</Name>
+        <Homepage>http://sourceforge.net/projects/battery-4-xfce4/</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Battery monitor</Summary>
+        <Archive sha1sum="9a628f3f3449275763816600535824c74160f9d1" type="tarbz2">mirrors://sourceforge/battery-4-xfce4/battery-applet-4-xfce4-0.9.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>battery-applet-for-xfce4</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-17</Date>
+            <Version>0.9.1</Version>
+            <Comment>First release</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Update>
+    </History>
+</PISI>
