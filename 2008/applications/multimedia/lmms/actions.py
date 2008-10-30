@@ -9,8 +9,6 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir ="%s-%s" % (get.srcNAME(), get.srcVERSION().replace('_','-'))
-
 def setup():
     shelltools.makedirs("build")
     shelltools.cd("build")
