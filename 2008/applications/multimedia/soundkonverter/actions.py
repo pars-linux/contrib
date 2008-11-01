@@ -5,6 +5,7 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import kde
+from pisi.actionsapi import pisitools
 
 def setup():
     kde.configure("--with-lame \
@@ -19,3 +20,5 @@ def build():
 
 def install():
     kde.install()
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "NEWS", "TODO")
