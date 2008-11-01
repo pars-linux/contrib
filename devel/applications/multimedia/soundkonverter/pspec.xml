@@ -5,20 +5,17 @@
         <Name>soundkonverter</Name>
         <Homepage>http://www.kde-apps.org/content/show.php/soundKonverter?content=29024</Homepage>
         <Packager>
-            <Name>Kenan Pelit</Name>
-            <Email>kpelit@gmail.com</Email>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv2+</License>
+        <Icon>soundkonverter</Icon>
         <IsA>app:gui</IsA>
         <Summary>A frontend to various audio converters</Summary>
-        <Description>With soundKonverter you can convert between various audio file formats.</Description>
-        <Archive sha1sum="7abe52f1976cdce5fa396d8cbcbd036af7e71482" type="tarbz2">http://hessijames.googlepages.com/soundkonverter-0.3.8.tar.bz2</Archive>
+        <Description>With soundKonverter you can convert between various audio file formats. Currently supported backends are oggenc, oggdec, flac, lame, ffmpeg (partly), mplayer (partly).</Description>
+        <Archive sha1sum="758dfada8d482ad29adac1fea1afd092353573a8" type="tarbz2">http://hessijames.googlepages.com/soundkonverter-0.3.9.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="3.96">lame</Dependency>
             <Dependency versionFrom="1.0">vorbis-tools</Dependency>
-            <Dependency versionFrom="1.1.1">flac</Dependency>
-            <Dependency versionFrom="1.5.0.1">libmp4v2</Dependency>
-            <Dependency versionFrom="2.0">faad2</Dependency>
             <Dependency versionFrom="1.4">taglib</Dependency>
             <Dependency>kdebase</Dependency>
             <Dependency>cdparanoia</Dependency>
@@ -27,18 +24,15 @@
             <Dependency>wavpack</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>soundkonverter.desktop.patch</Patch>
+            <Patch level="1">soundkonverter.desktop.patch</Patch>
+            <Patch>soundkonverter.gcc43.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>soundkonverter</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="3.96">lame</Dependency>
             <Dependency versionFrom="1.0">vorbis-tools</Dependency>
-            <Dependency versionFrom="1.1.1">flac</Dependency>
-            <Dependency versionFrom="1.5.0.1">libmp4v2</Dependency>
-            <Dependency versionFrom="2.0">faad2</Dependency>
             <Dependency versionFrom="1.4">taglib</Dependency>
             <Dependency>kdebase</Dependency>
             <Dependency>cdparanoia</Dependency>
@@ -49,12 +43,28 @@
         <Files>
            <Path fileType="executable">/usr/kde/3.5/bin</Path>
            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-           <Path fileType="data">/usr/kde/3.5/share</Path>
+           <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+           <Path fileType="data">/usr/kde/3.5/share/applications</Path>
+           <Path fileType="data">/usr/kde/3.5/share/mimelnk</Path>
+           <Path fileType="data">/usr/kde/3.5/share/icons</Path>
            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+           <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2008-11-01</Date>
+            <Version>0.3.9</Version>
+            <Comment>
+                *New bugfix release including Swedish translation and takeover the package
+                *Missing Icon tag added
+                *Deps, fileTypes and docs rearranged
+                *Better summary and description
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2008-06-19</Date>
             <Version>0.3.8</Version>
