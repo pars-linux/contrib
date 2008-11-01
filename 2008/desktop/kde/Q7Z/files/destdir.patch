@@ -1,0 +1,66 @@
+diff -Naur K7Z-0.6-orig/Build/Makefile K7Z-0.6/Build/Makefile
+--- Makefile	2007-01-05 12:42:30.000000000 +0200
++++ Makefile	2007-08-07 12:38:39.000000000 +0300
+@@ -4,9 +4,11 @@
+ # Defines
+ 
+ ifndef KDEDIR
+-	KDEDIR = /usr/
++	KDEDIR = PISI_KDEDIR
+ endif
+ 
++DESTDIR = PISI_DESTDIR/$(KDEDIR)
++
+ ifndef USER
+ 	USER = $(LOGNAME)
+ endif
+@@ -58,30 +58,26 @@
+ 	@echo "Only root can run 'make install'.  Others should instead run: 'make install-user'"
+ 	@echo "Before using this unstable script, please thoroughly read the Installation section of the README."
+ 	@echo ""
+-	make uninstall
+-	make clean
+ 	make all
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
+-	cp -r ../Doc/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
+-	cp -r ../Desktop/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
+-	cp -r --preserve=mode ../Source/ $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/
+-	#chmod 777 $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/Source/
+-	#chmod 775 $(DESTDIR)$(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw
+-	mkdir -p $(DESTDIR)$(KDEDIR)/bin/
+-	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw $(DESTDIR)$(KDEDIR)/bin/Q7Z.pyw
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/apps/konqueror/servicemenus/
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/apps/dolphin/servicemenus/
+-	cp ../Desktop/Context/*.desktop $(DESTDIR)$(KDEDIR)/share/apps/konqueror/servicemenus/
+-	cp ../Desktop/Context/*.desktop $(DESTDIR)$(KDEDIR)/share/apps/dolphin/servicemenus/
+-	rm -f $(DESTDIR)~$(USER)/.kde/share/apps/konqueror/servicemenus/?7Z*
+-	rm -rf $(DESTDIR)~$(USER)/Profiles/
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/applications/kde/
+-	cp ../Desktop/KMenu/* $(DESTDIR)$(KDEDIR)/share/applications/kde/
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	cp ../Source/Images/actions/ark* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	cp ../Source/Images/actions/endturn* $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/actions/
+-	mkdir -p $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/apps/
+-	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/apps/Q7Z.png $(DESTDIR)$(KDEDIR)/share/icons/hicolor/32x32/apps/
++	mkdir -p $(DESTDIR)/share/apps/Q7Z/
++	cp -r ../Doc/ $(DESTDIR)/share/apps/Q7Z/
++	cp -r ../Desktop/ $(DESTDIR)/share/apps/Q7Z/
++	cp -r --preserve=mode ../Source/ $(DESTDIR)/share/apps/Q7Z/
++	#chmod 777 $(DESTDIR)/share/apps/Q7Z/Source/
++	#chmod 775 $(DESTDIR)/share/apps/Q7Z/Source/Q7Z.pyw
++	mkdir -p $(DESTDIR)/bin/
++	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Q7Z.pyw $(DESTDIR)/bin/Q7Z.pyw
++	mkdir -p $(DESTDIR)/share/apps/konqueror/servicemenus/
++	mkdir -p $(DESTDIR)/share/apps/dolphin/servicemenus/
++	cp ../Desktop/Context/*.desktop $(DESTDIR)/share/apps/konqueror/servicemenus/
++	cp ../Desktop/Context/*.desktop $(DESTDIR)/share/apps/dolphin/servicemenus/
++	mkdir -p $(DESTDIR)/share/applications/kde/
++	cp ../Desktop/KMenu/* $(DESTDIR)/share/applications/kde/
++	mkdir -p $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	cp ../Source/Images/actions/ark* $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	cp ../Source/Images/actions/endturn* $(DESTDIR)/share/icons/hicolor/32x32/actions/
++	mkdir -p $(DESTDIR)/share/icons/hicolor/32x32/apps/
++	ln -fs $(KDEDIR)/share/apps/Q7Z/Source/Images/apps/Q7Z.png $(DESTDIR)/share/icons/hicolor/32x32/apps/
+ 	@echo ""
+ 	@echo "Finished.  To run Q7Z, enter: Q7Z.pyw &"
+ 	@echo ""
