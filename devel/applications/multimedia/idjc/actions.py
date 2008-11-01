@@ -9,7 +9,12 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure()
+    autotools.configure("--disable-static \
+                         --enable-speex \
+                         --enable-lame \
+                         --enable-tooltips \
+                         --enable-mad \
+                         --enable-ffmpeg")
 
 def build():
     autotools.make()
@@ -20,4 +25,5 @@ def install():
     pisitools.removeDir("/usr/share/doc/idjc-%s/" % get.srcVERSION())
 
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "README")
+    pisitools.dohtml("doc/*")
 
