@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lmms-extras</Name>
+        <Homepage>http://lmms.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <IsA>library</IsA>
+        <Summary>Extra Plugins for LMMS</Summary>
+        <Description>lmms-extras including extra plugins-presets for lmms what is a free alternative to popular programs like FruityLoops/FL Studio, Cubase and Logic.</Description>
+        <Archive sha1sum="673e1499c67c32f6d7d6cd24f2a0d35167196937" type="tarbz2">mirrors://sourceforge/lmms/lmms-extras-0.4.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="10">lmms</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>lmms-extras</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="10">lmms</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/lmms</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-01</Date>
+            <Version>0.4.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
