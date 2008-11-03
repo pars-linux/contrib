@@ -6,11 +6,15 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir="lynx2-8-6"
 
 def setup():
+    shelltools.export("CFLAGS", "%s -DNCURSES -DNCURSES_MOUSE_VERSION" % get.CFLAGS())
+    shelltools.export("CXXFLAGS", "%s -DNCURSES -DNCURSES_MOUSE_VERSION" % get.CXXFLAGS())
+
     autotools.configure("--libdir=/etc/lynx \
                          --enable-ipv6 \
                          --enable-widec \
@@ -24,6 +28,20 @@ def setup():
                          --enable-color-style \
                          --enable-scrollbar \
                          --enable-included-msgs \
+                         --enable-8bit-toupper \
+                         --enable-addrlist-page \
+                         --enable-charset-choice \
+                         --enable-default-colors \
+                         --enable-externs \
+                         --enable-internal-links \
+                         --enable-justify-elts \
+                         --enable-locale-charset \
+                         --enable-nested-tables \
+                         --enable-persistent-cookies \
+                         --enable-source-cache \
+                         --enable-warnings \
+                         --with-screen=ncursesw \
+                         --with-ssl \
                          --with-bzlib \
                          --with-zlib \
                          --enable-nls")

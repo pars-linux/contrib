@@ -15,6 +15,19 @@
         <Archive sha1sum="019246b83fc7b6cb32bac0023f2ae6c5d330d18c" type="tarbz2">http://lynx.isc.org/release/lynx2.8.6.tar.bz2</Archive>
         <Patches>
             <Patch level="1">mailcap-mime-security.patch</Patch>
+            <Patch level="1">lynx2-8-5-adapt-to-modern-file-localizations.patch</Patch>
+            <Patch level="1">lynx2-8-6-fix-ugly-color.patch</Patch>
+            <Patch level="1">lynx2-8-6-tmp_dir.patch</Patch>
+            <Patch level="1">lynx2-8-6-don-t-accept-command-line-args-to-telnet.patch</Patch>
+            <Patch level="1">lynx-rh-CVE-2008-4690.patch</Patch>
+            <Patch level="1">locale_charset.patch</Patch>
+            <Patch level="1">lynx-2.8.6-backgrcolor.patch</Patch>
+            <Patch level="1">format_string.patch</Patch>
+            <Patch level="1">lynx-2.8.6-options.patch</Patch>
+            <Patch level="1">lynx-build-fixes.patch</Patch>
+            <Patch level="1">lynx-crash.patch</Patch>
+            <Patch level="1">lynx-more-build-fixes.patch</Patch>
+            <Patch level="1">default_index.patch</Patch>
         </Patches>
     </Source>
 
@@ -30,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="3" type="security">
+            <Date>2008-11-03</Date>
+            <Version>2.8.6</Version>
+            <Comment>Fix CVE-2008-4690 and some segfaults including translation based ones like in Turkish translation</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
         <Update release="2" type="security">
             <Date>2007-05-25</Date>
             <Version>2.8.6</Version>
