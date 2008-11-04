@@ -23,6 +23,6 @@ def install():
     pisitools.remove("/usr/share/texmaker/COPYING")
     pisitools.remove("/usr/share/pixmaps/texmaker.ico")
 
-    pisitools.dodoc("utilities/AUTHORS","utilities/COPYING","utilities/CHANGELOG.txt")
+    pisitools.dodoc("utilities/AUTHORS", "utilities/COPYING", "utilities/CHANGELOG.txt")
 
-    pisitools.domove("/usr/share/texmaker/texmaker.desktop","/usr/share/applications")
+    pisitools.domove("/usr/share/texmaker/texmaker.desktop", "/usr/share/applications")
