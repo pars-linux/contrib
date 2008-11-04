@@ -23,6 +23,7 @@
             <Dependency>qt</Dependency>
             <Dependency>sun-jre</Dependency>
             <Dependency>flashplugin</Dependency>
+            <Dependency>Bitstream-Vera-fonts</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -38,9 +39,22 @@
         <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/opera.desktop" permission="0644" owner="root">opera.desktop</AdditionalFile>
         </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
     </Package>
 
     <History>
+        <Update release="18">
+            <Date>2008-11-04</Date>
+            <Version>9.62</Version>
+            <Comment>
+                - Add COMAR package script to make Opera work with flashplugin,
+                - Add Bitstream-Vera-fonts as runtime dependency because Opera uses Nimbus by default which is bad.
+            </Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="17" type="security">
             <Date>2008-11-03</Date>
             <Version>9.62</Version>
