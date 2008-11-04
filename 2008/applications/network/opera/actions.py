@@ -18,5 +18,7 @@ def install():
 
     pisitools.insinto("/usr/share/pixmaps", "usr/share/pixmaps/opera.xpm")
 
+    pisitools.dosym("/opt/netscape/plugins/libflashplayer.so", "/usr/lib/opera/plugins/libflashplayer.so")
+
     for size in ["16x16","22x22","32x32","48x48"]:
       pisitools.insinto("/usr/share/icons/hicolor/%s/apps" % size, "usr/share/icons/hicolor/%s/apps/opera.png" % size)
