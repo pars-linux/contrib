@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ncmpcpp</Name>
+        <Homepage>http://unkart.ovh.org/ncmpcpp</Homepage>
+        <Packager>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Ncurses based Music Player Daemon (MPD) client</Summary>
+        <Description>Ncmpcpp is an Music Player Daemon (MPD) client which has a tag editor, playlist editor, lyrics support and etc.</Description>
+        <Archive sha1sum="e00eb00931bfb303bd596dfc6d6695600e4ced33" type="tarbz2">http://unkart.ovh.org/ncmpcpp/ncmpcpp-0.2.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>mpd</Dependency>
+            <Dependency>taglib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>ncmpcpp</Name>
+        <RuntimeDependencies>
+            <Dependency>mpd</Dependency>
+            <Dependency>taglib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-06</Date>
+            <Version>0.2.4</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
