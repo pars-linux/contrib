@@ -11,9 +11,11 @@ from pisi.actionsapi import get
 WorkDir = "aircrack-ng-1.0-rc1"
 
 def build():
-    autotools.make()
+    autotools.make("sqlite=true")
 
 def install():
-    autotools.install("mandir=%s/usr/share/man/man1" % get.installDIR())
+    autotools.install("sqlite=true mandir=%s/usr/share/man/man1" % get.installDIR())
+
+    pisitools.insinto("/usr/share/aircrack-ng-%s" % get.srcVERSION(), "test/*")
 
     pisitools.dodoc("ChangeLog", "README", "AUTHORS")
