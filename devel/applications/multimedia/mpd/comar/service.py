@@ -24,11 +24,11 @@ def start():
 
     conf.close()
 
-    startService(command="/usr/bin/mpd", detach=True, donotify=True)
+    startService(command="/usr/bin/mpd", donotify=True)
 
 @synchronized
 def stop():
     stopService(command="/usr/bin/mpd", args="--kill", donotify=True)
 
 def status():
-    return isServiceRunning("/var/run/mpd.pid")
+    return isServiceRunning("/var/run/mpd/mpd.pid")
