@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libisofs</Name>
+        <Homepage>http://libburnia-project.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A library for creating ISO disc images</Summary>
+        <Description>Libisofs is a library that handles creating ISO disc image files. It is intended to work together with libburn to write these images to discs.</Description>
+        <Archive sha1sum="a5c96ab245327aab70fde51c77c9f1ad723ac277" type="targz">http://files.libburnia-project.org/releases/libisofs-0.6.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libburn</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libisofs</Name>
+        <RuntimeDependencies>
+            <Dependency>libburn</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-10</Date>
+            <Version>0.6.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
