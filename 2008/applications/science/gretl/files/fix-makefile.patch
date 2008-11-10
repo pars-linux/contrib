@@ -1,7 +1,6 @@
-diff -Naur gretl-1.7.3.orig/configure.in gretl-1.7.3/configure.in
---- gretl-1.7.3.orig/configure.in	2008-02-19 19:20:43.000000000 +0200
-+++ gretl-1.7.3/configure.in	2008-02-29 23:44:17.000000000 +0200
-@@ -610,10 +610,7 @@
+--- configure.in.orig	2008-10-13 14:59:07.000000000 +0300
++++ configure.in	2008-10-13 15:12:15.000000000 +0300
+@@ -625,11 +625,7 @@
    AC_OUTPUT([
      doc/Makefile
      doc/gretl.sty
@@ -9,33 +8,13 @@ diff -Naur gretl-1.7.3.orig/configure.in gretl-1.7.3/configure.in
      doc/tex/Makefile
 -    doc/tex_it/Makefile
 -    doc/tex_es/Makefile
+-    doc/tex_pt/Makefile
    ])
  fi
  
-diff -Naur gretl-1.7.3.orig/doc/Makefile.in gretl-1.7.3/doc/Makefile.in
---- gretl-1.7.3.orig/doc/Makefile.in	2008-02-02 04:28:26.000000000 +0200
-+++ gretl-1.7.3/doc/Makefile.in	2008-02-29 23:44:48.000000000 +0200
-@@ -1,4 +1,4 @@
--SUBDIRS = tex tex_it tex_es
-+SUBDIRS = tex
- 
- .PHONY : subdirs $(SUBDIRS) clean install 
- 
-@@ -9,10 +9,6 @@
- 
- clean:
- 	make -C tex clean
--	make -C tex_it clean
--	make -C tex_es clean
- 
- install: 
- 	make -C tex install
--	make -C tex_it install
--	make -C tex_es install
-diff -Naur gretl-1.7.3.orig/share/Makefile.in gretl-1.7.3/share/Makefile.in
---- gretl-1.7.3.orig/share/Makefile.in	2008-02-26 04:46:06.000000000 +0200
-+++ gretl-1.7.3/share/Makefile.in	2008-02-29 23:42:28.000000000 +0200
-@@ -55,7 +55,6 @@
+--- share/Makefile.in.orig	2008-10-13 15:16:45.000000000 +0300
++++ share/Makefile.in	2008-10-13 15:17:07.000000000 +0300
+@@ -41,7 +41,6 @@
  all: $(query_make_help)
  
  help:
