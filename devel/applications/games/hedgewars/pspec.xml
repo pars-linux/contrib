@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>hedgewars</Name>
+        <Homepage>http://www.hedgewars.org/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>hedgewars</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Worms-like Strategy Game</Summary>
+        <Description>Hedgewars is a turn based strategy game but the real buzz is from watching the devastation caused by those pesky hedgehogs with those fantastic weapons - sneaky little blighters with a bad attitude!.</Description>
+        <Archive sha1sum="1904565feddfe040063124ec20f82455ef3eddeb" type="tarbz2">http://hedgewars.org/download/hedgewars-src-0.9.7.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4">qt4</Dependency>
+            <Dependency versionFrom="2.2">fpc</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-net</Dependency>
+            <Dependency versionFrom="2.0">sdl-ttf</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>hedgewars</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4">qt4</Dependency>
+            <Dependency versionFrom="1.2">sdl-mixer</Dependency>
+            <Dependency versionFrom="1.2">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-net</Dependency>
+            <Dependency versionFrom="2.0">sdl-ttf</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/hedgewars</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/hedgewars.desktop">hedgewars.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-10</Date>
+            <Version>0.9.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>
