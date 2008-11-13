@@ -1,0 +1,47 @@
+diff -Naur idjc-0.7.11a.orig/idjcpython/ln_text.py idjc-0.7.11a/idjcpython/ln_text.py
+--- idjc-0.7.11a.orig/idjcpython/ln_text.py	2008-07-28 23:13:42.000000000 +0300
++++ idjc-0.7.11a/idjcpython/ln_text.py	2008-11-11 23:01:55.000000000 +0200
+@@ -70,9 +70,9 @@
+ 
+ class de_DE(en_GB):
+    _load = True
+-   
+-class nl_NL(en_GB):
+-   _load = True
++
++#class nl_NL(en_GB):
++   #_load = True
+ 
+ def _set():               # choose which translation to use
+    lev = os.getenv("LANG")
+@@ -86,7 +86,7 @@
+       lev = "en_US"
+    else:
+       lev = "_".join((language, country))
+-   
++
+    gns = sys.modules[__name__]      # the global name space
+    # make sure lev matches one of the available languages
+    if not lev in dir(gns):
+@@ -102,7 +102,7 @@
+    # find the class whose name matches the lev variable and instantiate it
+    return getattr(gns, lev)()
+ 
+-# set the ln (localisation) variable which is what the calling module should import 
++# set the ln (localisation) variable which is what the calling module should import
+ ln = _set()
+ 
+ if __name__ == "__main__":
+@@ -138,10 +138,10 @@
+          sys.exit(5)
+       base  = __import__(_get_modulename(basecls))
+       translist = _cleanlist(trans)
+-      
++
+       def matching(item):
+          return getattr(trans, item) == getattr(base, item)
+-      
++
+       def write_items(file, module, attrlist, prepend = ""):
+          for attr in attrlist:
+             file.write("".join((prepend, attr, " = ")))
