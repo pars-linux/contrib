@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gcstar</Name>
+        <Homepage>http://www.gcstar.org</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <Icon>gcstar</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Personal collections manager</Summary>
+        <Description>GCstar is a free open source application for managing your collections. Detailed information on each item can be automatically retrieved from the internet and you can store additional data, such as the location or who you've lent it to. You may also search and filter your collection by many criteria.</Description>
+        <Archive sha1sum="9ff69f5dff4f20cce44bbb27b15e93f2f4f18e08" type="targz">http://download.gna.org/gcstar/gcstar-1.4.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>perl-Gtk2</Dependency>
+            <Dependency>perl-XML-Simple</Dependency>
+            <Dependency>perl-XML-LibXML</Dependency>
+            <Dependency>perl-Archive-Zip</Dependency>
+            <Dependency>perl-libwww</Dependency>
+            <Dependency>perl-Time-Piece</Dependency>
+            <Dependency>perl-File-Temp</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">man.patch</Patch>
+            <Patch level="1">desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gcstar</Name>
+        <RuntimeDependencies>
+            <Dependency>perl-Gtk2</Dependency>
+            <Dependency>perl-XML-Simple</Dependency>
+            <Dependency>perl-XML-LibXML</Dependency>
+            <Dependency>perl-Archive-Zip</Dependency>
+            <Dependency>perl-libwww</Dependency>
+            <Dependency>perl-Time-Piece</Dependency>
+            <Dependency>perl-File-Temp</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/gcstar</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/mimelnk</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile permission="0644" owner="root" target="/usr/share/mimelnk/application/x-gcstar.desktop">x-gcstar.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-28</Date>
+            <Version>1.4.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
