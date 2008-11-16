@@ -2,7 +2,7 @@
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-        <Name>verve-plugin</Name>
+        <Name>xfce4-verve-plugin</Name>
         <Homepage>http://goodies.xfce.org/projects/panel-plugins/verve-plugin</Homepage>
         <Packager>
             <Name>Eren Türkay</Name>
@@ -11,21 +11,20 @@
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>Command line plugin for Xfce4 Panel</Summary>
-        <Archive sha1sum="c47b0b2aee8cc56eb436be5b2c9ccd77c74787df" type="tarbz2">http://goodies.xfce.org/releases/verve-plugin/verve-plugin-0.3.4.tar.bz2</Archive>
+        <Archive sha1sum="889283a87ff275036293c1bbf29bf88506cd199b" type="tarbz2">http://goodies.xfce.org/releases/verve-plugin/verve-plugin-0.3.5.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.3.4">exo</Dependency>
             <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
-            <Dependency>dbus</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
-        <Name>verve-plugin</Name>
+        <Name>xfce4-verve-plugin</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.3.4">exo</Dependency>
             <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
-            <Dependency>dbus</Dependency>
         </RuntimeDependencies>
+        <Replaces>
+            <Package>verve-plugin</Package>
+        </Replaces>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/libexec</Path>
@@ -36,6 +35,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-11-16</Date>
+            <Version>0.3.5</Version>
+            <Comment>Version bump, edit deps and fix package name.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2006-11-18</Date>
             <Version>0.3.4</Version>
