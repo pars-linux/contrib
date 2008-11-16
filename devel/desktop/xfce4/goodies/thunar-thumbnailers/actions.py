@@ -9,10 +9,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="thunar-thumbnailers-0.0.1svn-r02563"
-
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-raw")
 
 def build():
     autotools.make()
