@@ -8,13 +8,17 @@
             <Name>Eren Türkay</Name>
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
+        <Icon>Thunar</Icon>
         <IsA>app:gui</IsA>
-        <Summary>The plugin that shows items' thumnails in thunar</Summary>
-        <Archive sha1sum="8b56eefe4893085cb60f8eae2a410bb7514d8d43" type="tarbz2">http://goodies.xfce.org/releases/thunar-thumbnailers/thunar-thumbnailers-0.1.2.tar.bz2</Archive>
+        <Summary>The plugin that shows items' thumnails in Thunar</Summary>
+        <Archive sha1sum="584e435e9be23d78280e1306430c6d37dd63fcaa" type="tarbz2">http://goodies.xfce.org/releases/thunar-thumbnailers/thunar-thumbnailers-0.4.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>Thunar</Dependency>
             <Dependency>imagemagick</Dependency>
+            <Dependency>perl-XML-Parser</Dependency>
+            <Dependency>dcraw</Dependency>
+            <Dependency>shared-mime-info</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -23,15 +27,24 @@
         <RuntimeDependencies>
             <Dependency>Thunar</Dependency>
             <Dependency>imagemagick</Dependency>
+            <Dependency>dcraw</Dependency>
+            <Dependency>shared-mime-info</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
+    <History>
+        <Update release="2">
+            <Date>2008-11-15</Date>
+            <Version>0.4.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-03-24</Date>
             <Version>0.1.2</Version>
