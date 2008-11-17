@@ -17,7 +17,6 @@ def setup():
     pisitools.dosed("Makefile", "CXXFLAGS      = -pipe -O2", "CXXFLAGS      = %s" % get.CXXFLAGS())
 
 def build():
-    shelltools.system("lupdate-qt4 boncuk.pro")
     shelltools.system("lrelease-qt4 boncuk.pro")
     autotools.make()
 
@@ -25,4 +24,4 @@ def install():
     pisitools.dobin("bin/boncuk")
     pisitools.insinto("/usr/share/pixmaps", "resources/boncuk.png")
 
-    pisitools.dodoc("AUTHORS", "COPYING", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO")
