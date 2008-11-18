@@ -16,7 +16,7 @@ def setup():
     autotools.configure()
 
 def build():
-    autotools.make()
+    autotools.make("CXX=%s" % get.CXX())
 
 def install():
     autotools.install()
