@@ -10,8 +10,13 @@ from pisi.actionsapi import get
 
 WorkDir = "sbcl-%s-x86-linux" % get.srcVERSION()
 
-def install():
-    shelltools.system("INSTALL_ROOT=%s/usr/ sh install.sh" % get.installDIR())
+def setup():
+    # for correct doc directory : /usr/share/doc/sbcl-{srcVERSION}
+    pisitools.dosed("install.sh", '/share/doc/sbcl}', '/share/doc/sbcl-%s}' % get.srcVERSION())
 
-    pisitools.doman("sbcl.1")
-    pisitools.dodoc("NEWS", "README", "CREDITS", "COPYING", "SUPPORT", "BUGS")
+def build():
+    pass
+
+def install():
+    install_root = "%s/usr" % get.installDIR()
+    shelltools.system("SBCL_HOME=\"\" INSTALL_ROOT=%s sh install.sh" % install_root)
