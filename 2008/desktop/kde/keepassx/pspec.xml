@@ -12,11 +12,10 @@
         <Icon>keepassx</Icon>
         <IsA>app:gui</IsA>
         <Summary>Cross-platform password manager</Summary>
-        <Summary xml:lang="tr">Çoklu platform destekli parola yöneticisi</Summary>
         <Description>KeePassX is a free/open-source password manager which helps you to manage your passwords in a secure way. You can put all your passwords in one database, which is locked with one master key or a key-disk.</Description>
-        <Archive sha1sum="6c6405a1ea8e75c568688094bb576fae5c501b7e"  type="targz">mirrors://sourceforge/keepassx/KeePassX-0.3.3.tar.gz</Archive>
+        <Archive sha1sum="d9204396a0878c3acbce875b42df2899561c5206"  type="targz">mirrors://sourceforge/keepassx/KeePassX-0.3.4.tar.gz</Archive>
         <BuildDependencies>
-             <Dependency versionFrom="4.3.0">qt4</Dependency>
+             <Dependency>qt4</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">gcc43.patch</Patch>
@@ -29,7 +28,7 @@
     <Package>
         <Name>keepassx</Name>
         <RuntimeDependencies>
-             <Dependency versionFrom="4.3.0">qt4</Dependency>
+             <Dependency>qt4</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -42,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2008-11-19</Date>
+            <Version>0.3.4</Version>
+            <Comment>New bugfix release, seperated Turkish desc. and summary, remove strict qt4 dep</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-10-04</Date>
             <Version>0.3.3</Version>
