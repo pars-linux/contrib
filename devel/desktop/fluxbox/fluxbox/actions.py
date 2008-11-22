@@ -11,8 +11,7 @@ from pisi.actionsapi import get
 
 def setup():
     shelltools.system("sh autogen.sh")
-    autotools.configure("--disable-static \
-                         --enable-imlib2 \
+    autotools.configure("--enable-imlib2 \
                          --enable-xinerama \
                          --enable-xft \
                          --enable-nls \
