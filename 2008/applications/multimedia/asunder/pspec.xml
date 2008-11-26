@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>asunder</Name>
+        <Homepage>http://littlesvr.ca/asunder/</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>asunder</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>CD Audio extractor</Summary>
+        <Archive sha1sum="74aa288b3ad8dccae54c5f0b3a67e28bee45a0c0" type="tarbz2">http://littlesvr.ca/asunder/releases/asunder-1.6.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libcddb</Dependency>
+            <Dependency>cdparanoia</Dependency>
+            <Dependency>lame</Dependency>
+            <Dependency>vorbis-tools</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>wavpack</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>asunder</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libcddb</Dependency>
+            <Dependency>cdparanoia</Dependency>
+            <Dependency>lame</Dependency>
+            <Dependency>vorbis-tools</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>wavpack</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-30</Date>
+            <Version>1.6.1</Version>
+            <Comment>First release</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Update>
+    </History>
+</PISI>
