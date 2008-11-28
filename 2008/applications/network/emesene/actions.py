@@ -5,12 +5,23 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import pythonmodules
 
 def install():
-    pythonmodules.install()
+    
+    # .desktop entry
+    pisitools.insinto("/usr/share/applications", "misc/emesene.desktop")
+    
+    # icon
+    pisitools.insinto("/usr/share/pixmaps", "emesene-logo.png", "emesene.png")
 
-    pisitools.insinto("/usr/bin", "emesene.bin", "emesene")
-    pisitools.remove("/usr/share/icons/hicolor/scalable/apps/emesene.svg")
-
+    # emesene script
+    pisitools.insinto("/usr/share/emesene", "*")
+    
+    # license & translators
     pisitools.dodoc("COPYING", "docs/TRANSLATORS")
+
+    # no need for setup.py
+    pisitools.remove("/usr/share/emesene/setup.py")
+
+
+
