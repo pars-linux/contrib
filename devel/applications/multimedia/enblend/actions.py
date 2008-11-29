@@ -7,9 +7,9 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
+WorkDir="enblend-enfuse-3.2"
 
 def setup():
-    autotools.make("-f Makefile.cvs")
     autotools.configure()
 
 def build():
