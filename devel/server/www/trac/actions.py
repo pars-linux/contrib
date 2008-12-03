@@ -6,10 +6,13 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "Trac-%s" % get.srcVERSION()
 
 def install():
     pythonmodules.install()
 
     pisitools.insinto("/usr/share/trac/contrib", "contrib/*")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "contrib/README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "RELEASE", "TESTING-README", "THANKS")
