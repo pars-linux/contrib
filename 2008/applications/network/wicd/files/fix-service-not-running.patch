@@ -1,0 +1,28 @@
+--- wicd/gui.py.old	2008-12-04 12:01:28.000000000 +0200
++++ wicd/gui.py	2008-12-08 23:08:17.000000000 +0200
+@@ -171,13 +171,18 @@
+ 
+ def setup_dbus():
+     global proxy_obj, daemon, wireless, wired, config, dbus_ifaces
+-    proxy_obj = bus.get_object("org.wicd.daemon", '/org/wicd/daemon')
+-    daemon = dbus.Interface(proxy_obj, 'org.wicd.daemon')
+-    wireless = dbus.Interface(proxy_obj, 'org.wicd.daemon.wireless')
+-    wired = dbus.Interface(proxy_obj, 'org.wicd.daemon.wired')
+-    config = dbus.Interface(proxy_obj, 'org.wicd.daemon.config')
+-    dbus_ifaces = {"daemon" : daemon, "wireless" : wireless, "wired" : wired, 
+-                   "config" : config}
++    try:
++        proxy_obj = bus.get_object("org.wicd.daemon", '/org/wicd/daemon')
++        daemon = dbus.Interface(proxy_obj, 'org.wicd.daemon')
++        wireless = dbus.Interface(proxy_obj, 'org.wicd.daemon.wireless')
++        wired = dbus.Interface(proxy_obj, 'org.wicd.daemon.wired')
++        config = dbus.Interface(proxy_obj, 'org.wicd.daemon.config')
++        dbus_ifaces = {"daemon" : daemon, "wireless" : wireless, "wired" : wired, 
++                       "config" : config}
++    except:
++        import sys
++        print "Service wicd is not started! Exiting.."
++        sys.exit()
+ 
+ ########################################
+ ##### GTK EXTENSION CLASSES
