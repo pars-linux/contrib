@@ -1,5 +1,37 @@
---- xsys.c.orig	2008-09-20 05:37:27.000000000 +0300
-+++ xsys.c	2008-09-20 05:43:05.000000000 +0300
+diff -uNr xsys-2.2.0.ORIG/Makefile xsys-2.2.0/Makefile
+--- xsys-2.2.0.ORIG/Makefile	2008-01-30 11:53:56.000000000 +0000
++++ xsys-2.2.0/Makefile	2008-01-30 11:59:39.000000000 +0000
+@@ -10,7 +10,6 @@
+ VER_PATCH = 0
+ CC = gcc
+ CFLAGS += -O2 -Wall -fPIC
+-CFLAGS += $(shell pkg-config dbus-1 --cflags) $(shell pkg-config glib-2.0 --cflags)
+ CFLAGS += -DVER_MINOR=$(VER_MINOR) -DVER_MAJOR=$(VER_MAJOR) -DVER_PATCH=$(VER_PATCH) \
+           -DVER_STRING=\"$(VER_MAJOR).$(VER_MINOR).$(VER_PATCH)\" -DPCIIDS=\"$(PCIIDS)\" $(BUTTON)
+ LDFLAGS = $(CFLAGS) -shared
+@@ -20,7 +19,7 @@
+ ALL : $(LIBRARY)
+ 
+ $(LIBRARY) : $(OBJECTS)
+-	$(CC) $(LDFLAGS) -o $(LIBRARY) $(OBJECTS) -lpci $(shell pkg-config dbus-1 --libs) $(shell pkg-config glib-2.0 --libs) -laudclient
++	$(CC) $(LDFLAGS) -o $(LIBRARY) $(OBJECTS) -lpci
+ 
+ xsys.o : xsys.c
+ parse.o : parse.c
+diff -uNr xsys-2.2.0.ORIG/parse.h xsys-2.2.0/parse.h
+--- xsys-2.2.0.ORIG/parse.h	2008-01-30 11:53:56.000000000 +0000
++++ xsys-2.2.0/parse.h	2008-01-30 11:58:03.000000000 +0000
+@@ -33,7 +33,6 @@
+ int xs_parse_video(char *vid_card);
+ int xs_parse_agpbridge(char *agp_bridge);
+ int xs_parse_ether(char *ethernet_card);
+-int xs_parse_xmms_info(char **title, unsigned int *songtime, unsigned int *playtime);
+ int xs_parse_distro(char *name);
+ int xs_parse_hwmon_chip(char *chip);
+ int xs_parse_hwmon_temp(char *temp, unsigned int *sensor);
+diff -uNr xsys-2.2.0.ORIG/xsys.c xsys-2.2.0/xsys.c
+--- xsys-2.2.0.ORIG/xsys.c	2008-01-30 11:53:56.000000000 +0000
++++ xsys-2.2.0/xsys.c	2008-01-30 12:00:36.000000000 +0000
 @@ -28,24 +28,17 @@
  #include "parse.h"
  #include "match.h"
@@ -157,10 +189,11 @@
  static int sysinfo_cb(char *word[], char *word_eol[], void *userdata)
  {
  	char sysinfo[bsize], buffer[bsize], cpu_model[bsize], cpu_cache[bsize], cpu_vendor[bsize];
-@@ -684,51 +612,3 @@
+@@ -683,52 +611,3 @@
+ 	return XCHAT_EAT_ALL;
  }
  #endif
- 
+-
 -static int np_cb(char *word[], char *word_eol[], void *userdata)
 -{
 -	char *buffer = NULL, title[bsize], length[42];
