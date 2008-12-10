@@ -1,7 +1,7 @@
 serviceType = "local"
 serviceDesc = _({
-    "en": "Wired / Wireless Connection Manager",
-    "tr": "Kablolu / Kablosuz Ağ Yöneticisi"})
+    "en": "Wicd Connection Manager",
+    "tr": "Wicd Ağ Yöneticisi"})
 serviceConf = "wicd"
 serviceDefault = "on"
 
@@ -16,10 +16,10 @@ def start():
 
 @synchronized
 def stop():
-    stopService(pidfile="/var/run/wicd/wicd.pid",
-                donotify=True)
     stopService(command="/usr/lib/wicd/wicd-daemon.py")
     stopService(command="/usr/lib/wicd/monitor.py")
+    stopService(pidfile="/var/run/wicd/wicd.pid",
+                donotify=True)
 
 def status():
     return isServiceRunning("/var/run/wicd/wicd.pid")
