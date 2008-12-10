@@ -16,8 +16,6 @@ def start():
 
 @synchronized
 def stop():
-    stopService(command="/usr/lib/wicd/wicd-daemon.py")
-    stopService(command="/usr/lib/wicd/monitor.py")
     stopService(pidfile="/var/run/wicd/wicd.pid",
                 donotify=True)
 
