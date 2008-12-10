@@ -3,6 +3,7 @@ serviceDesc = _({
     "en": "Wired / Wireless Connection Manager",
     "tr": "Kablolu / Kablosuz Ağ Yöneticisi"})
 serviceConf = "wicd"
+serviceDefault = "on"
 
 from comar.service import *
 
