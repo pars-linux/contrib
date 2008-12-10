@@ -9,9 +9,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
+WorkDir='tuxmath_w_fonts-%s' % get.srcVERSION()
 
 def setup():
-    shelltools.system('./autogen.sh')
     autotools.configure()
 
 def build():
@@ -20,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("docs/*")
+    pisitools.dodoc("docs/COPYING.txt", "docs/TODO.txt", "docs/README*", "docs/OFL.txt", "docs/changelog")

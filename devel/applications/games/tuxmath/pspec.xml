@@ -10,13 +10,14 @@
         </Packager>
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
-        <Summary>"Tux, of Math Command" ("TuxMath," for short) is an educational arcade game starring Tux, the Linux mascot!</Summary>
-        <Description>"Tux, of Math Command" ("TuxMath," for short) is an educational arcade game starring Tux, the Linux mascot!</Description>
-        <Archive sha1sum="f5362c36840d97f3219101f516c51306efc83e94" type="tarbz2">http://zzz.fisek.com.tr/files/sources/tuxmath-0.0_p75.tar.bz2</Archive>
+        <Summary>Educational Math Game</Summary>
+        <Description>"Tux, of Math Command" ("TuxMath," for short) is an educational arcade game where you have to solve math problems, starring Tux, the Linux mascot!</Description>
+        <Archive sha1sum="f3d812a184b1d4c09145f82cae0c830636692058" type="targz">http://alioth.debian.org/frs/download.php/2684/tuxmath_w_fonts-1.7.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.2.0">sdl-image</Dependency>
             <Dependency versionFrom="1.2.0">sdl-mixer</Dependency>
             <Dependency versionFrom="2.0">sdl-ttf</Dependency>
+            <Dependency>sdl-pango</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -26,9 +27,11 @@
             <Dependency versionFrom="1.2.0">sdl-image</Dependency>
             <Dependency versionFrom="1.2.0">sdl-mixer</Dependency>
             <Dependency versionFrom="2.0">sdl-ttf</Dependency>
+            <Dependency>sdl-pango</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share/tuxmath</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -39,6 +42,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2008-12-09</Date>
+            <Version>1.7.0</Version>
+            <Comment>Version bump, many new features, including i18n support and Turkish translation.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="5">
             <Date>2008-10-02</Date>
             <Version>0.0_p75</Version>
