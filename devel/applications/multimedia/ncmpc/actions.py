@@ -9,13 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    pisitools.dosed("doc/Makefile.in", "srcTAG", "%s/samples" % get.srcTAG())
-    pisitools.dosed("Makefile.in", "srcTAG", get.srcTAG())
-
-    autotools.configure("--enable-mouse \
-                         --enable-search-screen \
-                         --enable-key-screen \
-                         --enable-clock-screen")
+    autotools.configure("--enable-artist-screen \
+                         --enable-colors")
 
 def build():
     autotools.make()
@@ -23,4 +18,6 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.removeDir("/usr/share/ncmpc")
+    pisitools.removeDir("/usr/share/doc")
+
+    pisitools.dodoc("AUTHORS", "COPYING", "NEWS", "README", "doc/*.sample", "doc/ncmpc.lirc")
