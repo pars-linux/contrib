@@ -3,39 +3,39 @@
 <PISI>
     <Source>
         <Name>tuxtype</Name>
-        <Homepage>http://tuxtype.sourceforge.net/</Homepage>
+        <Homepage>http://tux4kids.alioth.debian.org/</Homepage>
         <Packager>
-            <Name>Michael Austin</Name>
-            <Email>tuxed.up@gmail.com</Email>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>"Tux Typing" is an educational typing tutor for children. It features several different types of gameplay, at a variety of difficulty levels.</Summary>
         <Description>"Tux Typing" is an educational typing tutor for children. It features several different types of gameplay, at a variety of difficulty levels.</Description>
-        <Archive sha1sum="f1b6e48ebb6622d089685cf5e99e8de3c3200e17" type="tarbz2">mirrors://sourceforge/tuxtype/tuxtype2-1.5.3.tar.bz2</Archive>
+        <Archive sha1sum="4b67027c7832e1a465f1c1eb5a24cf8cf863dff4" type="targz">http://alioth.debian.org/frs/download.php/2686/tuxtype_w_fonts-1.7.0.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>libsdl</Dependency>
-            <Dependency>sdl-image</Dependency>
-            <Dependency>sdl-mixer</Dependency>
-             <Dependency>sdl-ttf</Dependency>
-            <Dependency>freetype</Dependency>
+            <Dependency versionFrom="1.2.3">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-mixer</Dependency>
+            <Dependency versionFrom="2.0.5">sdl-ttf</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>font.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>tuxtype</Name>
         <RuntimeDependencies>
-            <Dependency>libsdl</Dependency>
-            <Dependency>sdl-image</Dependency>
-            <Dependency>sdl-mixer</Dependency>
-            <Dependency>sdl-ttf</Dependency>
-            <Dependency>freetype</Dependency>
+            <Dependency versionFrom="1.2.3">sdl-image</Dependency>
+            <Dependency versionFrom="1.2.5">sdl-mixer</Dependency>
+            <Dependency versionFrom="2.0.5">sdl-ttf</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="doc">/usr/share/doc/</Path>
-            <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/tuxtype</Path>
+            <Path fileType="data">/usr/share/applications</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/usr/share/applications/tuxtype.desktop" permission="0644" owner="root">tuxtype.desktop</AdditionalFile>
@@ -43,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-12-11</Date>
+            <Version>1.7.0</Version>
+            <Comment>Version bump. Many new features, many bugfixes over a period of four years (too many to list).</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2007-06-25</Date>
             <Version>1.5.3</Version>

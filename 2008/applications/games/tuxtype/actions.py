@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "tuxtype2-%s" % get.srcVERSION()
+WorkDir='tuxtype_w_fonts-%s' % get.srcVERSION()
 
 def setup():
     autotools.configure()
@@ -20,5 +20,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "TODO", "tuxtype/docs/en/howtotheme.html")
     pisitools.removeDir("/usr/doc")
+    pisitools.removeDir("/usr/share/doc/tuxtype")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "TODO", "COPYING", "README", "OFL", "doc/en/howtotheme.html")
