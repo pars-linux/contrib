@@ -3,21 +3,16 @@
 <PISI>
     <Source>
         <Name>ncmpc</Name>
-        <Homepage>http://hem.bredband.net/kaw/ncmpc/</Homepage>
+        <Homepage>http://hem.bredband.net/kaw/ncmpc</Homepage>
         <Packager>
-            <Name>Kenan Pelit</Name>
-            <Email>kpelit@gmail.com</Email>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv2+</License>
         <IsA>app:console</IsA>
-        <Summary>Curses client for the Music Player Daemon (MPD).</Summary>
-        <Archive sha1sum="f1998f1d245386eb103ae12c50cf1bf0f5985ed7" type="targz">http://hem.bredband.net/kaw/ncmpc/files/ncmpc-0.11.1.tar.gz</Archive>
-        <BuildDependencies>
-            <Dependency>mpd</Dependency>
-        </BuildDependencies>
-        <Patches>
-            <Patch level="1">docdir.patch</Patch>
-        </Patches>
+        <Summary>Curses client for the Music Player Daemon (MPD)</Summary>
+        <Description>ncmpc connects to an MPD running on a machine on the local network, and controls this with an interface inspired by cplay.</Description>
+        <Archive sha1sum="26dc8f8754b255dc46d2e7cbbbd39cbc9e52d463" type="tarbz2">mirrors://sourceforge/musicpd/ncmpc-0.12.tar.bz2</Archive>
     </Source>
 
     <Package>
@@ -34,6 +29,25 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-12-11</Date>
+            <Version>0.12</Version>
+            <Comment>
+                --Bump to new major release:
+                * Artist screen
+                * Experimental lyric screen(not enabled yet)
+                * LIRC support
+                * Support wide characters
+                * And many new features and bugfixes.
+                --packaging changes:
+                * remove mpd build dep, not needed for building
+                * remove docdir patch
+                * fix license, summary and desc.
+                * takeover package from kenp(thanks for your kindness :))
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-01-31</Date>
             <Version>0.11.1</Version>
