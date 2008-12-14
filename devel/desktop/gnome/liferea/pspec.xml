@@ -12,7 +12,7 @@
         <Icon>liferea</Icon>
         <IsA>app:gui</IsA>
         <Summary>News Aggregator for RDF/RSS/CDF/Atom/Echo/etc feeds</Summary>
-        <Archive sha1sum="794e52e692c135b52b28c6f2c6cc8bba2db4f078" type="targz">mirrors://sourceforge/liferea/liferea-1.4.20.tar.gz</Archive>
+        <Archive sha1sum="3af75b48fc3e68e233aee6c0d93012db5d69815c" type="targz">mirrors://sourceforge/liferea/liferea-1.4.22d.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.22.0">gconf</Dependency>
             <Dependency releaseFrom="4">libnotify</Dependency>
@@ -22,9 +22,9 @@
             <Dependency>xulrunner-devel</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">liferea-1.4.17-xulrunner-1.9.patch</Patch>
+            <Patch level="1">fix_launcher_script_calling_xul.patch</Patch>
+            <Patch level="1">fix_systray_behavior.patch</Patch>
             <Patch level="1">feedlist-tr-update.patch</Patch>
-            <!--<Patch>feedlist-en.patch</Patch>-->
         </Patches>
     </Source>
 
@@ -53,6 +53,13 @@
     </Package>
 
     <History>
+        <Update release="28">
+            <Date>2008-12-14</Date>
+            <Version>1.4.22d</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="27">
             <Date>2008-10-18</Date>
             <Version>1.4.20</Version>
