@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>devhelp</Name>
+        <Homepage>http://wwww.gnome.org</Homepage>
+        <Packager>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>devhelp</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>GTK+ API documentation browser</Summary>
+        <Archive sha1sum="3acf06d8d58cbae5319795a59d987b97e4ec849e" type="tarbz2">mirrors://gnome/devhelp/0.21/devhelp-0.21.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xulrunner-devel</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libwnck</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">remove-unsupported-languages.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>devhelp</Name>
+        <RuntimeDependencies>
+            <Dependency>xulrunner</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency>libwnck</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/devhelp</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>gedit-plugin-devhelp</Name>
+        <Summary>GTK+ API documentation browser plugin for gedit</Summary>
+        <RuntimeDependencies>
+            <Dependency>devhelp</Dependency>
+            <Dependency>gedit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/gedit-2</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-12-10</Date>
+            <Version>0.21</Version>
+            <Comment>First release.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
