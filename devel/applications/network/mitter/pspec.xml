@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mitter</Name>
+        <Homepage>http://code.google.com/p/mitter</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>mitter</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK+ Twitter client</Summary>
+        <Description>Mitter is a GTK+ application for Twitter.com. You can send status, view friend status and see what they are doing, send direct messages to your Twitter friends.</Description>
+        <Archive sha1sum="62ff19ed94c9015443e4851c78aab4e2bd84b2ba" type="targz">http://mitter.googlecode.com/files/mitter-0.4.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mitter</Name>
+        <RuntimeDependencies>
+            <Dependency>simplejson</Dependency>
+            <Dependency>pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-30</Date>
+            <Version>0.4.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Emre Yılmaz</Name>
+            <Email>yilmazyemre@yahoo.com</Email>
+        </Update>
+    </History>
+</PISI>
