@@ -12,7 +12,7 @@ from pisi.actionsapi import pisitools
 def setup():
     shelltools.makedirs("build")
     shelltools.cd("build")
-    cmaketools.configure("-DCMAKE_INSTALL_PREFIX=/usr", sourceDir="..")
+    cmaketools.configure(sourceDir="..")
 
 def build():
     shelltools.cd("build")
