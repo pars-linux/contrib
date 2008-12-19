@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qtractor</Name>
+        <Homepage>http://qtractor.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>qtractor</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An Audio/MIDI multi-track sequencer application</Summary>
+        <Description>Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
+        <Archive sha1sum="2f21eba786ff936c66e08b6169ceced7e1411bdc" type="targz">mirrors://sourceforge/qtractor/qtractor-0.2.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>dssi</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">qtractor.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qtractor</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>dssi</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-02</Date>
+            <Version>0.2.2</Version>
+            <Comment>First release.(Initial release by Eren Türkay)</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
