@@ -13,15 +13,14 @@
         <IsA>app:gui</IsA>
         <Summary>A simple CD/DVD burning tool for Xfce</Summary>
         <Description>Xfburn is a simple CD/DVD burning tool based on libburnia libraries. It can blank CD-RWs, burn and create iso images, as well as burn personal compositions of data to either CD or DVD.</Description>
-        <Archive sha1sum="071c975090d3cc727da1c473876141503946dd91" type="tarbz2">http://goodies.xfce.org/releases/xfburn/xfburn-0.3.91.tar.bz2</Archive>
+        <Archive sha1sum="c711dce71078b676555feb29fb5ae8930a12b600" type="tarbz2">http://goodies.xfce.org/releases/xfburn/xfburn-0.4.0.tar.bz2</Archive>
         <BuildDependencies>
+            <Dependency>intltool</Dependency>
             <Dependency>libisofs</Dependency>
             <Dependency>libxfcegui4</Dependency>
             <Dependency>Thunar</Dependency>
+            <Dependency>gstreamer</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>desktop.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -30,6 +29,7 @@
             <Dependency>libisofs</Dependency>
             <Dependency>libxfcegui4</Dependency>
             <Dependency>Thunar</Dependency>
+            <Dependency>gstreamer</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -38,11 +38,23 @@
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/xfburn</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/Thunar</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-12-21</Date>
+            <Version>0.4.0</Version>
+            <Comment>
+                - Version bump,
+                - Add gstreamer dependency,
+                - No needs to desktop.patch, it's translated now.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2008-11-17</Date>
             <Version>0.3.91</Version>
