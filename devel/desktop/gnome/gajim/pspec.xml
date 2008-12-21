@@ -9,17 +9,20 @@
             <Email>turkay.eren@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>gajim</Icon>
         <IsA>app:gui</IsA>
         <Summary>Jabber/Msn/Irc/Icq client written in PyGTK</Summary>
-        <Archive sha1sum="66c3c2aba9cea8e0e48581e87e412b445040ac15" type="tarbz2">http://www.gajim.org/downloads/gajim-0.11.4.tar.bz2</Archive>
+        <Archive sha1sum="1d222d88a7908ff99b3024bde97d2390b7d7242c" type="tarbz2">http://www.gajim.org/downloads/gajim-0.12.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>pygtk</Dependency>
+            <Dependency>gtkspell</Dependency>
             <Dependency>intltool</Dependency>
             <Dependency>pkgconfig</Dependency>
             <Dependency>pysqlite</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">pardus-gajim-bin.patch</Patch>
+            <Patch>desktop-tr.patch</Patch>
+            <Patch>no-compiled-py.patch</Patch>
         </Patches>
     </Source>
 
@@ -27,7 +30,9 @@
         <Name>gajim</Name>
         <RuntimeDependencies>
             <Dependency>pygtk</Dependency>
+            <Dependency>gtkspell</Dependency>
             <Dependency>pysqlite</Dependency>
+            <Dependency>pyopenssl</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -43,6 +48,16 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2008-12-21</Date>
+            <Version>0.12</Version>
+            <Comment>
+                - Version bump,
+                - Fixed desktop.patch (#8438).
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2008-04-25</Date>
             <Version>0.11.4</Version>
