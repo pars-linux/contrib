@@ -9,6 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
+    autotools.autoreconf("-fi")
     autotools.configure("--disable-static \
                          --disable-deprecated")
 
