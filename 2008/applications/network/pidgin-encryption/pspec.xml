@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pidgin-encryption</Name>
+        <Homepage>http://pidgin-encrypt.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Pidgin extension, to use end to end encryption</Summary>
+        <Description>Pidgin-Encryption transparently encrypts your instant messages with RSA encryption, only if the person on the other end use the same plugin.</Description>
+        <Archive sha1sum="bccad1c4ac0bec12e6837324f543ea60530d0761" type="targz">mirrors://sourceforge/pidgin-encrypt/pidgin-encryption-3.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="3.11">nss</Dependency>
+            <Dependency>pidgin</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pidgin-encryption</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3.11">nss</Dependency>
+            <Dependency>pidgin</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-12</Date>
+            <Version>3.0</Version>
+            <Comment>First Release.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
