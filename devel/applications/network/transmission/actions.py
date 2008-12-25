@@ -11,6 +11,7 @@ def setup():
     autotools.configure("--disable-static \
                          --enable-gtk \
                          --enable-cli \
+                         --enable-libnotify \
                          --enable-daemon")
 
 def build():
