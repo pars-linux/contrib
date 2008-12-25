@@ -18,7 +18,8 @@ def setup():
                          --disable-librubberband \
                          --disable-vst \
                          --enable-ladspa \
-                         --enable-dssi ")
+                         --enable-dssi \
+                         --disable-debug")
 
 def build():
     autotools.make('CXXFLAGS="%s" \
@@ -27,4 +28,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "TODO", "README", "README.VST")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "TODO", "README*")
