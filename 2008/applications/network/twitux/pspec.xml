@@ -13,13 +13,16 @@
         <IsA>app:gui</IsA>
         <Summary>A GTK+ Twitter client</Summary>
         <Description>Twitux is a GTK+ application for Twitter.com. You can send status, view friend status and see what they are doing, send direct messages to your Twitter friends, GUI notificactions when a friend update their status.</Description>
-        <Archive sha1sum="5d4fe9db47ba9236ef5f1746ef3be80f2effc2ec" type="tarbz2">mirrors://sourceforge/twitux/twitux-0.62.tar.bz2</Archive>
+        <Archive sha1sum="a3860db3f897d43604961342bec2417cd3e8d19f" type="tarbz2">mirrors://sourceforge/twitux/twitux-0.65.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libnotify</Dependency>
             <Dependency>libsexy</Dependency>
             <Dependency>libsoup</Dependency>
             <Dependency>gnome-keyring</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">desktop.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -34,6 +37,7 @@
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/usr/share/twitux</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/etc/gconf/schemas</Path>
@@ -42,6 +46,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2008-12-26</Date>
+            <Version>0.65</Version>
+            <Comment>Version bump, translations.xml and desktop.patch, getCC and minor fixes</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-09-13</Date>
             <Version>0.62</Version>
