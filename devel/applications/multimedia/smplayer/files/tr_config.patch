@@ -1,0 +1,34 @@
+diff -Nur smplayer-0.6.5.1-old/src/prefadvanced.cpp smplayer-0.6.5.1/src/prefadvanced.cpp
+--- smplayer-0.6.5.1-old/src/prefadvanced.cpp	2008-12-30 19:27:50.000000000 +0200
++++ smplayer-0.6.5.1/src/prefadvanced.cpp	2008-12-30 19:36:25.000000000 +0200
+@@ -61,6 +61,7 @@
+     endoffile_combo->addItem( "In uscita... \\(Fine del file\\)" ); // Italian
+     endoffile_combo->addItem( QString::fromUtf8("Wychodzę... \\(Koniec pliku\\)") ); // Polish
+     endoffile_combo->addItem( QString::fromUtf8("Выходим... \\(Конец файла\\)") ); // Russian
++    endoffile_combo->addItem( QString::fromUtf8("Çıkılıyor... \\(Dosya sonu\\)") ); // Turkish
+ 
+ #if !CHECK_VIDEO_CODEC_FOR_NO_VIDEO
+     novideo_combo->addItem( "Video: no video" ); // English
+@@ -70,6 +71,7 @@
+     novideo_combo->addItem( "Video: nessun video" ); // Italian
+     novideo_combo->addItem( "Wideo: brak obrazu" ); // Polish
+     novideo_combo->addItem( QString::fromUtf8("Видео: нет видео") ); // Russian
++    novideo_combo->addItem( QString::fromUtf8("Video: video yok") ); // Turkish
+ #endif
+ 
+ 	retranslateStrings();
+diff -Nur smplayer-0.6.5.1-old/src/preferences.cpp smplayer-0.6.5.1/src/preferences.cpp
+--- smplayer-0.6.5.1-old/src/preferences.cpp	2008-12-30 19:27:50.000000000 +0200
++++ smplayer-0.6.5.1/src/preferences.cpp	2008-12-30 19:36:53.000000000 +0200
+@@ -231,9 +231,9 @@
+ 	always_clear_video_background = true;
+ #endif
+ 
+-	rx_endoffile = "Exiting... \\(End of file\\)";
++	rx_endoffile = "Exiting... \\(Dosya sonu\\)";
+ #if !CHECK_VIDEO_CODEC_FOR_NO_VIDEO
+-	rx_novideo = "Video: no video";
++	rx_novideo = "Video: video yok";
+ #endif
+ 
+ 	use_edl_files = true;
