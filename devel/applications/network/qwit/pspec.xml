@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qwit</Name>
+        <Homepage>http://code.google.com/p/qwit/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>qwit</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Cross-platform client for Twitter</Summary>
+        <Description>This Qt4 based Twitter client can be used as a native KDE4 application.</Description>
+        <Archive sha1sum="ab150e227571d9e15859ffd68b2126b8e0bbe222" type="tarbz2">http://qwit.googlecode.com/files/qwit-0.7-src.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qwit</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/qwit.desktop">qwit.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-12-31</Date>
+            <Version>0.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
