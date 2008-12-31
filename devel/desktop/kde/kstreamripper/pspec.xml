@@ -8,16 +8,18 @@
             <Name>Uğur Çetin</Name>
             <Email>jnmbk@users.sourceforge.net</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>app:gui</IsA>
         <Summary>Streamripper GUI for KDE</Summary>
-        <Summary xml:lang="tr">KDE için streamripper arayüzü</Summary>
         <Description>KStreamRipper is a frontend to the great streamripper console tool. You can add shoutcast servers and tune in and rip them with only one click.</Description>
-        <Description xml:lang="tr">KStreamRipper, streamripper adlı konsol aracı için bir arayüzdür. Bu arayüz sayesinde shoutcast internet radyolarının yayınlarını tek tıklamayla dinleyebilir ve diskinize kaydedebilirsiniz.</Description>
-        <Archive type="tarbz2" sha1sum="64260d1b229bad0eb195bb0faee589c5f6420518">http://www.michael-goettsche.de/downloads/kstreamripper-0.3.4.tar.bz2</Archive>
+        <Archive type="tarbz2" sha1sum="64260d1b229bad0eb195bb0faee589c5f6420518">http://www.mirrorservice.org/sites/www.ibiblio.org/gentoo/distfiles/kstreamripper-0.3.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch>use-mplayer.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -36,6 +38,20 @@
    </Package>
 
    <History>
+        <Update release="3">
+            <Date>2008-12-31</Date>
+            <Version>0.3.4</Version>
+            <Comment>Fix desktop file. Use mplayer instead of xmms by default.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-12-31</Date>
+            <Version>0.3.4</Version>
+            <Comment>Updating package informations like download link, SHA1SUM checksum and German descriptions.</Comment>
+            <Name>Gürkan Zengin</Name>
+            <Email>linuxfanatic@gmx.net</Email>
+        </Update>
         <Update release="1">
             <Date>2006-08-25</Date>
             <Version>0.3.4</Version>
@@ -45,4 +61,3 @@
         </Update>
     </History>
 </PISI>
-
