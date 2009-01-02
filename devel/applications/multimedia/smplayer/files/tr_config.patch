@@ -1,34 +1,31 @@
-diff -Nur smplayer-0.6.5.1-old/src/prefadvanced.cpp smplayer-0.6.5.1/src/prefadvanced.cpp
---- smplayer-0.6.5.1-old/src/prefadvanced.cpp	2008-12-30 19:27:50.000000000 +0200
-+++ smplayer-0.6.5.1/src/prefadvanced.cpp	2008-12-30 19:36:25.000000000 +0200
-@@ -61,6 +61,7 @@
-     endoffile_combo->addItem( "In uscita... \\(Fine del file\\)" ); // Italian
-     endoffile_combo->addItem( QString::fromUtf8("Wychodzę... \\(Koniec pliku\\)") ); // Polish
-     endoffile_combo->addItem( QString::fromUtf8("Выходим... \\(Конец файла\\)") ); // Russian
-+    endoffile_combo->addItem( QString::fromUtf8("Çıkılıyor... \\(Dosya sonu\\)") ); // Turkish
- 
+diff -Nur smplayer-0.6.6-old/src/mplayerprocess.cpp smplayer-0.6.6/src/mplayerprocess.cpp
+--- smplayer-0.6.6-old/src/mplayerprocess.cpp	2009-01-02 03:13:18.000000000 +0200
++++ smplayer-0.6.6/src/mplayerprocess.cpp	2009-01-02 04:00:06.000000000 +0200
+@@ -102,18 +102,18 @@
+ static QRegExp rx_ao("^AO: \\[(.*)\\]");
+ static QRegExp rx_paused("^ID_PAUSED");
  #if !CHECK_VIDEO_CODEC_FOR_NO_VIDEO
-     novideo_combo->addItem( "Video: no video" ); // English
-@@ -70,6 +71,7 @@
-     novideo_combo->addItem( "Video: nessun video" ); // Italian
-     novideo_combo->addItem( "Wideo: brak obrazu" ); // Polish
-     novideo_combo->addItem( QString::fromUtf8("Видео: нет видео") ); // Russian
-+    novideo_combo->addItem( QString::fromUtf8("Video: video yok") ); // Turkish
+-static QRegExp rx_novideo("^Video: no video");
++static QRegExp rx_novideo("^Video: video yok");
  #endif
- 
- 	retranslateStrings();
-diff -Nur smplayer-0.6.5.1-old/src/preferences.cpp smplayer-0.6.5.1/src/preferences.cpp
---- smplayer-0.6.5.1-old/src/preferences.cpp	2008-12-30 19:27:50.000000000 +0200
-+++ smplayer-0.6.5.1/src/preferences.cpp	2008-12-30 19:36:53.000000000 +0200
-@@ -231,9 +231,9 @@
- 	always_clear_video_background = true;
- #endif
- 
--	rx_endoffile = "Exiting... \\(End of file\\)";
-+	rx_endoffile = "Exiting... \\(Dosya sonu\\)";
- #if !CHECK_VIDEO_CODEC_FOR_NO_VIDEO
--	rx_novideo = "Video: no video";
-+	rx_novideo = "Video: video yok";
- #endif
- 
- 	use_edl_files = true;
+-static QRegExp rx_cache("^Cache fill:.*");
+-static QRegExp rx_create_index("^Generating Index:.*");
+-static QRegExp rx_play("^Starting playback...");
+-static QRegExp rx_connecting("^Connecting to .*");
+-static QRegExp rx_resolving("^Resolving .*");
++static QRegExp rx_cache("^Önbellek doyumu:.*");
++static QRegExp rx_create_index("^İndeks yenileniyor:.*");
++static QRegExp rx_play("^Çalma başlatılıyor...");
++static QRegExp rx_connecting("^Bağlantı kuruluyor .*");
++static QRegExp rx_resolving("^Adres çözülüyor .*");
+ static QRegExp rx_screenshot("^\\*\\*\\* screenshot '(.*)'");
+-static QRegExp rx_endoffile("^Exiting... \\(End of file\\)|^ID_EXIT=EOF");
++static QRegExp rx_endoffile("^Çıkılıyor... \\(Dosya sonu\\)|^ID_EXIT=EOF");
+ static QRegExp rx_mkvchapters("\\[mkv\\] Chapter (\\d+) from");
+-static QRegExp rx_aspect2("^Movie-Aspect is ([0-9,.]+):1");
+-static QRegExp rx_fontcache("^\\[ass\\] Updating font cache|^\\[ass\\] Init");
++static QRegExp rx_aspect2("^Video-Görünümü ([0-9,.]+):1");
++static QRegExp rx_fontcache("^\\[ass\\] Yazıtipi tampon belleği güncelleniyor|^\\[ass\\] Init");
+  
+ // VCD
+ static QRegExp rx_vcd("^ID_VCD_TRACK_(\\d+)_MSF=(.*)");
