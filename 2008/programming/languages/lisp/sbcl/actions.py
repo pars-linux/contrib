@@ -8,15 +8,27 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "sbcl-%s-x86-linux" % get.srcVERSION()
+# we have patch number in package version but not in source package version
+# so WorkDir does not include any patch number.
+WorkDir = "sbcl-%s-pardus/" % ".".join(get.srcVERSION().split(".")[:3])
 
 def setup():
-    # for correct doc directory : /usr/share/doc/sbcl-{srcVERSION}
+    # correct doc directory : /usr/share/doc/sbcl-{srcVERSION}
     pisitools.dosed("install.sh", '/share/doc/sbcl}', '/share/doc/sbcl-%s}' % get.srcVERSION())
 
+    # personalize lisp-implementation-version for pardus
+    pisitools.dosed("version.lisp-expr", '^"(.*)"$', '\\1.pardus.%s' % get.srcRELEASE())
+
 def build():
-    pass
+    host_compiler = "%s/sbcl-binary/sbcl --core %s/sbcl-binary/sbcl.core \
+                                         --noinform \
+                                         --end-runtime-options \
+                                         --disable-debugger \
+                                         --no-sysinit \
+                                         --no-userinit" % (get.curDIR(), get.curDIR())
+    shelltools.system("sh make.sh '%s'" % host_compiler)
+    shelltools.system("cd doc/manual && make html")
 
 def install():
-    install_root = "%s/usr" % get.installDIR()
-    shelltools.system("SBCL_HOME=\"\" INSTALL_ROOT=%s sh install.sh" % install_root)
+    shelltools.system("SBCL_HOME=\"\" INSTALL_ROOT=%s/usr sh install.sh" % get.installDIR())
+
