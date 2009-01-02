@@ -6,11 +6,10 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-#    autotools.autoreconf()
-
     autotools.configure('--disable-pygtk-test \
                          --disable-oss-sound \
                          --enable-docbook-stylesheet')
@@ -19,7 +18,7 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall('DESTDIR=%s' % get.installDIR())
+    autotools.install()
 
     pisitools.remove("/etc/solfege")
 
