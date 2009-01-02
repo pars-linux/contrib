@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>osmo</Name>
+        <Homepage>http://clay.ll.pl/osmo</Homepage>
+        <Packager>
+            <Name>Ceyhun Asılkazancı</Name>
+            <Email>ceyhunasilkazanci@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>osmo</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A handy personal organizer</Summary>
+        <Description>Osmo is a handy personal organizer which includes calendar, tasks manager and address book modules. It was designed to be a small, easy to use and good looking PIM tool to help to manage personal information</Description>
+        <Archive sha1sum="b29723ace2cd444ad763cf96c528f3ea5f23fa0f" type="targz">http://heanet.dl.sourceforge.net/sourceforge/osmo-pim/osmo-0.2.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.4.4">libnotify</Dependency>
+            <Dependency versionFrom="0.33">libical</Dependency>
+            <Dependency versionFrom="0.4.0">libsyncml</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>osmo</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.4.4">libnotify</Dependency>
+            <Dependency versionFrom="0.33">libical</Dependency>
+            <Dependency versionFrom="0.4.0">libsyncml</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/osmo</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-09-29</Date>
+            <Version>0.2.4</Version>
+            <Comment>First Release</Comment>
+            <Name>Ceyhun Asılkazancı</Name>
+            <Email>ceyhunasilkazanci@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
