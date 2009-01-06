@@ -13,36 +13,34 @@
         <IsA>app:gui</IsA>
         <Summary>Twinkle is a soft phone, using the SIP protocol.</Summary>
         <Description>Twinkle is a soft phone for your voice over IP communcations using the SIP protocol. You can use it for direct IP phone to IP phone communication or in a network using a SIP proxy to route your calls.</Description>
-        <Archive sha1sum="e54a9d451fb109fd66349e65028cba8c8372b165" type="targz">http://www.xs4all.nl/~mfnboer/twinkle/download/twinkle-1.2.tar.gz</Archive>
+        <Archive sha1sum="0c6054bb5f6c981cf070f238df9773ef93feed1a" type="targz">http://www.xs4all.nl/~mfnboer/twinkle/download/twinkle-1.3.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency version="1.6.1">commoncpp2</Dependency>
-            <Dependency version="1.6.0">ccrtp</Dependency>
+            <Dependency version="1.6.2">ccrtp</Dependency>
             <Dependency>flac</Dependency>
             <Dependency>gnutls</Dependency>
             <Dependency>boost</Dependency>
             <Dependency>kdelibs</Dependency>
             <Dependency>libgcrypt</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency versionFrom="1.3.0">libzrtpcpp</Dependency>
+            <Dependency versionFrom="1.4.1">libzrtpcpp</Dependency>
             <Dependency>speex</Dependency>
+            <Dependency>boost-devel</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">twinkle-1.2-zrtp.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
         <Name>twinkle</Name>
         <RuntimeDependencies>
             <Dependency version="1.6.1">commoncpp2</Dependency>
-            <Dependency version="1.6.0">ccrtp</Dependency>
+            <Dependency version="1.6.2">ccrtp</Dependency>
             <Dependency>flac</Dependency>
             <Dependency>gnutls</Dependency>
             <Dependency>boost</Dependency>
             <Dependency>kdelibs</Dependency>
             <Dependency>libgcrypt</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency versionFrom="1.3.0">libzrtpcpp</Dependency>
+            <Dependency versionFrom="1.4.1">libzrtpcpp</Dependency>
             <Dependency>speex</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -58,6 +56,13 @@
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2009-01-06</Date>
+            <Version>1.3.2</Version>
+            <Comment>version bump, new features</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
         <Update release="9">
             <Date>2008-06-18</Date>
             <Version>1.2</Version>
