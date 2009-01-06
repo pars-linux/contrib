@@ -12,7 +12,7 @@ def setup():
     autotools.aclocal()
     autotools.autoconf()
     autotools.automake("--add-missing")
-    kde.configure()
+    kde.configure("--enable-ilbc-cpp")
 
 def build():
     kde.make()
