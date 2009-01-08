@@ -10,7 +10,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-raw")
+    autotools.configure("--enable-raw \
+                         --enable-ffmpeg")
 
 def build():
     autotools.make()
