@@ -19,7 +19,7 @@ def build():
 def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/usr/share/pixmaps", "QTfrontend/res/hh25x25.png", "hedgewars.png")
+    pisitools.insinto("/usr/share/pixmaps", "QTfrontend/res/teamicon.png", "hedgewars.png")
 
     pisitools.dodoc("COPYING", "README", "Fonts_LICENSE.txt")
     pisitools.doman("man/hedgewars.6")
