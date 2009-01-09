@@ -27,5 +27,5 @@ def install():
     pisitools.domove("/usr/share/filezilla/docs/fzdefaults.xml.example", "/usr/share/filezilla")
     pisitools.removeDir("/usr/share/filezilla/docs")
 
-    pisitools.dodoc("ChangeLog", "README", "AUTHORS", "docs/todo.txt")
+    pisitools.dodoc("ChangeLog", "README", "AUTHORS")
 
