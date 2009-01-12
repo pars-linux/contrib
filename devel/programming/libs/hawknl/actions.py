@@ -9,13 +9,21 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir="HawkNL1.70"
+WorkDir="HawkNL1.68"
+flags="%s \
+      -funroll-all-loops \
+      -ffast-math \
+      -D_GNU_SOURCE \
+      -D_REENTRANT \
+      -Wall \
+      -fPIC" % get.CFLAGS()
 
 def setup():
     shelltools.move("makefile.linux", "makefile")
 
 def build():
-    autotools.make()
+    autotools.make('CC=%s \
+                    CFLAGS="%s"' % (get.CC(), flags))
 
 def install():
     pisitools.dodir("/usr/lib")
@@ -26,5 +34,4 @@ def install():
     # remove static library
     pisitools.remove("/usr/lib/libNL.a")
 
-    pisitools.dodoc("samples/*")
-
+    pisitools.dodoc("samples/*/*")
