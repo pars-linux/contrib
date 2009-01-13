@@ -12,7 +12,7 @@
         <IsA>library</IsA>
         <Summary>A Python package to access the IMDb's database</Summary>
         <Description>IMDbPY is a python package useful to retrieve and manage the data of the IMDb movie database about movies, people, characters and companies</Description>
-        <Archive sha1sum="cb42d60320e3af14870fa64b4094a967eb4fc106" type="targz">mirrors://sourceforge/imdbpy/IMDbPY-3.8.tar.gz</Archive>
+        <Archive sha1sum="db3f2ecc6bf29326df82c5e710e32155fec52418" type="targz">mirrors://sourceforge/imdbpy/IMDbPY-3.9.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>SQLObject</Dependency>
             <Dependency>lxml</Dependency>
@@ -33,6 +33,28 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-01-13</Date>
+            <Version>3.9</Version>
+            <Comment>Version bump: What's the new in release 3.9 "The Strangers" (06 Jan 2009)
+              [general]
+                - introduced the search_episode method, to search for episodes' titles.
+                - movie['year'] is now an integer, and no more a string.
+                - fixed a bug parsing company names.
+                - introduced the helpers.makeTextNotes function, useful to pretty-print strings in the 'TEXT::NOTE' format.
+              [http]
+                - fixed a bug regarding movies listed in the Bottom 100.
+                - fixed bugs about tv mini-series.
+                - fixed a bug about 'series cast' using BeautifulSoup.
+              [sql]
+                - fixes for DB2 (with SQLAlchemy).
+                - improved support for movies' aka titles (for series).
+                - made imdbpy2sql.py more robust, catching exceptions even when huge amounts of data are skipped due to errors.
+                - introduced CSV support in the imdbpy2sql.py script.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2008-11-03</Date>
             <Version>3.8</Version>
