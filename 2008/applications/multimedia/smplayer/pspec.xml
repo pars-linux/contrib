@@ -12,17 +12,21 @@
         <IsA>app:gui</IsA>
         <Summary>An advance Kde mplayer interface</Summary>
         <Description>SMPlayer intends to be a complete front-end for MPlayer, from basic features like playing videos, DVDs, and VCDs to more advanced features like support for MPlayer filters and more.</Description>
-	<Archive sha1sum="803d679ff60b50c18101678d7ac04de4af581ee0" type="tarbz2">mirrors://berlios/smplayer/smplayer-0.6.5.1.tar.bz2</Archive>
+        <Archive sha1sum="6b5299c84650a36ddb73951815e09c100f29e3e5" type="tarbz2">mirrors://sourceforge/smplayer/smplayer-0.6.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>qt4</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">tr_config.patch</Patch>
+            <Patch level="1">shape_mplayer_output.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>smplayer</Name>
         <RuntimeDependencies>
             <Dependency>qt4</Dependency>
-            <Dependency>mplayer</Dependency>
+            <Dependency versionFrom="0.0_20090101">mplayer</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -35,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="18">
+            <Date>2009-01-02</Date>
+            <Version>0.6.6</Version>
+            <Comment>Version bump, fix Turkish usage of SMPlayer since it can not parse sanely, fixes bug #8234, #8559, #8729, depends on new MPlayer since now it depends on the new msgmodule parameter got in MPlayer</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
         <Update release="17">
             <Date>2008-12-03</Date>
             <Version>0.6.5.1</Version>
