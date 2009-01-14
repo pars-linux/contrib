@@ -22,4 +22,4 @@ def install():
 
     pisitools.removeDir("/usr/doc")
     pisitools.removeDir("/usr/share/doc/tuxtype")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "TODO", "COPYING", "README", "OFL", "doc/en/howtotheme.html")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "TODO", "COPYING", "README", "doc/en/howtotheme.html")
