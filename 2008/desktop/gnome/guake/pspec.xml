@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>guake</Name>
+        <Homepage>http://www.guake-terminal.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>guake</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A drop down terminal for Gnome Desktop Environment</Summary>
+        <Description>Guake is a drop-down terminal for Gnome Desktop Environment. You can press a key to invoke it and press again to hide.</Description>
+        <Archive sha1sum="2973fc0dd22e89155a4b3cc1c8cf0b6ef74cd1b7" type="targz">http://www.guake-terminal.org/releases/0.3.1/guake-0.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency releaseFrom="9">gconf</Dependency>
+            <Dependency>vte</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>guake</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="9">gconf</Dependency>
+            <Dependency>pygtk</Dependency>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency>notify-python</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-12-23</Date>
+            <Version>0.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
