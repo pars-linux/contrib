@@ -8,8 +8,10 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "xfce4-screenshooter-%s" % get.srcVERSION()
+
 def setup():
-    autotools.configure("--enable-static=no")
+    autotools.configure()
 
 def build():
     autotools.make()
