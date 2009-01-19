@@ -30,7 +30,7 @@ def install():
     pisitools.insinto("/usr/lib","lib/libqttestrunner.so*")
 
     # remove md5 files move html's
-    pisitools.remove("/usr/share/cppunit/html/*.md5")
-    pisitools.domove("/usr/share/cppunit/html/", "/usr/share/doc/%s/html/" % get.srcTAG())
+    pisitools.remove("/usr/share/doc/cppunit/*.md5")
+    pisitools.domove("/usr/share/doc/cppunit/", "/usr/share/doc/%s/html/" % get.srcTAG())
 
     pisitools.dodoc("ChangeLog","COPYING","THANKS","TODO")
