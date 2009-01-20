@@ -1,0 +1,325 @@
+diff -urN juffed_0.4-orig/cmake/COPYING-CMAKE-SCRIPTS juffed_0.4/cmake/COPYING-CMAKE-SCRIPTS
+--- juffed_0.4-orig/cmake/COPYING-CMAKE-SCRIPTS	1970-01-01 01:00:00.000000000 +0100
++++ juffed_0.4/cmake/COPYING-CMAKE-SCRIPTS	2007-11-23 12:44:13.000000000 +0100
+@@ -0,0 +1,22 @@
++Redistribution and use in source and binary forms, with or without
++modification, are permitted provided that the following conditions
++are met:
++
++1. Redistributions of source code must retain the copyright
++   notice, this list of conditions and the following disclaimer.
++2. Redistributions in binary form must reproduce the copyright
++   notice, this list of conditions and the following disclaimer in the
++   documentation and/or other materials provided with the distribution.
++3. The name of the author may not be used to endorse or promote products 
++   derived from this software without specific prior written permission.
++
++THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
++IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
++OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
++IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
++INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
++NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
++THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+diff -urN juffed_0.4-orig/cmake/FindQScintilla2.cmake juffed_0.4/cmake/FindQScintilla2.cmake
+--- juffed_0.4-orig/cmake/FindQScintilla2.cmake	1970-01-01 01:00:00.000000000 +0100
++++ juffed_0.4/cmake/FindQScintilla2.cmake	2008-12-05 15:17:10.000000000 +0100
+@@ -0,0 +1,49 @@
++# - Try to find libqscintilla2
++# Once done this will define
++#
++#  LIBQSCINTILLA2_FOUND - system has libqscintilla2
++#  LIBQSCINTILLA2_INCLUDE_DIR - the libqscintilla2 include directory
++#  LIBQSCINTILLA2_LIBRARY - Link this to use libqscintilla2
++#
++# based on FindLibArchive.cmake by Pino Toscano, <toscano.pino@tiscali.it>
++# Copyright (c) 2008, David Stegbauer, <daaste@gmail.com>
++#
++# Redistribution and use is allowed according to the terms of the BSD license.
++# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
++
++FIND_PACKAGE( Qt4 REQUIRED )
++
++# QT4_FOUND
++# QT_INCLUDE_DIR /Qsci
++# QT_LIBRARY_DIR
++
++if (QT4_FOUND)
++    include(CheckLibraryExists)
++
++    if (LIBQSCINTILLA2_LIBRARY AND LIBQSCINTILLA2_INCLUDE_DIR)
++        # in cache already
++        set(LIBQSCINTILLA2_FOUND TRUE)
++    else (LIBQSCINTILLA2_LIBRARY AND LIBQSCINTILLA2_INCLUDE_DIR)
++
++        find_path(LIBQSCINTILLA2_INCLUDE_DIR qsciscintilla.h
++            ${QT_INCLUDE_DIR}/Qsci
++        )
++
++        find_library(LIBQSCINTILLA2_LIBRARY NAMES qscintilla2 libqscintilla2
++            PATHS
++            ${QT_LIBRARY_DIR}
++        )
++
++        include(FindPackageHandleStandardArgs)
++        FIND_PACKAGE_HANDLE_STANDARD_ARGS(LibQScintilla2 DEFAULT_MSG LIBQSCINTILLA2_INCLUDE_DIR LIBQSCINTILLA2_LIBRARY )
++
++        # ensure that they are cached
++        set(LIBQSCINTILLA2_INCLUDE_DIR ${LIBQSCINTILLA2_INCLUDE_DIR} CACHE INTERNAL "The libqscintilla2 include path")
++        set(LIBQSCINTILLA2_LIBRARY ${LIBQSCINTILLA2_LIBRARY} CACHE INTERNAL "The libraries needed to use libqscintilla2")
++
++    endif (LIBQSCINTILLA2_LIBRARY AND LIBQSCINTILLA2_INCLUDE_DIR)
++else (QT4_FOUND)
++    # Qt4 not found, qscintilla2 unusable even if found,
++    # so report no qscintilla2
++    set(LIBQSCINTILLA2_FOUND FALSE)
++endif (QT4_FOUND)
+diff -urN juffed_0.4-orig/CMakeLists.txt juffed_0.4/CMakeLists.txt
+--- juffed_0.4-orig/CMakeLists.txt	1970-01-01 01:00:00.000000000 +0100
++++ juffed_0.4/CMakeLists.txt	2008-12-12 10:11:48.000000000 +0100
+@@ -0,0 +1,212 @@
++# juffed CMakeLists.txt
++# 
++# kate: tab-width 8; indent-width 8; space-indent off; show-tabs on; replace-tabs off; replace-tabs-save off; mixed-indent off;
++#
++# To build juffed, you will need cmake 2.4.3 (should also work with 2.4.0 and above
++# but not tested). To build the application run this commands:
++# 
++#	mkdir cbuild
++#	cd cbuild
++#	cmake ../
++#	make
++# 
++# Please indent this file using tabs, and set the tabs to 8 spaces :)
++# 
++# If you don't know cmake, here are some links for you:
++# 	http://wiki.qtcentre.org/index.php?title=Compiling_Qt4_apps_with_CMake
++# 	http://qtnode.net/wiki/Qt_with_cmake#cmake_for_Qt_4
++
++PROJECT (juffed)
++CMAKE_MINIMUM_REQUIRED (VERSION 2.4.0)
++    IF (COMMAND cmake_policy)
++      CMAKE_POLICY (SET CMP0003 NEW)
++    ENDIF (COMMAND cmake_policy)
++
++SET ( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
++
++SET ( JUFFED "juffed" CACHE STRING "Name of the executeable" )
++
++#Version
++file ( READ "${CMAKE_SOURCE_DIR}/version" JUFFED_VERSION )
++string ( STRIP "${JUFFED_VERSION}" JUFFED_VERSION )
++SET ( VERSION ${JUFFED_VERSION} )
++
++# Install Directories
++SET(BIN_INSTALL_DIR
++    "${CMAKE_INSTALL_PREFIX}/bin"
++    CACHE PATH "Install path for executables"
++)
++
++SET(DATA_INSTALL_DIR
++    "${CMAKE_INSTALL_PREFIX}/share/${CMAKE_PROJECT_NAME}"
++    CACHE PATH "Install path for shared data"
++)
++
++# verbose is off by default
++# SET( CMAKE_VERBOSE_MAKEFILE  ON )
++
++# input files
++SET ( juffed_UIS
++	src/AutocompleteSettingsPage.ui
++	src/CharsetsSettingsPage.ui
++	src/EditorSettingsPage.ui
++	src/FindDlg.ui
++	src/MainSettingsPage.ui
++	src/SessionDlg.ui
++	src/ViewSettingsPage.ui
++)
++
++SET ( juffed_SRCS
++	src/DocHandler.cpp
++	src/JuffEd.cpp
++	src/main.cpp
++	src/Document.cpp
++	src/TextDoc.cpp
++	src/NullDoc.cpp
++	src/Log.cpp
++	src/DocViewer.cpp
++	src/DocView.cpp
++	src/Settings.cpp
++	src/CommandStorage.cpp
++	src/MultiPage.cpp
++	src/SettingsDlg.cpp
++	src/CharsetsSettingsPage.cpp
++	src/TextDocView.cpp
++	src/FindDlg.cpp
++	src/SessionDlg.cpp
++	src/TabBar.cpp
++	src/TabWidget.cpp
++	src/AboutDlg.cpp
++	src/SingleInstance.cpp
++	src/SocketListener.cpp
++	src/LexerStorage.cpp
++	src/IconManager.cpp
++	src/MainSettings.cpp
++	src/TextDocSettings.cpp
++	src/CharsetsSettings.cpp
++	src/ColorButton.cpp
++	src/PluginManager.cpp
++	src/PluginPage.cpp
++	src/PluginSettings.cpp
++	src/AutocompleteSettings.cpp
++)
++
++SET ( juffed_MOC_HDRS
++	src/DocHandler.h
++	src/JuffEd.h
++	src/Document.h
++	src/TextDoc.h
++	src/NullDoc.h
++	src/Log.h
++	src/DocViewer.h
++	src/DocView.h
++	src/Settings.h
++	src/MainSettings.h
++	src/CommandStorage.h
++	src/MultiPage.h
++	src/SettingsDlg.h
++	src/CharsetsSettingsPage.h
++	src/TextDocSettings.h
++	src/TextDocView.h
++	src/FindDlg.h
++	src/SessionDlg.h
++	src/TabBar.h
++	src/TabWidget.h
++	src/AboutDlg.h
++	src/SingleInstance.h
++	src/SocketListener.h
++	src/LexerStorage.h
++	src/IconManager.h
++	src/ColorButton.h
++	src/JuffPlugin.h
++	src/PluginManager.h
++	src/PluginPage.h
++	src/PluginSettings.h
++	src/AutocompleteSettings.h
++)
++
++SET ( juffed_RCS
++	src/juffed.rc
++)
++
++SET ( juffed_RESOURCES
++	src/juffed.qrc
++)
++
++SET ( juffed_TS
++	l10n/juffed_de.ts
++	l10n/juffed_fr.ts
++	l10n/juffed_pl.ts
++	l10n/juffed_pt.ts
++	l10n/juffed_ru.ts
++	l10n/juffed_sp.ts
++)
++
++FIND_PACKAGE ( Qt4 REQUIRED )
++FIND_PACKAGE ( QScintilla2 REQUIRED)
++SET (QT_USE_QTXML TRUE)
++INCLUDE (${QT_USE_FILE})
++
++#Configure AppInfo.h
++configure_file ("${CMAKE_SOURCE_DIR}/src/AppInfo.h.cmake" "${CMAKE_BINARY_DIR}/AppInfo.h" @ONLY)
++
++# qt4 actions
++QT4_WRAP_UI ( juffed_UIS_H ${juffed_UIS} )
++QT4_WRAP_CPP ( juffed_MOC_SRCS ${juffed_MOC_HDRS} )
++QT4_ADD_RESOURCES ( juffed_RESOURCES ${juffed_RESOURCES} )
++QT4_AUTOMOC ( ${juffed_SRCS} )
++QT4_ADD_TRANSLATION ( juffed_QM ${juffed_TS} )
++
++# definitions for the project
++ADD_DEFINITIONS(
++	-Wall 
++	-DQT_NO_DEBUG
++	${QT_DEFINITIONS}
++)
++
++# include directories
++INCLUDE_DIRECTORIES(
++	${QT_INCLUDES}
++	${CMAKE_BINARY_DIR}
++	${LIBQSCINTILLA2_INCLUDE_DIR}
++	.
++	src
++)
++
++
++IF ( MINGW )
++	# resource compilation for MinGW
++	ADD_CUSTOM_COMMAND ( OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/juffed_ico.o
++		COMMAND windres.exe -I${CMAKE_CURRENT_SOURCE_DIR} -i${CMAKE_CURRENT_SOURCE_DIR}/juffed.rc 
++			-o ${CMAKE_CURRENT_BINARY_DIR}/juffed_ico.o )
++	SET ( juffed_SRCS ${juffed_SRCS} ${CMAKE_CURRENT_BINARY_DIR}/juffed_ico.o)
++ELSE ( MINGW )
++	SET(juffed_SRCS	${juffed_SRCS})
++ENDIF ( MINGW )
++
++# the main build target
++ADD_EXECUTABLE ( ${JUFFED}
++	${juffed_SRCS} 
++	${juffed_UIS_H} 
++	${juffed_MOC_SRCS} 
++	${juffed_UIS} 
++	${juffed_RESOURCES} 
++	${juffed_QM} 
++)
++
++IF ( MINGW )
++	SET_TARGET_PROPERTIES( ${JUFFED} PROPERTIES LINK_FLAGS "-mwindows" )
++ENDIF ( MINGW )
++
++TARGET_LINK_LIBRARIES ( ${JUFFED}
++	${QT_LIBRARIES}
++	${QT_QTXML_LIBRARY}
++	${LIBQSCINTILLA2_LIBRARY} 
++)
++
++INSTALL ( TARGETS juffed DESTINATION ${BIN_INSTALL_DIR})
++INSTALL ( FILES ${juffed_QM} DESTINATION ${DATA_INSTALL_DIR}/l10n )
++INSTALL ( DIRECTORY hlschemes DESTINATION ${DATA_INSTALL_DIR} PATTERN "*.xml" PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ )
++INSTALL ( DIRECTORY apis DESTINATION ${DATA_INSTALL_DIR} PATTERN "*.api" PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ )
++INSTALL ( FILES juffed.png DESTINATION ${CMAKE_INSTALL_PREFIX}/share/pixmaps )
++INSTALL ( FILES juffed.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications )
+diff -urN juffed_0.4-orig/src/AppInfo.h.cmake juffed_0.4/src/AppInfo.h.cmake
+--- juffed_0.4-orig/src/AppInfo.h.cmake	1970-01-01 01:00:00.000000000 +0100
++++ juffed_0.4/src/AppInfo.h.cmake	2008-12-12 10:20:06.000000000 +0100
+@@ -0,0 +1,25 @@
++/*
++This file was automatically generated by configure script.
++All the changes you made will be lost after the next run
++of configure script.
++*/
++
++#ifndef _APP_INFO_H_
++#define _APP_INFO_H_
++
++#include <QtCore/QDir>
++#include <QtCore/QString>
++
++class AppInfo {
++public:
++        static QString name() { return "JuffEd"; }
++        static QString organization() { return "Juff"; }
++        static QString configDir() { return QDir::homePath() + "/.config/" + organization().toLower(); }
++        static QString configFile() { return configDir() + "/" + name().toLower() + ".conf"; }
++        static QString version() { return "@JUFFED_VERSION@"; }
++        static QString logFile() { return configDir() + "/juffed.log"; }
++        static QString socketPath() { return "/tmp/juffed"; }
++        static QString appDirPath() { return "@DATA_INSTALL_DIR@"; }
++};
++
++#endif
+\ No newline at end of file

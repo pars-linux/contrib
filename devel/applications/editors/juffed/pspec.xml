@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>juffed</Name>
+        <Homepage>http://sourceforge.net/projects/juffed/</Homepage>
+        <Packager>
+            <Name>David Stegbauer</Name>
+            <Email>daaste@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>juffed</Icon>
+        <IsA>app:gui</IsA>
+        <PartOf>applications.editors</PartOf>
+        <Summary>Simple tabbed text editor</Summary>
+        <Description>Juffed is simple tabbed text editor with syntax highlighting for Bash, Batch, C++, C#, CSS, D, Diff, HTML, IDL, Java, JavaScript, Lua, Makefile, Perl, Python, Ruby, SQL, XML.</Description>
+        <Archive sha1sum="f3e902ae165d3ecec486c677ace33ca6c02dab06" type="tarbz2">mirrors://sourceforge/juffed/juffed_0.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency versionFrom="2.2">qscintilla2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">cmake.diff</Patch>
+            <Patch level="1">desktop-file-translation.diff</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>juffed</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency versionFrom="2.2">qscintilla2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/juffed</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-14</Date>
+            <Version>0.4</Version>
+            <Comment>First Release</Comment>
+            <Name>David Stegbauer</Name>
+            <Email>daaste@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
