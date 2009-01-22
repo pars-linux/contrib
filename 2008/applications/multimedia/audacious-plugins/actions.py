@@ -11,6 +11,7 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--enable-nls \
                          --disable-rpath \
+                         --disable-sse2 \
                          --enable-ipv6 \
                          --enable-chardet \
                          --disable-esd \
