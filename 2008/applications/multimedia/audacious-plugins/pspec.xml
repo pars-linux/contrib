@@ -46,6 +46,9 @@
             <Dependency>lirc</Dependency>
         </BuildDependencies>
         <Patches>
+            <!-- this is for libmtp 3
+            <Patch>libmtp.patch</Patch>
+            -->
             <Patch>artsc-prefix.patch</Patch>
             <Patch level="1">audacious-plugins-1.5.1-fix-linking.patch</Patch>
         </Patches>
@@ -92,15 +95,29 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
-        <Update release="21">
+    <History>
+        <Update release="23">
+            <Date>2009-01-22</Date>
+            <Version>1.5.1</Version>
+            <Comment>Disable sse2, fixes bug #8554 thanks to Gürhan Demirkapı</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="22">
             <Date>2008-10-11</Date>
             <Version>1.5.1</Version>
             <Comment>Fix arts detection and amidi-plug loading</Comment>
             <Name>Murat Şenel</Name>
             <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="21">
+            <Date>2008-08-25</Date>
+            <Version>1.5.1</Version>
+            <Comment>Fix for libmtp 0.3.0 api break</Comment>
+            <Name>İşbaran Akçayır</Name>
+            <Email>isbaran@comu.edu.tr</Email>
         </Update>
         <Update release="20">
             <Date>2008-05-31</Date>
