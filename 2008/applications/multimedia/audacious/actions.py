@@ -16,6 +16,7 @@ def setup():
                          --enable-samplerate \
                          --enable-xspf \
                          --enable-sm \
+                         --disable-sse2 \
                          --disable-xmltest")
 def build():
     autotools.make()

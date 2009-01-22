@@ -17,6 +17,7 @@
         <BuildDependencies>
             <Dependency>qt</Dependency>
             <Dependency>kdelibs</Dependency>
+            <Dependency>fluidsynth</Dependency>
             <Dependency versionFrom="2.12.9">gtk2</Dependency>
             <Dependency versionFrom="0.7.1">libmcs</Dependency>
             <Dependency versionFrom="0.6.1">libmowgli</Dependency>
@@ -25,6 +26,7 @@
         </BuildDependencies>
         <Patches>
             <Patch>audacious.desktop.patch</Patch>
+            <Patch level="1">commandline-options.patch</Patch>
         </Patches>
     </Source>
 
@@ -36,6 +38,7 @@
         <RuntimeDependencies>
             <Dependency>qt</Dependency>
             <Dependency>kdelibs</Dependency>
+            <Dependency>fluidsynth</Dependency>
             <Dependency versionFrom="2.12.9">gtk2</Dependency>
             <Dependency versionFrom="0.7.1">libmcs</Dependency>
             <Dependency versionFrom="0.6.1">libmowgli</Dependency>
@@ -46,7 +49,7 @@
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="header">/usr/include</Path>
         </Files>
-   </Package>
+    </Package>
 
     <Package>
         <Name>audacious</Name>
@@ -63,9 +66,23 @@
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
-   </Package>
+    </Package>
 
-   <History>
+    <History>
+        <Update release="20">
+            <Date>2009-01-22</Date>
+            <Version>1.5.1</Version>
+            <Comment>Disable sse2, fixes bug #8554 thanks to Gürhan Demirkapı</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+        <Update release="19">
+            <Date>2008-10-23</Date>
+            <Version>1.5.1</Version>
+            <Comment>Add missing dep fluidsynth</Comment>
+            <Name>İşbaran Akçayır</Name>
+            <Email>isbaran@comu.edu.tr</Email>
+        </Update>
         <Update release="18">
             <Date>2008-05-31</Date>
             <Version>1.5.1</Version>
