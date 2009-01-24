@@ -6,9 +6,14 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 def setup():
+    shelltools.export("CXX", get.CXX())
+    shelltools.export("CC", get.CC())
     autotools.configure("--enable-unicode=yes \
+                         --enable-clock=yes \
                          --with-taglib=yes \
                          --with-curl=yes")
 
