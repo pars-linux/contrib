@@ -6,7 +6,7 @@
         <Homepage>http://www.amule.org/</Homepage>
         <Packager>
             <Name>Emre Erenoglu</Name>
-	    <Email>paketler@erenoglu.com</Email>
+            <Email>paketci@erenoglu.com</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
@@ -15,7 +15,8 @@
         <Archive sha1sum="3e74ec481475b2c8b0decf1c01bfb7e94999d6a6" type="tarbz2">mirrors://sourceforge/amule/aMule-2.2.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.8">wxGTK</Dependency>
-	    <Dependency>cryptopp</Dependency>
+            <Dependency versionFrom="5.5.2">crypto++</Dependency>
+            <Dependency versionFrom="1.6.6">libupnp</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>amule_desktop.patch</Patch>
@@ -26,14 +27,16 @@
         <Name>amule</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.8">wxGTK</Dependency>
-	    <Dependency>cryptopp</Dependency>
-	</RuntimeDependencies>
+            <Dependency versionFrom="5.5.2">crypto++</Dependency>
+            <Dependency versionFrom="1.6.6">libupnp</Dependency>
+        </RuntimeDependencies>
         <Conflicts>
             <Package>xmule</Package>
         </Conflicts>
         <Files>
             <Path fileType="executable">/usr/bin/amule</Path>
             <Path fileType="executable">/usr/bin/ed2k</Path>
+            <Path fileType="executable">/usr/bin/autostart-xas</Path>
             <Path fileType="library">/usr/lib</Path>
             <!-- man files -->
             <Path fileType="man">/usr/share/man/man1/amule.1</Path>
@@ -42,6 +45,9 @@
             <Path fileType="man">/usr/share/man/hu/man1/ed2k.1</Path>
             <Path fileType="man">/usr/share/man/es/man1/amule.1</Path>
             <Path fileType="man">/usr/share/man/es/man1/ed2k.1</Path>
+            <Path fileType="man">/usr/share/man/eu/man1/amule.1</Path>
+            <Path fileType="man">/usr/share/man/eu/man1/xas.1</Path>
+            <Path fileType="man">/usr/share/man/eu/man1/ed2k.1</Path>
             <Path fileType="man">/usr/share/man/fr/man1/amule.1</Path>
             <Path fileType="man">/usr/share/man/fr/man1/ed2k.1</Path>
             <Path fileType="man">/usr/share/man/de/man1/amule.1</Path>
@@ -55,18 +61,24 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/amule/skins</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <Package>
         <Name>amulecmd</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.5/.2">crypto++</Dependency>
+            <Dependency versionFrom="1.6.6">libupnp</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin/amulecmd</Path>
             <!-- man files -->
             <Path fileType="man">/usr/share/man/man1/amulecmd.1</Path>
             <Path fileType="man">/usr/share/man/hu/man1/amulecmd.1</Path>
             <Path fileType="man">/usr/share/man/es/man1/amulecmd.1</Path>
+            <Path fileType="man">/usr/share/man/eu/man1/amulecmd.1</Path>
             <Path fileType="man">/usr/share/man/fr/man1/amulecmd.1</Path>
             <Path fileType="man">/usr/share/man/de/man1/amulecmd.1</Path>
         </Files>
@@ -74,6 +86,10 @@
 
     <Package>
         <Name>amuleweb</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="5.5.2">crypto++</Dependency>
+            <Dependency versionFrom="1.6.6">libupnp</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin/amuleweb</Path>
             <Path fileType="executable">/usr/bin/amuled</Path>
@@ -82,6 +98,8 @@
             <Path fileType="man">/usr/share/man/man1/amuleweb.1</Path>
             <Path fileType="man">/usr/share/man/hu/man1/amuleweb.1</Path>
             <Path fileType="man">/usr/share/man/es/man1/amuleweb.1</Path>
+            <Path fileType="man">/usr/share/man/eu/man1/amuleweb.1</Path>
+            <Path fileType="man">/usr/share/man/eu/man1/amuled.1</Path>
             <Path fileType="man">/usr/share/man/fr/man1/amuleweb.1</Path>
             <Path fileType="man">/usr/share/man/de/man1/amuleweb.1</Path>
             <Path fileType="man">/usr/share/man/man1/amuled.1</Path>
@@ -93,14 +111,14 @@
     </Package>
 
     <History>
-	<Update release="8">
-            <Date>2009-01-01</Date>
+        <Update release="8">
+            <Date>2009-01-21</Date>
             <Version>2.2.3</Version>
-            <Comment>Update to latest stable version 2.2.3.</Comment>
+            <Comment>Version bump</Comment>
             <Name>Emre Erenoglu</Name>
             <Email>paketci@erenoglu.com</Email>
         </Update>
-	<Update release="7">
+        <Update release="7">
             <Date>2008-01-08</Date>
             <Version>2.1.3</Version>
             <Comment>fix crash on update</Comment>
