@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>crypto++</Name>
+        <Homepage>http://www.cryptopp.com</Homepage>
+        <Packager>
+            <Name>Emre Erenoglun</Name>
+            <Email>paketci@erenoglu.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>library</IsA>
+        <Summary>C++ class library of cryptographic schemes</Summary>
+        <Description>Crypto++ Library is a free C++ class library of cryptographic schemes.</Description>
+        <Archive sha1sum="18efe451b3c682f40db75dc2b09cb448a835e7d6" type="zip">mirrors://sourceforge/cryptopp/cryptopp552.zip</Archive>
+        <BuildDependencies>
+            <Dependency>dos2unix</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">libcryptopp-autotools.patch</Patch>
+            <Patch level="1">libcryptopp-5.5.2-gcc4.3.patch</Patch>
+            <Patch level="1">package_datadir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>crypto++</Name>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>crypto++-util</Name>
+        <RuntimeDependencies>
+            <Dependency>crypto++</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-13</Date>
+            <Version>5.5.2</Version>
+            <Comment>First Release</Comment>
+            <Name>Emre Erenoglu</Name>
+            <Email>paketci@erenoglu.com</Email>
+        </Update>
+    </History>
+</PISI>
