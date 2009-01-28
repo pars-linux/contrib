@@ -24,4 +24,4 @@ def install():
     pisitools.dobin("bin/boncuk")
     pisitools.insinto("/usr/share/pixmaps", "resources/boncuk.png")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "TODO", "NEWS")
