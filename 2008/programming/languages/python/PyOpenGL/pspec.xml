@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PyOpenGL</Name>
+        <Homepage>http://pyopengl.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>OpenGL bindings for Python</Summary>
+        <Description>PyOpenGL is the cross platform Python binding to OpenGL and related APIs.</Description>
+        <Archive sha1sum="d622df9be810f39cad96a4b72e3267b7e1b20d9b" type="targz">mirrors://sourceforge/pyopengl/PyOpenGL-3.0.0b6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>setuptools</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>PyOpenGL</Name>
+        <RuntimeDependencies>
+            <Dependency>glut</Dependency>
+            <Dependency>setuptools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+       <Update release="4">
+           <Date>2008-09-19</Date>
+           <Version>3.0.0_beta6</Version>
+           <Comment>Bump to beta6, remove runtime dep ctypes and add documentation</Comment>
+           <Name>Tim Miller</Name>
+           <Email>dev@lashni.net</Email>
+	</Update>
+        <Update release="3">
+            <Date>2007-11-03</Date>
+            <Version>3.0.0_alpha6</Version>
+            <Comment>Add missing runtime dep.(setuptools)</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-06-05</Date>
+            <Version>3.0.0_alpha6</Version>
+            <Comment>Bump to alpha6 and add missing dep.(ctype)</Comment>
+            <Name>S.Çağlar Onur</Name>
+            <Email>caglar@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-14</Date>
+            <Version>3.0.0_alpha5</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+
