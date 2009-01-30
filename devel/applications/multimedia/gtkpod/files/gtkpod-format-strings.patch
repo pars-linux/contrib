@@ -1,0 +1,48 @@
+Index: src/display.c
+===================================================================
+--- src/display.c	(Revision 2203)
++++ src/display.c	(Arbeitskopie)
+@@ -1112,7 +1112,7 @@
+ 		GTK_DIALOG_DESTROY_WITH_PARENT,
+ 		GTK_MESSAGE_WARNING,
+ 		GTK_BUTTONS_OK,
+-		str);
++		"%s", str);
+ 	    gtk_dialog_run (GTK_DIALOG (dialog));
+ 	    gtk_widget_destroy (dialog);
+ 	    g_free (str);
+@@ -1150,7 +1150,7 @@
+ 		GTK_DIALOG_DESTROY_WITH_PARENT,
+ 		GTK_MESSAGE_WARNING,
+ 		GTK_BUTTONS_OK,
+-		str);
++		"%s", str);
+ 	    gtk_dialog_run (GTK_DIALOG (dialog));
+ 	    gtk_widget_destroy (dialog);
+ 	    g_free (str);
+Index: src/misc_input.c
+===================================================================
+--- src/misc_input.c	(Revision 2203)
++++ src/misc_input.c	(Arbeitskopie)
+@@ -154,7 +154,7 @@
+ 	GTK_DIALOG_DESTROY_WITH_PARENT,
+ 	GTK_MESSAGE_QUESTION,
+ 	GTK_BUTTONS_OK_CANCEL,
+-	text);
++	"%s", text);
+ 
+     dialog = GTK_DIALOG (mdialog);
+ 
+Index: src/file_itunesdb.c
+===================================================================
+--- src/file_itunesdb.c	(Revision 2203)
++++ src/file_itunesdb.c	(Arbeitskopie)
+@@ -1795,7 +1795,7 @@
+ 	    GTK_DIALOG_DESTROY_WITH_PARENT,
+ 	    GTK_MESSAGE_WARNING,
+ 	    GTK_BUTTONS_OK,
+-	    buf);
++	    "%s", buf);
+ 	gtk_dialog_run (GTK_DIALOG (dialog));
+ 	gtk_widget_destroy (dialog);
+ 	g_free (buf);

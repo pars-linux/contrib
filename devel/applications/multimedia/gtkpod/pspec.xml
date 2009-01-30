@@ -12,10 +12,11 @@
         <Icon>gtkpod</Icon>
         <IsA>app:gui</IsA>
         <Summary>A GUI for Apple's iPod using GTK2</Summary>
-        <Archive sha1sum="ab7c03ee1a875fe2bab953d5805a2a4d65fcd669" type="targz">mirrors://sourceforge/gtkpod/gtkpod-0.99.12.tar.gz</Archive>
+        <Description>Gtkpod is a platform independent GUI for Apple's iPod using GTK2. It allows you to upload songs and playlists to you iPod. It supports ID3 tag editing, multiple charsets for ID3 tags, detects duplicate songs, allows offline modification of the database with later synchronisation, and more.</Description>
+        <Archive sha1sum="92977420c0b54e85ddc80fbe2e99cd4a5e4e81b9" type="targz">mirrors://sourceforge/gtkpod/gtkpod-0.99.14.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
-            <Dependency versionFrom="0.6.0">libgpod</Dependency>
+            <Dependency versionFrom="0.6.1">libgpod</Dependency>
             <Dependency>gnome-vfs</Dependency>
             <Dependency>libid3tag</Dependency>
             <Dependency>flac</Dependency>
@@ -25,6 +26,9 @@
         </BuildDependencies>
         <Patches>
             <Patch>desktop.patch</Patch>
+            <Patch level="1">gtkpod-cover.patch</Patch>
+            <Patch level="1">gtkpod-mountpoint.patch</Patch>
+            <Patch>gtkpod-format-strings.patch</Patch>
         </Patches>
     </Source>
 
@@ -32,7 +36,7 @@
         <Name>gtkpod</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
-            <Dependency versionFrom="0.6.0">libgpod</Dependency>
+            <Dependency versionFrom="0.6.1">libgpod</Dependency>
             <Dependency>gnome-vfs</Dependency>
             <Dependency>libid3tag</Dependency>
             <Dependency>flac</Dependency>
@@ -50,6 +54,21 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-01-30</Date>
+            <Version>0.99.14</Version>
+            <Comment>
+                * Version bump,
+                * Fix mountpoint,
+                * Allow to add png and gif extensions with gtkpod-cover.path,
+                * Fix dialog menus,
+                * Add description and translation,
+                * Fix desktop.patch,
+                * Update strict dependency for libgpod.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-08-16</Date>
             <Version>0.99.12</Version>
