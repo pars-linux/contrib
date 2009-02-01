@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vmpk</Name>
+        <Homepage>http://vmpk.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>vmpk</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Virtual MIDI Piano Keyboard</Summary>
+        <Description>VMPK is a Qt4 based virtual MIDI piano keyboard. You must enable timidity service (service-manager in Tasma) and reboot your system to use Vmpk. After reboot, you must also set MIDI Output Connection to Timidity (Vmpk GUI: Edit-> Connections).</Description>
+        <Archive sha1sum="669dbf4d6b5d3f648d8597eda21d4b147b287d64" type="tarbz2">mirrors://sourceforge/vmpk/vmpk-0.2.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>alsa-lib</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>turkish.patch</Patch>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>vmpk</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>timidity</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/vmpk</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-05</Date>
+            <Version>0.2.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
