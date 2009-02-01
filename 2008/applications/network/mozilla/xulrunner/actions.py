@@ -14,6 +14,7 @@ WorkDir = "mozilla"
 def setup():
     shelltools.export("JAVA_HOME","/opt/sun-jdk")
     shelltools.export("MOZCONFIG","xulrunner-mozconfig")
+
     autotools.configure()
 
 def build():
@@ -21,18 +22,19 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.remove("/usr/lib/xulrunner-1.9/plugins/*")
 
-    executable = ["xpcshell","xpidl","xpt_dump","xpt_link","xulrunner-bin","xulrunner-stub"]
+    executable = ["xpcshell","xpidl","xpt_dump","xpt_link","xulrunner-bin",\
+                  "xulrunner-stub","mozilla-xremote-client"]
+
     for a in executable:
         pisitools.dosym("/usr/lib/xulrunner-1.9/%s" % a,"/usr/bin/%s" % a)
 
-    files = ["/usr/include/xulrunner-sdk-1.9/stable/nsDirectoryServiceDefs.h","/usr/include/xulrunner-sdk-1.9/stable/nsTPtrArray.h",
-             "/usr/include/xulrunner-sdk-1.9/stable/nsVersionComparator.h","/usr/include/nsDirectoryServiceDefs.h",
-             "/usr/lib/xulrunner-1.9/LICENSE","/usr/include/nsTPtrArray.h","/usr/include/nsTPtrArray.h","/usr/include/nsVersionComparator",
-             "/usr/lib/xulrunner-1.9/icons/mozicon50.xpm","/usr/lib/xulrunner-1.9/icons/mozicon16.xpm",
-             "/usr/lib/xulrunner-1.9/icons/document.png","/usr/lib/xulrunner-1.9/README.txt",
-             "/usr/lib/xulrunner-1.9/chrome/icons/default/default48.png","/usr/lib/xulrunner-1.9/chrome/icons/default/default16.png"
-             "/usr/lib/xulrunner-1.9/chrome/icons/default/default32.png","/etc/gre.d/1.9.0.1.system.conf"]
+    files = ["/usr/share/idl/xulrunner-sdk-1.9/unstable/*","/usr/share/idl/xulrunner-sdk-1.9/stable/*",\
+             "/usr/lib/xulrunner-sdk-1.9/sdk/lib/*","/usr/lib/xulrunner-1.9/*.so","/usr/lib/xulrunner-1.9/icons/*",\
+             "/usr/lib/xulrunner-1.9/components/*","/usr/lib/xulrunner-1.9/README.txt","/usr/lib/xulrunner-1.9/LICENSE",\
+             "/usr/lib/xulrunner-1.9/res/html/folder.png","/usr/lib/xulrunner-1.9/chrome/icons/default/*.png",\
+             "/usr/include/xulrunner-sdk-1.9/stable/*","/etc/gre.d/1.9.0.5.system.conf"]
 
     for a in files:
-        shelltools.chmod("%s/%s" % (get.installDIR(),a),0644)
+        shelltools.chmod("%s%s" % (get.installDIR(),a),0644)
