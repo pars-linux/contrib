@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-radio-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-radio-plugin</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce-radio</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A plugin to control your V4l radio device</Summary>
+        <Description>First, add the plugin to your panel.Then, to switch your radio on/off, simply left-click on the plugin’s icon (by default it says “- off -”, if it’s turned on it displays the current frequency).</Description>
+        <Archive sha1sum="59bbe564470af308ad4186a4901b4cf7f78e41fd" type="targz">http://goodies.xfce.org/releases/xfce4-radio-plugin/xfce4-radio-plugin-0.4.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-radio-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-02-01</Date>
+            <Version>0.4.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
