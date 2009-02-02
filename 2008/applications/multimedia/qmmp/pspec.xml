@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qmmp</Name>
+        <Homepage>http://qmmp.ylsoftware.com/index_en.html</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>An audio-player, written with help of Qt library.</Summary>
+        <Description>Qmmp is an audio-player, written with help of Qt library. You can add xmms and winamp skins to ~/.qmmp/skins. Also we have 2 skins in here http://www.mgunay.net/dist/qmmp-skins</Description>
+        <Archive sha1sum="5269725e3ed608038d47e415ecf64d7e24693843" type="tarbz2">http://qmmp.ylsoftware.com/files/qmmp-0.2.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libmpcdec</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qmmp</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>libmad</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>taglib</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>libmpcdec</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+	    <Path fileType="header">/usr/include/</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/qmmp/skins</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+	    <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2009-01-25</Date>
+            <Version>0.2.3</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-04-07</Date>
+            <Version>0.1.6</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-01-28</Date>
+            <Version>0.1.5</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-09-19</Date>
+            <Version>0.1.4</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-06-28</Date>
+            <Version>0.1.3.1</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>
