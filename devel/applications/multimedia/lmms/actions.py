@@ -12,7 +12,7 @@ from pisi.actionsapi import pisitools
 def setup():
     shelltools.makedirs("build")
     shelltools.cd("build")
-    cmaketools.configure("-DWANT_CAPS=TRUE WANT_PORTAUDIO=FALSE -DWANT_SYSTEM_SR=TRUE -DWANT_STK=FALSE -DWANT_VST_NOWINE=FALSE", sourceDir="..")
+    cmaketools.configure("-DWANT_CAPS=TRUE -DWANT_PORTAUDIO=FALSE -DWANT_SYSTEM_SR=TRUE -DWANT_STK=FALSE -DWANT_VST_NOWINE=FALSE", sourceDir="..")
 
 def build():
     shelltools.cd("build")
