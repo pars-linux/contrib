@@ -1,0 +1,277 @@
+--- prog/detect/sensors-detect.orig	2008-09-19 18:05:28.000000000 +0300
++++ prog/detect/sensors-detect	2009-02-03 22:31:04.000000000 +0200
+@@ -5727,140 +5727,6 @@
+   }
+ }
+ 
+-# We build here an array adapters, indexed on the number the adapter has
+-# at this moment (we assume only loaded adapters are interesting at all;
+-# everything that got scanned also got loaded). Each entry is a reference
+-# to a hash containing:
+-#  driver: Name of the adapter driver
+-#  nr_now: Number of the bus now
+-#  nr_later: Number of the bus when the modprobes are done (not included if the
+-#        driver should not be loaded)
+-# A second array, called
+-sub generate_modprobes
+-{
+-  my ($chip, $detection, $nr, $i, @optionlist, @probelist, $driver, $isa, $adap);
+-  my $ipmi = 0;
+-  my $modprobes = "";
+-  my $configfile;
+-
+-  # Collect all adapters used
+-  $nr = 0;
+-  $isa = 0;
+-  foreach $chip (@chips_detected) {
+-    foreach $detection (@{$chip->{detected}}) {
+-      # If there is more than one bus detected by a driver, they are
+-      # still all added. So we number them in the correct order
+-      if (exists $detection->{i2c_driver} and
+-          not exists $i2c_adapters[$detection->{i2c_devnr}]->{nr_later} and
+-          not exists $detection->{isa_addr}) { # Always use ISA access if possible
+-         foreach $adap (@i2c_adapters) {
+-           next unless exists $adap->{driver};
+-           $adap->{nr_later} = $nr++ if $adap->{driver} eq $detection->{i2c_driver};
+-         }
+-      }
+-      if (exists $detection->{isa_addr}) {
+-           $isa = 1;
+-      }
+-      if ($chip->{driver} eq "bmcsensors" ||
+-          $chip->{driver} eq "ipmisensors") {
+-           $ipmi = 1;
+-      }
+-    }
+-  }
+-
+-  $modprobes .= "# I2C adapter drivers\n" if $nr;
+-  for ($i = 0; $i < $nr; $i++) {
+-    foreach $adap (@i2c_adapters) {
+-      next unless exists $adap->{nr_later} and $adap->{nr_later} == $i;
+-      if ($adap->{driver} eq "UNKNOWN") {
+-        $modprobes .= "# modprobe unknown adapter ".$adap->{name}."\n";
+-      } else {
+-        $modprobes .= "modprobe $adap->{driver}\n"
+-          unless $modprobes =~ /modprobe $adap->{driver}\n/;
+-      }
+-      last;
+-    }
+-  }
+-  # i2c-isa is loaded automatically (as a dependency) since 2.6.14,
+-  # and will soon be gone.
+-  $modprobes .= "modprobe i2c-isa\n" if ($isa && !kernel_version_at_least(2, 6, 18));
+-  if ($ipmi) {
+-    $modprobes .= "# You must also install and load the IPMI modules\n";
+-    if (kernel_version_at_least(2, 6, 0)) {
+-      $modprobes .= "modprobe ipmi-si\n";
+-    } else {
+-      $modprobes .= "modprobe i2c-ipmi\n";
+-    }
+-  }
+-
+-  # Now determine the chip probe lines
+-  $modprobes .= "# Chip drivers\n";
+-  foreach $chip (@chips_detected) {
+-    next if not @{$chip->{detected}};
+-    if ($chip->{driver} eq "to-be-written") {
+-      $modprobes .= "# no driver for $chip->{detected}[0]{chipname} yet\n";
+-    } else {
+-       # need the * for 2.4 kernels, won't necessarily be an exact match
+-       open(local *INPUTFILE, "modprobe -l $chip->{driver}\\* 2>/dev/null |");
+-       local $_;
+-       my $modulefound = 0;
+-       while (<INPUTFILE>) {
+-         if (m@/@) {
+-           $modulefound = 1;
+-           last;
+-         }
+-       }
+-       close(INPUTFILE);
+-       #check return value from modprobe in case modprobe -l isn't supported
+-       if ((($? >> 8) == 0) && ! $modulefound) {
+-         $modprobes .= "# Warning: the required module $chip->{driver} is not currently installed\n".
+-                       "# on your system. For status of 2.6 kernel ports check\n".
+-                       "# http://www.lm-sensors.org/wiki/Devices. If driver is built\n".
+-                       "# into the kernel, or unavailable, comment out the following line.\n";
+-       }
+-       $modprobes .= "modprobe $chip->{driver}\n";
+-    }
+-
+-    # Handle misdetects
+-    foreach $detection (@{$chip->{misdetected}}) {
+-      push @optionlist, $i2c_adapters[$detection->{i2c_devnr}]->{nr_later},
+-                       $detection->{i2c_addr}
+-           if exists $detection->{i2c_addr} and
+-              exists $i2c_adapters[$detection->{i2c_devnr}]->{nr_later};
+-      push @optionlist, -1, $detection->{isa_addr}
+-           if exists $detection->{isa_addr};
+-    }
+-
+-    # Handle aliases
+-    foreach $detection (@{$chip->{detected}}) {
+-      if (exists $detection->{i2c_driver} and
+-          exists $detection->{isa_addr} and
+-          exists $i2c_adapters[$detection->{i2c_devnr}]->{nr_later}) {
+-        push @optionlist, $i2c_adapters[$detection->{i2c_devnr}]->{nr_later},
+-                          $detection->{i2c_addr};
+-      }
+-    }
+-
+-    next if not (@probelist or @optionlist);
+-    $configfile = "# hwmon module options\n" unless defined $configfile;
+-    $configfile .= "options $chip->{driver}";
+-    $configfile .= sprintf(" ignore=%d,0x%02x", shift @optionlist,
+-                                               shift @optionlist)
+-                  if @optionlist;
+-    $configfile .= sprintf(",%d,0x%02x", shift @optionlist, shift @optionlist)
+-                  while @optionlist;
+-    $configfile .= sprintf(" probe=%d,0x%02x", shift @probelist,
+-                                              shift @probelist)
+-                  if @probelist;
+-    $configfile .= sprintf(",%d,0x%02x", shift @probelist, shift @probelist)
+-                  while @probelist;
+-    $configfile .= "\n";
+-  }
+-
+-  return ($modprobes, $configfile);
+-
+-}
+-
+ sub main
+ {
+   my (@adapters, $res, $did_adapter_detection, $adapter);
+@@ -6054,126 +5920,14 @@
+       print_chips_report($chip->{misdetected});
+     }
+   }
+-  print "\n";
+-
+-  my ($modprobes, $configfile) = generate_modprobes();
+-
+-  if (defined $configfile) {
+-    my $have_modprobe_d = -d '/etc/modprobe.d';
+-    printf "Do you want to \%s /etc/modprobe.d/lm_sensors? (\%s): ",
+-           (-e '/etc/modprobe.d/lm_sensors' ? 'overwrite' : 'generate'),
+-           ($have_modprobe_d ? 'YES/no' : 'yes/NO');
+-    $_ = <STDIN>;
+-    if (($have_modprobe_d and not m/^\s*n/i) or m/^\s*y/i) {
+-      unless ($have_modprobe_d) {
+-        mkdir('/etc/modprobe.d', 0777)
+-          or die "Sorry, can't create /etc/modprobe.d ($!)";
+-      }
+-      open(local *MODPROBE_D, ">/etc/modprobe.d/lm_sensors")
+-        or die "Sorry, can't create /etc/modprobe.d/lm_sensors ($!)";
+-      print MODPROBE_D
+-        "# Generated by sensors-detect on " . scalar localtime() . "\n";
+-      print MODPROBE_D $configfile;
+-      close(MODPROBE_D);
+-    } else {
+-      print "To make the sensors modules behave correctly, add these lines to\n".
+-            "$modules_conf:\n\n";
+-      print "#----cut here----\n".
+-            $configfile.
+-            "#----cut here----\n\n";
+-    }
+-  }
+-
+-  my $have_sysconfig = -d '/etc/sysconfig';
+-  printf "Do you want to \%s /etc/sysconfig/lm_sensors? (\%s): ",
+-         (-e '/etc/sysconfig/lm_sensors' ? 'overwrite' : 'generate'),
+-         ($have_sysconfig ? 'YES/no' : 'yes/NO');
+-  $_ = <STDIN>;
+-  if (($have_sysconfig and not m/^\s*n/i) or m/^\s*y/i) {
+-    unless ($have_sysconfig) {
+-      mkdir('/etc/sysconfig', 0777)
+-        or die "Sorry, can't create /etc/sysconfig ($!)";
+-    }
+-    open(local *SYSCONFIG, ">/etc/sysconfig/lm_sensors")
+-      or die "Sorry, can't create /etc/sysconfig/lm_sensors ($!)";
+-    print SYSCONFIG <<'EOT';
+-#    /etc/sysconfig/lm_sensors - Defines modules loaded by
+-#                                /etc/init.d/lm_sensors
+-#    Copyright (c) 1998 - 2001  Frodo Looijaard <frodol@dds.nl>
+-#
+-#    This program is free software; you can redistribute it and/or modify
+-#    it under the terms of the GNU General Public License as published by
+-#    the Free Software Foundation; either version 2 of the License, or
+-#    (at your option) any later version.
+-#
+-#    This program is distributed in the hope that it will be useful,
+-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-#    GNU General Public License for more details.
+-#
+-#    You should have received a copy of the GNU General Public License
+-#    along with this program; if not, write to the Free Software
+-#    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+-#    MA 02110-1301 USA.
+-#
+-#
+-# See also the lm_sensors homepage at:
+-#     http://www.lm-sensors.org/
+-#
+-# This file is used by /etc/init.d/lm_sensors and defines the modules to
+-# be loaded/unloaded. This file is sourced into /etc/init.d/lm_sensors.
+-#
+-# The format of this file is a shell script that simply defines the modules
+-# in order as normal variables with the special names:
+-#    MODULE_0, MODULE_1, MODULE_2, etc.
+-#
+-# List the modules that are to be loaded for your system
+-#
+-EOT
+-    print SYSCONFIG
+-      "# Generated by sensors-detect on " . scalar localtime() . "\n";
+-    my @modules = grep /^modprobe /, split "\n", $modprobes;
+-    my $i = 0;
+-    my $sysconfig = "";
+-    foreach (@modules) {
+-      s/^modprobe //;
+-      $sysconfig .= "MODULE_$i=$_\n";
+-      $i++;
+-    }
+-    print SYSCONFIG $sysconfig;
+-    close(SYSCONFIG);
+-
+-    print "Copy prog/init/lm_sensors.init to /etc/init.d/lm_sensors\n".
+-          "for initialization at boot time.\n"
+-      unless -f "/etc/init.d/lm_sensors";
+-
+-    if (-x "/sbin/insserv" && -f "/etc/init.d/lm_sensors") {
+-      system("/sbin/insserv", "/etc/init.d/lm_sensors");
+-    } elsif (-x "/sbin/chkconfig" && -f "/etc/init.d/lm_sensors") {
+-      system("/sbin/chkconfig", "lm_sensors", "on");
+-      if (-x "/sbin/service") {
+-        system("/sbin/service", "lm_sensors", "start");
+-      }
+-    } else {
+-      print "You should now start the lm_sensors service to load the required\n".
+-            "kernel modules.\n\n";
+-    }
+-  } else {
+-    print "To load everything that is needed, add this to one of the system\n".
+-          "initialization scripts (e.g. /etc/rc.d/rc.local):\n\n";
+-    print "#----cut here----\n".
+-          $modprobes.
+-          (-e '/usr/bin/sensors' ?
+-            "/usr/bin/sensors -s\n" :
+-            "/usr/local/bin/sensors -s\n") .
+-          "#----cut here----\n\n";
+-
+-    print "If you have some drivers built into your kernel, the list above will\n".
+-          "contain too many modules. Skip the appropriate ones! You really\n".
+-          "should try these commands right now to make sure everything is\n".
+-          "working properly. Monitoring programs won't work until the needed\n".
+-          "modules are loaded.\n\n";
++  print "Loading Modules\n";
++  foreach $chip (@chips_detected)
++  {
++      my $module =$chip->{driver};
++      print "  * " . $module;
++      system "modprobe " . $module;
+   }
++  print "\n"
+ }
+ 
+ main;
