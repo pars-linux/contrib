@@ -1,5 +1,5 @@
 --- prog/detect/sensors-detect.orig	2008-09-19 18:05:28.000000000 +0300
-+++ prog/detect/sensors-detect	2009-02-03 22:31:04.000000000 +0200
++++ prog/detect/sensors-detect	2009-02-04 00:08:00.000000000 +0200
 @@ -5727,140 +5727,6 @@
    }
  }
@@ -141,7 +141,7 @@
  sub main
  {
    my (@adapters, $res, $did_adapter_detection, $adapter);
-@@ -6054,126 +5920,14 @@
+@@ -6054,126 +5920,22 @@
        print_chips_report($chip->{misdetected});
      }
    }
@@ -230,7 +230,21 @@
 -      s/^modprobe //;
 -      $sysconfig .= "MODULE_$i=$_\n";
 -      $i++;
--    }
++  print "Loading Modules\n";
++  my $module;
++  foreach $chip (@chips_detected)
++  {
++      $module =$chip->{driver};
++      print "  * " . $module;
++      system "modprobe " . $module;
++  }
++  print "\nDo you want to load these modules on startup (YES/no): ";
++  if (not <STDIN> =~ /\s*[Nn]/)
++  {
++    foreach $chip (@chips_detected)
++    {
++        system "hav call module_init_tools Boot.Modules addAutoload $chip->{driver} 2.6 >/dev/null";
+     }
 -    print SYSCONFIG $sysconfig;
 -    close(SYSCONFIG);
 -
@@ -264,14 +278,8 @@
 -          "should try these commands right now to make sure everything is\n".
 -          "working properly. Monitoring programs won't work until the needed\n".
 -          "modules are loaded.\n\n";
-+  print "Loading Modules\n";
-+  foreach $chip (@chips_detected)
-+  {
-+      my $module =$chip->{driver};
-+      print "  * " . $module;
-+      system "modprobe " . $module;
    }
-+  print "\n"
++  
  }
- 
+-
  main;
