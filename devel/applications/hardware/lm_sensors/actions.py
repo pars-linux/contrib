@@ -14,8 +14,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.remove("/usr/lib/libsensors.a")
-    pisitools.remove("/usr/bin/sensors-conf-convert");
 
     pisitools.insinto("%s/%s" % (get.docDIR(),get.srcTAG()),"doc/*")
     pisitools.dodoc("CHANGES","CONTRIBUTORS","README")
-
