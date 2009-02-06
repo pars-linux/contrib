@@ -1,19 +1,124 @@
---- install.py	2007-05-26 19:30:16.000000000 +0300
-+++ installyeni.py	2007-07-08 20:07:36.000000000 +0300
-@@ -145,15 +145,13 @@
-     if opt == "--installdir":
+--- install.py.orig	2009-02-06 17:05:21.000000000 +0200
++++ install.py	2009-02-06 19:33:56.000000000 +0200
+@@ -27,6 +27,10 @@
+ source_dir = os.path.dirname(os.path.realpath(__file__))
+ install_dir = '/usr/local/'
+ install_mime = True
++gzipped_mans = ['%s/comix.1.gz' % os.getcwd(), '%s/mime/comicthumb.1.gz' % os.getcwd()]
++
++for x in gzipped_mans:
++    os.system('gunzip %s' % x)
+ 
+ TRANSLATIONS = ('ca', 'cs', 'es', 'hr', 'id', 'ja', 'ko', 'pl', 'pt_BR', 'ru',
+     'sv', 'zh_CN', 'zh_TW')
+@@ -36,70 +40,38 @@
+ 
+ # Files to be installed, as (source file, destination directory)
+ FILES = (('src/about.py', 'share/comix/src'),
+-         ('src/about.pyc', 'share/comix/src'),
+          ('src/archive.py', 'share/comix/src'),
+-         ('src/archive.pyc', 'share/comix/src'),
+          ('src/bookmark.py', 'share/comix/src'),
+-         ('src/bookmark.pyc', 'share/comix/src'),
+          ('src/comix.py', 'share/comix/src'),
+          ('src/comment.py', 'share/comix/src'),
+-         ('src/comment.pyc', 'share/comix/src'),
+          ('src/constants.py', 'share/comix/src'),
+-         ('src/constants.pyc', 'share/comix/src'),
+          ('src/cursor.py', 'share/comix/src'),
+-         ('src/cursor.pyc', 'share/comix/src'),
+          ('src/deprecated.py', 'share/comix/src'),
+-         ('src/deprecated.pyc', 'share/comix/src'),
+          ('src/edit.py', 'share/comix/src'),
+-         ('src/edit.pyc', 'share/comix/src'),
+          ('src/encoding.py', 'share/comix/src'),
+-         ('src/encoding.pyc', 'share/comix/src'),
+          ('src/enhance.py', 'share/comix/src'),
+-         ('src/enhance.pyc', 'share/comix/src'),
+          ('src/event.py', 'share/comix/src'),
+-         ('src/event.pyc', 'share/comix/src'),
+          ('src/filechooser.py', 'share/comix/src'),
+-         ('src/filechooser.pyc', 'share/comix/src'),
+          ('src/filehandler.py', 'share/comix/src'),
+-         ('src/filehandler.pyc', 'share/comix/src'),
+          ('src/histogram.py', 'share/comix/src'),
+-         ('src/histogram.pyc', 'share/comix/src'),
+          ('src/icons.py', 'share/comix/src'),
+-         ('src/icons.pyc', 'share/comix/src'),
+          ('src/image.py', 'share/comix/src'),
+-         ('src/image.pyc', 'share/comix/src'),
+          ('src/labels.py', 'share/comix/src'),
+-         ('src/labels.pyc', 'share/comix/src'),
+          ('src/lens.py', 'share/comix/src'),
+-         ('src/lens.pyc', 'share/comix/src'),
+          ('src/library.py', 'share/comix/src'),
+-         ('src/library.pyc', 'share/comix/src'),
+          ('src/librarybackend.py', 'share/comix/src'),
+-         ('src/librarybackend.pyc', 'share/comix/src'),
+          ('src/main.py', 'share/comix/src'),
+-         ('src/main.pyc', 'share/comix/src'),
+          ('src/portability.py', 'share/comix/src'),
+-         ('src/portability.pyc', 'share/comix/src'),
+          ('src/preferences.py', 'share/comix/src'),
+-         ('src/preferences.pyc', 'share/comix/src'),
+          ('src/process.py', 'share/comix/src'),
+-         ('src/process.pyc', 'share/comix/src'),
+          ('src/properties.py', 'share/comix/src'),
+-         ('src/properties.pyc', 'share/comix/src'),
+          ('src/recent.py', 'share/comix/src'),
+-         ('src/recent.pyc', 'share/comix/src'),
+          ('src/slideshow.py', 'share/comix/src'),
+-         ('src/slideshow.pyc', 'share/comix/src'),
+          ('src/status.py', 'share/comix/src'),
+-         ('src/status.pyc', 'share/comix/src'),
+          ('src/thumbbar.py', 'share/comix/src'),
+-         ('src/thumbbar.pyc', 'share/comix/src'),
+          ('src/thumbnail.py', 'share/comix/src'),
+-         ('src/thumbnail.pyc', 'share/comix/src'),
+          ('src/thumbremover.py', 'share/comix/src'),
+-         ('src/thumbremover.pyc', 'share/comix/src'),
+          ('src/ui.py', 'share/comix/src'),
+-         ('src/ui.pyc', 'share/comix/src'),
+          ('images/16x16/comix.png', 'share/comix/images/16x16'),
+          ('images/comix.svg', 'share/comix/images'),
+          ('images/double-page.png', 'share/comix/images'),
+@@ -123,7 +95,8 @@
+          ('images/tango-archive.png', 'share/comix/images'),
+          ('images/tango-enhance-image.png', 'share/comix/images'),
+          ('images/tango-image.png', 'share/comix/images'),
+-         ('comix.1.gz', 'share/man/man1'),
++         ('comix.1', 'share/man/man1'),
++         ('mime/comicthumb.1', 'share/man/man1'),
+          ('comix.desktop', 'share/applications'),
+          ('images/16x16/comix.png', 'share/icons/hicolor/16x16/apps'),
+          ('images/22x22/comix.png', 'share/icons/hicolor/22x22/apps'),
+@@ -137,7 +110,7 @@
+ 
+ # Mime files to be installed, as (source file, destination directory)
+ MIME_FILES = (('mime/comicthumb', 'bin'),
+-              ('mime/comicthumb.1.gz', 'share/man/man1'),
++              ('mime/comicthumb.1', 'share/man/man1'),
+               ('mime/comix.xml', 'share/mime/packages'),
+               ('mime/icons/16x16/application-x-cbz.png',
+                 'share/icons/hicolor/16x16/mimetypes'),
+@@ -285,8 +258,7 @@
+     if opt == '--dir':
          install_dir = value
          if not os.path.isdir(install_dir):
--            print "\n*** Error:", install_dir, "does not exist.\n" 
+-            print '\n!!! Error:', install_dir, 'does not exist.' 
 -            info()
 +            os.makedirs(install_dir)
-     elif opt == "--no-mime":
-         no_mime = True
-     elif opt == "--no-balloon":
-         no_balloon = True
+     elif opt == '--no-mime':
+         install_mime = False
  
- if args == ["install"]:
--    check_dependencies()
-     print "Installing Comix in", install_dir, "...\n"
-     install("comix", "bin/comix")
-     install("comix.1.gz", "share/man/man1/comix.1.gz")
+@@ -301,6 +273,10 @@
+         sys.exit(1)
+     for src, dst in FILES:
+         install(src, dst)
++    for src, dst in MIME_FILES:
++        install(src, dst)
++    for src, link in MIME_LINKS:
++        make_link(src, link)
+     for lang in TRANSLATIONS:
+         install(os.path.join('messages', lang, 'LC_MESSAGES/comix.mo'),
+             os.path.join('share/locale/', lang, 'LC_MESSAGES'))
