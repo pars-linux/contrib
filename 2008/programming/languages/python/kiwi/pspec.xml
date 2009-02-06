@@ -11,9 +11,12 @@
         <License>LGPLv2</License>
         <IsA>library</IsA>
         <Summary>Pure Python framework and set of enhanced PyGTK widgets</Summary>
-        <Archive sha1sum="adf9283b20cd25e7e800a905cda477cf8d71688a" type="targz">mirrors://gnome/kiwi/1.9/kiwi-1.9.22.tar.gz</Archive>
+        <Archive sha1sum="b9953649d587e96f38081bfd4d106d96a77cc3cd" type="targz">mirrors://gnome/kiwi/1.9/kiwi-1.9.24.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.10.3">pygtk</Dependency>
+            <Dependency>ZopeInterface</Dependency>
+            <Dependency>SQLObject</Dependency>
+            <Dependency>gazpacho</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -21,6 +24,9 @@
         <Name>kiwi</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.10.3">pygtk</Dependency>
+            <Dependency>ZopeInterface</Dependency>
+            <Dependency>SQLObject</Dependency>
+            <Dependency>gazpacho</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -33,6 +39,13 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-02-06</Date>
+            <Version>1.9.24</Version>
+            <Comment>Version bump, add missing dependencies and translations.xml</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2008-09-19</Date>
             <Version>1.9.22</Version>
