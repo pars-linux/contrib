@@ -9,7 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def install():
-    pythonmodules.run("install.py install --no-mime --installdir %s/usr" % get.installDIR())
-    pisitools.insinto("/etc/gconf/schemas", "*.schemas")
+    pythonmodules.run("install.py install --no-mime --dir %s/usr" % get.installDIR())
+
+    pisitools.insinto("/etc/gconf/schemas", "mime/comicbook.schemas")
 
     pisitools.dodoc("ChangeLog", "COPYING", "README")
