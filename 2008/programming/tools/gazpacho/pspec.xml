@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gazpacho</Name>
+        <Homepage>http://gazpacho.sicem.biz</Homepage>
+        <Packager>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.comm</Email>
+        </Packager>
+        <License>LGPLv2.1</License>
+        <IsA>app:gui</IsA>
+        <Summary>A Glade like GUI designer written in Python</Summary>
+        <Description>Gazpacho is a Glade-3 clone. It allows you to create graphical user interface (GUI) of you GTK+ program in a visual way. It is compatible with libglade and it's on its early stages of development.</Description>
+        <Archive sha1sum="3f664b23982273e698509c94a704c468a93fd31e" type="targz">mirrors://gnome/gazpacho/0.7/gazpacho-0.7.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.9.6">kiwi</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gazpacho</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>libglade2</Dependency>
+            <Dependency versionFrom="1.9.6">kiwi</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/gazpacho</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2009-02-06</Date>
+            <Version>0.7.2</Version>
+            <Comment>thanks to Gökmen Görgen: Fixed summary, description and their translations.
+            fix documentation and package takeover..
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-08-25</Date>
+            <Version>0.7.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-03-22</Date>
+            <Version>0.7.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-06</Date>
+            <Version>0.7.0</Version>
+            <Comment>First release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
