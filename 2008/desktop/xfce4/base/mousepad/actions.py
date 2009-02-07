@@ -16,4 +16,7 @@ def build():
 def install():
     autotools.install()
 
+    # Remove conflict files
+    pisitools.remove("/usr/share/applications/mimeinfo.cache")
+
     pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
