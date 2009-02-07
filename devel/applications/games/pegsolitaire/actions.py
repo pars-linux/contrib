@@ -19,3 +19,4 @@ def install():
     pisitools.dodoc("AUTHORS", "README", "ChangeLog", "COPYING")
     pisitools.remove("/usr/share/pixmaps/pegsolitaire/pegsolitaire-icon.png")
     pisitools.remove("/usr/share/doc/pegsolitaire/*")
+    pisitools.removeDir("/usr/share/doc/pegsolitaire/")
