@@ -14,10 +14,12 @@ def setup():
     autotools.configure("--disable-static")
 
 def build():
-    autotools.make()
+    autotools.make("CXX=%s" % get.CXX())
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.insinto('/usr/include/libtorrent/asio/', 'include/libtorrent/asio/*')
 
     pisitools.dohtml("docs/*")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
