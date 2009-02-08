@@ -14,6 +14,7 @@ def setup():
 
     autotools.configure("--disable-static \
                          --disable-spell \
+                         --disable-scrollkeeper \
                          --enable-nls")
 
 def build():

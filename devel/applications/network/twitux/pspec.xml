@@ -13,12 +13,17 @@
         <IsA>app:gui</IsA>
         <Summary>A GTK+ Twitter client</Summary>
         <Description>Twitux is a GTK+ application for Twitter.com. You can send status, view friend status and see what they are doing, send direct messages to your Twitter friends, GUI notificactions when a friend update their status.</Description>
-        <Archive sha1sum="a3860db3f897d43604961342bec2417cd3e8d19f" type="tarbz2">mirrors://sourceforge/twitux/twitux-0.65.tar.bz2</Archive>
+        <Archive sha1sum="8693115c0016aec33c859fbaaf2557e6c3102160" type="tarbz2">mirrors://sourceforge/twitux/twitux-0.69.tar.bz2</Archive>
         <BuildDependencies>
+            <Dependency versionFrom="2.14.0">gtk2</Dependency>
+            <Dependency>libcanberra</Dependency>
             <Dependency>libnotify</Dependency>
             <Dependency>libsexy</Dependency>
             <Dependency>libsoup</Dependency>
             <Dependency>gnome-keyring</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <!--Will be needed for spell support, waiting in review-->
+            <!--<Dependency>iso-codes</Dependency>-->
         </BuildDependencies>
         <Patches>
             <Patch level="1">desktop.patch</Patch>
@@ -28,10 +33,14 @@
     <Package>
         <Name>twitux</Name>
         <RuntimeDependencies>
+            <Dependency versionFrom="2.14.0">gtk2</Dependency>
+            <Dependency>libcanberra</Dependency>
             <Dependency>libnotify</Dependency>
             <Dependency>libsexy</Dependency>
             <Dependency>libsoup</Dependency>
             <Dependency>gnome-keyring</Dependency>
+            <!--Will be needed for spell support, waiting in review-->
+            <!--<Dependency>iso-codes</Dependency>-->
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -46,6 +55,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2008-12-26</Date>
+            <Version>0.69</Version>
+            <Comment>Version bump, strict dependency for gtk 2.14, new dep libcanberra</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2008-12-26</Date>
             <Version>0.65</Version>
