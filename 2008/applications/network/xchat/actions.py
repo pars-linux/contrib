@@ -7,6 +7,7 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 def setup():
     autotools.configure("--enable-shm \
@@ -17,8 +18,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    pisitools.insinto("/usr/share/pixmaps/", "xchat.png")
-    pisitools.insinto("/usr/share/applications/", "xchat.desktop")
+    shelltools.chmod("%s/usr/lib/xchat/plugins/*" % get.installDIR(),0644)
 
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "HACKING", "README")
