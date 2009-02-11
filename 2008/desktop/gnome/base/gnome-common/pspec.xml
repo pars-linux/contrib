@@ -5,24 +5,37 @@
         <Name>gnome-common</Name>
         <Homepage>http://www.gnome.org/</Homepage>
         <Packager>
-            <Name>İlker Kesen</Name>
-            <Email>ikesen92@gmail.com</Email>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
-        <Summary>Common files for development of Gnome packages</Summary>
-        <Archive sha1sum="8fc9eeacdf6b77d8e6d1735979bbc3d678f49d95" type="tarbz2">mirrors://gnome/gnome-common/2.20/gnome-common-2.20.0.tar.bz2</Archive>
+        <Summary>Common files for development of GNOME packages</Summary>
+        <Archive sha1sum="5d1c903037fe7c86957c067f067343ee635eaf0f" type="tarbz2">mirrors://gnome/gnome-common/2.24/gnome-common-2.24.0.tar.bz2</Archive>
+        <Patches>
+            <Patch>always-copy.patch</Patch>
+            <Patch>do-not-update-scrollkeeper.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>gnome-common</Name>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="data">/usr/share/gnome-common</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-02-07</Date>
+            <Version>2.24.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-06-05</Date>
             <Version>2.20.0</Version>
