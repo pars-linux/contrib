@@ -34,7 +34,7 @@ def install():
              "/usr/lib/xulrunner-sdk-1.9/sdk/lib/*","/usr/lib/xulrunner-1.9/*.so","/usr/lib/xulrunner-1.9/icons/*",\
              "/usr/lib/xulrunner-1.9/components/*","/usr/lib/xulrunner-1.9/README.txt","/usr/lib/xulrunner-1.9/LICENSE",\
              "/usr/lib/xulrunner-1.9/res/html/folder.png","/usr/lib/xulrunner-1.9/chrome/icons/default/*.png",\
-             "/usr/include/xulrunner-sdk-1.9/stable/*","/etc/gre.d/1.9.0.5.system.conf"]
+             "/usr/include/xulrunner-sdk-1.9/stable/*","/etc/gre.d/1.9.0.6.system.conf"]
 
     for a in files:
         shelltools.chmod("%s%s" % (get.installDIR(),a),0644)
