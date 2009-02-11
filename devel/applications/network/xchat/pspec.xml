@@ -9,9 +9,10 @@
             <Email>burakclskn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>xchat</Icon>
         <IsA>app:gui</IsA>
         <Summary>GTK based IRC client</Summary>
-        <Archive sha1sum="6ac509624c241edfac5d53d9d4ece63d917613d6" type="tarbz2">http://xchat.org/files/source/2.8/xchat-2.8.4.tar.bz2</Archive>
+        <Archive sha1sum="7a7463e65cb26c680ed70dd96cec98bcc05435a4" type="tarbz2">http://xchat.org/files/source/2.8/xchat-2.8.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.12.8">gtk2</Dependency>
             <Dependency>gtkspell</Dependency>
@@ -20,7 +21,12 @@
         </BuildDependencies>
         <Patches>
             <Patch>xchat_desktop.patch</Patch>
+            <Patch level="1">browser.patch</Patch>
+            <Patch level="1">default-server.patch</Patch>
             <Patch level="1">xchat-2.8.4-shm-pixmaps.patch</Patch>
+            <Patch level="1">xc286-smallfixes.diff</Patch>
+            <Patch level="1">new-gtk-type.patch</Patch>
+            <Patch level="1">xchat-2.8.6-default-utf8.patch</Patch>
         </Patches>
     </Source>
 
@@ -45,6 +51,13 @@
     </Package>
 
     <History>
+        <Update release="10">
+           <Date>2009-02-11</Date>
+           <Version>2.8.6</Version>
+           <Comment>Version bump.</Comment>
+           <Name>Burak Çalışkan</Name>
+           <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="9">
            <Date>2008-06-11</Date>
            <Version>2.8.4</Version>
