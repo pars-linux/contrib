@@ -1,0 +1,24 @@
+diff -Naur xchat-2.8.6.orig/src/common/cfgfiles.c xchat-2.8.6/src/common/cfgfiles.c
+--- xchat-2.8.6.orig/src/common/cfgfiles.c	2008-02-05 12:02:47.000000000 +0200
++++ xchat-2.8.6/src/common/cfgfiles.c	2009-02-11 19:31:57.000000000 +0200
+@@ -668,7 +668,7 @@
+ 	prefs.autoopendccsendwindow = 1;
+ 	prefs.autoopendccchatwindow = 1;
+ 	prefs.userhost = 1;
+-	prefs.gui_url_mod = 4;	/* ctrl */
++	prefs.gui_url_mod = 0;	/* ctrl */
+ 	prefs.gui_tray = 1;
+ 	prefs.gui_pane_left_size = 100;
+ 	prefs.gui_pane_right_size = 100;
+diff -Naur xchat-2.8.6.orig/src/common/xchat.c xchat-2.8.6/src/common/xchat.c
+--- xchat-2.8.6.orig/src/common/xchat.c	2008-04-01 11:21:18.000000000 +0300
++++ xchat-2.8.6/src/common/xchat.c	2009-02-11 19:29:07.000000000 +0200
+@@ -602,7 +602,7 @@
+ 	"NAME WII\n"			"CMD quote WHOIS %2 %2\n\n";
+ 
+ static char defaultconf_urlhandlers[] =
+-		"NAME Open Link in Opera\n"		"CMD !opera -remote 'openURL(%s)'\n\n";
++		"NAME Open Link in Firefox\n"		"CMD !firefox -remote 'openURL(%s)'\n\n";
+ 
+ #ifdef USE_SIGACTION
+ /* Close and open log files on SIGUSR1. Usefull for log rotating */
