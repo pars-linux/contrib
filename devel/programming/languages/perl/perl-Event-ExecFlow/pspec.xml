@@ -15,7 +15,7 @@
         <Description>Event::ExecFlow offers a high level API to declare jobs, which mainly execute external commands, parse their output to get progress or other status information, triggers actions when the command has been finished etc. Such jobs can be chained together in a recursive fashion to fulfill rather complex tasks which consist of many jobs.</Description>
         <Archive sha1sum="72d3a6df8b822c1ceb1f74a63b4f0a940aaf1859" type="targz">mirrors://cpan/authors/id/J/JR/JRED/Event-ExecFlow-0.63.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>perl-AnyEvent</Dependency>
+            <Dependency versionFrom="0.04">perl-AnyEvent</Dependency>
             <Dependency>perl-Test-Simple</Dependency>
             <Dependency>perl-libintl</Dependency>
         </BuildDependencies>
@@ -40,6 +40,13 @@
     </Package>
 
     <History>
+            <Update release="2">
+            <Date>2009-02-10</Date>
+            <Version>0.63</Version>
+            <Comment>Remove unnecessary directory '/usr/lib/perl5/5.10.0/'.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-01-30</Date>
             <Version>0.63</Version>
