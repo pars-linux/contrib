@@ -21,3 +21,4 @@ def install():
     perlmodules.install()
 
     pisitools.dodoc("README", "TODO", "Changes")
+    pisitools.removeDir("/usr/lib/perl5/5.10.0/")
