@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfconf</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Xfce multi channel setting library</Summary>
+        <Description>Xfconf is a hirerchical (tree-like) configuration system for the Xfce graphical desktop environment.</Description>
+        <Archive sha1sum="1728ae89f34f7d6bbc4d7d432417ab337040f363" type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/xfconf-4.5.99.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+            <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+            <!-- For Perl Bindings -->
+            <Dependency versionFrom="0.300">perl-ExtUtils-Depends</Dependency>
+            <Dependency versionFrom="1.000">perl-ExtUtils-PkgConfig</Dependency>
+            <Dependency versionFrom="1.020">perl-Glib</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfconf</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+            <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-27</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
