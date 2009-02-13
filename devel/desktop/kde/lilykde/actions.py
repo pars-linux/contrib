@@ -9,8 +9,6 @@ from pisi.actionsapi import kde
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 
-WorkDir = "lilykde-%s" % get.srcVERSION()
-
 def build():
     kde.make()
 
