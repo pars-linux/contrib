@@ -10,7 +10,8 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--with-bdb4 \
-                         --disable-static")
+                         --disable-static \
+                         --disable-libxfce4mcs")
 
 def build():
     autotools.make()
