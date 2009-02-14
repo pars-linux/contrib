@@ -6,8 +6,6 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static")
@@ -17,8 +15,5 @@ def build():
 
 def install():
     autotools.install()
-
-    # change modes
-    shelltools.chmod("%s/usr/lib/libxfce4menu*" % get.installDIR(), 0644)
 
     pisitools.dodoc("TODO", "THANKS", "README", "NEWS", "AUTHORS", "ChangeLog")
