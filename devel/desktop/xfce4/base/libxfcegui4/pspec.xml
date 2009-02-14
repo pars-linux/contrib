@@ -11,32 +11,48 @@
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>Xfce GUI library</Summary>
-        <Archive sha1sum="4f1ab2fb035b0aaeb01cbef15d7378726037bcc9"  type="tarbz2">http://mocha.xfce.org/archive/xfce-4.4.3/src/libxfcegui4-4.4.3.tar.bz2</Archive>
+        <Description>Libxfcegui4 is a various GTK+ widgets for Xfce desktop environment.</Description>
+        <Archive sha1sum="195f7328385f8f59e885771e88463435a630abec"  type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/libxfcegui4-4.5.99.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>startup-notification</Dependency>
-            <Dependency versionFrom="2.12.11">gtk2</Dependency>
-            <Dependency versionFrom="4.4.3">libxfce4util</Dependency>
+            <Dependency versionFrom="2.6.2">libglade2</Dependency>
+            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">libxfcegui4-4.4.2-use-thunar.patch</Patch>
+            <Patch level="1">libxfcegui4-4.4.2-extension-strip.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
-       <Name>libxfcegui4</Name>
-       <RuntimeDependencies>
+        <Name>libxfcegui4</Name>
+        <RuntimeDependencies>
             <Dependency>startup-notification</Dependency>
-            <Dependency versionFrom="2.12.11">gtk2</Dependency>
-            <Dependency versionFrom="4.4.3">libxfce4util</Dependency>
-       </RuntimeDependencies>
+            <Dependency versionFrom="2.6.2">libglade2</Dependency>
+            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+        </RuntimeDependencies>
         <Files>
+            <Path fileType="config">/etc</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml">xfce4-keyboard-shortcuts.xml</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2009-01-27</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-10-28</Date>
             <Version>4.4.3</Version>

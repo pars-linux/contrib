@@ -6,18 +6,19 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --with-x")
 
 def build():
     autotools.make()
 
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+    pisitools.remove("/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml")
 
-    pisitools.dodoc("NEWS", "README", "TODO", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("NEWS", "COPYING", "README", "TODO", "ChangeLog", "AUTHORS")
