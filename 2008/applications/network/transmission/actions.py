@@ -22,4 +22,4 @@ def install():
 
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    pisitools.dodoc("LICENSE", "COPYING", "AUTHOR", "README", "ChangeLog", "NEWS")
+    pisitools.dodoc("COPYING", "AUTHORS", "README", "ChangeLog", "NEWS")
