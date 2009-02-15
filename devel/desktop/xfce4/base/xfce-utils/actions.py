@@ -12,15 +12,13 @@ def setup():
     autotools.configure("--disable-static \
                          --enable-gdm \
                          --with-browser=firefox \
-                         --with-terminal=Terminal")
+                         --with-terminal=Terminal \
+                         --with-session-prefix=/usr/share/xsessions")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
     pisitools.dodoc("README", "NEWS", "TODO", "AUTHORS", "ChangeLog")
