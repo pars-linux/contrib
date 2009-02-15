@@ -9,12 +9,15 @@
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>printer</Icon>
         <IsA>library</IsA>
         <IsA>app:gui</IsA>
         <Summary>Xfce printer manager</Summary>
-        <Archive sha1sum="a1670dd247a04dcd3ba897cc32977f0828926900" type="tarbz2">http://mocha.xfce.org/archive/xfce-4.4.3/src/xfprint-4.4.3.tar.bz2</Archive>
+        <Description>The printing helper is a graphical frontend for printing, a printer management, and a job queue management. It doesn't let you configure printers but only use printing systems that have already been configured properly.</Description>
+        <Archive sha1sum="8d3c6a01131e7a71c8592658b96c41d5532076c1" type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/xfprint-4.5.99.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.3">xfce-mcs-manager</Dependency>
+            <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
             <Dependency>cups</Dependency>
             <Dependency>gnutls</Dependency>
         </BuildDependencies>
@@ -23,7 +26,8 @@
     <Package>
         <Name>xfprint</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.3">xfce-mcs-manager</Dependency>
+            <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
             <Dependency>cups</Dependency>
             <Dependency>gnutls</Dependency>
         </RuntimeDependencies>
@@ -39,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2009-01-28</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2008-10-28</Date>
             <Version>4.4.3</Version>
