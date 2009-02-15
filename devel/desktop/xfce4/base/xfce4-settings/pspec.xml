@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-settings</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce settings plugins</Summary>
+        <Description>Xfce4-settings is a configuration manager for Xfce desktop environment.</Description>
+        <Archive sha1sum="eb724691b38bbdd90aea818f85799850adfbf313" type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/xfce4-settings-4.5.99.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+            <Dependency versionFrom="0.3.99.1">exo</Dependency>
+            <Dependency>libXi</Dependency>
+            <Dependency>libXrandr</Dependency>
+            <Dependency>libXcursor</Dependency>
+            <Dependency>libnotify</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-settings</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+            <Dependency versionFrom="0.3.99.1">exo</Dependency>
+            <Dependency>libXi</Dependency>
+            <Dependency>libXrandr</Dependency>
+            <Dependency>libXcursor</Dependency>
+            <Dependency>libnotify</Dependency>
+            <!-- for default shortcuts -->
+            <Dependency>xfce4-screenshooter-plugin</Dependency>
+            <!-- for default icon theme setting -->
+            <Dependency>tango-icon-theme</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>xfce-mcs-manager</Package>
+            <Package>xfce-mcs-plugins</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml">xsettings.xml</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-27</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
