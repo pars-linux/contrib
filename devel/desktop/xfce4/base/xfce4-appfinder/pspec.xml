@@ -9,18 +9,24 @@
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>xfce4-appfinder</Icon>
         <IsA>app:gui</IsA>
         <Summary>Xfce application finder</Summary>
-        <Archive sha1sum="62d74a006dabcdadf9d6b7130907e3c4dd1b9697"  type="tarbz2">http://mocha.xfce.org/archive/xfce-4.4.3/src/xfce4-appfinder-4.4.3.tar.bz2</Archive>
+        <Description>Xfce4-appfinder is a useful software that permits you to find every application in the system supporting desktop entry format.</Description>
+        <Archive sha1sum="6fc8988b1626e136d7acfef4b4321e3e45a2f0e4" type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/xfce4-appfinder-4.5.99.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.5.99.1">libxfce4menu</Dependency>
+            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+            <Dependency versionFrom="0.9.99.1">Thunar</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
        <Name>xfce4-appfinder</Name>
        <RuntimeDependencies>
-           <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
+           <Dependency versionFrom="4.5.99.1">libxfce4menu</Dependency>
+           <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+           <Dependency versionFrom="0.9.99.1">Thunar</Dependency>
        </RuntimeDependencies>
        <Files>
            <Path fileType="executable">/usr/bin</Path>
@@ -32,6 +38,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-01-27</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-10-28</Date>
             <Version>4.4.3</Version>
@@ -76,4 +89,3 @@
         </Update>
     </History>
 </PISI>
-
