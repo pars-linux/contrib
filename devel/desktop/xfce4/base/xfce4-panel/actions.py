@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--with-x")
+    autotools.configure()
 
 def build():
     autotools.make()
@@ -18,7 +18,7 @@ def install():
 
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-    pisitools.remove("/usr/share/icons/hicolor/48x48/apps/xfce-filemanager.png")
+
     # it's in xfdesktop package for default configuration
     pisitools.remove("/etc/xdg/xfce4/panel/panels.xml")
 
