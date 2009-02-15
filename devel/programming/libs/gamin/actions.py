@@ -10,6 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.automake()
     autotools.configure("--disable-static")
 
 def build():
@@ -21,4 +22,4 @@ def install():
     # remove static lib.
     pisitools.remove("/usr/lib/libgamin_shared.a")
 
-    pisitools.dodoc("AUTHORS", "README", "Copyright", "COPYING", "doc/*")
+    pisitools.dodoc("AUTHORS", "README", "COPYING", "NEWS", "TODO")
