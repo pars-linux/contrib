@@ -18,7 +18,4 @@ def build():
 def install():
     autotools.rawInstall("-j1 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR=%s" % get.installDIR())
 
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-
     pisitools.dodoc("TODO", "AUTHORS", "ChangeLog", "README", "ROADMAP", "THANKS", "FUTURE")
