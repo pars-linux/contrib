@@ -8,10 +8,9 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+def setup():
+    pisitools.dosed("setup.py", "share/doc/gazpacho", "share/doc/%s" % get.srcTAG())
+
 def install():
     pythonmodules.install()
-
-    # when the doc files are not under /usr/share/doc/gazpacho , gazpacho do not start
-    # that's why all docs are unified under /usr/share/doc/gazpacho
-    pisitools.removeDir("/usr/share/doc/%s/" % get.srcTAG() )
-    pisitools.insinto("/usr/share/doc/gazpacho", "doc/*")
+    pisitools.dodoc("doc/*")
