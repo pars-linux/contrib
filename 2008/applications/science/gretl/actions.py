@@ -32,6 +32,6 @@ def install():
     pisitools.insinto("/usr/share/aclocal", "gretl.m4")
     pisitools.insinto("/usr/share/emacs/site-lisp", "utils/emacs/gretl.el")
 
-    pisitools.doman("gretlcli.1")
+    pisitools.doman("gretl.1", "gretlcli.1", "gretl-config.1")
 
-    pisitools.dodoc("ABOUT-NLS", "ChangeLog", "COPYING", "EXTENDING", "NEWS", "README", "README.audio", "TODO")
+    pisitools.dodoc("ABOUT-NLS", "ChangeLog", "CompatLog", "COPYING", "README", "TODO")
