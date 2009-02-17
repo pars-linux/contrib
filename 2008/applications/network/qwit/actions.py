@@ -11,6 +11,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
 def setup():
+    shelltools.system("lrelease-qt4 qwit.pro")
     shelltools.system("qmake-qt4")
 
     # Change C/XXFLAGS
