@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>brasero</Name>
+        <Homepage>http://projects.gnome.org/brasero/</Homepage>
+        <Packager>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>brasero</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>CD/DVD burning software for the GNOME desktop.</Summary>
+        <Description>Brasero is an application to burn CD/DVD for the GNOME Desktop. It is designed to be as simple as possible and has some unique features to enable users to create their discs easily and quickly.</Description>
+        <Archive sha1sum="f22308786c2ad66bfcdafa074a5d4a42a944982c" type="tarbz2">mirrors://gnome/brasero/0.8/brasero-0.8.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gst-plugins-bad</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>cdrdao</Dependency>
+            <Dependency>libisofs</Dependency>
+            <Dependency>libburn</Dependency>
+            <Dependency>inotify-tools</Dependency>
+            <Dependency>docbook-xml4_3</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch>remove-unsupported-languages.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>brasero</Name>
+        <RuntimeDependencies>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gst-plugins-bad</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>cdrdao</Dependency>
+            <Dependency>libisofs</Dependency>
+            <Dependency>libburn</Dependency>
+            <Dependency>inotify-tools</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc/gconf</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/brasero/plugins</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/brasero</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-02-12</Date>
+            <Version>0.8.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
