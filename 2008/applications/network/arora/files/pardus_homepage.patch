@@ -1,0 +1,24 @@
+diff -up arora-0.4/src/browsermainwindow.cpp.fedorahome arora-0.4/src/browsermainwindow.cpp
+--- arora-0.4/src/browsermainwindow.cpp.fedorahome	2008-10-01 03:17:22.000000000 +0200
++++ arora-0.4/src/browsermainwindow.cpp	2008-10-06 14:14:46.000000000 +0200
+@@ -966,7 +966,7 @@ void BrowserMainWindow::slotHome()
+ {
+     QSettings settings;
+     settings.beginGroup(QLatin1String("MainWindow"));
+-    QString home = settings.value(QLatin1String("home"), QLatin1String("http://www.arora-browser.org")).toString();
++    QString home = settings.value(QLatin1String("home"), QLatin1String("http://pardus.org.tr")).toString();
+     loadPage(home);
+ }
+
+diff -up arora-0.4/src/settings.cpp.fedorahome arora-0.4/src/settings.cpp
+--- arora-0.4/src/settings.cpp.fedorahome	2008-10-06 14:15:30.000000000 +0200
++++ arora-0.4/src/settings.cpp	2008-10-06 14:13:10.000000000 +0200
+@@ -113,7 +113,7 @@ void SettingsDialog::loadFromSettings()
+ {
+     QSettings settings;
+     settings.beginGroup(QLatin1String("MainWindow"));
+-    QString defaultHome = QLatin1String("http://www.arora-browser.org");
++    QString defaultHome = QLatin1String("http://pardus.org.tr");
+     homeLineEdit->setText(settings.value(QLatin1String("home"), defaultHome).toString());
+     startupBehavior->setCurrentIndex(settings.value(QLatin1String("startupBehavior"), 0).toInt());
+     settings.endGroup();

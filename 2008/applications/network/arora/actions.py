@@ -13,7 +13,7 @@ def setup():
     shelltools.system("qmake-qt4 PREFIX=/usr")
 
 def build():
-    autotools.make()
+    autotools.make('CXX="%s"' % get.CXX())
 
 def install():
     autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
@@ -21,4 +21,4 @@ def install():
     # Don't know, why package manager can't show the icon when there is a .svg
     pisitools.remove("/usr/share/icons/hicolor/scalable/apps/arora.svg")
 
-    pisitools.dodoc("AUTHORS", "README", "ChangeLog")
+    pisitools.dodoc("AUTHORS", "README", "ChangeLog", "LICENSE*")
