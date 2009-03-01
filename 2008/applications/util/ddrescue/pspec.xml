@@ -12,7 +12,7 @@
         <IsA>app:console</IsA>
         <Summary>A data recovery tool</Summary>
         <Description>ddrescue copies data from one file or block device (hard disk, cdrom, etc) to another, trying hard to rescue data in case of read errors.</Description>
-        <Archive sha1sum="5ca7897866b55cc56dffb43c4e93d69ae19fb613" type="tarbz2">mirrors://gnu/ddrescue/ddrescue-1.9.tar.bz2</Archive>
+        <Archive sha1sum="8fb3f32c648a40de518a2dd3e2eafc330d6f810c" type="targz">mirrors://gnu/ddrescue/ddrescue-1.10.tar.gz</Archive>
     </Source>
 
     <Package>
@@ -26,6 +26,20 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-02-10</Date>
+            <Version>1.10</Version>
+            <Comment>Version 1.10 released:
+            * Added new option "--try-again".
+            * rescuebook.cc: "skip_size" has been made independent of "softbs".
+            * "change_chunk_status" is now faster for large logfiles.
+            * Fixed overflow when reading from devices of undefined size.
+            * Block does no more admit negative sizes.
+            * New file testsuite/check.sh.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2009-02-10</Date>
             <Version>1.9</Version>
