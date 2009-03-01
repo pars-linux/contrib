@@ -14,10 +14,10 @@
         <IsA>app:gui</IsA>
         <Summary>Xfce printer manager</Summary>
         <Description>The printing helper is a graphical frontend for printing, a printer management, and a job queue management. It doesn't let you configure printers but only use printing systems that have already been configured properly.</Description>
-        <Archive sha1sum="8d3c6a01131e7a71c8592658b96c41d5532076c1" type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/xfprint-4.5.99.1.tar.bz2</Archive>
+        <Archive sha1sum="28bd6c8ff46eb0193647d1cd1a13d970a18e599b" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/xfprint-4.6.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-            <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
+            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
             <Dependency>cups</Dependency>
             <Dependency>gnutls</Dependency>
         </BuildDependencies>
@@ -26,8 +26,8 @@
     <Package>
         <Name>xfprint</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-            <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
+            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
             <Dependency>cups</Dependency>
             <Dependency>gnutls</Dependency>
         </RuntimeDependencies>
@@ -36,13 +36,29 @@
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="doc">/usr/share/gtk-doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
+    <Package>
+        <Name>xfprint-docs</Name>
+        <Files>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
     <History>
+        <Update release="6">
+            <Date>2009-03-01</Date>
+            <Version>4.6.0</Version>
+            <Comment>
+                * Stable version bump.
+                * Moved docs to xfprint-docs.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-01-28</Date>
             <Version>4.5.99.1</Version>
