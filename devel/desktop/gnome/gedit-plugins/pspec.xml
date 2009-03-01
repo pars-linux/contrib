@@ -12,13 +12,13 @@
         <IsA>data</IsA>
         <IsA>app:gui</IsA>
         <Summary>Plugins for Gedit</Summary>
-        <Archive sha1sum="aebe2d642f64301d8dcf00cd7edee766f7c7babd" type="tarbz2">mirrors://gnome/gedit-plugins/2.22/gedit-plugins-2.22.3.tar.bz2</Archive>
+        <Archive sha1sum="21fc1456aa817fe32beab68ba84ef487e9073361" type="tarbz2">mirrors://gnome/gedit-plugins/2.22/gedit-plugins-2.22.5.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.22.3">gedit</Dependency>
+            <Dependency>vte</Dependency>
         </BuildDependencies>
         <Patches>
-            <!-- patch Makefile.in files to not create *.pyo files which gives sandbox error while building -->
-            <Patch level="1">do-not-compile-pyo.patch</Patch>
+            <Patch>upstream-bracket-completion.patch</Patch>
         </Patches>
     </Source>
 
@@ -26,6 +26,7 @@
         <Name>gedit-plugins</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.22.3">gedit</Dependency>
+            <Dependency>vte</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -36,6 +37,16 @@
    </Package>
 
    <History>
+        <Update release="7">
+            <Date>2009-03-01</Date>
+            <Version>2.22.5</Version>
+            <Comment>
+                -Version bump.
+                -Add upstream-bracket-completion.patch that fixes various bugs.
+            </Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-09-28</Date>
             <Version>2.22.3</Version>
