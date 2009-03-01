@@ -12,14 +12,15 @@
         <IsA>library</IsA>
         <Summary>Xfce utilities</Summary>
         <Description>The utilities and scripts provides an about dialog for Xfce4, an application launcher, and several useful scripts that are also used by other Xfce components such as the panel and the desktop menu.</Description>
-        <Archive sha1sum="185eb49848de1e563319a9bcc2ca4ce2a27d41c4"  type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/xfce-utils-4.5.99.1.tar.bz2</Archive>
+        <Archive sha1sum="2ca9480f9a12ab4e584e27bc3d9e99ec1fab1041"  type="tarbz2">mirrors://xfce/xfce-4.6.0/src/xfce-utils-4.6.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
             <Dependency>perl-XML-Parser</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">xfce-utils-4.5.91-xfmountdev4-use-thunar.patch</Patch>
             <Patch level="1">04_avoid-xcblib-hang.patch</Patch>
+            <Patch level="1">xfce-utils-4.5.92-fix-desktop-entry.patch</Patch>
             <Patch>startxfce4.patch</Patch>
         </Patches>
     </Source>
@@ -27,7 +28,7 @@
     <Package>
         <Name>xfce-utils</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
+            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
             <!-- for xflock4 -->
             <Dependency>xscreensaver</Dependency>
         </RuntimeDependencies>
@@ -47,6 +48,17 @@
     </Package>
 
     <History>
+        <Update release="11">
+            <Date>2009-03-01</Date>
+            <Version>4.6.0</Version>
+            <Comment>
+                * Stable version bump.
+                * Updated startxfce4.patch.
+                * Fixed migration desktop file.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="10">
             <Date>2009-01-27</Date>
             <Version>4.5.99.1</Version>
