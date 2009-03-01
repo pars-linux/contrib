@@ -12,10 +12,10 @@
         <IsA>library</IsA>
         <Summary>Xfce extension library</Summary>
         <Description>Exo is an extension library to Xfce desktop environment.</Description>
-        <Archive sha1sum="2f80450db277560a5e564406dc1223b912e0df59" type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/exo-0.3.99.1.tar.bz2</Archive>
+        <Archive sha1sum="987262654d23e0da359d434cc29f0b64ad06a733" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/exo-0.3.100.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>perl-URI</Dependency>
-            <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
             <Dependency versionFrom="2.12.11">gtk2</Dependency>
         </BuildDependencies>
         <Patches>
@@ -27,7 +27,7 @@
         <Name>exo</Name>
         <RuntimeDependencies>
             <Dependency>perl-URI</Dependency>
-            <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+            <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
             <Dependency versionFrom="2.12.11">gtk2</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -40,13 +40,29 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/gtk-doc</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
+    <Package>
+        <Name>exo-docs</Name>
+        <Files>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
     <History>
+        <Update release="8">
+            <Date>2009-03-01</Date>
+            <Version>0.3.100</Version>
+            <Comment>
+                * Stable version bump.
+                * Moved documents to new binary package.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2009-01-27</Date>
             <Version>0.3.99.1</Version>
