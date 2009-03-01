@@ -22,6 +22,5 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "windows/icons/veusz.png")
     pisitools.insinto("usr/share/applications", "veusz.desktop")
 
-    pisitools.dohtml("Documents/*")
-    pisitools.domove("/usr/share/doc/%s/html/*.png" % get.srcTAG(), "/usr/share/doc/%s/html/manimages" % get.srcTAG())
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "VERSION", "Documents/*.txt", "Documents/*.pdf")
+    pisitools.dohtml("Documents/*.html")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "VERSION", "Documents/*.txt", "Documents/*.pdf")
