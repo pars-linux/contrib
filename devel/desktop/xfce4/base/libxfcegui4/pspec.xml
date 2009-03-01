@@ -12,12 +12,12 @@
         <IsA>library</IsA>
         <Summary>Xfce GUI library</Summary>
         <Description>Libxfcegui4 is a various GTK+ widgets for Xfce desktop environment.</Description>
-        <Archive sha1sum="195f7328385f8f59e885771e88463435a630abec"  type="tarbz2">mirrors://xfce/xfce-4.5.99.1/src/libxfcegui4-4.5.99.1.tar.bz2</Archive>
+        <Archive sha1sum="d8a3e86f90ad026c4a9fa369c9c3f6d4f3f6fd06"  type="tarbz2">mirrors://xfce/xfce-4.6.0/src/libxfcegui4-4.6.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>startup-notification</Dependency>
             <Dependency>glade</Dependency>
             <Dependency versionFrom="2.6.2">libglade2</Dependency>
-            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+            <Dependency versionFrom="4.6.0">xfconf</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">libxfcegui4-4.4.2-use-thunar.patch</Patch>
@@ -30,7 +30,7 @@
         <RuntimeDependencies>
             <Dependency>startup-notification</Dependency>
             <Dependency versionFrom="2.6.2">libglade2</Dependency>
-            <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+            <Dependency versionFrom="4.6.0">xfconf</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -38,7 +38,6 @@
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share/gtk-doc</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
         <AdditionalFiles>
@@ -46,7 +45,24 @@
         </AdditionalFiles>
     </Package>
 
+    <Package>
+        <Name>libxfcegui4-docs</Name>
+        <Files>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
     <History>
+        <Update release="9">
+            <Date>2009-03-01</Date>
+            <Version>4.6.0</Version>
+            <Comment>
+                * Stable version bump.
+                * Moved docs to libxfcegui4-docs.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2009-01-27</Date>
             <Version>4.5.99.1</Version>
