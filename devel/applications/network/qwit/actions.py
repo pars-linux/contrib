@@ -10,6 +10,8 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
+WorkDir = "%s-src" % get.srcDIR()
+
 def setup():
     shelltools.system("lrelease-qt4 qwit.pro")
     shelltools.system("qmake-qt4")
@@ -25,4 +27,4 @@ def install():
     pisitools.dobin("qwit")
     pisitools.insinto("/usr/share/pixmaps", "images/qwit.png")
 
-    pisitools.dodoc("COPYING", "README")
+    pisitools.dodoc("AUTHORS", "COPYING", "README")
