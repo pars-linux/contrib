@@ -7,9 +7,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import pythonmodules
 
 def setup():
+    autotools.automake()
     autotools.configure("--disable-schemas-install")
 
 def build():
@@ -17,7 +17,5 @@ def build():
 
 def install():
     autotools.install()
-
-    pythonmodules.fixCompiledPy(lookInto="/usr/lib/gedit-2")
 
     pisitools.dodoc("README", "ChangeLog", "AUTHORS")
