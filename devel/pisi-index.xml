@@ -874,10 +874,12 @@
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>applications.science</PartOf>
-            <Summary xml:lang="en">Veusz is a scientific plotting package written in Python.</Summary>
+            <Summary xml:lang="en">A scientific plotting package written in Python</Summary>
+            <Summary xml:lang="tr">Python&apos;da yazılmış bir bilimsel çizim paketi</Summary>
             <Description xml:lang="en">Veusz provides a GUI, command line and scripting interface (based on Python) to its plotting facilities. The plots are built using an object-based system to provide a consistent interface.</Description>
+            <Description xml:lang="tr">Veusz, grafiksel ya da (Python üzerine şekillenmiş) komut satırı arayüzleri sağlamaktadır. Çizilen kısımlar, tutarlı bir arayüz sağlamak için nesne-temelli bir sistem kullanılarak inşa edilmektedir.</Description>
             <Icon>veusz</Icon>
-            <Archive type="targz" sha1sum="f07568a95d4315813d07539e4f8595ed9ed834ac">http://download.gna.org/veusz/veusz-1.2.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2e9156bb641b579eb2a312425cdfc55e7eb66213">http://download.gna.org/veusz/veusz-1.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.0.4">numpy</Dependency>
                 <Dependency versionFrom="1.0">pyfits</Dependency>
@@ -904,6 +906,19 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-03-01</Date>
+                <Version>1.3</Version>
+                <Comment>Version bump: Changes in 1.3:
+            * Add data capture from sockets, files and external programs
+            * Remembers previous entries in dialog boxes
+            * Add shaded regions or lines error bar style
+            * Plot keys can be dragged around with the mouse
+            * New clearer scalable icons
+            * Now requires Python &gt;= 2.4</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2008-12-02</Date>
                 <Version>1.2.1</Version>
@@ -5519,12 +5534,12 @@
             <Description xml:lang="en">This Qt4 based Twitter client can be used as a native KDE4 application.</Description>
             <Description xml:lang="tr">Bu Qt4 tabanlı Twitter istemcisi bir KDE4 uygulaması gibi kullanılabilir.</Description>
             <Icon>qwit</Icon>
-            <Archive type="tarbz2" sha1sum="ab150e227571d9e15859ffd68b2126b8e0bbe222">http://qwit.googlecode.com/files/qwit-0.7-src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="ff61c9f776f5986a72fc5e675f738cb8b170c7cc">http://qwit.googlecode.com/files/qwit-0.8-src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>qwit.r21tor38.diff</Patch>
+                <Patch>turkishpluralfix.patch</Patch>
             </Patches>
             <SourceURI>applications/network/qwit/pspec.xml</SourceURI>
         </Source>
@@ -5544,6 +5559,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-01</Date>
+                <Version>0.8</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-02-18</Date>
                 <Version>0.7</Version>
@@ -7287,8 +7309,8 @@
             <Name>emesene</Name>
             <Homepage>http://www.emesene.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Emre Yılmaz</Name>
+                <Email>yilmazyemre@yahoo.com</Email>
             </Packager>
             <License>LGPLv2.1</License>
             <IsA>app:gui</IsA>
@@ -7637,8 +7659,8 @@
             <Name>qtscrobbler</Name>
             <Homepage>http://qtscrob.sourceforge.net/</Homepage>
             <Packager>
-                <Name>Mehmet Ş. Çatalbaş</Name>
-                <Email>mehmet.catalbas@gmail.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -13818,7 +13840,7 @@
             <Summary xml:lang="tr">Komut satırı veri kurtarma aracı</Summary>
             <Description xml:lang="en">ddrescue copies data from one file or block device (hard disk, cdrom, etc) to another, trying hard to rescue data in case of read errors.</Description>
             <Description xml:lang="tr">Ddrescue, bir dosyadan ya da hard disk, cdrom gibi blok aygıtlarından bir başkasına veri kopyalar, okuma hatalarıyla karşılaşıldığında veri kurtarmak için çaba sarfeder.</Description>
-            <Archive type="tarbz2" sha1sum="5ca7897866b55cc56dffb43c4e93d69ae19fb613">mirrors://gnu/ddrescue/ddrescue-1.9.tar.bz2</Archive>
+            <Archive type="targz" sha1sum="8fb3f32c648a40de518a2dd3e2eafc330d6f810c">mirrors://gnu/ddrescue/ddrescue-1.10.tar.gz</Archive>
             <SourceURI>applications/util/ddrescue/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -13831,6 +13853,19 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-02-10</Date>
+                <Version>1.10</Version>
+                <Comment>Version 1.10 released:
+            * Added new option &quot;--try-again&quot;.
+            * rescuebook.cc: &quot;skip_size&quot; has been made independent of &quot;softbs&quot;.
+            * &quot;change_chunk_status&quot; is now faster for large logfiles.
+            * Fixed overflow when reading from devices of undefined size.
+            * Block does no more admit negative sizes.
+            * New file testsuite/check.sh.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-02-10</Date>
                 <Version>1.9</Version>
@@ -18152,8 +18187,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>evince</Name>
             <Homepage>http://www.gnome.org/projects/evince</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -18749,7 +18784,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.office</PartOf>
             <Summary xml:lang="en">Fully featured yet light and fast cross platform word processor</Summary>
             <Summary xml:lang="tr">Hızlı ve her sistemde çalışabilen bir kelime işlemci</Summary>
-            <Archive type="targz" sha1sum="f848e82bcda6b0ece5ce206b516a475af9aa5fa7">http://www.abisource.com/downloads/abiword/2.6.5/source/abiword-2.6.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="9751b7f01beee9f048ab20e52a600a757085363b">http://www.abisource.com/downloads/abiword/2.6.6/source/abiword-2.6.6.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
@@ -18786,6 +18821,16 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-03-01</Date>
+                <Version>2.6.6</Version>
+                <Comment>Version bump:
+            # Fix a bug that caused scrolling in the opposite direction when scrolling quickly on Unix platforms.
+            # Fix a bug which caused the Office Open XML exporter to conflict with other exporters.
+            # Various tweaks to the OpenDocument importer.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-12-19</Date>
                 <Version>2.6.5</Version>
@@ -31842,8 +31887,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>libgksu</Name>
             <Homepage>http://www.nongnu.org/gksu/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
@@ -46066,8 +46111,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>geany</Name>
             <Homepage>http://geany.uvena.de/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -47523,8 +47568,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>hicolor-icon-theme</Name>
             <Homepage>http://icon-theme.freedesktop.org/wiki/HicolorTheme</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>data</IsA>
@@ -47556,8 +47601,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>icon-naming-utils</Name>
             <Homepage>http://tango.freedesktop.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -53335,8 +53380,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libgnomeui</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
@@ -53538,8 +53583,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libbonoboui</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -53730,8 +53775,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libgnome</Name>
             <Homepage>http://www.gnome.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
@@ -53836,8 +53881,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libbonobo</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <License>LGPLv2</License>
@@ -53920,8 +53965,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gtkhtml3</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <License>LGPLv2</License>
@@ -54023,8 +54068,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-doc-utils</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <License>LGPLv2.1</License>
@@ -54122,8 +54167,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>desktop-file-utils</Name>
             <Homepage>http://www.freedesktop.org/software/desktop-file-utils/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -54186,8 +54231,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libgnomeprintui</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -54249,8 +54294,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libgnomeprint</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <License>LGPLv2</License>
@@ -54485,8 +54530,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libgtop</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -54646,8 +54691,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-keyring</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -54763,8 +54808,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-icon-theme</Name>
             <Homepage>http://www.gnome.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>data</IsA>
@@ -55157,8 +55202,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>yelp</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -55279,8 +55324,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>liferea</Name>
             <Homepage>http://liferea.sourceforge.net</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -55549,8 +55594,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gedit</Name>
             <Homepage>http://www.gnome.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -55902,8 +55947,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gksu</Name>
             <Homepage>http://www.nongnu.org/gksu/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -56047,8 +56092,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-python</Name>
             <Homepage>http://www.pygtk.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
@@ -56148,8 +56193,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gedit-plugins</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>data</IsA>
@@ -56157,12 +56202,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome</PartOf>
             <Summary xml:lang="en">Plugins for Gedit</Summary>
             <Summary xml:lang="tr">Gedit için eklentiler</Summary>
-            <Archive type="tarbz2" sha1sum="aebe2d642f64301d8dcf00cd7edee766f7c7babd">mirrors://gnome/gedit-plugins/2.22/gedit-plugins-2.22.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="21fc1456aa817fe32beab68ba84ef487e9073361">mirrors://gnome/gedit-plugins/2.22/gedit-plugins-2.22.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.22.3">gedit</Dependency>
+                <Dependency>vte</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">do-not-compile-pyo.patch</Patch>
+                <Patch>upstream-bracket-completion.patch</Patch>
             </Patches>
             <SourceURI>desktop/gnome/gedit-plugins/pspec.xml</SourceURI>
         </Source>
@@ -56170,6 +56216,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gedit-plugins</Name>
             <RuntimeDependencies>
                 <Dependency versionFrom="2.22.3">gedit</Dependency>
+                <Dependency>vte</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -56179,6 +56226,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-01</Date>
+                <Version>2.22.5</Version>
+                <Comment>-Version bump.
+                -Add upstream-bracket-completion.patch that fixes various bugs.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-09-28</Date>
                 <Version>2.22.3</Version>
@@ -56303,8 +56358,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-python-desktop</Name>
             <Homepage>http://www.pygtk.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <License>LGPLv2.1</License>
@@ -56592,8 +56647,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-python-extras</Name>
             <Homepage>http://www.pygtk.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -56772,8 +56827,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gtk2-engines-murrine</Name>
             <Homepage>http://murrine.netsons.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -56835,10 +56890,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">The desktop manager sets the background image, provides a right-click menu to launch applications and can optionally show files (including application launchers) or iconified windows. It includes gradient support for background color, saturation support for background image, real multiscreen and xinerama support, and it provides a desktop menu editor.</Description>
             <Description xml:lang="tr">Xfce masaüstü yöneticisi arkaplan resmini belirler, uygulamaları başlatmak, simge durumuna küçültülmüş pencereleri veya dosya seçeneklerini göstermek için sağ tık menüsünü hazırlar. Arkaplan rengi için gradyan desteği, arkaplan resmi için doygunluk desteği, gerçek çoklu ekran ve xinerama desteği içerir. Ayrıca, masaüstü menü düzenleme aracını da bünyesinde barındırır.</Description>
             <Icon>xfce4_xicon1</Icon>
-            <Archive type="tarbz2" sha1sum="f372c67566b465519c2b6069b9705e15a59952d9">mirrors://xfce/xfce-4.5.99.1/src/xfdesktop-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="11bd5312e13c78db125ffee1494c33e35e33d15a">mirrors://xfce/xfce-4.6.0/src/xfdesktop-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
-                <Dependency versionFrom="0.9.99.1">Thunar</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
+                <Dependency versionFrom="1.0.0">Thunar</Dependency>
                 <Dependency>libxfce4menu</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce4/base/xfdesktop/pspec.xml</SourceURI>
@@ -56846,8 +56901,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfdesktop</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
-                <Dependency versionFrom="0.9.99.1">Thunar</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
+                <Dependency versionFrom="1.0.0">Thunar</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -56868,6 +56923,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2009-01-28</Date>
                 <Version>4.5.99.1</Version>
@@ -56956,10 +57018,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce oturum yöneticisi</Summary>
             <Description xml:lang="en">The session manager allows the user to save sessions and restore them after login. It is capable of saving several different sessions. It comes with three splash screen engines. And at last it helps you to log out, reboot, and shutdown the system.</Description>
             <Description xml:lang="tr">Xfce oturum yöneticisi, kullanıcıların oturumlarını kaydetmesine ve giriş yaptıktan sonra tekrar oturumu çağırmalarına izin verir. Birden fazla, farklı oturumları kaydetmede oldukça başarılıdır. Pakette üç tane örnek açılış teması var ve son olarak, sistemi kapatırken, yeniden başlatırken veya çıkarken kullanıcılara yardımcı olur.</Description>
-            <Archive type="tarbz2" sha1sum="3ea96baa81a1c31ac785087151ba9d606ae51c12">mirrors://xfce/xfce-4.5.99.1/src/xfce4-session-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="3865e36b691802d74b3e86aaa4a3bb2ceff838da">mirrors://xfce/xfce-4.6.0/src/xfce4-session-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
                 <Dependency>perl-XML-Parser</Dependency>
                 <Dependency>libwnck</Dependency>
             </BuildDependencies>
@@ -56968,8 +57030,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfce4-session</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
                 <Dependency>libwnck</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -56988,6 +57050,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -57065,7 +57134,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>data</IsA>
             <PartOf>desktop.xfce4.base</PartOf>
             <Summary xml:lang="en">Xfce icon theme</Summary>
-            <Summary xml:lang="tr">XFCE ikon teması</Summary>
+            <Summary xml:lang="tr">Xfce simge teması</Summary>
+            <Description xml:lang="en">Icon theme Rodent for the Xfce Desktop Environment.</Description>
+            <Description xml:lang="tr">Bu paket, Xfce masaüstü ortamı için Rodent simge temasını içerir.</Description>
             <Archive type="tarbz2" sha1sum="0c0d0c45cd4a7f609310db8e9d17c1c4a131a6e7">http://mocha.xfce.org/archive/xfce-4.4.3/src/xfce4-icon-theme-4.4.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>hicolor-icon-theme</Dependency>
@@ -57084,6 +57155,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-03-01</Date>
+                <Version>4.4.3</Version>
+                <Comment>Added description tag and translated.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-10-28</Date>
                 <Version>4.4.3</Version>
@@ -57150,7 +57228,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce basit yardımcı uygulama kütüphanesi</Summary>
             <Description xml:lang="en">Libxfce4util is a basic utility non-GUI functions for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Libxfce4util, grafik arayüz fonksiyonlarını içermeyen, Xfce masaüstü yöneticisi için yazılmış basit bir uygulama kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="bbb23552845f8132bf331559fbfb4afe067c6112">mirrors://xfce/xfce-4.5.99.1/src/libxfce4util-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="b4d17be26f965ac0f898b53c691a992efe54b195">mirrors://xfce/xfce-4.6.0/src/libxfce4util-4.6.0.tar.bz2</Archive>
             <SourceURI>desktop/xfce4/base/libxfce4util/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -57160,11 +57238,24 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/gtk-doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>libxfce4util-docs</Name>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="9">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Moved docs to another binary package.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -57238,10 +57329,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce eklenti kütüphanesi</Summary>
             <Description xml:lang="en">Exo is an extension library to Xfce desktop environment.</Description>
             <Description xml:lang="tr">Exo, Xfce masaüstü yöneticisi için hazırlanmış eklenti kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="2f80450db277560a5e564406dc1223b912e0df59">mirrors://xfce/xfce-4.5.99.1/src/exo-0.3.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="987262654d23e0da359d434cc29f0b64ad06a733">mirrors://xfce/xfce-4.6.0/src/exo-0.3.100.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>perl-URI</Dependency>
-                <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
             </BuildDependencies>
             <Patches>
@@ -57253,7 +57344,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>exo</Name>
             <RuntimeDependencies>
                 <Dependency>perl-URI</Dependency>
-                <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -57266,12 +57357,25 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/gtk-doc</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>exo-docs</Name>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="8">
+                <Date>2009-03-01</Date>
+                <Version>0.3.100</Version>
+                <Comment>* Stable version bump.
+                * Moved documents to new binary package.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-01-27</Date>
                 <Version>0.3.99.1</Version>
@@ -57337,24 +57441,21 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">Xfce sound mixer application</Summary>
             <Summary xml:lang="tr">XFCE ses ayar programcığı</Summary>
             <Icon>xfce-sound</Icon>
-            <Archive type="tarbz2" sha1sum="33549a5adae984e36f77a50be0d4d67df3fc82bb">http://mocha.xfce.org/archive/xfce-4.4.3/src/xfce4-mixer-4.4.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="ebcbc2cefbd6f0a24c339d61bdb138e2bbe1335c">http://mocha.xfce.org/archive/xfce-4.6.0/src/xfce4-mixer-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.4.3">xfce-mcs-manager</Dependency>
-                <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
-                <Dependency>alsa-lib</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>xfconf</Dependency>
+                <Dependency>perl-XML-Parser</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">panel-plugin-border.patch</Patch>
-                <Patch>panel-plugin-desktop.patch</Patch>
-            </Patches>
             <SourceURI>desktop/xfce4/base/xfce4-mixer/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>xfce4-mixer</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.4.3">xfce-mcs-manager</Dependency>
-                <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
-                <Dependency>alsa-lib</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>xfconf</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -57366,6 +57467,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump for Xfce 4.6.*</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2008-10-31</Date>
                 <Version>4.4.3</Version>
@@ -57453,7 +57561,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce geliştirme araçları</Summary>
             <Description xml:lang="en">Xfce4-dev-tools contains common tools required by Xfce developers and people that want to build Xfce from SVN. In addition, this package contains the Xfce developer&apos;s handbook.</Description>
             <Description xml:lang="tr">Xfce4-dev-tools paketi, Xfce geliştiricileri ve SVN&apos;den Xfce inşa edecek kullanıcılar için gerekli temel araçları içine alır. Buna ek olarak pakette Xfce geliştiricileri için el kitabı da yer almaktadır.</Description>
-            <Archive type="tarbz2" sha1sum="9560f119d1bbe7385a1b6db11c070caa3de57dbe">mirrors://xfce/xfce-4.5.99.1/src/xfce4-dev-tools-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a5a5cbc9e5f84f4939e53e3327c51f4b749c38a2">mirrors://xfce/xfce-4.6.0/src/xfce4-dev-tools-4.6.0.tar.bz2</Archive>
             <SourceURI>desktop/xfce4/base/xfce4-dev-tools/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -57465,6 +57573,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -57518,20 +57633,20 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Xfce4-appfinder is a useful software that permits you to find every application in the system supporting desktop entry format.</Description>
             <Description xml:lang="tr">Xfce4-appfinder, kullanıcının sisteminde yüklü, masastünde doğrudan çalışabilen her uygulamayı bulmasını sağlayan, kullanışlı bir uygulama bulucudur.</Description>
             <Icon>xfce4-appfinder</Icon>
-            <Archive type="tarbz2" sha1sum="6fc8988b1626e136d7acfef4b4321e3e45a2f0e4">mirrors://xfce/xfce-4.5.99.1/src/xfce4-appfinder-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="b1726d61decc7a90e57d2bfb3530073bed426d8d">mirrors://xfce/xfce-4.6.0/src/xfce4-appfinder-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfce4menu</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
-                <Dependency versionFrom="0.9.99.1">Thunar</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4menu</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
+                <Dependency versionFrom="1.0.0">Thunar</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce4/base/xfce4-appfinder/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>xfce4-appfinder</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfce4menu</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
-                <Dependency versionFrom="0.9.99.1">Thunar</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4menu</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
+                <Dependency versionFrom="1.0.0">Thunar</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -57542,6 +57657,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -57610,10 +57732,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">The printing helper is a graphical frontend for printing, a printer management, and a job queue management. It doesn&apos;t let you configure printers but only use printing systems that have already been configured properly.</Description>
             <Description xml:lang="tr">Xfprint, grafik arayüzü olan bir yazıcı ve yazdırma sırası yönetimidir. Uygulamanın yazıcıyı yapılandırma yeteneği olmasa da, yazdırma işlerini düzenlemenize olanak sağlar.</Description>
             <Icon>printer</Icon>
-            <Archive type="tarbz2" sha1sum="8d3c6a01131e7a71c8592658b96c41d5532076c1">mirrors://xfce/xfce-4.5.99.1/src/xfprint-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="28bd6c8ff46eb0193647d1cd1a13d970a18e599b">mirrors://xfce/xfce-4.6.0/src/xfprint-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
                 <Dependency>cups</Dependency>
                 <Dependency>gnutls</Dependency>
             </BuildDependencies>
@@ -57622,8 +57744,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfprint</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfce4-settings</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
                 <Dependency>cups</Dependency>
                 <Dependency>gnutls</Dependency>
             </RuntimeDependencies>
@@ -57632,12 +57754,25 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="doc">/usr/share/gtk-doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>xfprint-docs</Name>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="6">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Moved docs to xfprint-docs.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-01-28</Date>
                 <Version>4.5.99.1</Version>
@@ -57691,16 +57826,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Orage is a time-managing application for the Xfce desktop environment.</Description>
             <Description xml:lang="tr">Orage, Xfce masaüstü yöneticisi için yapılmış zaman yönetimi uygulamasıdır.</Description>
             <Icon>xfcalendar</Icon>
-            <Archive type="tarbz2" sha1sum="9f7795fbde631e8f61f0c3c3432101d01ce3e4b9">mirrors://xfce/xfce-4.5.99.1/src/orage-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="99839642fcb76d9583ced2752e5505ce12196c17">mirrors://xfce/xfce-4.6.0/src/orage-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">xfce4-panel</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce4/base/orage/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>orage</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">xfce4-panel</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -57712,6 +57847,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -57793,7 +57935,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Mousepad is a text editor for Xfce based on Leafpad. The initial reason for Mousepad was to provide printing support, which would have been difficult for Leafpad for various reasons.</Description>
             <Description xml:lang="tr">Mousepad, Xfce için yazılmış, Leafpad tabanlı bir metin düzenleyicisidir. Leafpad&apos;ın yazdırma konusundaki çeşitli zorluğu nedeniyle Mousepad, ilk olarak yazdırma desteği sağlamak amaçlı yazılmıştır.</Description>
             <Icon>mousepad</Icon>
-            <Archive type="tarbz2" sha1sum="0b9f0fbd8f85eb31ec89f897265b60589779a356">http://mocha.xfce.org/archive/xfce-4.4.3/src/mousepad-0.2.14.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="4e63033e0a71578f3ec9a0d2e6a505efd0424ef9">http://mocha.xfce.org/archive/xfce-4.6.0/src/mousepad-0.2.16.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
@@ -57816,6 +57958,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-03-01</Date>
+                <Version>0.2.16</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-02-18</Date>
                 <Version>0.2.14</Version>
@@ -57898,9 +58047,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Thunar has been designed from the ground up to be fast and easy-to-use. Its user interface is clean and intuitive, and does not include any confusing or useless options. Thunar is fast and responsive with a good start up time and directory load time. Thunar is accessible using Assistive Technologies and is fully standarts compliant.</Description>
             <Description xml:lang="tr">Thunar, baştan başa hızlı olmak ve kolay kullanım için tasarlanmıştır. Kullanıcı arayüzü temiz ve çabuk anlaşılabilir; diğer taraftan karışık ve kullanışsız hiçbir seçenek içermiyor. Thunar açılırken ve dizin çağırırken hızlıdır. Ayrıca Thunar&apos;a yardımcı teknolojilerle de erişilebilir ve standartlara tam uyumludur.</Description>
             <Icon>Thunar</Icon>
-            <Archive type="tarbz2" sha1sum="b909637ff7f3d87ee0a78f5c1cbb5d3ffbb684e8">mirrors://xfce/xfce-4.5.99.1/src/Thunar-0.9.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="581594eb4bfe4db49244773ee3abeaaf136a0e0f">mirrors://xfce/xfce-4.6.0/src/Thunar-1.0.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">xfce4-panel</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
                 <Dependency>gamin</Dependency>
                 <Dependency>gconf</Dependency>
             </BuildDependencies>
@@ -57915,7 +58064,7 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>Thunar</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">xfce4-panel</Dependency>
+                <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
                 <Dependency>gamin</Dependency>
                 <Dependency>gconf</Dependency>
             </RuntimeDependencies>
@@ -57932,6 +58081,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2009-03-01</Date>
+                <Version>1.0.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="11">
                 <Date>2009-01-27</Date>
                 <Version>0.9.99.1</Version>
@@ -58025,9 +58181,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>app:gui</IsA>
             <PartOf>desktop.xfce4.base</PartOf>
             <Summary xml:lang="en">Terminal for Xfce</Summary>
-            <Summary xml:lang="tr">XFCE için Terminal</Summary>
+            <Summary xml:lang="tr">Xfce için uçbirim öykünücüsü</Summary>
+            <Description xml:lang="en">Terminal is a modern, lightweight, and low memory cost terminal emulator with tabs and multiple windows for the Xfce desktop environment. It offers full-customization for the key bindings, the aspect, the colors, and more.</Description>
+            <Description xml:lang="tr">Terminal çağdaş, hafif ve az bellek harcayan; sekmeli ve çoklu pencereyi destekleyen, Xfce masaüstü ortamı için yazılmış bir uçbirim öykünücüsüdür. Renkler, görünüm, kısayol tuşları ve daha fazlası için kişiselleştirmeye izin verir.</Description>
             <Icon>terminal</Icon>
-            <Archive type="tarbz2" sha1sum="69add6a7435855ab8bccb82774cacb6a148e7693">http://mocha.xfce.org/archive/xfce-4.4.3/src/Terminal-0.2.8.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="c0f0c3cb9a924e98449e29e17ec8aecef1ee6c32">http://mocha.xfce.org/archive/xfce-4.6.0/src/Terminal-0.2.10.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="0.5">startup-notification</Dependency>
                 <Dependency versionFrom="0.3.4">exo</Dependency>
@@ -58036,6 +58194,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </BuildDependencies>
             <Patches>
                 <Patch>fix-desktop-menu-duplicate-with-kde.patch</Patch>
+                <Patch level="1">Terminal-0.2.6-dont_refresh_prefs_too_much.patch</Patch>
             </Patches>
             <SourceURI>desktop/xfce4/base/Terminal/pspec.xml</SourceURI>
         </Source>
@@ -58058,6 +58217,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2009-03-01</Date>
+                <Version>0.2.10</Version>
+                <Comment>* Version bump.
+                * Added description tag and translated.
+                * Longer timeout for refreshing preferences patch is added.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="11">
                 <Date>2008-10-28</Date>
                 <Version>0.2.8.3</Version>
@@ -58155,7 +58323,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">GTK2 Xfce tema motoru</Summary>
             <Description xml:lang="en">This is a GTK2 engine for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Bu, Xfce masaüstü yöneticisi için hazırlanmış GTK2 tema motorudur.</Description>
-            <Archive type="tarbz2" sha1sum="1d8d0c2914b7f5746b76b49c3e8dde840705213e">mirrors://xfce/xfce-4.5.99.1/src/gtk-xfce-engine-2.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a7be2f330833d150c5fb37f68a4c2138348b5446">mirrors://xfce/xfce-4.6.0/src/gtk-xfce-engine-2.6.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
             </BuildDependencies>
@@ -58173,6 +58341,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-03-01</Date>
+                <Version>2.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-01-27</Date>
                 <Version>2.5.99.1</Version>
@@ -58253,13 +58428,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfwm pencere yöneticisi temaları</Summary>
             <Description xml:lang="en">Xfce4-themes is a set of additional themes for the Xfwm window manager.</Description>
             <Description xml:lang="tr">Bu paket, Xfce masaüstü yönetici pencereleri için ek temalar içerir.</Description>
-            <Archive type="tarbz2" sha1sum="8236559797d09b9fc512ba24c1fe16d5aa20aeca">mirrors://xfce/xfce-4.5.99.1/src/xfwm4-themes-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="7e81d00b2b0a7a2b91071b8c3767171bce738af2">mirrors://xfce/xfce-4.6.0/src/xfwm4-themes-4.6.0.tar.bz2</Archive>
             <SourceURI>desktop/xfce4/base/xfwm4-themes/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>xfwm4-themes</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">xfwm4</Dependency>
+                <Dependency versionFrom="4.6.0">xfwm4</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="data">/usr/share</Path>
@@ -58267,6 +58442,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-01-28</Date>
                 <Version>4.5.99.1</Version>
@@ -58341,10 +58523,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">The Xfce4 window manager manages the placement of application windows on the screen, provides beautiful window decorations, manages workspaces or virtual desktops, and natively supports multiscreen mode.</Description>
             <Description xml:lang="tr">Xfce4 pencere yöneticisi, uygulama pencerelerinin ekrana yerleştirmeyi sağlar, pencerelerin güzel görünmesini sağlar, çalışma alanlarını ve sanal masaüstlerini yönetir ve doğal olarak çoklu ekran kipini destekler.</Description>
             <Icon>xfwm4</Icon>
-            <Archive type="tarbz2" sha1sum="cecde46202505914b4e42b5e0db33ebe22019729">mirrors://xfce/xfce-4.5.99.1/src/xfwm4-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="da4b81c35759ff69ab7862b702db10bb0ee2af7e">mirrors://xfce/xfce-4.6.0/src/xfwm4-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
                 <Dependency>libwnck</Dependency>
                 <Dependency>startup-notification</Dependency>
             </BuildDependencies>
@@ -58353,8 +58535,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfwm4</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
                 <Dependency>libwnck</Dependency>
                 <Dependency>startup-notification</Dependency>
             </RuntimeDependencies>
@@ -58369,6 +58551,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-01-28</Date>
                 <Version>4.5.99.1</Version>
@@ -58442,14 +58631,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce yardımcı uygulamaları</Summary>
             <Description xml:lang="en">The utilities and scripts provides an about dialog for Xfce4, an application launcher, and several useful scripts that are also used by other Xfce components such as the panel and the desktop menu.</Description>
             <Description xml:lang="tr">Xfce-utils, Xfce4 için önceden hazırlanmış bir hakkında penceresi, uygulama başlatıcı, farklı panel ve masaüstü menüsü gibi farklı Xfce bileşenlerince kullanılan betikler ve araçları kapsar.</Description>
-            <Archive type="tarbz2" sha1sum="185eb49848de1e563319a9bcc2ca4ce2a27d41c4">mirrors://xfce/xfce-4.5.99.1/src/xfce-utils-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2ca9480f9a12ab4e584e27bc3d9e99ec1fab1041">mirrors://xfce/xfce-4.6.0/src/xfce-utils-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
                 <Dependency>perl-XML-Parser</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">xfce-utils-4.5.91-xfmountdev4-use-thunar.patch</Patch>
                 <Patch level="1">04_avoid-xcblib-hang.patch</Patch>
+                <Patch level="1">xfce-utils-4.5.92-fix-desktop-entry.patch</Patch>
                 <Patch>startxfce4.patch</Patch>
             </Patches>
             <SourceURI>desktop/xfce4/base/xfce-utils/pspec.xml</SourceURI>
@@ -58457,7 +58647,7 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfce-utils</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
                 <Dependency>xscreensaver</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -58475,6 +58665,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Updated startxfce4.patch.
+                * Fixed migration desktop file.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -58564,10 +58763,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">The Xfce4 panel supports multiple panels, with many options for their position, appearance, transparency and behavior. There are many items available by default to full fit a panel, like application launchers with detachable menus, a graphical pager, a tasklist, a clock, a system tray, a show / hide desktop switcher, and even more. It offers an easy way to add items using a dialog, and to move items accross different panels.</Description>
             <Description xml:lang="tr">Xfce4 paneli, farklı pozisyon, görünüm ve davranış gibi ayarlara sahip birden fazla paneli destekleyebilmektedir. Uygulama başlatıcı tipinde ayrılabilir menüler, grafiksel sayfalayıcı, görev çubuğu, saat, sistem çekmecesi, masaüstünü gizleme / görüntüleme ve bir panelde olabilecek birçok şeyi içinde barındırır. Ayrıca, diyalog penceresi kullanarak kolayca panel öğesi eklemeye ve panelden panele öğe taşımaya izin verir.</Description>
             <Icon>xfce4-panel</Icon>
-            <Archive type="tarbz2" sha1sum="f80debcd7a9bd3c8c7f09f211c8e893d9188e14b">mirrors://xfce/xfce-4.5.99.1/src/xfce4-panel-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="d63849e76cd65eefde01ac5a23a96df66d8a39db">mirrors://xfce/xfce-4.6.0/src/xfce4-panel-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="0.3.99.1">exo</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="0.3.100">exo</Dependency>
                 <Dependency>cairo</Dependency>
                 <Dependency>libwnck</Dependency>
             </BuildDependencies>
@@ -58576,8 +58775,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfce4-panel</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfcegui4</Dependency>
-                <Dependency versionFrom="0.3.99.1">exo</Dependency>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency versionFrom="0.3.100">exo</Dependency>
                 <Dependency>cairo</Dependency>
                 <Dependency>libwnck</Dependency>
                 <Dependency>xfce4-datetime-plugin</Dependency>
@@ -58590,7 +58789,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="doc">/usr/share/xfce4/doc</Path>
                 <Path fileType="data">/usr/share</Path>
             </Files>
             <AdditionalFiles>
@@ -58607,6 +58805,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -58687,12 +58892,12 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce arayüz kütüphanesi</Summary>
             <Description xml:lang="en">Libxfcegui4 is a various GTK+ widgets for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Libxfcegui4, Xfce masaüstü yöneticisi için tasarlanmış farklı GTK+ parçacıkları kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="195f7328385f8f59e885771e88463435a630abec">mirrors://xfce/xfce-4.5.99.1/src/libxfcegui4-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="d8a3e86f90ad026c4a9fa369c9c3f6d4f3f6fd06">mirrors://xfce/xfce-4.6.0/src/libxfcegui4-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>startup-notification</Dependency>
                 <Dependency>glade</Dependency>
                 <Dependency versionFrom="2.6.2">libglade2</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">libxfcegui4-4.4.2-use-thunar.patch</Patch>
@@ -58705,7 +58910,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <RuntimeDependencies>
                 <Dependency>startup-notification</Dependency>
                 <Dependency versionFrom="2.6.2">libglade2</Dependency>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -58713,14 +58918,27 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/gtk-doc</Path>
                 <Path fileType="data">/usr/share</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml" permission="0644" owner="root">xfce4-keyboard-shortcuts.xml</AdditionalFile>
             </AdditionalFiles>
         </Package>
+        <Package>
+            <Name>libxfcegui4-docs</Name>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="9">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Moved docs to libxfcegui4-docs.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -58865,10 +59083,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce çoklu ayar kütüphanesi</Summary>
             <Description xml:lang="en">Xfconf is a hirerchical (tree-like) configuration system for the Xfce graphical desktop environment.</Description>
             <Description xml:lang="tr">Xfconf, Xfce masaüstü yöneticisi için yazılmış, ağaç tipi hiyerarşik yapılandırma sistemidir.</Description>
-            <Archive type="tarbz2" sha1sum="1728ae89f34f7d6bbc4d7d432417ab337040f363">mirrors://xfce/xfce-4.5.99.1/src/xfconf-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="89aece9debe9ddd71493c1e4c99be2009562cba0">mirrors://xfce/xfce-4.6.0/src/xfconf-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
-                <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
                 <Dependency versionFrom="0.300">perl-ExtUtils-Depends</Dependency>
                 <Dependency versionFrom="1.000">perl-ExtUtils-PkgConfig</Dependency>
                 <Dependency versionFrom="1.020">perl-Glib</Dependency>
@@ -58879,7 +59097,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfconf</Name>
             <RuntimeDependencies>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
-                <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -58887,12 +59105,25 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="doc">/usr/share/gtk-doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>xfconf-docs</Name>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Moved docs to xfconf-docs binary package.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -58917,10 +59148,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce ayarları</Summary>
             <Description xml:lang="en">Xfce4-settings is a configuration manager for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Xfce4-settinggs, Xfce masaüstü yöneticisi için yazılmış ayar yöneticisidir.</Description>
-            <Archive type="tarbz2" sha1sum="eb724691b38bbdd90aea818f85799850adfbf313">mirrors://xfce/xfce-4.5.99.1/src/xfce4-settings-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="76b256aa77269e0b2b056a806106a0313629d1b6">mirrors://xfce/xfce-4.6.0/src/xfce4-settings-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
-                <Dependency versionFrom="0.3.99.1">exo</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
+                <Dependency versionFrom="0.3.100">exo</Dependency>
                 <Dependency>libXi</Dependency>
                 <Dependency>libXrandr</Dependency>
                 <Dependency>libXcursor</Dependency>
@@ -58931,8 +59162,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfce4-settings</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">xfconf</Dependency>
-                <Dependency versionFrom="0.3.99.1">exo</Dependency>
+                <Dependency versionFrom="4.6.0">xfconf</Dependency>
+                <Dependency versionFrom="0.3.100">exo</Dependency>
                 <Dependency>libXi</Dependency>
                 <Dependency>libXrandr</Dependency>
                 <Dependency>libXcursor</Dependency>
@@ -58957,6 +59188,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>Stable version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-01-27</Date>
                 <Version>4.5.99.1</Version>
@@ -58981,9 +59219,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce için kullanıcı dostu, basit bir menü uygulama kütüphanesi</Summary>
             <Description xml:lang="en">Libxfce4menu is a compliant menu library that is written for Xfce. It implements the Desktop Menu Specification version 1.0.</Description>
             <Description xml:lang="tr">Libxfce4menu, Xfce için yazılmış kullanıcı dostu ve basit bir menü uygulama kütüphanesidir. 1.0 sürümündeki Masaüst Menü Standartları&apos;ndaki kuralları yerine getirir.</Description>
-            <Archive type="tarbz2" sha1sum="9b045dbd4d911d3ce87e71d6e80753a25f0e87da">mirrors://xfce/xfce-4.5.99.1/src/libxfce4menu-4.5.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="4143eae2871ee072b9805a1f506c7f10525f2f28">mirrors://xfce/xfce-4.6.0/src/libxfce4menu-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce4/base/libxfce4menu/pspec.xml</SourceURI>
@@ -58991,18 +59229,31 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>libxfce4menu</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.5.99.1">libxfce4util</Dependency>
+                <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/gtk-doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>libxfce4menu-docs</Name>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Moved docs to libxfce4menu-docs.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-01-17</Date>
                 <Version>4.5.99.1</Version>
@@ -59017,8 +59268,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>murrine</Name>
             <Homepage>http://cimi.netsons.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>data</IsA>
@@ -59059,8 +59310,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-taskmanager</Name>
             <Homepage>http://goodies.xfce.org/projects/applications/xfce4-taskmanager</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -59126,7 +59377,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Xfburn is a simple CD/DVD burning tool based on libburnia libraries. It can blank CD-RWs, burn and create iso images, as well as burn personal compositions of data to either CD or DVD.</Description>
             <Description xml:lang="tr">Xfburn, libburnia kütüphanelerini kullanan basit bir CD/DVD yazma aracıdır. Yeniden yazılabilir CD&apos;leri silebilir, yazabilir ve iso kalıpları oluşturabilir. Ayrıca hem CD, hem DVD verilerini kullanarak yeni bir kalıp da oluşturabilmektedir.</Description>
             <Icon>xfburn</Icon>
-            <Archive type="tarbz2" sha1sum="c711dce71078b676555feb29fb5ae8930a12b600">http://goodies.xfce.org/releases/xfburn/xfburn-0.4.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="7086fcdb2fa2c1b634cf64a9eef704656e774c26">http://goodies.xfce.org/releases/xfburn/xfburn-0.4.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>intltool</Dependency>
                 <Dependency>libisofs</Dependency>
@@ -59152,10 +59403,18 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="data">/usr/share/xfburn</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/Thunar</Path>
+                <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-03-01</Date>
+                <Version>0.4.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-12-21</Date>
                 <Version>0.4.0</Version>
@@ -59244,8 +59503,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-verve-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/verve-plugin</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -59304,8 +59563,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>thunar-media-tags-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-media-tags-plugin</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -59427,8 +59686,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>thunar-archive-plugin</Name>
             <Homepage>http://foo-projects.org/~benny/projects/thunar-archive-plugin/index.html</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -59475,8 +59734,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-datetime-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-datetime-plugin</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -59580,8 +59839,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.xfce4.goodies</PartOf>
             <Summary xml:lang="en">A plugin for the Xfce panel to take screenshots</Summary>
             <Summary xml:lang="tr">Xfce için görüntü yakalayıcı</Summary>
+            <Description xml:lang="en">This application allows you to capture the entire screen, the active window or a selected region. You can set the delay that elapses before the screenshot is taken and the action that will be done with the screenshot: save it to a PNG file, copy it to the clipboard, or open it using another application.</Description>
+            <Description xml:lang="tr">Bu uygulama tüm ekranı, etkin pencereyi yada seçili alanın görüntüsünü almanıza izin verir. Gecikme süresi belirleyerek ekran görüntüsü almasını sağlayabilir, çektiğiniz ekran görüntülerini istediğiniz resim görüntüleyici uygulamalarıyla açabilir, PNG dosyası olarak kaydedebilir ve panonuza kopyalayabilirsiniz.</Description>
             <Icon>applets-screenshooter</Icon>
-            <Archive type="targz" sha1sum="d2aff7ee24919b93faf8303a5578d963c4fb261d">http://goodies.xfce.org/releases/xfce4-screenshooter/xfce4-screenshooter-1.5.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="90b7192c7d76dfcef82bacb03daa54c254caad0a">http://goodies.xfce.org/releases/xfce4-screenshooter/xfce4-screenshooter-1.5.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel</Dependency>
             </BuildDependencies>
@@ -59602,6 +59863,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-01</Date>
+                <Version>1.5.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-01-19</Date>
                 <Version>1.5.0</Version>
@@ -59740,15 +60008,17 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-notes-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-notes-plugin/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.xfce4.goodies</PartOf>
             <Summary xml:lang="en">Xfce Notes Plugin</Summary>
-            <Summary xml:lang="tr">Xfce Not Eklentisi</Summary>
-            <Archive type="tarbz2" sha1sum="23bc37ed267c539d988539ba3a05a1620a8536ce">http://goodies.xfce.org/releases/xfce4-notes-plugin/xfce4-notes-plugin-1.6.3.tar.bz2</Archive>
+            <Summary xml:lang="tr">Xfce not eklentisi</Summary>
+            <Description xml:lang="en">xfce4-notes-plugin is a notes panel plugin for the Xfce Desktop Environment. It provides a simple system for managing sticky notes on your desktop.</Description>
+            <Description xml:lang="tr">Xfce4-notes-plugin, Xfce masaüstü ortamı için bir panel eklentisidir. Masaüstünüzdeki yapışkan notları yönetmek için basit bir sistem içerir.</Description>
+            <Archive type="tarbz2" sha1sum="13ec297cae240035d6fcf2a71629ea58d5fb3126">http://goodies.xfce.org/releases/xfce4-notes-plugin/xfce4-notes-plugin-1.6.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
             </BuildDependencies>
@@ -59768,6 +60038,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-03-01</Date>
+                <Version>1.6.4</Version>
+                <Comment>Version bump and added description tags.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-12-10</Date>
                 <Version>1.6.3</Version>
@@ -59887,8 +60164,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-systemload-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -60039,8 +60316,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>thunar-thumbnailers</Name>
             <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-thumbnailers</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -60103,8 +60380,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>thunar-volman</Name>
             <Homepage>http://foo-projects.org/~benny/projects/thunar-volman/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -60163,8 +60440,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-clipman-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
