@@ -26,4 +26,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("docs/Abi*")
+    pisitools.dodoc("docs/Abi*", "docs/NonLatin1UnixLocales.abw")
