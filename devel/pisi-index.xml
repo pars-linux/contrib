@@ -26883,16 +26883,12 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">ePDFView is a free lightweight PDF document viewer using Poppler and GTK+ libraries.</Summary>
             <Description xml:lang="en">The aim of ePDFView is to make a simple PDF document viewer, in the lines of Evince but without using the Gnome libraries</Description>
             <Icon>epdfview</Icon>
-            <Archive type="targz" sha1sum="59f98666a1bae958802e63334fd216333e9a0007">http://trac.emma-soft.com/epdfview/chrome/site/releases/epdfview-0.1.6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="3d680d2a66deff5bd0a1c37e867c744a310e76aa">http://trac.emma-soft.com/epdfview/chrome/site/releases/epdfview-0.1.7.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>poppler</Dependency>
                 <Dependency>poppler-glib</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">epdfview-gcc-4.3.patch</Patch>
-                <Patch level="1">epdfview-0.1.6-fix-printing.patch</Patch>
-            </Patches>
             <SourceURI>applications/multimedia/epdfview/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -26913,6 +26909,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-03-02</Date>
+                <Version>0.1.7</Version>
+                <Comment>version bump</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-12-12</Date>
                 <Version>0.1.6</Version>
@@ -54066,7 +54069,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>gnome-doc-utils</Name>
-            <Homepage>http://www.gnome.org/</Homepage>
+            <Homepage>http://live.gnome.org/GnomeDocUtils</Homepage>
             <Packager>
                 <Name>Burak Çalışkan</Name>
                 <Email>burakclskn@gmail.com</Email>
@@ -54077,13 +54080,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome.base</PartOf>
             <Summary xml:lang="en">A collection of documentation utilities for the Gnome project</Summary>
             <Summary xml:lang="tr">Gnome projesi için döküman araçları takımı</Summary>
-            <Archive type="tarbz2" sha1sum="e20c74ad415b9ddfdf6c8d663e22bf27c0b939c4">mirrors://gnome/gnome-doc-utils/0.12/gnome-doc-utils-0.12.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="514561160dbb126a227e4968994806c1111acd65">mirrors://gnome/gnome-doc-utils/0.15/gnome-doc-utils-0.15.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>libxml2</Dependency>
-                <Dependency>libxslt</Dependency>
-                <Dependency>intltool</Dependency>
                 <Dependency>docbook-xml4_4</Dependency>
-                <Dependency releaseFrom="2">scrollkeeper</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
@@ -54093,8 +54092,6 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>gnome-doc-utils</Name>
             <RuntimeDependencies>
-                <Dependency>libxml2</Dependency>
-                <Dependency>libxslt</Dependency>
                 <Dependency>intltool</Dependency>
                 <Dependency releaseFrom="2">scrollkeeper</Dependency>
             </RuntimeDependencies>
@@ -54104,13 +54101,25 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/aclocal</Path>
+                <Path fileType="data">/usr/share/gnome-doc-utils</Path>
+                <Path fileType="data">/usr/share/gnome</Path>
+                <Path fileType="data">/usr/share/omf</Path>
+                <Path fileType="data">/usr/share/xml</Path>
+                <Path fileType="data">/usr/share/xml2po</Path>
             </Files>
             <Provides>
                 <COMAR script="package.py">System.Package</COMAR>
             </Provides>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-03-02</Date>
+                <Version>0.15.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-01-26</Date>
                 <Version>0.12.0</Version>
@@ -54538,10 +54547,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome.base</PartOf>
             <Summary xml:lang="en">A library that provides top functionality to applications</Summary>
             <Summary xml:lang="tr">Uygulamalara üst fonksiyonalite sunan kütüphane</Summary>
-            <Archive type="tarbz2" sha1sum="e0922b4b6574db001a93d56bf500e6080e7c0426">mirrors://gnome/libgtop/2.22/libgtop-2.22.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="918bcf6cb12800d0b6fa6d174c9cbd748672b2c0">mirrors://gnome/libgtop/2.26/libgtop-2.26.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libXau</Dependency>
-                <Dependency>perl-XML-Parser</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/gnome/base/libgtop/pspec.xml</SourceURI>
         </Source>
@@ -54549,7 +54557,6 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>libgtop</Name>
             <RuntimeDependencies>
                 <Dependency>libXau</Dependency>
-                <Dependency>perl-XML-Parser</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="header">/usr/include</Path>
@@ -54561,6 +54568,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-03-02</Date>
+                <Version>2.26.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-05-30</Date>
                 <Version>2.22.2</Version>
@@ -56100,16 +56114,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome</PartOf>
             <Summary xml:lang="en">GNOME 2 bindings for Python</Summary>
             <Summary xml:lang="tr">Python için GNOME 2 bağlayıcıları</Summary>
-            <Archive type="tarbz2" sha1sum="824fc626ca8d3fd26a03998cad740d466cd77051">mirrors://gnome/gnome-python/2.22/gnome-python-2.22.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="35eafe4f5ab9ee003a573dcf26699d3b03d52d5a">mirrors://gnome/gnome-python/2.22/gnome-python-2.22.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.0">pygtk</Dependency>
-                <Dependency versionFrom="2.12.0">gtk2</Dependency>
-                <Dependency versionFrom="2.22.0">libgnome</Dependency>
                 <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
                 <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
                 <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
                 <Dependency versionFrom="2.22.0">gconf</Dependency>
-                <Dependency versionFrom="2.22.0">libbonobo</Dependency>
                 <Dependency versionFrom="2.22.0">libbonoboui</Dependency>
                 <Dependency releaseFrom="3">pyorbit</Dependency>
             </BuildDependencies>
@@ -56119,13 +56130,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>gnome-python</Name>
             <RuntimeDependencies>
                 <Dependency versionFrom="2.12.0">pygtk</Dependency>
-                <Dependency versionFrom="2.12.0">gtk2</Dependency>
-                <Dependency versionFrom="2.22.0">libgnome</Dependency>
                 <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
                 <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
                 <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
                 <Dependency versionFrom="2.22.0">gconf</Dependency>
-                <Dependency versionFrom="2.22.0">libbonobo</Dependency>
                 <Dependency versionFrom="2.22.0">libbonoboui</Dependency>
                 <Dependency releaseFrom="3">pyorbit</Dependency>
             </RuntimeDependencies>
@@ -56133,10 +56141,18 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+                <Path fileType="data">/usr/share/pygtk</Path>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-03-02</Date>
+                <Version>2.22.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-06-16</Date>
                 <Version>2.22.0</Version>
