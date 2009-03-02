@@ -3,22 +3,18 @@
 <PISI>
     <Source>
         <Name>gnome-doc-utils</Name>
-        <Homepage>http://www.gnome.org/</Homepage>
+        <Homepage>http://live.gnome.org/GnomeDocUtils</Homepage>
         <Packager>
-            <Name>Eren Türkay</Name>
-            <Email>turkay.eren@gmail.com</Email>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <License>LGPLv2.1</License>
         <IsA>library</IsA>
         <Summary>A collection of documentation utilities for the Gnome project</Summary>
-        <Archive sha1sum="e20c74ad415b9ddfdf6c8d663e22bf27c0b939c4" type="tarbz2">mirrors://gnome/gnome-doc-utils/0.12/gnome-doc-utils-0.12.0.tar.bz2</Archive>
+        <Archive sha1sum="514561160dbb126a227e4968994806c1111acd65" type="tarbz2">mirrors://gnome/gnome-doc-utils/0.15/gnome-doc-utils-0.15.2.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libxslt</Dependency>
-            <Dependency>intltool</Dependency>
             <Dependency>docbook-xml4_4</Dependency>
-            <Dependency releaseFrom="2">scrollkeeper</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
@@ -28,8 +24,6 @@
     <Package>
         <Name>gnome-doc-utils</Name>
         <RuntimeDependencies>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libxslt</Dependency>
             <Dependency>intltool</Dependency>
             <Dependency releaseFrom="2">scrollkeeper</Dependency>
         </RuntimeDependencies>
@@ -39,7 +33,12 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/aclocal</Path>
+            <Path fileType="data">/usr/share/gnome-doc-utils</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/xml</Path>
+            <Path fileType="data">/usr/share/xml2po</Path>
         </Files>
         <Provides>
 	    <COMAR script="package.py">System.Package</COMAR>
@@ -47,6 +46,13 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2009-03-02</Date>
+            <Version>0.15.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-01-26</Date>
             <Version>0.12.0</Version>
