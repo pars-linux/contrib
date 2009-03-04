@@ -9,7 +9,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-schemas-install")
+    autotools.configure("--disable-schemas-install\
+                         --disable-schemas-install\
+                         --with-pam-dir=/lib/security")
 
 def build():
     autotools.make()
