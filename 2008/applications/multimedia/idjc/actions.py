@@ -10,8 +10,6 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    shelltools.export("CC", get.CC())
-
     autotools.configure("--disable-static \
                          --enable-speex \
                          --enable-lame \
@@ -29,4 +27,3 @@ def install():
 
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "README")
     pisitools.dohtml("doc/*")
-
