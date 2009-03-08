@@ -18,4 +18,5 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.domove("/usr/share/pkgconfig/icon-naming-utils.pc","/usr/lib/pkgconfig")
+
     pisitools.dodoc("README", "NEWS", "AUTHORS", "ChangeLog")
