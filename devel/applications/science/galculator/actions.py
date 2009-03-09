@@ -18,6 +18,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dosym("/usr/share/pixmaps/galculator_48x48.png", "/usr/share/pixmaps/galculator.png")
     pisitools.dodoc("COPYING", "ChangeLog", "NEWS", "THANKS")
-
