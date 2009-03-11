@@ -9,9 +9,9 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "%s-dnh%s" % (get.srcNAME(), get.srcVERSION())
+
 def setup():
-    autotools.aclocal()
-    autotools.autoconf()
     autotools.configure()
 
 def build():
@@ -20,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("README-DNH.TXT", "README", "NEWS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README*", "NEWS", "UserGuide")
