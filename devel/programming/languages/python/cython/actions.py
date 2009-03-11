@@ -6,11 +6,12 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "Cython-%s" % get.srcVERSION()
 
 def install():
     pythonmodules.install()
 
-    pisitools.insinto("/usr/include/cython", "Includes/*")
-
     pisitools.dohtml("Doc/*.html")
-    pisitools.dodoc("COPYING.txt", "LICENSE.txt", "README.txt", "ToDo.txt", "USAGE.txt")
+    pisitools.dodoc("CHANGES_pyrex.txt", "COPYING.txt", "LICENSE.txt", "PKG-INFO", "README.txt", "ToDo.txt", "USAGE.txt")
