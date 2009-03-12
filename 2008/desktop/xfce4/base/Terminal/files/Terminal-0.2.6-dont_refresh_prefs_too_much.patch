@@ -1,0 +1,12 @@
+diff -ur Terminal-0.2.6.orig/terminal/terminal-monitor.c Terminal-0.2.6/terminal/terminal-monitor.c
+--- Terminal-0.2.6.orig/terminal/terminal-monitor.c     2007-01-20 15:30:51.000000000 +0100
++++ Terminal-0.2.6/terminal/terminal-monitor.c  2007-11-05 15:15:49.000000000 +0100
+@@ -339,7 +339,7 @@
+
+   if (G_UNLIKELY (monitor->idle_id == 0))
+     {
+-      monitor->idle_id = g_timeout_add_full (G_PRIORITY_LOW, 1000, terminal_monitor_idle,
++      monitor->idle_id = g_timeout_add_full (G_PRIORITY_LOW, 60*1000, terminal_monitor_idle,
+                                              monitor, terminal_monitor_idle_destroy);
+     }
+ }
