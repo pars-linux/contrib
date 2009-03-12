@@ -10,7 +10,9 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --disable-gnome")
+                         --enable-gnome \
+                         --enable-session-screenshots \
+                         --enable-legacy-sm")
 
 def build():
     autotools.make()
@@ -18,8 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-
     pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "BUGS", "AUTHORS")
-
