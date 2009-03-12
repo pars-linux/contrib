@@ -9,25 +9,30 @@
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>xfce4-panel</Icon>
         <IsA>library</IsA>
         <IsA>app:gui</IsA>
         <Summary>Xfce panel</Summary>
-        <Archive sha1sum="6af98ffef4906220c5ffdda17a77409adc7ed353"  type="tarbz2">http://mocha.xfce.org/archive/xfce-4.4.3/src/xfce4-panel-4.4.3.tar.bz2</Archive>
+        <Description>The Xfce4 panel supports multiple panels, with many options for their position, appearance, transparency and behavior. There are many items available by default to full fit a panel, like application launchers with detachable menus, a graphical pager, a tasklist, a clock, a system tray, a show / hide desktop switcher, and even more. It offers an easy way to add items using a dialog, and to move items accross different panels.</Description>
+        <Archive sha1sum="d63849e76cd65eefde01ac5a23a96df66d8a39db"  type="tarbz2">mirrors://xfce/xfce-4.6.0/src/xfce4-panel-4.6.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
-            <Dependency versionFrom="4.4.3">xfce-mcs-manager</Dependency>
-            <Dependency versionFrom="0.3.4">exo</Dependency>
-            <Dependency>startup-notification</Dependency>
+            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+            <Dependency versionFrom="0.3.100">exo</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libwnck</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
        <Name>xfce4-panel</Name>
        <RuntimeDependencies>
-            <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
-            <Dependency versionFrom="4.4.3">xfce-mcs-manager</Dependency>
-            <Dependency versionFrom="0.3.4">exo</Dependency>
-            <Dependency>startup-notification</Dependency>
+           <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+           <Dependency versionFrom="0.3.100">exo</Dependency>
+           <Dependency>cairo</Dependency>
+           <Dependency>libwnck</Dependency>
+           <!-- for default panel config
+           <Dependency>xfce4-datetime-plugin</Dependency>
+           <Dependency>xfce4-places-plugin</Dependency> -->
        </RuntimeDependencies>
        <Files>
            <Path fileType="executable">/usr/bin</Path>
@@ -36,25 +41,38 @@
            <Path fileType="library">/usr/lib</Path>
            <Path fileType="localedata">/usr/share/locale</Path>
            <Path fileType="doc">/usr/share/doc</Path>
-           <Path fileType="doc">/usr/share/xfce4/doc</Path>
            <Path fileType="data">/usr/share</Path>
        </Files>
        <AdditionalFiles>
            <!-- panel settings -->
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/panels.xml">panels.xml</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/xfce4-menu-1.rc">xfce4-menu-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/pager-1.rc">pager-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-1.rc">launcher-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-2.rc">launcher-2.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/datetime-1.rc">datetime-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/systray-1.rc">systray-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/tasklist-1.rc">tasklist-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/separator-1.rc">separator-1.rc</AdditionalFile>
-           <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/separator-2.rc">separator-2.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/panels.xml">panels.xml</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/xfce4-menu-1.rc">xfce4-menu-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/pager-1.rc">pager-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-1.rc">launcher-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-2.rc">launcher-2.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/datetime-1.rc">datetime-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/systray-1.rc">systray-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/tasklist-1.rc">tasklist-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/separator-1.rc">separator-1.rc</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/separator-2.rc">separator-2.rc</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2009-03-01</Date>
+            <Version>4.6.0</Version>
+            <Comment>Stable version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-01-27</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2008-10-31</Date>
             <Version>4.4.3</Version>
