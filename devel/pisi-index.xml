@@ -6483,39 +6483,37 @@
     <SpecFile>
         <Source>
             <Name>ctorrent</Name>
-            <Homepage>http://ctorrent.sourceforge.net</Homepage>
+            <Homepage>http://www.rahul.net/dholmes/ctorrent</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>applications.network</PartOf>
-            <Summary xml:lang="en">BitTorent client</Summary>
+            <Summary xml:lang="en">BitTorrent client</Summary>
             <Summary xml:lang="tr">BitTorrent istemcisi</Summary>
-            <Description xml:lang="en">BitTorrent client written in C that doesn&apos;t require any graphical component</Description>
+            <Description xml:lang="en">BitTorrent client written in C that doesn&apos;t require any graphical component. This is the enhanced CTorrent fork.</Description>
             <Description xml:lang="tr">Herhangi bir grafik arabirimine ihtiyaç duymayan BitTorrent istemcisi</Description>
-            <Archive type="tarbz2" sha1sum="bf1ea430513dc6de48de5ac429cdac57ceab738d">http://heanet.dl.sourceforge.net/sourceforge/ctorrent/ctorrent-1.3.4.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>openssl</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>patchset-ctorrent-1.3.4-dnh2.diff</Patch>
-                <Patch>ctorrent-1.3.4-dnh2-SHA-vfat.patch</Patch>
-            </Patches>
+            <Archive type="targz" sha1sum="d4e221f0292268f80e2430ce9d451dd64cf1ffaa">mirrors://sourceforge/dtorrent/ctorrent-dnh3.3.2.tar.gz</Archive>
             <SourceURI>applications/network/ctorrent/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>ctorrent</Name>
-            <RuntimeDependencies>
-                <Dependency>openssl</Dependency>
-            </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-11</Date>
+                <Version>3.3.2</Version>
+                <Comment>* Fix homepage, switch to Enhanced CTorrent, a CTorrent fork
+                * Version bump and package takeover</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-09-23</Date>
                 <Version>1.3.4</Version>
@@ -10667,6 +10665,62 @@
                 <Comment>First Release</Comment>
                 <Name>Ayan Öztürk</Name>
                 <Email>ayanozturk@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>deluge</Name>
+            <Homepage>http://deluge-torrent.org/</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">Full-featured GTK+ Bittorrent client</Summary>
+            <Summary xml:lang="tr">Tam donanımlı GTK+ Bittorrent istemcisi</Summary>
+            <Description xml:lang="en">Deluge is a Bittorrent client. Deluge is intended to bring a native, full-featured client to Linux GTK+ desktop environments such as GNOME and Xfce.</Description>
+            <Description xml:lang="tr">Deluge, bir Bittorrent istemcisidir. Xfce ve GNOME gibi GTK+ tabanlı masaüstü ortamlarıyla görsel kütüphaneler açısından uyumlu çalışması için yazılmış tam donanımlı bir istemcidir.</Description>
+            <Icon>deluge</Icon>
+            <Archive type="tarbz2" sha1sum="23957e33a7c3644008245f7e83f14500a8e44655">http://download.deluge-torrent.org/source/1.1.3/deluge-1.1.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>boost-devel</Dependency>
+                <Dependency>imagemagick</Dependency>
+                <Dependency>setuptools</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">do-not-check-update.patch</Patch>
+                <Patch level="1">use-multithreaded-boost.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/deluge/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>deluge</Name>
+            <RuntimeDependencies>
+                <Dependency>boost</Dependency>
+                <Dependency>pygtk</Dependency>
+                <Dependency>setuptools</Dependency>
+                <Dependency>pyxdg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-08</Date>
+                <Version>1.1.3</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -15372,6 +15426,48 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>scrot</Name>
+            <Homepage>http://linuxbrit.co.uk/scrot</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>BSD</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.util</PartOf>
+            <Summary xml:lang="en">A simple command-line screenshot utility for X</Summary>
+            <Summary xml:lang="tr">Komut satırından kullanılan basit bir ekran görüntüsü yakalayıcı</Summary>
+            <Description xml:lang="en">Scrot is a simple command-line screenshot utility for X.</Description>
+            <Description xml:lang="tr">Scrot, komut satırından kullanılan basit bir ekran görüntüsü yakalayıcısıdır.</Description>
+            <Archive type="targz" sha1sum="674fcb4860f1dcfa02cde7d82414e1e1c731aa75">http://linuxbrit.co.uk/downloads/scrot-0.8.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>giblib</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/util/scrot/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>scrot</Name>
+            <RuntimeDependencies>
+                <Dependency>giblib</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-01-04</Date>
+                <Version>0.8</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -20763,8 +20859,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>slime</Name>
             <Homepage>http://common-lisp.net/project/slime/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>data</IsA>
@@ -24018,8 +24114,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>mpd</Name>
             <Homepage>http://www.musicpd.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>service</IsA>
@@ -34263,8 +34359,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>libmpd</Name>
             <Homepage>http://sarine.nl/libmpd/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -35430,8 +35526,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>sbcl</Name>
             <Homepage>http://sbcl.sourceforge.net/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
             </Packager>
             <License>MIT</License>
             <IsA>app:console</IsA>
@@ -38251,6 +38347,42 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>pyxdg</Name>
+            <Homepage>http://freedesktop.org/wiki/Software/pyxdg</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>LGPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">A freedesktop.org standards library for Python</Summary>
+            <Summary xml:lang="tr">Python için freedesktop.org standartları kütüphanesi</Summary>
+            <Description xml:lang="en">PyXDG is a Python library to access freedesktop.org standarts.</Description>
+            <Description xml:lang="tr">PyXDG, freedesktop.org standartlarına erişmek için yazılmış bir Python kütüphanesidir.</Description>
+            <Archive type="targz" sha1sum="fa548bbbed13fb63e3e7b5fdeda86549302860a7">http://www.freedesktop.org/~lanius/pyxdg-0.17.tar.gz</Archive>
+            <SourceURI>programming/languages/python/pyxdg/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pyxdg</Name>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-08</Date>
+                <Version>0.17</Version>
+                <Comment>* First release.
+                * This program is packaged by Kenan Pelit, firstly.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>python-markdown</Name>
             <Homepage>http://www.freewisdom.org/projects/python-markdown/</Homepage>
             <Packager>
@@ -38889,15 +39021,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>cython</Name>
             <Homepage>http://www.cython.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
-            <License>PYTHON</License>
+            <License>Apache-2.0</License>
             <IsA>library</IsA>
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">C extensions for the Python</Summary>
+            <Summary xml:lang="tr">Python için C eklentileri</Summary>
             <Description xml:lang="en">Cython is a language that makes writing C extensions for the Python language as easy as Python itself.</Description>
-            <Archive type="zip" sha1sum="7b81d0d351f7ddede479f5913b7cd5d192b01932">http://www.cython.org/cython-0.9.6.8.zip</Archive>
+            <Description xml:lang="tr">Cython, Python için C eklentileri yazmayı kolaylaştıran bir dildir.</Description>
+            <Archive type="targz" sha1sum="13728498325414a8df8236b37c9a833b64072589">http://www.cython.org/Cython-0.10.3.tar.gz</Archive>
             <SourceURI>programming/languages/python/cython/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -38910,6 +39044,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-11</Date>
+                <Version>0.10.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-11-13</Date>
                 <Version>0.9.6.8</Version>
@@ -58977,8 +59118,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency versionFrom="0.3.100">exo</Dependency>
                 <Dependency>cairo</Dependency>
                 <Dependency>libwnck</Dependency>
-                <Dependency>xfce4-datetime-plugin</Dependency>
-                <Dependency>xfce4-places-plugin</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
