@@ -9,17 +9,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--with-sound=alsa \
-                         --enable-final \
-                         --disable-static")
+    autotools.configure("--disable-static")
 
 def build():
-    autotools.make("-j1")
+    autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-
-    pisitools.dodoc("NOTES", "NEWS", "TODO", "README", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("NEWS", "TODO", "README", "ChangeLog", "AUTHORS")
