@@ -18,7 +18,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-
     pisitools.dodoc("TODO", "THANKS", "README", "HACKING", "FAQ", "AUTHORS", "ChangeLog")
