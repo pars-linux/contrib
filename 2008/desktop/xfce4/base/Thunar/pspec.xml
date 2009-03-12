@@ -12,29 +12,27 @@
         <Icon>Thunar</Icon>
         <IsA>app:gui</IsA>
         <Summary>Xfce file manager</Summary>
-        <Archive sha1sum="bb43fbe5ac3af1204517ed88da1cc3e87c5ec688" type="tarbz2">http://mocha.xfce.org/archive/xfce-4.4.3/src/Thunar-0.9.3.tar.bz2</Archive>
+        <Description>Thunar has been designed from the ground up to be fast and easy-to-use. Its user interface is clean and intuitive, and does not include any confusing or useless options. Thunar is fast and responsive with a good start up time and directory load time. Thunar is accessible using Assistive Technologies and is fully standarts compliant.</Description>
+        <Archive sha1sum="581594eb4bfe4db49244773ee3abeaaf136a0e0f" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/Thunar-1.0.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.3.4">exo</Dependency>
-            <Dependency versionFrom="2.12.9">gtk2</Dependency>
-            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
-            <Dependency>startup-notification</Dependency>
+            <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
             <Dependency>gamin</Dependency>
-            <Dependency versionFrom="0.6.16">libexif</Dependency>
+            <Dependency>gconf</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">fix-desktop-menu-duplicate-with-kde.patch</Patch>
+            <Patch level="1">Thunar-0.9.0-dont-die-on-dbus-disconnect.patch</Patch>
+            <Patch level="1">Thunar-0.9.0-fix-underlinking.patch</Patch>
+            <Patch level="1">Thunar-0.9.0-icons-extension-strip2.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>Thunar</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.3.4">exo</Dependency>
-            <Dependency versionFrom="2.12.9">gtk2</Dependency>
-            <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
-            <Dependency>startup-notification</Dependency>
+            <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
             <Dependency>gamin</Dependency>
-            <Dependency versionFrom="0.6.16">libexif</Dependency>
+            <Dependency>gconf</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -50,6 +48,20 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2009-03-01</Date>
+            <Version>1.0.0</Version>
+            <Comment>Stable version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="11">
+            <Date>2009-01-27</Date>
+            <Version>0.9.99.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="10">
             <Date>2008-10-28</Date>
             <Version>0.9.3</Version>
