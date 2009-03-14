@@ -10,9 +10,11 @@ from pisi.actionsapi import get
 
 WorkDir = "IMDbPY-%s" % get.srcVERSION()
 
+def setup():
+    pisitools.dosed("setup.py","doc'","share/doc/%s'" % get.srcTAG())
+
 def install():
     pythonmodules.install()
 
-    pisitools.dodoc("docs/*")
     pisitools.remove("%s/%s/INSTALL.txt" % (get.docDIR(), get.srcTAG()) )
 
