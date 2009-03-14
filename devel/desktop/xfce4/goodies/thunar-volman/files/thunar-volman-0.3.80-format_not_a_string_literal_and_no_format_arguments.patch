@@ -1,0 +1,24 @@
+diff -Naur thunar-volman-0.3.80/thunar-volman/tvm-crypto-volume.c thunar-volman-0.3.80.tpg/thunar-volman/tvm-crypto-volume.c
+--- thunar-volman-0.3.80/thunar-volman/tvm-crypto-volume.c	2008-08-21 11:23:30.000000000 +0000
++++ thunar-volman-0.3.80.tpg/thunar-volman/tvm-crypto-volume.c	2009-03-05 20:27:38.000000000 +0000
+@@ -321,7 +321,7 @@
+   if (G_UNLIKELY (message == NULL))
+     {
+       /* out of memory */
+-oom:  g_set_error (error, G_FILE_ERROR, G_FILE_ERROR_NOMEM, g_strerror (ENOMEM));
++oom:  g_set_error (error, G_FILE_ERROR, G_FILE_ERROR_NOMEM, g_strerror (ENOMEM), "%s");
+       goto out;
+     }
+ 
+diff -Naur thunar-volman-0.3.80/thunar-volman/tvm-device.c thunar-volman-0.3.80.tpg/thunar-volman/tvm-device.c
+--- thunar-volman-0.3.80/thunar-volman/tvm-device.c	2008-08-21 11:23:30.000000000 +0000
++++ thunar-volman-0.3.80.tpg/thunar-volman/tvm-device.c	2009-03-05 20:27:00.000000000 +0000
+@@ -112,7 +112,7 @@
+   if (G_UNLIKELY (context == NULL))
+     {
+       /* out of memory */
+-      g_set_error (error, G_FILE_ERROR, G_FILE_ERROR_NOMEM, g_strerror (ENOMEM));
++      g_set_error (error, G_FILE_ERROR, G_FILE_ERROR_NOMEM, g_strerror (ENOMEM),"%s");
+       return FALSE;
+     }
+ 
