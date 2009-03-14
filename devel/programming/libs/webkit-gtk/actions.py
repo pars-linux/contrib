@@ -6,17 +6,16 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import libtools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir = "WebKit-%s" % get.srcVERSION().replace('0.0_', 'r')
 
 def setup():
-    libtools.libtoolize("--force")
-    autotools.autoreconf("-fi")
-
-    autotools.configure("--with-http-backend=curl \
-                         --with-font-backend=pango")
+    shelltools.system("sh autogen.sh --prefix=/usr \
+                                     --with-font-backend=freetype \
+                                     --enable-video \
+                                     --enable-jit")
 
 def build():
     autotools.make()
