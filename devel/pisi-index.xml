@@ -21455,6 +21455,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>setuptools</Dependency>
                 <Dependency>gst-python</Dependency>
                 <Dependency>gnonlin</Dependency>
+                <Dependency>pyxdg</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
@@ -21469,6 +21470,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>setuptools</Dependency>
                 <Dependency>gst-python</Dependency>
                 <Dependency>gnonlin</Dependency>
+                <Dependency>pyxdg</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -26144,7 +26146,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
             <Description xml:lang="tr">Qtractor, Qt4 çatısı ile C++ kullanılarak yazılmış çok kanallı bir Ses/MIDI kayıt ve düzenleme yazılımıdır.</Description>
             <Icon>qtractor</Icon>
-            <Archive type="targz" sha1sum="814b46117bda2c4aac7e84f368b22cde6a081399">mirrors://sourceforge/qtractor/qtractor-0.3.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="acdc81f70e8ca15ac9dee8c71e40c0c37111ab9b">mirrors://sourceforge/qtractor/qtractor-0.4.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
                 <Dependency>libvorbis</Dependency>
@@ -26152,7 +26154,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>dssi</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">qtractor.desktop.patch</Patch>
+                <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/qtractor/pspec.xml</SourceURI>
         </Source>
@@ -26172,6 +26174,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-03-13</Date>
+                <Version>0.4.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-12-25</Date>
                 <Version>0.3.0</Version>
@@ -57323,7 +57332,6 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="tr">Xfce oturum yöneticisi, kullanıcıların oturumlarını kaydetmesine ve giriş yaptıktan sonra tekrar oturumu çağırmalarına izin verir. Birden fazla, farklı oturumları kaydetmede oldukça başarılıdır. Pakette üç tane örnek açılış teması var ve son olarak, sistemi kapatırken, yeniden başlatırken veya çıkarken kullanıcılara yardımcı olur.</Description>
             <Archive type="tarbz2" sha1sum="3865e36b691802d74b3e86aaa4a3bb2ceff838da">mirrors://xfce/xfce-4.6.0/src/xfce4-session-4.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
                 <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
                 <Dependency>perl-XML-Parser</Dependency>
                 <Dependency>libwnck</Dependency>
@@ -57333,7 +57341,6 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xfce4-session</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
                 <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
                 <Dependency>libwnck</Dependency>
             </RuntimeDependencies>
@@ -59070,7 +59077,6 @@ processing unit (GPU) present in modern graphics cards</Description>
             <BuildDependencies>
                 <Dependency versionFrom="4.6.0">xfce4-session</Dependency>
                 <Dependency>cairo</Dependency>
-                <Dependency>libwnck</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce4/base/xfce4-panel/pspec.xml</SourceURI>
         </Source>
@@ -59079,7 +59085,6 @@ processing unit (GPU) present in modern graphics cards</Description>
             <RuntimeDependencies>
                 <Dependency versionFrom="4.6.0">xfce4-session</Dependency>
                 <Dependency>cairo</Dependency>
-                <Dependency>libwnck</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -59455,7 +59460,12 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libXrandr</Dependency>
                 <Dependency>libXcursor</Dependency>
                 <Dependency>libnotify</Dependency>
+                <Dependency>libxklavier</Dependency>
+                <Dependency>libXxf86misc</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">format_not_a_string_literal_and_no_format_arguments.patch</Patch>
+            </Patches>
             <SourceURI>desktop/xfce4/base/xfce4-settings/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -59467,7 +59477,8 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libXrandr</Dependency>
                 <Dependency>libXcursor</Dependency>
                 <Dependency>libnotify</Dependency>
-                <Dependency>xfce4-screenshooter-plugin</Dependency>
+                <Dependency>libxklavier</Dependency>
+                <Dependency>libXxf86misc</Dependency>
                 <Dependency>tango-icon-theme</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -59487,6 +59498,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-13</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Add libxklavier dep for keyboard shortcuts.
+                * Remove xfce4-screenshooter-plugin (circle dep).
+                * Add patch for fixing dialog format.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-03-01</Date>
                 <Version>4.6.0</Version>
