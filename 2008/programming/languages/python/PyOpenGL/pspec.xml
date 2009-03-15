@@ -5,14 +5,14 @@
         <Name>PyOpenGL</Name>
         <Homepage>http://pyopengl.sourceforge.net/</Homepage>
         <Packager>
-            <Name>Uğur Çetin</Name>
-            <Email>jnmbk@users.sourceforge.net</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>OpenGL bindings for Python</Summary>
         <Description>PyOpenGL is the cross platform Python binding to OpenGL and related APIs.</Description>
-        <Archive sha1sum="d622df9be810f39cad96a4b72e3267b7e1b20d9b" type="targz">mirrors://sourceforge/pyopengl/PyOpenGL-3.0.0b6.tar.gz</Archive>
+        <Archive sha1sum="557dd43f7c9ca9a49bf0d704fe77dbdcd1978e7a" type="targz">mirrors://sourceforge/pyopengl/PyOpenGL-3.0.0c1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>setuptools</Dependency>
         </BuildDependencies>
@@ -21,8 +21,8 @@
     <Package>
         <Name>PyOpenGL</Name>
         <RuntimeDependencies>
-            <Dependency>glut</Dependency>
-            <Dependency>setuptools</Dependency>
+            <Dependency>gle</Dependency>
+            <Dependency>numpy</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib</Path>
@@ -31,6 +31,16 @@
    </Package>
 
    <History>
+       <Update release="5">
+           <Date>2009-03-15</Date>
+           <Version>3.0.0_rc1</Version>
+           <Comment>* Package takeover.
+                * Reorganize the dependencies: gle and numpy added, glut is removed as it's gle's dependency and setuptools is only needed for building the package.
+                * Version bump before the final release.
+           </Comment>
+           <Name>Serdar Dalgıç</Name>
+           <Email>dalgic.srdr@gmail.com</Email>
+       </Update>
        <Update release="4">
            <Date>2008-09-19</Date>
            <Version>3.0.0_beta6</Version>
