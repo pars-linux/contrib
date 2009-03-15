@@ -14,4 +14,4 @@ def install():
     pythonmodules.install()
 
     pisitools.dohtml("Doc/*.html")
-    pisitools.dodoc("CHANGES_pyrex.txt", "COPYING.txt", "LICENSE.txt", "PKG-INFO", "README.txt", "ToDo.txt", "USAGE.txt")
+    pisitools.dodoc("COPYING.txt", "LICENSE.txt", "PKG-INFO", "README.txt", "ToDo.txt", "USAGE.txt")
