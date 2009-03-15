@@ -20,7 +20,7 @@ def setup():
                          --enable-quicktime \
                          --disable-local-ffmpeg')
 def build():
-    autotools.make()
+    autotools.make("CXX=%s" % get.CXX())
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
