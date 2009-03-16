@@ -21331,8 +21331,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>kino</Name>
             <Homepage>http://www.kinodv.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -21342,7 +21342,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Kino is a non-linear DV editor for GNU/Linux.</Description>
             <Description xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir.</Description>
             <Icon>kino</Icon>
-            <Archive type="targz" sha1sum="c59a3967432a450cb278601c961da1c946c72cfa">mirrors://sourceforge/kino/kino-1.3.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="22d63f69cf72d9c4b81d2b3d5362f88f4aa23f8f">mirrors://sourceforge/kino/kino-1.3.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libquicktime</Dependency>
@@ -21374,6 +21374,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>gst-plugins-base</Dependency>
                 <Dependency>sox</Dependency>
                 <Dependency>vorbis-tools</Dependency>
+                <Dependency>brasero</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="localedata">/usr/share/locale</Path>
@@ -21390,6 +21391,18 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-03-15</Date>
+                <Version>1.3.3</Version>
+                <Comment>* Package takeover.
+                * Respect our CXX flags.
+                * Version bump:
+                - New DVD Video authoring script that launches the Brasero burning application.
+                - New export script for the PLAYSTATION 3.
+                - Bug fixes.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2008-09-02</Date>
                 <Version>1.3.2</Version>
@@ -37537,8 +37550,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>mit-scheme</Name>
             <Homepage>http://www.gnu.org/software/mit-scheme/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
             </Packager>
             <License>GPLv3</License>
             <IsA>app:console</IsA>
@@ -39040,7 +39053,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Python için C eklentileri</Summary>
             <Description xml:lang="en">Cython is a language that makes writing C extensions for the Python language as easy as Python itself.</Description>
             <Description xml:lang="tr">Cython, Python için C eklentileri yazmayı kolaylaştıran bir dildir.</Description>
-            <Archive type="targz" sha1sum="13728498325414a8df8236b37c9a833b64072589">http://www.cython.org/Cython-0.10.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="fdd141638877711ee5bf0148e0f430834aeaff28">http://www.cython.org/Cython-0.11.tar.gz</Archive>
             <SourceURI>programming/languages/python/cython/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39053,6 +39066,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-14</Date>
+                <Version>0.11</Version>
+                <Comment>Version bump</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-03-11</Date>
                 <Version>0.10.3</Version>
@@ -39653,8 +39673,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PyOpenGL</Name>
             <Homepage>http://pyopengl.sourceforge.net/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -39663,7 +39683,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Python için OpenGL bağımlılıkları</Summary>
             <Description xml:lang="en">PyOpenGL is the cross platform Python binding to OpenGL and related APIs.</Description>
             <Description xml:lang="tr">PyOpenGL, OpenGL ve onunla ilgili kitaplıklar için platform bağımsız bir Python bağımlılığıdır.</Description>
-            <Archive type="targz" sha1sum="d622df9be810f39cad96a4b72e3267b7e1b20d9b">mirrors://sourceforge/pyopengl/PyOpenGL-3.0.0b6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="557dd43f7c9ca9a49bf0d704fe77dbdcd1978e7a">mirrors://sourceforge/pyopengl/PyOpenGL-3.0.0c1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>setuptools</Dependency>
             </BuildDependencies>
@@ -39672,8 +39692,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
         <Package>
             <Name>PyOpenGL</Name>
             <RuntimeDependencies>
-                <Dependency>glut</Dependency>
-                <Dependency>setuptools</Dependency>
+                <Dependency>gle</Dependency>
+                <Dependency>numpy</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="library">/usr/lib</Path>
@@ -39681,6 +39701,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-03-15</Date>
+                <Version>3.0.0_rc1</Version>
+                <Comment>* Package takeover.
+                * Reorganize the dependencies: gle and numpy added, glut is removed as it&apos;s gle&apos;s dependency and setuptools is only needed for building the package.
+                * Version bump before the final release.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-09-19</Date>
                 <Version>3.0.0_beta6</Version>
