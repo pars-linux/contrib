@@ -10,9 +10,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --with-libjpeg \
-                         --with-x \
-                         --with-kde-datadir=%s/share" % get.kdeDIR())
+                         --with-x")
 
 def build():
     autotools.make()
@@ -20,4 +18,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("README", "NEWS", "AUTHORS", "ChangeLog", "COPYING")
+    pisitools.dodoc("README", "NEWS", "AUTHORS", "ChangeLog", "COPYING*")
