@@ -1,6 +1,6 @@
---- /dev/null	2008-08-07 16:04:05.251251378 +0300
-+++ xulrunner-mozconfig	2008-08-07 15:29:52.000000000 +0300
-@@ -0,0 +1,35 @@
+--- /dev/null	2009-02-18 18:18:11.212001196 +0200
++++ xulrunner-mozconfig	2009-02-18 21:19:56.000000000 +0200
+@@ -0,0 +1,37 @@
 +. $topsrcdir/xulrunner/config/mozconfig
 +
 +ac_add_options --with-system-nspr
@@ -8,14 +8,14 @@
 +ac_add_options --with-system-jpeg
 +ac_add_options --with-system-zlib
 +ac_add_options --with-system-bz2
-+#ac_add_options --with-system-png
++ac_add_options --with-system-png
 +ac_add_options --enable-system-lcms
 +ac_add_options  --enable-libxul
 +ac_add_options --enable-system-cairo
 +ac_add_options --with-pthreads
 +ac_add_options --disable-strip
 +ac_add_options --disable-tests
-+#ac_add_options --disable-mochitest
++ac_add_options --disable-mochitest
 +ac_add_options --disable-installer
 +ac_add_options --disable-updater
 +ac_add_options --disable-debug
@@ -31,6 +31,8 @@
 +ac_add_options --enable-gnomeui
 +ac_add_options --enable-gnomevfs
 +ac_add_options --enable-dbus
++ac_add_options --with-default-mozilla-five-home=/usr/lib/xulrunner-1.9
++ac_add_options --with-user-appdir=.mozilla
 +export BUILD_OFFICIAL=1
 +export MOZILLA_OFFICIAL=1
 +mk_add_options BUILD_OFFICIAL=1
