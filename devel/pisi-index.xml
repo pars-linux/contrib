@@ -46119,19 +46119,17 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>LGPLv2</License>
             <IsA>library</IsA>
             <PartOf>programming.tools</PartOf>
-            <Summary xml:lang="en">GTK Form Designer</Summary>
-            <Summary xml:lang="tr">GTK Form Tasarımcısı</Summary>
-            <Archive type="tarbz2" sha1sum="d1edd5e736f73c9949d2e0cc26b089f789d3074f">mirrors://gnome/glade3/3.5/glade3-3.5.2.tar.bz2</Archive>
+            <Summary xml:lang="en">GTK+ Form Designer</Summary>
+            <Summary xml:lang="tr">GTK+ form tasarımcısı</Summary>
+            <Description xml:lang="en">Glade is a RAD tool to enable quick and easy development of user interfaces for the GTK+ toolkit and the GNOME desktop environment.</Description>
+            <Description xml:lang="tr">Glade, GTK+ araç kiti ve GNOME masaüstü ortamı için, rahat ve basit kullanıcı arayüzü tasarlamak amacıyla yazılmış, hızlı uygulama geliştirme aracıdır.</Description>
+            <Archive type="tarbz2" sha1sum="f052f595b9d2f5339a471b54110c85218f61be6d">mirrors://gnome/glade3/3.6/glade3-3.6.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.8.0">glib2</Dependency>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="2.4">libxml2</Dependency>
-                <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
-                <Dependency versionFrom="2.22.0">libbonoboui</Dependency>
-                <Dependency versionFrom="2.12.0">pygtk</Dependency>
-                <Dependency versionFrom="0.35">intltool</Dependency>
+                <Dependency versionFrom="2.14.0">gtk2</Dependency>
                 <Dependency versionFrom="0.19">pkgconfig</Dependency>
-                <Dependency>docbook-xml4_1_2</Dependency>
+                <Dependency versionFrom="0.14.1">gnome-doc-utils</Dependency>
+                <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
+                <Dependency versionFrom="2.12.0">pygtk</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
@@ -46142,11 +46140,9 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>glade</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.8.0">glib2</Dependency>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="2.4">libxml2</Dependency>
+                <Dependency versionFrom="2.14.0">gtk2</Dependency>
                 <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
-                <Dependency versionFrom="2.22.0">libbonoboui</Dependency>
+                <Dependency versionFrom="0.14.1">gnome-doc-utils</Dependency>
                 <Dependency versionFrom="2.12.0">pygtk</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -46160,6 +46156,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2009-03-17</Date>
+                <Version>3.6.0</Version>
+                <Comment>* Stable version bump.
+                * Add description tag and translate.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2008-12-21</Date>
                 <Version>3.5.2</Version>
@@ -53799,17 +53803,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>LGPLv2</License>
             <IsA>library</IsA>
             <PartOf>desktop.gnome.base</PartOf>
-            <Summary xml:lang="en">User Interface routines for Gnome</Summary>
-            <Summary xml:lang="tr">Gnome için kullanıcı arayüzü rutinleri</Summary>
-            <Archive type="tarbz2" sha1sum="400fe28c6c0f07d105db5e47307e1873686e93bb">mirrors://gnome/libgnomeui/2.22/libgnomeui-2.22.01.tar.bz2</Archive>
+            <Summary xml:lang="en">User Interface routines for GNOME</Summary>
+            <Summary xml:lang="tr">GNOME için kullanıcı arayüzü rutinleri</Summary>
+            <Archive type="tarbz2" sha1sum="b95cd3da3908896bd09b129bcbe3a6eba7d37dd5">mirrors://gnome/libgnomeui/2.24/libgnomeui-2.24.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.22.0">libgnome</Dependency>
                 <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
                 <Dependency versionFrom="2.22.0">libbonoboui</Dependency>
                 <Dependency versionFrom="2.22.0">gnome-keyring</Dependency>
                 <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
-                <Dependency>popt</Dependency>
-                <Dependency>intltool</Dependency>
+                <Dependency versionFrom="2.16.0">glib2</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/gnome/base/libgnomeui/pspec.xml</SourceURI>
         </Source>
@@ -53821,8 +53824,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency versionFrom="2.22.0">libbonoboui</Dependency>
                 <Dependency versionFrom="2.22.0">gnome-keyring</Dependency>
                 <Dependency versionFrom="2.22.0">gnome-vfs</Dependency>
-                <Dependency>popt</Dependency>
-                <Dependency>intltool</Dependency>
+                <Dependency versionFrom="2.16.0">glib2</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="header">/usr/include</Path>
@@ -53835,6 +53837,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-18</Date>
+                <Version>2.24.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-03-11</Date>
                 <Version>2.22.01</Version>
@@ -60775,6 +60784,62 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>xfce4-notifyd</Name>
+            <Homepage>http://spuriousinterrupt.org/projects/xfce4-notifyd</Homepage>
+            <Packager>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">Xfce4 notify deamon</Summary>
+            <Summary xml:lang="tr">Xfce için basit DBUS mesajlarını görüntüleme aracı</Summary>
+            <Description xml:lang="en">The Xfce Notify Daemon (xfce4-notifyd for short) is a smallish program that implements the &quot;server-side&quot; portion of the Freedesktop desktop notifications specification. Applications that wish to pop up a notification bubble ina standard way can implicitly make use of xfce4-notifyd to do so by sending standard messages over D-Bus using the org.freedesktop. Notifications interface.</Description>
+            <Description xml:lang="tr">Xfce Notify Daemon, DBUS mesajlarını org.freedesktop.Notifications kullanarak ekrana açılır pencere olarak bildirir.</Description>
+            <Icon>xfce4-notifyd</Icon>
+            <Archive type="tarbz2" sha1sum="18dd2a327df25880c3975b470b8b998fd6bf69ef">http://spuriousinterrupt.org/files/xfce4-notifyd/xfce4-notifyd-0.1.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency>libsexy</Dependency>
+                <Dependency>hicolor-icon-theme</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce4/goodies/xfce4-notifyd/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-notifyd</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
+                <Dependency>libsexy</Dependency>
+                <Dependency>hicolor-icon-theme</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/themes</Path>
+                <Path fileType="data">/usr/share/dbus-1</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+            </Files>
+            <Conflicts>
+                <Package>notification-daemon</Package>
+            </Conflicts>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-04</Date>
+                <Version>0.1.0</Version>
+                <Comment>First Release.</Comment>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
