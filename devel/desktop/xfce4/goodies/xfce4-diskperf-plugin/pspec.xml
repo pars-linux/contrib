@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-diskperf-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-diskperf-plugin</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gtk-harddisk</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A disk usage and performance panel plugin for Xfce</Summary>
+        <Description>A disk usage and performance panel plugin for Xfce.</Description>
+        <Archive sha1sum="d2691727807c56d49ab403d8828da25ad342588b" type="tarbz2">http://goodies.xfce.org/releases/xfce4-diskperf-plugin/xfce4-diskperf-plugin-2.2.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </BuildDependencies>
+        <Patches>
+          <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xfce4-diskperf-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/hicolor/48x48/apps/gtk-harddisk.png">gtk-harddisk.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-03-18</Date>
+            <Version>2.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
