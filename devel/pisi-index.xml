@@ -60086,6 +60086,57 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-diskperf-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-diskperf-plugin</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">A disk usage and performance panel plugin for Xfce</Summary>
+            <Summary xml:lang="tr">Xfce için disk performansı ve kullanımını eklentisi</Summary>
+            <Description xml:lang="en">A disk usage and performance panel plugin for Xfce.</Description>
+            <Description xml:lang="tr">xfce4-diskperf-plugin disk performansı ve kullanımı bilgisini veren panel uygulamasıdır.</Description>
+            <Icon>gtk-harddisk</Icon>
+            <Archive type="tarbz2" sha1sum="d2691727807c56d49ab403d8828da25ad342588b">http://goodies.xfce.org/releases/xfce4-diskperf-plugin/xfce4-diskperf-plugin-2.2.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/xfce4/goodies/xfce4-diskperf-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-diskperf-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/xfce4</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/icons/hicolor/48x48/apps/gtk-harddisk.png" permission="0644" owner="root">gtk-harddisk.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-18</Date>
+                <Version>2.2.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xfce4-dict</Name>
             <Homepage>http://goodies.xfce.org/projects/applications/xfce4-dict</Homepage>
             <Packager>
@@ -60673,6 +60724,53 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>thunar-svn-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-svn-plugin</Homepage>
+            <Packager>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">A svn plugin for Thunar</Summary>
+            <Summary xml:lang="tr">Thunar için svn eklentisi</Summary>
+            <Description xml:lang="en">Thunar-svn-plugin is for using Subversion with Thunar file manager.</Description>
+            <Description xml:lang="tr">Thunar-svn-plugin, Thunar dosya yöneticisi için yazılmış bir Subversion eklentisidir.</Description>
+            <Icon>subversion</Icon>
+            <Archive type="tarbz2" sha1sum="e9f87a397ce4115704c1c9685541b2e4d402403b">http://goodies.xfce.org/releases/thunar-svn-plugin/thunar-svn-plugin-0.0.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>Thunar</Dependency>
+                <Dependency>subversion</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce4/goodies/thunar-svn-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>thunar-svn-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>Thunar</Dependency>
+                <Dependency>subversion</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-16</Date>
+                <Version>0.0.3</Version>
+                <Comment>First Release.</Comment>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -64852,7 +64950,6 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Description xml:lang="en">Contains various applications and related packages of the KDE4 desktop.</Description>
         <Description xml:lang="tr">KDE4 masaüstünde çalışan çeşitli uygulamaları ve ilgili kütüphanelerini içerir.</Description>
         <Icon>konqueror</Icon>
-        <VisibleTo>user</VisibleTo>
     </Component>
     <Component>
         <Name>desktop.gnome</Name>
