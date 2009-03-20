@@ -6,37 +6,38 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+WorkDir = "ecore"
+
 def setup():
-    autotools.configure("--enable-ecore-txt \
+    shelltools.system("./autogen.sh")
+    autotools.configure("--disable-static \
+                         --enable-ecore-txt \
                          --enable-ecore-x \
-                         --enable-ecore-job \
-                         --enable-ecore-dfb \
-                         --enable-ecore-fb \
                          --enable-ecore-evas \
-                         --enable-ecore-evas-gl \
-                         --enable-ecore-evas-buffer \
-                         --enable-ecore-evas-xrender \
-                         --enable-ecore-evas-dfb \
-                         --enable-ecore-evas-fb \
+                         --enable-ecore-evas-software-buffer \
+                         --enable-ecore-evas-software-x11 \
+                         --enable-ecore-evas-xrender-x11 \
+                         --enable-ecore-evas-opengl-x11 \
+                         --enable-ecore-software-sdl \
+                         --enable-ecore-evas-opengl-glew \
                          --enable-ecore-con \
                          --enable-openssl \
                          --enable-ecore-ipc \
-                         --enable-ecore-dbus \
                          --enable-ecore-config \
                          --enable-ecore-file \
+                         --enable-ecore-job \
                          --enable-inotify \
                          --enable-poll \
-                         --enable-ecore-desktop \
                          --enable-curl \
-                         --enable-pthreads \
-                         --with-x \
-                         --disable-static")
+                         --with-x")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "Changelog", "COPYING*", "NEWS", "README*")
+
+    pisitools.dodoc("AUTHORS", "COPYING*", "README")
