@@ -1,10 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM 'http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd'>
-
 <PISI>
     <Source>
         <Name>evas</Name>
-        <Homepage>http://www.enlightenment.org/Libraries/Evas/</Homepage>
+        <Homepage>http://wiki.enlightenment.org/index.php/Evas</Homepage>
         <Packager>
             <Name>H. İbrahim Güngör</Name>
             <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -12,17 +11,14 @@
         <License>BSD</License>
         <IsA>library</IsA>
         <Summary>Hardware-accelerated canvas API</Summary>
-        <Description>Hardware-accelerated canvas API</Description>
-        <Archive sha1sum="d041ddb49c8f143527a961e12a1b297fd6a30005" type="targz">http://enlightenment.freedesktop.org/files/evas-0.9.9.037.tar.gz</Archive>
+        <Description>Evas is a clean display canvas API for several target display systems that can draw anti-aliased text, smooth super and sub-sampled scaled images, alpha-blend objects much and more.</Description>
+        <Archive sha1sum="369c3c56a68d85a60494f13c20c1fd2dc805281a" type="tarbz2">http://sudrap.org/dist/E17/20090319/evas_20090319.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="1.2.1">imlib2</Dependency>
-            <Dependency versionFrom="0.9.10.037">eet</Dependency>
-            <Dependency versionFrom="1.0.5.007">edb</Dependency>
-            <Dependency versionFrom="0.9.16">DirectFB</Dependency>
-            <Dependency versionFrom="0.2.0">cairo</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+            <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+            <Dependency versionFrom="1.1.1">DirectFB</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libXrender</Dependency>
             <Dependency>librsvg</Dependency>
         </BuildDependencies>
     </Source>
@@ -30,26 +26,28 @@
     <Package>
         <Name>evas</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="1.2.1">imlib2</Dependency>
-            <Dependency versionFrom="0.9.10.037">eet</Dependency>
-            <Dependency versionFrom="1.0.5.007">edb</Dependency>
-            <Dependency versionFrom="0.9.16">DirectFB</Dependency>
-            <Dependency versionFrom="0.2.0">cairo</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+            <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+            <Dependency versionFrom="1.1.1">DirectFB</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>libXrender</Dependency>
             <Dependency>librsvg</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-03-20</Date>
+            <Version>0.9.9.050_20090319</Version>
+            <Comment>Bump to latest snapshot</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2007-04-29</Date>
             <Version>0.9.9.037</Version>
