@@ -6,10 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-def setup():
+WorkDir = "embryo"
 
+def setup():
+    shelltools.system("./autogen.sh")
     autotools.configure("--disable-static")
 
 def build():
@@ -17,4 +20,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "Changelog", "COPYING*", "NEWS", "README*")
+
+    pisitools.dodoc("AUTHORS", "COPYING*", "README")
