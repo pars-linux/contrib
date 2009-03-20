@@ -6,23 +6,19 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+WorkDir = "edje"
+
 def setup():
-    autotools.configure("--disable-static \
-                         --enable-edje-cc \
-                         --with-eet \
-                         --with-eet-exec \
-                         --with-evas \
-                         --with-evas-exec \
-                         --with-ecore \
-                         --with-ecore-exec \
-                         --with-embryo \
-                         --with-embryo-exec")
+    shelltools.system("./autogen.sh")
+    autotools.configure("--disable-static")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "Changelog", "COPYING*", "NEWS", "README")
+
+    pisitools.dodoc("AUTHORS", "COPYING*", "README")
