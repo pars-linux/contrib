@@ -60313,6 +60313,58 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfbib</Name>
+            <Homepage>http://goodies.xfce.org/projects/applications/xfbib</Homepage>
+            <Packager>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">A lightweight BibTeX editor for Xfce</Summary>
+            <Summary xml:lang="tr">Xfce için hafif BibTeX düzenleyicisi</Summary>
+            <Description xml:lang="en">Xfbib is a lightweight BibTeX editor developed for the Xfce desktop environment. The intentions of Xfbib is to provide an easy and efficient way of editing BibTeX files.</Description>
+            <Description xml:lang="tr">Xfbib, Xfce masaüstü yöneticisi için geliştirilmiş BibTeX düzenleyicisidir. Xfbib&apos;in amacı, BibTeX dosyalarını, kolay ve yeterli yoldan düzenlemeyi sağlamaktır.</Description>
+            <Icon>xfbib</Icon>
+            <Archive type="tarbz2" sha1sum="4c1af8280aedc58ac97d32127fb8dc2f4b45d9a0">http://goodies.xfce.org/releases/xfbib/xfbib-0.0.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
+                <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
+                <Dependency>hicolor-icon-theme</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/xfce4/goodies/xfbib/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfbib</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
+                <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
+                <Dependency>hicolor-icon-theme</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-19</Date>
+                <Version>0.0.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>battery-applet-for-xfce4</Name>
             <Homepage>http://sourceforge.net/projects/battery-4-xfce4/</Homepage>
             <Packager>
@@ -60350,6 +60402,56 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release</Comment>
                 <Name>Michael Austin</Name>
                 <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>xfce4-power-manager</Name>
+            <Homepage>http://goodies.xfce.org/projects/applications/xfce4-power-manager</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce4.goodies</PartOf>
+            <Summary xml:lang="en">A power manager dedicated for Xfce desktop environment</Summary>
+            <Summary xml:lang="tr">Xfce için yazılmış güç yöneticisi</Summary>
+            <Description xml:lang="en">This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
+            <Description xml:lang="tr">Bu yazılım, Xfce için yazılmış güç yöneticisidir. Dizüstü bilgisayar kullanıcıları, pil ve güç olarak iki farklı güç profili ayarlayabilir; masaüstü bilgisayar kullanıcıları ise, DPMS ayarlarını kullanarak işlemci frekansını yazılımın ana penceresinden değiştirebilirler.</Description>
+            <Icon>xfpm-cpu</Icon>
+            <Archive type="tarbz2" sha1sum="9a867b17aece0a5c76fda58d8de7aa29802f11db">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.6.4.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel</Dependency>
+                <Dependency>xfconf</Dependency>
+                <Dependency>libnotify</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce4/goodies/xfce4-power-manager/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-power-manager</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+                <Dependency>xfconf</Dependency>
+                <Dependency>libnotify</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/xfce4/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-17</Date>
+                <Version>0.6.4</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
