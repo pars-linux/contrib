@@ -19,8 +19,7 @@ def build():
     cmaketools.make()
 
 def install():
-    pisitools.dosed("data/fatrat.desktop", "GenericName=FatRat", "GenericName=Download Manager\nGenericName[tr]=Çok İşlevli İndirme Yöneticisi")
-    pisitools.dosed("data/defaults.conf", "ispeed_down=131072", "ispeed_down=524288")
+    pisitools.dosed("data/defaults.conf", "speed_down=131072", "speed_down=524288")
 
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
