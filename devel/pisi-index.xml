@@ -8308,6 +8308,59 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>qbittorrent</Name>
+            <Homepage>http://www.qbittorrent.org</Homepage>
+            <Packager>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Packager>
+            <License>GPLv2+</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">Qt4 based BitTorrent client</Summary>
+            <Summary xml:lang="tr">Qt4 kullanan bir BitTorrent istemcisi</Summary>
+            <Description xml:lang="en">qbittorrent is a BitTorrent client using the libtorrent library.</Description>
+            <Description xml:lang="tr">qbittorrent, libtorrent kitaplığını kullanan Qt4 tabanlı bir BitTorrent istemcisidir.</Description>
+            <Icon>qbittorrent</Icon>
+            <Archive type="targz" sha1sum="57ccfa6febc1d7b8e00d79e9a26b7a88ca5c482c">mirrors://sourceforge/qbittorrent/qbittorrent-1.3.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.14.1">libtorrent</Dependency>
+                <Dependency versionFrom="4.4.3">qt4</Dependency>
+                <Dependency>boost-devel</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/network/qbittorrent/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>qbittorrent</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.14.1">libtorrent</Dependency>
+                <Dependency versionFrom="4.4.3">qt4</Dependency>
+                <Dependency>boost</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/qBittorrent.desktop" permission="0644" owner="root">qBittorrent.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-02-07</Date>
+                <Version>1.3.1</Version>
+                <Comment>First release.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>amule</Name>
             <Homepage>http://www.amule.org/</Homepage>
             <Packager>
@@ -10909,6 +10962,48 @@
                 <Comment>First Release</Comment>
                 <Name>Mehmet Nur Olcay</Name>
                 <Email>mnurolcay@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>rtorrent</Name>
+            <Homepage>http://libtorrent.rakshasa.no</Homepage>
+            <Packager>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Packager>
+            <License>GPLv2+</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">a BitTorrent client for ncurses</Summary>
+            <Summary xml:lang="tr">Ncurses tabanlı BitTorrent istemcisi</Summary>
+            <Description xml:lang="en">Rtorrent is a BitTorrent client for ncurses, using the libtorrent library. The client and library is written in C++ with emphasis on speed and efficiency, while delivering features to those found in GUI based clients in an ncurses client.</Description>
+            <Description xml:lang="tr">rtorrent, GUI tabanlı istemcilere özgü özellikleri de içinde barındıran, hız ve verimliliğe önem veren bir ncurses tabanlı BitTorrent istemcidir.</Description>
+            <Archive type="targz" sha1sum="83a7c0dbeb46bb074ae075d9faf5d05f0df17571">http://libtorrent.rakshasa.no/downloads/rtorrent-0.8.4.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>libtorrent-rakshasa</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/network/rtorrent/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>rtorrent</Name>
+            <RuntimeDependencies>
+                <Dependency>libtorrent-rakshasa</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-02-04</Date>
+                <Version>0.8.4</Version>
+                <Comment>First release.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -30891,6 +30986,42 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>libtorrent-rakshasa</Name>
+            <Homepage>http://libtorrent.rakshasa.no</Homepage>
+            <Packager>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Packager>
+            <License>GPLv2+</License>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <Summary xml:lang="en">A BitTorrent library written in C++</Summary>
+            <Summary xml:lang="tr">C++ ile yazılmış bir BitTorrent kitaplığı</Summary>
+            <Description xml:lang="en">Libtorrent is a BitTorrent library written in C++. It is designed to avoid redundant copying and storing data that other clients and libraries suffer from.</Description>
+            <Description xml:lang="tr">LibTorrent, C++ ile yazılmış bir BitTorrent kitaplığıdır.</Description>
+            <Archive type="targz" sha1sum="6deab3f6af5e9566c987131d586751c7dc3b5dbb">http://libtorrent.rakshasa.no/downloads/libtorrent-0.12.4.tar.gz</Archive>
+            <SourceURI>programming/libs/libtorrent-rakshasa/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>libtorrent-rakshasa</Name>
+            <Files>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-02-04</Date>
+                <Version>0.12.4</Version>
+                <Comment>First release.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>scipres</Name>
             <Homepage>http://artis.inrialpes.fr/Membres/Xavier.Decoret/resources/scipres/wiki/index.php/Main_Page</Homepage>
             <Packager>
@@ -46859,42 +46990,54 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>ecore</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Ecore/</Homepage>
+            <Homepage>http://wiki.enlightenment.org/index.php/Ecore</Homepage>
             <Packager>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <Summary xml:lang="en">core event abstraction layer and X abstraction layer (nice convenience library</Summary>
-            <Summary xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Summary>
-            <Description xml:lang="en">core event abstraction layer and X abstraction layer (nice convenience library</Description>
-            <Description xml:lang="tr">Çekirdek ve X ayıklama katmanı(elverişli bir kütüphane)</Description>
-            <Archive type="targz" sha1sum="7c83e987572016698dbfa609f28a0034b6378ae7">http://enlightenment.freedesktop.org/files/ecore-0.9.9.037.tar.gz</Archive>
+            <PartOf>desktop.e17.base</PartOf>
+            <Summary xml:lang="en">Enlightenment event/X abstraction layer</Summary>
+            <Summary xml:lang="tr">Enlightenment cekirdek ve X ayrıştırma katmanı</Summary>
+            <Description xml:lang="en">Ecore is the core event abstraction layer and X abstraction layer that makes doing selections, Xdnd, general X stuff, and event loops, timeouts and idle handlers fast, optimized, and convenient.</Description>
+            <Description xml:lang="tr">Ecore çekirdek ve X ayrıştırma katmanıdır ve hızlı, verimli ve en kolay yoldan X işlerini halletmeye yarar.</Description>
+            <Archive type="tarbz2" sha1sum="68cc9d31ec06420d12fdb4e66c440361594c2f49">http://sudrap.org/dist/E17/20090319/ecore_20090319.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>openssl</Dependency>
-                <Dependency>dbus</Dependency>
-                <Dependency versionFrom="0.9.9.037">evas</Dependency>
+                <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+                <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">evas</Dependency>
+                <Dependency>xorg-server</Dependency>
+                <Dependency>libXrandr</Dependency>
+                <Dependency>libsdl</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/enlightenment/base/ecore/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>ecore</Name>
             <RuntimeDependencies>
-                <Dependency>openssl</Dependency>
-                <Dependency>dbus</Dependency>
-                <Dependency versionFrom="0.9.9.0.37">evas</Dependency>
+                <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+                <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">evas</Dependency>
+                <Dependency>xorg-server</Dependency>
+                <Dependency>libXrandr</Dependency>
+                <Dependency>libsdl</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-20</Date>
+                <Version>0.9.9.050_20090319</Version>
+                <Comment>Bump to latest snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2007-04-29</Date>
                 <Version>0.9.9.037</Version>
@@ -46949,9 +47092,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>BSD</License>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
+            <PartOf>desktop.e17.base</PartOf>
             <Summary xml:lang="en">Enlightenment Window Manager</Summary>
             <Summary xml:lang="tr">Enlightenment Pencere Yöneticisi</Summary>
+            <Description xml:lang="tr">Enlightenment, X Pencere Sistemi için tasarlanmış güçlü, genişletilebilir, yapılandırılabilir ve göze hitap eden bir pencere yöneticisidir.</Description>
             <Archive type="targz" sha1sum="fb9085f558d9745dd015b8fe1af48b4a6341d6ba">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.037.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="0.2.19">esound</Dependency>
@@ -47050,46 +47194,54 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>edje</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Edje/</Homepage>
+            <Homepage>http://wiki.enlightenment.org/index.php/Edje</Homepage>
             <Packager>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>BSD</License>
+            <IsA>app:console</IsA>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <Summary xml:lang="en">graphical layout and animation library</Summary>
-            <Summary xml:lang="tr">Grafiksel yerleşim ve canlandırma kütüphanesi</Summary>
-            <Description xml:lang="en">graphical layout and animation library</Description>
-            <Description xml:lang="tr">Grafiksel yerleşim ve canlandırma kütüphanesi</Description>
-            <Archive type="targz" sha1sum="5d7118e89684d578f73648ce23fb11e8267994ef">http://enlightenment.freedesktop.org/files/edje-0.5.0.037.tar.gz</Archive>
+            <PartOf>desktop.e17.base</PartOf>
+            <Summary xml:lang="en">Graphical layout and animation library</Summary>
+            <Summary xml:lang="tr">Grafiksel yerleşim ve canlandırma kitaplığı</Summary>
+            <Description xml:lang="en">Edje is a graphical layout and animation library for animated resizable, compressed and scalable themes.</Description>
+            <Description xml:lang="tr">Edje, ölçeklenebilir ve sıkıştırılmış temalar için grafiksel yerleşim ve canlandırma kitaplığıdır.</Description>
+            <Archive type="tarbz2" sha1sum="df70980cdd4036e1d0f3adaa9312c62bc0274cf4">http://sudrap.org/dist/E17/20090319/edje_20090319.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.10.037">eet</Dependency>
-                <Dependency versionFrom="0.9.9.037">evas</Dependency>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="0.9.9.037">ecore</Dependency>
-                <Dependency versionFrom="0.9.1.037">embryo</Dependency>
+                <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+                <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">evas</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">embryo</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/enlightenment/base/edje/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>edje</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.10.037">eet</Dependency>
-                <Dependency versionFrom="0.9.9.037">evas</Dependency>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="0.9.9.037">ecore</Dependency>
-                <Dependency versionFrom="0.9.1.037">embryo</Dependency>
+                <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+                <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">evas</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090319">embryo</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/edje</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-20</Date>
+                <Version>0.9.9.050_20090319</Version>
+                <Comment>Bump to latest snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2007-04-29</Date>
                 <Version>0.5.0.037</Version>
@@ -47137,28 +47289,25 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>evas</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Evas/</Homepage>
+            <Homepage>http://wiki.enlightenment.org/index.php/Evas</Homepage>
             <Packager>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
+            <PartOf>desktop.e17.base</PartOf>
             <Summary xml:lang="en">Hardware-accelerated canvas API</Summary>
             <Summary xml:lang="tr">Donanım destekli canvas uygulama arayüzü</Summary>
-            <Description xml:lang="en">Hardware-accelerated canvas API</Description>
+            <Description xml:lang="en">Evas is a clean display canvas API for several target display systems that can draw anti-aliased text, smooth super and sub-sampled scaled images, alpha-blend objects much and more.</Description>
             <Description xml:lang="tr">Donanım destekli canvas uygulama arayüzü</Description>
-            <Archive type="targz" sha1sum="d041ddb49c8f143527a961e12a1b297fd6a30005">http://enlightenment.freedesktop.org/files/evas-0.9.9.037.tar.gz</Archive>
+            <Archive type="tarbz2" sha1sum="369c3c56a68d85a60494f13c20c1fd2dc805281a">http://sudrap.org/dist/E17/20090319/evas_20090319.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="0.9.10.037">eet</Dependency>
-                <Dependency versionFrom="1.0.5.007">edb</Dependency>
-                <Dependency versionFrom="0.9.16">DirectFB</Dependency>
-                <Dependency versionFrom="0.2.0">cairo</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>pango</Dependency>
-                <Dependency>gtk2</Dependency>
+                <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+                <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+                <Dependency versionFrom="1.1.1">DirectFB</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>libXrender</Dependency>
                 <Dependency>librsvg</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/enlightenment/base/evas/pspec.xml</SourceURI>
@@ -47166,25 +47315,27 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>evas</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="1.2.1">imlib2</Dependency>
-                <Dependency versionFrom="0.9.10.037">eet</Dependency>
-                <Dependency versionFrom="1.0.5.007">edb</Dependency>
-                <Dependency versionFrom="0.9.16">DirectFB</Dependency>
-                <Dependency versionFrom="0.2.0">cairo</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>pango</Dependency>
-                <Dependency>gtk2</Dependency>
+                <Dependency versionFrom="0.0.1_20090319">eina</Dependency>
+                <Dependency versionFrom="1.1.0_20090319">eet</Dependency>
+                <Dependency versionFrom="1.1.1">DirectFB</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>libXrender</Dependency>
                 <Dependency>librsvg</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-20</Date>
+                <Version>0.9.9.050_20090319</Version>
+                <Comment>Bump to latest snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2007-04-29</Date>
                 <Version>0.9.9.037</Version>
@@ -47232,38 +47383,39 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>embryo</Name>
-            <Homepage>http://www.enlightenment.org/Libraries/Embryo/</Homepage>
+            <Homepage>http://wiki.enlightenment.org/index.php/Embryo</Homepage>
             <Packager>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>BSD</License>
-            <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.base</PartOf>
-            <Summary xml:lang="en">load and control programs compiled in small</Summary>
-            <Summary xml:lang="tr">Derlenmiş programları yükler ve kontrol altında tutar</Summary>
-            <Description xml:lang="en">load and control programs compiled in small</Description>
-            <Description xml:lang="tr">Derlenmiş programları yükler ve kontrol altında tutar</Description>
-            <Archive type="targz" sha1sum="cc3a479bdbc2bb8cf9be60e5505e83acc01c3898">http://enlightenment.freedesktop.org/files/embryo-0.9.1.037.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.9.9.037">ecore</Dependency>
-            </BuildDependencies>
+            <IsA>app:console</IsA>
+            <PartOf>desktop.e17.base</PartOf>
+            <Summary xml:lang="en">Enlightenment bytecode virtual machine</Summary>
+            <Summary xml:lang="tr">Enlightenment bytecode sanal makinesi</Summary>
+            <Description xml:lang="en">Embryo is a tiny library designed as a virtual machine to interpret a limited set of small compiled programs.</Description>
+            <Description xml:lang="tr">Embryo, derlenmiş programları yorumlayan bir sanal makine olarak tasarlanmış bir kitaplıktır.</Description>
+            <Archive type="tarbz2" sha1sum="e6da399845747792eaf941c7ed45539ff0bcf4bd">http://sudrap.org/dist/E17/20090319/embryo_20090319.tar.bz2</Archive>
             <SourceURI>desktop/enlightenment/base/embryo/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>embryo</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.037">ecore</Dependency>
-            </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/embryo</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-20</Date>
+                <Version>0.9.9.050_20090319</Version>
+                <Comment>Bump to latest snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2007-04-29</Date>
                 <Version>0.9.1.037</Version>
@@ -47318,7 +47470,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">nice thumbnail generator</Summary>
             <Summary xml:lang="tr">Thumbnail geliştirici</Summary>
             <Description xml:lang="en">nice thumbnail generator</Description>
@@ -47395,7 +47547,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">A collection of evas smart objects</Summary>
             <Summary xml:lang="tr">Evas akıllı nesnelerine ait bir koleksiyon</Summary>
             <Description xml:lang="en">A collection of evas smart objects</Description>
@@ -47468,7 +47620,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">Toolkit based on the EFL</Summary>
             <Summary xml:lang="tr">EFL tabanlı araç takımı</Summary>
             <Description xml:lang="en">Toolkit based on the EFL</Description>
@@ -47524,7 +47676,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">Background files for Eterm</Summary>
             <Summary xml:lang="tr">Eterm için arkaplan dosyaları</Summary>
             <Description xml:lang="en">Background files for Eterm</Description>
@@ -47579,7 +47731,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>as-is</License>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">An EFL Based Terminal</Summary>
             <Summary xml:lang="tr">EFL tabanlı terminal</Summary>
             <Description xml:lang="en">An EFL Based Terminal</Description>
@@ -47632,7 +47784,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">A vt102 terminal emulator for X</Summary>
             <Summary xml:lang="tr">X için A vt 102 terminal emulatörü</Summary>
             <Description xml:lang="en">A vt102 terminal emulator for X</Description>
@@ -47704,7 +47856,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">simple-to-use general purpose widget library</Summary>
             <Summary xml:lang="tr">Kullanımı kolay genel amaçlı alet kütüphanesi</Summary>
             <Description xml:lang="en">simple-to-use general purpose widget library</Description>
@@ -47775,7 +47927,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">Video libraries for e17</Summary>
             <Summary xml:lang="tr">e17 için vidyo kütüphaneleri</Summary>
             <Description xml:lang="en">Video libraries for e17</Description>
@@ -47852,7 +48004,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
-            <PartOf>desktop.enlightenment.extra</PartOf>
+            <PartOf>desktop.e17.extra</PartOf>
             <Summary xml:lang="en">E image browser</Summary>
             <Summary xml:lang="tr">E resim görüntüliyicisi</Summary>
             <Description xml:lang="en">E image browser</Description>
@@ -64978,24 +65130,26 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Description xml:lang="tr">Uygulama geliştirme sürecine yardımcı olan araçları içerir.</Description>
     </Component>
     <Component>
-        <Name>desktop.enlightenment</Name>
-        <LocalName xml:lang="tr">Enlightenment DR17 Masaüstü</LocalName>
-        <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait yazılımlar</Summary>
-        <Description xml:lang="tr">Enlightenment DR17 masaüstünde çalışan çeşitli uygulama yazılımı ve kütüphanelerini içerir.</Description>
+        <Name>desktop.e17</Name>
+        <LocalName xml:lang="tr">E17 Masaüstü</LocalName>
+        <Summary xml:lang="tr">E17 masaüstüne ait yazılımlar</Summary>
+        <Description xml:lang="tr">E17 masaüstünde çalışan çeşitli uygulama yazılımı ve kitaplıkları içerir.</Description>
+        <Icon>styl</Icon>
+        <VisibleTo>user</VisibleTo>
     </Component>
     <Component>
-        <Name>desktop.enlightenment.base</Name>
-        <LocalName xml:lang="en">Enlightenment DR17 desktop base packages</LocalName>
-        <LocalName xml:lang="tr">Enlightenment DR17 Temel Masaüstü Paketleri</LocalName>
-        <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait yazılımlar</Summary>
-        <Description xml:lang="tr">Enlightenment DR17 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
+        <Name>desktop.e17.base</Name>
+        <LocalName xml:lang="en">E17 desktop base packages</LocalName>
+        <LocalName xml:lang="tr">E17 Temel Masaüstü Paketleri</LocalName>
+        <Summary xml:lang="tr">E17 masaüstüne ait yazılımlar</Summary>
+        <Description xml:lang="tr">E17 masaüstü projesi tarafından dağıtılan temel masaüstü uygulamaları</Description>
     </Component>
     <Component>
-        <Name>desktop.enlightenment.extra</Name>
-        <LocalName xml:lang="en">Enlightenment DR17 desktop extra packages</LocalName>
-        <LocalName xml:lang="tr">Enlightenment DR17 Ek Masaüstü Paketleri</LocalName>
-        <Summary xml:lang="tr">Enlightenment DR17 masaüstüne ait ek yazılımlar</Summary>
-        <Description xml:lang="tr">Enlightenment DR17 masaüstü projesi tarafından dağıtılan ek masaüstü uygulamaları</Description>
+        <Name>desktop.e17.extra</Name>
+        <LocalName xml:lang="en">E17 desktop extra packages</LocalName>
+        <LocalName xml:lang="tr">E17 Ek Masaüstü Paketleri</LocalName>
+        <Summary xml:lang="tr">E17 masaüstüne ait ek yazılımlar</Summary>
+        <Description xml:lang="tr">E17 masaüstü projesi tarafından dağıtılan ek masaüstü uygulamaları</Description>
     </Component>
     <Component>
         <Name>desktop.freedesktop</Name>
