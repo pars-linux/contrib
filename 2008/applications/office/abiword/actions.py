@@ -15,8 +15,6 @@ def setup():
                                   --with-zlib \
                                   --with-libpng \
                                   --with-popt \
-                                  --with-fribidi \
-                                  --enable-scripting \
                                   --enable-printing \
                                   --enable-gnomeui")
 
