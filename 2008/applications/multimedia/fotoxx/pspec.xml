@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fotoxx</Name>
+        <Homepage>http://kornelix.squarespace.com/fotoxx</Homepage>
+        <Packager>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>fotoxx</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Gtk+ based digital photos editing program</Summary>
+        <Description>With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
+        <Archive sha1sum="661398ad3a91c6b8d1c37bf2addff0b495c7bdeb" type="targz">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>exiv2</Dependency>
+            <Dependency>perl-Image-ExifTool</Dependency>
+            <Dependency releaseFrom="2">xdg-utils</Dependency>
+            <Dependency>FreeImage</Dependency>
+            <Dependency>ufraw</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>fotoxx</Name>
+        <RuntimeDependencies>
+            <Dependency>exiv2</Dependency>
+            <Dependency>perl-Image-ExifTool</Dependency>
+            <Dependency releaseFrom="2">xdg-utils</Dependency>
+            <Dependency>FreeImage</Dependency>
+            <Dependency>ufraw</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/fotoxx</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/fotoxx.desktop">fotoxx.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-03-17</Date>
+            <Version>6.2</Version>
+            <Comment>First release</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
