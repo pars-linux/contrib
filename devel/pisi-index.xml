@@ -5121,14 +5121,15 @@
             <IsA>app:gui</IsA>
             <PartOf>applications.network</PartOf>
             <Summary xml:lang="en">Multi protocol download manager</Summary>
+            <Summary xml:lang="tr">Çok işlevli indirme yöneticisi</Summary>
             <Description xml:lang="en">Download manager that supports multi protocols like sftp, torrent, http, rss feed support etc.</Description>
+            <Description xml:lang="tr">FatRat, Torrent, HTTP, RSS besleyicisi gibi protokolleri destekleyen çok işlevli bir indirme yöneticisidir.</Description>
             <Icon>fatrat</Icon>
-            <Archive type="tarbz2" sha1sum="1ff121bb6ddbe43234acce0ef4a893b1898e5c5f">http://www.dolezel.info/download/data/fatrat/fatrat-1.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="55f7ae8d73e6ed6298c2d58ae132b74fe64537d7">http://www.sudrap.org/dist/files/fatrat-1.1_20090321.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
-                <Dependency versionFrom="0.13.1">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.1">libtorrent</Dependency>
                 <Dependency versionFrom="0.9.9.5">gloox</Dependency>
-                <Dependency versionFrom="0.18">libssh2</Dependency>
             </BuildDependencies>
             <SourceURI>applications/network/fatrat/pspec.xml</SourceURI>
         </Source>
@@ -5136,17 +5137,27 @@
             <Name>fatrat</Name>
             <RuntimeDependencies>
                 <Dependency>qt4</Dependency>
-                <Dependency versionFrom="0.13">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.1">libtorrent</Dependency>
                 <Dependency versionFrom="0.9.9.5">gloox</Dependency>
-                <Dependency versionFrom="0.18">libssh2</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="data">/usr/share</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/fatrat.desktop" permission="0644" owner="root">fatrat.desktop</AdditionalFile>
+            </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-21</Date>
+                <Version>1.1_20090321</Version>
+                <Comment>Update to git branch uses libtorrent-0.14, add translations.xml</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-08-13</Date>
                 <Version>1.0</Version>
@@ -13100,6 +13111,59 @@
                 <Comment>First release.</Comment>
                 <Name>Ali Erdinç Köroğlu</Name>
                 <Email>erdinc@pardus.org.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>xarchiver</Name>
+            <Homepage>http://xarchiver.xfce.org</Homepage>
+            <Packager>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Packager>
+            <License>GPLv2+</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.archive</PartOf>
+            <Summary xml:lang="en">A lightweight GTK+2 archiving/compression tool</Summary>
+            <Summary xml:lang="tr">GTK+2 tabanlı hafif ve sade bir arşiv yöneticisi</Summary>
+            <Description xml:lang="en">Xarchiver is a GTK+2 only frontend to 7z, zip, rar, tar, bzip2, gzip, arj, lha, rpm and deb (open and extract only). Xarchiver allows you to create, add, extract and delete files in the above formats. 7z, zip, rar, arj password protected archives are supported.</Description>
+            <Description xml:lang="tr">Xarchiver, 7z, zip, rar, tar, bzip2, gzip, arj, lha, rpm ve deb için GTK+2 tabanlı bir uygulamadır. Bu formatlarda arşivleme, ekleme, çıkarma ve silme işlemlerini yapabilir. Ayrıca parola korumalı 7z, zip, rar ve arj dosyalarını da destekler.</Description>
+            <Icon>xarchiver</Icon>
+            <Archive type="tarbz2" sha1sum="8c8f0ee82c93abcdcf9974fa30611aa05fa51bd0">mirrors://sourceforge/xarchiver/xarchiver-0.5.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.12">gtk2</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/archive/xarchiver/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xarchiver</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.12">gtk2</Dependency>
+                <Dependency>p7zip</Dependency>
+                <Dependency>unarj</Dependency>
+                <Dependency>unrar</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-11-12</Date>
+                <Version>0.5.2</Version>
+                <Comment>First Release.</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
