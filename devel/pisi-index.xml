@@ -7111,7 +7111,7 @@
             <Summary xml:lang="en">Simple FTP Client.</Summary>
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Icon>filezilla</Icon>
-            <Archive type="tarbz2" sha1sum="6e14c2ded0dc103678d9399171e3ed9c515debce">mirrors://sourceforge/filezilla/FileZilla_3.2.2.1_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a34992a0813336cc283191a495295f9dea398571">mirrors://sourceforge/filezilla/FileZilla_3.2.3_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8.9">wxGTK</Dependency>
                 <Dependency versionFrom="2.0.4">gnutls</Dependency>
@@ -7139,6 +7139,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="18">
+                <Date>2009-03-22</Date>
+                <Version>3.2.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="17">
                 <Date>2009-02-25</Date>
                 <Version>3.2.2.1</Version>
@@ -19159,7 +19166,9 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>applications.office</PartOf>
             <Summary xml:lang="en">Fully featured yet light and fast cross platform word processor</Summary>
             <Summary xml:lang="tr">Hızlı ve her sistemde çalışabilen bir kelime işlemci</Summary>
-            <Archive type="targz" sha1sum="9751b7f01beee9f048ab20e52a600a757085363b">http://www.abisource.com/downloads/abiword/2.6.6/source/abiword-2.6.6.tar.gz</Archive>
+            <Description xml:lang="en">AbiWord is a free word processing program similar to Microsoft Word. It is suitable for a wide variety of word processing tasks.</Description>
+            <Description xml:lang="tr">AbiWord, Microsoft Word&apos;e benzeyen özgür bir kelime işleme programıdır. Geniş bir çeşitlilikte kelime işleme görevlerini yerine getirmek için uygun bir programdır.</Description>
+            <Archive type="targz" sha1sum="fc979982edc3445385705afdb1e2ebb1fa53a4f6">http://www.abisource.com/downloads/abiword/2.6.8/source/abiword-2.6.8.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
@@ -19196,6 +19205,19 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-03-22</Date>
+                <Version>2.6.8</Version>
+                <Comment>* Description tag is added.
+                * Remove unrecognised configure options: with-fribidi and enable-scripting.
+                * Version bump:
+            # Fix the auto-save feature to actually work and respect the user-selected time interval.
+            # Properly export table border and cell styles for OpenDocument documents.
+            # Make sure the Office Open XML exporter writes out valid documents.
+            # Fix a great number of memory leaks.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-03-01</Date>
                 <Version>2.6.6</Version>
@@ -29095,6 +29117,64 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Burak Çalışkan</Name>
                 <Email>burakclskn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>fotoxx</Name>
+            <Homepage>http://kornelix.squarespace.com/fotoxx</Homepage>
+            <Packager>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">Gtk+ based digital photos editing program</Summary>
+            <Summary xml:lang="tr">Gtk+ tabanlı dijital fotoğrafları düzenleme programı</Summary>
+            <Description xml:lang="en">With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
+            <Description xml:lang="tr">Fotoxx ile herhangi bir dijital kameradan aldığınız resim dosyalarını düzenleyebilirsiniz. Renk ve kontrast geliştirmeleri, kırmızı göz efekti (red-eye effect) giderme, keskinleştirme, kırpma, çevirme, gürültü giderme (noise removal), HDR ve panoramik fotoğrafların birleştirilmesi, etiket düzenleme ve arama gibi pek çok özelliğe sahiptir.</Description>
+            <Icon>fotoxx</Icon>
+            <Archive type="targz" sha1sum="661398ad3a91c6b8d1c37bf2addff0b495c7bdeb">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.2.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>exiv2</Dependency>
+                <Dependency>perl-Image-ExifTool</Dependency>
+                <Dependency releaseFrom="2">xdg-utils</Dependency>
+                <Dependency>FreeImage</Dependency>
+                <Dependency>ufraw</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/multimedia/fotoxx/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fotoxx</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>exiv2</Dependency>
+                <Dependency>perl-Image-ExifTool</Dependency>
+                <Dependency releaseFrom="2">xdg-utils</Dependency>
+                <Dependency>FreeImage</Dependency>
+                <Dependency>ufraw</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/fotoxx</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/icons/</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/fotoxx.desktop" permission="0644" owner="root">fotoxx.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-17</Date>
+                <Version>6.2</Version>
+                <Comment>First release</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
