@@ -7,10 +7,12 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 def setup():
     autotools.configure("--enable-bonobo-activation-debug=yes \
                          --disable-static")
+    pisitools.dosed("libtool"," -shared "," -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
@@ -18,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("TODO", "NEWS", "README", "AUTH", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("TODO", "NEWS", "README", "ChangeLog", "AUTHORS")
