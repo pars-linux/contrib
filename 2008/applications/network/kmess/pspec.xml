@@ -13,13 +13,12 @@
         <IsA>app:gui</IsA>
         <Summary>MSN Messenger clone for KDE</Summary>
         <Description>KMess is a MSN Messenger compatible chat client for Linux. It enables Linux users to chat with friends online who are using MSN Messenger in Windows or Mac OS. The strength of KMess is it's integration with the KDE desktop environment, focus on MSN Messenger specific features and an easy-to-use interface.</Description>
-        <Archive sha1sum="1380ec25eb04df2830e5dfe4eec0b18a2a462e14" type="targz">mirrors://sourceforge/kmess/kmess-1.5.1.tar.gz</Archive>
+        <Archive sha1sum="47cb5bb34374a9c8008fb165056c375f2a9ad56d" type="targz">mirrors://sourceforge/kmess/kmess-1.5.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>kdelibs</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>browser.patch</Patch>
-            <Patch>gcc4.patch</Patch>
         </Patches>
     </Source>
 
@@ -27,6 +26,7 @@
         <Name>kmess</Name>
         <RuntimeDependencies>
             <Dependency>kdelibs</Dependency>
+            <Dependency>xdg-utils</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/3.5/bin</Path>
@@ -42,6 +42,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-03-24</Date>
+            <Version>1.5.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="6">
             <Date>2008-06-03</Date>
             <Version>1.5.1</Version>
