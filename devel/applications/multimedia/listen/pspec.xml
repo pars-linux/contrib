@@ -11,23 +11,21 @@
         <License>GPLv2</License>
         <Icon>listen</Icon>
         <IsA>app:gui</IsA>
-        <Summary>A music player and manager for GNOME</Summary>
-        <Archive sha1sum="7d8ed8893a1eaa3c3a2e51aca975987cb05c9c2b" type="tarbz2">http://download.listen-project.org/0.5/listen-0.5.tar.bz2</Archive>
+        <Summary>A music manager for GNOME</Summary>
+        <Description>Listen is a music manager and player for GNOME desktop environment.</Description>
+        <Archive sha1sum="7bb648d477ad18fad332418a54cad53fc05f08f1" type="tarbz2">http://download.listen-project.org/0.6/listen-0.6rc1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gnome-python-extras</Dependency>
-            <Dependency>mutagen</Dependency>
             <Dependency>gst-python</Dependency>
             <Dependency>python-musicbrainz2</Dependency>
             <Dependency>sexy-python</Dependency>
-            <Dependency>soundtouch</Dependency>
-            <Dependency>exempi</Dependency>
-            <Dependency>xulrunner-devel</Dependency>
+            <Dependency>pywebkit-gtk</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>disable-check.patch</Patch>
-            <Patch>dbus.patch</Patch>
-            <Patch>encoding-song.py.patch</Patch>
-            <Patch>encoding-const.py.patch</Patch>
+            <!--<Patch>dbus.patch</Patch>-->
+            <!--<Patch>encoding-song.py.patch</Patch>-->
+            <!--<Patch>encoding-const.py.patch</Patch>-->
         </Patches>
     </Source>
 
@@ -35,13 +33,12 @@
         <Name>listen</Name>
         <RuntimeDependencies>
             <Dependency>gnome-python-extras</Dependency>
-            <Dependency>mutagen</Dependency>
             <Dependency>gst-python</Dependency>
             <Dependency>python-musicbrainz2</Dependency>
             <Dependency>sexy-python</Dependency>
-            <Dependency>soundtouch</Dependency>
-            <Dependency>exempi</Dependency>
-            <Dependency>xulrunner</Dependency>
+            <Dependency>pyinotify</Dependency>
+            <Dependency>pyxdg</Dependency>
+            <Dependency>pywebkit-gtk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -54,12 +51,23 @@
             <Path fileType="man">/usr/share/man</Path>
         </Files>
         <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0755" target="/usr/bin/listen">listen</AdditionalFile>
+            <!--<AdditionalFile owner="root" permission="0755" target="/usr/bin/listen">listen</AdditionalFile>-->
             <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man1/listen.1">listen.1</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-03-25</Date>
+            <Version>0.6_rc1</Version>
+            <Comment>
+                * Version bump.
+                * Add description tag and edit summary.
+                * Fixed dependencies.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-05-08</Date>
             <Version>0.5</Version>
