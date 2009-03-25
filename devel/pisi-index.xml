@@ -10832,13 +10832,12 @@
             <Description xml:lang="en">KMess is a MSN Messenger compatible chat client for Linux. It enables Linux users to chat with friends online who are using MSN Messenger in Windows or Mac OS. The strength of KMess is it&apos;s integration with the KDE desktop environment, focus on MSN Messenger specific features and an easy-to-use interface.</Description>
             <Description xml:lang="tr">KMess, Linux için MSN Messenger uyumlu bir sohbet istemcisidir. Linux kullanıcılarının Windows veya Mac OS kullanan arkadaşlarıyla sohbet etmesini mümkün kılar. KMess&apos;in en güçlü yanları KDE ile uyum içinde çalışması, MSN Messenger&apos;ın özellikleri üzerine yoğunlaşması ve kolay kullanımıdır.</Description>
             <Icon>kmess</Icon>
-            <Archive type="targz" sha1sum="1380ec25eb04df2830e5dfe4eec0b18a2a462e14">mirrors://sourceforge/kmess/kmess-1.5.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="47cb5bb34374a9c8008fb165056c375f2a9ad56d">mirrors://sourceforge/kmess/kmess-1.5.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>kdelibs</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>browser.patch</Patch>
-                <Patch>gcc4.patch</Patch>
             </Patches>
             <SourceURI>applications/network/kmess/pspec.xml</SourceURI>
         </Source>
@@ -10846,6 +10845,7 @@
             <Name>kmess</Name>
             <RuntimeDependencies>
                 <Dependency>kdelibs</Dependency>
+                <Dependency>xdg-utils</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/kde/3.5/bin</Path>
@@ -10860,6 +10860,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-24</Date>
+                <Version>1.5.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-06-03</Date>
                 <Version>1.5.1</Version>
@@ -23724,6 +23731,52 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>subtitleripper</Name>
+            <Homepage>http://subtitleripper.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.multimedia</PartOf>
+            <Summary xml:lang="en">DVD subtitle to text converter</Summary>
+            <Summary xml:lang="tr">DVD altyazılarını metine dönüştürücü</Summary>
+            <Description xml:lang="en">Subtitleripper extracts DVD subtitles from a subtitle stream and converts it to pgm or ppm images or into VobSub format. The main purpose is to provide the required input to OCR software to convert the subtitle images into ASCII text. Please note that the conversion into ASCII is not part of this package but requires an OCR program like gocr.</Description>
+            <Description xml:lang="tr">Subtitleripper DVD altyazılarını bir altyazı akımından(stream) seçip çıkartır ve pgm, ppm resimleri haline ya da Vobsub biçimine dönüştürür. Programın temel amacı, Optik Karakter Tanıma(OCR) yazılımlarına altyazı resimlerini ASCII metnine dönüştürmek için gerekli girdiyi sağlamaktır. Not düşülmesi gereken bir nokta da şudur ki, ASCII metnine dönüşüm paketin bir parçası değildir ve gerekli dönüşüm için gocr gibi bir Optik Karakter Tanıma programına ihtiyaç duyulmaktadır.</Description>
+            <Archive type="targz" sha1sum="d93ff3578dd5f722c8f4ef16bc0903eec5781a0d">mirrors://sourceforge/subtitleripper/subtitleripper-0.3-4.tgz</Archive>
+            <BuildDependencies>
+                <Dependency>netpbm</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">subtitleripper-0.3.4-linkingorder.patch</Patch>
+            </Patches>
+            <SourceURI>applications/multimedia/subtitleripper/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>subtitleripper</Name>
+            <RuntimeDependencies>
+                <Dependency>netpbm</Dependency>
+                <Dependency>gocr</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/subtitleripper</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-14</Date>
+                <Version>0.3.4</Version>
+                <Comment>First release. And thanks Gökçen for his previous efforts on the package.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>agave</Name>
             <Homepage>http://home.gna.org/colorscheme/</Homepage>
             <Packager>
@@ -31628,7 +31681,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Optik diskleri okumak, idare etmek ve yazmak için kütüphane</Summary>
             <Description xml:lang="en">Libburn is an open-source library for reading, mastering and writing optical discs.</Description>
             <Description xml:lang="tr">Libburn, optik diskleri okumak, idare etmek ve yazmak için yazılmış, açık kaynak kodlu bir kütüphanedir.</Description>
-            <Archive type="targz" sha1sum="0a3117b00efb7e87f1a62b76eb243ab7e90e8679">http://files.libburnia-project.org/releases/libburn-0.6.0.pl01.tar.gz</Archive>
+            <Archive type="targz" sha1sum="a35cb717b40607af019c919c1bbb6800b348a9a8">http://files.libburnia-project.org/releases/libburn-0.6.4.pl00.tar.gz</Archive>
             <SourceURI>programming/libs/libburn/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -31642,6 +31695,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-03-24</Date>
+                <Version>0.6.4</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-02-14</Date>
                 <Version>0.6.0</Version>
@@ -32262,8 +32322,10 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <IsA>library</IsA>
             <PartOf>programming.libs</PartOf>
             <Summary xml:lang="en">A library for creating ISO disc images</Summary>
+            <Summary xml:lang="tr">ISO kalıbı oluşturmak için gerekli kütüphane</Summary>
             <Description xml:lang="en">Libisofs is a library that handles creating ISO disc image files. It is intended to work together with libburn to write these images to discs.</Description>
-            <Archive type="targz" sha1sum="87ac64529d069ad25eb940888ee9f83b6c226374">http://files.libburnia-project.org/releases/libisofs-0.6.12.tar.gz</Archive>
+            <Description xml:lang="tr">Libisofs, ISO kalıbını oluşturmak için gerekli kütüphaneleri içeren pakettir. Bu paket ayrıca Libburn&apos;u kullanarak, ISO kalıplarını CD, DVD veya benzeri disklere yazdırmanıza olanağı sağlar.</Description>
+            <Archive type="targz" sha1sum="081d60871743937f4ae74eb8b725f7d1bfdc527b">http://files.libburnia-project.org/releases/libisofs-0.6.16.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libburn</Dependency>
             </BuildDependencies>
@@ -32281,6 +32343,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-24</Date>
+                <Version>0.6.16</Version>
+                <Comment>* Version bump.
+                * Added translations.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-12-21</Date>
                 <Version>0.6.12</Version>
@@ -54309,16 +54379,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome.base</PartOf>
             <Summary xml:lang="en">User Interface part of libbonobo</Summary>
             <Summary xml:lang="tr">Libbonobo kütüphanesinin kullanıcı arayüz kısmı</Summary>
-            <Archive type="tarbz2" sha1sum="48fcf81966b839b328ab63bae4ee128246eb0a63">mirrors://gnome/libbonoboui/2.22/libbonoboui-2.22.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="30373b904003c9c20cd19510b05a6c388b3f8b82">mirrors://gnome/libbonoboui/2.24/libbonoboui-2.24.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.0">gtk2</Dependency>
                 <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
                 <Dependency versionFrom="2.22.0">libbonobo</Dependency>
                 <Dependency versionFrom="2.22.0">libgnome</Dependency>
-                <Dependency>libxml2</Dependency>
                 <Dependency versionFrom="2.22.0">gconf</Dependency>
                 <Dependency>libglade2</Dependency>
-                <Dependency>intltool</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/gnome/base/libbonoboui/pspec.xml</SourceURI>
         </Source>
@@ -54329,22 +54397,37 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
                 <Dependency versionFrom="2.22.0">libbonobo</Dependency>
                 <Dependency versionFrom="2.22.0">libgnome</Dependency>
-                <Dependency>libxml2</Dependency>
                 <Dependency versionFrom="2.22.0">gconf</Dependency>
                 <Dependency>libglade2</Dependency>
-                <Dependency>intltool</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="doc">/usr/share/gtk-doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/gnome-2.0</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>libbonoboui-docs</Name>
+            <Summary xml:lang="en">Referance documents for libbonobo user interface</Summary>
+            <IsA>data:doc</IsA>
+            <Files>
+                <Path fileType="doc">/usr/share/gtk-doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-03-24</Date>
+                <Version>2.24.1</Version>
+                <Comment>- Version bump
+                - Split into documents
+                - Samples are removed</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-03-11</Date>
                 <Version>2.22.0</Version>
@@ -54608,7 +54691,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>desktop.gnome.base</PartOf>
             <Summary xml:lang="en">GNOME CORBA framework</Summary>
             <Summary xml:lang="tr">GNOME CORBA geliştirme ortamı</Summary>
-            <Archive type="tarbz2" sha1sum="517e8f1ca24cea4ce77cdb1d7485c61da3096be2">mirrors://gnome/libbonobo/2.22/libbonobo-2.22.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="9bd321ca9c7e6abba8d4f65b53940d7096e6724b">mirrors://gnome/libbonobo/2.24/libbonobo-2.24.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.14.10">orbit2</Dependency>
             </BuildDependencies>
@@ -54629,11 +54712,26 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/idl</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>libbonobo-docs</Name>
+            <Summary xml:lang="en">Bonobo referance documents</Summary>
+            <IsA>data:doc</IsA>
+            <Files>
                 <Path fileType="doc">/usr/share/gtk-doc</Path>
-                <Path fileType="data">/usr/share</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-03-24</Date>
+                <Version>2.24.1</Version>
+                <Comment>- Version bump.
+                - Split into documents.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-05-19</Date>
                 <Version>2.22.0</Version>
@@ -60717,7 +60815,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
             <Description xml:lang="tr">Bu yazılım, Xfce için yazılmış güç yöneticisidir. Dizüstü bilgisayar kullanıcıları, pil ve güç olarak iki farklı güç profili ayarlayabilir; masaüstü bilgisayar kullanıcıları ise, DPMS ayarlarını kullanarak işlemci frekansını yazılımın ana penceresinden değiştirebilirler.</Description>
             <Icon>xfpm-cpu</Icon>
-            <Archive type="tarbz2" sha1sum="9a867b17aece0a5c76fda58d8de7aa29802f11db">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.6.4.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="0a046ed3d98ea0d44384a74a3b2f1d76a7c9faf8">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.6.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel</Dependency>
                 <Dependency>xfconf</Dependency>
@@ -60733,6 +60831,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libnotify</Dependency>
             </RuntimeDependencies>
             <Files>
+                <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
@@ -60742,6 +60841,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-25</Date>
+                <Version>0.6.5</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-03-17</Date>
                 <Version>0.6.4</Version>
