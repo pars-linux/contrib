@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "WebKit-%s" % get.srcVERSION().replace('0.0_', 'r')
+WorkDir = "WebKit-%s" % get.srcVERSION().replace('1.1.3_', 'r')
 
 def setup():
     shelltools.system("sh autogen.sh --prefix=/usr \
