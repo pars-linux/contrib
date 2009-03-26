@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vitetris</Name>
+        <Homepage>http://victornils.net/tetris/</Homepage>
+        <Packager>
+            <Name>Ceyhun Asılkazancı</Name>
+            <Email>ceyhunasilkazanci@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>vitetris</Icon>
+        <IsA>app:gui</IsA>
+        <IsA>app:console</IsA>
+        <Summary>Terminal-based Tetris clone</Summary>
+        <Description>Terminal-based Tetris clone by Victor Nilsson. Gameplay is much like the early Tetris games by Nintendo</Description>
+        <Archive sha1sum="4f022b35bd649269b26096959bd9515ab97441ca" type="targz">http://victornils.net/tetris/vitetris-0.55.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">bk.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>vitetris</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/vitetris</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/vitetris.desktop">vitetris.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/vitetris.png">vitetris.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-06</Date>
+            <Version>0.55</Version>
+            <Comment>First Release</Comment>
+            <Name>Ceyhun Asılkazancı</Name>
+            <Email>ceyhunasilkazanci@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
