@@ -13149,6 +13149,7 @@
                 <Dependency versionFrom="2.12">gtk2</Dependency>
             </BuildDependencies>
             <Patches>
+                <Patch level="1">stack-smash.patch</Patch>
                 <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>applications/archive/xarchiver/pspec.xml</SourceURI>
@@ -13160,10 +13161,10 @@
                 <Dependency>p7zip</Dependency>
                 <Dependency>unarj</Dependency>
                 <Dependency>unrar</Dependency>
+                <Dependency releaseFrom="2">xdg-utils</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/libexec</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
@@ -13171,7 +13172,29 @@
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>thunar-xarchiver-plugin</Name>
+            <Summary xml:lang="en">Wrapper script to create and extract archive files in Thunar</Summary>
+            <IsA>data</IsA>
+            <RuntimeDependencies>
+                <Dependency>thunar-archive-plugin</Dependency>
+                <Dependency releaseFrom="2">xarchiver</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+            </Files>
+            <Replaces>
+                <Package releaseTo="1">xarchiver</Package>
+            </Replaces>
+        </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-26</Date>
+                <Version>0.5.2</Version>
+                <Comment>Split Thunar plugin, add xdg-utils dependency and upstream stack smash patch.</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-11-12</Date>
                 <Version>0.5.2</Version>
@@ -26048,25 +26071,21 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
-            <Summary xml:lang="en">A music player and manager for GNOME</Summary>
+            <Summary xml:lang="en">A music manager for GNOME</Summary>
             <Summary xml:lang="tr">GNOME için bir müzik yöneticisi</Summary>
+            <Description xml:lang="en">Listen is a music manager and player for GNOME desktop environment.</Description>
+            <Description xml:lang="tr">Listen, GNOME masaüstü yöneticisi için yazılmış bir müzik çalıcısı ve yöneticisidir.</Description>
             <Icon>listen</Icon>
-            <Archive type="tarbz2" sha1sum="7d8ed8893a1eaa3c3a2e51aca975987cb05c9c2b">http://download.listen-project.org/0.5/listen-0.5.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="7bb648d477ad18fad332418a54cad53fc05f08f1">http://download.listen-project.org/0.6/listen-0.6rc1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gnome-python-extras</Dependency>
-                <Dependency>mutagen</Dependency>
                 <Dependency>gst-python</Dependency>
                 <Dependency>python-musicbrainz2</Dependency>
                 <Dependency>sexy-python</Dependency>
-                <Dependency>soundtouch</Dependency>
-                <Dependency>exempi</Dependency>
-                <Dependency>xulrunner-devel</Dependency>
+                <Dependency>pywebkit-gtk</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>disable-check.patch</Patch>
-                <Patch>dbus.patch</Patch>
-                <Patch>encoding-song.py.patch</Patch>
-                <Patch>encoding-const.py.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/listen/pspec.xml</SourceURI>
         </Source>
@@ -26074,13 +26093,12 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>listen</Name>
             <RuntimeDependencies>
                 <Dependency>gnome-python-extras</Dependency>
-                <Dependency>mutagen</Dependency>
                 <Dependency>gst-python</Dependency>
                 <Dependency>python-musicbrainz2</Dependency>
                 <Dependency>sexy-python</Dependency>
-                <Dependency>soundtouch</Dependency>
-                <Dependency>exempi</Dependency>
-                <Dependency>xulrunner</Dependency>
+                <Dependency>pyinotify</Dependency>
+                <Dependency>pyxdg</Dependency>
+                <Dependency>pywebkit-gtk</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -26093,11 +26111,19 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Path fileType="man">/usr/share/man</Path>
             </Files>
             <AdditionalFiles>
-                <AdditionalFile target="/usr/bin/listen" permission="0755" owner="root">listen</AdditionalFile>
                 <AdditionalFile target="/usr/share/man/man1/listen.1" permission="0644" owner="root">listen.1</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-25</Date>
+                <Version>0.6_rc1</Version>
+                <Comment>* Version bump.
+                * Add description tag and edit summary.
+                * Fixed dependencies.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-05-08</Date>
                 <Version>0.5</Version>
@@ -29189,7 +29215,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
             <Description xml:lang="tr">Fotoxx ile herhangi bir dijital kameradan aldığınız resim dosyalarını düzenleyebilirsiniz. Renk ve kontrast geliştirmeleri, kırmızı göz efekti (red-eye effect) giderme, keskinleştirme, kırpma, çevirme, gürültü giderme (noise removal), HDR ve panoramik fotoğrafların birleştirilmesi, etiket düzenleme ve arama gibi pek çok özelliğe sahiptir.</Description>
             <Icon>fotoxx</Icon>
-            <Archive type="targz" sha1sum="661398ad3a91c6b8d1c37bf2addff0b495c7bdeb">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="3011b4e1e874993a10f1172c0eb449199a94b12a">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>exiv2</Dependency>
@@ -29222,6 +29248,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-25</Date>
+                <Version>6.3</Version>
+                <Comment>version bump</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-03-17</Date>
                 <Version>6.2</Version>
@@ -31321,11 +31354,11 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Açık kaynak internet tarayıcısı motoru</Summary>
             <Description xml:lang="en">Webkit-Gtk supplies Webkit framework for GTK applications.</Description>
             <Description xml:lang="tr">Webkit-Gtk, Gtk uygulamaları için Webkit altyapısını sunar.</Description>
-            <Archive type="tarbz2" sha1sum="7f68be24a2970c603365a0a5155d5f9fec05de0c">http://builds.nightly.webkit.org/files/trunk/src/WebKit-r41121.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="427d17110078f84e49826848b946d78c3920b0be">http://builds.nightly.webkit.org/files/trunk/src/WebKit-r41944.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
                 <Dependency versionFrom="3.6">icu4c</Dependency>
-                <Dependency versionFrom="2.24.2">libsoup</Dependency>
+                <Dependency versionFrom="2.26.0">libsoup</Dependency>
                 <Dependency>gst-plugins-base</Dependency>
             </BuildDependencies>
             <SourceURI>programming/libs/webkit-gtk/pspec.xml</SourceURI>
@@ -31335,7 +31368,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <RuntimeDependencies>
                 <Dependency versionFrom="2.12.11">gtk2</Dependency>
                 <Dependency versionFrom="3.6">icu4c</Dependency>
-                <Dependency versionFrom="2.24.2">libsoup</Dependency>
+                <Dependency versionFrom="2.26.0">libsoup</Dependency>
                 <Dependency>gst-plugins-base</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -31347,6 +31380,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-03-25</Date>
+                <Version>1.1.3_41944</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-03-06</Date>
                 <Version>0.0_41121</Version>
