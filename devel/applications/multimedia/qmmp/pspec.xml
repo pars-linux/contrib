@@ -9,15 +9,14 @@
             <Email>admins@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>qmmp</Icon>
         <IsA>app:gui</IsA>
-        <Summary>An audio-player, written with help of Qt library.</Summary>
-        <Description>Qmmp is an audio-player, written with help of Qt library. You can add xmms and winamp skins to ~/.qmmp/skins. Also we have 2 skins in here http://www.mgunay.net/dist/qmmp-skins</Description>
-        <Archive sha1sum="5269725e3ed608038d47e415ecf64d7e24693843" type="tarbz2">http://qmmp.ylsoftware.com/files/qmmp-0.2.3.tar.bz2</Archive>
+        <Summary>An audio-player, written with Qt4 library</Summary>
+        <Description>Qmmp is an audio-player, written with Qt4 library. It's similar to Winamp or Xmms. Also supports Xmms and Winamp skins. qmmp-skins package in Contrib repository is recommended, too.</Description>
+        <Archive sha1sum="8296f5899088b61d8d965e5f38511d357b7b8383" type="tarbz2">http://qmmp.ylsoftware.com/files/qmmp-0.2.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>qt4</Dependency>
             <Dependency>libmad</Dependency>
-            <Dependency>alsa-lib</Dependency>
-            <Dependency>libvorbis</Dependency>
             <Dependency>taglib</Dependency>
             <Dependency>ffmpeg</Dependency>
             <Dependency>libmpcdec</Dependency>
@@ -30,8 +29,6 @@
         <RuntimeDependencies>
             <Dependency>qt4</Dependency>
             <Dependency>libmad</Dependency>
-            <Dependency>alsa-lib</Dependency>
-            <Dependency>libvorbis</Dependency>
             <Dependency>taglib</Dependency>
             <Dependency>ffmpeg</Dependency>
             <Dependency>libmpcdec</Dependency>
@@ -39,17 +36,23 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-	    <Path fileType="header">/usr/include/</Path>
+            <Path fileType="header">/usr/include/</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/share/qmmp/skins</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
-	    <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-03-27</Date>
+            <Version>0.2.4</Version>
+            <Comment>Version bump. Add translations.xml and icon tag. Better description/summary</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-01-25</Date>
             <Version>0.2.3</Version>
