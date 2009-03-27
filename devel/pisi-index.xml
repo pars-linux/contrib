@@ -10769,7 +10769,7 @@
             <Description xml:lang="en">Deluge is a Bittorrent client. Deluge is intended to bring a native, full-featured client to Linux GTK+ desktop environments such as GNOME and Xfce.</Description>
             <Description xml:lang="tr">Deluge, bir Bittorrent istemcisidir. Xfce ve GNOME gibi GTK+ tabanlı masaüstü ortamlarıyla görsel kütüphaneler açısından uyumlu çalışması için yazılmış tam donanımlı bir istemcidir.</Description>
             <Icon>deluge</Icon>
-            <Archive type="tarbz2" sha1sum="356883b6b72e3cdcde1b64c9c6e78ceddda39298">http://download.deluge-torrent.org/source/1.1.4/deluge-1.1.4.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="00880feb47870a52ff21db8fe9ebe892af68bf57">http://download.deluge-torrent.org/source/deluge-1.1.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -10800,6 +10800,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-26</Date>
+                <Version>1.1.5</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-03-14</Date>
                 <Version>1.1.4</Version>
@@ -13168,30 +13175,16 @@
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/libexec</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
-        </Package>
-        <Package>
-            <Name>thunar-xarchiver-plugin</Name>
-            <Summary xml:lang="en">Wrapper script to create and extract archive files in Thunar</Summary>
-            <IsA>data</IsA>
-            <RuntimeDependencies>
-                <Dependency>thunar-archive-plugin</Dependency>
-                <Dependency releaseFrom="2">xarchiver</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/libexec</Path>
-            </Files>
-            <Replaces>
-                <Package releaseTo="1">xarchiver</Package>
-            </Replaces>
         </Package>
         <History>
             <Update release="2">
                 <Date>2009-03-26</Date>
                 <Version>0.5.2</Version>
-                <Comment>Split Thunar plugin, add xdg-utils dependency and upstream stack smash patch.</Comment>
+                <Comment>Add xdg-utils dependency and upstream stack smash patch.</Comment>
                 <Name>Mehmet Nur Olcay</Name>
                 <Email>mnurolcay@gmail.com</Email>
             </Update>
@@ -14431,6 +14424,45 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>fdupes</Name>
+            <Homepage>http://netdial.caribe.net/~adrian2/fdupes.html</Homepage>
+            <Packager>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Packager>
+            <License>MIT</License>
+            <IsA>app:console</IsA>
+            <PartOf>applications.util</PartOf>
+            <Summary xml:lang="en">Duplicate file finder</Summary>
+            <Summary xml:lang="tr">Eş dosyaları bulma aracı</Summary>
+            <Description xml:lang="en">FDupes is a program for identifying or deleting duplicate files residing within specified directories. Such files are found by comparing file sizes and MD5 signatures, followed by a byte-by-byte comparison.</Description>
+            <Description xml:lang="tr">FDupes, belirlenen dizinlerde eş dosyaları tespit etmek ve/ya silmek için kullanılan bir yazılımdır. Dosyaların eş olmasını öncelikle dosya boyutu, daha sonra MD5 imzası ve son olarak da bayt karşılaştırılmasının sonucuna göre belirler.</Description>
+            <Archive type="targz" sha1sum="e1bce9bdf50d7bf700dda3eb8a3d218b181b3931">http://netdial.caribe.net/~adrian2/programs/fdupes-1.40.tar.gz</Archive>
+            <Patches>
+                <Patch>memcpy-warning-gentoo.patch</Patch>
+            </Patches>
+            <SourceURI>applications/util/fdupes/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>fdupes</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-24</Date>
+                <Version>1.40</Version>
+                <Comment>First release.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>acetoneiso2</Name>
             <Homepage>http://www.acetoneiso.netsons.org</Homepage>
             <Packager>
@@ -15132,6 +15164,58 @@
                 <Comment>First release.</Comment>
                 <Name>Alper Somuncu</Name>
                 <Email>alpersomuncu@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>chmsee</Name>
+            <Homepage>http://code.google.com/p/chmsee/</Homepage>
+            <Packager>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.util</PartOf>
+            <Summary xml:lang="en">An HTML Help viewer for Unix/Linux</Summary>
+            <Summary xml:lang="tr">Linux/Unix için HTML yardım gösterici</Summary>
+            <Description xml:lang="en">ChmSee is an HTML Help viewer for Unix/Linux. It is based on CHMLIB and use Gtk+ as frontend toolkit. Because of using gecko as HTML rendering engine, ChmSee can support rich features of modern HTML page, such as CSS and JavaScript.</Description>
+            <Description xml:lang="tr">Chmsee CHMLIB tabanlı, önyüzünde GTK+ kullanan bir  Linux ve Unix makinalar için HTML yardım gösterici programıdır. Gecko HTML motoru kullandığı için modern HTML teknolojileri olan CSS ve JavaScript desteği bulunmaktadır.</Description>
+            <Icon>chmsee-icon</Icon>
+            <Archive type="targz" sha1sum="a22c2d68185f31019bab97e28a3bd79ad97a879c">http://chmsee.googlecode.com/files/chmsee-1.0.4.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>libglade2</Dependency>
+                <Dependency>chmlib</Dependency>
+                <Dependency>xulrunner</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/util/chmsee/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>chmsee</Name>
+            <RuntimeDependencies>
+                <Dependency>libglade2</Dependency>
+                <Dependency>chmlib</Dependency>
+                <Dependency>xulrunner</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/chmsee</Path>
+                <Path fileType="man">/usr/share/man/man1</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/mime-info</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-18</Date>
+                <Version>1.0.4</Version>
+                <Comment>First Release.</Comment>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -15911,6 +15995,53 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>vitetris</Name>
+            <Homepage>http://victornils.net/tetris/</Homepage>
+            <Packager>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <IsA>app:console</IsA>
+            <PartOf>applications.games</PartOf>
+            <Summary xml:lang="en">Terminal-based Tetris clone</Summary>
+            <Summary xml:lang="tr">Metin tabanlı bir tetris oyunu</Summary>
+            <Description xml:lang="en">Terminal-based Tetris clone by Victor Nilsson. Gameplay is much like the early Tetris games by Nintendo</Description>
+            <Description xml:lang="tr">vitetris, konsole&apos;da oynanan klasik bir tetris oyunudur</Description>
+            <Icon>vitetris</Icon>
+            <Archive type="targz" sha1sum="4f022b35bd649269b26096959bd9515ab97441ca">http://victornils.net/tetris/vitetris-0.55.tar.gz</Archive>
+            <Patches>
+                <Patch level="1">bk.patch</Patch>
+            </Patches>
+            <SourceURI>applications/games/vitetris/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>vitetris</Name>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/vitetris</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/vitetris.desktop" permission="0644" owner="root">vitetris.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/vitetris.png" permission="0644" owner="root">vitetris.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-01-06</Date>
+                <Version>0.55</Version>
+                <Comment>First Release</Comment>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -20825,6 +20956,61 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Jérôme Schneider</Name>
                 <Email>jerome.schneider@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>medit</Name>
+            <Homepage>http://mooedit.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.editors</PartOf>
+            <Summary xml:lang="en">Multiplatform GTK text editor</Summary>
+            <Summary xml:lang="tr">Sekme özelliğine sahip bir metin düzenleyicisi</Summary>
+            <Description xml:lang="en">Medit is a text editor. Started originally as a simple built-in editor component in GGAP, it grew up to a real text editor. The intention now is to make it a useful programming and around-programming text editor</Description>
+            <Description xml:lang="tr">Medit, sekme özelliğine sahip hızlı ve kullanışlı bir metin düzenleyicisidir</Description>
+            <Icon>medit</Icon>
+            <Archive type="tarbz2" sha1sum="99916ee3440d521ccc5976e44c97f595dce925a2">mirrors://sourceforge/mooedit/medit-0.9.4.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>pygtk</Dependency>
+                <Dependency>lua</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/editors/medit/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>medit</Name>
+            <RuntimeDependencies>
+                <Dependency>pygtk</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxml2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/moo</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/medit.desktop" permission="0644" owner="root">medit.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/medit.png" permission="0644" owner="root">medit.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2008-09-25</Date>
+                <Version>0.9.4</Version>
+                <Comment>First Release</Comment>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -57708,7 +57894,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>gtk2-engines-murrine</Name>
-            <Homepage>http://murrine.netsons.org</Homepage>
+            <Homepage>http://cimitan.com/murrine/project/murrine</Homepage>
             <Packager>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -57716,11 +57902,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>desktop.gnome</PartOf>
-            <Summary xml:lang="en">Gtk+ murrine theme engine</Summary>
-            <Summary xml:lang="tr">GTK+ murrine tema motoru</Summary>
-            <Description xml:lang="en">The Murrine engine is a cairo-based GTK2 theming tool.  It&apos;s very fast compared to clearlooks-cairo.  Murrine includes animations and a unique style.</Description>
-            <Description xml:lang="tr">Murrine motoru, Cairo tabanlı GTK2 tema aracıdır. Clearlooks temasına göre çok daha hızlıdır. Aynı zamanda canlandırmalar, benzersiz biçemler içerir.</Description>
-            <Archive type="targz" sha1sum="aa7f3152ca21b9ed0e8edf48fd18aa7a25f2d87c">http://archive.ubuntu.com/ubuntu/pool/main/g/gtk2-engines-murrine/gtk2-engines-murrine_0.60.1.tar.gz</Archive>
+            <Summary xml:lang="en">GTK+ Murrine theme engine</Summary>
+            <Summary xml:lang="tr">GTK+ Murrine tema motoru</Summary>
+            <Description xml:lang="en">The Murrine engine is a cairo-based GTK+ theming tool. It&apos;s very fast compared to clearlooks-cairo. Murrine includes animations and a unique style.</Description>
+            <Description xml:lang="tr">Murrine motoru, Cairo tabanlı GTK+ tema aracıdır. Clearlooks temasına göre çok daha hızlıdır. Aynı zamanda canlandırmalar, benzersiz biçemler içerir.</Description>
+            <Archive type="tarbz2" sha1sum="db1f046d1d9f08d4b6793819d04968deba060bc5">mirrors://gnome/murrine/0.90/murrine-0.90.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
             </BuildDependencies>
@@ -57738,6 +57924,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-26</Date>
+                <Version>0.90.2</Version>
+                <Comment>* Version bump.
+                * Fixed homepage URL.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-11-12</Date>
                 <Version>0.60.1</Version>
