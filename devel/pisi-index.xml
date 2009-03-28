@@ -13614,6 +13614,58 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xpad</Name>
+            <Homepage>http://mterry.name/xpad/</Homepage>
+            <Packager>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.util</PartOf>
+            <Summary xml:lang="en">Sticky note application for jotting down notes</Summary>
+            <Summary xml:lang="tr">Basit bir not alma uygulaması</Summary>
+            <Description xml:lang="en">GTK+ application that emulates real-life sticky notes. If you are likely to forget something, open up an xpad and jot it down.</Description>
+            <Description xml:lang="tr">GTK+ tabanlı kullanışlı bir not alma uygulaması</Description>
+            <Icon>xpad</Icon>
+            <Archive type="tarbz2" sha1sum="60776b73f5b89e21e78d618602b0abf1cb3c7499">http://launchpadlibrarian.net/21105001/xpad-3.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.12">gtk2</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">desktop.patch</Patch>
+            </Patches>
+            <SourceURI>applications/util/xpad/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xpad</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.12">gtk2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/pixmaps/xpad.png" permission="0644" owner="root">xpad.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-27</Date>
+                <Version>3.1</Version>
+                <Comment>First Release</Comment>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>sshpass</Name>
             <Homepage>http://sourceforge.net/projects/sshpass/</Homepage>
             <Packager>
@@ -29528,20 +29580,21 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>qmmp</Name>
             <Homepage>http://qmmp.ylsoftware.com/index_en.html</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
-            <Summary xml:lang="en">An audio-player, written with help of Qt library.</Summary>
-            <Description xml:lang="en">Qmmp is an audio-player, written with help of Qt library. You can add xmms and winamp skins to ~/.qmmp/skins. Also we have 2 skins in here http://www.mgunay.net/dist/qmmp-skins</Description>
-            <Archive type="tarbz2" sha1sum="5269725e3ed608038d47e415ecf64d7e24693843">http://qmmp.ylsoftware.com/files/qmmp-0.2.3.tar.bz2</Archive>
+            <Summary xml:lang="en">An audio-player, written with Qt4 library</Summary>
+            <Summary xml:lang="tr">Qt4 tabanlı müzik oynatıcı</Summary>
+            <Description xml:lang="en">Qmmp is an audio-player, written with Qt4 library. It&apos;s similar to Winamp or Xmms. Also supports Xmms and Winamp skins. qmmp-skins package in Contrib repository is recommended, too.</Description>
+            <Description xml:lang="tr">Qmmp Qt4 tabanlı bir müzik oynatıcısıdır. Xmms ve Winamp temalarını destekler. Ayrıca Contrib deposunda bulunan ve Pardus&apos;a özel temalar da içeren qmmp-skins paketini de kurmanız önerilir.</Description>
+            <Icon>qmmp</Icon>
+            <Archive type="tarbz2" sha1sum="8296f5899088b61d8d965e5f38511d357b7b8383">http://qmmp.ylsoftware.com/files/qmmp-0.2.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
                 <Dependency>libmad</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>libvorbis</Dependency>
                 <Dependency>taglib</Dependency>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>libmpcdec</Dependency>
@@ -29554,8 +29607,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <RuntimeDependencies>
                 <Dependency>qt4</Dependency>
                 <Dependency>libmad</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>libvorbis</Dependency>
                 <Dependency>taglib</Dependency>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>libmpcdec</Dependency>
@@ -29567,12 +29618,18 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="data">/usr/share/qmmp/skins</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-03-27</Date>
+                <Version>0.2.4</Version>
+                <Comment>Version bump. Add translations.xml and icon tag. Better description/summary</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-01-25</Date>
                 <Version>0.2.3</Version>
@@ -49853,7 +49910,8 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Name>Mehmet Nur Olcay</Name>
                 <Email>mnurolcay@gmail.com</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>GPLv2+</License>
+            <License>BSD</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.kde</PartOf>
             <Summary xml:lang="en">Cross-platform password manager</Summary>
@@ -49861,14 +49919,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">KeePassX is a free/open-source password manager which helps you to manage your passwords in a secure way. You can put all your passwords in one database, which is locked with one master key or a key-disk.</Description>
             <Description xml:lang="tr">KeePassX, parolalarınızı güvenli bir şekilde yönetebileceğiniz, açık kaynaklı/ücretsiz bir parola yöneticisidir. Bütün parolalarınızı, bir ana parola kullanarak tek bir veritanabanında saklayabilirsiniz.</Description>
             <Icon>keepassx</Icon>
-            <Archive type="targz" sha1sum="d9204396a0878c3acbce875b42df2899561c5206">mirrors://sourceforge/keepassx/KeePassX-0.3.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="7d65b1796888f4cbb59f117b36dc08eb13fa71a9">mirrors://sourceforge/keepassx/keepassx-0.4.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">gcc43.patch</Patch>
-                <Patch>turkish.ts.patch</Patch>
-                <Patch level="1">add.turkish.patch</Patch>
+                <Patch level="1">update_tr.patch</Patch>
                 <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>desktop/kde/keepassx/pspec.xml</SourceURI>
@@ -49880,14 +49937,25 @@ processing unit (GPU) present in modern graphics cards</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/keepassx</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="localedata">/usr/share/keepassx/i18n</Path>
+                <Path fileType="data">/usr/share/keepassx</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="data">/usr/share/mimelnk</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-03-28</Date>
+                <Version>0.4.0</Version>
+                <Comment>-New version with lots of new features, respect CXX
+                -Turkish translation is in upstream now, remove reduntand patches
+                -Correct file paths, add BSD license for aes encryption alghorithm</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2008-11-19</Date>
                 <Version>0.3.4</Version>
@@ -60865,6 +60933,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="library">/usr/libexec</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
