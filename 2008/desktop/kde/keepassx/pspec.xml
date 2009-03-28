@@ -8,19 +8,19 @@
             <Name>Mehmet Nur Olcay</Name>
             <Email>mnurolcay@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv2+</License>
+        <License>BSD</License>
         <Icon>keepassx</Icon>
         <IsA>app:gui</IsA>
         <Summary>Cross-platform password manager</Summary>
         <Description>KeePassX is a free/open-source password manager which helps you to manage your passwords in a secure way. You can put all your passwords in one database, which is locked with one master key or a key-disk.</Description>
-        <Archive sha1sum="d9204396a0878c3acbce875b42df2899561c5206"  type="targz">mirrors://sourceforge/keepassx/KeePassX-0.3.4.tar.gz</Archive>
+        <Archive sha1sum="7d65b1796888f4cbb59f117b36dc08eb13fa71a9"  type="targz">mirrors://sourceforge/keepassx/keepassx-0.4.0.tar.gz</Archive>
         <BuildDependencies>
              <Dependency>qt4</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">gcc43.patch</Patch>
-            <Patch>turkish.ts.patch</Patch>
-            <Patch level="1">add.turkish.patch</Patch>
+            <Patch level="1">update_tr.patch</Patch>
             <Patch level="1">desktop.patch</Patch>
         </Patches>
     </Source>
@@ -32,15 +32,28 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share/keepassx</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="localedata">/usr/share/keepassx/i18n</Path>
+            <Path fileType="data">/usr/share/keepassx</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/mimelnk</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2009-03-28</Date>
+            <Version>0.4.0</Version>
+            <Comment>
+                -New version with lots of new features, respect CXX
+                -Turkish translation is in upstream now, remove reduntand patches
+                -Correct file paths, add BSD license for aes encryption alghorithm
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2008-11-19</Date>
             <Version>0.3.4</Version>
