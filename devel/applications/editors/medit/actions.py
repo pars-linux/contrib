@@ -19,3 +19,4 @@ def install():
     pisitools.dodoc("README" , "COPYING" , "NEWS" , "AUTHORS" , "LICENSE")
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
     pisitools.remove("/usr/share/icons/hicolor/48x48/apps/medit.png")
+    pisitools.removeDir("/usr/lib/python2.5/")
