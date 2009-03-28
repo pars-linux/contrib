@@ -9,19 +9,17 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "keepassx-%s" % get.srcVERSION()
-
 def setup():
     shelltools.system("qmake-qt4")
 
 def build():
-    autotools.make()
+    autotools.make('CXX="%s"' % get.CXX())
 
 def install():
     autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
 
-    # Get all translations to the package
-    shelltools.system("lrelease-qt4 src/src.pro")
-    pisitools.insinto("/usr/share/keepassx/i18n/", "src/translations/*.qm")
+    # Update Turkish translation
+    shelltools.system("lrelease-qt4 src/translations/keepassx-tr_TR.ts")
+    pisitools.insinto("/usr/share/keepassx/i18n/", "src/translations/*tr*.qm")
 
-    pisitools.dodoc("changelog", "COPYING", "todo")
+    pisitools.dodoc("changelog", "COPYING")
