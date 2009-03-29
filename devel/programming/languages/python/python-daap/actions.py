@@ -10,10 +10,14 @@ from pisi.actionsapi import get
 
 WorkDir = "PythonDaap-%s" % get.srcVERSION()
 
+examples = "%s/%s/examples" % (get.docDIR(), get.srcTAG())
+
 def build():
     pythonmodules.compile()
 
 def install():
     pythonmodules.install()
 
-    pisitools.dodoc("CHANGELOG", "LICENSE", "README", "examples/*")
+    pisitools.insinto(examples, "examples/*")
+
+    pisitools.dodoc("CHANGELOG", "LICENSE", "README")
