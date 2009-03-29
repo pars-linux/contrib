@@ -6939,6 +6939,49 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>pidgin-sipe</Name>
+            <Homepage>http://sourceforge.net/projects/sipe</Homepage>
+            <Packager>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <IsA>library</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">Pidgin-SIPE is a Pidgin Plug-in for OCS/LCS (Live Communication Server)</Summary>
+            <Summary xml:lang="tr">Pidgin-SIPE, OCS/LCS (Live Communication Server) sunuculara baglanabilen bir Pidgin eklentisidir</Summary>
+            <Description xml:lang="en">Using Pidgin-SIPE plug-in for Pidgin, it is possible to connect to a Microsoft Live Communication Server (OCS/LCS) using SIP/Simple protocol.</Description>
+            <Description xml:lang="tr">Pidgin-SIPE eklentisi ile SIP/Simple protokolü kullanarak Microsoft LCS/OCS (Live Communication Server) sunucularına bağlanılabilir.</Description>
+            <Archive type="tarbz2" sha1sum="c0aad4582bc75cfc85790439a9a61dd0bd64317e">mirrors://sourceforge/sipe/pidgin-sipe-1.3.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>pidgin</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/network/pidgin-sipe/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pidgin-sipe</Name>
+            <RuntimeDependencies>
+                <Dependency>pidgin</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-29</Date>
+                <Version>1.3.3</Version>
+                <Comment>First release</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>transmission</Name>
             <Homepage>http://www.transmissionbt.com</Homepage>
             <Packager>
@@ -7111,7 +7154,7 @@
             <Summary xml:lang="en">Simple FTP Client.</Summary>
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Icon>filezilla</Icon>
-            <Archive type="tarbz2" sha1sum="a34992a0813336cc283191a495295f9dea398571">mirrors://sourceforge/filezilla/FileZilla_3.2.3_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="7638645a5ea262d11a1bc32ffba0b71151aefd54">mirrors://sourceforge/filezilla/FileZilla_3.2.3.1_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8.9">wxGTK</Dependency>
                 <Dependency versionFrom="2.0.4">gnutls</Dependency>
@@ -7139,6 +7182,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="19">
+                <Date>2009-03-29</Date>
+                <Version>3.2.3.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="18">
                 <Date>2009-03-22</Date>
                 <Version>3.2.3</Version>
@@ -29453,7 +29503,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
             <Description xml:lang="tr">Fotoxx ile herhangi bir dijital kameradan aldığınız resim dosyalarını düzenleyebilirsiniz. Renk ve kontrast geliştirmeleri, kırmızı göz efekti (red-eye effect) giderme, keskinleştirme, kırpma, çevirme, gürültü giderme (noise removal), HDR ve panoramik fotoğrafların birleştirilmesi, etiket düzenleme ve arama gibi pek çok özelliğe sahiptir.</Description>
             <Icon>fotoxx</Icon>
-            <Archive type="targz" sha1sum="3011b4e1e874993a10f1172c0eb449199a94b12a">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="c371a188854b5473caf0a46e99c08f0a464b1cbd">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>exiv2</Dependency>
@@ -40267,6 +40317,44 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>Initial release</Comment>
                 <Name>İlker Kesen</Name>
                 <Email>ikesen92@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>python-daap</Name>
+            <Homepage>http://jerakeen.org/code/PythonDaap/</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>LGPLv2.1</License>
+            <IsA>library</IsA>
+            <PartOf>programming.languages.python</PartOf>
+            <Summary xml:lang="en">A DAAP client implemented in Python</Summary>
+            <Summary xml:lang="tr">Python için yazılmış DAAP istemcisi</Summary>
+            <Description xml:lang="en">PythonDaap is a DAAP client implemented in Python, and based on PyTunes.</Description>
+            <Description xml:lang="tr">PythonDaap, Python için yazılmış, PyTunes tabanlı bir DAAP istemcisidir.</Description>
+            <Archive type="targz" sha1sum="9448d2d29023f60021d714592090d41dae0870d9">http://static.jerakeen.org/files/PythonDaap-0.7.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>setuptools</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/languages/python/python-daap/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>python-daap</Name>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-25</Date>
+                <Version>0.7.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -60623,10 +60711,12 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.xfce4.goodies</PartOf>
-            <Summary xml:lang="en">A graphical GTK+ MPD client focusing on low footprint</Summary>
-            <Summary xml:lang="tr">Az yer kaplama amaçlı GTK+ arayüzlü MPD istemcisi</Summary>
+            <Summary xml:lang="en">A MPD client for Xfce4</Summary>
+            <Summary xml:lang="tr">Xfce&apos;nin MPD istemcisi</Summary>
+            <Description xml:lang="en">A MPD client focusing on low footprint for Xfce desktop environment.</Description>
+            <Description xml:lang="tr">Xfmpc, Xfce için yazılmış, az yer kaplama amaçlı GTK+ arayüzlü MPD istemcisidir.</Description>
             <Icon>xfmpc</Icon>
-            <Archive type="tarbz2" sha1sum="a9585992134aa26a23b7b799e6b2d8b019c932e9">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.0.7.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="5a7b80c0226b947d59c101217df060ef0491ff4f">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.1.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.12.8">gtk2</Dependency>
                 <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
@@ -60654,6 +60744,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-29</Date>
+                <Version>0.1.0</Version>
+                <Comment>* Version bump.
+               * Added description.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-09-01</Date>
                 <Version>0.0.7</Version>
