@@ -9,7 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "Amaya%s/Amaya" % get.srcVERSION()
+WorkDir = "Amaya11.2/Amaya"
 
 def setup():
     # Cleanup crap
@@ -19,39 +19,34 @@ def setup():
     shelltools.unlinkDir("../redland")
     shelltools.unlinkDir("../wxWidgets")
 
-    # Re-create configure file for system libs
-    autotools.autoconf()
-
     # Create a build directory for Pardus
     shelltools.makedirs("Pardus")
     shelltools.cd("Pardus")
 
     shelltools.system("ln -s ../configure")
 
-    autotools.configure("--enable-bookmarks \
-                         --enable-templates \
+    autotools.configure("--prefix=/usr/share \
                          --enable-system-libwww \
+                         --enable-system-raptor \
                          --enable-system-wx \
-                         --enable-system-redland \
-                         --enable-annot \
+                         --with-gl \
                          --with-dav \
                          --enable-svg \
-                         --enable-generic-xml \
-                         --without-graphiclibs")
+                         --enable-annot \
+                         --enable-templates \
+                         --enable-generic-xml")
 
 def build():
     shelltools.cd("Pardus")
-    autotools.make()
+    autotools.make("-j1 CFLAGS='%s' CXXFLAGS='%s'"
+                   % (get.CFLAGS(), get.CXXFLAGS()))
 
 def install():
     pisitools.insinto("/usr/share/pixmaps", "resources/bundle/logo.png", "amaya.png")
 
     shelltools.cd("Pardus")
-    pisitools.dodir("/usr/share")
+    autotools.install("prefix=%s/usr/share" % get.installDIR())
 
-    autotools.install()
+    pisitools.domove("/usr/share/bin", "/usr")
 
-    pisitools.domove("/usr/Amaya", "/usr/share/")
-
-    pisitools.dosed("%s/usr/share/Amaya/wx/bin/amaya" % get.installDIR(), "usr", "usr/share")
-    pisitools.domove("/usr/share/Amaya/wx/bin/amaya", "/usr/bin")
+    pisitools.dodoc("../README*")
