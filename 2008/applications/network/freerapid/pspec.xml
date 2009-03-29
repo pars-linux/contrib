@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freerapid</Name>
+        <Homepage>http://wordrider.net/freerapid/</Homepage>
+        <Packager>
+            <Name>H.Gökhan Sarı</Name>
+            <Email>hsa2@difuzyon.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>frd</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A java application to download files from rapidshare-alike web pages</Summary>
+        <Description>Freerapid is an application which automaticly downloads a list of files from public sharing web pages like rapidshare.com.</Description>
+        <Archive sha1sum="e20314845ff03f7642bbe9e4a0c2c71f7b6c321a" type="zip">http://download.sosej.cz/programy4/Freerapid-Downloader_0.81.zip</Archive>
+        <Patches>
+            <Patch level="1">path-fix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>freerapid</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/freerapid.desktop">freerapid.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-03-08</Date>
+            <Version>0.81</Version>
+            <Comment>First release.</Comment>
+            <Name>H.Gökhan Sarı</Name>
+            <Email>hsa2@difuzyon.net</Email>
+        </Update>
+    </History>
+</PISI>
