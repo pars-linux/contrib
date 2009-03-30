@@ -10984,7 +10984,7 @@
             <Description xml:lang="en">Arora is a fast, easy QtWebkit based cross platform browser.</Description>
             <Description xml:lang="tr">Arora QtWebkit tabanlı, çoklu platform destekli hızlı ve sade bir web tarayıcısıdır.</Description>
             <Icon>arora</Icon>
-            <Archive type="targz" sha1sum="9809e608edcbd9eae1e2a758a6135bf0534245ae">http://arora.googlecode.com/files/arora-0.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="8fa7821092dcb090b2ff84437dcf6774277b44d2">http://arora.googlecode.com/files/arora-0.6.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="4.4">qt4</Dependency>
             </BuildDependencies>
@@ -10992,7 +10992,6 @@
                 <Patch level="1">pardus_bookmarks.patch</Patch>
                 <Patch level="1">pardus_homepage.patch</Patch>
                 <Patch level="1">desktop.patch</Patch>
-                <Patch level="1">update_turkish.patch</Patch>
             </Patches>
             <SourceURI>applications/network/arora/pspec.xml</SourceURI>
         </Source>
@@ -11010,10 +11009,17 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-03-29</Date>
+                <Version>0.6</Version>
+                <Comment>Version bump, remove unneeded patches</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-02-21</Date>
                 <Version>0.5</Version>
-                <Comment>Version bump, remove unneded patches, respect CXX, add LICENSE as doc, add Pardus as homepage, update turkish</Comment>
+                <Comment>Version bump, remove unneeded patches, respect CXX, add LICENSE as doc, add Pardus as homepage, update turkish</Comment>
                 <Name>Mehmet Nur Olcay</Name>
                 <Email>mnurolcay@gmail.com</Email>
             </Update>
@@ -11728,6 +11734,57 @@
                 <Comment>First release</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>freerapid</Name>
+            <Homepage>http://wordrider.net/freerapid/</Homepage>
+            <Packager>
+                <Name>H.Gökhan Sarı</Name>
+                <Email>hsa2@difuzyon.net</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.network</PartOf>
+            <Summary xml:lang="en">A java application to download files from rapidshare-alike web pages</Summary>
+            <Summary xml:lang="tr">Dosya paylaşım sitelerinden sırayla indirme yapan java uygulaması</Summary>
+            <Description xml:lang="en">Freerapid is an application which automaticly downloads a list of files from public sharing web pages like rapidshare.com.</Description>
+            <Description xml:lang="tr">Freerapid; rapidshare, easyshare ve daha bir çok online dosya paylaşım adresinden dosyaları verilen listeye göre sırayla indiren, java ile yazılmış bir uygulamadır.</Description>
+            <Icon>frd</Icon>
+            <Archive type="zip" sha1sum="e20314845ff03f7642bbe9e4a0c2c71f7b6c321a">http://download.sosej.cz/programy4/Freerapid-Downloader_0.81.zip</Archive>
+            <Patches>
+                <Patch level="1">path-fix.patch</Patch>
+            </Patches>
+            <SourceURI>applications/network/freerapid/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>freerapid</Name>
+            <RuntimeDependencies>
+                <Dependency>sun-jre</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/freerapid.desktop" permission="0644" owner="root">freerapid.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-08</Date>
+                <Version>0.81</Version>
+                <Comment>First release.</Comment>
+                <Name>H.Gökhan Sarı</Name>
+                <Email>hsa2@difuzyon.net</Email>
             </Update>
         </History>
     </SpecFile>
@@ -20435,10 +20492,10 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">PlayOnLinux tool to help Linux users run Windows games on linux</Summary>
             <Description xml:lang="en">PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft&apos;s Windows.</Description>
             <Icon>PlayOnLinux</Icon>
-            <Archive type="targz" sha1sum="a6ecb9fdb63522f619a4fc97300a0e1c79cf89ad">http://www.playonlinux.com/script_files/PlayOnLinux/3.1.3/PlayOnLinux_3.1.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="3bc70e4c13b4ac2b6ddf6c3b5198897242062e44">http://www.playonlinux.com/script_files/PlayOnLinux/3.4/PlayOnLinux_3.4.tar.gz</Archive>
             <Patches>
-                <Patch>konsole.patch</Patch>
                 <Patch>bin_path.patch</Patch>
+                <Patch>konsole.patch</Patch>
                 <Patch>turkish.patch</Patch>
             </Patches>
             <SourceURI>applications/emulators/playonlinux/pspec.xml</SourceURI>
@@ -20461,13 +20518,49 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Path fileType="data">/usr/share/playonlinux</Path>
             </Files>
             <AdditionalFiles>
+                <AdditionalFile target="/usr/share/playonlinux/lang/po/tr.po" permission="0644" owner="root">tr.po</AdditionalFile>
                 <AdditionalFile target="/usr/share/applications/PlayOnLinux.desktop" permission="0644" owner="root">PlayOnLinux.desktop</AdditionalFile>
                 <AdditionalFile target="/usr/share/pixmaps/playonlinux.png" permission="0755" owner="root">playonlinux.png</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-04-07</Date>
+                <Version>3.4</Version>
+                <Comment>Stable update and fixing Turkish language support.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2009-02-02</Date>
+                <Version>3.3.1</Version>
+                <Comment>Stable update.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2008-12-06</Date>
+                <Version>3.2.2</Version>
+                <Comment>Stable update.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-11-30</Date>
+                <Version>3.2.1</Version>
+                <Comment>Stable update.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
+            <Update release="6">
+                <Date>2008-09-29</Date>
+                <Version>3.2</Version>
+                <Comment>Stable update.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
             <Update release="5">
-                <Date>2008-11-02</Date>
+                <Date>2008-09-14</Date>
                 <Version>3.1.3</Version>
                 <Comment>Stable update.</Comment>
                 <Name>Deniz Ege Tunçay</Name>
@@ -21477,39 +21570,28 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.editors</PartOf>
             <Summary xml:lang="en">Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Summary>
             <Summary xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Summary>
             <Description xml:lang="en">Amaya is a Web editor, a tool used to create and update documents directly on the Web.</Description>
             <Description xml:lang="tr">Doğrudan web üzerinde belge oluşturmak ve güncellemek için kullanılan bir web düzenleyicisi</Description>
-            <Archive type="targz" sha1sum="01911ba7b7192d995e9cf440e6e6983ea4d50f43">http://wam.inrialpes.fr/software/amaya/amaya-sources-9.99.tgz</Archive>
+            <Icon>amaya</Icon>
+            <Archive type="targz" sha1sum="e0cbdf876386205287dce0e48dbcc8c41446d7c2">http://wam.inrialpes.fr/software/amaya/amaya-sources-11.2-pre.tgz</Archive>
             <BuildDependencies>
-                <Dependency>wxGTK2_8</Dependency>
+                <Dependency>wxGTK</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency>imlib2</Dependency>
-                <Dependency>raptor</Dependency>
-                <Dependency>rasqal</Dependency>
                 <Dependency releaseFrom="4">libwww</Dependency>
                 <Dependency>redland</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch>use-wx2.8.patch</Patch>
-                <Patch level="1">use-system-libwww.patch</Patch>
-                <Patch level="1">use-system-mesa.patch</Patch>
-                <Patch level="1">use-system-png_jpeg_zlib.patch</Patch>
-            </Patches>
             <SourceURI>applications/editors/amaya/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>amaya</Name>
             <RuntimeDependencies>
-                <Dependency>wxGTK2_8</Dependency>
+                <Dependency>wxGTK</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency>imlib2</Dependency>
-                <Dependency>raptor</Dependency>
-                <Dependency>rasqal</Dependency>
                 <Dependency releaseFrom="4">libwww</Dependency>
                 <Dependency>redland</Dependency>
             </RuntimeDependencies>
@@ -21519,15 +21601,20 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Path fileType="data">/usr/share/Amaya</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
-            <Provides>
-                <COMAR script="package.py">System.Package</COMAR>
-            </Provides>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/applications/amaya.desktop" permission="0644" owner="root">amaya.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2009-03-29</Date>
+                <Version>11.2_pre1</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Murat Şenel</Name>
+                <Email>muratasenel@gmail.com</Email>
+            </Update>
             <Update release="12">
                 <Date>2007-11-05</Date>
                 <Version>9.99</Version>
@@ -40349,6 +40436,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-03-30</Date>
+                <Version>0.7.1</Version>
+                <Comment>Move example files to example directory.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-03-25</Date>
                 <Version>0.7.1</Version>
