@@ -7,8 +7,12 @@
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 
+def build():
+    pythonmodules.compile()
+
 def install():
     pythonmodules.install()
 
     pisitools.dodoc("COPYING", "TODO", "README", "TRANSLATORS", "CHANGELOG")
+
     pisitools.removeDir("/usr/share/sonata")
