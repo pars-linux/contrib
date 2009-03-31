@@ -16,5 +16,6 @@ def build():
 
 def install():
     autotools.rawInstall('INSTALL_ROOT="%s"' % get.installDIR())
+    pisitools.insinto('/usr/share/applications', 'merkaartor.desktop')
 
     pisitools.dodoc("AUTHORS", "CHANGELOG", "HACKING", "LICENSE")
