@@ -9,8 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    #dummy configure enables freetype
-    autotools.rawConfigure()
+    autotools.rawConfigure("--without-allegro")
 
 def build():
     autotools.make("BINARY_DIR=usr/share/openttd \
