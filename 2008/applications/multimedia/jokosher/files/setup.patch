@@ -1,23 +1,5 @@
---- setup.py.orig	2008-09-01 22:05:13.000000000 +0300
-+++ setup.py	2008-09-01 22:37:38.000000000 +0300
-@@ -23,7 +23,7 @@
- for filepath in glob.glob("help/jokosher/*/figures/*.png"):
- 	targetpath = os.path.dirname(os.path.join("share/gnome/", filepath))
- 	HELPIMAGES.append((targetpath, [filepath]))
--	
-+
- #Check if scrollkeeper is available
- OMFFILES = []
- omfdir = None
-@@ -36,7 +36,7 @@
- 	#Obtain the OMF repository directory to install and register the help files
- 	omfdir = os.path.join(process.stdout.read().strip(), "jokosher")
- 	OMFFILES.append((omfdir, glob.glob("help/jokosher/*.omf")))
--		
-+
- dist = setup(name='jokosher',
- 	version='0.10',
- 	author='Jokosher Project',
+--- setup.py.orig	2009-04-01 13:23:02.000000000 +0300
++++ setup.py	2009-04-01 13:23:58.000000000 +0300
 @@ -64,65 +64,3 @@
  		('share/jokosher/extensions', glob.glob("extensions/*.py") + glob.glob("extensions/*.egg"))
  		]+I18NFILES+HELPDOCS+HELPIMAGES+OMFFILES
@@ -78,9 +60,9 @@
 -## /usr/bin/jokosher
 -## /usr/share/jokosher/
 -## /usr/share/gnome/help/jokosher/
--## /usr/icons/hicolor/48x48/apps/jokosher.png
+-## /usr/share/icons/hicolor/48x48/apps/jokosher.png
 -## /usr/share/locale/*/LC_MESSAGES/jokosher.mo
 -## /usr/share/pixmaps/jokosher.png
 -## /usr/share/applications/jokosher.desktop
 -## /usr/lib/python2.X/site-packages/Jokosher/
--## omfdir/jokosher/*.omf
+-## /usr/share/omf/jokosher/*.omf
