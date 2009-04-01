@@ -1,0 +1,25 @@
+--- Miro-2.0/platform/gtk-x11/setup.py.fhs	2009-02-09 23:34:54.000000000 -0500
+--- Miro-2.0/platform/gtk-x11/setup.py	2009-02-10 22:15:58.126123836 -0500
+@@ -660,7 +660,7 @@
+      [os.path.join(platform_dir, 'miro.1.gz')]),
+     ('/usr/share/man/man1',
+      [os.path.join(platform_dir, 'miro.real.1.gz')]),
+-    ('/usr/lib/miro/',
++    ('/usr/libexec/',
+      [os.path.join(platform_dir, 'xine/xine_extractor')]),
+ ]
+ 
+--- Miro-2.0.2/platform/gtk-x11/plat/renderers/xinerenderer.py	2009-03-07 12:21:24.000000000 -0700
++++ Miro-2.0.2.modified/platform/gtk-x11/plat/renderers/xinerenderer.py	2009-03-09 02:06:25.000000000 -0700
+@@ -214,8 +214,8 @@
+         logging.warn("set_rate not implemented for xine")
+ 
+     def movie_data_program_info(self, movie_path, thumbnail_path):
+-        if os.path.exists(resources.path('../../../lib/miro/xine_extractor')):
+-            path = resources.path('../../../lib/miro/xine_extractor')
++        if os.path.exists(resources.path('/usr/libexec/xine_extractor')):
++            path = resources.path('/usr/libexec/xine_extractor')
+             return ((path, movie_path, thumbnail_path), None)
+         else:
+             logging.error("xine_extractor cannot be found.")
+Only in Miro-2.0.2.modified/platform/gtk-x11/plat/renderers: xinerenderer.py~
