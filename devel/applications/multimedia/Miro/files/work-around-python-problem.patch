@@ -1,11 +1,12 @@
---- Miro-0.9.9.9/platform/gtk-x11/setup.py~	2007-11-01 15:18:02.000000000 +0100
-+++ Miro-0.9.9.9/platform/gtk-x11/setup.py	2007-11-01 15:19:06.000000000 +0100
-@@ -382,7 +382,7 @@ class install_data (distutils.command.in
+diff -p -up Miro-2.0/platform/gtk-x11/setup.py~ Miro-2.0/platform/gtk-x11/setup.py
+--- Miro-2.0/platform/gtk-x11/setup.py~	2009-02-11 12:26:05.000000000 +0100
++++ Miro-2.0/platform/gtk-x11/setup.py	2009-02-11 12:27:18.000000000 +0100
+@@ -714,7 +714,7 @@ class install_data(distutils.command.ins
                               APP_REVISION_NUM=revisionnum,
                               APP_REVISION_URL=revisionurl,
                               APP_PLATFORM='gtk-x11',
 -                             BUILD_MACHINE="%s@%s" % (getlogin(),
-+                             BUILD_MACHINE="%s@%s" % ("Pardus",
++                             BUILD_MACHINE="%s@%s" % ("pardus",
                                                        os.uname()[1]),
                               BUILD_TIME=str(time.time()),
-                              MOZILLA_LIB_PATH=mozilla_lib_path[0])
+                              MOZILLA_LIB_PATH=mozilla_runtime_path[0])
