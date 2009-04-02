@@ -18238,12 +18238,12 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">A reimplementation of the Microprose game &quot;Transport Tycoon Deluxe&quot; with lots of new features and enhancements. One of its biggest feature is being able to play over internet with other players on its servers. You need original TTD data files in order to run OpenTTD. Look at the README file for details.</Description>
             <Description xml:lang="tr">Microprose&apos;nin ürettiği &quot;Transport Tycoon Deluxe&quot; oyununun birçok yeniliklerle birlikte geliştirilmiş taklidi. En büyük yeniliklerden biri, internet üzerindeki sunucularda diğer oyuncularla birlikte aynı harita üzerinde oynayabilme özelliğidir. Oyunu çalıştırabilmeniz için özgün TTD veri dosyalarına ihtiyaç vardır. Oyunun sitesinden ve forumundan yardım alabilirsiniz.</Description>
             <Icon>openttd</Icon>
-            <Archive type="tarbz2" sha1sum="5fb359789fae9b03550da268973fb1238ddf224c">mirrors://sourceforge/openttd/openttd-0.6.3-source.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a55402a49ccd87b574b12183abb4239b92ea98f5">mirrors://sourceforge/openttd/openttd-0.7.0-source.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.2.7">libsdl</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>openttd-pardus.patch</Patch>
+                <Patch>defaultfonts.patch</Patch>
             </Patches>
             <SourceURI>applications/games/openttd/pspec.xml</SourceURI>
         </Source>
@@ -18268,6 +18268,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="27">
+                <Date>2009-04-01</Date>
+                <Version>0.7.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="26">
                 <Date>2008-10-01</Date>
                 <Version>0.6.3</Version>
@@ -22119,6 +22126,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
+                <Patch>setup.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/jokosher/pspec.xml</SourceURI>
         </Source>
@@ -22673,48 +22681,54 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Bilgisayarınızı bir internet TV&apos;ye dönüştürün</Summary>
             <Description xml:lang="en">Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
             <Description xml:lang="tr">Miro, RSS ve BitTorrent destekli bir internet multimedya oynatıcısıdır.</Description>
-            <Icon>Miro</Icon>
-            <Archive type="targz" sha1sum="1e72b808224621c53dc64acde8825f47c427ba38">http://ftp.osuosl.org/pub/pculture.org/miro/src/Miro-1.2.8.tar.gz</Archive>
+            <Icon>miro</Icon>
+            <Archive type="targz" sha1sum="e90a30381322533e70e80c77df9a377c70e8cb44">ftp://ftp.sudrap.org/mnurolcay/source/Miro-2.0.4_r9367.tar.gz</Archive>
             <BuildDependencies>
+                <Dependency releaseFrom="4">gnome-python-extras</Dependency>
                 <Dependency>pyrex</Dependency>
                 <Dependency>boost-devel</Dependency>
+                <Dependency>libtorrent</Dependency>
                 <Dependency>xulrunner-devel</Dependency>
+                <Dependency>desktop-file-utils</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">dontchecksvn.patch</Patch>
-                <Patch level="1">miro-gcc-4.3.patch</Patch>
-                <Patch level="1">noautoupdate.patch</Patch>
-                <Patch level="1">xulrunner.patch</Patch>
-                <Patch level="1">pardus.patch</Patch>
-                <Patch level="1">work-around-python-problem.patch</Patch>
-                <Patch level="1">utf8.patch</Patch>
+                <Patch level="1">fedora_fhs.patch</Patch>
                 <Patch level="1">desktop.patch</Patch>
+                <Patch level="1">work-around-python-problem.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/Miro/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>Miro</Name>
             <RuntimeDependencies>
-                <Dependency releaseFrom="4">gnome-python-extras</Dependency>
+                <Dependency>pyrex</Dependency>
                 <Dependency>xulrunner</Dependency>
                 <Dependency>gst-python</Dependency>
-                <Dependency>boost</Dependency>
-                <Dependency>pyrex</Dependency>
+                <Dependency>libtorrent</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="executable">/usr/libexec</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="library">/usr/lib/python2.5</Path>
+                <Path fileType="library">/usr/lib/miro</Path>
                 <Path fileType="data">/usr/share/miro</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/mime</Path>
-                <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-04-02</Date>
+                <Version>2.0.4_20090402</Version>
+                <Comment>Version bump and dodoc for needed files, remove unneeded patches and deps</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-10-25</Date>
                 <Version>1.2.8</Version>
