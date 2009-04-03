@@ -3061,8 +3061,9 @@
             <IsA>app:gui</IsA>
             <PartOf>applications.science.electronics</PartOf>
             <Summary xml:lang="en">Quite Universal Circuit Simulator is a Qt based circuit simulator</Summary>
+            <Summary xml:lang="tr">Qt tabanlı bir devre simulasyon uygulamasıdır</Summary>
             <Description xml:lang="en">Qucs provides a GUI based on Qt for setting up electronical circuits and a simulator, which is able to simulate the small- and large signal and noise behaviour of microwave circuits. Pure digital simulations can be performed via VHDL. The results can be shown on a presentation page in different formats (rectangular, polar, smith, tabular, 3D rectangular etc.).</Description>
-            <Archive type="targz" sha1sum="08b0385a5eff0d01735f33f38050787aa0133217">mirrors://sourceforge/qucs/qucs-0.0.13.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2563657d3659e1c7d45399f0c10dbc9fe4850b04">mirrors://sourceforge/qucs/qucs-0.0.14.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
             </BuildDependencies>
@@ -3078,9 +3079,22 @@
                 <Path fileType="data">/usr/share/qucs</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/applications</Path>
             </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/qucs.desktop" permission="0644" owner="root">qucs.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/icons/qucs64x64.png" permission="0644" owner="root">qucs64x64.png</AdditionalFile>
+            </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-03-10</Date>
+                <Version>0.0.14</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-01-28</Date>
                 <Version>0.0.13</Version>
@@ -32117,6 +32131,42 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>hashit</Name>
+            <Homepage>http://www.pleyades.net/david/hashit.php</Homepage>
+            <Packager>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.libs</PartOf>
+            <Summary xml:lang="en">A library of generic hash tables that supports different collision handling methods with one common interface</Summary>
+            <Summary xml:lang="tr">Bir ortak arayüzle değişik çarpışma idare (collision handling) yöntemlerini destekleyen cinse özgü(generic) hash tabloları kitaplığı</Summary>
+            <Description xml:lang="en">hashit is a library of generic hash tables that supports different collision handling methods with one common interface. Both data and keys can be of any type. It is small and easy to use.</Description>
+            <Description xml:lang="tr">Hashit, bir ortak arayüzle değişik çarpışma idare (collision handling) yöntemlerini destekleyen cinse özgü(generic) hash tabloları kitaplığıdır. Veri ve anahtarlar herhangi bir türde olabilir. Hashit küçük ve kolay kullanılabilirdir.</Description>
+            <Archive type="targz" sha1sum="f27870d7af22ddcfb7f81faf3b427ae6d518ed5e">http://www.pleyades.net/david/projects/hashit/hashit-0.9.6.tar.gz</Archive>
+            <SourceURI>programming/libs/hashit/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>hashit</Name>
+            <Files>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-16</Date>
+                <Version>0.9.6</Version>
+                <Comment>First release.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>uriparser</Name>
             <Homepage>http://uriparser.sourceforge.net/</Homepage>
             <Packager>
@@ -54741,6 +54791,92 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gdm</Name>
+            <Homepage>http://projects.gnome.org/gdm/</Homepage>
+            <Packager>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.gnome.base</PartOf>
+            <Summary xml:lang="en">GNOME display manager</Summary>
+            <Summary xml:lang="tr">GNOME ekran yöneticisi</Summary>
+            <Description xml:lang="en">GDM provides log into different sessions on local or remote machines.</Description>
+            <Description xml:lang="tr">GDM, yerel veya uzak makinelerde farklı oturumlar açmayı sağlar.</Description>
+            <Archive type="tarbz2" sha1sum="b826a14f1f7bbb16d0f4c32c659eb499fefaf956">mirrors://gnome/gdm/2.20/gdm-2.20.9.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xcb-util</Dependency>
+                <Dependency>pixman</Dependency>
+                <Dependency>libglade2</Dependency>
+                <Dependency>libgnomecanvas</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>libart_lgpl</Dependency>
+                <Dependency>glitz</Dependency>
+                <Dependency>tcp-wrappers</Dependency>
+                <Dependency>docbook-xml4_1_2</Dependency>
+                <Dependency>gnome-doc-utils</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>gdm-with-pam.patch</Patch>
+                <Patch>gdm-autologin-with-pam.patch</Patch>
+                <Patch>login-settings.patch</Patch>
+                <Patch>pardus-menus.patch</Patch>
+                <Patch>remove-unsupported-languages.patch</Patch>
+                <Patch level="1">xterm-size.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/gnome/base/gdm/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gdm</Name>
+            <RuntimeDependencies>
+                <Dependency>xcb-util</Dependency>
+                <Dependency>pixman</Dependency>
+                <Dependency>libglade2</Dependency>
+                <Dependency>libgnomecanvas</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>libart_lgpl</Dependency>
+                <Dependency>glitz</Dependency>
+                <Dependency>tcp-wrappers</Dependency>
+                <Dependency releaseFrom="5">xdg-utils</Dependency>
+                <Dependency>xterm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc/gdm</Path>
+                <Path fileType="config">/etc/pam.d</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/sbin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/gdm</Path>
+                <Path fileType="data">/usr/share/gnome</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/omf</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/xsessions</Path>
+                <Path fileType="data">/var/lib</Path>
+                <Path fileType="data">/var/log</Path>
+            </Files>
+            <Provides>
+                <COMAR script="service.py">System.Service</COMAR>
+            </Provides>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-01</Date>
+                <Version>2.20.9</Version>
+                <Comment>First release.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
