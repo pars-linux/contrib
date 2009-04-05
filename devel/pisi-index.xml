@@ -14948,6 +14948,51 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>catfish</Name>
+            <Homepage>http://www.twotoasts.de/index.php?/pages/catfish_summary.html</Homepage>
+            <Packager>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>applications.util</PartOf>
+            <Summary xml:lang="en">Simple desktop search tool</Summary>
+            <Summary xml:lang="tr">Basit masaüstü arama uygulaması</Summary>
+            <Description xml:lang="en">Catfish is a simple desktop search tool.  By default uses find, for advanced search install slocate, beagle or strigi packages. The interface is intentionally lightweight and simple, using only GTK+ 2. You can configure it to your needs by using several command line options.</Description>
+            <Description xml:lang="tr">Catfish, basit bir masaüstü arama uygulamasıdır. Arayüzü GTK+ 2 ile tasarlanmış olup bilerek sade ve hafif tutulmuştur; ama çeşitli komut satırı seçenekleriyle, ihtiyacınıza göre de yapılandırabilirsiniz. Öntanımlı olarak find komutunu kullanır; daha gelişmiş arama için slocate, beagle ya da strigi paketlerini yükleyin.</Description>
+            <Archive type="targz" sha1sum="26893bc4fc5947e19289a0d82e214c035ca93936">http://www.twotoasts.de/media/catfish/catfish-0.3.2.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>pygtk</Dependency>
+            </BuildDependencies>
+            <SourceURI>applications/util/catfish/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>catfish</Name>
+            <RuntimeDependencies>
+                <Dependency>pygtk</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/catfish</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-02-11</Date>
+                <Version>0.3.2</Version>
+                <Comment>First release</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>fprint_demo</Name>
             <Homepage>http://www.reactivated.net/fprint/wiki/Fprint_demo</Homepage>
             <Packager>
@@ -26971,7 +27016,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
             <Description xml:lang="tr">Qtractor, Qt4 çatısı ile C++ kullanılarak yazılmış çok kanallı bir Ses/MIDI kayıt ve düzenleme yazılımıdır.</Description>
             <Icon>qtractor</Icon>
-            <Archive type="targz" sha1sum="acdc81f70e8ca15ac9dee8c71e40c0c37111ab9b">mirrors://sourceforge/qtractor/qtractor-0.4.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f2afae56eec4ebc65948f19e889d7b03cbb07897">mirrors://sourceforge/qtractor/qtractor-0.4.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt4</Dependency>
                 <Dependency>libvorbis</Dependency>
@@ -26999,6 +27044,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-04-05</Date>
+                <Version>0.4.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-03-13</Date>
                 <Version>0.4.0</Version>
@@ -40845,7 +40897,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.languages.python</PartOf>
             <Summary xml:lang="en">SQL toolkit and Object Relational Mapper for Python</Summary>
             <Description xml:lang="en">SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</Description>
-            <Archive type="targz" sha1sum="2c221b8e3821e8a3ea5aa788130dcd94207f5f07">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.5.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0a4f50b690ae946c3188614eeea6f1e5f02681d9">mirrors://sourceforge/sqlalchemy/SQLAlchemy-0.5.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>setuptools</Dependency>
             </BuildDependencies>
@@ -40859,6 +40911,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-04-04</Date>
+                <Version>0.5.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-01-26</Date>
                 <Version>0.5.2</Version>
