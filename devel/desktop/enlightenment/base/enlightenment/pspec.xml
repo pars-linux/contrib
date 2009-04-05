@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE PISI SYSTEM 'http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd'>
-
 <PISI>
     <Source>
         <Name>enlightenment</Name>
@@ -11,59 +10,89 @@
         </Packager>
         <License>BSD</License>
         <IsA>app:gui</IsA>
-        <Summary>Enlightenment Window Manager</Summary>
-        <Archive sha1sum="fb9085f558d9745dd015b8fe1af48b4a6341d6ba" type="targz">http://enlightenment.freedesktop.org/files/enlightenment-0.16.999.037.tar.gz</Archive>
+        <Summary>Enlightenment Desktop Shell</Summary>
+        <Description>Enlightenment is a window manager for the X Window System that is designed to be powerful, extensible, configurable and pretty darned good looking! It is one of the more graphically intense window managers.</Description>
+        <Archive sha1sum="e189a8bcd08d605f5d6a2d3880775fc631ef5ae9" type="tarbz2">ftp://ftp.sudrap.org/igungor/E17/20090404/e_20090404.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.2.19">esound</Dependency>
-            <Dependency versionFrom="2">freetype</Dependency>
-            <Dependency versionFrom="1.2.1">imlib2</Dependency>
-            <Dependency versionFrom="0.9.9.037">ecore</Dependency>
-            <Dependency versionFrom="1.0.5.007">edb</Dependency>
-            <Dependency versionFrom="0.5.0.037">edje</Dependency>
-            <Dependency versionFrom="0.9.10.037">eet</Dependency>
-            <Dependency versionFrom="0.9.1.037">embryo</Dependency>
-            <Dependency versionFrom="0.9.0.007">epeg</Dependency>
-            <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
-            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
-            <Dependency versionFrom="0.9.9.037">evas</Dependency>
-            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+            <Dependency versionFrom="1.1.0_20090404">eet</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">evas</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">edje</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.050_20090404">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.050_20090404">e_dbus</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>enlightenment-tr.patch</Patch>
-            <Patch>enlightenment.desktop.patch</Patch>
-        </Patches>
+        <!--<Patches>-->
+            <!--<Patch level="1">fileman-default.patch</Patch>-->
+            <!--<Patch level="1">desktop-default.patch</Patch>-->
+        <!--</Patches>-->
     </Source>
 
     <Package>
         <Name>enlightenment</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.2.19">esound</Dependency>
-            <Dependency versionFrom="2">freetype</Dependency>
-            <Dependency versionFrom="1.2.1">imlib2</Dependency>
-            <Dependency versionFrom="0.9.9.037">ecore</Dependency>
-            <Dependency versionFrom="1.0.5.007">edb</Dependency>
-            <Dependency versionFrom="0.5.0.037">edje</Dependency>
-            <Dependency versionFrom="0.9.10.037">eet</Dependency>
-            <Dependency versionFrom="0.9.1.037">embryo</Dependency>
-            <Dependency versionFrom="0.9.0.007">epeg</Dependency>
-            <Dependency versionFrom="0.3.0.007">epsilon</Dependency>
-            <Dependency versionFrom="0.9.0.007">esmart</Dependency>
-            <Dependency versionFrom="0.9.9.037">evas</Dependency>
-            <Dependency versionFrom="0.0.4.007">ewl</Dependency>
+            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+            <Dependency versionFrom="1.1.0_20090404">eet</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">evas</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">edje</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.050_20090404">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.050_20090404">e_dbus</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/share/enlightenment</Path>
+            <Path fileType="data">/usr/share/xsessions</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/xsessions/enlightenment.desktop">enlightenment.desktop</AdditionalFile>
+        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="11">
+            <Date>2009-04-04</Date>
+            <Version>0.16.999.050_20090404</Version>
+            <Comment>New snapshot</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+        <Update release="10">
+            <Date>2009-01-22</Date>
+            <Version>0.16.999.050_20090319</Version>
+            <Comment>Bump to latest snapshot</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2008-11-26</Date>
+            <Version>0.0_20081126</Version>
+            <Comment>Bump to latest snapshot</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2008-11-22</Date>
+            <Version>0.16.999.043</Version>
+            <Comment>Minor fixes.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-05-20</Date>
+            <Version>0.16.999.043</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2006-12-09</Date>
             <Version>0.16.999.037</Version>

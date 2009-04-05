@@ -9,10 +9,11 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "evas"
+WorkDir = "evas_20090404"
 
 def setup():
-    shelltools.system("./autogen.sh")
+    shelltools.touch("README")
+    autotools.autoreconf("-fi")
     autotools.configure("--enable-gl-x11 \
                          --enable-buffer \
                          --enable-software-x11 \

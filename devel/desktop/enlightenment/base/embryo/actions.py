@@ -9,10 +9,11 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "embryo"
+WorkDir = "embryo_20090404"
 
 def setup():
-    shelltools.system("./autogen.sh")
+    shelltools.touch("README")
+    autotools.autoreconf("-fi")
     autotools.configure("--disable-static")
 
 def build():
