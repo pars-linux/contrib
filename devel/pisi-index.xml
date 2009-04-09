@@ -27485,48 +27485,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>rumor</Name>
-            <Homepage>http://www.volny.cz/smilauer/rumor/</Homepage>
-            <Packager>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>applications.multimedia</PartOf>
-            <Summary xml:lang="en">Really Unintelligent Music transcriptOR</Summary>
-            <Description xml:lang="en">Rumor is a realtime monophonic (with chords) MIDI keyboard to Lilypond converter. It receives MIDI events, quantizes them according to its metronome on the fly and outputs handwritten-like corresponding Lilypond notation.</Description>
-            <Archive type="tarbz2" sha1sum="b6bfacdd9512738403d025c0fd4fcbc7f230b8e2">http://www.volny.cz/smilauer/rumor/src/rumor-1.0.3b.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>guile</Dependency>
-            </BuildDependencies>
-            <SourceURI>applications/multimedia/rumor/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>rumor</Name>
-            <RuntimeDependencies>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>guile</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="info">/usr/share/info</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-04-14</Date>
-                <Version>1.0.3b</Version>
-                <Comment>First release</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>qsampler</Name>
             <Homepage>http://qsampler.sourceforge.net/qsampler-index.html</Homepage>
             <Packager>
@@ -29804,7 +29762,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
             <Description xml:lang="tr">Fotoxx ile herhangi bir dijital kameradan aldığınız resim dosyalarını düzenleyebilirsiniz. Renk ve kontrast geliştirmeleri, kırmızı göz efekti (red-eye effect) giderme, keskinleştirme, kırpma, çevirme, gürültü giderme (noise removal), HDR ve panoramik fotoğrafların birleştirilmesi, etiket düzenleme ve arama gibi pek çok özelliğe sahiptir.</Description>
             <Icon>fotoxx</Icon>
-            <Archive type="targz" sha1sum="c371a188854b5473caf0a46e99c08f0a464b1cbd">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="973d84a15834c9b7d6e913752df2a6b7f34aab68">http://kornelix.squarespace.com/storage/downloads/fotoxx-6.4.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>exiv2</Dependency>
@@ -29837,6 +29795,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-04-04</Date>
+                <Version>6.4.3</Version>
+                <Comment>version bump</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-03-25</Date>
                 <Version>6.3</Version>
@@ -48272,6 +48237,129 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Update release="1">
                 <Date>2006-06-10</Date>
                 <Version>0.9.9.027</Version>
+                <Comment>First release</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>efreet</Name>
+            <Homepage>http://wiki.enlightenment.org/index.php/Efreet</Homepage>
+            <Packager>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Packager>
+            <License>BSD</License>
+            <IsA>app:console</IsA>
+            <IsA>library</IsA>
+            <PartOf>desktop.e17.base</PartOf>
+            <Summary xml:lang="en">MIME-standards handler for E17 desktop shell</Summary>
+            <Summary xml:lang="tr">E17 için MIME standartları kitaplığı</Summary>
+            <Description xml:lang="en">efreet implements the FreeDesktop.Org application and MIME-handling standards.</Description>
+            <Description xml:lang="tr">Efreet, FreeDesktop.Org uygulama ve MIME standartlarını gerçekleyen bir kitaplıktır.</Description>
+            <Archive type="tarbz2" sha1sum="1546c6f7bba66c32cdf9709be6266cbc11020516">ftp://ftp.sudrap.org/igungor/E17/20090404/efreet_20090404.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/efreet/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>efreet</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="data">/usr/share/efreet</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/lib/pkgconfig</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2009-04-04</Date>
+                <Version>0.5.0.050_20090404</Version>
+                <Comment>New snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2009-03-20</Date>
+                <Version>0.5.0.050_20090319</Version>
+                <Comment>Bump to latest snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-05-20</Date>
+                <Version>0.5.0.043</Version>
+                <Comment>First release</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>e_dbus</Name>
+            <Homepage>http://wiki.enlightenment.org/index.php?title=E_DBus</Homepage>
+            <Packager>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Packager>
+            <License>BSD</License>
+            <IsA>app:console</IsA>
+            <IsA>library</IsA>
+            <PartOf>desktop.e17.base</PartOf>
+            <Summary xml:lang="en">A Dbus wrapper for EFL based applications</Summary>
+            <Summary xml:lang="tr">EFL kullanan uygulamalar için DBus katmanı</Summary>
+            <Description xml:lang="en">e_dbus is a basic convenience wrapper around dbus.</Description>
+            <Description xml:lang="tr">E_DBus, EFL kullanan uygulamaların DBus kullanımını kolaylaştırması için tasarlanmış bir ara katmandır.</Description>
+            <Archive type="tarbz2" sha1sum="7a49d15791c8c65a51a816c4be850edd74f79793">ftp://ftp.sudrap.org/igungor/E17/20090404/e_dbus_20090404.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/enlightenment/base/e_dbus/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>e_dbus</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+                <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/lib/pkgconfig</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2009-04-04</Date>
+                <Version>0.5.0.050_20090404</Version>
+                <Comment>New snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2009-03-20</Date>
+                <Version>0.5.0.050_20090319</Version>
+                <Comment>Bump to latest snapshot</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-05-20</Date>
+                <Version>0.5.0.043</Version>
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
