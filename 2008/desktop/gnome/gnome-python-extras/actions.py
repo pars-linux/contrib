@@ -6,9 +6,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import pythonmodules
 
 def setup():
+    autotools.autoreconf("-fiv")
     autotools.configure("--with-gtkmozembed=mozilla")
 
 def build():
@@ -16,7 +16,5 @@ def build():
 
 def install():
     autotools.install()
-
-    pythonmodules.fixCompiledPy()
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS")
