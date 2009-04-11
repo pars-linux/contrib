@@ -15,7 +15,8 @@ def setup():
                          --enable-lame \
                          --enable-tooltips \
                          --enable-mad \
-                         --enable-ffmpeg")
+                         --enable-ffmpeg \
+                         --docdir=/usr/share/doc/%s" % get.srcTAG())
 
 def build():
     autotools.make()
@@ -23,7 +24,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.removeDir("/usr/share/doc/idjc-%s/" % get.srcVERSION())
-
-    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "README")
     pisitools.dohtml("doc/*")
