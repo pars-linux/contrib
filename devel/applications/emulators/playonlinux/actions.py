@@ -19,6 +19,7 @@ def install():
     shelltools.copytree("playonlinux", "%s/%s/" % (get.installDIR(), datadir))
 
     pisitools.dobin("playonlinux/playonlinux")
+    pisitools.domo("/usr/share/playonlinux/lang/po/tr.po", "tr", "pol.mo")
     pisitools.dodoc("playonlinux/LICENCE", "playonlinux/CHANGELOG")
 
     # clean things
