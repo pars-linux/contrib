@@ -1,19 +1,19 @@
-diff -up arora-0.4/src/browsermainwindow.cpp.fedorahome arora-0.4/src/browsermainwindow.cpp
---- arora-0.4/src/browsermainwindow.cpp.fedorahome	2008-10-01 03:17:22.000000000 +0200
-+++ arora-0.4/src/browsermainwindow.cpp	2008-10-06 14:14:46.000000000 +0200
-@@ -966,7 +966,7 @@ void BrowserMainWindow::slotHome()
+diff -Naur arora-0.6.orig/src/browsermainwindow.cpp arora-0.6/src/browsermainwindow.cpp
+--- arora-0.6.orig/src/browsermainwindow.cpp	2009-03-29 17:13:56.000000000 +0300
++++ arora-0.6/src/browsermainwindow.cpp	2009-03-29 17:19:27.000000000 +0300
+@@ -1209,7 +1209,7 @@
  {
      QSettings settings;
      settings.beginGroup(QLatin1String("MainWindow"));
 -    QString home = settings.value(QLatin1String("home"), QLatin1String("http://www.arora-browser.org")).toString();
 +    QString home = settings.value(QLatin1String("home"), QLatin1String("http://pardus.org.tr")).toString();
-     loadPage(home);
+     tabWidget()->loadString(home);
  }
-
-diff -up arora-0.4/src/settings.cpp.fedorahome arora-0.4/src/settings.cpp
---- arora-0.4/src/settings.cpp.fedorahome	2008-10-06 14:15:30.000000000 +0200
-+++ arora-0.4/src/settings.cpp	2008-10-06 14:13:10.000000000 +0200
-@@ -113,7 +113,7 @@ void SettingsDialog::loadFromSettings()
+ 
+diff -Naur arora-0.6.orig/src/settings.cpp arora-0.6/src/settings.cpp
+--- arora-0.6.orig/src/settings.cpp	2009-03-29 17:13:56.000000000 +0300
++++ arora-0.6/src/settings.cpp	2009-03-29 17:20:00.000000000 +0300
+@@ -122,7 +122,7 @@
  {
      QSettings settings;
      settings.beginGroup(QLatin1String("MainWindow"));
