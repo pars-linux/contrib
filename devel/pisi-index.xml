@@ -24748,26 +24748,29 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>qdvdauthor</Name>
-            <Homepage>http://qdvdauthor.sourceforge.net/</Homepage>
+            <Homepage>http://qdvdauthor.sourceforge.net</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>applications.multimedia</PartOf>
-            <Summary xml:lang="en">Qt based DVD tool</Summary>
-            <Description xml:lang="en">Qt based set of tools to help you author a DVD</Description>
-            <Archive type="targz" sha1sum="68ff58cd92e587bd427b35edff595305633bc93c">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.5.0-2.tar.gz</Archive>
+            <Summary xml:lang="en">GUI to create DVD menus and images from media files</Summary>
+            <Summary xml:lang="tr">DVD menüleri hazırlamak için uygulama</Summary>
+            <Description xml:lang="en">qdvdauthor is a GUI frontend for dvdauthor and related tools. The goal is to provide an easy-to-use, yet powerful and complete interface to generate DVD menus, slideshows, and videos to burn on a DVD under Linux.</Description>
+            <Description xml:lang="tr">qdvdauthor, dvdauthor ve benzeri araçlar için hazırlanmış bir grafik arayüzdür. Kolay bir şekilde DVD menüleri, slayt şovlar ve videolar hazırlayarak bunları DVD&apos;lere kaydetmenizi sağlar.</Description>
+            <Icon>qdvdauthor</Icon>
+            <Archive type="targz" sha1sum="ca1396f1f09ed21b5c708b19156292809107a103">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.7.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>xine-lib</Dependency>
                 <Dependency>netpbm</Dependency>
                 <Dependency>dvd-slideshow</Dependency>
-                <Dependency>libvorbis</Dependency>
                 <Dependency>mjpegtools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
+                <Patch level="1">dont_check_mplayer.patch</Patch>
             </Patches>
             <SourceURI>applications/multimedia/qdvdauthor/pspec.xml</SourceURI>
         </Source>
@@ -24777,7 +24780,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>xine-lib</Dependency>
                 <Dependency>netpbm</Dependency>
                 <Dependency>dvd-slideshow</Dependency>
-                <Dependency>libvorbis</Dependency>
                 <Dependency>mjpegtools</Dependency>
                 <Dependency>videotrans</Dependency>
             </RuntimeDependencies>
@@ -24790,6 +24792,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-04-13</Date>
+                <Version>1.7.0</Version>
+                <Comment>-Version bump, add icon tag, translations.xml and patch to prevent sandbox
+                -Use autotools to install, fix some default binary paths and take the package</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-09-02</Date>
                 <Version>1.5.0</Version>
@@ -39095,16 +39105,19 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>pybluez</Name>
-            <Homepage>http://org.csail.mit.edu/pybluez/index.html</Homepage>
+            <Homepage>http://code.google.com/p/pybluez</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>GPLv2+</License>
             <IsA>library</IsA>
             <PartOf>programming.languages.python</PartOf>
-            <Summary xml:lang="en">A python module allowing access to system Bluetooth resources.</Summary>
-            <Archive type="targz" sha1sum="5c05f0c4429565c3d54e8e943fed320f88cb195a">http://org.csail.mit.edu/pybluez/release/pybluez-src-0.14.tar.gz</Archive>
+            <Summary xml:lang="en">Python module to access Bluetooth resources</Summary>
+            <Summary xml:lang="tr">Bluetooth araçları için Python modülü</Summary>
+            <Description xml:lang="en">pybluez is a library to create python wrappers around system Bluetooth resources to allow Python developers to easily and quickly create Bluetooth applications.</Description>
+            <Description xml:lang="tr">pybluez, Bluetooth araçları için arayazılım (wrapper) desteği sağlayarak kolayca Bluetooth uygulamaları geliştirilmesini sağlamayı amaçlayan bir kitaplıktır.</Description>
+            <Archive type="targz" sha1sum="1922f69be3c7d5445ecef2baa6b7532dae2169bd">http://pybluez.googlecode.com/files/PyBluez-0.16.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>bluez-libs</Dependency>
             </BuildDependencies>
@@ -39121,6 +39134,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-04-13</Date>
+                <Version>0.16</Version>
+                <Comment>Bugfix release, add translations.xml and Description, change homepage, take the package</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-12-02</Date>
                 <Version>0.14</Version>
