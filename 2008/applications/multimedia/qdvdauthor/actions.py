@@ -9,20 +9,24 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.rawConfigure("--prefix=/usr \
-                            --qt-dir=/usr/qt/3 \
-                            --build-qplayer \
+    #Fix binary paths
+    for i in ("doc/sound.txt", "qdvdauthor/qslideshow/dialogcreate.cpp", "qdvdauthor/dialogexecute.cpp", "qdvdauthor/dialogsetup.ui", "test/test_qstring/main.cpp"):
+        pisitools.dosed("%s" % i, "usr/local/bin", "usr/bin")
+
+    autotools.rawConfigure("--no-configurator \
+                            --prefix=/usr \
+                            --omit-qrender \
+                            --omit-local-ffmpeg \
                             --build-qslideshow")
+
 def build():
     autotools.make()
 
 def install():
-    for bins in ["bin/qdvdauthor", "bin/qplayer", "bin/qrender", "bin/qslideshow", "bin/to_pal_dvd.sh"]:
-        pisitools.dobin(bins)
-    #check whether to_pal_dvd.sh is necessary in the code above.. And also qrender does not enter the package.. Take care of this, check if it creates any problems. (it seems not creating any problem for now..) 
+    autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
 
     pisitools.insinto("/usr/share/applications", "qdvdauthor.desktop")
     pisitools.insinto("/usr/share/pixmaps", "qdvdauthor.png")
 
-    pisitools.dohtml("doc/html/en/*.html")
-    pisitools.dodoc("CHANGELOG", "COPYING", "README", "TODO")
+    pisitools.dodoc("CHANGELOG", "COPYING", "README", "TODO", "doc/*.txt")
+    pisitools.remove("/usr/share/doc/%s/Cross-Compile*" % get.srcTAG())

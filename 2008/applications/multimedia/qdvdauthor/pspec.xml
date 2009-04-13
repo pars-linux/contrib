@@ -3,25 +3,26 @@
 <PISI>
     <Source>
         <Name>qdvdauthor</Name>
-        <Homepage>http://qdvdauthor.sourceforge.net/</Homepage>
+        <Homepage>http://qdvdauthor.sourceforge.net</Homepage>
         <Packager>
-            <Name>Mustafa Günay</Name>
-            <Email>mgunay@pardusman.org</Email>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>qdvdauthor</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Qt based DVD tool</Summary>
-        <Description>Qt based set of tools to help you author a DVD</Description>
-        <Archive sha1sum="68ff58cd92e587bd427b35edff595305633bc93c" type="targz">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.5.0-2.tar.gz</Archive>
+        <Summary>GUI to create DVD menus and images from media files</Summary>
+        <Description>qdvdauthor is a GUI frontend for dvdauthor and related tools. The goal is to provide an easy-to-use, yet powerful and complete interface to generate DVD menus, slideshows, and videos to burn on a DVD under Linux.</Description>
+        <Archive sha1sum="ca1396f1f09ed21b5c708b19156292809107a103" type="targz">mirrors://sourceforge/qdvdauthor/qdvdauthor-1.7.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>xine-lib</Dependency>
             <Dependency>netpbm</Dependency>
             <Dependency>dvd-slideshow</Dependency>
-            <Dependency>libvorbis</Dependency>
             <Dependency>mjpegtools</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop.patch</Patch>
+            <Patch level="1">dont_check_mplayer.patch</Patch>
         </Patches>
     </Source>
 
@@ -31,7 +32,6 @@
             <Dependency>xine-lib</Dependency>
             <Dependency>netpbm</Dependency>
             <Dependency>dvd-slideshow</Dependency>
-            <Dependency>libvorbis</Dependency>
             <Dependency>mjpegtools</Dependency>
             <Dependency>videotrans</Dependency>
         </RuntimeDependencies>
@@ -45,6 +45,16 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-04-13</Date>
+            <Version>1.7.0</Version>
+            <Comment>
+                -Version bump, add icon tag, translations.xml and patch to prevent sandbox
+                -Use autotools to install, fix some default binary paths and take the package
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-09-02</Date>
             <Version>1.5.0</Version>
