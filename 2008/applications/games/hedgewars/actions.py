@@ -7,6 +7,7 @@
 from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 WorkDir='hedgewars-src-%s' % get.srcVERSION()
 
@@ -20,6 +21,7 @@ def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto("/usr/share/pixmaps", "QTfrontend/res/teamicon.png", "hedgewars.png")
+    shelltools.system("lrelease-qt4 share/hedgewars/Data/Locale/hedgewars_tr_TR.ts -qm %s/usr/share/hedgewars/Data/Locale/hedgewars_tr_TR.qm" % get.installDIR())
 
     pisitools.dodoc("COPYING", "README", "Fonts_LICENSE.txt")
     pisitools.doman("man/hedgewars.6")
