@@ -19,4 +19,6 @@ def build():
 def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("ChangeLog", "COPYING", "README", "FAQ")
+    pisitools.dosym("/usr/kde/4/share/icons/hicolor/48x48/apps/krusader_user.png", "/usr/kde/4/share/icons/hicolor/48x48/apps/krusader.png")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README", "FAQ")
