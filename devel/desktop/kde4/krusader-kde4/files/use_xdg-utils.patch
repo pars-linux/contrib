@@ -1,0 +1,60 @@
+diff -Naur krusader-2.0.0.orig/krusader/Konfigurator/kgdependencies.cpp krusader-2.0.0/krusader/Konfigurator/kgdependencies.cpp
+--- krusader-2.0.0.orig/krusader/Konfigurator/kgdependencies.cpp	2009-04-17 00:40:20.000000000 +0300
++++ krusader-2.0.0/krusader/Konfigurator/kgdependencies.cpp	2009-04-18 23:48:01.000000000 +0300
+@@ -62,7 +62,7 @@
+   pathsGrid->setContentsMargins( 11, 11, 11, 11 );
+   pathsGrid->setAlignment( Qt::AlignTop );
+   
+-  addApplication( "kdesu",    pathsGrid, 0, general_tab, PAGE_GENERAL );
++  addApplication( "xdg-su",    pathsGrid, 0, general_tab, PAGE_GENERAL );
+   addApplication( "kget",     pathsGrid, 1, general_tab, PAGE_GENERAL );
+   addApplication( "mailer",   pathsGrid, 2, general_tab, PAGE_GENERAL );
+   addApplication( "diff utility",  pathsGrid, 3, general_tab, PAGE_GENERAL );
+diff -Naur krusader-2.0.0.orig/krusader/krslots.cpp krusader-2.0.0/krusader/krslots.cpp
+--- krusader-2.0.0.orig/krusader/krslots.cpp	2009-04-17 00:40:20.000000000 +0300
++++ krusader-2.0.0/krusader/krslots.cpp	2009-04-18 23:48:33.000000000 +0300
+@@ -554,14 +554,14 @@
+ 
+ void KRslots::rootKrusader()
+ {
+-  if( !KrServices::cmdExist( "krusader" ) || !KrServices::cmdExist( "kdesu" ) )
++  if( !KrServices::cmdExist( "krusader" ) || !KrServices::cmdExist( "xdg-su" ) )
+   {
+-    KMessageBox::sorry( krApp, i18n( "Can't start root mode krusader, because krusader or kdesu is missing from the path. Please configure the dependencies in Konfigurator!" ) );
++    KMessageBox::sorry( krApp, i18n( "Can't start root mode krusader, because krusader or xdg-su is missing from the path. Please configure the dependencies in Konfigurator!" ) );
+     return;
+   }
+   
+   KProcess proc;
+-  proc << KrServices::fullPathName( "kdesu" ) << KrServices::fullPathName( "krusader" )
++  proc << KrServices::fullPathName( "xdg-su" ) << KrServices::fullPathName( "krusader" )
+        + " --left=" + MAIN_VIEW->left->func->files()->vfs_getOrigin().url()
+        + " --right=" + MAIN_VIEW->right->func->files()->vfs_getOrigin().url();
+ 
+diff -Naur krusader-2.0.0.orig/krusader/UserAction/kraction.cpp krusader-2.0.0/krusader/UserAction/kraction.cpp
+--- krusader-2.0.0.orig/krusader/UserAction/kraction.cpp	2009-04-17 00:40:20.000000000 +0300
++++ krusader-2.0.0/krusader/UserAction/kraction.cpp	2009-04-18 23:48:00.000000000 +0300
+@@ -246,12 +246,12 @@
+             if ( _action->user().isEmpty() )
+                shellCmd << term << cmd;
+             else
+-               shellCmd  << "kdesu" << "-u" << _action->user() << "-c" << KShell::quoteArg( term + " " + cmd );
++               shellCmd  << "xdg-su" << "-u" << _action->user() << "-c" << KShell::quoteArg( term + " " + cmd );
+          } else { // no terminal, no output collection, start&forget
+             if ( _action->user().isEmpty() )
+                shellCmd << cmd;
+             else
+-               shellCmd << "kdesu" << "-u" << _action->user() << "-c" << KShell::quoteArg(cmd);
++               shellCmd << "xdg-su" << "-u" << _action->user() << "-c" << KShell::quoteArg(cmd);
+          }
+          _proc->setShellCommand(shellCmd.join(" "));
+          _proc->start();
+@@ -280,7 +280,7 @@
+          shellCmd << cmd;
+       else
+          // "-t" is nessesary that kdesu displays the terminal-output of the command
+-         shellCmd << "kdesu" << "-t" << "-u" << _action->user() << "-c" << KShell::quoteArg(cmd);
++         shellCmd << "xdg-su" << "-t" << "-u" << _action->user() << "-c" << KShell::quoteArg(cmd);
+       _proc->setShellCommand(shellCmd.join(" "));
+       _proc->start();
+    }
