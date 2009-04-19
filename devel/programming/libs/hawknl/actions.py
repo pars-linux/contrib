@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir="HawkNL1.68"
+WorkDir="HawkNL%s" % get.srcVERSION()
 flags="%s \
       -funroll-all-loops \
       -ffast-math \
