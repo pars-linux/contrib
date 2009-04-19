@@ -34,4 +34,5 @@ def install():
     # remove static library
     pisitools.remove("/usr/lib/libNL.a")
 
-    pisitools.dodoc("samples/*/*")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "samples")
+    pisitools.dodoc("src/*.txt")
