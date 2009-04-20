@@ -10,7 +10,10 @@ from pisi.actionsapi import pisitools
 WorkDir = "koverartist"
 
 def setup():
-    kde.configure()
+    kde.configure("--disable-rpath \
+                   --disable-debug \
+                   --disable-warnings \
+                   --without-arts ")
 
 def build():
     kde.make()
