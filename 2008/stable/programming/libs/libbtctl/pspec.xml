@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libbtctl</Name>
+        <Homepage>http://live.gnome.org/GnomeBluetooth</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A GObject wrapper for Bluetooth functionality</Summary>
+        <Archive sha1sum="0bbeac7ac22dff5b352e2fb4944cf0c679ffdd74" type="tarbz2">mirrors://gnome/libbtctl/0.9/libbtctl-0.9.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>bluez-utils</Dependency>
+            <Dependency>openobex</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libbtctl</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>bluez-utils</Dependency>
+            <Dependency>openobex</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="2">
+            <Date>2008-05-31</Date>
+            <Version>0.9.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-17</Date>
+            <Version>0.8.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,719 @@
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_avs/fmt_codec_avs.cpp ksquirrel-libs-0.8.0/kernel/kls_avs/fmt_codec_avs.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_avs/fmt_codec_avs.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_avs/fmt_codec_avs.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_bmp/fmt_codec_bmp.cpp ksquirrel-libs-0.8.0/kernel/kls_bmp/fmt_codec_bmp.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_bmp/fmt_codec_bmp.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_bmp/fmt_codec_bmp.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_camera/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_camera/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_camera/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_camera/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_cut/fmt_codec_cut.cpp ksquirrel-libs-0.8.0/kernel/kls_cut/fmt_codec_cut.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_cut/fmt_codec_cut.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_cut/fmt_codec_cut.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_dds/fmt_codec_dds.cpp ksquirrel-libs-0.8.0/kernel/kls_dds/fmt_codec_dds.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_dds/fmt_codec_dds.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_dds/fmt_codec_dds.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_dicom/fmt_codec_png.cpp ksquirrel-libs-0.8.0/kernel/kls_dicom/fmt_codec_png.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_dicom/fmt_codec_png.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_dicom/fmt_codec_png.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs-png/png.h"
+ 
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_djvu/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_djvu/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_djvu/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_djvu/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_dxf/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_dxf/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_dxf/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_dxf/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_eps/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_eps/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_eps/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_eps/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_fig/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_fig/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_fig/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_fig/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_fli/fmt_codec_fli.cpp ksquirrel-libs-0.8.0/kernel/kls_fli/fmt_codec_fli.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_fli/fmt_codec_fli.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_fli/fmt_codec_fli.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_gif/fmt_codec_gif.cpp ksquirrel-libs-0.8.0/kernel/kls_gif/fmt_codec_gif.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_gif/fmt_codec_gif.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_gif/fmt_codec_gif.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_hdr/fmt_codec_hdr.cpp ksquirrel-libs-0.8.0/kernel/kls_hdr/fmt_codec_hdr.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_hdr/fmt_codec_hdr.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_hdr/fmt_codec_hdr.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_ico/fmt_codec_ico.cpp ksquirrel-libs-0.8.0/kernel/kls_ico/fmt_codec_ico.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_ico/fmt_codec_ico.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_ico/fmt_codec_ico.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_iff/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_iff/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_iff/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_iff/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_jbig/fmt_codec_jbig.cpp ksquirrel-libs-0.8.0/kernel/kls_jbig/fmt_codec_jbig.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_jbig/fmt_codec_jbig.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_jbig/fmt_codec_jbig.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_jpeg/fmt_codec_jpeg.cpp ksquirrel-libs-0.8.0/kernel/kls_jpeg/fmt_codec_jpeg.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_jpeg/fmt_codec_jpeg.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_jpeg/fmt_codec_jpeg.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -21,6 +21,8 @@
+ 
+ #include <csetjmp>
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <cstdio>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_jpeg2000/fmt_codec_jpeg2000.cpp ksquirrel-libs-0.8.0/kernel/kls_jpeg2000/fmt_codec_jpeg2000.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_jpeg2000/fmt_codec_jpeg2000.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_jpeg2000/fmt_codec_jpeg2000.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_koala/fmt_codec_koala.cpp ksquirrel-libs-0.8.0/kernel/kls_koala/fmt_codec_koala.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_koala/fmt_codec_koala.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_koala/fmt_codec_koala.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_leaf/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_leaf/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_leaf/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_leaf/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_lif/fmt_codec_lif.cpp ksquirrel-libs-0.8.0/kernel/kls_lif/fmt_codec_lif.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_lif/fmt_codec_lif.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_lif/fmt_codec_lif.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_ljpeg/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_ljpeg/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_ljpeg/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_ljpeg/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_mac/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_mac/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_mac/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_mac/fmt_codec_pnm.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_mdl/fmt_codec_mdl.cpp ksquirrel-libs-0.8.0/kernel/kls_mdl/fmt_codec_mdl.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_mdl/fmt_codec_mdl.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_mdl/fmt_codec_mdl.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_mng/fmt_codec_mng.cpp ksquirrel-libs-0.8.0/kernel/kls_mng/fmt_codec_mng.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_mng/fmt_codec_mng.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_mng/fmt_codec_mng.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_msp/fmt_codec_msp.cpp ksquirrel-libs-0.8.0/kernel/kls_msp/fmt_codec_msp.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_msp/fmt_codec_msp.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_msp/fmt_codec_msp.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <vector>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_mtv/fmt_codec_mtv.cpp ksquirrel-libs-0.8.0/kernel/kls_mtv/fmt_codec_mtv.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_mtv/fmt_codec_mtv.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_mtv/fmt_codec_mtv.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <sstream>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_neo/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_neo/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_neo/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_neo/fmt_codec_pnm.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_openexr/fmt_codec_openexr.cpp ksquirrel-libs-0.8.0/kernel/kls_openexr/fmt_codec_openexr.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_openexr/fmt_codec_openexr.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_openexr/fmt_codec_openexr.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <exception>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pcx/fmt_codec_pcx.cpp ksquirrel-libs-0.8.0/kernel/kls_pcx/fmt_codec_pcx.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pcx/fmt_codec_pcx.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pcx/fmt_codec_pcx.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pi1/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_pi1/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pi1/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pi1/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pi3/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_pi3/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pi3/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pi3/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pict/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_pict/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pict/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pict/fmt_codec_pnm.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pix/fmt_codec_pix.cpp ksquirrel-libs-0.8.0/kernel/kls_pix/fmt_codec_pix.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pix/fmt_codec_pix.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pix/fmt_codec_pix.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_png/fmt_codec_png.cpp ksquirrel-libs-0.8.0/kernel/kls_png/fmt_codec_png.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_png/fmt_codec_png.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_png/fmt_codec_png.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs-png/png.h"
+ 
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pnm/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_pnm/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pnm/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pnm/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_psd/fmt_codec_psd.cpp ksquirrel-libs-0.8.0/kernel/kls_psd/fmt_codec_psd.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_psd/fmt_codec_psd.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_psd/fmt_codec_psd.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_psp/fmt_codec_psp.cpp ksquirrel-libs-0.8.0/kernel/kls_psp/fmt_codec_psp.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_psp/fmt_codec_psp.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_psp/fmt_codec_psp.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <cstdlib>
+ #include <algorithm>
+ 
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_pxr/fmt_codec_pxr.cpp ksquirrel-libs-0.8.0/kernel/kls_pxr/fmt_codec_pxr.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_pxr/fmt_codec_pxr.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_pxr/fmt_codec_pxr.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_ras/fmt_codec_ras.cpp ksquirrel-libs-0.8.0/kernel/kls_ras/fmt_codec_ras.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_ras/fmt_codec_ras.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_ras/fmt_codec_ras.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_rawrgb/fmt_codec_rawrgb.cpp ksquirrel-libs-0.8.0/kernel/kls_rawrgb/fmt_codec_rawrgb.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_rawrgb/fmt_codec_rawrgb.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_rawrgb/fmt_codec_rawrgb.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_sct/fmt_codec_sct.cpp ksquirrel-libs-0.8.0/kernel/kls_sct/fmt_codec_sct.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_sct/fmt_codec_sct.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_sct/fmt_codec_sct.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <sstream>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_sgi/fmt_codec_sgi.cpp ksquirrel-libs-0.8.0/kernel/kls_sgi/fmt_codec_sgi.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_sgi/fmt_codec_sgi.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_sgi/fmt_codec_sgi.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_sun/fmt_codec_sun.cpp ksquirrel-libs-0.8.0/kernel/kls_sun/fmt_codec_sun.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_sun/fmt_codec_sun.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_sun/fmt_codec_sun.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <cctype>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_svg/fmt_codec_png.cpp ksquirrel-libs-0.8.0/kernel/kls_svg/fmt_codec_png.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_svg/fmt_codec_png.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_svg/fmt_codec_png.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs-png/png.h"
+ 
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_tga/fmt_codec_tga.cpp ksquirrel-libs-0.8.0/kernel/kls_tga/fmt_codec_tga.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_tga/fmt_codec_tga.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_tga/fmt_codec_tga.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_tiff/fmt_codec_tiff.cpp ksquirrel-libs-0.8.0/kernel/kls_tiff/fmt_codec_tiff.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_tiff/fmt_codec_tiff.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_tiff/fmt_codec_tiff.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include <tiffio.h>
+ 
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_ttf/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_ttf/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_ttf/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_ttf/fmt_codec_pnm.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_utah/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_utah/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_utah/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_utah/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_wal/fmt_codec_wal.cpp ksquirrel-libs-0.8.0/kernel/kls_wal/fmt_codec_wal.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_wal/fmt_codec_wal.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_wal/fmt_codec_wal.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_wbmp/fmt_codec_wbmp.cpp ksquirrel-libs-0.8.0/kernel/kls_wbmp/fmt_codec_wbmp.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_wbmp/fmt_codec_wbmp.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_wbmp/fmt_codec_wbmp.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -31,6 +31,8 @@
+ 
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_wmf/fmt_codec_wmf.cpp ksquirrel-libs-0.8.0/kernel/kls_wmf/fmt_codec_wmf.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_wmf/fmt_codec_wmf.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_wmf/fmt_codec_wmf.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_xbm/fmt_codec_xbm.cpp ksquirrel-libs-0.8.0/kernel/kls_xbm/fmt_codec_xbm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_xbm/fmt_codec_xbm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_xbm/fmt_codec_xbm.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_xcf/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_xcf/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_xcf/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_xcf/fmt_codec_pnm.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_xcur/fmt_codec_xcur.cpp ksquirrel-libs-0.8.0/kernel/kls_xcur/fmt_codec_xcur.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_xcur/fmt_codec_xcur.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_xcur/fmt_codec_xcur.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fileio.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_xim/fmt_codec_pnm.cpp ksquirrel-libs-0.8.0/kernel/kls_xim/fmt_codec_pnm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_xim/fmt_codec_pnm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_xim/fmt_codec_pnm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ // we will use fork()
+ #if defined CODEC_DJVU  \
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_xpm/fmt_codec_xpm.cpp ksquirrel-libs-0.8.0/kernel/kls_xpm/fmt_codec_xpm.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_xpm/fmt_codec_xpm.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_xpm/fmt_codec_xpm.cpp	2008-05-29 22:03:08.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ #include <map>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/kls_xwd/fmt_codec_xwd.cpp ksquirrel-libs-0.8.0/kernel/kls_xwd/fmt_codec_xwd.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/kls_xwd/fmt_codec_xwd.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/kls_xwd/fmt_codec_xwd.cpp	2008-05-29 22:03:09.000000000 +0300
+@@ -20,6 +20,8 @@
+ */
+ 
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
+ 
+ #include "ksquirrel-libs/fmt_types.h"
+ #include "ksquirrel-libs/fmt_utils.h"
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/ksquirrel-libs/fileio.cpp ksquirrel-libs-0.8.0/kernel/ksquirrel-libs/fileio.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/ksquirrel-libs/fileio.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/ksquirrel-libs/fileio.cpp	2008-05-29 22:06:44.000000000 +0300
+@@ -20,6 +20,7 @@
+ */
+ 
+ #include "ksquirrel-libs/fileio.h"
++#include <cstdlib>
+ 
+ // implement read methods
+ ifstreamK::ifstreamK() : ifstream()
+diff -Nur ksquirrel-libs-0.8.0.orig/kernel/ksquirrel-libs/fmt_utils.cpp ksquirrel-libs-0.8.0/kernel/ksquirrel-libs/fmt_utils.cpp
+--- ksquirrel-libs-0.8.0.orig/kernel/ksquirrel-libs/fmt_utils.cpp	2008-05-29 21:31:03.000000000 +0300
++++ ksquirrel-libs-0.8.0/kernel/ksquirrel-libs/fmt_utils.cpp	2008-05-29 22:08:29.000000000 +0300
+@@ -23,6 +23,8 @@
+ #include "ksquirrel-libs/fmt_defs.h"
+ 
+ #include <sstream>
++#include <cstdlib>
++#include <cstring>
+ 
+ void fmt_utils::fillAlpha(RGBA *scan, int w, u8 value)
+ {

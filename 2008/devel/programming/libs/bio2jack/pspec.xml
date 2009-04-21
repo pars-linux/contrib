@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bio2jack</Name>
+        <Homepage>http://bio2jack.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>A library for porting blocked I/O OSS/ALSA audio applications to JACK</Summary>
+        <Description>A library for porting blocked I/O OSS/ALSA audio applications to JACK</Description>
+        <Archive sha1sum="3be3e1c5825f1792200bc19f47fb10d79528e80a" type="targz">mirrors://sourceforge/bio2jack/bio2jack-0.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.102">jack-audio-connection-kit</Dependency>
+            <Dependency>libsamplerate</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>bio2jack</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.102">jack-audio-connection-kit</Dependency>
+            <Dependency>libsamplerate</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2006-09-06</Date>
+            <Version>0.9</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scipres</Name>
+        <Homepage>http://artis.inrialpes.fr/Membres/Xavier.Decoret/resources/scipres/wiki/index.php/Main_Page</Homepage>
+        <Packager>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Scientific presentation module for Python</Summary>
+        <Description>SciPres is a system for creating animated scientific presentations</Description>
+        <Archive sha1sum="76781606c6ab566bebddc252961852f49a3cd954" type="targz">http://xdecoret.free.fr/private/scipres/scipres/scipres-1.0.0rc1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>PyOpenGL</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>pyopengl.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>scipres</Name>
+        <RuntimeDependencies>
+            <Dependency>PyOpenGL</Dependency>
+            <Dependency>PyQt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-20</Date>
+            <Version>1.0.0_rc1</Version>
+            <Comment>First release</Comment>
+            <Name>Ahmet Erdoğan</Name>
+            <Email>tuxposta@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
