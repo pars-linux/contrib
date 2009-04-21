@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>openc6</Name>
+        <Homepage>http://openc6.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>OpenC6 is a Linux and Mac OSX free instant messenger which implements the C6 protocol</Summary>
+        <Archive sha1sum="fb8ba6b64559fdc9fd9ae0797e4ddacb353254fc" type="targz">mirrors://sourceforge/openc6/openc6-0.9.9.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>openc6</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>libmng</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-17</Date>
+            <Version>0.9.9</Version>
+            <Comment>First Release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

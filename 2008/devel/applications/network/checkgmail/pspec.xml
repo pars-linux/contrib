@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+   <Source>
+      <Name>checkgmail</Name>
+      <Homepage>http://checkgmail.sourceforge.net</Homepage>
+      <Packager>
+         <Name>Nathan Hourt</Name>
+         <Email>nat.hourt@gmail.com</Email>
+      </Packager>
+      <License>GPLv2+</License>
+      <Icon>checkgmail</Icon>
+      <IsA>app:gui</IsA>
+      <Summary>A small, fast, and powerful GMail checker using ATOM feeds</Summary>
+      <Description>A tray app that checks your GMail account via ATOM feeds and alerts you when new messages arrive. Allows you to preview and perform basic tasks (open, archive, report spam, delete, etc) on messages directly from the alert. Supports password encryption</Description>
+      <Archive sha1sum="d4b928838746975608803a79c258872b0dc8ccf9" type="tarbz2">mirrors://sourceforge/checkgmail/checkgmail-1.13.tar.bz2</Archive>
+      <Patches>
+          <Patch>checkgmail_revert.patch</Patch>
+      </Patches>
+   </Source>
+   
+   <Package>
+      <Name>checkgmail</Name>
+      <RuntimeDependencies>
+         <Dependency>perl-Crypt-SSLeay</Dependency>
+         <Dependency>perl-XML-Simple</Dependency>
+         <Dependency>perl-XML-SAX</Dependency>
+         <Dependency>perl-Gtk2-TrayIcon</Dependency>
+         <Dependency>perl-Crypt-Blowfish</Dependency>
+         <Dependency>perl-Crypt-Simple</Dependency>
+         <Dependency>perl-FreezeThaw</Dependency>
+         <Dependency>perl-Gtk2-Sexy</Dependency>
+      </RuntimeDependencies>
+      <Files>
+         <Path fileType="executable">/usr/bin</Path>
+         <Path fileType="man">/usr/share/man</Path>
+         <Path fileType="doc">/usr/share/doc</Path>
+         <Path fileType="data">/usr/share/pixmaps</Path>
+         <Path fileType="data">/usr/share/applications</Path>
+      </Files>
+      <AdditionalFiles>
+          <AdditionalFile permission="0644" target="/usr/share/applications/checkgmail.desktop">checkgmail.desktop</AdditionalFile>
+          <AdditionalFile permission="0644" target="/usr/share/pixmaps/checkgmail.png">checkgmail.png</AdditionalFile>
+      </AdditionalFiles>
+   </Package>
+   
+   <History>
+       <Update release="2">
+           <Date>2008-09-25</Date>
+           <Version>1.13</Version>
+           <Comment>Fix missing dependencies.</Comment>
+           <Name>Serdar Dalgıç</Name>
+           <Email>serdar@cclub.metu.edu.tr</Email>
+      </Update>
+      <Update release="1">
+         <Date>2008-09-16</Date>
+         <Version>1.13</Version>
+         <Comment>First release.</Comment>
+         <Name>Nathan Hourt</Name>
+         <Email>nat.hourt@gmail.com</Email>
+      </Update>
+   </History>
+</PISI>

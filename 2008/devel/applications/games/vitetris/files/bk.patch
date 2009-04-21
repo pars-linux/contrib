@@ -1,0 +1,11 @@
+--- vitetris-0.55.orig/src/netw/tty_socket.c	2008-10-25 17:11:31.000000000 +0300
++++ vitetris-0.55/src/netw/tty_socket.c	2009-01-07 12:13:24.000000000 +0200
+@@ -53,7 +53,7 @@
+ 	char name[22];
+ 	if (*this_tty || get_this_tty()) {
+ 		getfname(name, this_tty);
+-		invit_fd = open(name, O_CREAT | O_RDONLY | O_NONBLOCK);
++		invit_fd = open(name, O_CREAT | O_RDONLY | O_NONBLOCK, S_IREAD | S_IWRITE | S_IWGRP | S_IWOTH);
+ 		chmod(name, S_IREAD | S_IWRITE | S_IWGRP | S_IWOTH);
+ 	}
+ }

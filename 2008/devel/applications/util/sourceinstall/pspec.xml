@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sourceinstall</Name>
+        <Homepage>http://www.gnu.org/software/sourceinstall/sourceinstall.html</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Gnu Source Installer</Summary>
+        <Description>Gnu Source Installer Konsol Versiyon</Description>
+        <Archive sha1sum="9c952e0b0da192f4418960ee54e16e266659c50a" type="targz">mirrors://gnu/sourceinstall/sourceinstall-2.5rc2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.5_rc2">libsrcinst</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>sourceinstall</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.5_rc2">libsrcinst</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2008-06-26</Date>
+            <Version>2.5_rc2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-10-13</Date>
+            <Version>2.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-15</Date>
+            <Version>2.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-06</Date>
+            <Version>2.1</Version>
+            <Comment>First Release</Comment>
+            <Name>Hakan Sonmez</Name>
+            <Email>gecici90@yahoo.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,68 @@
+--- setup.py.orig	2009-04-01 13:23:02.000000000 +0300
++++ setup.py	2009-04-01 13:23:58.000000000 +0300
+@@ -64,65 +64,3 @@
+ 		('share/jokosher/extensions', glob.glob("extensions/*.py") + glob.glob("extensions/*.egg"))
+ 		]+I18NFILES+HELPDOCS+HELPIMAGES+OMFFILES
+ )
+-
+-#Non-documented way of getting the final directory prefix
+-installCmd = dist.get_command_obj(command="install_data")
+-installdir = installCmd.install_dir
+-installroot = installCmd.root
+-
+-if not installroot:
+-	installroot = ""
+-
+-if installdir:
+-	installdir = os.path.join(os.path.sep,
+-			installdir.replace(installroot, ""))
+-
+-# Update the real URL attribute inside the OMF files
+-# and register them with scrollkeeper
+-if omfdir != None and installdir != None and dist != None:
+-	
+-	#Create an array with the docbook file locations
+-	HELPURI = []
+-	for filepath in glob.glob("help/jokosher/*/jokosher.xml"):
+-		targeturi = os.path.join(installdir, "share/gnome/", filepath)
+-		HELPURI.append(targeturi)
+-	
+-	#Replace the URL placeholder inside the OMF files
+-	installedOmfFiles = glob.glob(installroot + omfdir + "/*.omf")
+-	for fileNum in range(0, len(installedOmfFiles)):
+-		call(["scrollkeeper-preinstall", HELPURI[fileNum],
+-			installedOmfFiles[fileNum], installedOmfFiles[fileNum]])
+-		
+-	#Update the scrollkeeper catalog
+-	if os.geteuid() == 0:
+-		print "Updating the scrollkeeper index..."
+-		call(["scrollkeeper-update", "-o", installroot + omfdir])
+-
+-# Update the mime types
+-if os.geteuid() == 0 and dist != None:
+-	print "Updating the mime-types...."
+-	
+-	#update the mimetypes database
+-	try:
+-	    call(["update-mime-database", "/usr/share/mime/"])
+-	except:
+-	    pass
+-	
+-	#update the .desktop file database
+-	try:
+-	   call(["update-desktop-database"])
+-	except:
+-	    pass
+-
+-print "\nInstallation finished! You can now run Jokosher by typing 'jokosher' or through your applications menu icon."
+-	
+-## To uninstall manually delete these files/folders:
+-## /usr/bin/jokosher
+-## /usr/share/jokosher/
+-## /usr/share/gnome/help/jokosher/
+-## /usr/share/icons/hicolor/48x48/apps/jokosher.png
+-## /usr/share/locale/*/LC_MESSAGES/jokosher.mo
+-## /usr/share/pixmaps/jokosher.png
+-## /usr/share/applications/jokosher.desktop
+-## /usr/lib/python2.X/site-packages/Jokosher/
+-## /usr/share/omf/jokosher/*.omf

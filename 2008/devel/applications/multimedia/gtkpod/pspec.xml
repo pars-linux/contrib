@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtkpod</Name>
+        <Homepage>http://www.gtkpod.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gtkpod</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A GUI for Apple's iPod using GTK2</Summary>
+        <Archive sha1sum="ab7c03ee1a875fe2bab953d5805a2a4d65fcd669" type="targz">mirrors://sourceforge/gtkpod/gtkpod-0.99.12.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
+            <Dependency versionFrom="0.6.0">libgpod</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>libid3tag</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libmp4v2</Dependency>
+            <Dependency>pkgconfig</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gtkpod</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.20.0">libgnomecanvas</Dependency>
+            <Dependency versionFrom="0.6.0">libgpod</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>libid3tag</Dependency>
+            <Dependency>flac</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libmp4v2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gtkpod</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-16</Date>
+            <Version>0.99.12</Version>
+            <Comment>First release</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnucap</Name>
+        <Homepage>http://geda.seul.org/tools/gnucap/index.html</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>GNU Circuit Analysis Package</Summary>
+        <Archive sha1sum="fa4da0ca4a36ca509d00b7c7286ffb8a008ceaaf" type="targz">ftp://ftp.geda.seul.org/pub/geda/dist/gnucap-0.35.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>tetex</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">gcc4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gnucap</Name>
+        <RuntimeDependencies>
+            <Dependency>tetex</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gnucap</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-25</Date>
+            <Version>0.35</Version>
+            <Comment>First release</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+    </History>
+</PISI>

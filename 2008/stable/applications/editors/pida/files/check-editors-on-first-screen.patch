@@ -1,0 +1,32 @@
+diff -Nur PIDA-0.5.1/pida/core/editors.py PIDA-0.5.1.patched/pida/core/editors.py
+--- PIDA-0.5.1/pida/core/editors.py	2007-07-28 19:41:07.000000000 +0300
++++ PIDA-0.5.1.patched/pida/core/editors.py	2008-01-06 09:59:28.000000000 +0200
+@@ -21,6 +21,7 @@
+ #SOFTWARE.
+ 
+ import gtk
++import os
+ 
+ from pida.core.actions import ActionsConfig, TYPE_NORMAL
+ from pida.core.commands import CommandsConfig
+@@ -170,15 +171,15 @@
+ 
+ 
+ class EditorService(Service):
+-    
+     actions_config = EditorActionsConfig
+     commands_config = EditorCommandsConfig
+ 
+     @classmethod
+     def get_sanity_errors(cls):
+-        return []
+-
+-
+-
++        executable_name = cls.get_name_cls()
++        if not os.path.exists("/usr/bin/%s" % executable_name):
++            return ["Not installed"]
++        else:
++            return[]
+ 
+ # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:

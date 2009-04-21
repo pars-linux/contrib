@@ -1,0 +1,24 @@
+diff -Nuar hvirtual.orig/configure.in hvirtual/configure.in
+--- hvirtual.orig/configure.in	2008-08-25 14:14:33.000000000 +0300
++++ hvirtual/configure.in	2008-08-25 14:16:44.000000000 +0300
+@@ -35,9 +35,9 @@
+ AH_TEMPLATE(HAVE_VIDEO4LINUX2, [Define to 1 if Video4Linux2 is available.])
+ AC_CHECK_HEADER([linux/videodev2.h], 
+ 	[AC_CHECK_MEMBER(struct v4l2_buffer.index, [AC_DEFINE(HAVE_VIDEO4LINUX2)], [],
+-  		[#include <linux/time.h>
++  		[#include <time.h>
+ #include <linux/videodev2.h>])],
+-	[],[#include <linux/time.h>] )
++	[],[#include <time.h>] )
+ 
+ ############## SPECIAL DIRECTORIES
+ AC_ARG_WITH(plugindir,
+@@ -354,7 +354,7 @@
+      AC_MSG_CHECKING(for ffmpeg swscale support)
+      saved_LIBS="$LIBS"
+      LIBS="$saved_LIBS $FFMPEG_TEMP_LIBS"
+-     AC_TRY_LINK([#include <libavcodec/avcodec.h>],
++     AC_TRY_LINK([#include <ffmpeg/avcodec.h>],
+ 		 [img_convert(0, 0, 0,0,0,0)],
+ 		 enable_ffmpeg_swscale=no,enable_ffmpeg_swscale=yes)
+      LIBS="$saved_LIBS"

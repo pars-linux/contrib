@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>krdm</Name>
+        <Homepage>http://krdm.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE remote desktop manager</Summary>
+        <Description>Krdm makes the configuration and utilization of multiple connection to remote desktops easy.</Description>
+        <Archive sha1sum="fd5631dc9fdb345d728ae89ddc8a4fb121d0006d" type="targz">mirrors://sourceforge/krdm/krd-1.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch level="1">gcc-4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>krdm</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applnk</Path>
+            <Path fileType="data">/usr/share/apps</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2007-09-15</Date>
+            <Version>1.6</Version>
+            <Comment>Stable update</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-08-28</Date>
+            <Version>1.5.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-08-09</Date>
+            <Version>1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>imtihan</Name>
+        <Homepage>http://imtihan.googlecode.com</Homepage>
+        <Packager>
+            <Name>Doganay Akkoç</Name>
+            <Email>doganay44@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>imtihan</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Word Learning and test program.</Summary>
+        <Description>Chose your database and start learning words. You can create your own database files. Printing words is available now.</Description>
+        <Archive sha1sum="e9f03d6f1b779c100218df18d9121633be046abb" type="tarbz2">http://imtihan.googlecode.com/files/imtihan-1.4.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>imtihan</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/imtihan</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/imtihan.desktop">imtihan.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/imtihan/kpds.imt">kpds.imt</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/imtihan/T.imt">T.imt</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/imtihan/S.imt">S.imt</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/imtihan/U.imt">U.imt</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/imtihan/V.imt">V.imt</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/imtihan/W.imt">W.imt</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-08-05</Date>
+            <Version>1.4.2</Version>
+            <Comment>First Release</Comment>
+            <Name>Doganay Akkoç</Name>
+            <Email>doganay44@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pgadmin3</Name>
+        <Homepage>http://www.pgadmin.org</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>app:gui</IsA>
+        <Summary>wxWidgets GUI for PostgreSQL</Summary>
+        <Description>Graphical client for PostgreSQL</Description>
+        <Archive sha1sum="c3103792c678183c5a9081daac56ebf467d674ff" type="targz">ftp://ftp.tr.postgresql.org/pub/PostgreSQL//pgadmin3/release/v1.8.4/src/pgadmin3-1.8.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>libxslt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pgadmin3</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>libxslt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/pgadmin3</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/pgadmin3.desktop">pgadmin3.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2008-08-07</Date>
+            <Version>1.8.4</Version>
+            <Comment>version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-07-24</Date>
+            <Version>1.6.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

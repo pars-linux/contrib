@@ -1,0 +1,13 @@
+--- bkchem/bkchem.py	2007-11-07 13:56:14.000000000 +0200
++++ bkchem/bkchem.py2	2008-09-11 10:53:51.000000000 +0300
+@@ -36,6 +36,10 @@
+   [os_support.get_config_filename( "prefs.xml", level="global", mode='r'),
+    os_support.get_config_filename( "prefs.xml", level="personal", mode='r')])
+ 
++# set default inchi binary path
++inchi_path = Store.pm.get_preference( 'inchi_program_path')
++if not inchi_path:
++    Store.pm.add_preference( "inchi_program_path", "/usr/bin/inchi")
+ 
+ ## first turn locale support on
+ 

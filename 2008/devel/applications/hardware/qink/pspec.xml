@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qink</Name>
+        <Homepage>http://code.google.com/p/qink/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A simple printer ink level monitor based on libinklevel</Summary>
+        <Archive sha1sum="25e1721e5f3d022ada60f83b2121dc54da65b729" type="targz">http://qink.googlecode.com/files/qink-0.3.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libinklevel</Dependency>
+            <Dependency>qt4</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop-tr.patch</Patch>
+            <Patch>turkish.patch</Patch>
+            <Patch>qink-0.3.4-gcc4.3.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qink</Name>
+        <RuntimeDependencies>
+            <Dependency>libinklevel</Dependency>
+            <Dependency>qt4</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/qink</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2009-01-30</Date>
+            <Version>0.3.4</Version>
+            <Comment>gcc 4.3 fix</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-12-07</Date>
+            <Version>0.3.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-10-27</Date>
+            <Version>0.3.3</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

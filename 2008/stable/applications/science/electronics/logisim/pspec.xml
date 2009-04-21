@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>logisim</Name>
+        <Homepage>http://ozark.hendrix.edu/~burch/logisim/</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>logisim</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An educational tool for designing and simulating digital logic circuits</Summary>
+        <Archive sha1sum="ea602f91b948264a407c9749b0a7140779e4f675" type="zip">mirrors://sourceforge/circuit/logisim-2.1.6.jar</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>macos.patch</Patch>
+            <Patch>makefile.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>logisim</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/logisim">logisim</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/logisim.png">logisim.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/logisim.desktop">logisim.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-10</Date>
+            <Version>2.1.6</Version>
+            <Comment>Initial release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

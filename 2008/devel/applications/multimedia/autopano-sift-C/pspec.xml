@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>autopano-sift-C</Name>
+        <Homepage>http://hugin.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>is a helper program for panorama image generation.</Summary>
+        <Description>autopano-sift-C is a helper program for panorama image generation, ported to plain "C".</Description>
+        <Archive sha1sum="f774e8619d72957860dd0e2fe5449b228f1feb72" type="targz">http://ertugrulerata.googlepages.com/autopano-sift-C-2.5_20080722.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libpano13</Dependency>
+            <Dependency>tiff</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>autopano-sift-C</Name>
+        <RuntimeDependencies>
+            <Dependency>libpano13</Dependency>
+            <Dependency>tiff</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package>autopano-sift</Package>
+            <Package>libsift</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-22</Date>
+            <Version>2.5_20080722</Version>
+            <Comment>First release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
