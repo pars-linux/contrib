@@ -3,7 +3,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/conf
 --- libcryptopp-5.2.1.old/configure.ac	1969-12-31 19:00:00.000000000 -0500
 +++ libcryptopp-5.2.1/configure.ac	2005-08-02 14:02:30.000000000 -0400
 @@ -0,0 +1,13 @@
-+AC_INIT([cryptopp], [5.5.1], [cryptopp-users@googlegroups.com])
++AC_INIT([cryptopp], [5.5.2], [cryptopp-users@googlegroups.com])
 +AM_INIT_AUTOMAKE
 +AC_CONFIG_SRCDIR(configure.ac)
 +AC_CONFIG_HEADER([local.h])
@@ -19,7 +19,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/conf
 diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Makefile.am libcryptopp-5.2.1/Makefile.am
 --- libcryptopp-5.2.1.old/Makefile.am	1969-12-31 19:00:00.000000000 -0500
 +++ libcryptopp-5.2.1/Makefile.am	2005-08-02 14:02:30.000000000 -0400
-@@ -0,0 +1,335 @@
+@@ -0,0 +1,287 @@
 +AUTOMAKE_OPTIONS = foreign
 +lib_LTLIBRARIES = libcryptopp.la
 +libcryptopp_la_LIBADD = -lpthread
@@ -31,6 +31,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	algparam.cpp \
 +	arc4.cpp \
 +	asn.cpp \
++	authenc.cpp \
 +	base32.cpp \
 +	base64.cpp \
 +	basecode.cpp \
@@ -41,7 +42,9 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	cast.cpp \
 +	casts.cpp \
 +	cbcmac.cpp \
++	ccm.cpp \
 +	channels.cpp \
++	cmac.cpp \
 +	cpu.cpp \
 +	crc.cpp \
 +	cryptlib.cpp \
@@ -52,6 +55,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	dh2.cpp \
 +	dll.cpp \
 +	dsa.cpp \
++	eax.cpp \
 +	ec2n.cpp \
 +	eccrypto.cpp \
 +	ecp.cpp \
@@ -63,6 +67,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	filters.cpp \
 +	fips140.cpp \
 +	fipstest.cpp \
++	gcm.cpp \
 +	gf256.cpp \
 +	gf2_32.cpp \
 +	gf2n.cpp \
@@ -77,8 +82,6 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	integer.cpp \
 +	iterhash.cpp \
 +	luc.cpp \
-+	mars.cpp \
-+	marss.cpp \
 +	md2.cpp \
 +	md4.cpp \
 +	md5.cpp \
@@ -111,6 +114,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	safer.cpp \
 +	salsa.cpp \
 +	seal.cpp \
++	seed.cpp \
 +	serpent.cpp \
 +	sha.cpp \
 +	shacal2.cpp \
@@ -150,6 +154,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	arc4.h \
 +	argnames.h \
 +	asn.h \
++	authenc.h \
 +	base32.h \
 +	base64.h \
 +	basecode.h \
@@ -159,7 +164,9 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	camellia.h \
 +	cast.h \
 +	cbcmac.h \
++	ccm.h \
 +	channels.h \
++	cmac.h \
 +	config.h \
 +	cpu.h \
 +	crc.h \
@@ -171,6 +178,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	dll.h \
 +	dmac.h \
 +	dsa.h \
++	eax.h \
 +	ec2n.h \
 +	eccrypto.h \
 +	ecp.h \
@@ -183,6 +191,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	filters.h \
 +	fips140.h \
 +	fltrimpl.h \
++	gcm.h \
 +	gf2_32.h \
 +	gf256.h \
 +	gf2n.h \
@@ -198,7 +207,6 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	iterhash.h \
 +	lubyrack.h \
 +	luc.h \
-+	mars.h \
 +	md2.h \
 +	md4.h \
 +	md5.h \
@@ -238,6 +246,7 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	seal.h \
 +	secblock.h \
 +	seckey.h \
++	seed.h \
 +	serpent.h \
 +	shacal2.h \
 +	sha.h \
@@ -274,63 +283,6 @@ diff --exclude config.guess --exclude config.sub -uNr libcryptopp-5.2.1.old/Make
 +	resource.h \
 +	serpentp.h
 +	validate.h
-+
-+pkgdata_DATA = \
-+	3desval.dat \
-+	3wayval.dat \
-+	camellia.dat \
-+	cast128v.dat \
-+	cast256v.dat \
-+	descert.dat \
-+	dh1024.dat \
-+	dh2048.dat \
-+	dlie1024.dat \
-+	dlie2048.dat \
-+	dsa1024b.dat \
-+	dsa1024.dat \
-+	dsa512.dat \
-+	elgc1024.dat \
-+	esig1023.dat \
-+	esig1536.dat \
-+	esig2046.dat \
-+	gostval.dat \
-+	ideaval.dat \
-+	luc1024.dat \
-+	luc2048.dat \
-+	lucc1024.dat \
-+	lucc512.dat \
-+	lucd1024.dat \
-+	lucd512.dat \
-+	lucs1024.dat \
-+	lucs512.dat \
-+	marsval.dat \
-+	mqv1024.dat \
-+	mqv2048.dat \
-+	nr1024.dat \
-+	nr2048.dat \
-+	rabi1024.dat \
-+	rabi2048.dat \
-+	rc2val.dat \
-+	rc5val.dat \
-+	rc6val.dat \
-+	rijndael.dat \
-+	rsa1024.dat \
-+	rsa2048.dat \
-+	rsa400pb.dat \
-+	rsa400pv.dat \
-+	rsa512a.dat \
-+	rw1024.dat \
-+	rw2048.dat \
-+	saferval.dat \
-+	serpentv.dat \
-+	shacal2v.dat \
-+	sharkval.dat \
-+	skipjack.dat \
-+	squareva.dat \
-+	twofishv.dat \
-+	usage.dat \
-+	xtrdh171.dat \
-+	xtrdh342.dat
 +
 +bin_PROGRAMS = cryptest
 +cryptest_SOURCES = \
