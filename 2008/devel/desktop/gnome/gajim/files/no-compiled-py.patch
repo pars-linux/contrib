@@ -1,0 +1,67 @@
+--- src/Makefile.in.orig	2008-12-21 19:13:44.000000000 +0200
++++ src/Makefile.in	2008-12-21 19:19:37.000000000 +0200
+@@ -109,7 +109,7 @@
+ gajimsrc1PYTHON_INSTALL = $(INSTALL_DATA)
+ gajimsrc2PYTHON_INSTALL = $(INSTALL_DATA)
+ gajimsrc3PYTHON_INSTALL = $(INSTALL_DATA)
+-py_compile = $(top_srcdir)/py-compile
++#py_compile = $(top_srcdir)/py-compile
+ RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
+   distclean-recursive maintainer-clean-recursive
+ ETAGS = etags
+@@ -523,13 +523,6 @@
+ 	    $(gajimsrcPYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(gajimsrcdir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(gajimsrcdir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(gajimsrcdir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-gajimsrcPYTHON:
+ 	@$(NORMAL_UNINSTALL)
+@@ -551,13 +544,6 @@
+ 	    $(gajimsrc1PYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(gajimsrc1dir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(gajimsrc1dir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(gajimsrc1dir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-gajimsrc1PYTHON:
+ 	@$(NORMAL_UNINSTALL)
+@@ -579,13 +565,6 @@
+ 	    $(gajimsrc2PYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(gajimsrc2dir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(gajimsrc2dir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(gajimsrc2dir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-gajimsrc2PYTHON:
+ 	@$(NORMAL_UNINSTALL)
+@@ -607,13 +586,6 @@
+ 	    $(gajimsrc3PYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(gajimsrc3dir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(gajimsrc3dir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(gajimsrc3dir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-gajimsrc3PYTHON:
+ 	@$(NORMAL_UNINSTALL)

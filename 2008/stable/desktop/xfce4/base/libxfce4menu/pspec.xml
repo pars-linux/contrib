@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libxfce4menu</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A compliant menu implementation for Xfce</Summary>
+        <Description>Libxfce4menu is a compliant menu library that is written for Xfce. It implements the Desktop Menu Specification version 1.0.</Description>
+        <Archive sha1sum="4143eae2871ee072b9805a1f506c7f10525f2f28" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/libxfce4menu-4.6.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libxfce4menu</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.6.0">libxfce4util</Dependency>
+            <Dependency versionFrom="2.12.11">gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libxfce4menu-docs</Name>
+        <Files>
+            <Path fileType="data">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2009-03-01</Date>
+            <Version>4.6.0</Version>
+            <Comment>
+                * Stable version bump.
+                * Moved docs to libxfce4menu-docs.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-01-17</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

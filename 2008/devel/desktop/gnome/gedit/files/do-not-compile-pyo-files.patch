@@ -1,0 +1,51 @@
+diff -Naur gedit-2.22.3.orig/plugins/externaltools/tools/Makefile.in gedit-2.22.3/plugins/externaltools/tools/Makefile.in
+--- gedit-2.22.3.orig/plugins/externaltools/tools/Makefile.in	2008-05-27 15:15:08.000000000 +0300
++++ gedit-2.22.3/plugins/externaltools/tools/Makefile.in	2008-09-16 22:41:21.000000000 +0300
+@@ -321,13 +321,6 @@
+ 	    $(pluginPYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(plugindir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(plugindir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(plugindir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-pluginPYTHON:
+ 	@$(NORMAL_UNINSTALL)
+diff -Naur gedit-2.22.3.orig/plugins/pythonconsole/pythonconsole/Makefile.in gedit-2.22.3/plugins/pythonconsole/pythonconsole/Makefile.in
+--- gedit-2.22.3.orig/plugins/pythonconsole/pythonconsole/Makefile.in	2008-05-27 15:15:09.000000000 +0300
++++ gedit-2.22.3/plugins/pythonconsole/pythonconsole/Makefile.in	2008-09-16 22:40:55.000000000 +0300
+@@ -311,13 +311,6 @@
+ 	    $(pluginPYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(plugindir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(plugindir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(plugindir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-pluginPYTHON:
+ 	@$(NORMAL_UNINSTALL)
+diff -Naur gedit-2.22.3.orig/plugins/snippets/snippets/Makefile.in gedit-2.22.3/plugins/snippets/snippets/Makefile.in
+--- gedit-2.22.3.orig/plugins/snippets/snippets/Makefile.in	2008-05-27 15:15:09.000000000 +0300
++++ gedit-2.22.3/plugins/snippets/snippets/Makefile.in	2008-09-16 22:41:09.000000000 +0300
+@@ -328,13 +328,6 @@
+ 	    $(pluginPYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(plugindir)/$$f"; \
+ 	  else :; fi; \
+ 	done; \
+-	if test -n "$$dlist"; then \
+-	  if test -z "$(DESTDIR)"; then \
+-	    PYTHON=$(PYTHON) $(py_compile) --basedir "$(plugindir)" $$dlist; \
+-	  else \
+-	    PYTHON=$(PYTHON) $(py_compile) --destdir "$(DESTDIR)" --basedir "$(plugindir)" $$dlist; \
+-	  fi; \
+-	else :; fi
+ 
+ uninstall-pluginPYTHON:
+ 	@$(NORMAL_UNINSTALL)

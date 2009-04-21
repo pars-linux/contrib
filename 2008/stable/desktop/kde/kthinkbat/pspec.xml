@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kthinkbat</Name>
+        <Homepage>https://lepetitfou.dyndns.org/KThinkBat</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>kthinkbat</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Laptop battery monitor for the KDE-Kicker</Summary>
+        <Summary xml:lang="tr">KDE paneli için Dizüstü pil göstergesi</Summary>
+        <Description>Although there are allready some battery monitor applications for the K-Desktop Environment, they ar mostly too small to realize the current battery charge at first blush. Additionally, KThinkBat shows the current power consumption of the laptop, brings support for a second battery and its layout is highly customizable.</Description>
+        <Description xml:lang="tr">KDE masaüstü için bir çok pil göstergesi bulunmasına rağmen bunların göstergeleri çoğu zaman çok küçüktür. KThinkBat büyük bir pil göstergesinin yanında o anki elektrik kullanımını da gösterir ve ikinci bir pili de destekler.</Description>
+        <Archive sha1sum="ea1001056e51aa96174070e81718aa75b04abca5" type="tarbz2">http://lepetitfou.dyndns.org/download/kthinkbat/src/kthinkbat-0.2.x/kthinkbat-0.2.9.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kthinkbat</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="config">/usr/kde/3.5/share/config.kcfg</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2007-12-17</Date>
+            <Version>0.2.9</Version>
+            <Comment>Version bump and add package icon.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-07-30</Date>
+            <Version>0.2.8</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-06-03</Date>
+            <Version>0.2.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-04</Date>
+            <Version>0.2.6</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-04</Date>
+            <Version>0.2.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
