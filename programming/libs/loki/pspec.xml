@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>loki</Name>
+        <Homepage>http://loki-lib.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>library</IsA>
+        <Summary>A C++ library of designs, containing flexible implementations of common design patterns and idioms.</Summary>
+        <Description>The library makes extensive use of C++ template metaprogramming and implements several commonly used tools</Description>
+        <Archive sha1sum="c6e31b6e955491850952a5165ab17eb56929579a" type="targz">mirrors://sourceforge/loki-lib/loki-0.1.6.tar.gz</Archive>
+        <Patches>
+            <Patch>disable-static.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>loki</Name>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-25</Date>
+            <Version>0.1.6</Version>
+            <Comment>First Release</Comment>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

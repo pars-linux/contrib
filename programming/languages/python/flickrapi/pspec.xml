@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>flickrapi</Name>
+        <Homepage>http://flickrapi.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Flicker python bindings</Summary>
+        <Archive sha1sum="728f533243884baa9440127db2982013248c775f" type="targz">mirrors://sourceforge/flickrapi/flickrapi-0.14.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>uuid</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>all.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>flickrapi</Name>
+        <RuntimeDependencies>
+            <Dependency>uuid</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-09-30</Date>
+            <Version>0.14</Version>
+            <Comment>First release.</Comment>
+            <Name>Recep Kırmızı</Name>
+            <Email>rkirmizi@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+

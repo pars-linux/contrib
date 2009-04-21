@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-dict</Name>
+        <Homepage>http://goodies.xfce.org/projects/applications/xfce4-dict</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce4-dict</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A dictionary for Xfce4 panel</Summary>
+        <Archive sha1sum="1ae24cb2e9b22dc5d25150ff88abde19c3f01d47" type="targz">http://goodies.xfce.org/releases/xfce4-dict/xfce4-dict-0.4.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-dict</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec/xfce4</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-17</Date>
+            <Version>0.4.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

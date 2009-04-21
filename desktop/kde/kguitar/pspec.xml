@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kguitar</Name>
+        <Homepage>http://kguitar.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KGuitar project was started for developing an efficient and easy-to-use environment for a guitarist</Summary>
+        <Summary xml:lang="tr">Kguitar projesi 7 den 70 e tüm gitaristler içindir.Kullanması kolay bir programdır.</Summary>
+        <Description>This is a program for real-time sound effect processing. You can use it to add some distortion to your guitar, or some reverb to your voice. Available effects are.</Description>
+        <Description xml:lang="tr">Bu program gerçek zamanlı ses efektlerini işleyebilir.Gitarı takıp çalmanız yeterlidir.Efektler sizin için hazırdır.</Description>
+        <Archive sha1sum="9fb960252e18c93ae9a53dde0d102ed037ef5bed" type="tarbz2">mirrors://sourceforge/kguitar/kguitar-0.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>tse3</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>tr.menu.patch</Patch>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kguitar</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>tse3</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2007-05-29</Date>
+            <Version>0.5</Version>
+            <Comment>Add tse3 dependency to fix the crash when preferences button is clicked (bug #5783)</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-26</Date>
+            <Version>0.5</Version>
+            <Comment>Fixed Turkish translation, thanks to Server ACİM.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-05-20</Date>
+            <Version>0.5</Version>
+            <Comment>Thanks to Server ACİM for Turkish translation.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-25</Date>
+            <Version>0.5</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

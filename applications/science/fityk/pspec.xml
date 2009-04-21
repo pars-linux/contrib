@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fityk</Name>
+        <Homepage>http://www.unipress.waw.pl/fityk/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A program for nonlinear fitting of analytical functions (especially peak-shaped) to data (usually experimental data).</Summary>
+        <Description>Fityk is reportedly used in crystallography, chromatography, photoluminescence and photoelectron spectroscopy, infrared and Raman spectroscopy, to name but a few.</Description>
+        <Archive sha1sum="a4412e4f0f632f45b8cea5feab673eb6408736d4" type="tarbz2">mirrors://sourceforge/fityk/fityk-0.8.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>xylib</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch level="1">use-external-xylib.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>fityk</Name>
+        <RuntimeDependencies>
+            <Dependency>wxGTK</Dependency>
+            <Dependency>boost</Dependency>
+            <Dependency>xylib</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2008-03-16</Date>
+            <Version>0.8.4</Version>
+            <Comment>Remove compiled python files.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-02-15</Date>
+            <Version>0.8.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-01-25</Date>
+            <Version>0.8.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-07-21</Date>
+            <Version>0.8.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

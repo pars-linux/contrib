@@ -1,0 +1,38 @@
+diff -Naur sturmbahnfahrer-1.3-orig/main.cxx sturmbahnfahrer-1.3/main.cxx
+--- sturmbahnfahrer-1.3-orig/main.cxx	2007-04-08 10:01:21.000000000 +0300
++++ sturmbahnfahrer-1.3/main.cxx	2007-04-08 10:59:25.000000000 +0300
+@@ -657,10 +657,10 @@
+ 
+   char *bindirname  = dirname(argv[0]);
+   if (!strcmp(bindirname,"."))
+-    dirprefix="/usr/share/games/sturmbahnfahrer";
++    dirprefix="/usr/share/sturmbahnfahrer";
+   else
+   {
+-    dirprefix = dirname(bindirname) + std::string("/share/games/sturmbahnfahrer");
++    dirprefix = dirname(bindirname) + std::string("/share/sturmbahnfahrer");
+   }
+   if (getenv("PLODE_DATADIR"))
+     dirprefix = getenv("PLODE_DATADIR");
+diff -Naur sturmbahnfahrer-1.3-orig/Makefile sturmbahnfahrer-1.3/Makefile
+--- sturmbahnfahrer-1.3-orig/Makefile	2007-04-08 10:01:21.000000000 +0300
++++ sturmbahnfahrer-1.3/Makefile	2007-04-08 10:18:35.000000000 +0300
+@@ -65,15 +65,15 @@
+ clean:
+ 	rm -f *.o sturmbahnfahrer
+ 
+-GAMEDIR=$(DESTDIR)/usr/share/games/sturmbahnfahrer
++GAMEDIR=$(DESTDIR)/usr/share/sturmbahnfahrer
+ install: sturmbahnfahrer
+ 	# Directories
+-	mkdir -p $(DESTDIR)/usr/games/
++	mkdir -p $(DESTDIR)/usr/bin/
+ 	mkdir -p $(GAMEDIR)/images/
+ 	mkdir -p $(GAMEDIR)/sounds/
+ 	mkdir -p $(GAMEDIR)/models/
+ 	# Binary
+-	install sturmbahnfahrer $(DESTDIR)/usr/games/sturmbahnfahrer
++	install sturmbahnfahrer $(DESTDIR)/usr/bin/sturmbahnfahrer
+ 	# Images
+ 	install -m 644 images/engine.tga $(GAMEDIR)/images/engine.tga
+ 	install -m 644 images/info_carpet_smooth.rgb $(GAMEDIR)/images/info_carpet_smooth.rgb

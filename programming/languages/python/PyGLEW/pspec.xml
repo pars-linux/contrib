@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PyGLEW</Name>
+        <Homepage>https://launchpad.net/pyglew</Homepage>
+        <Packager>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Python bindings for the GLEW (OpenGL Extension Wrangler library)</Summary>
+        <Description>PyGLEW wraps OpenGL versions 1.1 to 2.0, including a number of additional extensions critical to the operation of PyGPU</Description>
+        <Archive sha1sum="5fa1f71cc3c0cf8c37523cbcaf70bb6334992195" type="targz">http://www.cs.lth.se/home/Calle_Lejdfors/pygpu/PyGLEW-0.1.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>glew</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>python-ver.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>PyGLEW</Name>
+        <RuntimeDependencies>
+            <Dependency>glew</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-16</Date>
+            <Version>0.1.2</Version>
+            <Comment>First release</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

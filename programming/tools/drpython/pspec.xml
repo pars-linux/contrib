@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>drpython</Name>
+        <Homepage>http://drpython.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>drpython</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A powerful cross-platform IDE for Python</Summary>
+        <Description>DrPython is a highly customizable cross-platform ide to aid programming in Python. It was developed with teaching in mind, and has a clean, simple interface. It is written in Python, using wxPython as the gui.</Description>
+        <Archive sha1sum="069d0424dbe8df3ee34fce921f69e4fad6563629" type="zip">mirrors://sourceforge/drpython/drpython165.zip</Archive>
+    </Source>
+
+    <Package>
+        <Name>drpython</Name>
+        <RuntimeDependencies>
+            <Dependency>wxPython2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/drpython.desktop">drpython.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-26</Date>
+            <Version>1.65</Version>
+            <Comment>First release</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

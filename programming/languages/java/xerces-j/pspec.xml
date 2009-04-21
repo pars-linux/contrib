@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xerces-j</Name>
+        <Homepage>http://xerces.apache.org/xerces-j</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <Summary>Validating XML parser for Java with DOM level 3 support</Summary>
+        <Description>The next generation of high performance, fully compliant XML parsers in the Apache Xerces family</Description>
+        <Archive sha1sum="78786a120c10b3d7079384cecbd2860260e47445" type="targz">mirrors://apache/xerces/j/Xerces-J-src.2.9.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+            <Dependency>xml-commons-external</Dependency>
+            <Dependency>xml-commons-resolver</Dependency>
+            <Dependency>xjavac</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>jar-paths.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xerces-j</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>xml-commons-external</Dependency>
+            <Dependency>xml-commons-resolver</Dependency>
+            <Dependency>xjavac</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/java</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-01-10</Date>
+            <Version>2.9.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alpersomuncu@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

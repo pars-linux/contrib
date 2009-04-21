@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>jetspeed-portlet-api</Name>
+        <Homepage>http://portals.apache.org/jetspeed-2/</Homepage>
+        <Packager>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <IsA>library</IsA>
+        <Summary>Jetspeed 2 Portlet API implementation of JSR 168</Summary>
+        <Archive sha1sum="266805dc81af6df2be6fa15d4e42ecca014cd945" type="targz">mirrors://apache/portals/jetspeed-2/sources/jetspeed-2.1-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>jetspeed-portlet-api</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-06</Date>
+            <Version>1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

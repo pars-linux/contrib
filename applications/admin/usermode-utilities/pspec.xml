@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>usermode-utilities</Name>
+        <Homepage>http://user-mode-linux.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Selim Ok</Name>
+            <Email>selimok@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>Tools for use with Usermode Linux virtual machines</Summary>
+        <Description>These tools facilitate networking (among other things) between the user-mode Linux virtual system and the host Linux system.</Description>
+        <Archive sha1sum="7c5569338097808818b9c99b4c413e5fb09ef285" type="tarbz2">http://www.user-mode-linux.org/~blaisorblade/uml-utilities/uml_utilities_20060323.tar.bz2</Archive>
+        <Patches>
+            <Patch>cflags.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>usermode-utilities</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="library">/usr/lib/uml</Path>
+            <Path fileType="doc">/usr/share/doc/</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-22</Date>
+            <Version>0.0_20060323</Version>
+            <Comment>First release.</Comment>
+            <Name>Selim Ok</Name>
+            <Email>selimok@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

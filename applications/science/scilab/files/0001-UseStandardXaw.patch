@@ -1,0 +1,480 @@
+--- scilab-4.1.1/routines/menusX/men_scilab.h.orig	2007-09-20 17:56:05.000000000 -0300
++++ scilab-4.1.1/routines/menusX/men_scilab.h	2007-09-20 17:56:36.000000000 -0300
+@@ -32,20 +32,20 @@
+ #include <X11/Xatom.h>
+ #include <X11/Intrinsic.h>
+ #include <X11/StringDefs.h>
+-#include <X11/Xaw3d/Box.h>
+-#include <X11/Xaw3d/Command.h>
+-#include <X11/Xaw3d/Dialog.h>
+-#include <X11/Xaw3d/Label.h>
+-#include <X11/Xaw3d/Paned.h>
+-#include <X11/Xaw3d/AsciiText.h>
+-#include <X11/Xaw3d/Viewport.h>
+-#include <X11/Xaw3d/Cardinals.h>
++#include <X11/Xaw/Box.h>
++#include <X11/Xaw/Command.h>
++#include <X11/Xaw/Dialog.h>
++#include <X11/Xaw/Label.h>
++#include <X11/Xaw/Paned.h>
++#include <X11/Xaw/AsciiText.h>
++#include <X11/Xaw/Viewport.h>
++#include <X11/Xaw/Cardinals.h>
+ #include <X11/Shell.h>
+-#include <X11/Xaw3d/Form.h>
+-#include <X11/Xaw3d/List.h>
++#include <X11/Xaw/Form.h>
++#include <X11/Xaw/List.h>
+ #include <X11/cursorfont.h>
+-#include <X11/Xaw3d/Scrollbar.h>
+-#include <X11/Xaw3d/Toggle.h>
++#include <X11/Xaw/Scrollbar.h>
++#include <X11/Xaw/Toggle.h>
+ #endif
+ #endif 
+ 
+--- scilab-4.1.1/routines/xsci/x_main.c.orig	2007-09-20 17:56:52.000000000 -0300
++++ scilab-4.1.1/routines/xsci/x_main.c	2007-09-20 17:57:01.000000000 -0300
+@@ -17,10 +17,10 @@
+ #include "x_menu.h"
+ #include <X11/StringDefs.h>
+ #include <X11/Shell.h>
+-#include <X11/Xaw3d/Form.h>
++#include <X11/Xaw/Form.h>
+ #include <X11/Xos.h>
+ #include <X11/cursorfont.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
++#include <X11/Xaw/SimpleMenu.h>
+ 
+ #include "../version.h"
+ #include "../machine.h"
+--- scilab-4.1.1/routines/xsci/wf_figx.h.orig	2007-09-20 17:57:12.000000000 -0300
++++ scilab-4.1.1/routines/xsci/wf_figx.h	2007-09-20 17:57:33.000000000 -0300
+@@ -15,19 +15,19 @@
+ #include <X11/Shell.h>
+ #include <X11/Xatom.h>
+ 
+-#include <X11/Xaw3d/Command.h>
+-#include <X11/Xaw3d/Label.h>
+-#include <X11/Xaw3d/Dialog.h>
+-#include <X11/Xaw3d/Box.h>
+-#include <X11/Xaw3d/Form.h>
+-#include <X11/Xaw3d/Cardinals.h>
+-#include <X11/Xaw3d/Text.h>
+-#include <X11/Xaw3d/AsciiText.h>
+-#include <X11/Xaw3d/MenuButton.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
+-#include <X11/Xaw3d/Sme.h>
+-#include <X11/Xaw3d/SmeBSB.h>
+-#include <X11/Xaw3d/Toggle.h>
+-#include <X11/Xaw3d/Paned.h>
+-#include <X11/Xaw3d/Viewport.h>
+-#include <X11/Xaw3d/List.h>
++#include <X11/Xaw/Command.h>
++#include <X11/Xaw/Label.h>
++#include <X11/Xaw/Dialog.h>
++#include <X11/Xaw/Box.h>
++#include <X11/Xaw/Form.h>
++#include <X11/Xaw/Cardinals.h>
++#include <X11/Xaw/Text.h>
++#include <X11/Xaw/AsciiText.h>
++#include <X11/Xaw/MenuButton.h>
++#include <X11/Xaw/SimpleMenu.h>
++#include <X11/Xaw/Sme.h>
++#include <X11/Xaw/SmeBSB.h>
++#include <X11/Xaw/Toggle.h>
++#include <X11/Xaw/Paned.h>
++#include <X11/Xaw/Viewport.h>
++#include <X11/Xaw/List.h>
+--- scilab-4.1.1/routines/xsci/wf_xcommand.c.orig	2007-09-20 17:57:44.000000000 -0300
++++ scilab-4.1.1/routines/xsci/wf_xcommand.c	2007-09-20 17:57:58.000000000 -0300
+@@ -34,8 +34,8 @@
+ #include <X11/Intrinsic.h>
+ #include <X11/StringDefs.h>	/* Get standard string definations. */
+ 
+-#include <X11/Xaw3d/Command.h>	
+-#include <X11/Xaw3d/Cardinals.h>	
++#include <X11/Xaw/Command.h>	
++#include <X11/Xaw/Cardinals.h>	
+ 
+ #include "wf_resources.h"
+ static void Syntax();
+--- scilab-4.1.1/routines/xsci/x_scrollbar.c.orig	2007-09-20 17:58:11.000000000 -0300
++++ scilab-4.1.1/routines/xsci/x_scrollbar.c	2007-09-20 17:58:17.000000000 -0300
+@@ -38,7 +38,7 @@
+ #include <X11/Xatom.h>
+ #include <X11/StringDefs.h>
+ #include <X11/Shell.h>
+-#include <X11/Xaw3d/Scrollbar.h>
++#include <X11/Xaw/Scrollbar.h>
+ 
+ #include "x_data.h"
+ #include "x_error.h"
+--- scilab-4.1.1/routines/xsci/jpc_defs.h.orig	2007-09-20 17:58:31.000000000 -0300
++++ scilab-4.1.1/routines/xsci/jpc_defs.h	2007-09-20 17:58:45.000000000 -0300
+@@ -68,23 +68,23 @@
+ #include <X11/Xos.h>
+ #include <X11/Intrinsic.h>
+ #include <X11/StringDefs.h>
+-#include <X11/Xaw3d/Cardinals.h>
++#include <X11/Xaw/Cardinals.h>
+ #include <X11/Xatom.h>
+ #include <X11/Shell.h>
+-#include <X11/Xaw3d/Paned.h>
+-#include <X11/Xaw3d/Grip.h>
+-#include <X11/Xaw3d/Form.h>
+-#include <X11/Xaw3d/MenuButton.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
+-#include <X11/Xaw3d/SmeBSB.h>
+-#include <X11/Xaw3d/AsciiText.h>
+-#include <X11/Xaw3d/TextSrc.h>
+-#include <X11/Xaw3d/Text.h>
+-#include <X11/Xaw3d/Box.h>
+-#include <X11/Xaw3d/Dialog.h>
+-#include <X11/Xaw3d/List.h>
+-#include <X11/Xaw3d/Command.h>
+-#include <X11/Xaw3d/Label.h>
++#include <X11/Xaw/Paned.h>
++#include <X11/Xaw/Grip.h>
++#include <X11/Xaw/Form.h>
++#include <X11/Xaw/MenuButton.h>
++#include <X11/Xaw/SimpleMenu.h>
++#include <X11/Xaw/SmeBSB.h>
++#include <X11/Xaw/AsciiText.h>
++#include <X11/Xaw/TextSrc.h>
++#include <X11/Xaw/Text.h>
++#include <X11/Xaw/Box.h>
++#include <X11/Xaw/Dialog.h>
++#include <X11/Xaw/List.h>
++#include <X11/Xaw/Command.h>
++#include <X11/Xaw/Label.h>
+ #include <X11/cursorfont.h>
+ 
+ /* incompatibility of header file with X11R4 documentation */
+--- scilab-4.1.1/routines/xsci/x_menu.c.orig	2007-09-20 17:58:58.000000000 -0300
++++ scilab-4.1.1/routines/xsci/x_menu.c	2007-09-20 17:59:06.000000000 -0300
+@@ -19,9 +19,9 @@ without express or implied warranty.
+ #include <X11/StringDefs.h>
+ #include <X11/Shell.h>
+ #include <X11/Xmu/CharSet.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
+-#include <X11/Xaw3d/SmeBSB.h>
+-#include <X11/Xaw3d/SmeLine.h>
++#include <X11/Xaw/SimpleMenu.h>
++#include <X11/Xaw/SmeBSB.h>
++#include <X11/Xaw/SmeLine.h>
+ #include <stdio.h>
+ #include <signal.h>
+ 
+--- scilab-4.1.1/routines/xsci/wf_w_file.h.orig	2007-09-20 17:59:18.000000000 -0300
++++ scilab-4.1.1/routines/xsci/wf_w_file.h	2007-09-20 17:59:30.000000000 -0300
+@@ -47,19 +47,19 @@ extern char    *sys_errlist[];
+ #include <X11/Shell.h>
+ #include <X11/Xatom.h>
+ 
+-#include <X11/Xaw3d/Command.h>
+-#include <X11/Xaw3d/Label.h>
+-#include <X11/Xaw3d/Dialog.h>
+-#include <X11/Xaw3d/Box.h>
+-#include <X11/Xaw3d/Form.h>
+-#include <X11/Xaw3d/Cardinals.h>
+-#include <X11/Xaw3d/Text.h>
+-#include <X11/Xaw3d/AsciiText.h>
+-#include <X11/Xaw3d/MenuButton.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
+-#include <X11/Xaw3d/Sme.h>
+-#include <X11/Xaw3d/SmeBSB.h>
+-#include <X11/Xaw3d/Toggle.h>
+-#include <X11/Xaw3d/Paned.h>
+-#include <X11/Xaw3d/Viewport.h>
+-#include <X11/Xaw3d/List.h>
++#include <X11/Xaw/Command.h>
++#include <X11/Xaw/Label.h>
++#include <X11/Xaw/Dialog.h>
++#include <X11/Xaw/Box.h>
++#include <X11/Xaw/Form.h>
++#include <X11/Xaw/Cardinals.h>
++#include <X11/Xaw/Text.h>
++#include <X11/Xaw/AsciiText.h>
++#include <X11/Xaw/MenuButton.h>
++#include <X11/Xaw/SimpleMenu.h>
++#include <X11/Xaw/Sme.h>
++#include <X11/Xaw/SmeBSB.h>
++#include <X11/Xaw/Toggle.h>
++#include <X11/Xaw/Paned.h>
++#include <X11/Xaw/Viewport.h>
++#include <X11/Xaw/List.h>
+--- scilab-4.1.1/routines/xsci/jpc_SGraph.c.orig	2007-09-20 17:59:43.000000000 -0300
++++ scilab-4.1.1/routines/xsci/jpc_SGraph.c	2007-09-20 17:59:57.000000000 -0300
+@@ -14,21 +14,21 @@
+ #include <X11/Intrinsic.h>
+ #include <X11/StringDefs.h>
+ #include <X11/Shell.h>
+-#include <X11/Xaw3d/Box.h>
+-#include <X11/Xaw3d/Command.h>
+-#include <X11/Xaw3d/Form.h>
+-#include <X11/Xaw3d/Label.h>
+-#include <X11/Xaw3d/Cardinals.h>
+-#include <X11/Xaw3d/Paned.h>
+-#include <X11/Xaw3d/Grip.h>
+-#include <X11/Xaw3d/MenuButton.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
+-#include <X11/Xaw3d/SmeBSB.h>
+-#include <X11/Xaw3d/SmeLine.h>
+-#include <X11/Xaw3d/Viewport.h>
+-#include <X11/Xaw3d/Panner.h>	
++#include <X11/Xaw/Box.h>
++#include <X11/Xaw/Command.h>
++#include <X11/Xaw/Form.h>
++#include <X11/Xaw/Label.h>
++#include <X11/Xaw/Cardinals.h>
++#include <X11/Xaw/Paned.h>
++#include <X11/Xaw/Grip.h>
++#include <X11/Xaw/MenuButton.h>
++#include <X11/Xaw/SimpleMenu.h>
++#include <X11/Xaw/SmeBSB.h>
++#include <X11/Xaw/SmeLine.h>
++#include <X11/Xaw/Viewport.h>
++#include <X11/Xaw/Panner.h>	
+ #include <X11/IntrinsicP.h>
+-#include <X11/Xaw3d/ViewportP.h>
++#include <X11/Xaw/ViewportP.h>
+ #include <string.h>
+ 
+ #include "../sci_mem_alloc.h"
+--- scilab-4.1.1/routines/xsci/jpc_xwidgets.c.orig	2007-09-20 18:00:10.000000000 -0300
++++ scilab-4.1.1/routines/xsci/jpc_xwidgets.c	2007-09-20 18:00:22.000000000 -0300
+@@ -8,21 +8,21 @@
+ #include <X11/StringDefs.h>
+ #include <X11/Shell.h>
+ 
+-#include <X11/Xaw3d/AsciiText.h>
+-#include <X11/Xaw3d/Box.h>
+-#include <X11/Xaw3d/Command.h>
+-#include <X11/Xaw3d/Dialog.h>
+-#include <X11/Xaw3d/Form.h>
+-#include <X11/Xaw3d/Label.h>
+-#include <X11/Xaw3d/List.h>
+-#include <X11/Xaw3d/MenuButton.h>
+-#include <X11/Xaw3d/SimpleMenu.h>
+-#include <X11/Xaw3d/SmeBSB.h>
+-#include <X11/Xaw3d/SmeLine.h>
+-#include <X11/Xaw3d/Paned.h>
+-#include <X11/Xaw3d/Toggle.h>
+-#include <X11/Xaw3d/Viewport.h>
+-#include <X11/Xaw3d/Cardinals.h>
++#include <X11/Xaw/AsciiText.h>
++#include <X11/Xaw/Box.h>
++#include <X11/Xaw/Command.h>
++#include <X11/Xaw/Dialog.h>
++#include <X11/Xaw/Form.h>
++#include <X11/Xaw/Label.h>
++#include <X11/Xaw/List.h>
++#include <X11/Xaw/MenuButton.h>
++#include <X11/Xaw/SimpleMenu.h>
++#include <X11/Xaw/SmeBSB.h>
++#include <X11/Xaw/SmeLine.h>
++#include <X11/Xaw/Paned.h>
++#include <X11/Xaw/Toggle.h>
++#include <X11/Xaw/Viewport.h>
++#include <X11/Xaw/Cardinals.h>
+ 
+ typedef  struct  {
+   char *name;
+--- scilab-4.1.1/examples/callsci/callsciC++/config/Makefile.incl.orig	2007-09-20 17:55:09.000000000 -0300
++++ scilab-4.1.1/examples/callsci/callsciC++/config/Makefile.incl	2007-09-20 17:55:36.000000000 -0300
+@@ -62,7 +62,7 @@ PVMLIB = /usr/local/scilab-cvs/pvm3/lib/
+ PVMGLIB = /usr/local/scilab-cvs/pvm3/lib/LINUX/libgpvm3.a
+ PVMROOT = /usr/local/scilab-cvs/pvm3
+ PVMINCLUDE = /usr/local/scilab-cvs/pvm3/include
+-XAWLIB = -lXaw3d
++XAWLIB = -lXaw
+ XMULIB = -lXmu
+ XAW_LOCAL_SUBDIR = 
+ XAW_LOCAL_LIB = 
+--- scilab-4.1.1/examples/callsci/callsciC/config/Makefile.incl.orig	2007-09-20 17:55:48.000000000 -0300
++++ scilab-4.1.1/examples/callsci/callsciC/config/Makefile.incl	2007-09-20 17:55:53.000000000 -0300
+@@ -63,7 +63,7 @@ PVMLIB = /usr/local/scilab/pvm3/lib/LINU
+ PVMGLIB = /usr/local/scilab/pvm3/lib/LINUX/libgpvm3.a
+ PVMROOT = /usr/local/scilab/pvm3
+ PVMINCLUDE = /usr/local/scilab/pvm3/include
+-XAWLIB = -lXaw3d
++XAWLIB = -lXaw
+ XMULIB = -lXmu
+ XAW_LOCAL_SUBDIR = 
+ XAW_LOCAL_LIB = 
+--- scilab-4.1.1/configure.orig	2007-09-20 17:53:27.000000000 -0300
++++ scilab-4.1.1/configure	2007-09-20 17:53:33.000000000 -0300
+@@ -27841,7 +27841,7 @@ if test "${ac_cv_lib_Xaw3d_main+set}" = 
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lXaw3d -lXmu -lXt -lXext $X_PRE_LIBS -lX11 $X_EXTRA_LIBS $LIBS"
++LIBS="-lXaw -lXmu -lXt -lXext $X_PRE_LIBS -lX11 $X_EXTRA_LIBS $LIBS"
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+@@ -27920,8 +27920,8 @@ fi
+         XAW_LOCAL_SUBDIR=X11
+         XAW=Xaw3d
+       else
+-        XAWLIB=-lXaw3d
+-        XAW=Xaw3d
++        XAWLIB=-lXaw
++        XAW=Xaw
+         LDFLAGS="$ac_save_LDFLAGS"
+         save_cflags=$CFLAGS
+         CFLAGS="$X_CFLAGS $CC_OPTIONS"
+@@ -27931,7 +27931,7 @@ _ACEOF
+ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+-#include <X11/IntrinsicP.h> #include <X11/Xaw3d/ViewportP.h>
++#include <X11/IntrinsicP.h> #include <X11/Xaw/ViewportP.h>
+ int
+ main ()
+ {
+@@ -27979,10 +27979,10 @@ else
+   echo "$as_me: failed program was:" >&5
+ sed 's/^/| /' conftest.$ac_ext >&5
+ 
+-	{ { echo "$as_me:$LINENO: error: Include file \"ViewportP.h\" for Xaw3d not found.
+-			       Get and put it in <X11/Xaw3d/> ." >&5
+-echo "$as_me: error: Include file \"ViewportP.h\" for Xaw3d not found.
+-			       Get and put it in <X11/Xaw3d/> ." >&2;}
++	{ { echo "$as_me:$LINENO: error: Include file \"ViewportP.h\" for Xaw not found.
++			       Get and put it in <X11/Xaw/> ." >&5
++echo "$as_me: error: Include file \"ViewportP.h\" for Xaw not found.
++			       Get and put it in <X11/Xaw/> ." >&2;}
+    { (exit 1); exit 1; }; }
+ fi
+ 
+--- scilab-4.1.1/routines/xsci/Xscilab.ad.orig	2007-09-21 16:40:35.000000000 -0300
++++ scilab-4.1.1/routines/xsci/Xscilab.ad	2007-09-21 16:41:15.000000000 -0300
+@@ -1,5 +1,5 @@
+ ! Scilab Project : Resource File for Scilab 
+-!Xscilab*font: -misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8
++Xscilab*font: -misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8
+ !---------------------------------------------------------------
+ ! Scilab Application Window 
+ !---------------------------------------------------------------
+@@ -29,7 +29,7 @@ Xscilab*vpane.msWindow.messageWindow.rig
+ !---------------------------------------------------------------
+ ! Scilab Buttons 
+ !---------------------------------------------------------------
+-Xscilab*font:fixed
++!Xscilab*font:fixed
+ Xscilab*vpane.commandWindow.top:chainTop
+ Xscilab*vpane.commandWindow.bottom:chainTop
+ Xscilab*vpane.commandWindow.left:chainLeft
+@@ -76,7 +76,6 @@ Xscilab*vpane.commandWindow.Help.fromHor
+ Xscilab*SimpleMenu*BackingStore: NotUseful
+ Xscilab*SimpleMenu*menuLabel.font: -adobe-helvetica-bold-r-normal--*-120-*-*-*-*-iso8859-*
+ Xscilab*SimpleMenu*menuLabel.vertSpace: 	100
+-Xscilab*SimpleMenu*HorizontalMargins: 16
+ Xscilab*SimpleMenu*Sme.height:	16
+ Xscilab*SimpleMenu*Cursor: left_ptr
+ !---------------------------------------------------------------
+@@ -235,7 +234,6 @@ Xscilab*TransientShell.y:						20
+ Xscilab*TransientShell.allowShellResize:				True
+ Xscilab*TransientShell.hpaned.orientation:				horizontal
+ Xscilab*TransientShell.hpaned.paned.showGrip:				False
+-Xscilab*TransientShell.hpaned.paned.showGrip:				False
+ Xscilab*TransientShell.hpaned.paned.max:				800
+ Xscilab*TransientShell.hpaned.paned.min:				100
+ Xscilab*TransientShell.hpaned.paned.orientation:			vertical
+@@ -283,13 +281,12 @@ Xscilab*TransientShell.hpaned.paned.cfor
+ ! changed june 2002 x_ are changed to XtAppCreateShell
+ !---------------------------------------------------------------
+ 
+-Xscilab*Paned*font:*-fixed-medium-r-*-*-13-*-*-*-*-*-iso8859-*
++!Xscilab*Paned*font:*-fixed-medium-r-*-*-13-*-*-*-*-*-iso8859-*
+ Xscilab*Paned.x:						147
+ Xscilab*Paned.y:						20
+ Xscilab*Paned.allowShellResize:				True
+ Xscilab*Paned.hpaned.orientation:				horizontal
+ Xscilab*Paned.hpaned.paned.showGrip:				False
+-Xscilab*Paned.hpaned.paned.showGrip:				False
+ Xscilab*Paned.hpaned.paned.max:				800
+ Xscilab*Paned.hpaned.paned.min:				100
+ Xscilab*Paned.hpaned.paned.orientation:			vertical
+@@ -439,7 +436,7 @@ Xscilab*printShell.hpaned.paned.cform.ca
+ !---------------------------------------------------------------
+ ! Scilab Graphic windows 
+ !---------------------------------------------------------------
+-!Xscilab*scigForm.showGrip:False
++Xscilab*scigForm.showGrip:False
+ !Xscilab*scigForm.orientation:XtorientVertical
+ Xscilab*scigForm.min:20
+ Xscilab*scigForm*font:fixed
+@@ -581,3 +578,70 @@ Xscilab.gray*Scrollbar.background:gray10
+ Xscilab.gray*Paned.internalBorderColor:gray10
+ Xscilab.gray.vpane.Box.Form.background:gray20
+ 
++
++
++
++
++Xscilab*borderWidth:				0
++Xscilab*highlightThickness:			0
++
++*Command.backgroundPixmap:	gradient:vertical?dimension=18&start=gray95&end=gray80
++*MenuButton.backgroundPixmap:	gradient:vertical?dimension=18&start=gray95&end=gray80
++
++Xscilab*displayList:\
++foreground	gray40;\
++segments	+2,-1,-2,-1, -1,-2,-1,+1;\
++foreground	gray80;\
++segments	-2,+0,+1,+0, +0,+1,+0,-2;\
++foreground	gray90;\
++point		0,0;\
++foreground	gray10;\
++point		-1,-1;\
++foreground	gray60;\
++points		0,-1,-1,0
++
++Xscilab*Label.displayList:
++Xscilab*messageWindow.displayList:foreground gray60;draw-rect +1,+1,-1,-1;foreground gray90;draw-rect +0,+0,-2,-2
++Xscilab*scigraphicinfo.displayList:foreground gray60;draw-rect +1,+1,-1,-1;foreground gray90;draw-rect +0,+0,-2,-2
++
++Xscilab*Text.displayList: foreground gray90;lines 1,-1,-1,-1,-1,1;foreground gray50;lines -1,0,0,0,0,-1
++
++Xscilab*MenuButton.translations: \
++<Enter>:	highlight()\n\
++<Leave>:	set-values(1, backgroundPixmap, gradient:vertical?dimension=18&start=gray95&end=gray80) reset()\n\
++Any<BtnDown>:	highlight() set-values(1, backgroundPixmap, gradient:vertical?dimension=18&start=gray10&end=gray35) set() PopupMenu()
++
++*Command.translations:	#override \
++<Btn1Down>:	set-values(1, backgroundPixmap, gradient:vertical?dimension=18&start=gray10&end=gray35) set()\n\
++Button1<Leave>: set-values(1, backgroundPixmap, gradient:vertical?dimension=18&start=gray95&end=gray80) reset()\n\
++<Btn1Up>:	set-values(1, backgroundPixmap, gradient:vertical?dimension=18&start=gray95&end=gray80) notify() unset()
++
++Xscilab*SimpleMenu.HorizontalMargins:	2
++Xscilab*SimpleMenu.VerticalMargins:	2
++Xscilab*SmeBSB.HorizontalMargins:	18
++Xscilab*SmeBSB.VerticalMargins:		2
++
++Xscilab*Scrollbar.displayList:
++Xscilab.color*Scrollbar.foreground:	gray50
++*Scrollbar.thumb:			vlines2
++
++*showGrip:				False
++
++*Panner.internalSpace:			2
++*Panner.lineWidth:			1
++*Panner.shadowThickness:		0
++*Panner.borderWidth:			1
++Xscilab*Panner.displayList: foreground gray90;lines 1,-1,-1,-1,-1,1;foreground gray50;lines -1,0,0,0,0,-1
++
++*Text.translations: #override \
++c<Key>S:	no-op(r)\n\
++c<Key>R:	no-op(r)\n\
++m<Key>I:	no-op(r)\n\
++<Key>Escape:	no-op()\n\
++<Enter>:	no-op()\n\
++<Leave>:	no-op()\n\
++<Btn1Down>:	set-keyboard-focus() select-start()
++
++!! hack... cannot set background
++Xscilab.color*xsci_file_menu*Label.displayList:	foreground gray94; fill-rect 0,0,-0,-0
++

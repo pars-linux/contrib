@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnuitar</Name>
+        <Homepage>http://www.gnuitar.com/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>This is a program for real-time sound effect processing</Summary>
+        <Description>This is a program for real-time sound effect processing.You can use it to add some distortion to your guitar, or some reverb to your voice</Description>
+        <Archive sha1sum="3abe3227d5ac539709a816aa6b4c9284887bf322" type="targz">mirrors://sourceforge/gnuitar/gnuitar-0.3.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gnuitar</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/</Path>
+            <Path fileType="data">/usr/share/applications/</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc/</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gnuitar.desktop">gnuitar.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/gnuitar.png">gnuitar.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-25</Date>
+            <Version>0.3.2</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

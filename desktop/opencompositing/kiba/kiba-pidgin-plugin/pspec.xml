@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kiba-pidgin-plugin</Name>
+        <Homepage>http://www.kiba-dock.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Pidgin plugin for kiba-dock</Summary>
+        <Archive sha1sum="af62134c5ea45b0dc19cd378b4638f0ccebb12b2" type="tarbz2">http://kpelit.org/ds/kiba/kiba-gaim-plugin-0.0_20071223.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kiba-dock</Dependency>
+            <Dependency>pidgin</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kiba-pidgin-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>kiba-dock</Dependency>
+            <Dependency>pidgin</Dependency>
+         </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/kiba-dock</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-12</Date>
+            <Version>0.0_20071223</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

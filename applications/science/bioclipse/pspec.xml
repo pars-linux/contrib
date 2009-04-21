@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>bioclipse</Name>
+        <Homepage>http://www.bioclipse.net/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>Eclipse Public License</License>
+        <IsA>app:gui</IsA>
+        <Summary>A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Summary>
+        <Description>A framework for chemo- and bioinformatics using the Eclipse Rich Client Platform (RCP).</Description>
+        <Archive sha1sum="f691672aca0dc05584f9368db38309795f77331d" type="zip">mirrors://sourceforge/bioclipse/bioclipse1_1_3.linux.gtk.x86.zip</Archive>
+    </Source>
+
+    <Package>
+        <Name>bioclipse</Name>
+        <RuntimeDependencies>
+            <Dependency>atk</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/opt/bioclipse</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/bin/bioclipse" permission="0755" owner="root">bioclipse</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/bioclipse.desktop" permission="0755" owner="root">bioclipse.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/bioclipse.png" permission="0755" owner="root">bioclipse.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2007-07-12</Date>
+            <Version>1.1.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-06-17</Date>
+            <Version>1.1.1_beta1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-04-08</Date>
+            <Version>1.0.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-16</Date>
+            <Version>1.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-22</Date>
+            <Version>0.9.2</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

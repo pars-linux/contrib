@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libqglviewer</Name>
+        <Homepage>http://artis.imag.fr/Members/Gilles.Debunne/QGLViewer/</Homepage>
+        <Packager>
+            <Name>Jérôme Schneider</Name>
+            <Email>jerome.schneider@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>libQGLViewer is a C++ library based on Qt that eases the creation of OpenGL 3D viewers</Summary>
+        <Archive sha1sum="8cf3dd7f3df2cbac013a36d5f7e72bec3ea20793" type="targz">http://artis.imag.fr/Members/Gilles.Debunne/QGLViewer/src/libQGLViewer-2.2.6-3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>glut</Dependency>
+            <Dependency>libXmu</Dependency>
+            <Dependency>lcms</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">QGLViewer.pro.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libqglviewer</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+            <Dependency>glut</Dependency>
+            <Dependency>libXmu</Dependency>
+            <Dependency>lcms</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2008-03-03</Date>
+            <Version>2.2.6_3</Version>
+            <Comment>Change the packager name.</Comment>
+            <Name>Jérôme Schneider</Name>
+            <Email>jerome.schneider@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-03-01</Date>
+            <Version>2.2.6_3</Version>
+            <Comment>Use make install.</Comment>
+            <Name>Jérôme Schneider</Name>
+            <Email>jerome.schneider@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-02-06</Date>
+            <Version>2.2.6_3</Version>
+            <Comment>Version bump and add dependencies.</Comment>
+            <Name>Jérôme Schneider</Name>
+            <Email>jerome.schneider@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-19</Date>
+            <Version>2.2.5_1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertugrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

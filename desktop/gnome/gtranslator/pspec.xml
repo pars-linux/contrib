@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtranslator</Name>
+        <Homepage>http://gtranslator.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Gettext po file editor for Gnome</Summary>
+        <Archive sha1sum="91fa41c87f2e3cdef1cc59baaa4c27ad853d07e7" type="tarbz2">mirrors://gnome/gtranslator/1.1/gtranslator-1.1.7.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>intltool</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gtranslator</Name>
+        <RuntimeDependencies>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+            <Dependency>intltool</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-24</Date>
+            <Version>1.1.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

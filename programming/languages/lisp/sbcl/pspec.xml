@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sbcl</Name>
+        <Homepage>http://sbcl.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Nicolas E. Lara G.</Name>
+            <Email>nicolaslara@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>app:console</IsA>
+        <Summary>A compiler and runtime system for ANSI Common Lisp.</Summary>
+        <Description>A compiler and runtime system for ANSI Common Lisp. It provides an interactive environment including an integrated native compiler, a debugger, and many extensions.</Description>
+        <Archive sha1sum="4a34bf7f87e94b24b0757a17a9787f97930e723c" type="tarbz2">mirrors://sourceforge/sbcl/sbcl-1.0.8-x86-linux-binary.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>sbcl</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/sbcl</Path>
+            <Path fileType="doc">/usr/share</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="config">/etc/env.d</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/env.d/99sbcl">99sbcl</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-30</Date>
+            <Version>1.0.8</Version>
+            <Comment>First Release</Comment>
+            <Name>Nicolas E. Lara G.</Name>
+            <Email>nicolaslara@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+    <Name>koverartist</Name>
+        <Homepage>http://kde-apps.org/content/show.php?content=38195</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KoverArtist is a program for the fast creation of covers for cd/dvd cases and boxes.</Summary>
+        <Archive sha1sum="2fff3824c7b72a769dd2960bdc38d4dd5ff9e263" type="tarbz2">http://members.inode.at/499177/software/koverartist/koverartist-0.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>koverartist</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-03-13</Date>
+            <Version>0.5</Version>
+            <Comment>Turkish translations</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-17</Date>
+            <Version>0.5</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wink</Name>
+        <Homepage>http://www.debugmode.com/wink/</Homepage>
+        <Packager>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Packager>
+        <License>GPL</License>
+        <IsA>app:gui</IsA>
+        <Summary>Wink is a Tutorial and Presentation creation software.</Summary>
+        <Description>Wink is a Tutorial and Presentation creation software, primarily aimed at creating tutorials on how to use software. Using Wink you can capture screenshots, add explanations boxes, buttons, titles etc and generate a highly effective tutorial for your users.</Description>
+        <Archive sha1sum="e4171043590a02bcd2b77a568b80a409a7a534ac" type="tarbz2">http://www.alpersomuncu.com/download/wink-1.5.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>wink</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/wink.desktop">wink.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/wink.png">wink.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0755" target="/usr/bin/wink">wink</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2006-07-24</Date>
+            <Version>1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Alper Somuncu</Name>
+            <Email>alper@alpersomuncu.com</Email>
+        </Update>
+    </History>
+</PISI>

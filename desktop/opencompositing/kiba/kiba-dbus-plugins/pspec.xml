@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kiba-dbus-plugins</Name>
+        <Homepage>http://www.kiba-dock.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Plugins for kiba-dock</Summary>
+        <Archive sha1sum="07160f617f6a0f676b58976d89f1c3509e3836a8" type="tarbz2">http://kpelit.org/ds/kiba/kiba-dbus-plugins-0.0_20071223.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kiba-dock</Dependency>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kiba-dbus-plugins</Name>
+        <RuntimeDependencies>
+            <Dependency>kiba-dock</Dependency>
+            <Dependency>feedparser</Dependency>
+            <Dependency>pygtk</Dependency>
+         </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/kiba-dock</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-08-12</Date>
+            <Version>0.0_20071223</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

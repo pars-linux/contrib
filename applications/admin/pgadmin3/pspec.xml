@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PSPEC SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pgadmin3</Name>
+        <Homepage>http://www.pgadmin.org</Homepage>
+        <Packager>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>app:gui</IsA>
+        <Summary>wxWidgets GUI for PostgreSQL</Summary>
+        <Description>Graphical client for PostgreSQL</Description>
+        <Archive sha1sum="3c56fbbec37a6d4ef5def0c1c0f775b177d4805d" type="targz">ftp://ftp6.tr.postgresql.org/postgresql/pgadmin3/release/v1.6.3/src/pgadmin3-1.6.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
+            <Dependency>wxGTK2_8</Dependency>
+            <Dependency>libxslt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pgadmin3</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
+            <Dependency>wxGTK2_8</Dependency>
+            <Dependency>libxslt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/pgadmin3</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/pgadmin3.desktop">pgadmin3.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-07-24</Date>
+            <Version>1.6.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Ali Erdinç Köroğlu</Name>
+            <Email>erdinc@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

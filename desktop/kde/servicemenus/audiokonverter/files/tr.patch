@@ -1,0 +1,419 @@
+diff -Naur audiokonverter-5.5.orig/anytowav audiokonverter-5.5/anytowav
+--- audiokonverter-5.5.orig/anytowav	2007-01-31 22:57:57.000000000 +0200
++++ audiokonverter-5.5/anytowav	2007-06-21 01:22:42.000000000 +0300
+@@ -8,8 +8,8 @@
+ 
+ function perror()
+ {
+-	echo "Program $1 not found. Skipping file"
+-	kdialog --passivepopup "Program $1 not found. Skipping file." 3
++	echo "$1 programı bulunamadı. Dosya atlanıyor."
++	kdialog --passivepopup "$1 programı bulunamadı. Dosya atlanıyor." 3
+ }
+ 
+ function files()
+@@ -19,7 +19,7 @@
+ 	shortname=$(echo $filename|sed 's/\.[^\.]*$//g') # delete suffix, version by Dimitrios Lampridis
+ #	shortname=$(echo $filename|sed 's/\..*$//g') # delete suffix
+ 	wavname="${decdir}/${EXTRA}/${shortname}.wav"
+-	echo -e "\n# Now converting: $1\n"
++	echo -e "\n# Dönüştürüyor: $1\n"
+ }
+ 
+ function oggwav()
+@@ -92,7 +92,7 @@
+ 	nice -10 ofs --overwrite --decode "$1" "${wavname}"
+ }
+ 
+-test -z "$1" && echo -e "\nusage: anytowav filename(s)\n" && exit
++test -z "$1" && echo -e "\nKullanımı: anytowav dosya_ismi(leri)\n" && exit
+ 
+ until [ -f "$1" ] || [ -d "$1" ]
+ do
+@@ -113,11 +113,11 @@
+ 
+ # select destination directory, use last selected
+ test $dontask -eq 0 &&
+-decdir=$(kdialog --title "Where shall I write the new file(s)?" --getexistingdirectory $decdir) &&
++decdir=$(kdialog --title "Yeni dosyaları nereye yazayım?" --getexistingdirectory $decdir) &&
+ while test ! -w "$decdir"
+ do
+-	kdialog --error "You are not allowed to write in this directory"
+-	decdir=$(kdialog --title "Where shall I write the new file(s)?" --getexistingdirectory $HOME)
++	kdialog --error "Bu klasöre yazma yetkiniz yok"
++	decdir=$(kdialog --title "Yeni dosyaları nereye yazayım?" --getexistingdirectory $HOME)
+ done
+ 
+ # if not writable in dontask mode
+@@ -238,7 +238,7 @@
+ 	then
+ 		cd "$1" # must be here for relative paths
+ 		CDIR="$PWD" # converting directory
+-		echo "Converting recursively from $PWD"
++		echo "$PWD Özyinelemeli olarak dönüştürüyor"
+ 		export EXTRABASE=$(basename "$PWD") # dirname to create in encdir
+ 
+ 		# preserve directory structure:
+@@ -295,5 +295,5 @@
+ 	shift
+ done
+ 
+-test $dontask -eq 0 && kdialog --msgbox "All WAVs have been written!"
+-test $dontask -eq 1 && kdialog --passivepopup "All WAVs have been written!" 3 &
++test $dontask -eq 0 && kdialog --msgbox "Tüm WAV dosyaları yazıldı!"
++test $dontask -eq 1 && kdialog --passivepopup "Tüm WAV dosyaları yazıldı!" 3 &
+diff -Naur audiokonverter-5.5.orig/audioconvert audiokonverter-5.5/audioconvert
+--- audiokonverter-5.5.orig/audioconvert	2007-01-31 22:58:11.000000000 +0200
++++ audiokonverter-5.5/audioconvert	2007-06-21 01:37:28.000000000 +0300
+@@ -16,8 +16,8 @@
+ 
+ function perror()
+ {
+-	echo "Program $1 not found. Skipping file."
+-	kdialog --passivepopup "Program $1 not found. Skipping file." 3
++	echo "$1 programı bulunamadı. Dosya atlanıyor."
++	kdialog --passivepopup "$1 programı bulunamadı. Dosya atlanıyor." 3
+ }
+ 
+ function names()
+@@ -28,7 +28,7 @@
+ #	shortname=$(echo $filename|sed 's/\..*$//g') # delete suffix
+ 	tempfile="/tmp/audiokonv${RANDOM}.wav"
+ 	while test -e ${tempfile} ; do tempfile="/tmp/audiokonv${RANDOM}.wav" ; done
+-	echo -e "\n# Now converting: $1 \n"
++	echo -e "\n# Şimdi dönüştürüyor: $1 \n"
+ }
+ 
+ function clearmeta()
+@@ -46,7 +46,7 @@
+ {
+ 	clearmeta
+ 	test -z "$(which metaflac)" && return
+-	echo "Getting metadata from FLAC"
++	echo "FLAC'dan dosya bilgisi alınıyor"
+ 	ALBUM="$(metaflac --show-tag=ALBUM "$1" |sed 's/.*=//g')"
+ 	ARTIST="$(metaflac --show-tag=ARTIST "$1" |sed 's/.*=//g')"
+ 	COMMENT="$(metaflac --show-tag=COMMENT "$1" |head -1|sed 's/.*=//g')"
+@@ -60,7 +60,7 @@
+ {
+ 	clearmeta
+ 	test -z "$(which vorbiscomment)" && return
+-	echo "Getting metadata from OGG"
++	echo "OGG'dan dosya bilgisi alınıyor"
+ 	ALBUM="$(vorbiscomment -l "$1" |grep -i ^ALBUM=|sed 's/.*=//g')"
+ 	ARTIST="$(vorbiscomment -l "$1" |grep -i ^ARTIST=|sed 's/.*=//g')"
+ 	COMMENT="$(vorbiscomment -l "$1" |grep -i ^COMMENT=|sed 's/.*=//g')"
+@@ -74,7 +74,7 @@
+ {
+ 	clearmeta
+ 	test -z "$(which id3info)" && return
+-	echo "Getting metadata from MP3"
++	echo "MP3'dan dosya bilgisi alınıyor"
+ 	ALBUM="$(id3info "$1" |grep ^===\ TALB|head -1|sed 's/.*:\ //g')"
+ 	ARTIST="$(id3info "$1" |grep ^===\ TPE1|head -1|sed 's/.*:\ //g')"
+ 	COMMENT="$(id3info "$1" |grep ^===\ COMM|head -1|sed 's/.*:\ //g')"
+@@ -88,7 +88,7 @@
+ {
+ 	clearmeta
+ 	test -z "$(which apetag)" && return
+-	echo "Getting ape metadata"
++	echo "ape dosya bilgisi alınıyor"
+ 	ALBUM="$(apetag -i "$1" |grep -i Album|sed 's/"Album" "//g'|sed 's/"//g')"
+ 	ARTIST="$(apetag -i "$1" |grep -i Artist|sed 's/"Artist" "//g'|sed 's/"//g')"
+ 	COMMENT="$(apetag -i "$1" |grep -i Comment|sed 's/"Comment" "//g'|sed 's/"//g')"
+@@ -102,28 +102,28 @@
+ {
+ 	test ! -z "$(which id3tag)" &&
+ 	id3tag --artist="${ARTIST}" --album="${ALBUM}" --song="${TITLE}" --comment="${COMMENT}" --genre="${GENRE}" --year="${YEAR}" --track="${TRACKNUMBER}" "${mp3name}" &&
+-	echo "Wrote metadata."
++	echo "Dosya bilgisi yazıldı."
+ }
+ 
+ function writemetavorbis()
+ {
+ 	test ! -z "$(which vorbiscomment)" &&
+ 	vorbiscomment -t "ARTIST=${ARTIST}" -t "ALBUM=${ALBUM}" -t "TITLE=${TITLE}" -t "COMMENT=${COMMENT}" -t "DATE=${YEAR}" -t "GENRE=${GENRE}" -t "TRACKNUMBER=${TRACKNUMBER}" -a "$1" &&
+-	echo "Wrote metadata."
++	echo "Dosya bilgisi yazıldı."
+ }
+ 
+ function writemetaape()
+ {
+ 	test ! -z "$(which apetag)" &&
+ 	apetag -i "$1" -m overwrite -p Artist="${ARTIST}" -p Album="${ALBUM}" -p Title="${TITLE}" -p Comment="${COMMENT}" -p Genre="${GENRE}" -p Year="${YEAR}" -p Track="${TRACKNUMBER}"
+-	echo "Wrote metadata."
++	echo "Dosya bilgisi yazıldı."
+ }
+ 
+ function writemetaflac()
+ {
+ 	test ! -z "$(which metaflac)" &&
+ 	metaflac --set-tag="Artist=${ARTIST}" --set-tag="Album=${ALBUM}" --set-tag="Title=${TITLE}" --set-tag="Comment=${COMMENT}" --set-tag="Genre=${GENRE}" --set-tag="Year=${YEAR}" --set-tag="Track=${TRACKNUMBER}" "$1"
+-	echo "Wrote metadata."
++	echo "Dosya bilgisi yazıldı."
+ }
+ 
+ ### OGG
+@@ -169,8 +169,8 @@
+ 
+ function oggtoflac()
+ {
+-	echo -e "# OGG to FLAC only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "OGG to FLAC only increases filesize. I won't do this." 3
++	echo -e "# OGG'tan FLAC'a dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "OGG'tan FLAC'a dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ #	flacname="${encdir}/${EXTRA}/${shortname}.flac"
+ #	getmetavorbis "$1"
+ #	nice -10 oggdec "$1" --output="${tempfile}"
+@@ -180,8 +180,8 @@
+ 
+ function oggtowv()
+ {
+-	echo -e "# OGG to Wavpack only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "OGG to Wavpack only increases filesize. I won't do this." 3
++	echo -e "# OGG'tan Wavpack'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "OGG'tan Wavpack'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ ### MP3
+@@ -202,7 +202,7 @@
+ 	mp3name=${filename}
+ 	test ${quality} -gt 9 && nice -10 lame --mp3input -b ${quality} ${ifmono} -h "$1" "${tempfile}"
+ 	test ${quality} -lt 10 && nice -10 lame --mp3input -v -V ${quality} ${ifmono} -h "$1" "${tempfile}"
+-	test ! -z "$(which id3cp)" && id3cp "${1}" "${tempfile}" && echo "Copied ID3 tag."
++	test ! -z "$(which id3cp)" && id3cp "${1}" "${tempfile}" && echo "ID3 bilgileri kopyalandı."
+ 	mv -f "${tempfile}" "${encdir}/${EXTRA}/${mp3name}"
+ }
+ 
+@@ -225,8 +225,8 @@
+ 
+ function mp3toflac()
+ {
+-	echo -e "# MP3 to FLAC only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "MP3 to FLAC only increases filesize. I won't do this." 3
++	echo -e "# MP3'tan FLAC'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "MP3'tan FLAC'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ #	flacname="${encdir}/${EXTRA}/${shortname}.flac"
+ 
+ #	getmetamp3 "$1"
+@@ -239,8 +239,8 @@
+ 
+ function mp3towv()
+ {
+-	echo -e "# MP3 to Wavpack only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "MP3 to Wavpack only increases filesize. I won't do this." 3
++	echo -e "# MP3'tan Wavpack'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "MP3'tan Wavpack'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ ### FLAC
+@@ -333,8 +333,8 @@
+ 
+ function aactoflac()
+ {
+-	echo -e "# AAC or M4A to FLAC only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "AAC or M4A to FLAC only increases filesize. I won't do this." 3
++	echo -e "# AAC veya M4A'dan FLAC'a dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "AAC veya M4A'dan FLAC'a dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ #	flacname="${encdir}/${EXTRA}/${shortname}.flac"
+ #	nice -10 faad -o "$tempfile" "$1"
+ #	nice -10 flac ${FLACOPTS} --output-name="${flacname}" "$tempfile"
+@@ -343,8 +343,8 @@
+ 
+ function aactowv()
+ {
+-	echo -e "# AAC or M4A to Wavpack only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "AAC or M4A to Wavpack only increases filesize. I won't do this." 3
++	echo -e "# AAC veya M4A'dan Wavpack'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "AAC veya M4A'dan Wavpack'e dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ ### WAV
+@@ -442,8 +442,8 @@
+ 
+ function real+wma2flac()
+ {
+-	echo -e "# RealAudio or WMA to FLAC only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "RealAudio or WMA to FLAC only increases filesize. I won't do this." 3
++	echo -e "# RealAudio veya WMA'dan FLAC'a dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "RealAudio veya WMA >> FLAC dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ #	flacname="${encdir}/${EXTRA}/${shortname}.flac"
+ #	nice -10 mplayer ${MPLAYEROPTS} -ao pcm:file="${tempfile}" "$1"
+ #	nice -10 flac ${FLACOPTS} --output-name="${flacname}" "${tempfile}"
+@@ -452,8 +452,8 @@
+ 
+ function real+wma2wv()
+ {
+-	echo -e "# RealAudio or WMA to Wavpack only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "RealAudio or WMA to Wavpack only increases filesize. I won't do this." 3
++	echo -e "# RealAudio veya WMA >> Wavpack dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "RealAudio or WMA to Wavpack dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ ### Musepack
+@@ -499,14 +499,14 @@
+ 
+ function mpctoflac()
+ {
+-	echo -e "# Musepack to FLAC only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "Musepack to FLAC only increases filesize. I won't do this." 3
++	echo -e "# Musepack >> FLAC dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "Musepack >> FLAC dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ function mpctowv()
+ {
+-	echo -e "# Musepack to Wavpack only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "Musepack to Wavpack only increases filesize. I won't do this." 3
++	echo -e "# Musepack >> Wavpack dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "Musepack >> Wavpack dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ ### WAVPACK
+@@ -666,8 +666,8 @@
+ 
+ function apetoflac()
+ {
+-	echo -e "# Monkey to FLAC only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "Monkey to FLAC only increases filesize. I won't do this." 3
++	echo -e "# Monkey >> FLAC dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "Monkey >> FLAC dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ #	flacname="${encdir}/${EXTRA}/${shortname}.flac"
+ #	nice -10 mac "$1" "${tempfile}" -d
+ #	nice -10 flac ${FLACOPTS} --output-name="${flacname}" "${tempfile}"
+@@ -676,8 +676,8 @@
+ 
+ function apetowv()
+ {
+-	echo -e "# Monkey to Wavpack only increases filesize. I won't do this.\n"
+-	kdialog --passivepopup "Monkey to Wavpack only increases filesize. I won't do this." 3
++	echo -e "# Monkey >> Wavpack dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım.\n"
++	kdialog --passivepopup "Monkey >> Wavpack dönüştürme sadece dosya büyüklüğünü arttırır. Bunu yapmayacağım." 3
+ }
+ 
+ ### Shorten
+@@ -745,17 +745,17 @@
+ 			dontask=1;;
+ 		-t) shift;
+ 			enctype="$1";;
+-		-h) echo -e "\nusage:\n
+-audioconvert -q 64 -t m file  for 64kBit MP3
+-audioconvert -q 1  -t m file  for high-quality VBR MP3
+-audioconvert -q 4  -t o file  for mid-quality OGG
+-audioconvert -q 80 -t a file  for mid-quality AAC
+-audioconvert -q 80 -t i file  for mid-quality M4A for iPod
+-audioconvert       -t v file  for Wavpack
+-audioconvert       -t f file  for FLAC
++		-h) echo -e "\nKullanım:\n
++audioconvert -q 64 -t m file   64kBit MP3 için...
++audioconvert -q 1  -t m file   high-quality VBR MP3 için...
++audioconvert -q 4  -t o file   mid-quality OGG için...
++audioconvert -q 80 -t a file   mid-quality AAC için...
++audioconvert -q 80 -t i file   mid-quality M4A for iPod için...
++audioconvert       -t v file   Wavpack için...
++audioconvert       -t f file   FLAC için...
+ 
+-Possible input  formats are: WAV, MP3, OGG, AAC, M4A, FLAC, WV, APE, SHN, OFS.
+-Possible output formats are: MP3, OGG, AAC, M4A, FLAC, WV.
++Girdi biçimleri: WAV, MP3, OGG, AAC, M4A, FLAC, WV, APE, SHN, OFS.
++Çıktı biçimleri: MP3, OGG, AAC, M4A, FLAC, WV.
+ ";exit;;
+ 		-q) shift;
+ 			quality="$1";;
+@@ -774,12 +774,12 @@
+ 
+ # select destination directory, use last selected
+ test $dontask -eq 0 &&
+-encdir=$(kdialog --title "Where shall I write the new file(s)?" --getexistingdirectory $encdir) &&
++encdir=$(kdialog --title "Yeni dosyaları nereye yazayım?" --getexistingdirectory $encdir) &&
+ # encdir not writable?
+ while test ! -w "$encdir"
+ do
+-	kdialog --error "You are not allowed to write in this directory"
+-	encdir=$(kdialog --title "Where shall I write the new file(s)?" --getexistingdirectory $HOME)
++	kdialog --error "Bu klasöre yazma yetkiniz yok"
++	encdir=$(kdialog --title "Yeni dosyaları nereye yazayım?" --getexistingdirectory $HOME)
+ done
+ 
+ # if not writable in dontask mode
+@@ -820,10 +820,10 @@
+ then
+ 	if [ $enctype = "m" ]
+ 	then
+-		quality=$(kdialog --title audiokonverter --combobox "Bitrate or VBR quality" $MQUAL 32 40 48 56 64 80 96 112 128 160 192 224 256 320 9 8 7 6 5 4 3 2 1 0 2> /dev/null)
++		quality=$(kdialog --title audiokonverter --combobox "Bitrate veya VBR kalitesi" $MQUAL 32 40 48 56 64 80 96 112 128 160 192 224 256 320 9 8 7 6 5 4 3 2 1 0 2> /dev/null)
+ 		test -z "$quality" && exit
+ 		echo "MQUAL=${quality}" >> $(kde-config --localprefix)/share/config/kwerc
+-		kdialog --title audiokonverter --yesno "Keep stereo (if any)?" 2> /dev/null
++		kdialog --title audiokonverter --yesno "Eğer var ise Stereo korunsun mu?" 2> /dev/null
+ 		notmono=$?
+ 		if [ "${notmono}" = "1" ]   # 1 means no
+ 		then ifmono="-a"
+@@ -1053,7 +1053,7 @@
+ 	then
+ 		cd "$1" # must be here for relative paths
+ 		CDIR="$PWD" # converting directory
+-		echo "Converting recursively from $PWD"
++		echo "$PWD Özyinelemeli olarak dönüştürüyor"
+ 		export EXTRABASE=$(basename "$PWD") # dirname to create in encdir
+ 
+ 		# preserve directory structure:
+@@ -1228,6 +1228,6 @@
+ shift
+ done
+ 
+-test $dontask -eq 0 && kdialog --msgbox "Encoding finished!"
+-test $dontask -eq 1 && kdialog --passivepopup "Encoding finished!" 3 &
++test $dontask -eq 0 && kdialog --msgbox "Dönüştürme bitti!"
++test $dontask -eq 1 && kdialog --passivepopup "Dönüştürme bitti!" 3 &
+ 
+diff -Naur audiokonverter-5.5.orig/audioconvert.desktop audiokonverter-5.5/audioconvert.desktop
+--- audiokonverter-5.5.orig/audioconvert.desktop	2007-02-23 00:08:30.000000000 +0200
++++ audiokonverter-5.5/audioconvert.desktop	2007-06-21 00:49:35.000000000 +0300
+@@ -3,6 +3,7 @@
+ Actions=mp3;ogg;ipod;flac;wav
+ X-KDE-Submenu=convert to
+ X-KDE-Submenu[de]=umwandeln in
++X-KDE-Submenu[tr]=Dönüştür
+ X-KDE-Submenu[nl]=zet om in
+ X-KDE-Submenu[fr]=Convertir au format...
+ X-KDE-Submenu[it]=convertire a
+@@ -34,6 +35,7 @@
+ Name=M4A for iPod (AAC)
+ Name[de]=M4A für iPod (AAC)
+ Name[nl]=M4A voor iPod (AAC)
++Name[tr]=iPod için M4A (AAC)
+ Name[fr]=M4A pour iPod (AAC)
+ Name[it]=M4A per iPod (AAC)
+ Name[es]=M4A para iPod (AAC)
+diff -Naur audiokonverter-5.5.orig/audiofrommovie.desktop audiokonverter-5.5/audiofrommovie.desktop
+--- audiokonverter-5.5.orig/audiofrommovie.desktop	2006-11-12 19:23:36.000000000 +0200
++++ audiokonverter-5.5/audiofrommovie.desktop	2007-06-21 00:52:18.000000000 +0300
+@@ -3,6 +3,7 @@
+ Actions=mp3;ogg;flac;ipod;wav
+ X-KDE-Submenu=extract audio to
+ X-KDE-Submenu[de]=Tonspur umwandeln in
++X-KDE-Submenu[tr]=Ses dosyasına dönüştür...
+ X-KDE-Submenu[fr]=Extraire la piste audio au format...
+ X-KDE-Submenu[es]=Extraer pista de audio en...
+ Encoding=UTF8
+@@ -30,6 +31,7 @@
+ [Desktop Action ipod]
+ Name=M4A for iPod (AAC)
+ Name[de]=M4A für iPod (AAC)
++Name[tr]=iPod için M4A (AAC)
+ Name[nl]=M4A voor iPod (AAC)
+ Name[fr]=M4A pour iPod (AAC)
+ Name[it]=M4A per iPod (AAC)
+diff -Naur audiokonverter-5.5.orig/oggdrop-lx audiokonverter-5.5/oggdrop-lx
+--- audiokonverter-5.5.orig/oggdrop-lx	2005-11-23 22:30:13.000000000 +0200
++++ audiokonverter-5.5/oggdrop-lx	2007-06-21 01:38:36.000000000 +0300
+@@ -5,7 +5,7 @@
+ source "$(kde-config --localprefix)/share/config/kwerc"
+ QUALITY=$OQUAL
+ 
+-test -z "$1" && echo -e "\nusage: oggdrop-lx filename(s)\n" && exit
++test -z "$1" && echo -e "\nKullanım: oggdrop-lx dosya_isimleri\n" && exit
+ 
+ until [ -z "$1" ]  # Until all parameters are used up...
+ do

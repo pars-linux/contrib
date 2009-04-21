@@ -1,0 +1,47 @@
+diff -Nur fityk-0.8.4.orig/configure fityk-0.8.4/configure
+--- fityk-0.8.4.orig/configure	2008-04-24 05:12:37.000000000 +0300
++++ fityk-0.8.4/configure	2008-04-24 05:22:54.000000000 +0300
+@@ -20206,10 +20206,10 @@
+ 	CPPFLAGS_3RDPARTY="-I\$(top_srcdir)/3rdparty -I\$(top_srcdir)/3rdparty/xylib"
+ else
+ # xylib is in 3rdparty, but it's always necessary
+-	CPPFLAGS_3RDPARTY="-I\$(top_srcdir)/3rdparty/xylib"
++	CPPFLAGS_3RDPARTY="-I/usr/include/xylib"
+ fi
+ 
+-XYLIB_LDADD="\$(top_builddir)/3rdparty/xylib/xylib/libxy.la"
++XYLIB_LDADD="/usr/lib/libxy.la"
+ 
+ 
+ ac_ext=c
+@@ -22015,7 +22015,7 @@
+ _ACEOF
+ 
+ 
+-ac_config_files="$ac_config_files Makefile fityk.spec fityk.iss src/Makefile src/wxgui/Makefile src/cli/Makefile src/wxgui/img/Makefile doc/Makefile doc/fitykhelp_img/Makefile samples/Makefile config/Makefile 3rdparty/Makefile 3rdparty/xylib/Makefile 3rdparty/xylib/xylib/Makefile python/Makefile"
++ac_config_files="$ac_config_files Makefile fityk.spec fityk.iss src/Makefile src/wxgui/Makefile src/cli/Makefile src/wxgui/img/Makefile doc/Makefile doc/fitykhelp_img/Makefile samples/Makefile config/Makefile python/Makefile"
+ 
+ cat >confcache <<\_ACEOF
+ # This file is a shell script that caches the results of configure
+@@ -22628,9 +22628,6 @@
+     "doc/fitykhelp_img/Makefile") CONFIG_FILES="$CONFIG_FILES doc/fitykhelp_img/Makefile" ;;
+     "samples/Makefile") CONFIG_FILES="$CONFIG_FILES samples/Makefile" ;;
+     "config/Makefile") CONFIG_FILES="$CONFIG_FILES config/Makefile" ;;
+-    "3rdparty/Makefile") CONFIG_FILES="$CONFIG_FILES 3rdparty/Makefile" ;;
+-    "3rdparty/xylib/Makefile") CONFIG_FILES="$CONFIG_FILES 3rdparty/xylib/Makefile" ;;
+-    "3rdparty/xylib/xylib/Makefile") CONFIG_FILES="$CONFIG_FILES 3rdparty/xylib/xylib/Makefile" ;;
+     "python/Makefile") CONFIG_FILES="$CONFIG_FILES python/Makefile" ;;
+ 
+   *) { { echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
+diff -Nur fityk-0.8.4.orig/Makefile.in fityk-0.8.4/Makefile.in
+--- fityk-0.8.4.orig/Makefile.in	2008-04-24 05:12:37.000000000 +0300
++++ fityk-0.8.4/Makefile.in	2008-04-24 05:13:07.000000000 +0300
+@@ -241,7 +241,7 @@
+ ACLOCAL_AMFLAGS = -I config
+ EXTRA_DIST = fityk.spec fityk.iss fityk.url fityk.svg macosx/
+ AUTOMAKE_OPTIONS = dist-bzip2 
+-SUBDIRS = @DOC@ 3rdparty src samples config @PYBINDINGDIR@
++SUBDIRS = @DOC@ src samples config @PYBINDINGDIR@
+ icondir = $(datadir)/pixmaps
+ desktopdir = $(datadir)/applications
+ mimepkgdir = $(datadir)/mime/packages

@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>mysql-workbench</Name>
+        <Homepage>http://www.mysql.com/products/tools/workbench/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>MySQL Database Modelling Tool</Summary>
+        <Description>MySQL Workbench is a database modeling tool for MySQL. You can use it to design and create new database schemas, document existing databases and even perform complex migrations to MySQL.</Description>
+        <Archive sha1sum="3fdd3a80c634f0aa9fa8f3bc505add18f360dc6c" type="targz">http://mysql.easynet.be/Downloads/MySQLGUITools/mysql-gui-tools-5.0r12.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency releaseFrom="20">mysql-client</Dependency>
+            <Dependency versionFrom="2.6">gtk2</Dependency>
+            <Dependency versionFrom="2.6">glib2</Dependency>
+            <Dependency versionFrom="2.6">libxml2</Dependency>
+            <Dependency versionFrom="2.0">libsigc++</Dependency>
+            <Dependency versionFrom="2.4">glibmm</Dependency>
+            <Dependency versionFrom="2.4">gtkmm</Dependency>
+            <Dependency versionFrom="2.5">libglade2</Dependency>
+            <Dependency versionFrom="0.15">pkgconfig</Dependency>
+            <Dependency versionFrom="5.0">lua</Dependency>
+            <Dependency>glut</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>termcap.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>mysql-workbench</Name>
+        <RuntimeDependencies>
+            <Dependency version="5.0_p12">mysql-gui-common</Dependency>
+            <Dependency>glut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2007-05-15</Date>
+            <Version>1.1.10</Version>
+            <Comment>Use new mysql-gui-common library.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-31</Date>
+            <Version>1.1.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-10</Date>
+            <Version>1.1.9</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-16</Date>
+            <Version>1.1.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+    </History>
+</PISI>

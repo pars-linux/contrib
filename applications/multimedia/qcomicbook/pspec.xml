@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qcomicbook</Name>
+        <Homepage>http://linux.bydg.org/~yogin/</Homepage>
+        <Packager>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>An image viewer specifically designed to handle comic books</Summary>
+        <Description>QComicBook is a viewer for comic book archives (cbz, cbr, cbt). QComicBook has specific features like page preview, thumbnails view, bookmarks, manga mode for easing comicbook reading.</Description>
+        <Archive sha1sum="ad77be0fa84032d6d14b79268d0dd88e9b4c80eb" type="targz">http://linux.bydg.org/~yogin/qcomicbook/qcomicbook-0.4.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.2.0">qt4</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qcomicbook</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.2.0">qt4</Dependency>
+            <Dependency>unrar</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/qcomicbook</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="4">
+            <Date>2008-05-12</Date>
+            <Version>0.4.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-12-12</Date>
+            <Version>0.3.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-10-22</Date>
+            <Version>0.3.3</Version>
+            <Comment>Version bump + add desktop file.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-20</Date>
+            <Version>0.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Furkan Duman</Name>
+            <Email>coderlord@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

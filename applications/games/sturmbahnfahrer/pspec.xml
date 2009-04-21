@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>sturmbahnfahrer</Name>
+        <Homepage>http://www.sturmbahnfahrer.com/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <Icon>sturmbahnfahrer</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Simulated obstacle course for automobiles</Summary>
+        <Description>Sturmbahnfahrer... for expert drivers only. If you want to master it, try to have the laws of physics work with you, not against you.</Description>
+        <Archive sha1sum="76a960e9ec1ff86f7100eb3c6c3ea255e5d3b45e" type="targz">http://www.stolk.org/sturmbahnfahrer/download/sturmbahnfahrer-1.3.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>ode</Dependency>
+            <Dependency>plib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>glut</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">ode.patch</Patch>
+            <Patch level="1">destdir.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>sturmbahnfahrer</Name>
+        <RuntimeDependencies>
+            <Dependency>ode</Dependency>
+            <Dependency>plib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>glut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/sturmbahnfahrer</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/sturmbahnfahrer.desktop" permission="0644" owner="root">sturmbahnfahrer.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/pixmaps/sturmbahnfahrer.png" permission="0644" owner="root">sturmbahnfahrer.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-04-08</Date>
+            <Version>1.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-08</Date>
+            <Version>1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Serkan Avcı</Name>
+            <Email>killer@wolke7.net</Email>
+        </Update>
+    </History>
+</PISI>

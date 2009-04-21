@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>veusz</Name>
+        <Homepage>http://home.gna.org/veusz/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Veusz is a scientific plotting package written in Python.</Summary>
+        <Description>Veusz provides a GUI, command line and scripting interface (based on Python) to its plotting facilities. The plots are built using an object-based system to provide a consistent interface.</Description>
+        <Archive sha1sum="7caa17a21b93082ae11ffbd973c5e6bbbe55cf33" type="targz">http://download.gna.org/veusz/veusz-0.10.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency versionFrom="1.5.2">numarray</Dependency>
+            <Dependency versionFrom="1.0">pyfits</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>veusz.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>veusz</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">python</Dependency>
+            <Dependency versionFrom="1.5.2">numarray</Dependency>
+            <Dependency versionFrom="1.0">pyfits</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2006-12-08</Date>
+            <Version>0.10</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-11-22</Date>
+            <Version>0.9</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

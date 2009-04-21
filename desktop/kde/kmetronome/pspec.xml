@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmetronome</Name>
+        <Homepage>http://sourceforge.net/project/kmetronome</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Metronome application for KDE</Summary>
+        <Summary xml:lang="tr">KDE için metronom uygulaması</Summary>
+        <Archive sha1sum="e4a0a6b11758ad6cfbd7aa680450b86b6dd0f90c" type="tarbz2">mirrors://sourceforge/kmetronome/kmetronome-0.8.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>cmake</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kmetronome</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>cmake</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-02-25</Date>
+            <Version>0.8.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

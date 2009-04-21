@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>synfigstudio</Name>
+        <Homepage>http://www.synfig.com</Homepage>
+        <Packager>
+          <Name>Ahmet Erdoğan</Name>
+          <Email>tuxposta@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Vector based 2D animation package.</Summary>
+        <Description>Synfig designed to be capable of producing feature-film quality animation.</Description>
+        <Archive sha1sum="b52d17e0e4d40ef602493bbf67bfe09c08a9307b" type="targz">mirrors://sourceforge/synfig/synfigstudio-0.61.07.tar.gz</Archive>
+        <BuildDependencies>
+          <Dependency>gtk2</Dependency>
+          <Dependency>etl</Dependency>
+          <Dependency>gtkmm</Dependency>
+          <Dependency>synfig</Dependency>
+          <Dependency>libxmlpp</Dependency>
+          <Dependency>openexr</Dependency>
+        </BuildDependencies>
+        <Patches>
+          <Patch>tr_desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>synfigstudio</Name>
+        <RuntimeDependencies>
+          <Dependency>gtk2</Dependency>
+          <Dependency>etl</Dependency>
+          <Dependency>gtkmm</Dependency>
+          <Dependency>synfig</Dependency>
+          <Dependency>libxmlpp</Dependency>
+          <Dependency>openexr</Dependency>
+        </RuntimeDependencies>
+        <Files>
+          <Path fileType="executable">/usr/bin</Path>
+          <Path fileType="header">/usr/include</Path>
+          <Path fileType="library">/usr/lib</Path>
+          <Path fileType="data">/usr/share/mime-info</Path>
+          <Path fileType="data">/usr/share/applications</Path>
+          <Path fileType="data">/usr/share/pixmaps</Path>
+          <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+          <Date>2007-10-11</Date>
+          <Version>0.61.07</Version>
+          <Comment>First release</Comment>
+          <Name>Ahmet Erdoğan</Name>
+          <Email>tuxposta@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

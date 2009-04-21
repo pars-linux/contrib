@@ -1,0 +1,16 @@
+--- mysql-gui-common/tools/grtsh/Makefile.in.orig	2007-01-17 01:16:59.000000000 +0200
++++ mysql-gui-common/tools/grtsh/Makefile.in	2007-01-17 01:17:21.000000000 +0200
+@@ -239,11 +239,11 @@
+ #agentest_SOURCES= agentest.cc
+ @BUILD_NEWT_TRUE@newt_libs = $(top_builddir)/library/generic-runtime/source/.libs/libgrttextui.a\
+ @BUILD_NEWT_TRUE@	$(top_builddir)/library/generic-runtime/newt/libmnewt.a \
+-@BUILD_NEWT_TRUE@	@SLANG_LIB@ -ltermcap -lncurses
++@BUILD_NEWT_TRUE@	@SLANG_LIB@ -lncurses
+ 
+ @BUILD_NEWT_TRUE@newt_flag = -DENABLE_TEXTUI
+ @BUILD_FASTCGI_TRUE@fcgi_libs = -lfcgi
+-@USE_READLINE_TRUE@rl_libs = -lncurses -lreadline -lhistory -ltermcap
++@USE_READLINE_TRUE@rl_libs = -lncurses -lreadline -lhistory
+ @USE_READLINE_TRUE@grtsh_CPPFLAGS = -DUSE_READLINE 
+ INCLUDES = -I$(top_srcdir)/library/grt-modules/include\
+ 	-I$(top_srcdir)/library/base-library/include \

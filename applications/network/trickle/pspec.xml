@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>trickle</Name>
+        <Homepage>http://monkey.org/~marius/trickle/</Homepage>
+        <Packager>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>egetun@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <Summary>Network Tool</Summary>
+        <Description>A simple yet versatile program for managing your internet traffic in real time.</Description>
+        <Archive sha1sum="fb524ef3ef1944ad5863312dfc235cbf802efa30" type="targz">http://ftp.debian.org/debian/pool/main/t/trickle/trickle_1.07.orig.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libevent</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">compile.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>trickle</Name>
+        <RuntimeDependencies>
+            <Dependency>libevent</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/etc/trickled.conf" permission="0644" owner="root">trickled.conf</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-04</Date>
+            <Version>1.07</Version>
+            <Comment>First Release.</Comment>
+            <Name>Deniz Ege Tunçay</Name>
+            <Email>egetun@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

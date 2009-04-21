@@ -1,0 +1,14 @@
+--- config.mk.orig	2008-04-24 11:45:52.000000000 +0300
++++ config.mk	2008-06-04 17:55:11.000000000 +0300
+@@ -4,10 +4,7 @@
+ # setting DESTDIR enables you to install to a temporary image
+ # directory, from which you can create a distributable package.
+ DESTDIR =
+-PREFIX  := $(shell kde-config --localprefix | sed 's,/$$,,')
+-ifeq ($(PREFIX),)
+-PREFIX  := $(HOME)/.kde
+-endif
++PREFIX  := /usr/kde/3.5
+ DATADIR := $(DESTDIR)$(PREFIX)/share
+ 
+ LILYKDE = $(DATADIR)/apps/lilykde

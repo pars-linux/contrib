@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>cairo-dock</Name>
+        <Homepage>http://cairo-dock.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>cairo-dock</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An AIGLX dock with physics</Summary>
+        <Description>Cairo-dock is an animated application launch bar displayed on the desktop comparable to Mac OS X's Dock.It is compatible with Beryl, Compiz, Metacity+xcompmgr and probably KDE since Kwin now manage composite display.</Description>
+        <Archive sha1sum="a7f16105b065f2480f87f886177f0003e5edf898" type="tarbz2">http://sudrap.org/dist/files/cairo-dock-1.5.3_20080314.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>glitz</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>disable-menu.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>cairo-dock</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>glitz</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/cairo-dock</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/cairo-dock.png">cairo-dock.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/cairo-dock.desktop">cairo-dock.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2008-03-15</Date>
+            <Version>1.5.3_20080314</Version>
+            <Comment>New snapshot. Cario-dock themes splitted by upstream.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-02-27</Date>
+            <Version>1.5.1_20080227</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-02-19</Date>
+            <Version>1.5.1_20080222</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

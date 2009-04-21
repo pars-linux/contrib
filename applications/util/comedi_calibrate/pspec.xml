@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>comedi_calibrate</Name>
+        <Homepage>http://www.comedi.org</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>LGPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>Comedi_calibrate is calibrations tools for the Comedi data acquisition driver</Summary>
+        <Archive sha1sum="9f6cabb62eec59cbcc5f23f6bc9831e3e576ca8f" type="targz">http://www.comedi.org/download/comedi_calibrate-1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>comedilib</Dependency>
+            <Dependency versionFrom="1.33.1">boost</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">makefile_sandbox.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>comedi_calibrate</Name>
+        <RuntimeDependencies>
+            <Dependency>comedilib</Dependency>
+            <Dependency versionFrom="1.33.1">boost</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-12</Date>
+            <Version>1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

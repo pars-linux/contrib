@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libgeda</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>This library provides functions needed for the gEDA core suite</Summary>
+        <Archive sha1sum="d169b31f938f0ddc2e51499892de88c61467afd3" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.4/1.4.0/libgeda-1.4.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="1.8.1">guile</Dependency>
+            <Dependency>libstroke</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libgeda</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency versionFrom="1.8.1">guile</Dependency>
+            <Dependency>libstroke</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package versionTo="1.0.1_20070626">geda-symbols</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="header">/usr/include/libgeda</Path>
+            <Path fileType="header">/usr/share/gEDA</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/mimelnk</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2008-02-06</Date>
+            <Version>1.4.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-09-10</Date>
+            <Version>1.2.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-06-29</Date>
+            <Version>1.0.1_20070626</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-06-26</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Add guile dependency version from 1.8.1. Libgeda and geda-* should be re-compiled with new guile.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-05-27</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-03</Date>
+            <Version>0.0_20070216</Version>
+            <Comment>fix deps</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-06</Date>
+            <Version>0.0_20070216</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-28</Date>
+            <Version>0.0_20061020</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libpano13</Name>
+        <Homepage>http://sourceforge.net/projects/panotools</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <IsA>app:console</IsA>
+        <Summary>The cross-platform library behind Panorama Tools and many other GUI photo stitchers</Summary>
+        <Archive sha1sum="6848d4c127b77fd59a1787806e36d24a9403fc59" type="targz">mirrors://sourceforge/panotools/libpano13-2.9.12.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>tiff</Dependency>
+            <Dependency>sun-jdk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>libpano13</Name>
+        <RuntimeDependencies>
+            <Dependency>tiff</Dependency>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package>libpano12</Package>
+         </Conflicts>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-13</Date>
+            <Version>2.9.12</Version>
+            <Comment>First release</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

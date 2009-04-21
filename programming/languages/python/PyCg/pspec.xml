@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PyCg</Name>
+        <Homepage>https://launchpad.net/pycg</Homepage>
+        <Packager>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>Python bindings for NVIDIA's Cg library</Summary>
+        <Description>PyCg provides Python bindings to NVIDIA's Cg runtime library, enabling GPUs to be controlled from Python.</Description>
+        <Archive sha1sum="ce6522bd62093c1780e5a072c1ca6be4c5a3a182" type="targz">http://www.cs.lth.se/home/Calle_Lejdfors/pygpu/PyCg-0.14.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>swig</Dependency>
+            <Dependency>cg</Dependency>
+            <Dependency>numeric</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>no-rm.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>PyCg</Name>
+        <RuntimeDependencies>
+            <Dependency>cg</Dependency>
+            <Dependency>numpy</Dependency>
+            <Dependency>pygame</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-10-16</Date>
+            <Version>0.14.1</Version>
+            <Comment>First release</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>cenk35@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

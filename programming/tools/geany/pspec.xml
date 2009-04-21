@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geany</Name>
+        <Homepage>http://geany.uvena.de/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Fast and lightweight programming tool using GTK2</Summary>
+        <Archive sha1sum="e891e3ff029c118211b2b18c77d3a3356b9851a5" type="tarbz2">mirrors://sourceforge/geany/geany-0.14.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency>vte</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>geany</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.5">gtk2</Dependency>
+            <Dependency>vte</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include/geany</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/geany</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2008-04-19</Date>
+            <Version>0.14</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-02-05</Date>
+            <Version>0.13</Version>
+            <Comment>Version bump. Enable vte.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-01-29</Date>
+            <Version>0.12</Version>
+            <Comment>Remove temporary file (/usr/share/icons/hicolor/icon-theme.cache), it should not be installed because it conflicts other icon-theme.cache files from other packages.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-10-10</Date>
+            <Version>0.12</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-05-22</Date>
+            <Version>0.11</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-02-25</Date>
+            <Version>0.10.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-02-23</Date>
+            <Version>0.10.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-18</Date>
+            <Version>0.10</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

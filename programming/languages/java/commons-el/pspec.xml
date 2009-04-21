@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>commons-el</Name>
+        <Homepage>http://jakarta.apache.org/commons/el/</Homepage>
+        <Packager>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Packager>
+        <License>Apache 2.0</License>
+        <IsA>library</IsA>
+        <Summary>EL is the JSP 2.0 Expression Language Interpreter from Apache.</Summary>
+        <Archive sha1sum="bb39426efbd03a2b27105fa42faf90858cfc3d50" type="targz">mirrors://apache/jakarta/commons/el/source/commons-el-1.0-src.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.4">tomcat-servlet-api</Dependency>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>build.properties.patch</Patch>
+            <Patch>build.xml.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>commons-el</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.4">tomcat-servlet-api</Dependency>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/java</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-04-04</Date>
+            <Version>1.0</Version>
+            <Comment>First release</Comment>
+            <Name>Hakan Dilek</Name>
+            <Email>hakandilek@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

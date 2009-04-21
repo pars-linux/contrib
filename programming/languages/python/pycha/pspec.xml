@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pycha</Name>
+        <Homepage>http://www.lorenzogil.com/projects/pycha/</Homepage>
+        <Packager>
+            <Name>Cenk Güre</Name>
+            <Email>gure.cenk@gmail.com</Email>
+        </Packager>
+        <License>LGPL-3</License>
+        <IsA>library</IsA>
+        <Summary>A very simple Python package for drawing charts using the great Cairo library</Summary>
+        <Archive sha1sum="a402689875f9dd4c4841a2f5dc11ca0875cfb84b" type="targz">http://cenk35.googlepages.com/pycha-0.2.0_20071211.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>setuptools</Dependency>
+            <Dependency>pycairo</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>pycha</Name>
+        <RuntimeDependencies>
+            <Dependency>pycairo</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-13</Date>
+            <Version>0.2.0_20071211</Version>
+            <Comment>First Release</Comment>
+            <Name>Cenk Güre</Name>
+            <Email>gure.cenk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

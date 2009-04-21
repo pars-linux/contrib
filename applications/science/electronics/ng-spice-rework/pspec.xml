@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>ng-spice-rework</Name>
+        <Homepage>http://ngspice.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <Summary>Ngspice is a circuit simulator.</Summary>
+        <Archive sha1sum="5ce17a6dff309fae069e0b1e7309eb1c16b4671b" type="targz">mirrors://sourceforge/ngspice/ng-spice-rework-17.tar.gz</Archive>
+        <Patches>
+            <Patch>ng-spice-rework-com_let.patch</Patch>
+            <Patch>ng-spice-rework-numparam.patch</Patch>
+            <Patch>ng-spice-rework-pipemode.patch</Patch>
+            <Patch>ng-spice-rework-postscript.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>ng-spice-rework</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/lib</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-26</Date>
+            <Version>17</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

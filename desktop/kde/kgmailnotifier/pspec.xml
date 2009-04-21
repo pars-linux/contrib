@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kgmailnotifier</Name>
+        <Homepage>http://kgmailnotifier.info</Homepage>
+        <Packager>
+            <Name>Samed Beyribey</Name>
+            <Email>ras0ir@eventualis.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Gmail notifier applet for KDE</Summary>
+        <Description>Application for checking a Gmail account for new messages.</Description>
+        <Archive sha1sum="d01b15b757af0abeb22ab511cdbb6b1b160205b9" type="tarbz2">http://kde-apps.org/CONTENT/content-files/55375-KGmailNotifier-0.4-beta2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>tr.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kgmailnotifier</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-04-13</Date>
+            <Version>0.4_beta2</Version>
+            <Comment>First release.</Comment>
+            <Name>Samed Beyribey</Name>
+            <Email>ras0ir@eventualis.org</Email>
+        </Update>
+    </History>
+</PISI>

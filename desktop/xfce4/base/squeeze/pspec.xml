@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>squeeze</Name>
+        <Homepage>http://squeeze.xfce.org/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A modern and advanced archive manager for the Xfce Desktop Environment.</Summary>
+        <Archive sha1sum="381ff08b033c0d8a51eda5d4d27bdf38e40fd9c7" type="tarbz2">http://squeeze.xfce.org/downloads/squeeze-0.2.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>Thunar</Dependency>
+            <Dependency versionFrom="1.0">dbus</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>squeeze</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>Thunar</Dependency>
+            <Dependency versionFrom="1.0">dbus</Dependency>
+            <Dependency versionFrom="4.4.1">libxfce4util</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+   </Package>
+
+   <History>
+        <Update release="2">
+            <Date>2007-04-29</Date>
+            <Version>0.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-15</Date>
+            <Version>0.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

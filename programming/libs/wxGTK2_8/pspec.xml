@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wxGTK2_8</Name>
+        <Homepage>http://www.wxwidgets.org/</Homepage>
+        <Packager>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Packager>
+        <License>wxWindows</License>
+        <IsA>library</IsA>
+        <Summary>GTK+ version of wxWindows, a cross-platform C++ GUI toolkit.</Summary>
+        <Description>wxWidgets/GTK2 is the GTK2 port of the C++ cross-platform wxWidgets GUI library, offering classes for all common GUI controls as well as a comprehensive set of helper classes for most common application tasks, ranging from networking to HTML display and image manipulation.</Description>
+        <Archive sha1sum="97f0f9cb4da5dc85613082747c31ca9b70d7fc2a" type="tarbz2">mirrors://sourceforge/wxwindows/wxGTK-2.8.6.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>netpbm</Dependency>
+            <!--Dependency>unixodbc</Dependency-->
+            <Dependency>giflib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsdl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>wxGTK2_8</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>tiff</Dependency>
+            <Dependency>netpbm</Dependency>
+            <!--Dependency>unixodbc</Dependency-->
+            <Dependency>giflib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsdl</Dependency>
+        </RuntimeDependencies>
+        <Conflicts>
+            <Package>wxGTK2_8-devel</Package>
+        </Conflicts>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/wx/2.8/bin</Path>
+            <Path fileType="library">/usr/wx/2.8/lib</Path>
+            <Path fileType="localedata">/usr/wx/2.8/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="header">/usr/wx/2.8/include</Path>
+            <Path fileType="data">/usr/wx/2.8/share/aclocal</Path>
+            <Path fileType="data">/usr/wx/2.8/share/bakefile</Path>
+            <Path fileType="config">/etc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/etc/env.d/50wxGTK-2.8">50wxGTK-2.8</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2007-10-04</Date>
+            <Version>2.8.6</Version>
+            <Comment>Stable update</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-06-03</Date>
+            <Version>2.8.4</Version>
+            <Comment>Merge -devel package into main package</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-05-18</Date>
+            <Version>2.8.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Aşıcı</Name>
+            <Email>fatih.asici@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

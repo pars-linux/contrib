@@ -1,0 +1,20 @@
+diff -u ganttproject.sh ganttproject.sh
+--- ganttproject.sh	2007-02-02 12:06:58.000000000 +0200
++++ ganttproject.sh	2007-02-02 12:25:37.000000000 +0200
+@@ -1,8 +1,7 @@
+ #!/bin/bash
+ 
+-GP_HOME=.
+-COMMAND_PATH=`echo ${0} | sed -e "s/\(.*\)\/.*$/\1/g"`
+-cd ${COMMAND_PATH}
++GP_HOME=/usr/share/ganttproject
++cd ${GP_HOME}
+ 
+ LOCAL_CLASSPATH=$GP_HOME/eclipsito.jar
+ 
+@@ -21,6 +21,6 @@
+   echo "$JAVA_COMMAND is not executable. Please check the permissions."
+   exit
+ fi
+-$JAVA_COMMAND -Xmx256m -classpath $CLASSPATH:$LOCAL_CLASSPATH $BOOT_CLASS $CONFIGURATION_FILE $* >$GP_HOME/ganttproject.log 2>&1
++$JAVA_COMMAND -Xmx256m -classpath $CLASSPATH:$LOCAL_CLASSPATH $BOOT_CLASS $CONFIGURATION_FILE $*

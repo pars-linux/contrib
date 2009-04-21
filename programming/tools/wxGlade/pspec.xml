@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wxGlade</Name>
+        <Homepage>http://sourceforge.net/projects/wxglade</Homepage>
+        <Packager>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <License>MIT</License>
+        <IsA>app:gui</IsA>
+        <Summary>A GUI builder for wxPython/wxWidgets written in Python</Summary>
+        <Archive sha1sum="59b1afb803ccfadd1d27caeaefca7e030eb107ab" type="targz">mirrors://sourceforge/wxglade/wxGlade-0.6.1.tar.gz</Archive>
+    </Source>
+
+    <Package>
+        <Name>wxGlade</Name>
+        <RuntimeDependencies>
+            <Dependency>wxPython2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+          <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/wxGlade.desktop">wxGlade.desktop</AdditionalFile>
+          <AdditionalFile owner="root" permission="0644" target="/usr/share/icons/wxGlade.png">wxGlade.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-11-19</Date>
+            <Version>0.6.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Ekrem SEREN</Name>
+            <Email>ekrem.seren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

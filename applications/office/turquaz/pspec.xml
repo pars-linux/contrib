@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>turquaz</Name>
+        <Homepage>http://www.turquaz.com/</Homepage>
+        <Packager>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Turquaz - Open Source accounting Application</Summary>
+        <Description>Turquaz - Open Source accounting Application</Description>
+        <Archive sha1sum="f334cbe36e3c73388b9daa13b8145df8aef2001e" type="targz">mirrors://sourceforge/turquaz/TurquazLinux08Beta5.tar.gz</Archive>
+        <Patches>
+            <Patch>turquaz.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>turquaz</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>firefox</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>libstdc++</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>libSM</Dependency>
+            <Dependency>esound</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>gnome-keyring</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>nspr</Dependency>
+            <Dependency>dbus</Dependency>
+            <Dependency>audiofile</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="config">/opt/TurquazLinux08Beta5/config</Path>
+            <Path fileType="data">/opt/TurquazLinux08Beta5</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/share/applications/turquaz.desktop" permission="0644" owner="root">turquaz.desktop</AdditionalFile>
+            <AdditionalFile target="/opt/TurquazLinux08Beta5/database/turquaz.script" permission="0755" owner="root">turquaz.script</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2007-11-05</Date>
+            <Version>0.8_beta5</Version>
+            <Comment>Mark conf directory as config.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-10-02</Date>
+            <Version>0.8_beta5</Version>
+            <Comment>Remove outdated asm.jar, fixing startup problems</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-23</Date>
+            <Version>0.8_beta5</Version>
+            <Comment>First release.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

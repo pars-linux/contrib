@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pyro</Name>
+        <Homepage>http://pyro.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Jérôme Schneider</Name>
+            <Email>jerome.schneider@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <IsA>library</IsA>
+        <IsA>app:gui</IsA>
+        <Summary>remote objects for Python</Summary>
+        <Archive sha1sum="f5c42e451950b9b6c05f0769ced576ed18cad3c0" type="targz">mirrors://sourceforge/pyro/Pyro-3.7.tar.gz</Archive>
+        <Patches>
+            <Patch level="0">pyro-setup.cfg.patch</Patch>
+            <Patch level="1">pyro-set-pidfile.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pyro</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="17">comar-api</Dependency>
+            <Dependency>python-tk</Dependency>
+            <Dependency>wxPython2_8</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <Provides>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-02-10</Date>
+            <Version>3.7</Version>
+            <Comment>First release.</Comment>
+            <Name>Jérôme Schneider</Name>
+            <Email>jerome.schneider@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

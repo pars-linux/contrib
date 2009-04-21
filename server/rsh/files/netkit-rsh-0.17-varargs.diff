@@ -1,0 +1,25 @@
+--- rcp/rcp.c
++++ rcp/rcp.c
+@@ -855,7 +855,7 @@
+ error(const char *fmt, ...)
+ {
+ 	static FILE *fp;
+-	va_list ap;
++	va_list ap, current_variadic;
+ 
+ 	va_start(ap, fmt);
+ 
+@@ -863,10 +863,12 @@
+ 	if (!fp && !(fp = fdopen(rem, "w")))
+ 		return;
+ 	fprintf(fp, "%c", 0x01);
+-	vfprintf(fp, fmt, ap);
++        __va_copy(current_variadic, ap);
++	vfprintf(fp, fmt, current_variadic);
+ 	fflush(fp);
+ 	if (!iamremote)	vfprintf(stderr, fmt, ap);
+ 
++	va_end(current_variadic);
+ 	va_end(ap);
+ }
+ 

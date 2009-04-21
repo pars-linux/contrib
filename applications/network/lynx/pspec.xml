@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lynx</Name>
+        <Homepage>http://lynx.browser.org</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:console</IsA>
+        <Summary>A console-based web browser</Summary>
+        <Description>An excellent console-based web browser with ssl support</Description>
+        <Archive sha1sum="019246b83fc7b6cb32bac0023f2ae6c5d330d18c" type="tarbz2">http://lynx.isc.org/release/lynx2.8.6.tar.bz2</Archive>
+        <Patches>
+            <Patch level="1">mailcap-mime-security.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lynx</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="config">/etc/</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2" type="security">
+            <Date>2007-05-25</Date>
+            <Version>2.8.6</Version>
+            <Comment>Stable update and fix an arbitrary code execution (Debian bug #396964)</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-06-13</Date>
+            <Version>2.8.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

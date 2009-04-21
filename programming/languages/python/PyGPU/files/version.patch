@@ -1,0 +1,17 @@
+--- setup.py	2006-10-17 15:42:56.000000000 +0300
++++ setup2.py	2007-10-17 16:16:01.000000000 +0300
+@@ -3,13 +3,7 @@
+ from distutils.core import setup
+ 
+ baseVersion = "0.2.0a"
+-revision=""
+-for line in os.popen("svn info"):
+-    words = line.split()
+-    if len(words) == 0:
+-        continue
+-    elif words[0] == "Revision:":
+-        revision = "-" + words[1]
++revision="11"
+ 
+ setup(name='PyGPU',
+       version=baseVersion+revision,
