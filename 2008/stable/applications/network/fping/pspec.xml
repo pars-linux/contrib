@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>fping</Name>
+        <Homepage>http://fping.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>app:console</IsA>
+        <Summary>A utility to ping multiple hosts at once</Summary>
+        <Description>fping is a ping like program which uses the Internet Control Message Protocol (ICMP) echo request to determine if a host is up. fping is different from ping in that you can specify any number of hosts on the command line, or specify a file containing the lists of hosts to ping. </Description>
+        <Archive sha1sum="9318f2ec4b389cd74ca32f561fea95f9528f16a3" type="targz">http://fping.sourceforge.net/download/fping.tar.gz</Archive>
+        <Patches>
+            <Patch>pardus-verbose-fix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>fping</Name>
+        <Files>
+            <Path fileType="executable">/usr/sbin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-02-05</Date>
+            <Version>2.42_beta2</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökçen Eraslan</Name>
+            <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>

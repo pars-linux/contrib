@@ -1,0 +1,33 @@
+diff -Nur vulcan-0.92-old/Makefile vulcan-0.92/Makefile
+--- vulcan-0.92-old/Makefile	2008-05-21 17:44:58.000000000 +0300
++++ vulcan-0.92/Makefile	2008-05-21 17:45:41.000000000 +0300
+@@ -118,17 +118,18 @@
+ 	(cd ..; rm vulcan-$(VERSION))
+ 
+ install: $(TARGET) chessmodels
+-	install -s -m 755 $(TARGET) $(BIN)
+-	install -m 755 -d $(DATA_DIR)
+-	install -m 755 -d $(FONT_DIR)
+-	cp data/fonts/* $(FONT_DIR)
+-	chmod 644 $(FONT_DIR)/*
+-	install -m 755 -d $(MODEL_DIR)
+-	./chessmodels > $(MODEL_DIR)/chess-models.modeldef
+-	chmod 644 $(MODEL_DIR)/*
+-	install -m 755 -d $(TEXTURE_DIR)
+-	cp data/textures/* $(TEXTURE_DIR)
+-	chmod 644 $(TEXTURE_DIR)/*
++	install -d -m 755 $(DESTDIR)/$(BIN)
++	install -s -m 755 $(TARGET) $(DESTDIR)/$(BIN)
++	install -D -m 755 -d $(DESTDIR)/$(DATA_DIR)
++	install -D -m 755 -d $(DESTDIR)/$(FONT_DIR)
++	cp data/fonts/* $(DESTDIR)/$(FONT_DIR)
++	chmod 644 $(DESTDIR)/$(FONT_DIR)/*
++	install -D -m 755 -d $(DESTDIR)/$(MODEL_DIR)
++	./chessmodels > $(DESTDIR)/$(MODEL_DIR)/chess-models.modeldef
++	chmod 644 $(DESTDIR)/$(MODEL_DIR)/*
++	install -D -m 755 -d $(DESTDIR)/$(TEXTURE_DIR)
++	cp data/textures/* $(DESTDIR)/$(TEXTURE_DIR)
++	chmod 644 $(DESTDIR)/$(TEXTURE_DIR)/*
+ 
+ distclean:
+ 	rm -f $(BIN)/$(TARGET)

@@ -1,0 +1,14 @@
+--- launchy-2.1.2/plugins/weby/weby.cpp.orig	2008-11-06 18:55:38.000000000 +0200
++++ launchy-2.1.2/plugins/weby/weby.cpp	2008-11-06 19:08:39.000000000 +0200
+@@ -121,6 +121,11 @@
+ 		set->setValue("name", "Maps");
+ 		set->setValue("base", "http://maps.google.com/");
+ 		set->setValue("query", "maps?f=q&hl=en&geocode=&q=%s&ie=UTF8&z=12&iwloc=addr&om=1");
++
++		set->setArrayIndex(14);
++		set->setValue("name", "pardus-wiki");
++		set->setValue("base", "http://tr.pardus-wiki.org/");
++		set->setValue("query", "Özel:Search?search=%s");
+ 		set->endArray();
+ 	}
+ 	set->setValue("weby/version", 2.0);

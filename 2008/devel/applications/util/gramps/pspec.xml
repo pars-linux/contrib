@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gramps</Name>
+        <Homepage>http://www.gramps-project.org/</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>GRAMPS is a genealogy program</Summary>
+        <Description>GRAMPS is a GNOME genealogy program for Linux that allows you to easily build and keep track of your family tree.</Description>
+        <Archive sha1sum="371ffba136fe596a3a1a853cd63fd8cd68d0d02b" type="targz">mirrors://sourceforge/gramps/gramps-3.0.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>graphviz</Dependency>
+            <Dependency>reportlab</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gramps</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>graphviz</Dependency>
+            <Dependency>reportlab</Dependency>
+            <Dependency>scrollkeeper</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gnome/help</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gramps.desktop">gramps.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2008-06-04</Date>
+            <Version>3.0.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-05-29</Date>
+            <Version>2.2.8</Version>
+            <Comment>Remove *.pyc and *.pyo files from package. Fix bug #7248</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-06-15</Date>
+            <Version>2.2.8</Version>
+            <Comment>version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-24</Date>
+            <Version>2.2.7</Version>
+            <Comment>version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-03-29</Date>
+            <Version>2.2.6</Version>
+            <Comment>First release</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+    </History>
+</PISI>

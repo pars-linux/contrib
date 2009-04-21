@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>trix</Name>
+        <Homepage>http://trix.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>A Chat Application for LANs</Summary>
+        <Description>TriX - serverless chat for small home or office LANs running Linux. TriX chat based on the VyQChat. The project is released under term of GNU GPLv2 license. As compared to VyQChat in TriX such new features appears as: files transfer, users avatars, logs, links navigation, broadcast and multicast type of connection, search by IP address and many other, not listed here things. TriX is compatible with 2.0 protocol version of the Vypress Chat (TM) developed by VyPRESS Research, but there are some protocol differences in TriX (needs to support avatars).</Description>
+        <Archive sha1sum="d06b63d70b946f0d9dc3236e72047fd4618e91dd" type="tarbz2">mirrors://sourceforge/trix/trix-0.93.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>qt</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>trix</Name>
+        <RuntimeDependencies>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/trix</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/trix.desktop">trix.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2008-06-02</Date>
+            <Version>0.93</Version>
+            <Comment>Version bump, add desktop file.</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-02-23</Date>
+            <Version>0.91</Version>
+            <Comment>Missing dependency added.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-01-23</Date>
+            <Version>0.91</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-12-26</Date>
+            <Version>0.9</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>İlker Kesen</Name> 
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-12</Date>
+            <Version>0.89</Version>
+            <Comment>First Release.</Comment>
+            <Name>İlker Kesen</Name>
+            <Email>ikesen92@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+
+ 

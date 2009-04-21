@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tsocks</Name>
+        <Homepage>http://tsocks.sf.net</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>tsocks role is to allow these non SOCKS aware applications</Summary>
+        <Archive sha1sum="489f88c5df999ba21b27cdaa7836d9426d062aec" type="targz">mirrors://sourceforge/tsocks/tsocks-1.8beta5.tar.gz</Archive>
+        <Patches>
+            <Patch level="1" compressionType="bz2">tsocks_tor.patch.bz2</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>tsocks</Name>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-24</Date>
+            <Version>1.8_beta5</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>quodlibet</Name>
+        <Homepage>http://code.google.com/p/quodlibet</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>quodlibet</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK+ based audio player that is written in Python</Summary>
+        <Description>QuodLibet is designed around the idea that you know better than we do how to organize your music. It lets you make playlists based on regular expressions (don't worry, regular searches work too). It lets you display and edit any tags you want in the file.</Description>
+        <Archive sha1sum="93d378234feae798c65452085add0b46a2440be4" type="targz">http://quodlibet.googlecode.com/files/quodlibet-2.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>gst-python</Dependency>
+            <Dependency>mutagen</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>quodlibet</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>gst-python</Dependency>
+            <Dependency>mutagen</Dependency>
+            <Dependency>gst-plugins-good</Dependency>
+            <Dependency>gst-plugins-ugly</Dependency>
+            <!-- for ASF / WMA support -->
+            <Dependency>gst-ffmpeg</Dependency>
+            <!-- for AAC / Musepack support -->
+            <Dependency>gst-plugins-bad</Dependency>
+            <!-- for iPod support -->
+            <Dependency>libgpod</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-12-16</Date>
+            <Version>2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

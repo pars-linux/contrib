@@ -1,0 +1,30 @@
+--- fping.c	2001-07-20 20:10:26.000000000 +0300
++++ fping.c.new	2007-08-24 12:23:33.000000000 +0300
+@@ -399,6 +399,13 @@
+ 
+ 	}/* IF */
+ 
++	prog = argv[0];
++	ident = getpid() & 0xFFFF;
++
++	verbose_flag = 1;
++	backoff_flag = 1;
++	opterr = 1;
++
+ 	/* confirm that ICMP is available on this machine */
+ 	if( ( proto = getprotobyname( "icmp" ) ) == NULL ) 
+ 		crash_and_burn( "icmp: unknown protocol" );
+@@ -415,13 +422,6 @@
+ 
+ 	}/* IF */
+ 
+-	prog = argv[0];
+-	ident = getpid() & 0xFFFF;
+-
+-	verbose_flag = 1;
+-	backoff_flag = 1;
+-	opterr = 1;
+-
+ 	/* get command line options */
+ 
+ 	while( ( c = getopt( argc, argv, "gedhlmnqusaAvz:t:i:p:f:r:c:b:C:Q:B:" ) ) != EOF )

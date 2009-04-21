@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gtk-gnutella</Name>
+        <Homepage>http://gtk-gnutella.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gtk-gnutella</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A GTK+ Gnutella client</Summary>
+        <Description>gtk-gnutella has been optimized for speed and scalability, with low-memory consumption. It is meant to be left running 24x7, using little CPU and only the configured bandwidth.</Description>
+        <Archive sha1sum="80589a24322f509ed1c2494a1b5ce08951c7e216" type="tarbz2">mirrors://sourceforge/gtk-gnutella/gtk-gnutella-0.96.5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>yacc</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>gnutls</Dependency>
+            <Dependency>sqlite</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>gtk-gnutella</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.12.8">gtk2</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>yacc</Dependency>
+            <Dependency>dbus-glib</Dependency>
+            <Dependency>gnutls</Dependency>
+            <Dependency>sqlite</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gtk-gnutella</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2008-04-02</Date>
+            <Version>0.96.5</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-07-07</Date>
+            <Version>0.96.4</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-11-14</Date>
+            <Version>0.96.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-10-31</Date>
+            <Version>0.96.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-07-20</Date>
+            <Version>0.96.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
+

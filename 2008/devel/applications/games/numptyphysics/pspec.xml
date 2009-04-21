@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>numptyphysics</Name>
+        <Homepage>http://numptyphysics.garage.maemo.org</Homepage>
+        <Packager>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>numptyphysics</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A crayon-drawing based physics puzzle game</Summary>
+        <Description>Harness gravity with your crayon and set about creating blocks, ramps, levers, pulleys and whatever else you fancy to get the little red thing to the little yellow thing.</Description>
+        <Archive sha1sum="45b49dec669da3d3aa602a17c08eaaead801fda9" type="tarbz2">http://igungor.googlepages.com/numptyphysics-0.3_20090103.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>sdl-image</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>numptyphysics</Name>
+        <RuntimeDependencies>
+            <Dependency>sdl-image</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/numptyphysics</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/numptyphysics.desktop">numptyphysics.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-03</Date>
+            <Version>0.3_20090103</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

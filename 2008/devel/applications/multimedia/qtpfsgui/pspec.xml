@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qtpfsgui</Name>
+        <Homepage>http://qtpfsgui.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Qtpfsgui is a Qt4 graphical user interface that aims to provide a workflow for HDR imaging.</Summary>
+        <Archive sha1sum="a47bcf234318325273f64ede9f694052bc4102d8" type="targz">mirrors://sourceforge/qtpfsgui/qtpfsgui-1.9.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>exiv2</Dependency>
+            <Dependency>openexr</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>tiff</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>qtpfsgui.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>qtpfsgui</Name>
+        <RuntimeDependencies>
+            <Dependency>qt4</Dependency>
+            <Dependency>exiv2</Dependency>
+            <Dependency>openexr</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>tiff</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/qtpfsgui/i18n</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2008-07-28</Date>
+            <Version>1.9.2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-03-15</Date>
+            <Version>1.9.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-02-01</Date>
+            <Version>1.9.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-09-23</Date>
+            <Version>1.8.12</Version>
+            <Comment>Version bump and fixed CVE-2007-2956 from upstream.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="3" type="security">
+            <Date>2007-08-11</Date>
+            <Version>1.8.11</Version>
+            <Comment>Fix CVE-2007-2956</Comment>
+            <Name>İsmail Dönmez</Name>
+            <Email>ismail@pardus.org.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-08-01</Date>
+            <Version>1.8.11</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-05-30</Date>
+            <Version>1.8.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

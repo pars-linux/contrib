@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>denemo</Name>
+        <Homepage>http://denemo.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>denemo</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An easy-to-use graphical music nonator.</Summary>
+        <Archive sha1sum="6cb41657052964e69235722cf789f32cd4a29b9b" type="targz">mirrors://sourceforge/denemo/denemo-0.7.6.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>lilypond</Dependency>
+            <Dependency>timidity</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>denemo</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libxml2</Dependency>
+            <Dependency>lilypond</Dependency>
+            <Dependency>timidity</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-06-30</Date>
+            <Version>0.7.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
