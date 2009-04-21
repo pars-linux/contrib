@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>perl-Astro-SunTime</Name>
+        <Homepage>http://search.cpan.org/dist/Astro-SunTime</Homepage>
+        <Packager>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Packager>
+        <License>Artistic</License>
+        <IsA>library</IsA>
+        <Summary>Provides a function interface to calculate sun rise/set times.</Summary>
+        <Archive sha1sum="f3dc7123154c4f881cb7e0b682dd01437a9644c8" type="targz">mirrors://cpan/authors/id/R/RO/ROBF/Astro-SunTime-0.01.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>perl-Time-modules</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>perl-Astro-SunTime</Name>
+        <RuntimeDependencies>
+            <Dependency>perl-Time-modules</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>Astro-SunTime</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-10</Date>
+            <Version>0.01</Version>
+            <Comment>First release</Comment>
+            <Name>Mustafa Günay</Name>
+            <Email>mgunay@pardusman.org</Email>
+        </Update>
+    </History>
+</PISI>

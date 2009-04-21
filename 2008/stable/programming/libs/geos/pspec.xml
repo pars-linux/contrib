@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geos</Name>
+        <Homepage>http://geos.refractions.net</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Geometry Engine - Open Source</Summary>
+        <Description>GEOS (Geometry Engine - Open Source) is a C++ port of the Java Topology Suite (JTS). As such, it aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS "Simple Features for SQL" spatial predicate functions and spatial operators, as well as specific JTS topology functions such as IsValid().</Description>
+        <Archive sha1sum="427fa3ef481a4d9e2a2daef9ccabe7833c6e4415" type="tarbz2">http://geos.refractions.net/downloads/geos-3.0.0rc5.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>ruby</Dependency>
+            <Dependency>doxygen</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>geos-gcc43.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>geos</Name>
+        <RuntimeDependencies>
+            <Dependency>ruby</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2007-12-18</Date>
+            <Version>3.0.0_rc5</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2007-04-30</Date>
+            <Version>3.0.0_rc4</Version>
+            <Comment>fixCompiledPy</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-04-17</Date>
+            <Version>3.0.0_rc4</Version>
+            <Comment>qgis-compile.patch added</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-02-27</Date>
+            <Version>3.0.0_rc4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-12-21</Date>
+            <Version>3.0.0_rc3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-11-17</Date>
+            <Version>3.0.0_rc2</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-09-30</Date>
+            <Version>2.2.3</Version>
+            <Comment>Return to the stable version for now since it's not compatible with the programs that need geos as dep.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-09-24</Date>
+            <Version>3.0.0_rc1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-26</Date>
+            <Version>2.2.3</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

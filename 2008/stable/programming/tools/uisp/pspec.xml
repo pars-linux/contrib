@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>uisp</Name>
+        <Homepage>http://savannah.nongnu.org/projects/uisp</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:console</IsA>
+        <Summary>A tool for AVR microcontrollers which can interface to many hardware in-system programmers</Summary>
+        <Archive sha1sum="f1b5bf5bdd9597ae7fd8d8ae733d6f5cd31f9cf7" type="targz">http://savannah.nongnu.org/download/uisp/uisp-20050207.tar.gz</Archive>
+        <Patches>
+            <Patch level="1">mega-48-88-168.patch</Patch>
+            <Patch>uisp_Werror.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>uisp</Name>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-01-22</Date>
+            <Version>20050207</Version>
+            <Comment>First release.</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
