@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kiba-dock</Name>
+        <Homepage>http://www.kiba-dock.org/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>kiba-dock</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An AIGLX dock with physics</Summary>
+        <Description>Kiba-Dock is an application dock which uses desktop compositing to provide advanced graphical effects</Description>
+        <Archive sha1sum="1aaeea1490503828ef621161b0d7ae82af42816e" type="tarbz2">http://kpelit.com/dist/files/kiba-dock-0.1_862.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>akamaru</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">desktop_files_tr.patch</Patch>
+            <Patch>populate_dock.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kiba-dock</Name>
+        <RuntimeDependencies>
+            <Dependency>akamaru</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>gnome-vfs</Dependency>
+            <Dependency>compiz-fusion</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/kiba-dock</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2008-08-16</Date>
+            <Version>0.1_862</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-03-05</Date>
+            <Version>0.0_20080120</Version>
+            <Comment>Revert last</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-02-28</Date>
+            <Version>0.0_20080120</Version>
+            <Comment>Add runtime dep(kiba-plugins)</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-01-20</Date>
+            <Version>0.0_20080120</Version>
+            <Comment>New snapshot</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-01-12</Date>
+            <Version>0.0_20071223</Version>
+            <Comment>Add gnome-vfs as dependency</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-08-12</Date>
+            <Version>0.0_20071223</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

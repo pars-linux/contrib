@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.uludag.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>tweak</Name>
+        <Homepage>http://beta.smileaf.org/projects/</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE configuration tweak utility</Summary>
+        <Summary xml:lang="tr">KDE'nin gizli kalmış ayarları için bir arayüz</Summary>
+        <Archive sha1sum="c5dd5fdb9dd598e253d73d86cbf7d3274dc02c9d" type="tarbz2">http://beta.smileaf.org/files/tweaK/tweaK-0.2.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>tweak</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+	</RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applications/kde</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-06-25</Date>
+            <Version>0.2.2</Version>
+            <Comment>Version Bump, bugfixes</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-18</Date>
+            <Version>0.1</Version>
+            <Comment>First release</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

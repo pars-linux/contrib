@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kstreamripper</Name>
+        <Homepage>http://kde-apps.org/content/show.php?content=10275</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Streamripper GUI for KDE</Summary>
+        <Description>KStreamRipper is a frontend to the great streamripper console tool. You can add shoutcast servers and tune in and rip them with only one click.</Description>
+        <Archive type="tarbz2" sha1sum="64260d1b229bad0eb195bb0faee589c5f6420518">http://www.mirrorservice.org/sites/www.ibiblio.org/gentoo/distfiles/kstreamripper-0.3.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+            <Patch>use-mplayer.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kstreamripper</Name>
+        <RuntimeDependencies>
+            <Dependency>streamripper</Dependency>
+            <Dependency>kdelibs</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
+            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
+            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="3">
+            <Date>2008-12-31</Date>
+            <Version>0.3.4</Version>
+            <Comment>Fix desktop file. Use mplayer instead of xmms by default.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-12-31</Date>
+            <Version>0.3.4</Version>
+            <Comment>Updating package informations like download link, SHA1SUM checksum and German descriptions.</Comment>
+            <Name>Gürkan Zengin</Name>
+            <Email>linuxfanatic@gmx.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-08-25</Date>
+            <Version>0.3.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>

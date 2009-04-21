@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>thunar-svn-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-svn-plugin</Homepage>
+        <Packager>
+            <Name>Özgür Kuru</Name>
+            <Email>ozgurkuru@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>subversion</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A svn plugin for Thunar</Summary>
+        <Description>Thunar-svn-plugin is for using Subversion with Thunar file manager.</Description>
+        <Archive sha1sum="e9f87a397ce4115704c1c9685541b2e4d402403b" type="tarbz2">http://goodies.xfce.org/releases/thunar-svn-plugin/thunar-svn-plugin-0.0.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>Thunar</Dependency>
+            <Dependency>subversion</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>thunar-svn-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>Thunar</Dependency>
+            <Dependency>subversion</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-03-16</Date>
+            <Version>0.0.3</Version>
+            <Comment>First Release.</Comment>
+            <Name>Özgür Kuru</Name>
+            <Email>ozgurkuru@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

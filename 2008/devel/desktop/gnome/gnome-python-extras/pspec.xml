@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-python-extras</Name>
+        <Homepage>http://www.pygtk.org/</Homepage>
+        <Packager>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>Extra Gnome2 bindings for python</Summary>
+        <Archive sha1sum="f97303aa92c300050818ac8a01d0bc0657b2a9e3" type="tarbz2">mirrors://gnome/gnome-python-extras/2.19/gnome-python-extras-2.19.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>gtkhtml2</Dependency>
+            <Dependency>gtkspell</Dependency>
+            <Dependency>xulrunner-devel</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>libgksu</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnome-python-extras-2.19.1-pkg-config.patch</Patch>
+            <Patch level="1">gnome-python-extras-2.19.1-xulrunner.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gnome-python-extras</Name>
+        <RuntimeDependencies>
+            <Dependency>pygtk</Dependency>
+            <Dependency>gnome-python</Dependency>
+            <Dependency>gtkhtml2</Dependency>
+            <Dependency>gtkspell</Dependency>
+            <Dependency>xulrunner</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>libgksu</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/share/pygtk</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="5">
+            <Date>2009-04-09</Date>
+            <Version>2.19.1</Version>
+            <Comment>Add missing dependency, libgksu</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-09-03</Date>
+            <Version>2.19.1</Version>
+            <Comment>Patch for latest Xulrunner</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-06-08</Date>
+            <Version>2.19.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-03-16</Date>
+            <Version>2.14.3</Version>
+            <Comment>Remove compiled python files.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-07-09</Date>
+            <Version>2.14.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

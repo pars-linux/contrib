@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-weather-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-weather-plugin</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce4-weather</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce Weather Plugin</Summary>
+        <Archive sha1sum="dbe7e6695cd647aaf843dc790d9bb37ea95c83ea" type="tarbz2">http://goodies.xfce.org/releases/xfce4-weather-plugin/xfce4-weather-plugin-0.6.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">xfce4-weather-plugin-0.6.2-fix-utf8-encodings.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>xfce4-weather-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-10-12</Date>
+            <Version>0.6.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@gmx.co.uk</Email>
+        </Update>
+    </History>
+</PISI>

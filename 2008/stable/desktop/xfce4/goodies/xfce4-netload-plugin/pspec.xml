@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-netload-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-netload-plugin</Homepage>
+        <Packager>
+            <Name>Fatih Arslan</Name>
+            <Email>ftharsln@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce4-panel</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Network plugin that shows the load</Summary>
+        <Description>This displays the current load of the network interfaces of your choice at the xfce4-panel.</Description>
+        <Archive sha1sum="197231f99773f4e299c64125dd0d1a25bfb533bb" type="tarbz2">http://goodies.xfce.org/releases/xfce4-netload-plugin/xfce4-netload-plugin-0.4.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-netload-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2009-03-27</Date>
+            <Version>0.4.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>ftharsln@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
