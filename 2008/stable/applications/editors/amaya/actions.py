@@ -45,8 +45,10 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "resources/bundle/logo.png", "amaya.png")
 
     shelltools.cd("Pardus")
-    autotools.install("prefix=%s/usr/share" % get.installDIR())
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.domove("/usr/share/bin", "/usr")
+    pisitools.remove("/usr/bin/amaya")
+    pisitools.dosym("/usr/share/Amaya/wx/bin/amaya", "/usr/bin/amaya")
 
     pisitools.dodoc("../README*")
