@@ -44,13 +44,19 @@
             <AdditionalFile target="/etc/X11/Sessions/xfce4" permission="0755" owner="root">xfce4</AdditionalFile>
             <AdditionalFile target="/usr/share/xsessions/xfce4.desktop" permission="0644" owner="root">xfce4.desktop</AdditionalFile>
         </AdditionalFiles>
+        <Provides>
+            <COMAR script="package.py">System.Package</COMAR>
+        </Provides>
     </Package>
 
     <History>
         <Update release="12">
             <Date>2009-04-23</Date>
             <Version>4.6.1</Version>
-            <Comment>Version bump.</Comment>
+            <Comment>
+                * Version bump for new release.
+                * Added comar script for updating icon cache.
+            </Comment>
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
         </Update>
