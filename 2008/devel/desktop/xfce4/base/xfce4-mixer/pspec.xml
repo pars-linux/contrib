@@ -12,12 +12,11 @@
         <Icon>xfce-sound</Icon>
         <IsA>app:gui</IsA>
         <Summary>Xfce sound mixer application</Summary>
-        <Archive sha1sum="ebcbc2cefbd6f0a24c339d61bdb138e2bbe1335c" type="tarbz2">http://mocha.xfce.org/archive/xfce-4.6.0/src/xfce4-mixer-4.6.0.tar.bz2</Archive>
+        <Archive sha1sum="e86163782fc4fc31671c7cb212d23d34106ad3af" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/xfce4-mixer-4.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
+            <Dependency versionFrom="4.6.1">xfce4-panel</Dependency>
             <Dependency>gst-plugins-base</Dependency>
             <Dependency>xfconf</Dependency>
-            <Dependency>perl-XML-Parser</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>fix-categories.patch</Patch>
@@ -27,21 +26,34 @@
     <Package>
        <Name>xfce4-mixer</Name>
        <RuntimeDependencies>
-            <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
+            <Dependency versionFrom="4.6.1">xfce4-panel</Dependency>
             <Dependency>gst-plugins-base</Dependency>
             <Dependency>xfconf</Dependency>
        </RuntimeDependencies>
-        <Files>
+       <Files>
            <Path fileType="executable">/usr/bin</Path>
            <Path fileType="executable">/usr/libexec</Path>
            <Path fileType="library">/usr/lib</Path>
            <Path fileType="localedata">/usr/share/locale</Path>
            <Path fileType="doc">/usr/share/doc</Path>
            <Path fileType="data">/usr/share</Path>
-        </Files>
+       </Files>
+       <Provides>
+           <COMAR script="package.py">System.Package</COMAR>
+       </Provides>
     </Package>
 
     <History>
+        <Update release="13">
+            <Date>2009-04-23</Date>
+            <Version>4.6.1</Version>
+            <Comment>
+                * Version bump for new release.
+                * Added comar script for updating icon cache.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="12">
             <Date>2009-03-15</Date>
             <Version>4.6.0</Version>
