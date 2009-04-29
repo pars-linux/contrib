@@ -15,24 +15,35 @@
         <Description>The clipman plugin allows you to keep several clipboard selections in memory which you can then use to toggle.</Description>
         <Archive sha1sum="d37985791c7bf38867409f5aa9aee5e8d9fb338c" type="tarbz2">http://goodies.xfce.org/releases/xfce4-clipman-plugin/xfce4-clipman-plugin-1.0.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>xfce4-clipman-plugin</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.2">xfce4-panel</Dependency>
+            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/icons/hicolor</Path>
+            <Path fileType="data">/usr/share/applications</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="6" type="security">
+            <Date>2009-04-30</Date>
+            <Version>1.0.0</Version>
+            <Comment>It doesn't work. Fix paths.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-04-22</Date>
             <Version>1.0.0</Version>
