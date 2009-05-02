@@ -9,6 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+WorkDir="."
+
 def setup():
     shelltools.system("qmake-qt4 PREFIX=/usr")
 
