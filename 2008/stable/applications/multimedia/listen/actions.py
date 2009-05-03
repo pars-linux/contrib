@@ -6,13 +6,17 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def build():
+    shelltools.export("CHECK_DEPENDS", "0")
+    shelltools.export("USE_GTK_MOZEMBED", "1")
+    shelltools.export("GTK_MOZEMBED_PATH", "/usr/lib/%s/site-packages/gtk-2.0/gtkmozembed.so" % get.curPYTHON())
     autotools.make()
 
 def install():
-    autotools.install("DESTDIR=%s" % get.installDIR())
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.remove("/usr/bin/listen")
     pisitools.remove("/usr/share/man/man1/listen.1.gz")

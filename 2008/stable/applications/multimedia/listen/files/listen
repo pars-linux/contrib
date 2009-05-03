@@ -19,4 +19,8 @@
 #
 ###
 
-MOZILLA_FIVE_HOME=/usr/lib/xulrunner-1.9 python -OO /usr/lib/listen/listen.py "$@"
+export LISTEN_LIBRARY_PATH="/usr/lib/listen"
+export LISTEN_DATA_PATH="/usr/share/listen"
+export LISTEN_VERSION="0.6"
+
+cd $LISTEN_LIBRARY_PATH && MOZILLA_FIVE_HOME=/usr/lib/xulrunner-1.9 exec python -OO listen "$@"
