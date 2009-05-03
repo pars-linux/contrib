@@ -9,7 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    pisitools.dosed("Makefile", "-O -Wall", "-Wall %s" % get.CFLAGS())
+    pisitools.dosed("Makefile", "-O -Wall -c", "-Wall -c %s" % get.CFLAGS())
+    pisitools.dosed("Makefile", "-O -Wall -lfreeimage", "-Wall %s -lfreeimage" % get.LDFLAGS())
     pisitools.dosed("Makefile", "doc/\$\(PROGRAM\)", "doc/%s" % get.srcTAG())
     pisitools.dosed("Makefile", "/usr/local", "/usr")
 
