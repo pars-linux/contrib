@@ -25,6 +25,3 @@ def install():
     pisitools.domove("usr/share/locale/tr/LC_MESSAGES", "/usr/share/playonlinux/lang/locale/tr")
 
     pisitools.dodoc("playonlinux/LICENCE", "playonlinux/CHANGELOG")
-
-    # clean things
-    pisitools.removeDir("/usr/share/playonlinux/src")
