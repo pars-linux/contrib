@@ -11,6 +11,6 @@ from pisi.actionsapi import get
 def install():
     pythonmodules.install()
 
-    pisitools.remove("/usr/share/doc/pycurl/INSTALL")
-
-    pisitools.domove("/usr/share/doc/pycurl/", "/usr/share/doc/%s/" % get.srcTAG())
+    pisitools.removeDir("/usr/share/doc")
+    
+    pisitools.dodoc("ChangeLog", "COPYING*", "README", "TODO")
