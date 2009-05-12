@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Linux Multimedia Studio</Summary>
         <Description>LMMS is a free alternative to popular programs like FruityLoops/FL Studio, Cubase and Logic allowing you to produce music with your computer. This includes creation of loops, synthesizing and mixing sounds, arranging samples, having fun with your MIDI-keyboard and much more.</Description>
-        <Archive sha1sum="263984040665412c63980604f474c4ab6bf7949e" type="tarbz2">mirrors://sourceforge/lmms/lmms-0.4.3.tar.bz2</Archive>
+        <Archive sha1sum="78f238cf7ac96c5dbcc0b1c3517bef76391f4cbb" type="tarbz2">mirrors://sourceforge/lmms/lmms-0.4.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>qt4</Dependency>
             <Dependency>sdl-sound</Dependency>
@@ -35,6 +35,12 @@
             <Dependency versionFrom="1.0.7">fluidsynth</Dependency>
             <Dependency>wine</Dependency>
         </RuntimeDependencies>
+        <Conflicts>
+            <Package>lmms-extras</Package>
+        </Conflicts>
+        <Replaces>
+            <Package>lmms-extras</Package>
+        </Replaces>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib/lmms</Path>
@@ -55,6 +61,13 @@
     </Package>
 
     <History>
+        <Update release="14">
+            <Date>2009-05-06</Date>
+            <Version>0.4.4</Version>
+            <Comment>Bump to latest stable. Add Replaces and Conflicts tag for lmms-extras, they are in same project now.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="13">
             <Date>2009-02-24</Date>
             <Version>0.4.3</Version>
