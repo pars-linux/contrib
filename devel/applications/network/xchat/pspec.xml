@@ -15,18 +15,19 @@
         <Archive sha1sum="7a7463e65cb26c680ed70dd96cec98bcc05435a4" type="tarbz2">http://xchat.org/files/source/2.8/xchat-2.8.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.12.8">gtk2</Dependency>
-            <Dependency>gtkspell</Dependency>
+            <Dependency>libsexy</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>tcl</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>xchat_desktop.patch</Patch>
             <Patch level="1">browser.patch</Patch>
-            <Patch level="1">default-server.patch</Patch>
+            <Patch level="1">default-configs.patch</Patch>
             <Patch level="1">xchat-2.8.4-shm-pixmaps.patch</Patch>
             <Patch level="1">xc286-smallfixes.diff</Patch>
             <Patch level="1">new-gtk-type.patch</Patch>
             <Patch level="1">xchat-2.8.6-default-utf8.patch</Patch>
+            <Patch level="1">use_ascii_str.patch</Patch>
         </Patches>
     </Source>
 
@@ -34,7 +35,7 @@
         <Name>xchat</Name>
         <RuntimeDependencies>
             <Dependency versionFrom="2.12.8">gtk2</Dependency>
-            <Dependency>gtkspell</Dependency>
+            <Dependency>libsexy</Dependency>
             <Dependency>dbus-glib</Dependency>
             <Dependency>tcl</Dependency>
             <Dependency>libnotify</Dependency>
@@ -51,6 +52,16 @@
     </Package>
 
     <History>
+        <Update release="11">
+           <Date>2009-05-20</Date>
+           <Version>2.8.6</Version>
+           <Comment>
+               - Use g_ascii string functions to not working irc commands.
+               - Enable shared libsexy support instead of gtkspell.
+           </Comment>
+           <Name>Burak Çalışkan</Name>
+           <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="10">
            <Date>2009-02-11</Date>
            <Version>2.8.6</Version>
