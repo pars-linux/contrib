@@ -11,13 +11,12 @@ from pisi.actionsapi import shelltools
 
 def setup():
     autotools.configure("--enable-shm \
-                         --enable-spell=gtkspell")
+                         --enable-spell=libsexy")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    shelltools.chmod("%s/usr/lib/xchat/plugins/*" % get.installDIR(),0644)
 
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "HACKING", "README")
