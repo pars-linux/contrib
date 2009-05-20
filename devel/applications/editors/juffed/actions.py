@@ -9,8 +9,6 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "juffed_%s" % get.srcVERSION()
-
 def setup():
     shelltools.makedirs("build")
     shelltools.cd("build")
