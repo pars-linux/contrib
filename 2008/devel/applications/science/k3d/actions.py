@@ -16,7 +16,10 @@ def setup():
     shelltools.unlink("CMakeCache.txt")
     shelltools.makedirs("build")
     shelltools.cd("build")
-    cmaketools.configure(sourceDir="..")
+
+    cmaketools.configure("-DK3D_BUILD_GNOME_MODULE=OFF \
+                          -DK3D_BUILD_AQSIS_MODULE=ON \
+                          -DK3D_BUILD_PARALLEL=OFF", sourceDir="..")
 
 def build():
     shelltools.cd("build")
@@ -25,5 +28,10 @@ def build():
 def install():
     shelltools.cd("build")
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    #Use Pardus' Bitstream-Vera-fonts package
+    pisitools.removeDir("/usr/share/k3d/fonts/")
+
+    pisitools.dosym( "/usr/share/k3d/icons/k3d.png", "/usr/share/pixmaps/k3d.png")
 
     pisitools.dodoc("../AUTHORS", "../COPYING", "../README")

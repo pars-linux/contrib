@@ -15,6 +15,7 @@
         <Description>K-3D features a robust, object oriented plugin architecture, designed to scale to the needs of professional artists. It is designed from the ground up to generate motion picture quality animation using RenderMan compliant render engines.</Description>
         <Archive sha1sum="cef63043c7bd8d7a130689e9b53d1023280e2978" type="targz">mirrors://sourceforge/k3d/k3d-source-0.7.11.0.tar.gz</Archive>
         <BuildDependencies>
+            <Dependency>aqsis</Dependency>
             <Dependency>libsigc++</Dependency>
             <Dependency>glibmm</Dependency>
             <Dependency>gts</Dependency>
@@ -25,17 +26,19 @@
             <Dependency>openexr</Dependency>
             <Dependency>plib</Dependency>
             <Dependency>tiff</Dependency>
+            <Dependency>doxygen</Dependency>
         </BuildDependencies>
           <Patches>
-            <!--<Patch level="">k3d-0.7.10.0-warn.patch</Patch>-->
-            <!--<Patch level="1">k3d-0.7.11.0-fontpath.patch</Patch>-->
-            <Patch level="1">k3d-0.7.11.0-potfiles.patch</Patch>
+            <Patch level="1">warn.patch</Patch>
+            <Patch level="1">fontpath.patch</Patch>
+            <Patch level="1">potfiles.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>k3d</Name>
         <RuntimeDependencies>
+            <Dependency>aqsis</Dependency>
             <Dependency>libsigc++</Dependency>
             <Dependency>glibmm</Dependency>
             <Dependency>gts</Dependency>
@@ -46,13 +49,15 @@
             <Dependency>openexr</Dependency>
             <Dependency>plib</Dependency>
             <Dependency>tiff</Dependency>
+            <Dependency>Bitstream-Vera-fonts</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/k3d</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
@@ -65,7 +70,13 @@
         <Update release="3">
             <Date>2009-05-20</Date>
             <Version>0.7.11.0</Version>
-            <Comment>Bump to latest development release, now using CMake. Tidy up deps.</Comment>
+            <Comment>
+                -Bump to latest development release, now using CMake
+                -Tidy up deps, add doxygen to build docs
+                -Use our fonts, patch to fix the fontpaths and remove included ones
+                -Disable Gnome Integration
+                -Add icon tag and desktop file, change homepage
+            </Comment>
             <Name>Mehmet Nur Olcay</Name>
             <Email>mnurolcay@gmail.com</Email>
         </Update>
