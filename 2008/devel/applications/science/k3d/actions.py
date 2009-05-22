@@ -19,7 +19,8 @@ def setup():
 
     cmaketools.configure("-DK3D_BUILD_GNOME_MODULE=OFF \
                           -DK3D_BUILD_AQSIS_MODULE=ON \
-                          -DK3D_BUILD_PARALLEL=OFF", sourceDir="..")
+                          -DK3D_BUILD_PARALLEL=OFF \
+                          -DK3D_BUILD_GTS_MODULE=OFF", sourceDir="..")
 
 def build():
     shelltools.cd("build")
