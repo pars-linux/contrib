@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>gnome-vfs</Name>
-        <Homepage>http://www.gnome.org/</Homepage>
+        <Homepage>http://www.gnome.org</Homepage>
         <Packager>
             <Name>Ozan Çağlayan</Name>
             <Email>ozan@pardus.org.tr</Email>
@@ -12,40 +12,44 @@
         <License>LGPLv2</License>
         <IsA>library</IsA>
         <IsA>app:console</IsA>
-        <Summary>Gnome Virtual Filesystem</Summary>
-        <Archive sha1sum="a58fb0654bb2c434372ee313a591ecfa8195fe18" type="tarbz2">mirrors://gnome/gnome-vfs/2.22/gnome-vfs-2.22.0.tar.bz2</Archive>
+        <Summary>The GNOME virtual file-system libraries</Summary>
+        <Description>gnome-vfs is the GNOME virtual file system. It is the foundation of the Nautilus file manager. It provides a modular architecture and ships with several modules that implement support for file systems, http, ftp and others.</Description>
+        <Archive sha1sum="0e7b548ffe7b9eddaef3a43cdda47de538715f8b" type="tarbz2">mirrors://gnome/gnome-vfs/2.24/gnome-vfs-2.24.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.22.0">gconf</Dependency>
-            <Dependency versionFrom="2.14.10">orbit2</Dependency>
-            <Dependency>gnome-mime-data</Dependency>
             <Dependency>shared-mime-info</Dependency>
-            <Dependency>openssl</Dependency>
-            <Dependency>samba</Dependency>
-            <Dependency>dbus-glib</Dependency>
-            <Dependency>hal</Dependency>
+            <Dependency>gnome-mime-data</Dependency>
+            <Dependency>mit-kerberos</Dependency>
             <Dependency>avahi-glib</Dependency>
+            <Dependency>keyutils</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>samba</Dependency>
             <Dependency>gamin</Dependency>
+            <Dependency>hal</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">gnome-vfs-2.16.0-no-dbus.patch</Patch>
-            <Patch level="1">gnome-vfs-2.20.0-ignore-certain-mountpoints.patch</Patch>
+            <Patch level="1">gnome-vfs-2.9.90-modules-conf.patch</Patch>
+            <Patch level="1">gnome-vfs-2.8.2-schema_about_for_upstream.patch</Patch>
             <Patch level="1">gnome-vfs-2.8.2-browser_default.patch</Patch>
+            <Patch level="1">gnome-vfs-2.15.91-mailto-command.patch</Patch>
+            <Patch level="1">gnome-vfs-2.20.0-ignore-certain-mountpoints.patch</Patch>
+            <Patch level="1">disable-gtk-doc.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>gnome-vfs</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.22.0">gconf</Dependency>
-            <Dependency versionFrom="2.14.10">orbit2</Dependency>
-            <Dependency>gnome-mime-data</Dependency>
             <Dependency>shared-mime-info</Dependency>
-            <Dependency>openssl</Dependency>
-            <Dependency>samba</Dependency>
-            <Dependency>dbus-glib</Dependency>
-            <Dependency>hal</Dependency>
+            <Dependency>gnome-mime-data</Dependency>
+            <Dependency>mit-kerberos</Dependency>
             <Dependency>avahi-glib</Dependency>
+            <Dependency>keyutils</Dependency>
+            <Dependency>orbit2</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>samba</Dependency>
             <Dependency>gamin</Dependency>
+            <Dependency>hal</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -55,12 +59,19 @@
             <Path fileType="header">/usr/include</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="doc">/usr/share/gtk-doc</Path>
             <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2009-05-25</Date>
+            <Version>2.24.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="7">
             <Date>2008-05-18</Date>
             <Version>2.22.0</Version>
