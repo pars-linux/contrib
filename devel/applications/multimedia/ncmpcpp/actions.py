@@ -21,5 +21,6 @@ def install():
     autotools.install()
 
     pisitools.removeDir("usr/share/doc")
+    pisitools.doman("doc/ncmpcpp.1")
 
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "doc/config", "doc/keys")
