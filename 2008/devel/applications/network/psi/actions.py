@@ -8,6 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir='psi-0.13-rc1'
+
 def setup():
     autotools.rawConfigure("--prefix=/usr \
                             --qtdir=/usr/qt/4 \
