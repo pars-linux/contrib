@@ -11,10 +11,10 @@
         <License>LGPLv2</License>
         <IsA>library</IsA>
         <Summary>Essential GNOME Libraries</Summary>
-        <Archive sha1sum="f9d1d922569cb8f8a44834f5eadc42ac21d184e1" type="tarbz2">mirrors://gnome/libgnome/2.24/libgnome-2.24.1.tar.bz2</Archive>
+        <Archive sha1sum="f" type="tarbz2">mirrors://gnome/libgnome/2.26/libgnome-2.26.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.13.0">libbonobo</Dependency>
-            <Dependency versionFrom="2.5.3">gnome-vfs</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>gnome-vfs</Dependency>
             <Dependency>gconf</Dependency>
             <Dependency>popt</Dependency>
         </BuildDependencies>
@@ -23,8 +23,8 @@
     <Package>
         <Name>libgnome</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.13.0">libbonobo</Dependency>
-            <Dependency versionFrom="2.5.3">gnome-vfs</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>gnome-vfs</Dependency>
             <Dependency>gconf</Dependency>
             <Dependency>popt</Dependency>
         </RuntimeDependencies>
@@ -39,6 +39,7 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/gnome-background-properties</Path>
             <Path fileType="data">/usr/share/gtk-doc</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
         <Provides>
@@ -47,6 +48,13 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2009-05-25</Date>
+            <Version>2.26.0</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="8">
             <Date>2008-09-24</Date>
             <Version>2.24.1</Version>
