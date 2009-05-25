@@ -17,6 +17,6 @@ def install():
 
     shelltools.cd("build")
 
-    for directory in ["classes","help","images","lib","resources"]:
+    for directory in ["classes","help","images","lib","resource"]:
         pisitools.insinto("/usr/lib/jabref",directory)
 
