@@ -11,11 +11,11 @@
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>Password and keyring managing daemon</Summary>
-        <Archive sha1sum="0f52095590a684920cc683d1985ac66263702114" type="tarbz2">mirrors://gnome/gnome-keyring/2.22/gnome-keyring-2.22.3.tar.bz2</Archive>
+        <Archive sha1sum="3ff24987392b3f51109709b2c020af3557155ef8" type="tarbz2">mirrors://gnome/gnome-keyring/2.26/gnome-keyring-2.26.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.12.0">gtk2</Dependency>
-            <Dependency versionFrom="0.5.9">hal</Dependency>
-            <Dependency versionFrom="2.22.0">gconf</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>gconf</Dependency>
             <Dependency>libgcrypt</Dependency>
             <Dependency>libtasn1</Dependency>
         </BuildDependencies>
@@ -24,9 +24,9 @@
     <Package>
         <Name>gnome-keyring</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.12.0">gtk2</Dependency>
-            <Dependency versionFrom="0.5.9">hal</Dependency>
-            <Dependency versionFrom="2.22.0">gconf</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>hal</Dependency>
+            <Dependency>gconf</Dependency>
             <Dependency>libgcrypt</Dependency>
             <Dependency>libtasn1</Dependency>
         </RuntimeDependencies>
@@ -40,10 +40,18 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/dbus-1</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="11">
+            <Date>2009-05-25</Date>
+            <Version>2.26.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="10">
             <Date>2008-07-01</Date>
             <Version>2.22.3</Version>
