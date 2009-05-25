@@ -6,19 +6,18 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.export("CC", get.CC())
     autotools.configure("--enable-artist-screen \
-                         --enable-colors")
+                         --enable-colors \
+                         --enable-lyrics-screen")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.removeDir("/usr/share/doc")
 
