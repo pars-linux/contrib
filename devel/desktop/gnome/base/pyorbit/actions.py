@@ -8,8 +8,12 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 from pisi.actionsapi import pythonmodules
-
+from pisi.actionsapi import libtools
 def setup():
+    autotools.aclocal("-I m4")
+    autotools.automake("-fi")
+    autotools.autoconf()
+    libtools.libtoolize("--copy --force")
     autotools.configure()
 
 def build():
