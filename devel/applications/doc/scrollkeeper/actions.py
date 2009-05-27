@@ -10,7 +10,6 @@ from pisi.actionsapi import get
 from pisi.actionsapi import libtools
 
 def setup():
-    libtools.libtoolize("--force")
     autotools.configure("--localstatedir=/var \
                          --enable-static=no \
                          --with-xml-catalog=/etc/xml/docbook \
