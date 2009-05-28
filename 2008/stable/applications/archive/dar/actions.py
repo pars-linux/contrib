@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-mode=32")
+                         --enable-mode=64 \
+                         --disable-upx")
 
 def build():
     autotools.make()
