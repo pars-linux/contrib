@@ -11,6 +11,7 @@ def setup():
     autotools.configure("--disable-static \
                          --disable-schemas-install \
                          --disable-esd")
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
