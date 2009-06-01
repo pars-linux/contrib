@@ -10,8 +10,8 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-schemas-install\
-                         --disable-schemas-install\
                          --with-pam-dir=/lib/security")
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-need -shared ")
 
 def build():
     autotools.make()
