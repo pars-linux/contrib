@@ -12,11 +12,13 @@
         <Icon>htop</Icon>
         <IsA>app:console</IsA>
         <IsA>app:gui</IsA>
-        <Summary>Interactive text-mode process viewer</Summary>
-        <Description>Interactive text-mode process viewer for Linux. It aims to be a better 'top'.</Description>
+        <Summary>An interactive process viewer for Linux</Summary>
+        <Description>htop is an interactive text-mode process viewer for Linux. It aims to be a better 'top'.</Description>
         <Archive sha1sum="b41b4d83ab7ac40b79f6eeb730cd561293b62fd4" type="targz">mirrors://sourceforge/htop/htop-0.8.1.tar.gz</Archive>
         <Patches>
             <Patch level="1">desktop_tr.patch</Patch>
+            <Patch>htop-0.8.1-nonprint.patch</Patch>
+            <Patch>htop-0.8.1-processlist.patch</Patch>
         </Patches>
     </Source>
 
@@ -32,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-06-02</Date>
+            <Version>0.8.1</Version>
+            <Comment>Add a patch from fedora.</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2008-09-24</Date>
             <Version>0.8.1</Version>
