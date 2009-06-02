@@ -6,9 +6,8 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
-from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import libtools
+
 def setup():
     autotools.aclocal("-I m4")
     autotools.automake("-fi")
@@ -22,6 +21,4 @@ def build():
 def install():
     autotools.install()
 
-    pythonmodules.fixCompiledPy(lookInto="/usr/lib/%s/site-packages" % get.curPYTHON())
-
-    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "INSTALL", "MAINTAINERS", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "MAINTAINERS", "NEWS", "README", "TODO")
