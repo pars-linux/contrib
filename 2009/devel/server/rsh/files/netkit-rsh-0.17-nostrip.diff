@@ -1,0 +1,77 @@
+--- netkit-rsh-0.17/rcp/Makefile
++++ netkit-rsh-0.17/rcp/Makefile
+@@ -7,7 +7,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: rcp
+-	install -s -o root -m$(SUIDMODE) rcp $(INSTALLROOT)$(BINDIR)
++	install -o root -m$(SUIDMODE) rcp $(INSTALLROOT)$(BINDIR)
+ 	install -m$(MANMODE) rcp.1 $(INSTALLROOT)$(MANDIR)/man1
+ 
+ clean:
+--- netkit-rsh-0.17/rexecd/Makefile
++++ netkit-rsh-0.17/rexecd/Makefile
+@@ -27,7 +27,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: rexecd
+-	install -s -m$(DAEMONMODE) rexecd $(INSTALLROOT)$(SBINDIR)/in.rexecd
++	install -m$(DAEMONMODE) rexecd $(INSTALLROOT)$(SBINDIR)/in.rexecd
+ 	install -m$(MANMODE) rexecd.8 $(INSTALLROOT)$(MANDIR)/man8/in.rexecd.8
+ 	ln -sf in.rexecd.8 $(INSTALLROOT)$(MANDIR)/man8/rexecd.8
+ ifeq ($(USE_PAM),1)
+--- netkit-rsh-0.17/rexec/Makefile
++++ netkit-rsh-0.17/rexec/Makefile
+@@ -10,7 +10,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: $(PROG)
+-	install -s -m $(BINMODE) $(PROG) $(INSTALLROOT)$(BINDIR)
++	install -m $(BINMODE) $(PROG) $(INSTALLROOT)$(BINDIR)
+ 	install -m $(MANMODE) $(PROG).1 $(INSTALLROOT)$(MANDIR)/man1
+ 
+ clean:
+--- netkit-rsh-0.17/rlogind/Makefile
++++ netkit-rsh-0.17/rlogind/Makefile
+@@ -16,7 +16,7 @@
+ $(OBJS): pathnames.h logwtmp.h
+ 
+ install: rlogind
+-	install -s -m$(DAEMONMODE) rlogind $(INSTALLROOT)$(SBINDIR)/in.rlogind
++	install -m$(DAEMONMODE) rlogind $(INSTALLROOT)$(SBINDIR)/in.rlogind
+ 	install -m$(MANMODE) rlogind.8 $(INSTALLROOT)$(MANDIR)/man8/in.rlogind.8
+ 	ln -sf in.rlogind.8 $(INSTALLROOT)$(MANDIR)/man8/rlogind.8
+ 	install -m 644 rlogin.pam $(INSTALLROOT)/etc/pam.d/rlogin
+--- netkit-rsh-0.17/rlogin/Makefile
++++ netkit-rsh-0.17/rlogin/Makefile
+@@ -10,7 +10,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: $(PROG)
+-	install -s -o root -m$(SUIDMODE) $(PROG) $(INSTALLROOT)$(BINDIR)
++	install -o root -m$(SUIDMODE) $(PROG) $(INSTALLROOT)$(BINDIR)
+ 	install -m $(MANMODE) $(PROG).1 $(INSTALLROOT)$(MANDIR)/man1
+ 	install -m $(MANMODE) rhosts.5 $(INSTALLROOT)$(MANDIR)/man5
+ 
+--- netkit-rsh-0.17/rshd/Makefile
++++ netkit-rsh-0.17/rshd/Makefile
+@@ -14,7 +14,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: rshd
+-	install -s -m$(DAEMONMODE) rshd $(INSTALLROOT)$(SBINDIR)/in.rshd
++	install -m$(DAEMONMODE) rshd $(INSTALLROOT)$(SBINDIR)/in.rshd
+ 	install -m$(MANMODE) rshd.8 $(INSTALLROOT)$(MANDIR)/man8/in.rshd.8
+ 	ln -sf in.rshd.8 $(INSTALLROOT)$(MANDIR)/man8/rshd.8
+ 	install -m644 rsh.pam $(INSTALLROOT)/etc/pam.d/rsh
+--- netkit-rsh-0.17/rsh/Makefile
++++ netkit-rsh-0.17/rsh/Makefile
+@@ -9,7 +9,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: rsh
+-	install -s -o root -m$(SUIDMODE) rsh $(INSTALLROOT)$(BINDIR)
++	install -o root -m$(SUIDMODE) rsh $(INSTALLROOT)$(BINDIR)
+ 	install -m$(MANMODE) rsh.1 $(INSTALLROOT)$(MANDIR)/man1
+ 
+ clean:

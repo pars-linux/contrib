@@ -1,0 +1,22 @@
+--- rexecd/rexecd.c
++++ rexecd/rexecd.c
+@@ -447,7 +447,7 @@
+ 	 */
+ 	for (ifd = getdtablesize()-1; ifd > 2; ifd--) close(ifd);
+ 
+-	execle(theshell, cp2, "-c", cmdbuf, 0, myenviron);
++	execle(theshell, cp2, "-c", cmdbuf, NULL, myenviron);
+ 	perror(theshell);
+ 	exit(1);
+ }
+--- rshd/rshd.c
++++ rshd/rshd.c
+@@ -544,7 +544,7 @@
+ 	 */
+ 	for (ifd = getdtablesize()-1; ifd > 2; ifd--) close(ifd);
+ 
+-	execl(theshell, shellname, "-c", cmdbuf, 0);
++	execl(theshell, shellname, "-c", cmdbuf, NULL);
+ 	perror(theshell);
+ 	exit(1);
+ }
