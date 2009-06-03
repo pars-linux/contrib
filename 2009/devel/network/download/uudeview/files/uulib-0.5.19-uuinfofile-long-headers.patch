@@ -1,0 +1,15 @@
+diff -Naur uudeview-0.5.20.orig/uulib/uulib.c uudeview-0.5.20/uulib/uulib.c
+--- uudeview-0.5.20.orig/uulib/uulib.c	2003-09-30 02:27:47.000000000 +0300
++++ uudeview-0.5.20/uulib/uulib.c	2007-09-05 02:50:19.000000000 +0300
+@@ -1103,9 +1103,9 @@
+ 
+   while (!feof (inpfile) && 
+ 	 (uu_fast_scanning || ftell(inpfile) < maxpos)) {
+-    if (_FP_fgets (uugen_inbuffer, 511, inpfile) == NULL)
++    if (_FP_fgets (uugen_inbuffer, 1023, inpfile) == NULL)
+       break;
+-    uugen_inbuffer[511] = '\0';
++    uugen_inbuffer[1023] = '\0';
+ 
+     if (ferror (inpfile))
+       break;
