@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>glista</Name>
+        <Homepage>http://prematureoptimization.org/glista/</Homepage>
+        <Packager>
+            <Name>Ceyhun Asılkazancı</Name>
+            <Email>ceyhunasilkazanci@gmail.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <Icon>glista</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A Super-simple Gtk+ based to-do list manager</Summary>
+        <Description>Glista is a to-do list utility which aims to keep to-do task tracking super simple, and integrate well with the natural workflow of your desktop usage</Description>
+        <Archive sha1sum="4049b9bd9cf3e05bbe106f229e55a8b3a454d805" type="targz">http://glista.googlecode.com/files/glista-0.4.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gtkspell</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>glista</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gtkspell</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/glista</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-11-19</Date>
+            <Version>0.4</Version>
+            <Comment>First Release</Comment>
+            <Name>Ceyhun Asılkazancı</Name>
+            <Email>ceyhunasilkazanci@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

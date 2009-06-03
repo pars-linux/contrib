@@ -1,0 +1,36 @@
+diff -Naur docs/user-guide/C/Makefile.in docs/user-guide/C/Makefile.in
+--- docs/user-guide/C/Makefile.in	2008-04-16 23:48:07.000000000 +0300
++++ docs/user-guide/C/Makefile.in	2008-07-30 16:48:32.000000000 +0300
+@@ -528,7 +528,7 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
++#	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+diff -Naur docs/user-guide/eu/Makefile.in docs/user-guide/eu/Makefile.in
+--- docs/user-guide/eu/Makefile.in	2008-04-16 23:48:08.000000000 +0300
++++ docs/user-guide/eu/Makefile.in	2008-07-30 16:48:49.000000000 +0300
+@@ -528,7 +528,7 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
++#	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+diff -Naur omf.make omf.make
+--- omf.make	2007-11-15 00:22:26.000000000 +0200
++++ omf.make	2008-07-30 16:49:07.000000000 +0300
+@@ -45,7 +45,7 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
++#	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \

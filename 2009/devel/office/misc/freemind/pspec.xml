@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freemind</Name>
+        <Homepage>http://freemind.sourceforge.net/wiki/index.php/Main_Page</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>freemind</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Mind-mapping software written in Java</Summary>
+        <Description>FreeMind is a premier free mind-mapping software written in Java. You can easily organize your thoughts with this software.</Description>
+        <Archive sha1sum="27b09fdbd4b39219ab16d4b9574b972dbafe54e1" type="zip">mirrors://sourceforge/freemind/freemind-src-0_8_1.zip</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jdk</Dependency>
+            <Dependency>ant</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>freemind-0.8.0-pardus.patch</Patch>
+            <Patch>freemind-tr-translation.patch</Patch>
+            <Patch>use-firefox.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>freemind</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/freemind</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/mimelnk/application</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/freemind.desktop">freemind.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/mimelnk/application/mm.desktop">mm.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/freemind.png">freemind.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2008-06-12</Date>
+            <Version>0.8.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="7">
+            <Date>2007-04-13</Date>
+            <Version>0.8.0</Version>
+            <Comment>Added package icon, fixed .desktop files.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="6">
+            <Date>2006-09-11</Date>
+            <Version>0.8.0</Version>
+            <Comment>Compile from source.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="5">
+            <Date>2006-07-28</Date>
+            <Version>0.8.0</Version>
+            <Comment>Translation is included as a patch, not a hack.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="4">
+            <Date>2006-06-03</Date>
+            <Version>0.8.0</Version>
+            <Comment>Mime type added.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="3">
+            <Date>2006-05-25</Date>
+            <Version>0.8.0</Version>
+            <Comment>Turkish translation.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-05-16</Date>
+            <Version>0.8.0</Version>
+            <Comment>Fixed error.</Comment>
+            <Name>Fethi Aymaz</Name>
+            <Email>fethi@linux-sevenler.org</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-05-14</Date>
+            <Version>0.8.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
+

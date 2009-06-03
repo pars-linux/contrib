@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>planner</Name>
+        <Homepage>http://live.gnome.org/Planner</Homepage>
+        <Packager>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gnome-planner</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A project management tool</Summary>
+        <Description>Planner is a project managment tool for the Gnome desktop, for planning, scheduling and tracking projects.</Description>
+        <Archive sha1sum="aacdca51a16ef9e7024fbb674d5e8b1c24d088f1" type="tarbz2">http://ftp.gnome.org/pub/GNOME/sources/planner/0.14/planner-0.14.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>pygtk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>scrollkeeper.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>planner</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.10.0">libgnomeui</Dependency>
+            <Dependency versionFrom="2.10.0">libgnomeprintui</Dependency>
+            <Dependency versionFrom="2.10.0">gconf</Dependency>
+            <Dependency versionFrom="2.6.0">pygtk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="doc">/usr/share/gnome</Path>
+            <Path fileType="doc">/usr/share/omf</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/planner</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="config">/etc/gconf/schemas</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root"  permission="0644" target="/usr/share/applications/planner.desktop">planner.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-07-30</Date>
+            <Version>0.14.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Türker Sezer</Name>
+            <Email>turkersezer@tsdesign.info</Email>
+        </Update>
+    </History>
+</PISI>
