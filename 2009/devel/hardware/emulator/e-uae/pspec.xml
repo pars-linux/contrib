@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>e-uae</Name>
+        <Homepage>http://www.rcdrummond.net/uae/</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>The Ubiquitous Amiga Emulator with an emulation core largely based on WinUAE</Summary>
+        <Description>The Ubiquitous Amiga Emulator with an emulation core largely based on WinUAE</Description>
+        <Archive sha1sum="f8c78fef04e6bcd7be36921790d71fcc6e47d00b" type="tarbz2">http://www.rcdrummond.net/uae/e-uae-0.8.29-WIP4/e-uae-0.8.29-WIP4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>sdl-sound</Dependency>
+            <Dependency>sdl-gfx</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>cdrtools</Dependency>
+            <Dependency versionFrom="0.0_20060612">caps</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>e-uae</Name>
+        <RuntimeDependencies>
+            <Dependency>libsdl</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>sdl-sound</Dependency>
+            <Dependency>sdl-gfx</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>cdrtools</Dependency>
+            <Dependency versionFrom="0.0_20060612">caps</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/e-uae.desktop">e-uae.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2007-06-17</Date>
+            <Version>0.8.29</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-05-23</Date>
+            <Version>0.8.29_20070326</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
