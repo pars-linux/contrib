@@ -1,0 +1,20 @@
+--- configure.orig	2007-10-22 02:35:53.000000000 +0300
++++ configure	2007-11-05 22:18:07.000000000 +0200
+@@ -7262,7 +7262,7 @@
+ ac_lib_var=`echo readline'_'readline | sed 'y%./+-%__p_%'`
+ 
+ ac_save_LIBS="$LIBS"
+-LIBS="-lreadline  $LIBS"
++LIBS="-lreadline  -lncurses  $LIBS"
+ cat > conftest.$ac_ext <<EOF
+ #line 7268 "configure"
+ #include "confdefs.h"
+@@ -7289,7 +7289,7 @@
+ 
+ if eval "test \"`echo '$ac_cv_lib_'$ac_lib_var`\" = yes"; then
+   echo "$ac_t""yes" 1>&6
+-  READLINELIB="$READLINELIB -lreadline "
++  READLINELIB="$READLINELIB -lreadline -lncurses "
+ else
+   echo "$ac_t""no" 1>&6
+ 

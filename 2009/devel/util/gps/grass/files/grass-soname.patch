@@ -1,0 +1,11 @@
+--- grass-6.3.0RC1/include/Make/Shlib.make.orig	2007-10-20 03:39:46.000000000 +0300
++++ grass-6.3.0RC1/include/Make/Shlib.make	2007-11-05 22:15:25.000000000 +0200
+@@ -6,7 +6,7 @@
+ LDFLAGS += $(SHLIB_LDFLAGS)
+ 
+ $(SHLIB): $(SHLIB_OBJS)
+-	$(SHLIB_LD) -o $@ $(LDFLAGS) $^ $(EXTRA_LIBS) && \
++	$(SHLIB_LD) -o $@ -Wl,-soname,$(notdir $@) $(LDFLAGS) $^ $(EXTRA_LIBS) && \
+ 	(cd $(ARCH_LIBDIR); ln -f -s $(notdir $@) $(patsubst %.$(GRASS_VERSION_NUMBER)$(SHLIB_SUFFIX),%$(SHLIB_SUFFIX),$@))
+ 
+ shlib: $(SHLIB)
