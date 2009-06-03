@@ -1,0 +1,22 @@
+--- src/kstreamripperbase.ui	2008-12-31 09:17:43.000000000 +0200
++++ src/kstreamripperbase.ui	2008-12-31 09:18:50.000000000 +0200
+@@ -262,7 +262,7 @@
+                         <cstring>m_tuneInEdit</cstring>
+                     </property>
+                     <property name="text">
+-                        <string>xmms &lt;url&gt;</string>
++                        <string>mplayer &lt;url&gt;</string>
+                     </property>
+                 </widget>
+                 <widget class="QLineEdit" row="1" column="1">
+--- src/kstreamripper.cpp	2008-12-31 09:17:43.000000000 +0200
++++ src/kstreamripper.cpp	2008-12-31 09:18:04.000000000 +0200
+@@ -65,7 +65,7 @@
+ 	
+     m_destEdit->setText( appConfig->readEntry( "Destination" , "" ) );
+     m_timeEdit->setText( appConfig->readEntry( "Riptime", "0" ));
+-    m_tuneInEdit->setText( appConfig->readEntry( "Command", "xmms <url>" ));
++    m_tuneInEdit->setText( appConfig->readEntry( "Command", "mplayer <url>" ));
+     m_id3Checkbox->setChecked( appConfig->readBoolEntry( "Id3Tag", 1 ));
+ 	
+     //listview entrys
