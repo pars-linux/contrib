@@ -1,0 +1,67 @@
+diff -Nuar hvirtual.orig/cinelerra/Makefile.am hvirtual/cinelerra/Makefile.am
+--- hvirtual.orig/cinelerra/Makefile.am	2008-06-17 22:32:31.000000000 +0300
++++ hvirtual/cinelerra/Makefile.am	2008-08-25 13:13:27.000000000 +0300
+@@ -687,6 +687,7 @@
+ 	$(SOUND_LDFLAGS) \
+ 	$(FIREWIRE_LDFLAGS) \
+ 	$(LIBDV_LIBS) \
++       $(FFMPEG_LIBS) \
+ 	-luuid \
+ 	$(MJPEG_LIBS)
+ 
+diff -Nuar hvirtual.orig/configure.in hvirtual/configure.in
+--- hvirtual.orig/configure.in	2008-07-01 12:41:31.000000000 +0300
++++ hvirtual/configure.in	2008-08-25 13:42:07.000000000 +0300
+@@ -485,10 +485,6 @@
+ 					libmpeg3/Makefile libmpeg3/video/Makefile libmpeg3/audio/Makefile \
+ 					quicktime/Makefile \
+ 					quicktime/encore50/Makefile \
+-	quicktime/ffmpeg/Makefile \
+-	quicktime/ffmpeg/libavcodec/Makefile \
+-	quicktime/ffmpeg/libavcodec/i386/Makefile \
+-	quicktime/ffmpeg/libavcodec/ppc/Makefile \
+ 					mpeg2enc/Makefile toolame-02l/Makefile \
+ 					guicast/Makefile cinelerra/Makefile \
+ 	cinelerra/data/Makefile \
+diff -Nuar hvirtual.orig/quicktime/mpeg4.c hvirtual/quicktime/mpeg4.c
+--- hvirtual.orig/quicktime/mpeg4.c	2008-06-17 22:31:11.000000000 +0300
++++ hvirtual/quicktime/mpeg4.c	2008-08-25 13:45:49.000000000 +0300
+@@ -7,7 +7,7 @@
+ 
+ 
+ 
+-#include "avcodec.h"
++#include <libavcodec/avcodec.h>
+ #include "colormodels.h"
+ #include "funcprotos.h"
+ #include "qtffmpeg.h"
+diff -Nuar hvirtual.orig/quicktime/qtffmpeg.h hvirtual/quicktime/qtffmpeg.h
+--- hvirtual.orig/quicktime/qtffmpeg.h	2008-06-17 22:31:11.000000000 +0300
++++ hvirtual/quicktime/qtffmpeg.h	2008-08-25 13:43:31.000000000 +0300
+@@ -17,7 +17,7 @@
+ 
+ 
+ 
+-#include "avcodec.h"
++#include <libavcodec/avcodec.h>
+ #include "qtprivate.h"
+ 
+ 
+diff -Nuar hvirtual.orig/quicktime/qth264.c hvirtual/quicktime/qth264.c
+--- hvirtual.orig/quicktime/qth264.c	2008-07-22 11:10:57.000000000 +0300
++++ hvirtual/quicktime/qth264.c	2008-08-25 13:44:59.000000000 +0300
+@@ -1,4 +1,4 @@
+-#include "avcodec.h"
++#include <libavcodec/avcodec.h>
+ #include "colormodels.h"
+ #include "funcprotos.h"
+ #include <pthread.h>
+diff -Nuar hvirtual.orig/quicktime/wma.c hvirtual/quicktime/wma.c
+--- hvirtual.orig/quicktime/wma.c	2008-06-17 22:31:11.000000000 +0300
++++ hvirtual/quicktime/wma.c	2008-08-25 13:46:37.000000000 +0300
+@@ -1,4 +1,4 @@
+-#include "avcodec.h"
++#include <libavcodec/avcodec.h>
+ #include "funcprotos.h"
+ #include "quicktime.h"
+ #include <string.h>
