@@ -1,0 +1,172 @@
+diff -Naur libjackasyn-0.13.orig/Makefile.in libjackasyn-0.13/Makefile.in
+--- libjackasyn-0.13.orig/Makefile.in	2006-08-07 13:34:43.000000000 +0300
++++ libjackasyn-0.13/Makefile.in	2007-03-11 01:28:28.000000000 +0200
+@@ -13,6 +13,7 @@
+ 
+ 
+ prefix = @prefix@
++exec_prefix=@prefix@
+ 
+ 
+ all: static shared
+diff -Naur libjackasyn-0.13.orig/Makefile.in.orig libjackasyn-0.13/Makefile.in.orig
+--- libjackasyn-0.13.orig/Makefile.in.orig	1970-01-01 02:00:00.000000000 +0200
++++ libjackasyn-0.13/Makefile.in.orig	2006-08-07 13:34:43.000000000 +0300
+@@ -0,0 +1,61 @@
++
++MAJOR = 0
++MINOR = 13
++VERSION = $(MAJOR).$(MINOR)
++
++TARGET = libjackasyn
++
++SRC_FILES = libjackasyn.c libjackoss.c clientfuncs.c
++OBJ_FILES = $(SRC_FILES:.c=.o) libjackoss_pl.o
++HEADERS = libjackasyn.h libjackoss.h
++CFLAGS = -O2 -Wall -I. -fPIC -rdynamic -DMAJOR=$(MAJOR) -DMINOR=$(MINOR) @DEBUG@
++LIBS =  -lc @LIBS@
++
++
++prefix = @prefix@
++
++
++all: static shared
++
++
++static: $(OBJ_FILES)
++	ar cr libjackasyn.a *.o 
++
++shared:
++	gcc -shared -Wl,-soname=libjackasyn.so.0 -o libjackasyn.so.$(VERSION) *.o $(LIBS)
++
++install:
++	-rm $(DESTDIR)/$(prefix)/lib/libjackasyn.so*
++	-install -d $(DESTDIR)/$(prefix)/lib
++	-install -d $(DESTDIR)/$(prefix)/include
++	install -m 644 libjackasyn.a $(DESTDIR)/$(prefix)/lib
++	install -m 644 libjackasyn.so.$(VERSION) $(DESTDIR)/$(prefix)/lib
++	install -m 644 libjackoss.h $(DESTDIR)/$(prefix)/include
++	ln -s libjackasyn.so.$(VERSION) $(DESTDIR)/$(prefix)/lib/libjackasyn.so.0
++	ln -s libjackasyn.so.$(VERSION) $(DESTDIR)/$(prefix)/lib/libjackasyn.so
++	-install -d $(DESTDIR)/$(prefix)/bin
++	install -m 755 jacklaunch $(DESTDIR)/$(prefix)/bin
++
++test:
++	gcc -o test test.c libjackasyn.a -ljack -ldl -lm
++
++clean:
++	-rm *~ $(OBJ_FILES)
++	-rm  $(TARGET).so.*
++	-rm $(TARGET).a
++
++distclean: clean
++	-rm Makefile config.status  config.log 
++	-rm -r autom4te.cache
++	-rm jacklaunch
++
++
++dist: distclean
++	(cd ..;\
++         tar --exclude=CVS --exclude=debian -czvf \
++              libjackasyn-$(VERSION).tar.gz libjackasyn-$(VERSION);)
++
++$(OBJ_FILES) : $(HEADERS)
++
++libjackoss_pl.o: libjackoss.c
++	gcc -c $(CFLAGS) -DLD_PRELOAD -o $@ $<
+diff -Naur libjackasyn-0.13.orig/jacklaunch.in libjackasyn-0.13/jacklaunch.in
+--- libjackasyn-0.13.orig/jacklaunch.in	2004-08-24 17:12:50.000000000 +0300
++++ libjackasyn-0.13/jacklaunch.in	2007-03-11 01:29:13.000000000 +0200
+@@ -26,6 +26,9 @@
+ 
+ PREFIX=@prefix@
+ 
++prefix=@prefix@
++exec_prefix=@exec_prefix@
++
+ LD_PRELOAD_OLD=""
+ 
+ if test "$LD_PRELOAD" != ""
+diff -Naur libjackasyn-0.13.orig/jacklaunch.in.orig libjackasyn-0.13/jacklaunch.in.orig
+--- libjackasyn-0.13.orig/jacklaunch.in.orig	1970-01-01 02:00:00.000000000 +0200
++++ libjackasyn-0.13/jacklaunch.in.orig	2004-08-24 17:12:50.000000000 +0300
+@@ -0,0 +1,79 @@
++#!/bin/sh
++#
++#  Script for launching applications with libjackasyn LD_PRELOAD
++#
++#
++
++
++usage()
++{
++   echo Usage: jacklaunch command [OPTION] ...
++   echo "   Launch application and redirect audio I/O to JACK server"
++   echo
++   exit 0
++}
++
++
++
++if test "x_$1" = "x_"
++then
++  usage
++fi 
++
++# Look if jackd is started
++
++jackcnt=`ps -e | grep -c jackd`
++
++PREFIX=@prefix@
++
++LD_PRELOAD_OLD=""
++
++if test "$LD_PRELOAD" != ""
++then
++ LD_PRELOAD_OLD=$LD_PRELOAD
++ PRELOAD=$LD_PRELOAD:$PREFIX/lib/libjackasyn.so.0
++else
++ PRELOAD=$PREFIX/lib/libjackasyn.so.0
++fi
++
++
++if test -f $PREFIX/lib/libjackasyn.so.0 -a "$jackcnt" != "0"
++then 
++  export LD_PRELOAD=$PRELOAD
++fi
++
++# Check if the program is suid 
++
++PROGNAME=`which $1`
++if test "$PROGNAME" = ""; then
++ echo
++ echo jacklaunch: $1 no such command
++ echo
++ exit -1
++fi
++
++if test -u $PROGNAME
++then
++  echo 
++  echo "                   SUID bit set on $1"
++  echo 
++  echo Because of security issues jacklaunch will not work with programs that
++  echo have the SUID bit set. You can change that with \"chmod -s programname\".
++  echo
++  exit
++fi
++
++# Run the program
++
++$@
++
++
++if test "$LD_PRELOAD_OLD" != "" 
++then
++  export LD_PRELOAD=$LD_PRELOAD_OLD
++else
++  unset LD_PRELOAD
++fi
++
++
++
