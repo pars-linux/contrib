@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>qbittorrent</Name>
+        <Homepage>http://www.qbittorrent.org</Homepage>
+        <Packager>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <Icon>qbittorrent</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Qt4 based BitTorrent client</Summary>
+        <Description>qbittorrent is a BitTorrent client using the libtorrent library.</Description>
+        <Archive sha1sum="57ccfa6febc1d7b8e00d79e9a26b7a88ca5c482c" type="targz">mirrors://sourceforge/qbittorrent/qbittorrent-1.3.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.14.1">libtorrent</Dependency>
+            <Dependency versionFrom="4.4.3">qt4</Dependency>
+            <Dependency>boost-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>qbittorrent</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.14.1">libtorrent</Dependency>
+            <Dependency versionFrom="4.4.3">qt4</Dependency>
+            <Dependency>boost</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/qBittorrent.desktop">qBittorrent.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-02-07</Date>
+            <Version>1.3.1</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
