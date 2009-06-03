@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>python-musicbrainz2</Name>
+        <Homepage>http://musicbrainz.org/doc/PythonMusicBrainz2</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>as-is</License>
+        <IsA>library</IsA>
+        <Summary>A client library written in Python, which provides easy object oriented access to the MusicBrainz Database using the XMLWebService</Summary>
+        <Archive sha1sum="8fdbb2f572d62496f22d8ef9de727271019c68b3" type="targz">http://ftp.musicbrainz.org/pub/musicbrainz/python-musicbrainz2/python-musicbrainz2-0.6.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>libdiscid</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>python-musicbrainz2</Name>
+        <RuntimeDependencies>
+            <Dependency>libdiscid</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-23</Date>
+            <Version>0.6.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
