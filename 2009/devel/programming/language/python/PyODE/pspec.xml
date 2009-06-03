@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PyODE</Name>
+        <Homepage>http://pyode.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>library</IsA>
+        <Summary>PyODE bindings for ODE.</Summary>
+        <Archive sha1sum="381627b3ab36840fbdd178e53d53d221f1017699" type="tarbz2">http://heanet.dl.sourceforge.net/sourceforge/pyode/PyODE-1.2.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>ode</Dependency>
+            <Dependency>pyrex</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>PyODE</Name>
+        <RuntimeDependencies>
+            <Dependency>ode</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-05-01</Date>
+            <Version>1.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
