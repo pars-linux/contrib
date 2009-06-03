@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>geda-gattrib</Name>
+        <Homepage>http://www.geda.seul.org</Homepage>
+        <Packager>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>geda-gattrib</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Gattrib is gEDA's attribute editor.</Summary>
+        <Archive sha1sum="93548405ae2b74ab8f0856e0cf6c4c30cb3147ae" type="targz">ftp://ftp.geda.seul.org/pub/geda/release/v1.4/1.4.1/geda-gattrib-1.4.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency version="1.4.1">libgeda</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>geda-gattrib</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency version="1.4.1">libgeda</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gEDA</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="8">
+            <Date>2008-09-29</Date>
+            <Version>1.4.1</Version>
+            <Comment>Version bump and add documentation.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2008-02-06</Date>
+            <Version>1.4.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2007-09-10</Date>
+            <Version>1.2.0</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2007-06-29</Date>
+            <Version>1.0.1_20070626</Version>
+            <Comment>version bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2007-06-26</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Depend on new libgeda.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-05-27</Date>
+            <Version>0.0_20070526</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-06</Date>
+            <Version>0.0_20070216</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-01-28</Date>
+            <Version>0.0_20061020</Version>
+            <Comment>First release.</Comment>
+            <Name>Ayan Öztürk</Name>
+            <Email>ayanozturk@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
