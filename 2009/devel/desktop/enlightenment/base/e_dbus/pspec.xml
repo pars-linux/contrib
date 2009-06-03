@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>e_dbus</Name>
+        <Homepage>http://wiki.enlightenment.org/index.php?title=E_DBus</Homepage>
+        <Packager>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>app:console</IsA>
+        <IsA>library</IsA>
+        <Summary>A Dbus wrapper for EFL based applications</Summary>
+        <Description>e_dbus is a basic convenience wrapper around dbus.</Description>
+        <Archive sha1sum="7a49d15791c8c65a51a816c4be850edd74f79793" type="tarbz2">ftp://ftp.sudrap.org/igungor/E17/20090404/e_dbus_20090404.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>e_dbus</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
+            <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2009-04-04</Date>
+            <Version>0.5.0.050_20090404</Version>
+            <Comment>New snapshot</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-03-20</Date>
+            <Version>0.5.0.050_20090319</Version>
+            <Comment>Bump to latest snapshot</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2008-05-20</Date>
+            <Version>0.5.0.043</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
