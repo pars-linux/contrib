@@ -1,0 +1,63 @@
+---
+ src/ui/ui_mainwindow.c |   13 ++++++++++++-
+ src/ui/ui_tray.c       |    3 +++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+
+Index: liferea-1.4.15/src/ui/ui_mainwindow.c
+===================================================================
+--- liferea-1.4.15.orig/src/ui/ui_mainwindow.c
++++ liferea-1.4.15/src/ui/ui_mainwindow.c
+@@ -969,17 +969,28 @@
+ 		return on_quit(widget, event, mw);
+ 	ui_mainwindow_save_position();
+ 	gtk_widget_hide(GTK_WIDGET(mw->window));
+ 	return TRUE;
+ }
+ 
+ void ui_mainwindow_toggle_visibility(GtkMenuItem *menuitem, gpointer data) {
+ 	
+-	if((gdk_window_get_state(GTK_WIDGET(mainwindow)->window) & GDK_WINDOW_STATE_ICONIFIED) || !GTK_WIDGET_VISIBLE(mainwindow)) {
++	if(gdk_window_get_state(GTK_WIDGET(mainwindow)->window) & GDK_WINDOW_STATE_ICONIFIED) {
++		/* The window is either iconified, or on another workspace */
++		/* Raise it in one click */
++		if (GTK_WIDGET_VISIBLE(mainwindow)) {
++			ui_mainwindow_save_position();
++			gtk_widget_hide(mainwindow);
++		}
++		ui_mainwindow_restore_position(mainwindow);
++		gtk_window_present(GTK_WINDOW(mainwindow));
++	}
++	else if(!GTK_WIDGET_VISIBLE(mainwindow)) {
++		/* The window is neither iconified nor on another workspace, but is not visible */
+ 		ui_mainwindow_restore_position(mainwindow);
+ 		gtk_window_present(GTK_WINDOW(mainwindow));
+ 	} else {
+ 		ui_mainwindow_save_position();
+ 		gtk_widget_hide(mainwindow);
+ 	}
+ }
+ 
+Index: liferea-1.4.15/src/ui/ui_tray.c
+===================================================================
+--- liferea-1.4.15.orig/src/ui/ui_tray.c
++++ liferea-1.4.15/src/ui/ui_tray.c
+@@ -222,16 +222,19 @@
+ 	g_free(tmp);
+ 	g_free(msg);
+ }
+ 
+ /* a click on the systray icon should show the program window
+    if invisible or hide it if visible */
+ static void tray_icon_pressed(GtkWidget *button, GdkEventButton *event, EggTrayIcon *icon) {
+ 	
++	if ((event->type == GDK_2BUTTON_PRESS) || (event->type == GDK_3BUTTON_PRESS))
++		return;  /* ignore double and triple clicks */
++
+ 	switch(event->button) {
+ 		case 1:
+ 			ui_mainwindow_toggle_visibility(NULL, NULL);
+ 			break;
+ 		case 3:
+ 			gtk_menu_popup(ui_popup_make_systray_menu(), NULL, NULL, NULL, NULL, event->button, event->time);
+ 			break;
+ 	}
