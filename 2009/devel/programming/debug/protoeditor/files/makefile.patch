@@ -1,0 +1,17 @@
+--- data/libs/Makefile.in.orig	2006-08-07 07:07:30.000000000 +0300
++++ data/libs/Makefile.in	2007-04-16 19:55:45.952984930 +0300
+@@ -458,10 +458,10 @@
+ 
+ 
+ install:
+-	mkdir -p $(perllibdir)
+-	tar xfz $(perl_dbgp) -C $(perllibdir)
+-	mkdir -p $(pythonlibdir)
+-	tar xfz $(python_dbgp) -C $(pythonlibdir)
++	mkdir -p $(DESTDIR)/$(perllibdir)
++	tar xfz $(perl_dbgp) -C $(DESTDIR)/$(perllibdir)
++	mkdir -p $(DESTDIR)/$(pythonlibdir)
++	tar xfz $(python_dbgp) -C $(DESTDIR)/$(pythonlibdir)
+ 
+ uninstall:
+ 	rm -rf $(perllibdir)
