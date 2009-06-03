@@ -1,0 +1,123 @@
+diff -Naur grace-5.1.21.orig/auxiliary/Makefile grace-5.1.21/auxiliary/Makefile
+--- grace-5.1.21.orig/auxiliary/Makefile	2002-06-22 14:40:21.000000000 +0300
++++ grace-5.1.21/auxiliary/Makefile	2007-08-27 21:16:29.000000000 +0300
+@@ -27,8 +27,8 @@
+ install : $(AUXILIARIES) $(PROGRAMS) $(SCRIPTS)
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(GRACE_HOME)/auxiliary
+ 	for i in $(AUXILIARIES); do $(INSTALL_DATA) $$i $(DESTDIR)$(GRACE_HOME)/auxiliary; done
+-	for i in $(PROGRAMS); do $(INSTALL_PROGRAM) -s $$i $(DESTDIR)$(GRACE_HOME)/bin; done
+-	for i in $(SCRIPTS); do $(INSTALL_PROGRAM) $$i $(DESTDIR)$(GRACE_HOME)/bin; done
++	for i in $(PROGRAMS); do $(INSTALL_PROGRAM) -s $$i $(DESTDIR)$(PREFIX)/bin; done
++	for i in $(SCRIPTS); do $(INSTALL_PROGRAM) $$i $(DESTDIR)$(PREFIX)/bin; done
+ 
+ tests : dummy
+ 
+diff -Naur grace-5.1.21.orig/doc/Makefile grace-5.1.21/doc/Makefile
+--- grace-5.1.21.orig/doc/Makefile	2002-06-22 14:40:21.000000000 +0300
++++ grace-5.1.21/doc/Makefile	2007-08-27 22:46:18.000000000 +0300
+@@ -84,21 +84,21 @@
+ devclean : distclean
+ 	$(RM) $(DVIDOCS) $(PSDOCS) $(PDFDOCS) $(HTMLDOCS)
+ 
+-install : $(HTMLS) $(HTMLDOCS) $(DVIDOCS) $(TUTDATA) $(MANPAGES)
++install : $(HTMLS) $(HTMLDOCS) $(DVIDOCS) $(TUTDATA)
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(GRACE_HOME)/doc
+ 	for i in $?; do $(INSTALL_DATA) $$i $(DESTDIR)$(GRACE_HOME)/doc; done
+-	cd $(DESTDIR)$(GRACE_HOME)/doc; \
++	# install man files
++	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/share
++	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/share/man
++	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/share/man/man1
++	for i in $(MANPAGES); do $(INSTALL_DATA) $$i $(DESTDIR)$(PREFIX)/share/man/man1; done
++	# link man files
++	cd $(DESTDIR)$(PREFIX)/share/man/man1; \
+ 	for i in $(MANLINKS); do $(RM) $$i; $(LN_S) $(GRACEMAN) $$i; done
+ 
+-$(DESTDIR)$(GRACE_HOME)/doc/grace.1 : $(MANPAGES)
++$(DESTDIR)$(PREFIX)/share/man/man1/grace.1 : $(MANPAGES) $(MANLINKS)
+ 	$(MAKE) install
+ 
+-links : $(DESTDIR)$(GRACE_HOME)/doc/grace.1
+-	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/man
+-	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/man/man1
+-	cd $(DESTDIR)$(PREFIX)/man/man1; \
+-	for i in $(MANPAGES) $(MANLINKS); do $(RM) $$i; $(LN_S) $(GRACE_HOME)/doc/$$i $$i; done
+-
+ tests : dummy
+ 
+ dummy :
+diff -Naur grace-5.1.21.orig/grace_np/Makefile grace-5.1.21/grace_np/Makefile
+--- grace-5.1.21.orig/grace_np/Makefile	2002-06-22 14:40:21.000000000 +0300
++++ grace-5.1.21/grace_np/Makefile	2007-08-27 22:46:45.000000000 +0300
+@@ -45,19 +45,13 @@
+ testf_np$(O) : $(LIB)
+ 
+ install : $(LIB)
+-	$(MKINSTALLDIRS) $(DESTDIR)$(GRACE_HOME)/lib
+-	$(INSTALL_DATA) $(LIB) $(DESTDIR)$(GRACE_HOME)/lib/$(LIB)
+-	$(MKINSTALLDIRS) $(DESTDIR)$(GRACE_HOME)/include
+-	$(INSTALL_DATA) grace_np.h $(DESTDIR)$(GRACE_HOME)/include/grace_np.h
+-
+-$(DESTDIR)$(GRACE_HOME)/lib/$(LIB) : $(LIB)
+-	$(MAKE) install
+-
+-links : $(DESTDIR)$(GRACE_HOME)/lib/$(LIB)
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/lib
+-	cd $(DESTDIR)$(PREFIX)/lib; $(RM) $(LIB); $(LN_S) $(GRACE_HOME)/lib/$(LIB) $(LIB)
++	$(INSTALL_DATA) $(LIB) $(DESTDIR)$(PREFIX)/lib/$(LIB)
+ 	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/include
+-	cd $(DESTDIR)$(PREFIX)/include; $(RM) grace_np.h; $(LN_S) $(GRACE_HOME)/include/grace_np.h grace_np.h
++	$(INSTALL_DATA) grace_np.h $(DESTDIR)$(PREFIX)/include/grace_np.h
++
++$(DESTDIR)$(PREFIX)/lib/$(LIB) : $(LIB)
++	$(MAKE) install
+ 	
+ clean :
+ 	$(RM) *.o sample.agr $(TESTS)
+diff -Naur grace-5.1.21.orig/grconvert/Makefile grace-5.1.21/grconvert/Makefile
+--- grace-5.1.21.orig/grconvert/Makefile	2002-06-22 14:40:21.000000000 +0300
++++ grace-5.1.21/grconvert/Makefile	2007-08-27 21:18:22.000000000 +0300
+@@ -41,8 +41,8 @@
+ 	$(RM) $(PROG) $(OBJS)
+ 
+ install : $(PROG)
+-	$(MKINSTALLDIRS) $(DESTDIR)$(GRACE_HOME)/bin
+-	$(INSTALL_PROGRAM) -s $(PROG) $(DESTDIR)$(GRACE_HOME)/bin/$(PROG)
++	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/bin
++	$(INSTALL_PROGRAM) -s $(PROG) $(DESTDIR)$(PREFIX)/bin/$(PROG)
+ 
+ dummy :
+ 
+diff -Naur grace-5.1.21.orig/src/Makefile grace-5.1.21/src/Makefile
+--- grace-5.1.21.orig/src/Makefile	2005-11-20 22:58:40.000000000 +0200
++++ grace-5.1.21/src/Makefile	2007-08-27 21:26:54.000000000 +0300
+@@ -60,20 +60,20 @@
+ 
+ 
+ install : $(GRACE)
+-	$(MKINSTALLDIRS) $(DESTDIR)$(GRACE_HOME)/bin
+-	$(INSTALL_PROGRAM) -s $(GRACE) $(DESTDIR)$(GRACE_HOME)/bin/$(GRACE)
+-	cd $(DESTDIR)$(GRACE_HOME)/bin; $(RM) $(GRBATCH); $(LN_S) $(GRACE) $(GRBATCH)
++	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/bin
++	$(INSTALL_PROGRAM) -s $(GRACE) $(DESTDIR)$(PREFIX)/bin/$(GRACE)
++	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRBATCH); $(LN_S) $(GRACE) $(GRBATCH)
+ 
+ tests : dummy
+ 
+-$(DESTDIR)$(GRACE_HOME)/bin/$(GRACE) : $(GRACE)
++$(DESTDIR)$(PREFIX)/bin/$(GRACE) : $(GRACE)
+ 	$(MAKE) install
+ 
+-links : $(DESTDIR)$(GRACE_HOME)/bin/$(GRACE)
+-	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/bin
+-	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRACE); $(LN_S) $(GRACE_HOME)/bin/$(GRACE) $(GRACE)
+-	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRBATCH); $(LN_S) $(GRACE_HOME)/bin/$(GRACE) $(GRBATCH)
+-	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRACECLI); $(LN_S) $(GRACE_HOME)/bin/$(GRACE) $(GRACECLI)
++# links : $(DESTDIR)$(GRACE_HOME)/bin/$(GRACE)
++# 	$(MKINSTALLDIRS) $(DESTDIR)$(PREFIX)/bin
++# 	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRACE); $(LN_S) $(GRACE_HOME)/bin/$(GRACE) $(GRACE)
++# 	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRBATCH); $(LN_S) $(GRACE_HOME)/bin/$(GRACE) $(GRBATCH)
++# 	cd $(DESTDIR)$(PREFIX)/bin; $(RM) $(GRACECLI); $(LN_S) $(GRACE_HOME)/bin/$(GRACE) $(GRACECLI)
+ 
+ clean : 
+ 	$(RM) $(GROBJS) $(GUIOBJS) $(PARS_O) buildinfo.h buildinfo$(O) buildinfo$(EXE)
