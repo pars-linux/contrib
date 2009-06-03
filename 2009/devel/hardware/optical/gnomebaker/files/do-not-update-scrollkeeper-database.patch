@@ -1,0 +1,11 @@
+diff -Nuar gnomebaker-0.6.1.orig/help/C/Makefile.in gnomebaker-0.6.1/help/C/Makefile.in
+--- gnomebaker-0.6.1.orig/help/C/Makefile.in	2007-02-17 14:28:29.000000000 +0200
++++ gnomebaker-0.6.1/help/C/Makefile.in	2007-02-17 14:29:37.000000000 +0200
+@@ -417,7 +417,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $(srcdir)/$$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
