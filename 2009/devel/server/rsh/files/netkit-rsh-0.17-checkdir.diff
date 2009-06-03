@@ -1,0 +1,22 @@
+--- rcp/rcp.c
++++ rcp/rcp.c
+@@ -716,6 +716,10 @@
+ 			size = size * 10 + (*cp++ - '0');
+ 		if (*cp++ != ' ')
+ 			SCREWUP("size not delimited");
++		if ((strchr(cp, '/') != NULL) || (strcmp(cp, "..") == 0)) {
++			error("rcp: unexpected filename: %s", cp);
++			exit(1);
++		}
+ 		if (targisdir) {
+ 			static char *namebuf;
+ 			static int cursize;
+@@ -734,6 +738,8 @@
+ 			np = targ;
+ 		exists = stat(np, &stb) == 0;
+ 		if (buf[0] == 'D') {
++			if (!iamrecursive)
++				SCREWUP("received directory without -r");
+ 			if (exists) {
+ 				if ((stb.st_mode&S_IFMT) != S_IFDIR) {
+ 					errno = ENOTDIR;

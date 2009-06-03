@@ -1,0 +1,11 @@
+--- netkit-rsh-0.17/rexecd/rexecd.c
++++ netkit-rsh-0.17/rexecd/rexecd.c
+@@ -196,7 +196,7 @@
+   struct pam_response *reply = NULL;
+   int size = sizeof(struct pam_response);
+ 
+-  #define GET_MEM if (reply) realloc(reply, size); else reply = malloc(size); \
++  #define GET_MEM if (reply) reply = realloc(reply, size); else reply = malloc(size); \
+   if (!reply) return PAM_CONV_ERR; \
+   size += sizeof(struct pam_response)
+   #define COPY_STRING(s) (s) ? strdup(s) : NULL
