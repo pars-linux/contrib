@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kkeyled</Name>
+        <Homepage>http://www.truesoft.ch/dieter/kkeyled.html</Homepage>
+        <Packager>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@tuxedup.greenisp.org</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>KDE panel tray widget which displays the LED states of the keyboard</Summary>
+        <Description>KKeyled is a KDE panel tray widget which displays the LED states of the keyboard (ie. Caps Lock, Num Lock, and Scroll Lock). It is particularly useful for wireless keyboards without LEDs, and can be used to set the LED states of the keyboard aswel.</Description>
+        <Archive sha1sum="1378e48addbb917b35e9d5cdc9dc24ff121caf23" type="targz">http://www.truesoft.ch/dieter/kkeyled/software/kkeyled-0.8.11.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdebase</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>kkeyled</Name>
+        <RuntimeDependencies>
+            <Dependency>kdebase</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/3.5/bin</Path>
+            <Path fileType="data">/usr/kde/3.5/share</Path>
+            <Path fileType="library">/usr/kde/3.5/lib</Path>
+            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-03-02</Date>
+            <Version>0.8.11</Version>
+            <Comment>First release</Comment>
+            <Name>Michael Austin</Name>
+            <Email>tuxedup@tuxedup.greenisp.org</Email>
+        </Update>
+    </History>
+</PISI>
