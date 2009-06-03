@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>scrobby</Name>
+        <Homepage>http://unkart.ovh.org/scrobby</Homepage>
+        <Packager>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Packager>
+        <License>GPLv2+</License>
+        <IsA>service</IsA>
+        <Summary>A Music Player Daemon (MPD) client which submits information to Last.fm</Summary>
+        <Description>Scrobby is a Music Player Daemon (MPD) client which submits information about tracks being played to Last.fm.</Description>
+        <Archive sha1sum="1ed08ae7650b9f34237ae521c6c42aae34cbc6cc" type="tarbz2">http://unkart.ovh.org/scrobby/scrobby-0.1.tar.bz2</Archive>
+    </Source>
+
+    <Package>
+        <Name>scrobby</Name>
+        <RuntimeDependencies>
+            <Dependency>mpd</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/var/cache/scrobby</Path>
+            <Path fileType="data">/var/log/scrobby</Path>
+            <Path fileType="data">/var/run/scrobby</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0600" target="/etc/scrobby.conf">scrobby.conf</AdditionalFile>
+        </AdditionalFiles>
+        <Provides>
+            <COMAR script="service.py">System.Service</COMAR>
+        </Provides>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-01-19</Date>
+            <Version>0.1</Version>
+            <Comment>First release.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
