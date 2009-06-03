@@ -1,0 +1,14 @@
+--- config.mk.orig	2008-07-21 20:00:36.000000000 +0300
++++ config.mk	2008-07-21 20:06:03.000000000 +0300
+@@ -5,10 +5,7 @@
+ DESTDIR =
+ 
+ # prefix to install LilyKDE to.
+-PREFIX  := $(shell kde-config --localprefix | sed 's,/$$,,')
+-ifeq ($(PREFIX),)
+-PREFIX  := $(HOME)/.kde
+-endif
++PREFIX  := /usr/kde/3.5
+ DATADIR := $(PREFIX)/share
+ 
+ LILYKDE = $(DATADIR)/apps/lilykde
