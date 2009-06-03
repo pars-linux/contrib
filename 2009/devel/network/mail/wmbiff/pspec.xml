@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>wmbiff</Name>
+        <Homepage>http://wmbiff.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Packager>
+        <License>GPL-2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Dock applet that displays the number of read and unread messages in up to five mailboxes</Summary>
+        <Archive sha1sum="2c84993d78e22b5061192412161bc27a2a1a3007" type="targz">http://switch.dl.sourceforge.net/sourceforge/wmbiff/wmbiff-0.4.27.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gnutls</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>wmbiff</Name>
+        <RuntimeDependencies>
+            <Dependency>gnutls</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/wmbiff.desktop">wmbiff.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/wmbiff.png">wmbiff.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2007-12-11</Date>
+            <Version>0.4.27</Version>
+            <Comment>First release</Comment>
+            <Name>Kenan Pelit</Name>
+            <Email>kpelit@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
