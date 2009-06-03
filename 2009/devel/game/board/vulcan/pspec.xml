@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vulcan</Name>
+        <Homepage>http://www.fzort.org/mpr/projects/vulcan/</Homepage>
+        <Packager>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>vulcan</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>3D Vulcan chess</Summary>
+        <Description>3D chess program inspired by the populer sci-fi serial. Rules of the game can be found at http://private.addcom.de/meder/3dschach/chess3d.htm</Description>
+        <Archive sha1sum="55aaccbc48959362e4fb509d797e8d956ae1061c" type="targz">http://www.fzort.org/mpr/projects/vulcan/vulcan-0.92.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>glut</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">destdir.patch</Patch>
+            <Patch level="1">flags.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>vulcan</Name>
+        <RuntimeDependencies>
+            <Dependency>xorg-server</Dependency>
+            <Dependency>glut</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/vulcan</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/vulcan.desktop">vulcan.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/vulcan.png">vulcan.png</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2008-05-21</Date>
+            <Version>0.92</Version>
+            <Comment>First release</Comment>
+            <Name>Onur Küçük</Name>
+            <Email>onur@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
