@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>redland-bindings</Name>
+        <Homepage>http://librdf.org</Homepage>
+        <Packager>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Packager>
+        <License>LGPL-2</License>
+        <License>MPL-1.1</License>
+        <IsA>library</IsA>
+        <Summary>Redland RDF Language Bindings</Summary>
+        <Description>Redland RDF Language Bindings</Description>
+        <Archive sha1sum="70df1706a8c96ee79103bdd0425acdd3b45d3e1d" type="targz">http://download.librdf.org/source/redland-bindings-1.0.6.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="1.0.5">redland</Dependency>
+            <Dependency versionFrom="2.4.4">python-tk</Dependency>
+            <Dependency versionFrom="1.5.0.10">sun-jdk</Dependency>
+            <Dependency versionFrom="1.8.5_p2">ruby</Dependency>
+            <Dependency versionFrom="5.2.1">php-cli</Dependency>
+            <Dependency>rasqal</Dependency>
+            <Dependency>tcl</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>redland-bindings</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.0.5">redland</Dependency>
+            <Dependency versionFrom="2.4.4">python-tk</Dependency>
+            <Dependency versionFrom="1.5.0.10">sun-jdk</Dependency>
+            <Dependency versionFrom="1.8.5_p2">ruby</Dependency>
+            <Dependency versionFrom="5.2.1">php-cli</Dependency>
+            <Dependency>rasqal</Dependency>
+            <Dependency>tcl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/java</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2007-05-08</Date>
+            <Version>1.0.6.1</Version>
+            <Comment>Stable bump</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-23</Date>
+            <Version>1.0.5.1</Version>
+            <Comment>fixLocalPod</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-19</Date>
+            <Version>1.0.5.1</Version>
+            <Comment>First release</Comment>
+            <Name>Murat Şenel</Name>
+            <Email>muratasenel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
