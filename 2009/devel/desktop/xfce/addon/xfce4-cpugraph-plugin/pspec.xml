@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-cpugraph-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-cpugraph-plugin</Homepage>
+        <Packager>
+            <Name>Fatih Arslan</Name>
+            <Email>ftharsln@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce4-panel</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Shows the CPU load on the XFCE Panel</Summary>
+        <Description>This plugin offers multiple display modes (LED, gradient, fire, etc...) to show the current CPU load of the system. The colors and the size of the plugin are customizable.
+</Description>
+
+        <Archive sha1sum="a4edf76119b053a5d7aa3c04a272d0dda31e2f71" type="targz">http://goodies.xfce.org/releases/xfce4-cpugraph-plugin/xfce4-cpugraph-plugin-0.4.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-cpugraph-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="4.4.1">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+        </Files>
+   </Package>
+
+   <History>
+        <Update release="1">
+            <Date>2009-03-27</Date>
+            <Version>0.4.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Fatih Arslan</Name>
+            <Email>ftharsln@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

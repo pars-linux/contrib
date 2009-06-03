@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-eyes-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-eyes-plugin</Homepage>
+        <Packager>
+            <Name>Özgür Kuru</Name>
+            <Email>ozgurkuru@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce4-eyes</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A simple and nice panel plugin for Xfce4</Summary>
+        <Description>This plugin is an Xfce4 panel plugin that adds eyes which watch your every step.</Description>
+        <Archive sha1sum="c081a1971b55491ab4441ef429ce30cc6a43a70b" type="tarbz2">http://goodies.xfce.org/releases/xfce4-eyes-plugin/xfce4-eyes-plugin-4.4.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-eyes-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-03-19</Date>
+            <Version>4.4.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Özgür Kuru</Name>
+            <Email>ozgurkuru@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
