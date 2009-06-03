@@ -1,0 +1,76 @@
+diff -Naur xfce4-weather-plugin-0.6.2/panel-plugin/weather-translate.c xfce4-weather-plugin-0.6.2.tpg/panel-plugin/weather-translate.c
+--- xfce4-weather-plugin-0.6.2/panel-plugin/weather-translate.c	2007-11-18 19:02:02.000000000 +0000
++++ xfce4-weather-plugin-0.6.2.tpg/panel-plugin/weather-translate.c	2008-06-28 14:31:40.000000000 +0000
+@@ -330,11 +330,18 @@
+ 
+   if (mktime (&time) != -1)
+     {
++      int len;
+       hdate = g_malloc (HDATE_N);
++      gchar *utf8time = NULL;
+ 
+-      strftime (hdate, HDATE_N, _("%x at %X Local Time"), &time);
++      len = strftime (hdate, HDATE_N, _("%x at %X Local Time"), &time);
++      hdate[len] = '\0';
++      utf8time = g_locale_to_utf8(hdate, -1, NULL, NULL, NULL);
++      if (utf8time == NULL)
++        return g_strdup(_("Error"));
+ 
+-      return hdate;
++      g_free(hdate);
++      return utf8time;
+     }
+   else
+     return NULL;
+@@ -362,13 +369,22 @@
+     return NULL;
+   else
+     {
++      int len;
++      gchar *utf8day = NULL;
++
+       time.tm_wday = wday;
+ 
+       day_loc = g_malloc (DAY_LOC_N);
+ 
+-      strftime (day_loc, DAY_LOC_N, "%A", &time);
++      len = strftime (day_loc, DAY_LOC_N, "%A", &time);
++      day_loc[len] = '\0';
++      utf8day = g_locale_to_utf8(day_loc, -1, NULL, NULL, NULL);
++
++      if (utf8day == NULL)
++        return g_strdup(_("Error"));
+ 
+-      return day_loc;
++      g_free(day_loc);
++      return utf8day;
+     }
+ }
+ 
+@@ -444,6 +460,8 @@
+   gchar     **time_split, *time_loc;
+   gint        i = 0, size = 0;
+   struct tm   time_tm;
++  int         len;
++  gchar      *utf8time = NULL;
+ 
+   if (strlen (time) == 0)
+     return NULL;
+@@ -461,9 +479,15 @@
+   _fill_time (&time_tm, time_split[0], time_split[1], time_split[2]);
+   g_strfreev (time_split);
+ 
+-  strftime (time_loc, TIME_LOC_N, "%X", &time_tm);
++  len = strftime (time_loc, TIME_LOC_N, "%X", &time_tm);
++  time_loc[len] = '\0';
++  utf8time = g_locale_to_utf8(time_loc, -1, NULL, NULL, NULL);
++
++  if (utf8time == NULL)
++    return g_strdup(_("Error"));
+ 
+-  return time_loc;
++  g_free(time_loc);
++  return utf8time;
+ }
+ 
+ 
