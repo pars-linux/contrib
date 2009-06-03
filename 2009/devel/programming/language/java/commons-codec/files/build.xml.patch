@@ -1,0 +1,11 @@
+--- build.xml.orig	2007-04-15 21:16:58.000000000 +0200
++++ build.xml	2007-04-15 21:18:15.000000000 +0200
+@@ -97,7 +97,7 @@
+     <target name="jar" depends="compile" description="Create jar">
+         <mkdir dir="${dist.home}"/>
+         <mkdir dir="${build.home}/classes/META-INF"/>
+-        <copy file="../LICENSE" tofile="${build.home}/classes/META-INF/LICENSE.txt"/>
++        <!--<copy file="../LICENSE" tofile="${build.home}/classes/META-INF/LICENSE.txt"/> -->
+         <jar jarfile="${dist.home}/${final.name}.jar" basedir="${build.home}/classes" manifest="${build.home}/conf/MANIFEST.MF"/>
+     </target>
+     <target name="install-jar" depends="jar" description="--> Installs jar file in ${lib.repo}">

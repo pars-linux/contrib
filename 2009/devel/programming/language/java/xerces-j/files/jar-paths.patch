@@ -1,0 +1,26 @@
+--- build.xml	2006-11-23 01:37:02.000000000 +0200
++++ build.xml2	2008-01-11 14:06:04.000000000 +0200
+@@ -36,12 +36,12 @@
+   <property name="samples.dir" value="./samples"/>
+   <property name="src.dir" value="./src"/>
+   <property name="tests.dir" value="./tests"/>
+-  <property name="tools.dir" value="./tools"/>
++  <property name="tools.dir" value="/usr/share/java"/>
+ 
+   <!-- enable compilation under JDK 1.4 and above -->
+   <taskdef name="xjavac" classname="org.apache.xerces.util.XJavac">
+     <classpath>
+-      <pathelement location="${tools.dir}/bin/xjavac.jar"/>
++      <pathelement location="${tools.dir}/xjavac.jar"/>
+     </classpath>
+   </taskdef>
+ 
+@@ -101,7 +101,7 @@
+     <property name="distsrc.dir" value="${build.dir}/${parser.shortname}-${parser_version}"/>
+     <property name="disttools.dir" value="${build.dir}/tools"/>
+     <property name="distbin.dir" value="${build.dir}/${parser.shortname}-${parser_version}"/>
+-    <property name='src.apis.zip' value="${tools.dir}/xml-commons-external-src.zip"/>
++    <property name='src.apis.zip' value="${tools.dir}/xml-apis-ext.jar"/>
+ 
+     <filter token="year" value="${year}"/>
+     <filter token="version" value="${parser.Version}"/>
