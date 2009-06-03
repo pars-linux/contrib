@@ -1,0 +1,19 @@
+--- scripts/startxfce4.in.orig	2009-03-01 18:16:47.000000000 +0200
++++ scripts/startxfce4.in	2009-03-01 18:18:36.000000000 +0200
+@@ -19,6 +19,16 @@
+ #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ #
+ 
++#For PulseAudio
++if [ -x /usr/bin/pulseaudio ]; then
++    /usr/bin/pulseaudio -D
++fi
++
++# For D-Bus session bus
++if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
++    eval `dbus-launch --sh-syntax --exit-with-session`
++fi
++
+ if test "x$XDG_CONFIG_HOME" = "x"
+ then
+   BASEDIR="$HOME/.config/xfce4/"
