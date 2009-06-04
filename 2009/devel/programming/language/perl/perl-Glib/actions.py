@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright 2008 TUBITAK/UEKAE
+# Copyright 2008, 2009 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
@@ -20,4 +20,4 @@ def build():
 def install():
     perlmodules.install()
 
-    pisitools.dodoc("Changelog", "AUTHORS", "README", "TODO", "NEWS")
+    pisitools.dodoc("AUTHORS", "README", "TODO", "NEWS")
