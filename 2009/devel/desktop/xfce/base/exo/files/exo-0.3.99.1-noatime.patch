@@ -1,0 +1,14 @@
+diff -Naur exo-0.3.99.1/exo-mount/exo-mount-hal.c exo-0.3.99.1.tpg/exo-mount/exo-mount-hal.c
+--- exo-0.3.99.1/exo-mount/exo-mount-hal.c	2009-01-10 22:36:39.000000000 +0000
++++ exo-0.3.99.1.tpg/exo-mount/exo-mount-hal.c	2009-02-01 22:43:00.000000000 +0000
+@@ -680,6 +680,10 @@
+               /* non-pollable drive... */
+               options[n++] = g_strdup ("sync");
+             }
++          else if (strcmp (device->fsoptions[m], "noatime") == 0)
++            {
++              options[n++] = g_strdup ("noatime");
++            }
+           else if (strcmp (device->fsoptions[m], "longnames") == 0
+                 && strcmp (device->fstype, "vfat") == 0)
+             {
