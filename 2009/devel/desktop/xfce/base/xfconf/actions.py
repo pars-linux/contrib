@@ -12,6 +12,8 @@ def setup():
     autotools.configure("--disable-static \
                          --enable-perl-bindings")
 
+    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
+
 def build():
     autotools.make()
 
