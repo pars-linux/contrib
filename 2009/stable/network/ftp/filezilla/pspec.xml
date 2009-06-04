@@ -1,0 +1,200 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>filezilla</Name>
+        <Homepage>http://filezilla-project.org/</Homepage>
+        <Packager>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>filezilla</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Simple FTP Client.</Summary>
+        <Description>Easy-to-use FTP Client which also supports SFTP.</Description>
+        <Archive sha1sum="8435b905d6455175344fc47c957270788073e40b" type="tarbz2">mirrors://sourceforge/filezilla/FileZilla_3.2.4.1_src.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="2.8.9">wxGTK-devel</Dependency>
+            <Dependency versionFrom="2.0.4">gnutls</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>i18n-filezilla.desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>filezilla</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="2.8.9">wxGTK</Dependency>
+            <Dependency versionFrom="2.0.4">gnutls</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/filezilla</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="22">
+             <Date>2009-06-05</Date>
+             <Version>3.2.4.1</Version>
+             <Comment>Build dep rename wxGTK</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="21">
+             <Date>2009-04-30</Date>
+             <Version>3.2.4.1</Version>
+             <Comment>Version bump.</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="20">
+             <Date>2009-04-22</Date>
+             <Version>3.2.4</Version>
+             <Comment>Version bump and add translations.xml</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="19">
+             <Date>2009-03-29</Date>
+             <Version>3.2.3.1</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="18">
+             <Date>2009-03-22</Date>
+             <Version>3.2.3</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="17">
+             <Date>2009-02-25</Date>
+             <Version>3.2.2.1</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="16">
+             <Date>2009-02-20</Date>
+             <Version>3.2.2</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="15">
+             <Date>2009-02-07</Date>
+             <Version>3.2.1</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="14">
+             <Date>2009-01-08</Date>
+             <Version>3.2.0</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="13">
+             <Date>2008-12-02</Date>
+             <Version>3.1.6</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="12">
+             <Date>2008-10-27</Date>
+             <Version>3.1.5</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="11">
+             <Date>2008-10-05</Date>
+             <Version>3.1.3.1</Version>
+             <Comment>Fix dep</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="10">
+             <Date>2008-10-04</Date>
+             <Version>3.1.3.1</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="9">
+             <Date>2008-09-01</Date>
+             <Version>3.1.2</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="8">
+             <Date>2008-08-26</Date>
+             <Version>3.1.1.1</Version>
+             <Comment>Fixes the problem of undisplayed icons reported in #7669.</Comment>
+             <Name>Ozan Çağlayan</Name>
+             <Email>ozan@pardus.org.tr</Email>
+        </Update>
+        <Update release="7">
+             <Date>2008-08-23</Date>
+             <Version>3.1.1.1</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="6" type="security">
+             <Date>2008-07-28</Date>
+             <Version>3.1.0.1</Version>
+             <Comment>Version bump</Comment>
+             <Name>Gökçen Eraslan</Name>
+             <Email>gokcen@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+             <Date>2008-06-16</Date>
+             <Version>3.0.11</Version>
+             <Comment>Version bump</Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-05-20</Date>
+            <Version>3.0.10</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-11-07</Date>
+            <Version>3.0.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-10-29</Date>
+            <Version>3.0.2.1</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ville Nieminen</Name>
+            <Email>villeniemine@hotmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-09-11</Date>
+            <Version>3.0.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
