@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# edit this file to run whatever window manager you want
+# defaults to running kde
+
+# Try KDE 3.5 First
+if [ -f /usr/kde/3.5/bin/startkde ]; then
+  /usr/kde/3.5/bin/startkde
+  exit 0
+fi
+
+# Then try KDE4
+if [ -f /usr/kde/4/bin/startkde ]; then
+  /usr/kde/4/bin/startkde
+  exit 0
+fi
+
+# then fall back on xconsole just to show that system is running
+which xconsole
+if [ $? -eq 0 ]; then
+  xconsole
+  exit 0
+fi
+
