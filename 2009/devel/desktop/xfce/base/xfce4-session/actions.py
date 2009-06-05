@@ -10,9 +10,12 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
+                         --enable-final \
                          --enable-gnome \
                          --enable-session-screenshots \
-                         --enable-legacy-sm")
+                         --disable-legacy-sm")
+
+    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
