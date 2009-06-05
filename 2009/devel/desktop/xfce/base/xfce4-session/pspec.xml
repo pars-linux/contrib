@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>xfce4-session</Name>
-        <Homepage>http://www.xfce.org</Homepage>
+        <Homepage>http://www.xfce.org/projects/xfce4-session</Homepage>
         <Packager>
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
@@ -13,22 +13,26 @@
         <IsA>app:console</IsA>
         <Summary>Xfce session manager</Summary>
         <Description>The session manager allows the user to save sessions and restore them after login. It is capable of saving several different sessions. It comes with three splash screen engines. And at last it helps you to log out, reboot, and shutdown the system.</Description>
-        <Archive sha1sum="3865e36b691802d74b3e86aaa4a3bb2ceff838da" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/xfce4-session-4.6.0.tar.bz2</Archive>
+        <Archive sha1sum="760e05bf73783521b3ce34e91aa187c74018ab8c" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/xfce4-session-4.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
+            <Dependency>libxfcegui4</Dependency>
             <Dependency>perl-XML-Parser</Dependency>
             <Dependency>libwnck</Dependency>
+            <Dependency>gconf</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>set-default-splash-theme.patch</Patch>
+            <Patch level="1">no_tips_on_startup.patch</Patch>
+            <Patch level="1">xfce4-session-4.6.1-fix-underlinking.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
        <Name>xfce4-session</Name>
        <RuntimeDependencies>
-            <Dependency versionFrom="4.6.0">xfce4-settings</Dependency>
+            <Dependency>libxfcegui4</Dependency>
             <Dependency>libwnck</Dependency>
+            <Dependency>gconf</Dependency>
        </RuntimeDependencies>
        <Files>
            <Path fileType="executable">/usr/bin</Path>
@@ -41,12 +45,22 @@
            <Path fileType="data">/usr/share</Path>
            <Path fileType="man">/usr/share/man</Path>
        </Files>
-       <AdditionalFiles>
-           <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/xfce4-autostart-editor.png">xfce4-autostart-editor.png</AdditionalFile>
-       </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2009-06-05</Date>
+            <Version>4.6.1</Version>
+            <Comment>
+                * Version bump.
+                * Fix undefined symbols.
+                * Purge unused direct deps.
+                * Fix package dependencies.
+                * Fix configure parameters.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2009-03-15</Date>
             <Version>4.6.0</Version>
