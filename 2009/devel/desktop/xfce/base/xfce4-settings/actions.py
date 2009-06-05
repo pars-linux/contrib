@@ -13,6 +13,7 @@ def setup():
                          --enable-xsettings-daemon \
                          --enable-libnotify \
                          --enable-libxklavier \
+                         --enable-pluggable-dialogs \
                          --enable-xcursor")
 
 def build():
