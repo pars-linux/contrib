@@ -9,7 +9,13 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-gnome-thumbnailers \
+    autotools.configure("--enable-gnome-thumbnailers \
+                         --enable-exif \
+                         --enable-pcre \
+                         --enable-wallpaper-plugin \
+                         --enable-uca-plugin \
+                         --enable-tpa-plugin \
+                         --enable-apr-plugin \
                          --with-volume-manager=hal")
 
 def build():

@@ -1,0 +1,54 @@
+diff -Nuar Thunar-1.0.1.orig/plugins/thunar-apr/Makefile.am Thunar-1.0.1/plugins/thunar-apr/Makefile.am
+--- Thunar-1.0.1.orig/plugins/thunar-apr/Makefile.am	2009-06-05 22:49:44.000000000 +0300
++++ Thunar-1.0.1/plugins/thunar-apr/Makefile.am	2009-06-06 01:21:36.000000000 +0300
+@@ -35,10 +35,15 @@
+ 	-avoid-version							\
+ 	-export-dynamic							\
+ 	-module								\
+-	$(PLATFORM_LDFLAGS)
++	$(PLATFORM_LDFLAGS) `pkg-config --libs gtk+-2.0`
+ 
+ thunar_apr_la_LIBADD =							\
+-	$(EXIF_LIBS)
++	$(EXIF_LIBS) $(EXO_LIBS) \
++	$(THUNAR_VERINFO) \
++	$(THUNAR_VERSION_API) \
++	$(THUNAR_VERSION_MAJOR) \
++	$(THUNAR_VERSION_MICRO) \
++	$(THUNAR_VERSION_MINOR)
+ 
+ EXTRA_DIST =								\
+ 	README
+diff -Nuar Thunar-1.0.1.orig/plugins/thunar-apr/Makefile.in Thunar-1.0.1/plugins/thunar-apr/Makefile.in
+--- Thunar-1.0.1.orig/plugins/thunar-apr/Makefile.in	2009-06-05 22:49:44.000000000 +0300
++++ Thunar-1.0.1/plugins/thunar-apr/Makefile.in	2009-06-06 01:22:24.000000000 +0300
+@@ -374,10 +374,15 @@
+ 	-avoid-version							\
+ 	-export-dynamic							\
+ 	-module								\
+-	$(PLATFORM_LDFLAGS)
++	$(PLATFORM_LDFLAGS) `pkg-config --libs gtk+-2.0`
+ 
+ thunar_apr_la_LIBADD = \
+-	$(EXIF_LIBS)
++	$(EXIF_LIBS) $(EXO_LIBS) \
++	$(THUNAR_VERINFO) \
++	$(THUNAR_VERSION_API) \
++	$(THUNAR_VERSION_MAJOR) \
++	$(THUNAR_VERSION_MICRO) \
++	$(THUNAR_VERSION_MINOR)
+ 
+ EXTRA_DIST = \
+ 	README
+diff -Nuar Thunar-1.0.1.orig/thunar-vfs/Makefile.in Thunar-1.0.1/thunar-vfs/Makefile.in
+--- Thunar-1.0.1.orig/thunar-vfs/Makefile.in	2009-06-05 22:49:44.000000000 +0300
++++ Thunar-1.0.1/thunar-vfs/Makefile.in	2009-06-05 23:05:24.000000000 +0300
+@@ -649,7 +649,7 @@
+ 	$(PLATFORM_LDFLAGS)
+ 
+ libthunar_vfs_1_la_LIBADD = $(EXO_LIBS) $(GTHREAD_LIBS) $(LIBFAM_LIBS) \
+-	$(LIBJPEG_LIBS) $(LIBPNG_LIBS) $(LIBSTARTUP_NOTIFICATION_LIBS) \
++	$(LIBJPEG_LIBS) $(LIBPNG_LIBS) $(LIBSTARTUP_NOTIFICATION_LIBS) $(LIBX11_LIBS) \
+ 	$(am__append_5)
+ thunar_vfs_mime_cleaner_1_SOURCES = \
+ 	thunar-vfs-mime-cleaner.c
