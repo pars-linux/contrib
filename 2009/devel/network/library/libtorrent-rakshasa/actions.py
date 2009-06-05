@@ -6,13 +6,11 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir = "libtorrent-%s" % get.srcVERSION()
 
 def setup():
-    shelltools.export("CXX", get.CXX())
     autotools.configure()
 
 def build():
