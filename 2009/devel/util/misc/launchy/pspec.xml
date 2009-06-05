@@ -15,10 +15,11 @@
         <Description>Launchy indexes the programs in your start menu and can launch your documents, project files, folders, and bookmarks with just a few keystrokes.</Description>
         <Archive sha1sum="d2ee26ed8119a0fb22c5d80745014051249cd6dc" type="targz">mirrors://sourceforge/launchy/launchy-2.1.2.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>qt4</Dependency>
-            <Dependency>boost-devel</Dependency>
+            <Dependency>qt</Dependency>
         </BuildDependencies>
         <Patches>
+            <Patch level="1">fix-parsing-desktop-files.patch</Patch>
+            <Patch level="1">default-settings.diff</Patch>
             <Patch level="1">add-kde-dir.patch</Patch>
             <Patch level="1">add-pardus_wiki.patch</Patch>
         </Patches>
@@ -27,9 +28,8 @@
     <Package>
         <Name>launchy</Name>
         <RuntimeDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>xdg-utils</Dependency>
-            <Dependency>boost</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -40,6 +40,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-06-05</Date>
+            <Version>2.1.2</Version>
+            <Comment>Fix parsing desktop files especially KDE4 ones, add Gökçen's default settings patch, remove unused boost dependency.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-11-07</Date>
             <Version>2.1.2</Version>
