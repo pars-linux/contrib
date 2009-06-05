@@ -11,6 +11,7 @@ from pisi.actionsapi import get
 WorkDir = "libtorrent-rasterbar-%s" % get.srcVERSION()
 
 def setup():
+    autotools.autoreconf("-fi")
     autotools.configure("--disable-static")
 
 def build():
