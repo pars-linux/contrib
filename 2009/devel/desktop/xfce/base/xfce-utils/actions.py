@@ -11,8 +11,10 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--disable-static \
                          --enable-gdm \
+                         --enable-dbus \
                          --with-browser=firefox \
                          --with-terminal=Terminal \
+                         --with-vendor-info=Pardus \
                          --with-session-prefix=/usr/share/xsessions")
 
 def build():
