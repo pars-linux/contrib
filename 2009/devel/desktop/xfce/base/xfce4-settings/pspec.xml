@@ -12,37 +12,39 @@
         <IsA>app:gui</IsA>
         <Summary>Xfce settings plugins</Summary>
         <Description>Xfce4-settings is a configuration manager for Xfce desktop environment.</Description>
-        <Archive sha1sum="76b256aa77269e0b2b056a806106a0313629d1b6" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/xfce4-settings-4.6.0.tar.bz2</Archive>
+        <Archive sha1sum="ab117c3923571e2437095fd165ac4bf392e658e0" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/xfce4-settings-4.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
-            <Dependency versionFrom="0.3.100">exo</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>exo</Dependency>
             <Dependency>libXi</Dependency>
             <Dependency>libXrandr</Dependency>
             <Dependency>libXcursor</Dependency>
+            <Dependency>libwnck</Dependency>
             <Dependency>libnotify</Dependency>
             <Dependency>libxklavier</Dependency>
-            <Dependency>libXxf86misc</Dependency>
+            <!-- <Dependency>libXxf86misc</Dependency> -->
+            <Dependency>libcanberra</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">format_not_a_string_literal_and_no_format_arguments.patch</Patch>
+            <Patch level="1">xfce4-settings-4.5.92-fix-desktop-entry.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>xfce4-settings</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.6.0">libxfcegui4</Dependency>
-            <Dependency versionFrom="0.3.100">exo</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>exo</Dependency>
             <Dependency>libXi</Dependency>
             <Dependency>libXrandr</Dependency>
             <Dependency>libXcursor</Dependency>
             <Dependency>libnotify</Dependency>
             <Dependency>libxklavier</Dependency>
-            <Dependency>libXxf86misc</Dependency>
-            <!-- for default shortcuts
-            <Dependency>xfce4-screenshooter-plugin</Dependency> -->
-            <!-- for default icon theme setting -->
-            <Dependency>tango-icon-theme</Dependency>
+            <!-- <Dependency>libXxf86misc</Dependency> -->
+            <Dependency>libcanberra</Dependency>
+            <!-- for default icon theme setting
+            <Dependency>tango-icon-theme</Dependency> -->
         </RuntimeDependencies>
         <Replaces>
             <Package>xfce-mcs-manager</Package>
@@ -56,12 +58,23 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share</Path>
         </Files>
-        <AdditionalFiles>
+        <!--        <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml">xsettings.xml</AdditionalFile>
-        </AdditionalFiles>
+        </AdditionalFiles>-->
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-06-05</Date>
+            <Version>4.6.1</Version>
+            <Comment>
+                * Version bump.
+                * Fix dependencies.
+                * Add patch for only show in Xfce4 menu.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2009-03-13</Date>
             <Version>4.6.0</Version>
