@@ -1,0 +1,1731 @@
+<PISI>
+    <SpecFile>
+        <Source>
+            <Name>devede</Name>
+            <Homepage>http://www.rastersoft.com/programas/devede.html</Homepage>
+            <Packager>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>hardware.optical</PartOf>
+            <Summary xml:lang="en">DVD and CD Video Creator</Summary>
+            <Summary xml:lang="tr">Video DVD/CD Oluşturucu</Summary>
+            <Description xml:lang="en">DeVeDe is a program to create video DVDs and CDs (VCD, sVCD or CVD)</Description>
+            <Description xml:lang="tr">DeVeDe, videolarınızı DVD/SVCD yapmanıza yarar</Description>
+            <Icon>devede</Icon>
+            <Archive type="tarbz2" sha1sum="6533cc314f9194b5bee03cec1b592d3d1dd86bd4">http://www.rastersoft.com/descargas/devede-3.13.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>pygtk</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>dvdauthor</Dependency>
+                <Dependency>vcdimager</Dependency>
+                <Dependency>psyco</Dependency>
+                <Dependency>cdrtools</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>hardware/optical/devede/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>devede</Name>
+            <RuntimeDependencies>
+                <Dependency>pygtk</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>dvdauthor</Dependency>
+                <Dependency>vcdimager</Dependency>
+                <Dependency>psyco</Dependency>
+                <Dependency>cdrtools</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/devede</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="3">
+                <Date>2009-06-05</Date>
+                <Version>3.13.1</Version>
+                <Comment>Version Bump. Add translations.xml. Remove icon devede.png</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2009-01-26</Date>
+                <Version>3.12b</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-09-14</Date>
+                <Version>3.11b</Version>
+                <Comment>First release.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>filezilla</Name>
+            <Homepage>http://filezilla-project.org/</Homepage>
+            <Packager>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>network.ftp</PartOf>
+            <Summary xml:lang="en">Simple FTP Client.</Summary>
+            <Summary xml:lang="tr">FTP ve SFTP istemcisi</Summary>
+            <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
+            <Description xml:lang="tr">Filezilla; dosyalarınızı ftp, sftp, ftps ile göndermenize ve indirmenize yarar</Description>
+            <Icon>filezilla</Icon>
+            <Archive type="tarbz2" sha1sum="8435b905d6455175344fc47c957270788073e40b">mirrors://sourceforge/filezilla/FileZilla_3.2.4.1_src.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.8.9">wxGTK-devel</Dependency>
+                <Dependency versionFrom="2.0.4">gnutls</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>i18n-filezilla.desktop.patch</Patch>
+            </Patches>
+            <SourceURI>network/ftp/filezilla/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>filezilla</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.8.9">wxGTK</Dependency>
+                <Dependency versionFrom="2.0.4">gnutls</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/filezilla</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="22">
+                <Date>2009-06-05</Date>
+                <Version>3.2.4.1</Version>
+                <Comment>Build dep rename wxGTK</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="21">
+                <Date>2009-04-30</Date>
+                <Version>3.2.4.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="20">
+                <Date>2009-04-22</Date>
+                <Version>3.2.4</Version>
+                <Comment>Version bump and add translations.xml</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="19">
+                <Date>2009-03-29</Date>
+                <Version>3.2.3.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="18">
+                <Date>2009-03-22</Date>
+                <Version>3.2.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="17">
+                <Date>2009-02-25</Date>
+                <Version>3.2.2.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="16">
+                <Date>2009-02-20</Date>
+                <Version>3.2.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="15">
+                <Date>2009-02-07</Date>
+                <Version>3.2.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="14">
+                <Date>2009-01-08</Date>
+                <Version>3.2.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="13">
+                <Date>2008-12-02</Date>
+                <Version>3.1.6</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="12">
+                <Date>2008-10-27</Date>
+                <Version>3.1.5</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="11">
+                <Date>2008-10-05</Date>
+                <Version>3.1.3.1</Version>
+                <Comment>Fix dep</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="10">
+                <Date>2008-10-04</Date>
+                <Version>3.1.3.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2008-09-01</Date>
+                <Version>3.1.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2008-08-26</Date>
+                <Version>3.1.1.1</Version>
+                <Comment>Fixes the problem of undisplayed icons reported in #7669.</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-08-23</Date>
+                <Version>3.1.1.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="6" type="security">
+                <Date>2008-07-28</Date>
+                <Version>3.1.0.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Gökçen Eraslan</Name>
+                <Email>gokcen@pardus.org.tr</Email>
+            </Update>
+            <Update release="5">
+                <Date>2008-06-16</Date>
+                <Version>3.0.11</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2008-05-20</Date>
+                <Version>3.0.10</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2007-11-07</Date>
+                <Version>3.0.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2007-10-29</Date>
+                <Version>3.0.2.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ville Nieminen</Name>
+                <Email>villeniemine@hotmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-09-11</Date>
+                <Version>3.0.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>amule</Name>
+            <Homepage>http://www.amule.org/</Homepage>
+            <Packager>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>network.p2p</PartOf>
+            <Summary xml:lang="en">aMule, the all-platform eMule p2p client</Summary>
+            <Summary xml:lang="tr">eMule p2p ağları için istemci</Summary>
+            <Description xml:lang="en">aMule, the all-platform eMule p2p client</Description>
+            <Description xml:lang="tr">aMule, birçok platformda çalışabilen bir eMule istemcisidir</Description>
+            <Archive type="tarbz2" sha1sum="2e58fdeffe65cd036467b1c62ba95d791fba9a11">mirrors://sourceforge/amule/aMule-2.2.5.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency versionFrom="2.8">wxGTK-devel</Dependency>
+                <Dependency versionFrom="5.6.0">crypto++</Dependency>
+                <Dependency versionFrom="1.6.6">libupnp</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>amule_desktop.patch</Patch>
+            </Patches>
+            <SourceURI>network/p2p/amule/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>amule</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="2.8">wxGTK</Dependency>
+                <Dependency versionFrom="5.6.0">crypto++</Dependency>
+                <Dependency versionFrom="1.6.6">libupnp</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin/amule</Path>
+                <Path fileType="executable">/usr/bin/ed2k</Path>
+                <Path fileType="executable">/usr/bin/autostart-xas</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="man">/usr/share/man/man1/amule.1</Path>
+                <Path fileType="man">/usr/share/man/man1/ed2k.1</Path>
+                <Path fileType="man">/usr/share/man/hu/man1/amule.1</Path>
+                <Path fileType="man">/usr/share/man/hu/man1/ed2k.1</Path>
+                <Path fileType="man">/usr/share/man/es/man1/amule.1</Path>
+                <Path fileType="man">/usr/share/man/es/man1/ed2k.1</Path>
+                <Path fileType="man">/usr/share/man/eu/man1/amule.1</Path>
+                <Path fileType="man">/usr/share/man/eu/man1/xas.1</Path>
+                <Path fileType="man">/usr/share/man/eu/man1/ed2k.1</Path>
+                <Path fileType="man">/usr/share/man/fr/man1/amule.1</Path>
+                <Path fileType="man">/usr/share/man/fr/man1/ed2k.1</Path>
+                <Path fileType="man">/usr/share/man/de/man1/amule.1</Path>
+                <Path fileType="man">/usr/share/man/de/man1/ed2k.1</Path>
+                <Path fileType="man">/usr/share/man/man1/xas.1</Path>
+                <Path fileType="man">/usr/share/man/hu/man1/xas.1</Path>
+                <Path fileType="man">/usr/share/man/es/man1/xas.1</Path>
+                <Path fileType="man">/usr/share/man/fr/man1/xas.1</Path>
+                <Path fileType="man">/usr/share/man/de/man1/xas.1</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/amule/skins</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+            <Conflicts>
+                <Package>xmule</Package>
+            </Conflicts>
+        </Package>
+        <Package>
+            <Name>amulecmd</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="5.6.0">crypto++</Dependency>
+                <Dependency versionFrom="1.6.6">libupnp</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin/amulecmd</Path>
+                <Path fileType="man">/usr/share/man/man1/amulecmd.1</Path>
+                <Path fileType="man">/usr/share/man/hu/man1/amulecmd.1</Path>
+                <Path fileType="man">/usr/share/man/es/man1/amulecmd.1</Path>
+                <Path fileType="man">/usr/share/man/eu/man1/amulecmd.1</Path>
+                <Path fileType="man">/usr/share/man/fr/man1/amulecmd.1</Path>
+                <Path fileType="man">/usr/share/man/de/man1/amulecmd.1</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>amuleweb</Name>
+            <RuntimeDependencies>
+                <Dependency versionFrom="5.6.0">crypto++</Dependency>
+                <Dependency versionFrom="1.6.6">libupnp</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin/amuleweb</Path>
+                <Path fileType="executable">/usr/bin/amuled</Path>
+                <Path fileType="data">/usr/share/amule/webserver</Path>
+                <Path fileType="man">/usr/share/man/man1/amuleweb.1</Path>
+                <Path fileType="man">/usr/share/man/hu/man1/amuleweb.1</Path>
+                <Path fileType="man">/usr/share/man/es/man1/amuleweb.1</Path>
+                <Path fileType="man">/usr/share/man/eu/man1/amuleweb.1</Path>
+                <Path fileType="man">/usr/share/man/eu/man1/amuled.1</Path>
+                <Path fileType="man">/usr/share/man/fr/man1/amuleweb.1</Path>
+                <Path fileType="man">/usr/share/man/de/man1/amuleweb.1</Path>
+                <Path fileType="man">/usr/share/man/man1/amuled.1</Path>
+                <Path fileType="man">/usr/share/man/hu/man1/amuled.1</Path>
+                <Path fileType="man">/usr/share/man/es/man1/amuled.1</Path>
+                <Path fileType="man">/usr/share/man/fr/man1/amuled.1</Path>
+                <Path fileType="man">/usr/share/man/de/man1/amuled.1</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="10">
+                <Date>2009-05-25</Date>
+                <Version>2.2.5</Version>
+                <Comment>Version bump</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2009-04-13</Date>
+                <Version>2.2.4</Version>
+                <Comment>Version bump</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2009-01-21</Date>
+                <Version>2.2.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-01-08</Date>
+                <Version>2.1.3</Version>
+                <Comment>fix crash on update</Comment>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Update>
+            <Update release="6">
+                <Date>2007-05-28</Date>
+                <Version>2.1.3</Version>
+                <Comment>Enable cli, web interfaces. New packages are; amulecmd, amuleweb</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-05-27</Date>
+                <Version>2.1.3</Version>
+                <Comment>Add wxGTK2_8 dependency. With wxGTK2.6, it consumes too much CPU. Hopefully fix #5696</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2006-06-14</Date>
+                <Version>2.1.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+            <Update release="3">
+                <Date>2006-06-04</Date>
+                <Version>2.1.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+            <Update release="2">
+                <Date>2006-05-13</Date>
+                <Version>2.1.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-03-08</Date>
+                <Version>2.1.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Fethi Aymaz</Name>
+                <Email>fethi@linux-sevenler.org</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>pidgin-sipe</Name>
+            <Homepage>http://sourceforge.net/projects/sipe</Homepage>
+            <Packager>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <IsA>library</IsA>
+            <PartOf>network.plugin</PartOf>
+            <Summary xml:lang="en">Pidgin-SIPE is a Pidgin Plug-in for OCS/LCS (Live Communication Server)</Summary>
+            <Summary xml:lang="tr">Pidgin-SIPE, OCS/LCS (Live Communication Server) sunuculara baglanabilen bir Pidgin eklentisidir</Summary>
+            <Description xml:lang="en">Using Pidgin-SIPE plug-in for Pidgin, it is possible to connect to a Microsoft Live Communication Server (OCS/LCS) using SIP/Simple protocol.</Description>
+            <Description xml:lang="tr">Pidgin-SIPE eklentisi ile SIP/Simple protokolü kullanarak Microsoft LCS/OCS (Live Communication Server) sunucularına bağlanılabilir.</Description>
+            <Archive type="tarbz2" sha1sum="c0aad4582bc75cfc85790439a9a61dd0bd64317e">mirrors://sourceforge/sipe/pidgin-sipe-1.3.3.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>pidgin</Dependency>
+            </BuildDependencies>
+            <SourceURI>network/plugin/pidgin-sipe/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pidgin-sipe</Name>
+            <RuntimeDependencies>
+                <Dependency>pidgin</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-03-29</Date>
+                <Version>1.3.3</Version>
+                <Comment>First release</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>crypto++</Name>
+            <Homepage>http://www.cryptopp.com</Homepage>
+            <Packager>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Packager>
+            <License>as-is</License>
+            <IsA>library</IsA>
+            <PartOf>programming.library</PartOf>
+            <Summary xml:lang="en">C++ class library of cryptographic schemes</Summary>
+            <Summary xml:lang="tr">Değişik kripto şemaları içeren C++ class kütüphanesi</Summary>
+            <Description xml:lang="en">Crypto++ Library is a free C++ class library of cryptographic schemes.</Description>
+            <Description xml:lang="tr">Değişik kripto şemaları içeren C++ class kütüphanesidir. Cryptopp (crypto++) çok sayıda kripto algoritması destekler. Desteklenen algoritmaları görmek için lütfen ilgili web sayfasına bakınız</Description>
+            <Archive type="zip" sha1sum="b836783ebd72d5bc6a916620ab2b1ecec316fef1">mirrors://sourceforge/cryptopp/cryptopp560.zip</Archive>
+            <BuildDependencies>
+                <Dependency>dos2unix</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">cryptopp-5.6.0-autotools.patch</Patch>
+                <Patch level="1">cryptopp-5.6.0-gcc4.3.patch</Patch>
+                <Patch level="1">cryptopp-5.6.0-nomars.patch</Patch>
+            </Patches>
+            <SourceURI>programming/library/crypto++/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>crypto++</Name>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>crypto++-util</Name>
+            <RuntimeDependencies>
+                <Dependency>crypto++</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2009-04-08</Date>
+                <Version>5.6.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2009-01-13</Date>
+                <Version>5.5.2</Version>
+                <Comment>First Release</Comment>
+                <Name>Emre Erenoglu</Name>
+                <Email>paketci@erenoglu.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>perl-ExtUtils-PkgConfig</Name>
+            <Homepage>http://gtk2-perl.sourceforge.net</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>programming.language.perl</PartOf>
+            <Summary xml:lang="en">A library which converts Perl XS code into C code</Summary>
+            <Summary xml:lang="tr">Perl XS kodunu C koduna çeviren bir kütüphane</Summary>
+            <Description xml:lang="en">The pkg-config program retrieves information about installed libraries, usually for the purposes of compiling against and linking to them.</Description>
+            <Description xml:lang="tr">Pkg-config, genellikle derleme ve bağlantı oluşturma amaçları için kurulmuş olan kütüphanelerin bilgilerini getirir.</Description>
+            <Archive type="targz" sha1sum="cb61eb3c4dd6d4689ce945e3f7b8d3a1f9db7dc8">mirrors://sourceforge/gtk2-perl/ExtUtils-PkgConfig-1.12.tar.gz</Archive>
+            <SourceURI>programming/language/perl/perl-ExtUtils-PkgConfig/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>perl-ExtUtils-PkgConfig</Name>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+            </Files>
+            <Replaces>
+                <Package>ExtUtils-PkgConfig</Package>
+            </Replaces>
+        </Package>
+        <History>
+            <Update release="4">
+                <Date>2009-06-04</Date>
+                <Version>1.12</Version>
+                <Comment>* Version bump.
+                * Package takeover.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2008-09-20</Date>
+                <Version>1.11</Version>
+                <Comment>Fix homepage,remove system.base dependency perl, add documentation and package takeover.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
+            <Update release="2">
+                <Date>2008-06-27</Date>
+                <Version>1.11</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-11-05</Date>
+                <Version>1.07</Version>
+                <Comment>First release.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>libxfce4util</Name>
+            <Homepage>http://www.xfce.org</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>desktop.xfce.base</PartOf>
+            <Summary xml:lang="en">Xfce basic utility library</Summary>
+            <Summary xml:lang="tr">Xfce basit yardımcı uygulama kütüphanesi</Summary>
+            <Description xml:lang="en">Libxfce4util is a basic utility non-GUI functions for Xfce desktop environment.</Description>
+            <Description xml:lang="tr">Libxfce4util, grafik arayüz fonksiyonlarını içermeyen, Xfce masaüstü yöneticisi için yazılmış basit bir uygulama kütüphanesidir.</Description>
+            <Archive type="tarbz2" sha1sum="6d14099aa095b2f5d9b6a4348968b741b9ad661d">mirrors://xfce/xfce-4.6.1/src/libxfce4util-4.6.1.tar.bz2</Archive>
+            <SourceURI>desktop/xfce/base/libxfce4util/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>libxfce4util</Name>
+            <Files>
+                <Path fileType="executable">/usr/sbin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>libxfce4util-docs</Name>
+            <Summary xml:lang="tr">Libxfce4util başvuru belgeleri</Summary>
+            <IsA>data:doc</IsA>
+            <Files>
+                <Path fileType="data">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="10">
+                <Date>2009-04-21</Date>
+                <Version>4.6.1</Version>
+                <Comment>* Version bump.
+                * Updated translations.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="9">
+                <Date>2009-03-01</Date>
+                <Version>4.6.0</Version>
+                <Comment>* Stable version bump.
+                * Moved docs to another binary package.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="8">
+                <Date>2009-01-27</Date>
+                <Version>4.5.99.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2008-10-28</Date>
+                <Version>4.4.3</Version>
+                <Comment>Version bump and package takeover.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="6" type="security">
+                <Date>2007-12-06</Date>
+                <Version>4.4.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-04-11</Date>
+                <Version>4.4.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="4">
+                <Date>2007-01-24</Date>
+                <Version>4.4.0</Version>
+                <Comment>Version bump to stable</Comment>
+                <Name>Eren Türkay</Name>
+                <Email>turkay.eren@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2006-11-09</Date>
+                <Version>4.3.99.2</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2006-09-13</Date>
+                <Version>4.3.99.1</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-05-07</Date>
+                <Version>4.2.3.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <Component>
+        <Name>hardware</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.mobile</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.powermanagement</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.optical</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.graphics</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.firmware</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.printer</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.emulator</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.library</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.misc</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.info</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.disk</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.scanner</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.cpu</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.bluetooth</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.virtualization</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>hardware.sound</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>editor</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>editor.web</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>editor.misc</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>editor.vi</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>editor.emacs</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>system</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>system.base</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>x11</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>x11.misc</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>x11.terminal</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.voip</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.ftp</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.p2p</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.mail</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.download</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.proxy</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.rss</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.filter</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.web</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.remoteshell</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.library</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.plugin</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.monitor</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.chat</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.connection</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>network.analyzer</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>server</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>server.web</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.environment</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.vcs</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.debug</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.library</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.tool</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.build</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.microcontroller</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language.ruby</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language.python</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language.java</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language.php</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language.tcl</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>programming.language.perl</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.editor</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.stream</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.converter</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.graphics</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.video</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.library</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.plugin</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>multimedia.sound</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science.mathematics</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science.electronics</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science.medical</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science.plotting</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science.library</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>science.chemistry</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.antivirus</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.gps</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.crypt</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.misc</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.misc.ksimus</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.database</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.archive</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.admin</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>util.shell</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.font</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.xfce</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.xfce.base</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.xfce.addon</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.kde3</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.kde3.addon</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.kde3.admin</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.cairo-dock</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.misc</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.enlightenment</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.enlightenment.base</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.enlightenment.addon</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.kiba</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.fluxbox</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.fluxbox.base</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.fluxbox.addon</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.lookandfeel</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.compiz</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.gnome</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.gnome.base</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.gnome.addon</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.toolkit</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>desktop.toolkit.gtk</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>office</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>office.misc</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>office.dictionary</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>office.tex</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.board</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.simulation</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.arcade</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.kids</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.puzzle</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.rpg</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.fps</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.strategy</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+    <Component>
+        <Name>game.sports</Name>
+        <LocalName xml:lang="en">FIXME</LocalName>
+        <Summary xml:lang="en">FIXME</Summary>
+        <Description xml:lang="en">FIXME</Description>
+        <Icon>FIXME</Icon>
+        <VisibleTo>user</VisibleTo>
+    </Component>
+</PISI>
