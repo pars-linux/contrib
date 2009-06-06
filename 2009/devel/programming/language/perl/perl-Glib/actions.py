@@ -14,6 +14,8 @@ WorkDir="Glib-%s" % get.srcVERSION()
 def setup():
     perlmodules.configure()
 
+    pisitools.dosed("Makefile", " -shared ", " -lperl -Wl,--as-needed -shared ")
+
 def build():
     perlmodules.make()
 
