@@ -12,6 +12,7 @@ from pisi.actionsapi import get
 WorkDir="gtkhtml-%s" % get.srcVERSION()
 
 def setup():
+    autotools.autoreconf("-fi")
     autotools.configure("--disable-static")
 
 def build():
