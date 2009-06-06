@@ -8,26 +8,44 @@
             <Name>Mehmet Nur Olcay</Name>
             <Email>mnurolcay@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv2+</License>
         <Icon>qmmp</Icon>
         <IsA>app:gui</IsA>
         <Summary>An audio-player, written with Qt4 library</Summary>
         <Description>Qmmp is an audio-player, written with Qt4 library. It's similar to Winamp or Xmms. Also supports Xmms and Winamp skins. qmmp-skins package in Contrib repository is recommended, too.</Description>
         <Archive sha1sum="8296f5899088b61d8d965e5f38511d357b7b8383" type="tarbz2">http://qmmp.ylsoftware.com/files/qmmp-0.2.4.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>wavpack</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>pulseaudio</Dependency>
+            <Dependency>alsa-lib</Dependency>
             <Dependency>libmad</Dependency>
             <Dependency>taglib</Dependency>
             <Dependency>ffmpeg</Dependency>
             <Dependency>libmpcdec</Dependency>
             <Dependency>jack-audio-connection-kit</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>fix-str-fmt.patch</Patch>
+            <Patch>ulong.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>qmmp</Name>
         <RuntimeDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>libsamplerate</Dependency>
+            <Dependency>wavpack</Dependency>
+            <Dependency>libmodplug</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>pulseaudio</Dependency>
+            <Dependency>alsa-lib</Dependency>
             <Dependency>libmad</Dependency>
             <Dependency>taglib</Dependency>
             <Dependency>ffmpeg</Dependency>
@@ -46,6 +64,13 @@
     </Package>
 
     <History>
+         <Update release="7">
+            <Date>2009-06-07</Date>
+            <Version>0.2.4</Version>
+            <Comment>Fix dependencies for 2009, add Mandriva patches</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2009-03-27</Date>
             <Version>0.2.4</Version>
