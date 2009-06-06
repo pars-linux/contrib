@@ -13,7 +13,7 @@ def setup():
     shelltools.system("qmake-qt4")
 
 def build():
-    autotools.make('CXX="%s"' % get.CXX())
+    autotools.make()
 
 def install():
     autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
