@@ -14,7 +14,8 @@
         <Description>Pidgin-Encryption transparently encrypts your instant messages with RSA encryption, only if the person on the other end use the same plugin.</Description>
         <Archive sha1sum="bccad1c4ac0bec12e6837324f543ea60530d0761" type="targz">mirrors://sourceforge/pidgin-encrypt/pidgin-encryption-3.0.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="3.11">nss</Dependency>
+            <Dependency>nss</Dependency>
+            <Dependency>nspr</Dependency>
             <Dependency>pidgin</Dependency>
         </BuildDependencies>
     </Source>
@@ -22,7 +23,8 @@
     <Package>
         <Name>pidgin-encryption</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="3.11">nss</Dependency>
+            <Dependency>nss</Dependency>
+            <Dependency>nspr</Dependency>
             <Dependency>pidgin</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -34,6 +36,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-06-06</Date>
+            <Version>3.0</Version>
+            <Comment>Fix unused direct dependencies, add nspr dependency</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-10-12</Date>
             <Version>3.0</Version>
