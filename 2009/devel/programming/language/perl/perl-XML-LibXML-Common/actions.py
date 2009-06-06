@@ -13,12 +13,17 @@ WorkDir = "%s-%s" % (get.srcNAME()[5:], get.srcVERSION())
 def setup():
     perlmodules.configure()
 
+    pisitools.dosed("Makefile", " -shared ", " -Wl,--as-needed -shared ")
+
 def build():
     perlmodules.make()
+
+def check():
+    perlmodules.make("test")
 
 def install():
     perlmodules.install()
 
-    pisitools.removeDir("/usr/lib/perl5/5.10.0")
+    pisitools.removeDir("/usr/lib/perl5/%s" % get.curPERL())
 
     pisitools.dodoc("README", "LICENSE", "Changes")
