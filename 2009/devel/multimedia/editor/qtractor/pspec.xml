@@ -13,12 +13,18 @@
         <IsA>app:gui</IsA>
         <Summary>An Audio/MIDI multi-track sequencer application</Summary>
         <Description>Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
-        <Archive sha1sum="f2afae56eec4ebc65948f19e889d7b03cbb07897" type="targz">mirrors://sourceforge/qtractor/qtractor-0.4.1.tar.gz</Archive>
+        <Archive sha1sum="f9205035bc12af3c8183aeac7e00348e41678451" type="targz">mirrors://sourceforge/qtractor/qtractor-0.4.2.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsndfile</Dependency>
             <Dependency>libvorbis</Dependency>
+            <Dependency>libogg</Dependency>
             <Dependency>libmad</Dependency>
+            <Dependency>libsamplerate</Dependency>
             <Dependency>dssi</Dependency>
+            <Dependency>liblo</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">desktop.patch</Patch>
@@ -28,10 +34,16 @@
     <Package>
         <Name>qtractor</Name>
         <RuntimeDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsndfile</Dependency>
             <Dependency>libvorbis</Dependency>
+            <Dependency>libogg</Dependency>
             <Dependency>libmad</Dependency>
+            <Dependency>libsamplerate</Dependency>
             <Dependency>dssi</Dependency>
+            <Dependency>liblo</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -42,6 +54,13 @@
     </Package>
 
     <History>
+       <Update release="6">
+            <Date>2009-06-06</Date>
+            <Version>0.4.2</Version>
+            <Comment>Version bump, add all direct dependecies.</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
        <Update release="5">
             <Date>2009-04-05</Date>
             <Version>0.4.1</Version>

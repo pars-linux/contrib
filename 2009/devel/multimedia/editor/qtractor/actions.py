@@ -22,8 +22,7 @@ def setup():
                          --disable-debug")
 
 def build():
-    autotools.make('CXXFLAGS="%s" \
-                    CXX="%s"' % (flags, get.CXX()))
+    autotools.make('CXXFLAGS="%s"' % (flags))
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
