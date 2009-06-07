@@ -10,8 +10,11 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--disable-static \
-                         --disable-gtktest \
-                         --disable-gtk-doc")
+                         --disable-gtktest")
+
+    # Put flags in front of the libs. Needed for --as-needed.
+    replace = (r"(\\\$deplibs) (\\\$compiler_flags)", r"\2 \1")
+    pisitools.dosed("libtool", *replace)
 
 def build():
     autotools.make()
