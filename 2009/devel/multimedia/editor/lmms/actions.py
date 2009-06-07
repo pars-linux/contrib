@@ -12,7 +12,13 @@ from pisi.actionsapi import pisitools
 def setup():
     shelltools.makedirs("build")
     shelltools.cd("build")
-    cmaketools.configure("-DWANT_CAPS=TRUE -DWANT_PORTAUDIO=FALSE -DWANT_SYSTEM_SR=TRUE -DWANT_STK=FALSE -DWANT_VST_NOWINE=FALSE", sourceDir="..")
+    cmaketools.configure("-DWANT_SYSTEM_SR=TRUE \
+                          -DWANT_CAPS=TRUE \
+                          -DWANT_TAP=TRUE \
+                          -DWANT_PORTAUDIO=FALSE \
+                          -DWANT_SYSTEM_SR=TRUE \
+                          -DWANT_STK=FALSE \
+                          -DWANT_VST_NOWINE=FALSE", sourceDir="..")
 
 def build():
     shelltools.cd("build")
@@ -22,6 +28,6 @@ def install():
     shelltools.cd("build")
     cmaketools.rawInstall('DESTDIR="%s"' % get.installDIR())
 
-    pisitools.insinto("/usr/share/pixmaps", "/usr/share/lmms/themes/default/icon.png", "lmms.png")
+    pisitools.dosym("/usr/share/lmms/themes/default/icon.png", "/usr/share/pixmaps/lmms.png")
 
     pisitools.dodoc("../AUTHORS", "../COPYING", "../ChangeLog", "../TODO", "../README")
