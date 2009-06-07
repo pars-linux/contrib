@@ -13,16 +13,19 @@
         <IsA>library</IsA>
         <Summary>GTK+ Form Designer</Summary>
         <Description>Glade is a RAD tool to enable quick and easy development of user interfaces for the GTK+ toolkit and the GNOME desktop environment.</Description>
-        <Archive sha1sum="f052f595b9d2f5339a471b54110c85218f61be6d" type="tarbz2">mirrors://gnome/glade3/3.6/glade3-3.6.0.tar.bz2</Archive>
+        <Archive sha1sum="3a00676c805f9b3559265c6fcc4d8cd6497a2340" type="tarbz2">mirrors://gnome/glade3/3.6/glade3-3.6.4.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.14.0">gtk2</Dependency>
-            <Dependency versionFrom="0.19">pkgconfig</Dependency>
-            <Dependency versionFrom="0.14.1">gnome-doc-utils</Dependency>
-            <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
-            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pkgconfig</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>pygtk</Dependency>
+            <Dependency>rarian</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
+            <!-- <Dependency>gtk-doc</Dependency> -->
         </BuildDependencies>
         <Patches>
-            <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
+            <!-- <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch> -->
             <Patch level="1">fix-glade-desktop.patch</Patch>
         </Patches>
     </Source>
@@ -30,10 +33,10 @@
     <Package>
         <Name>glade</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="2.14.0">gtk2</Dependency>
-            <Dependency versionFrom="2.22.0">libgnomeui</Dependency>
-            <Dependency versionFrom="0.14.1">gnome-doc-utils</Dependency>
-            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>pygtk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -47,6 +50,16 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2009-05-07</Date>
+            <Version>3.6.4</Version>
+            <Comment>
+                * Version bump.
+                * Fix dependencies.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2009-03-17</Date>
             <Version>3.6.0</Version>

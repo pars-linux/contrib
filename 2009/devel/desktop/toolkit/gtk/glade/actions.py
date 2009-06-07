@@ -11,8 +11,7 @@ from pisi.actionsapi import get
 WorkDir = "glade3-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--enable-python \
-                         --disable-scrollkeeper")
+    autotools.configure("--enable-python") # gtk-doc and scrollkeeper..
 
 def build():
     autotools.make()
