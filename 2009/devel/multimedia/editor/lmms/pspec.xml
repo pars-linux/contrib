@@ -9,6 +9,7 @@
             <Email>mnurolcay@gmail.com</Email>
         </Packager>
         <License>GPLv2+</License>
+        <License>LGPLv2+</License>
         <Icon>lmms</Icon>
         <IsA>app:gui</IsA>
         <Summary>Linux Multimedia Studio</Summary>
@@ -16,6 +17,16 @@
         <Archive sha1sum="78f238cf7ac96c5dbcc0b1c3517bef76391f4cbb" type="tarbz2">mirrors://sourceforge/lmms/lmms-0.4.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>qt</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>pulseaudio</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>libogg</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>libXft</Dependency>
+            <Dependency>fontconfig</Dependency>
             <Dependency>sdl-sound</Dependency>
             <Dependency>libsamplerate</Dependency>
             <Dependency>fluidsynth</Dependency>
@@ -23,6 +34,9 @@
         </BuildDependencies>
         <Patches>
             <Patch level="1">desktop.patch</Patch>
+            <Patch level="1">literal.patch</Patch>
+            <Patch level="1">fltk-1.1.9-consts.patch</Patch>
+            <Patch level="1">vst-nowine.patch</Patch>
         </Patches>
     </Source>
 
@@ -30,6 +44,16 @@
         <Name>lmms</Name>
         <RuntimeDependencies>
             <Dependency>qt</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>pulseaudio</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency>libogg</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libsndfile</Dependency>
+            <Dependency>fftw3</Dependency>
+            <Dependency>libXft</Dependency>
+            <Dependency>fontconfig</Dependency>
             <Dependency>sdl-sound</Dependency>
             <Dependency>libsamplerate</Dependency>
             <Dependency>fluidsynth</Dependency>
@@ -58,7 +82,11 @@
         <Update release="15">
             <Date>2009-06-06</Date>
             <Version>0.4.4</Version>
-            <Comment>Remove Replaces and Conflicts tags, edit deps for 2009</Comment>
+            <Comment>
+                -Remove Replaces and Conflicts tags, edit deps for 2009
+                -Add LGPLv2 licence, make actions.py more readable
+                -Add some cosmetic and build patches
+            </Comment>
             <Name>Mehmet Nur Olcay</Name>
             <Email>mnurolcay@gmail.com</Email>
         </Update>
