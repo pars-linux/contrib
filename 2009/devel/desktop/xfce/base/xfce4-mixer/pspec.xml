@@ -12,12 +12,14 @@
         <Icon>xfce-sound</Icon>
         <IsA>app:gui</IsA>
         <Summary>Xfce sound mixer application</Summary>
-        <Archive sha1sum="ebcbc2cefbd6f0a24c339d61bdb138e2bbe1335c" type="tarbz2">http://mocha.xfce.org/archive/xfce-4.6.0/src/xfce4-mixer-4.6.0.tar.bz2</Archive>
+        <Description>Xfce4-mixer is a volume control application for the Xfce Desktop Environment. It provides both a volume control plugin for the Xfce Panel and a standalone mixer application. It supports all audio systems supported by GStreamer project.</Description>
+        <Archive sha1sum="e86163782fc4fc31671c7cb212d23d34106ad3af" type="tarbz2">http://mocha.xfce.org/archive/xfce-4.6.1/src/xfce4-mixer-4.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
-            <Dependency>gst-plugins-base</Dependency>
-            <Dependency>xfconf</Dependency>
             <Dependency>perl-XML-Parser</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>fix-categories.patch</Patch>
@@ -27,9 +29,10 @@
     <Package>
        <Name>xfce4-mixer</Name>
        <RuntimeDependencies>
-            <Dependency versionFrom="4.6.0">xfce4-panel</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>xfce4-panel</Dependency>
             <Dependency>gst-plugins-base</Dependency>
-            <Dependency>xfconf</Dependency>
        </RuntimeDependencies>
         <Files>
            <Path fileType="executable">/usr/bin</Path>
@@ -42,6 +45,17 @@
     </Package>
 
     <History>
+        <Update release="13">
+            <Date>2009-06-08</Date>
+            <Version>4.6.1</Version>
+            <Comment>
+                * Version bump.
+                * Fix dependencies.
+                * Add description tag.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="12">
             <Date>2009-03-15</Date>
             <Version>4.6.0</Version>
