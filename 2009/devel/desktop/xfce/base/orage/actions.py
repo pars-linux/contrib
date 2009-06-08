@@ -11,6 +11,10 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--with-bdb4 \
                          --disable-static \
+                         --enable-reentrant \
+                         --enable-dbus \
+                         --enable-libnotify \
+                         --enable-archive \
                          --disable-libxfce4mcs")
 
 def build():
