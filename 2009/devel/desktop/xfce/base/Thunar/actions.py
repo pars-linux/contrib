@@ -6,17 +6,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import libtools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    #shelltools.export("NOCONFIGURE", "1 xdt-autogen")
-    #autotools.aclocal("-I .")
-    #autotools.automake()
-    #autotools.autoconf()
-    #libtools.libtoolize("-cf")
-    #autotools.autoreconf("-fi")
     autotools.configure("--enable-gnome-thumbnailers \
                          --enable-exif \
                          --enable-pcre \
