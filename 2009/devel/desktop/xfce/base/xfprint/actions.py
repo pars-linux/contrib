@@ -10,7 +10,9 @@ from pisi.actionsapi import pisitools
 def setup():
     autotools.configure("--disable-static \
                          --enable-cups \
-                         --disable-bsdlpr")
+                         --disable-letter")
+
+    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
