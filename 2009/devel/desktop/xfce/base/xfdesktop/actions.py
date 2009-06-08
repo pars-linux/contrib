@@ -12,11 +12,13 @@ def setup():
     autotools.configure("--disable-static \
                          --enable-desktop-icons \
                          --enable-thunarx \
-                         --enable-file-cons \
+                         --enable-file-icons \
                          --enable-exo \
                          --enable-desktop-menu \
                          --enable-desktop-menu-dir-monitor \
                          --enable-panel-plugin")
+
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
