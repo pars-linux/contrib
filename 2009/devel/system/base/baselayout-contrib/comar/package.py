@@ -29,12 +29,12 @@ def postInstall(fromVersion, fromRelease, toVersion, toRelease):
             pass
 
     # Remove old groups/users
-    groups = ["teamspeak"]
+    groups = ["teamspeak", "gdm"]
 
     for group in groups:
         deleteGroup(group)
 
-    users = ["teamspeak"]
+    users = ["teamspeak", "gdm"]
 
     for user in users:
         deleteUser(user)
@@ -42,8 +42,10 @@ def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     # Merge new system groups
     # addGroup(gid, name)
     hav("addGroup", (400, "teamspeak"))
+    hav("addGroup", (114, "gdm"))
 
     # Merge new system users
     # addUser(uid, nick, realname, homedir, shell, password, groups, grantedauths, blockedauths)
     hav("addUser", (400, "teamspeak", "Teamspeak", "/dev/null", "/bin/false", "", ["teamspeak"], [], []))
+    hav("addUser", (105, "gdm", "GNOME Display Manager", "/dev/null", "/bin/bash", "", ["gdm"], [], []))
 
