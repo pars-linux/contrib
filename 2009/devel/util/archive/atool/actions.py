@@ -17,5 +17,6 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.insinto("/%s/%s/" % (get.docDIR(), get.srcTAG()), "extra")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "README*", "NEWS", "TODO")
+    pisitools.insinto("/etc/bash_completion.d/", "extra/bash-completion-atool_0.1-1", "atool")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README", "NEWS", "TODO")
