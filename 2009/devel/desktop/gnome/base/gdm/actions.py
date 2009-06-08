@@ -9,6 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.autoreconf("-fiv")
     autotools.configure("--disable-scrollkeeper\
                          --disable-static")
 
@@ -20,11 +21,11 @@ def install():
 
     pisitools.dodir("/var/lib/gdm")
 
-    pisitools.domove("/usr/share/gdm/applications/","/usr/share/applications/")
+    pisitools.domove("/usr/share/gdm/applications/","/usr/share")
 
     remove = ["/usr/sbin/gdm","/usr/sbin/gdm-restart","/usr/sbin/gdm-safe-restart","/usr/sbin/gdm-stop",
               "/usr/share/gdm/BuiltInSessions/*","/usr/share/xsessions/gnome.desktop",
-              "/usr/share/applications/gdmflexiserver*.desktop"]
+              "/usr/share/applications/gdmflexiserver.desktop"]
     for r in remove:
         pisitools.remove(r)
 
