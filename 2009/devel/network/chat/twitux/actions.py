@@ -10,10 +10,10 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.configure("--disable-static \
-                         --enabe-spell \
+                         --enable-spell \
                          --disable-scrollkeeper \
                          --enable-nls \
-                         --enable-dbus=yes \
+                         --enable-dbus \
                          --enable-gnome-keyring")
 
 def build():
