@@ -6,8 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 def setup():
+    shelltools.unlink("py-compile" )
+    shelltools.sym("/bin/true", "%s/py-compile" % get.curDIR())
+
     autotools.configure()
 
 def build():
