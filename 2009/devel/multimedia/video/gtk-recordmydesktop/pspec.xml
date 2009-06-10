@@ -15,19 +15,18 @@
         <Description>Gtk-recordmydesktop is a gtk-based graphical frontend for recordMyDesktop.</Description>
         <Archive sha1sum="981aecd09a97de45b8f80b254171db75c6a2a6f3" type="targz">mirrors://sourceforge/recordmydesktop/gtk-recordmydesktop-0.3.8.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>pygtk</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop.patch</Patch>
-            <Patch>no-compiled-py.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>gtk-recordmydesktop</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.3.8.1">recordmydesktop</Dependency>
-            <Dependency versionFrom="2.12.0">pygtk</Dependency>
+            <Dependency>recordmydesktop</Dependency>
+            <Dependency>pygtk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -40,6 +39,16 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-06-11</Date>
+            <Version>0.3.8</Version>
+            <Comment>
+                * Remove strict deps for 2009 repositories.
+                * Remove no-compiled.py patch. Not required.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-12-16</Date>
             <Version>0.3.8</Version>
