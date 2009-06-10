@@ -15,7 +15,6 @@ def setup():
                          --with-browser=firefox \
                          --with-terminal=Terminal \
                          --with-vendor-info=Pardus")
-                        # --with-xsession-prefix=/usr")
 
 def build():
     autotools.make()
