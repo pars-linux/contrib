@@ -11,7 +11,7 @@ from pisi.actionsapi import shelltools
 
 def setup():
     shelltools.system("lrelease-qt4 boncuk.pro")
-    shelltools.system("qmake-qt4 boncuk.pro")
+    shelltools.system("qmake boncuk.pro")
 
 def build():
     # Change C/XXFLAGS
