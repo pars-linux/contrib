@@ -21,7 +21,6 @@
             <Patch level="1">xfce-utils-4.5.91-xfmountdev4-use-thunar.patch</Patch>
             <Patch level="1">xfce-utils-4.5.92-fix-desktop-entry.patch</Patch>
             <Patch level="1">xfce-utils-4.6.1-xinitrc.patch</Patch>
-            <!--<Patch>dbus-and-pulseaudio-support.patch</Patch>-->
         </Patches>
     </Source>
 
@@ -43,8 +42,7 @@
         </Files>
         <AdditionalFiles>
             <AdditionalFile target="/etc/pam.d/xfce4" permission="0644" owner="root">xfce4.pam</AdditionalFile>
-            <AdditionalFile target="/etc/X11/Sessions/xfce4" permission="0755" owner="root">xfce4</AdditionalFile>
-            <AdditionalFile target="/usr/share/xsessions/xfce4.desktop" permission="0644" owner="root">xfce4.desktop</AdditionalFile>
+            <AdditionalFile target="/usr/share/xfce4/Pardus" permission="0644" owner="root">Pardus</AdditionalFile>
         </AdditionalFiles>
         <Provides>
             <COMAR script="package.py">System.Package</COMAR>
@@ -58,6 +56,7 @@
             <Comment>
                 * Version bump.
                 * Fix patches.
+                * Add Pardus file for about dialog.
                 * Add comar script.
             </Comment>
             <Name>Gökmen Görgen</Name>

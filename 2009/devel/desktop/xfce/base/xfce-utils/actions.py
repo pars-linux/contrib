@@ -14,8 +14,8 @@ def setup():
                          --enable-dbus \
                          --with-browser=firefox \
                          --with-terminal=Terminal \
-                         --with-vendor-info=Pardus \
-                         --with-session-prefix=/usr/share/xsessions")
+                         --with-vendor-info=Pardus")
+                        # --with-xsession-prefix=/usr")
 
 def build():
     autotools.make()
