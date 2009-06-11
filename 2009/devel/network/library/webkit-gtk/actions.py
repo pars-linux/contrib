@@ -15,6 +15,8 @@ def setup():
                          --with-font-backend=pango \
                          --with-unicode-backend=icu")
 
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
+
 def build():
     autotools.make()
 
