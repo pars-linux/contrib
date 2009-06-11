@@ -12,8 +12,9 @@ WorkDir = "murrine-%s" % get.srcVERSION()
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-animation \
-                         --enable-macmenu")
+                         --enable-animation")
+
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
