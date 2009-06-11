@@ -9,13 +9,11 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "WebKit-%s" % get.srcVERSION().replace('1.1.3_', 'r')
-
+WorkDir = "webkit-%s" % get.srcVERSION()
 def setup():
-    shelltools.system("sh autogen.sh --prefix=/usr \
-                                     --with-font-backend=freetype \
-                                     --enable-video \
-                                     --enable-jit")
+    autotools.configure("--enable-video \
+                         --with-font-backend=pango \
+                         --with-unicode-backend=icu")
 
 def build():
     autotools.make()
@@ -23,4 +21,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("WebKit/LICENSE", "WebCore/LICENSE-*", "SunSpider/TODO", "JavaScriptCore/AUTHORS")
+    pisitools.dodoc("ChangeLog", "README", "WebKit/LICENSE")
