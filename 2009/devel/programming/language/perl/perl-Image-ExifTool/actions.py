@@ -12,9 +12,17 @@ WorkDir = "%s-%s" % (get.srcNAME()[5:], get.srcVERSION())
 def setup():
     perlmodules.configure()
 
+def build():
+    perlmodules.make()
+
+def check():
+    perlmodules.make("test")
+
 def install():
     perlmodules.install()
 
+    pisitools.removeDir("/usr/lib/perl5/%s" % get.curPERL())
+
     # add html and doc's
     pisitools.dohtml("html/*")
-    pisitools.dodoc("README","Changes")
+    pisitools.dodoc("README", "Changes")
