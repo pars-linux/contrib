@@ -1,0 +1,12 @@
+diff -Nuar gtk-nodoka-engine-0.7.2.orig/Makefile.in gtk-nodoka-engine-0.7.2/Makefile.in
+--- gtk-nodoka-engine-0.7.2.orig/Makefile.in	2008-11-02 10:51:53.000000000 +0200
++++ gtk-nodoka-engine-0.7.2/Makefile.in	2009-06-11 03:08:39.000000000 +0300
+@@ -252,7 +252,7 @@
+ 	./src/GTKEngine/nodoka_types.h		\
+ 	./src/GTKEngine/config.h
+ 
+-libnodoka_la_LDFLAGS = -module -avoid-version -no-undefined
++libnodoka_la_LDFLAGS = -module -avoid-version -no-undefined -lm
+ libnodoka_la_LIBADD = $(GTK_LIBS)
+ all: all-recursive
+ 
