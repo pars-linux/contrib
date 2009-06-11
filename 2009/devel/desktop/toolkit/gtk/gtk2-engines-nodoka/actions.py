@@ -13,6 +13,8 @@ WorkDir = "gtk-nodoka-engine-%s" % get.srcVERSION()
 def setup():
     autotools.configure("--enable-animation")
 
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
+
 def build():
     autotools.make()
 
