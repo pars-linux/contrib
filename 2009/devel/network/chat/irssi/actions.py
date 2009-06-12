@@ -29,6 +29,4 @@ def install():
 
     pisitools.remove("/usr/lib/irssi/modules/libirc_proxy.a")
 
-    #pisitools.rename("/usr/bin/irssi", "irssi-bin")
-
     perlmodules.fixLocalPod()
