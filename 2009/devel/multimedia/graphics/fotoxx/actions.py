@@ -8,9 +8,12 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+NoStrip=["/"]
+
 def setup():
     pisitools.dosed("Makefile", "-O -Wall", "-Wall %s" % get.CFLAGS())
-    pisitools.dosed("Makefile", "doc/\$\(PROGRAM\)", "doc/%s" % get.srcTAG())
+    pisitools.dosed("Makefile", "g\+\+", "%s" % get.CXX())
+    pisitools.dosed("Makefile", "doc/\$\(PROGRAM\)", "doc/%s" % get.srcNAME())
     pisitools.dosed("Makefile", "/usr/local", "/usr")
 
 def build():
