@@ -15,6 +15,7 @@ def build():
 
 def install():
     autotools.install()
+
     pisitools.removeDir("/usr/doc")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING")
