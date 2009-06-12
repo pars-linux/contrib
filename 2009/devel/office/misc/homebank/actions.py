@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure()
+    autotools.configure("--without-ofx")
 
 def build():
     autotools.make()
