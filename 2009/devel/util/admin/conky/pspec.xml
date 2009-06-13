@@ -3,19 +3,25 @@
 <PISI>
     <Source>
         <Name>conky</Name>
-        <Homepage>http://conky.sourceforge.net/</Homepage>
+        <Homepage>http://conky.sourceforge.net</Homepage>
         <Packager>
             <Name>Kenan Pelit</Name>
             <Email>kpelit@gmail.com</Email>
         </Packager>
         <License>BSD</License>
         <IsA>app:gui</IsA>
-        <Summary>An advanced, highly configurable system monitor for X.</Summary>
-        <Archive sha1sum="1f10d7b96f61636ffc14d2b9962c6d70aaf1c1f8" type="tarbz2">mirrors://sourceforge/conky/conky-1.6.1.tar.bz2</Archive>
+        <Summary>An advanced, highly configurable system monitor</Summary>
+        <Description>conkyg is an advanced, highly configurable system monitor for X.</Description>
+        <Archive sha1sum="e8a5a814c156b17aa32614e77a25389e00f1cf02" type="tarbz2">mirrors://sourceforge/conky/conky-1.7.1.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>xorg-server</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXdamage</Dependency>
+            <Dependency>libXfixes</Dependency>
+            <Dependency>libXft</Dependency>
             <Dependency>imlib2</Dependency>
-            <Dependency>mpd</Dependency>
+            <Dependency>lua</Dependency>
+            <Dependency>alsa-lib</Dependency>
+            <!--<Dependency>mpd</Dependency>-->
         </BuildDependencies>
         <Patches>
             <Patch>obsoleteman.conkyrc.patch</Patch>
@@ -25,8 +31,13 @@
     <Package>
         <Name>conky</Name>
         <RuntimeDependencies>
-            <Dependency>xorg-server</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXdamage</Dependency>
+            <Dependency>libXfixes</Dependency>
+            <Dependency>libXft</Dependency>
             <Dependency>imlib2</Dependency>
+            <Dependency>lua</Dependency>
+            <Dependency>alsa-lib</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -37,6 +48,17 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-06-13</Date>
+            <Version>1.7.1.1</Version>
+            <Comment>
+                * Version bump
+                * Add description and tranlations.xml, correct document path
+                * Drop unrecognized configure parameters and overhaul dependencies.
+            </Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2008-10-17</Date>
             <Version>1.6.1</Version>
