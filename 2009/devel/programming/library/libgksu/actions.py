@@ -6,8 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
+    files = ["NEWS", "README"]
+    for f in files:
+        shelltools.touch(f)
+    autotools.autoreconf("-fiv")
     autotools.configure("--disable-static \
                          --disable-gtk-doc")
 
