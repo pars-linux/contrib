@@ -11,7 +11,7 @@
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>A library that provides top functionality to applications</Summary>
-        <Archive sha1sum="918bcf6cb12800d0b6fa6d174c9cbd748672b2c0" type="tarbz2">mirrors://gnome/libgtop/2.26/libgtop-2.26.0.tar.bz2</Archive>
+        <Archive sha1sum="758bbf69009c6bcfe2765de97e7027124c5a147e" type="tarbz2">mirrors://gnome/libgtop/2.26/libgtop-2.26.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libXau</Dependency>
         </BuildDependencies>
@@ -26,13 +26,31 @@
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="doc">/usr/share/gtk-doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="info">/usr/share/info</Path>
         </Files>
    </Package>
+   
+   <Package>
+        <Name>libgtop-docs</Name>
+        <IsA>data:doc</IsA>
+        <Summary>libgtop reference documents</Summary>
+        <Files>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+   </Package>
 
    <History>
+        <Update release="5">
+            <Date>2009-06-13</Date>
+            <Version>2.26.1</Version>
+            <Comment>
+                - Version bump.
+                - Split into documents
+            </Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2009-03-02</Date>
             <Version>2.26.0</Version>
