@@ -1,0 +1,35 @@
+--- Makefile.orig	2009-06-13 00:24:15.000000000 +0300
++++ Makefile	2009-06-13 00:34:25.000000000 +0300
+@@ -5,11 +5,11 @@
+ PROGRAM = fotoxx
+ VERSION = 7.0
+ SOURCE = $(PROGRAM)-$(VERSION).cpp
+-CFLAGS = -O -Wall -c `pkg-config --cflags gtk+-2.0`
+-LFLAGS = -O -Wall -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
++CFLAGS += -Wall -c `pkg-config --cflags gtk+-2.0`
++LFLAGS = -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
+ 
+ ifeq "$(PREFIX)" ""
+-	PREFIX = /usr/local
++	PREFIX = /usr
+ endif
+ 
+ BINDIR = $(PREFIX)/bin
+@@ -19,14 +19,14 @@
+ 
+ $(PROGRAM): $(PROGRAM).o zfuncs.o
+ 	@ ./dependencies.sh
+-	@ g++ $(LFLAGS) -o $(PROGRAM) $(PROGRAM).o zfuncs.o
++	@ $(CXX) $(LDFLAGS) $(PROGRAM).o zfuncs.o -o $(PROGRAM) $(LFLAGS)
+ 
+ $(PROGRAM).o: $(SOURCE) zfuncs.h
+-	@ g++ $(CFLAGS) -o $(PROGRAM).o $(SOURCE)		\
++	@ $(CXX) $(CFLAGS) -o $(PROGRAM).o $(SOURCE)		\
+ 	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\""
+ 
+ zfuncs.o: zfuncs.cpp zfuncs.h
+-	@ g++ $(CFLAGS) zfuncs.cpp	\
++	@ $(CXX) $(CFLAGS) zfuncs.cpp	\
+ 	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\"" -D "BINDIR=\"$(BINDIR)\""
+ 
+ 
