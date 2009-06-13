@@ -6,10 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import libtools
 
 def setup():
     autotools.configure("--disable-static\
                          --disable-docs")
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared")
 
 def build():
     autotools.make()
