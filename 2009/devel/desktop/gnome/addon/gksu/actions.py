@@ -7,13 +7,9 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import libtools
 
 def setup():
-    autotools.aclocal()
-    autotools.autoconf()
-    autotools.automake()
-    libtools.libtoolize("--copy --force")
+    autotools.autoreconf("-fiv")
     autotools.configure("--disable-static \
                          --disable-gtk-doc \
                          --enable-nautilus-extension=no")
