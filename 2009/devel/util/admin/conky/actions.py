@@ -16,11 +16,8 @@ def setup():
                          --disable-audacious \
                          --enable-mpd \
                          --disable-debug \
-                         --enable-smapi \
-                         --enable-wlan \
                          --enable-rss \
                          --enable-own-window \
-                         --enable-proc-uptime \
                          --enable-hddtemp \
                          --enable-imlib2 \
                          --enable-portmon \
@@ -38,7 +35,7 @@ def install():
     autotools.install()
 
     for data in ["doc/*.sample","extras/vim","extras/nano"]:
-        pisitools.insinto("/usr/share/doc/%s/examples/" % get.srcTAG(), data)
+        pisitools.insinto("/usr/share/doc/%s/examples/" % get.srcNAME(), data)
 
     pisitools.dohtml("doc/*.html")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
