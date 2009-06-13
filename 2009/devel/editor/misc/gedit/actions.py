@@ -9,10 +9,11 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.autoreconf("-fiv")
     autotools.configure("--disable-static\
+                         --enable-spell\
                          --disable-scrollkeeper\
-                         --disable-schemas-install\
-                         --disable-spell")
+                         --disable-schemas-install")
 
 def build():
     autotools.make()
@@ -20,4 +21,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("NEWS", "TODO", "README", "BUGS", "AUTHORS", "ChangeLog")
+    pisitools.dodoc("NEWS", "README", "AUTHORS", "ChangeLog")
