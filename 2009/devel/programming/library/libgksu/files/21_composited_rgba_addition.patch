@@ -1,6 +1,6 @@
-diff -Nur -x '*.orig' -x '*~' libgksu-2.0.5/libgksuui/gksuui-dialog.c libgksu-2.0.5.new/libgksuui/gksuui-dialog.c
---- libgksu-2.0.5/libgksuui/gksuui-dialog.c	2008-06-10 13:27:15.000000000 +0200
-+++ libgksu-2.0.5.new/libgksuui/gksuui-dialog.c	2008-06-10 13:31:00.000000000 +0200
+diff -Nur -x '*.orig' -x '*~' libgksu-2.0.7/libgksuui/gksuui-dialog.c libgksu-2.0.7.new/libgksuui/gksuui-dialog.c
+--- libgksu-2.0.7/libgksuui/gksuui-dialog.c	2008-05-09 19:39:54.000000000 +0200
++++ libgksu-2.0.7.new/libgksuui/gksuui-dialog.c	2008-10-17 14:15:36.000000000 +0200
 @@ -19,6 +19,7 @@
   */
  
@@ -220,7 +220,7 @@ diff -Nur -x '*.orig' -x '*~' libgksu-2.0.5/libgksuui/gksuui-dialog.c libgksu-2.
 +          for (i = 0; i < (gint) horz_kernel[0]; i++)
 +            {
 +              x = iX + offset;
-+              if (x >= 0 && x <= width)
++              if (x >= 0 && x < width)
 +                {
 +                  base_offset = iY * stride + x * channels;
 +
@@ -260,7 +260,7 @@ diff -Nur -x '*.orig' -x '*~' libgksu-2.0.5/libgksuui/gksuui-dialog.c libgksu-2.
 +          for (i = 0; i < (gint) vert_kernel[0]; i++)
 +            {
 +              y = iY + offset;
-+              if (y >= 0 && y <= height)
++              if (y >= 0 && y < height)
 +                {
 +                  base_offset = y * stride + iX * channels;
 +
@@ -473,9 +473,9 @@ diff -Nur -x '*.orig' -x '*~' libgksu-2.0.5/libgksuui/gksuui-dialog.c libgksu-2.
    gtk_box_set_spacing (GTK_BOX(gksuui_dialog->main_vbox), 12);
    gtk_window_set_resizable (GTK_WINDOW(gksuui_dialog), FALSE);
  
-diff -Nur -x '*.orig' -x '*~' libgksu-2.0.5/libgksuui/gksuui-dialog.h libgksu-2.0.5.new/libgksuui/gksuui-dialog.h
---- libgksu-2.0.5/libgksuui/gksuui-dialog.h	2008-06-10 13:26:57.000000000 +0200
-+++ libgksu-2.0.5.new/libgksuui/gksuui-dialog.h	2008-06-10 13:27:16.000000000 +0200
+diff -Nur -x '*.orig' -x '*~' libgksu-2.0.7/libgksuui/gksuui-dialog.h libgksu-2.0.7.new/libgksuui/gksuui-dialog.h
+--- libgksu-2.0.7/libgksuui/gksuui-dialog.h	2008-05-09 19:39:54.000000000 +0200
++++ libgksu-2.0.7.new/libgksuui/gksuui-dialog.h	2008-10-17 14:07:57.000000000 +0200
 @@ -72,7 +72,9 @@
    GtkWidget *prompt_label;
  
