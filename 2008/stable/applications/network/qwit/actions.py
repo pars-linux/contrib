@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
-WorkDir = "%s-src" % get.srcDIR()
+WorkDir = "%s-r149-src" % get.srcNAME()
 
 def setup():
     shelltools.system("lrelease-qt4 qwit.pro")
