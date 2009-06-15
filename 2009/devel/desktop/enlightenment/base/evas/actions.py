@@ -9,21 +9,17 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "evas_20090404"
-
 def setup():
-    shelltools.touch("README")
+    #shelltools.touch("README")
     autotools.autoreconf("-fi")
     autotools.configure("--enable-gl-x11 \
                          --enable-buffer \
                          --enable-software-x11 \
                          --enable-xrender-x11 \
-                         --enable-software-sdl \
                          --enable-fb \
                          --enable-directfb \
-                         --with-qtdir=%s \
                          --with-x \
-                         --disable-static" % get.qtDIR())
+                         --disable-static")
 
 def build():
     autotools.make()
