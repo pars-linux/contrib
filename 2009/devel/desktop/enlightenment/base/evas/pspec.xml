@@ -12,28 +12,45 @@
         <IsA>library</IsA>
         <Summary>Hardware-accelerated canvas API</Summary>
         <Description>Evas is a clean display canvas API for several target display systems that can draw anti-aliased text, smooth super and sub-sampled scaled images, alpha-blend objects much and more.</Description>
-        <Archive sha1sum="1b487824544c7cd5d9f76171e65f987ae209b0fd" type="tarbz2">ftp://ftp.sudrap.org/igungor/E17/20090404/evas_20090404.tar.bz2</Archive>
+        <Archive sha1sum="ef42d49139d5bb398e4b22ff162b409bde2d4fa1" type="tarbz2">http://download.enlightenment.org/snapshots/2009-06-14/evas-0.9.9.061.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
-            <Dependency versionFrom="1.1.0_20090404">eet</Dependency>
-            <Dependency versionFrom="1.1.1">DirectFB</Dependency>
+            <Dependency versionFrom="0.0.2.061">eina</Dependency>
+            <Dependency versionFrom="1.2.1">eet</Dependency>
             <Dependency>fontconfig</Dependency>
-            <Dependency>libXrender</Dependency>
+            <Dependency>fribidi</Dependency>
+
+            <!--svg loader dependencies-->
             <Dependency>librsvg</Dependency>
+            <Dependency>cairo</Dependency>
+
+            <!--GL, FB and X backend dependencies-->
+            <Dependency>DirectFB</Dependency>
+            <Dependency>mesa</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXrender</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>evas</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
-            <Dependency versionFrom="1.1.0_20090404">eet</Dependency>
-            <Dependency versionFrom="1.1.1">DirectFB</Dependency>
+            <Dependency versionFrom="0.0.2.061">eina</Dependency>
+            <Dependency versionFrom="1.2.1">eet</Dependency>
             <Dependency>fontconfig</Dependency>
-            <Dependency>libXrender</Dependency>
+            <Dependency>fribidi</Dependency>
+
+            <!--svg loader dependencies-->
             <Dependency>librsvg</Dependency>
+            <Dependency>cairo</Dependency>
+
+            <!--GL, FB and X backend dependencies-->
+            <Dependency>DirectFB</Dependency>
+            <Dependency>mesa</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXrender</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/lib/pkgconfig</Path>
@@ -42,6 +59,13 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2009-06-15</Date>
+            <Version>0.9.9.061</Version>
+            <Comment>New snapshot, overhaul dependencies.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2009-04-04</Date>
             <Version>0.9.9.050_20090404</Version>
