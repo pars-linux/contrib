@@ -13,7 +13,9 @@ WorkDir = "webkit-%s" % get.srcVERSION()
 def setup():
     autotools.configure("--enable-video \
                          --with-font-backend=pango \
-                         --with-unicode-backend=icu")
+                         --with-unicode-backend=icu \
+                         --enable-gnomekeyring \
+                         --enable-gtk-doc")
 
     pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
