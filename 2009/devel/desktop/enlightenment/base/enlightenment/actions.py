@@ -6,14 +6,15 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "e_20090404"
-
 def setup():
+    shelltools.export("AUTOPOINT", "/bin/true")
     autotools.autoreconf("-fi")
     autotools.configure("--disable-static \
                          --enable-nls \
+                         --enable-pam \
                          --disable-rpath \
                          --with-x")
 def build():
@@ -22,4 +23,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "BUGS", "COPYING", "README")
+    pisitools.dodoc("AUTHORS", "COPYING", "README")

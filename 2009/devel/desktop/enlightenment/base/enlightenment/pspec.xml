@@ -12,16 +12,18 @@
         <IsA>app:gui</IsA>
         <Summary>Enlightenment Desktop Shell</Summary>
         <Description>Enlightenment is a window manager for the X Window System that is designed to be powerful, extensible, configurable and pretty darned good looking! It is one of the more graphically intense window managers.</Description>
-        <Archive sha1sum="e189a8bcd08d605f5d6a2d3880775fc631ef5ae9" type="tarbz2">ftp://ftp.sudrap.org/igungor/E17/20090404/e_20090404.tar.bz2</Archive>
+        <Archive sha1sum="d1b30afcbc6064d42ccb68385659d847cf2cfe38" type="tarbz2">http://download.enlightenment.org/snapshots/2009-06-14/enlightenment-0.16.999.061.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
-            <Dependency versionFrom="1.1.0_20090404">eet</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">evas</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">edje</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">embryo</Dependency>
-            <Dependency versionFrom="0.5.0.050_20090404">efreet</Dependency>
-            <Dependency versionFrom="0.5.0.050_20090404">e_dbus</Dependency>
+            <Dependency versionFrom="0.0.2.061">eina</Dependency>
+            <Dependency versionFrom="1.2.1">eet</Dependency>
+            <Dependency versionFrom="0.9.9.061">evas</Dependency>
+            <Dependency versionFrom="0.9.9.061">ecore</Dependency>
+            <Dependency versionFrom="0.9.92.061">edje</Dependency>
+            <Dependency versionFrom="0.9.9.061">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.061">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.061">e_dbus</Dependency>
+
+            <Dependency>alsa-lib</Dependency>
         </BuildDependencies>
         <!--<Patches>-->
             <!--<Patch level="1">fileman-default.patch</Patch>-->
@@ -32,14 +34,16 @@
     <Package>
         <Name>enlightenment</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.0.1_20090404">eina</Dependency>
-            <Dependency versionFrom="1.1.0_20090404">eet</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">evas</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">ecore</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">edje</Dependency>
-            <Dependency versionFrom="0.9.9.050_20090404">embryo</Dependency>
-            <Dependency versionFrom="0.5.0.050_20090404">efreet</Dependency>
-            <Dependency versionFrom="0.5.0.050_20090404">e_dbus</Dependency>
+            <Dependency versionFrom="0.0.2.061">eina</Dependency>
+            <Dependency versionFrom="1.2.1">eet</Dependency>
+            <Dependency versionFrom="0.9.9.061">evas</Dependency>
+            <Dependency versionFrom="0.9.9.061">ecore</Dependency>
+            <Dependency versionFrom="0.9.92.061">edje</Dependency>
+            <Dependency versionFrom="0.9.9.061">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.061">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.061">e_dbus</Dependency>
+
+            <Dependency>alsa-lib</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -58,6 +62,13 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2009-06-15</Date>
+            <Version>0.16.999.061</Version>
+            <Comment>New snapshot, add alsa-lib dependency for mixer module.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2009-04-04</Date>
             <Version>0.16.999.050_20090404</Version>
