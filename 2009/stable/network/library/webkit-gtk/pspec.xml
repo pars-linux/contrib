@@ -8,7 +8,9 @@
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>LGPLv2</License>
+        <License>LGPLv2.1</License>
+        <License>BSD</License>
         <IsA>library</IsA>
         <Summary>An opensource web browser engine for GTK+ applications</Summary>
         <Description>The GTK+ port of WebKit is intended to provide a browser component primarily for users of the portable GTK+ UI toolkit on platforms like Linux.</Description>
@@ -16,11 +18,12 @@
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>gperf</Dependency>
+            <Dependency>gtk-doc</Dependency>
             <Dependency>icu4c</Dependency>
             <Dependency>libsoup</Dependency>
             <Dependency>gst-plugins-base</Dependency>
             <Dependency>enchant</Dependency>
-            <!-- <Dependency>gtk-doc</Dependency> -->
+            <Dependency>gnome-keyring</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -32,17 +35,44 @@
             <Dependency>libsoup</Dependency>
             <Dependency>gst-plugins-base</Dependency>
             <Dependency>enchant</Dependency>
+            <Dependency>gnome-keyring</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/libwebkit*</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>webkit-gtk-devel</Name>
+        <IsA>data:doc</IsA>
+        <Summary>Development files for GTK+ port of WebKit</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="7">webkit-gtk</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
-            <Path fileType="library">/usr/lib</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share</Path>
-        </Files>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc/webkit-gtk/JavaScriptCore</Path>
+            <Path fileType="doc">/usr/share/doc/webkit-gtk/Web*</Path>
+       </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-06-15</Date>
+            <Version>1.1.9</Version>
+            <Comment>
+                * Enable gnome-keyring support.
+                * Enable gtk-doc.
+                * Split package.
+                * Fix license information.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2009-06-11</Date>
             <Version>1.1.9</Version>
