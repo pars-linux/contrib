@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "efreet_20090404"
-
 def setup():
     autotools.autoreconf("-fi")
     autotools.configure("--disable-static")
@@ -20,4 +18,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "COPYING*", "README", "TODO", "NOTES")
+    pisitools.dodoc("AUTHORS", "COPYING*", "README", "TODO")
