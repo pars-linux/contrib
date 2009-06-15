@@ -6,14 +6,15 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir = "glade3-%s" % get.srcVERSION()
 
 def setup():
-    autotools.autoreconf("-fi")
-    autotools.configure("--enable-python \
-                         --enable-gtk-doc")
+    shelltools.system("./autogen.sh --enable-gtk-doc")
+    #autotools.configure("--enable-python \
+    #                     --enable-gtk-doc")
 
     pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
