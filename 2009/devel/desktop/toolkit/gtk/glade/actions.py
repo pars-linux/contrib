@@ -6,21 +6,20 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 WorkDir = "glade3-%s" % get.srcVERSION()
 
 def setup():
-    shelltools.system("./autogen.sh --prefix=/usr \
-                                    --enable-gtk-doc")
-
-    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
+    autotools.configure("--disable-static \
+                         --enable-gtk-doc")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=\"%s\"" % get.installDIR())
+    autotools.install()
+
+    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README", "TODO")
