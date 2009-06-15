@@ -6,10 +6,16 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+from os.path import exists
+
 WorkDir = "webkit-%s" % get.srcVERSION()
+
+paths = ["JavaScriptCore", "WebCore", "WebKit", "WebKitTools"]
+docs = ["AUTHORS", "ChangeLog", "COPYING.LIBS", "THANKS", \
+        "LICENSE-LGPL-2", "LICENSE-LGPL-2.1", "LICENSE"]
+
 def setup():
     autotools.configure("--enable-video \
                          --with-font-backend=pango \
@@ -25,4 +31,10 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("ChangeLog", "README", "WebKit/LICENSE")
+    for path in paths:
+        for doc in docs:
+            if exists("%s/%s" % (path, doc)):
+                pisitools.insinto("%s/%s/%s" % (get.docDIR(), get.srcNAME(), path),
+                                  "%s/%s" % (path, doc))
+
+    pisitools.dodoc("ChangeLog", "README")
