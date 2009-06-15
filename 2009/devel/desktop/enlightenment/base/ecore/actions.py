@@ -9,10 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "ecore_20090404"
-
 def setup():
-    shelltools.touch("README")
     autotools.autoreconf("-fi")
     autotools.configure("--disable-static \
                          --enable-ecore-txt \
@@ -22,7 +19,6 @@ def setup():
                          --enable-ecore-evas-software-x11 \
                          --enable-ecore-evas-xrender-x11 \
                          --enable-ecore-evas-opengl-x11 \
-                         --enable-ecore-software-sdl \
                          --enable-ecore-evas-opengl-glew \
                          --enable-ecore-con \
                          --enable-openssl \
@@ -33,6 +29,7 @@ def setup():
                          --enable-inotify \
                          --enable-poll \
                          --enable-curl \
+                         --disable-gnutls \
                          --with-x")
 
 def build():
