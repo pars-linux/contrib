@@ -12,9 +12,8 @@ from pisi.actionsapi import get
 WorkDir = "glade3-%s" % get.srcVERSION()
 
 def setup():
-    shelltools.system("./autogen.sh --enable-gtk-doc")
-    #autotools.configure("--enable-python \
-    #                     --enable-gtk-doc")
+    shelltools.system("./autogen.sh --prefix=/usr \
+                                    --enable-gtk-doc")
 
     pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
@@ -22,9 +21,6 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=\"%s\"" % get.installDIR())
 
-    pisitools.dosym("/usr/bin/glade-3", "/usr/bin/glade")
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-
-    pisitools.dodoc("AUTHORS","ChangeLog","COPYING*","NEWS","README","TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README", "TODO")

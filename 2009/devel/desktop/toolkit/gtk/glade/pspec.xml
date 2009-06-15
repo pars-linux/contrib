@@ -16,7 +16,6 @@
         <Archive sha1sum="e81e0fb6ad249e4259f41500143f76160cf18af4" type="tarbz2">mirrors://gnome/glade3/3.6/glade3-3.6.5.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency>pkgconfig</Dependency>
             <Dependency>libbonoboui</Dependency>
             <Dependency>libgnomeui</Dependency>
             <Dependency>pygtk</Dependency>
@@ -40,15 +39,25 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/glade3</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/gnome</Path>
-            <Path fileType="data">/usr/share/glade3</Path>
-            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>glade-devel</Name>
+        <IsA>data:doc</IsA>
+        <Summary>Glade development files</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="13">glade</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
         </Files>
     </Package>
 
@@ -56,8 +65,13 @@
         <Name>glade-docs</Name>
         <IsA>data:doc</IsA>
         <Summary>Glade reference documents</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="13">glade</Dependency>
+        </RuntimeDependencies>
         <Files>
-            <Path fileType="data">/usr/share/gtk-doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/omf</Path>
         </Files>
     </Package>
 
@@ -68,7 +82,8 @@
             <Comment>
                 * Version bump.
                 * Enable gtk-doc.
-                * Parsed package.
+                * Split package.
+                * Purge unused direct deps.
             </Comment>
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
