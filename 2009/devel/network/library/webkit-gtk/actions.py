@@ -6,9 +6,8 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
-
-from os.path import exists
 
 WorkDir = "webkit-%s" % get.srcVERSION()
 
@@ -33,7 +32,7 @@ def install():
 
     for path in paths:
         for doc in docs:
-            if exists("%s/%s" % (path, doc)):
+            if shelltools.isFile("%s/%s" % (path, doc)):
                 pisitools.insinto("%s/%s/%s" % (get.docDIR(), get.srcNAME(), path),
                                   "%s/%s" % (path, doc))
 
