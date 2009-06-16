@@ -1,0 +1,12 @@
+diff -Nuar gst-python-0.10.15.orig/gst/Makefile.in gst-python-0.10.15/gst/Makefile.in
+--- gst-python-0.10.15.orig/gst/Makefile.in	2009-05-11 02:00:49.000000000 +0300
++++ gst-python-0.10.15/gst/Makefile.in	2009-06-16 20:07:58.000000000 +0300
+@@ -388,7 +388,7 @@
+ top_srcdir = @top_srcdir@
+ common_cflags = $(PYGOBJECT_CFLAGS) $(GST_CFLAGS) $(GST_OPTION_CFLAGS) -fno-strict-aliasing
+ common_libadd = $(GST_LIBS) $(GST_OPTION_LIBS)
+-common_ldflags = -module -avoid-version
++common_ldflags = -module -avoid-version `python-config --libs`
+ 
+ # we install everything in pyexecdir; otherwise you end up with a mess for
+ # multilib
