@@ -18,6 +18,6 @@ def setup():
 
 def install():
     autotools.rawInstall("DESTDIR=\"%s\"" % get.installDIR())
-    pythonmodules.fixCompiledPy()
+    #pythonmodules.fixCompiledPy()
 
     pisitools.dodoc("AUTHORS","ChangeLog","COPYING","README","RELASE","TODO")
