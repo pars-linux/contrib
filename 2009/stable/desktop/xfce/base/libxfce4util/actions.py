@@ -8,7 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --enable-gtk-doc")
 
 def build():
     autotools.make()
@@ -17,4 +18,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("README", "NEWS", "TODO", "THANKS", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING", "NEWS", "README*", "THANKS", "TODO")
