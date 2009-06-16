@@ -10,10 +10,12 @@ from pisi.actionsapi import pisitools
 def setup():
     autotools.configure("--disable-static")
 
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
+
 def build():
     autotools.make()
 
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangLog", "README", "NEWS", "MAINTAINERS","COPYING")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README", "NEWS", "MAINTAINERS","COPYING")
