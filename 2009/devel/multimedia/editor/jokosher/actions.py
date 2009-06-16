@@ -12,7 +12,3 @@ def setup():
 
 def install():
     pythonmodules.install()
-
-    pisitools.removeDir("/usr/share/gnome")
-
-    pisitools.dodoc("AUTHORS", "COPYING", "README")
