@@ -16,50 +16,52 @@
         <Description>The Xfce4 panel supports multiple panels, with many options for their position, appearance, transparency and behavior. There are many items available by default to full fit a panel, like application launchers with detachable menus, a graphical pager, a tasklist, a clock, a system tray, a show / hide desktop switcher, and even more. It offers an easy way to add items using a dialog, and to move items accross different panels.</Description>
         <Archive sha1sum="613c66f6402feba7983a7effb008f091182350d2"  type="tarbz2">mirrors://xfce/xfce-4.6.1/src/xfce4-panel-4.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>libxfcegui4</Dependency>
-            <Dependency>exo</Dependency>
+            <Dependency>libxfce4util-devel</Dependency>
+            <Dependency>libxfcegui4-devel</Dependency>
+            <Dependency>exo-devel</Dependency>
             <Dependency>cairo</Dependency>
             <Dependency>libwnck</Dependency>
             <Dependency>startup-notification</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">xfce4-panel-4.6.1-fix-underlinking.patch</Patch>
+            <Patch level="1">fix-underlinking.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
-       <Name>xfce4-panel</Name>
-       <RuntimeDependencies>
-           <Dependency>libxfcegui4</Dependency>
-           <Dependency>exo</Dependency>
-           <Dependency>cairo</Dependency>
-           <Dependency>libwnck</Dependency>
-           <Dependency>startup-notification</Dependency>
-       </RuntimeDependencies>
-       <Files>
-           <Path fileType="executable">/usr/bin</Path>
-           <Path fileType="config">/etc</Path>
-           <Path fileType="header">/usr/include</Path>
-           <Path fileType="library">/usr/lib</Path>
-           <Path fileType="localedata">/usr/share/locale</Path>
-           <Path fileType="doc">/usr/share/doc</Path>
-           <Path fileType="data">/usr/share</Path>
-       </Files>
-       <!--<AdditionalFiles>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/panels.xml">panels.xml</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/xfce4-menu-1.rc">xfce4-menu-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/pager-1.rc">pager-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-1.rc">launcher-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/launcher-2.rc">launcher-2.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/datetime-1.rc">datetime-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/systray-1.rc">systray-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/tasklist-1.rc">tasklist-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/separator-1.rc">separator-1.rc</AdditionalFile>
-            <AdditionalFile owner="root" permission="0644" target="/etc/xdg/xfce4/panel/separator-2.rc">separator-2.rc</AdditionalFile>
-        </AdditionalFiles>-->
-        <Provides>
-            <COMAR script="package.py">System.Package</COMAR>
-        </Provides>
+        <Name>xfce4-panel</Name>
+        <RuntimeDependencies>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>exo</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libwnck</Dependency>
+            <Dependency>startup-notification</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/xfce4/doc</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>xfce4-panel-devel</Name>
+        <IsA>data:doc</IsA>
+        <Summary>Development files for Xfce4 Panel</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="11">xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
     </Package>
 
     <History>
