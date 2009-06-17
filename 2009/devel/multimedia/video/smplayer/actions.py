@@ -11,4 +11,4 @@ def build():
     autotools.make("QMAKE=qmake-qt4 LRELEASE=lrelease-qt4 PREFIX=/usr")
 
 def install():
-    autotools.rawInstall("PREFIX=/usr DESTDIR=%s DOC_PATH=/usr/share/doc/%s" % (get.installDIR(),get.srcTAG()))
+    autotools.rawInstall("QMAKE=qmake-qt4 LRELEASE=lrelease-qt4 PREFIX=/usr DESTDIR=%s DOC_PATH=/usr/share/doc/%s" % (get.installDIR(),get.srcTAG()))
