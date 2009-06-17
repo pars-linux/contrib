@@ -14,11 +14,13 @@
         <Description>Xfconf is a hirerchical (tree-like) configuration system for the Xfce graphical desktop environment.</Description>
         <Archive sha1sum="6df092942c5c5af5d65a58589fb85e29755a37ee" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/xfconf-4.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>libxfce4util</Dependency>
+            <Dependency>libxfce4util-devel</Dependency>
             <!-- For Perl Bindings -->
             <Dependency>perl-ExtUtils-Depends</Dependency>
             <Dependency>perl-ExtUtils-PkgConfig</Dependency>
             <Dependency>perl-Glib</Dependency>
+            <!-- For Building Docs -->
+            <Dependency>gtk-doc</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -32,20 +34,25 @@
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="executable">/usr/libexec</Path>
-            <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/dbus-1</Path>
         </Files>
     </Package>
 
     <Package>
-        <Name>xfconf-docs</Name>
+        <Name>xfconf-devel</Name>
         <IsA>data:doc</IsA>
-        <Summary>Xfconf reference documents</Summary>
+        <Summary>Xfconf development files</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="4">xfconf</Dependency>
+        </RuntimeDependencies>
         <Files>
-            <Path fileType="data">/usr/share/gtk-doc</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
         </Files>
     </Package>
 
@@ -56,6 +63,8 @@
             <Comment>
                 * Added Summary and IsA tags for xfconf-docs.
                 * Purged unused direct dependencies (ldd output).
+                * Split package.
+                * Enable gtk-doc.
             </Comment>
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
