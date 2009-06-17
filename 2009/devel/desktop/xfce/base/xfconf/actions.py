@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-perl-bindings")
+                         --enable-gtk-doc")
 
     pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
@@ -20,5 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # and add docs
-    pisitools.dodoc("NEWS", "README", "COPYING", "TODO", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
