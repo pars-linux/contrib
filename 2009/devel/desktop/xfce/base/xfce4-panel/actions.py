@@ -8,8 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--enable-startup-notification \
-                         --disable-gtk-doc ")
+    autotools.configure("--enable-gtk-doc")
 
     pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
@@ -19,10 +18,6 @@ def build():
 def install():
     autotools.install()
 
-    # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    # it's in xfdesktop package for default configuration
-    # pisitools.remove("/etc/xdg/xfce4/panel/panels.xml")
-
-    pisitools.dodoc("README*", "NEWS", "HACKING", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "HACKING", "NEWS", "README", "TODO")
