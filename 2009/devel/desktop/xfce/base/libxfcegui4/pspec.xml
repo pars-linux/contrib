@@ -19,7 +19,7 @@
             <Dependency>libglade</Dependency>
             <Dependency>gtk2</Dependency>
             <Dependency>gtk-doc</Dependency>
-            <!-- <Dependency>glade-devel</Dependency> -->
+            <Dependency>glade-devel</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">libxfcegui4-4.4.2-use-thunar.patch</Patch>
@@ -37,17 +37,40 @@
             <Dependency>gtk2</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="library">/usr/lib</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/icons</Path>
         </Files>
     </Package>
 
     <Package>
         <Name>libxfcegui4-devel</Name>
         <IsA>data:doc</IsA>
+        <Summary>Development files for libxfcegui4</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="11">libxfcegui4</Dependency>
+        </RuntimeDependencies>
         <Files>
             <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>glade-xfce</Name>
+        <Icon>glade-3</Icon>
+        <IsA>app:gui</IsA>
+        <PartOf>desktop.toolkit.gtk</PartOf>
+        <Summary>Xfce addons for Glade</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="11">libxfcegui4</Dependency>
+            <Dependency>glade</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/glade3</Path>
+            <Path fileType="data">/usr/share/glade3</Path>
         </Files>
     </Package>
 
@@ -61,6 +84,7 @@
                 * Purged unused direct dependencies (ldd output).
                 * Split package.
                 * Enable gtk-doc.
+                * Enable gladeui support.
             </Comment>
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
