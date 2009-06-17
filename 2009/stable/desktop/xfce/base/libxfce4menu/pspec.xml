@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>libxfce4menu</Name>
+        <Homepage>http://www.xfce.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>library</IsA>
+        <Summary>A compliant menu implementation for Xfce</Summary>
+        <Description>Libxfce4menu is a compliant menu library that is written for Xfce. It implements the Desktop Menu Specification version 1.0.</Description>
+        <Archive sha1sum="17348f661c04e8d8d633b8831638d38987269e9a" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/libxfce4menu-4.6.1.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxfce4util-devel</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>gtk-doc</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">libxfce4menu-4.6.1-fix-underlinking.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>libxfce4menu</Name>
+        <RuntimeDependencies>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libxfce4menu-devel</Name>
+        <IsA>data:doc</IsA>
+        <Summary>Development files for Libxfce4menu</Summary>
+        <RuntimeDependencies>
+            <Dependency versionFrom="3">libxfce4menu</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="3">
+            <Date>2009-06-05</Date>
+            <Version>4.6.1</Version>
+            <Comment>
+                * Version bump.
+                * Fix dependencies.
+                * Fix undefined symbols.
+                * Purge unused direct deps.
+                * Enable gtk-doc.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2009-03-01</Date>
+            <Version>4.6.0</Version>
+            <Comment>
+                * Stable version bump.
+                * Moved docs to libxfce4menu-docs.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-01-17</Date>
+            <Version>4.5.99.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
