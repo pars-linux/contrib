@@ -14,6 +14,7 @@ def setup():
     shelltools.sym("/bin/true", "%s/py-compile" % get.curDIR())
 
     autotools.configure("--disable-static \
+                         --enable-gtk-doc \
                          --enable-python")
 
     pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
@@ -24,4 +25,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("TODO", "THANKS", "README", "NEWS", "AUTHORS", "ChangeLog", "COPYING", "COPYING.LIB")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "HACKING", "NEWS", "README", "THANKS", "TODO")
