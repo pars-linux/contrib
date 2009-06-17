@@ -11,7 +11,9 @@ from pisi.actionsapi import get
 WorkDir="libgtkhtml-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure("--enable-static=no")
+    autotools.configure("--disable-static")
+
+    pisitools.dosed("libtool" " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
@@ -19,4 +21,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("README", "TODO", "NEWS", "AUTHORS", "ChangeLog")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING.LIB", "NEWS", "README", "TODO")
