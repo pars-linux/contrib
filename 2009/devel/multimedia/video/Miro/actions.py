@@ -4,12 +4,13 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/copyleft/gpl.txt.
 
-from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
-from pisi.actionsapi import pythonmodules
+from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
 
 WorkDir="Miro-2.0.4_svn"
+shelltools.export("HOME", "%s" % get.workDIR())
 
 def build():
     pisitools.dosed("platform/gtk-x11/setup.py", ".\/miro.real", "/usr/bin/miro.real")
