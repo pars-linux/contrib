@@ -10,11 +10,9 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-compositor \
                          --enable-xsync \
                          --enable-render \
-                         --enable-randr \
-                         --enable-startup-notification")
+                         --enable-randr")
 
 def build():
     autotools.make()
@@ -22,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COMPOSITOR", "COPYING", "NEWS", "README", "TODO")
