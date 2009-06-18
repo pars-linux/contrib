@@ -10,8 +10,6 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-gdm \
-                         --enable-dbus \
                          --with-browser=firefox \
                          --with-terminal=Terminal \
                          --with-vendor-info=Pardus")
@@ -22,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("README", "NEWS", "TODO", "AUTHORS", "ChangeLog")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
