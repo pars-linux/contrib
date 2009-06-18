@@ -9,13 +9,10 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--with-bdb4 \
-                         --disable-static \
+    autotools.configure("--disable-static \
                          --enable-reentrant \
-                         --enable-dbus \
-                         --enable-libnotify \
-                         --enable-archive \
-                         --disable-libxfce4mcs")
+                         --disable-libxfce4mcs \
+                         --with-bdb4")
 
 def build():
     autotools.make()
@@ -23,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
