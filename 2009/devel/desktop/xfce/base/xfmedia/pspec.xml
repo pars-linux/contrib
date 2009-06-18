@@ -14,25 +14,36 @@
         <Summary>Xfce media player</Summary>
         <Archive sha1sum="cb8d39f2a4ee6a6164f722162fa45004770a7605" type="tarbz2">http://spuriousinterrupt.org/files/xfmedia/xfmedia-0.9.2.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
-            <Dependency>exo</Dependency>
+            <Dependency>libxfce4util-devel</Dependency>
+            <Dependency>libxfcegui4-devel</Dependency>
+            <Dependency>exo-devel</Dependency>
             <Dependency>xine-lib</Dependency>
             <Dependency>startup-notification</Dependency>
             <Dependency>taglib</Dependency>
+            <Dependency>libXScrnSaver</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXtst</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">xfmedia-dbus-0.6-support.patch</Patch>
+            <Patch>03_fix_volume_steps.patch</Patch>
+            <Patch>04_permit-multiple-filenames-on-remote-Exec.patch</Patch>
+            <Patch>05_dont-lock-display.patch</Patch>
+            <Patch level="1">06_correct-desktop-file.patch</Patch>
+            <Patch>07_case-insensitive-add.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>xfmedia</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.3">libxfcegui4</Dependency>
+            <Dependency>libxfcegui4</Dependency>
             <Dependency>exo</Dependency>
             <Dependency>xine-lib</Dependency>
             <Dependency>startup-notification</Dependency>
             <Dependency>taglib</Dependency>
+            <Dependency>libXScrnSaver</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXtst</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -41,11 +52,21 @@
             <Path fileType="header">/usr/include</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-06-18</Date>
+            <Version>0.9.2</Version>
+            <Comment>
+                * Fix dependencies.
+                * Rewrite file paths with subdirs.
+                * Add Ubuntu patches.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-10-28</Date>
             <Version>0.9.2</Version>
