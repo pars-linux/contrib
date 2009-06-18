@@ -1,0 +1,30 @@
+commit f9c2ef09481fecdd79302c39fc4a86907bacd29f
+Author: Yves-Alexis Perez <corsac@debian.org>
+Date:   Tue Mar 17 07:54:10 2009 +0100
+
+    fix build with -Wl,--as-needed
+
+diff --git a/printing-systems/bsd-lpr/Makefile.in b/printing-systems/bsd-lpr/Makefile.in
+index aa2ec92..5c053a6 100644
+--- a/printing-systems/bsd-lpr/Makefile.in
++++ b/printing-systems/bsd-lpr/Makefile.in
+@@ -278,6 +278,7 @@ bsdlpr_plugin_la_LDFLAGS = \
+ 	-module
+ 
+ bsdlpr_plugin_la_LIBADD = \
++	$(top_builddir)/libxfprint/libxfprint.la                        \
+ 	@LIBXFCEGUI4_LIBS@                                              \
+ 	@GMODULE_LIBS@						
+ 
+diff --git a/printing-systems/cups/Makefile.in b/printing-systems/cups/Makefile.in
+index eab8bd9..fb97517 100644
+--- a/printing-systems/cups/Makefile.in
++++ b/printing-systems/cups/Makefile.in
+@@ -281,6 +281,7 @@ cups_plugin_la_LDFLAGS = \
+ 	-module
+ 
+ cups_plugin_la_LIBADD = \
++	$(top_builddir)/libxfprint/libxfprint.la                        \
+ 	@LIBXFCEGUI4_LIBS@                                              \
+ 	@GMODULE_LIBS@							\
+ 	@CUPS_LIBS@
