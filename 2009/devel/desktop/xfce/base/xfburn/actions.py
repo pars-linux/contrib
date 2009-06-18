@@ -8,16 +8,18 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --enable-final")
 
 def build():
     autotools.make()
 
 def install():
     autotools.install()
+
     pisitools.dosym("/usr/share/icons/hicolor/48x48/stock/media/stock_xfburn-burn-cd.png",
                     "/usr/share/pixmaps/xfburn.png")
 
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
