@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>squeeze</Name>
+        <Homepage>http://squeeze.xfce.org</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>squeeze</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Advanced archive manager for Xfce</Summary>
+        <Description>Squeeze is a modern and advanced archive manager for the Xfce Desktop Environments. Its design adheres to the Xfce philosophy, which basically means Squeeze is both fast and easy to use.</Description>
+        <Archive sha1sum="218f0e61e1d105f1f9aa898a56837f78ce65aaac" type="tarbz2">http://squeeze.xfce.org/downloads/squeeze-0.2.3.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>libxfce4util-devel</Dependency>
+            <Dependency>libxfcegui4-devel</Dependency>
+            <Dependency>exo-devel</Dependency>
+            <Dependency>Thunar-devel</Dependency>
+            <Dependency>gtk2</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">treeview-border.patch</Patch>
+            <Patch level="1">recent-documents.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>squeeze</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>Thunar</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/gtk-doc</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="6">
+            <Date>2009-06-18</Date>
+            <Version>0.2.3</Version>
+            <Comment>
+                * Cut down patches' names.
+                * Fix dependencies.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-06-08</Date>
+            <Version>0.2.3</Version>
+            <Comment>
+                * Fix dependencies.
+                * Add patches for cosmetic errors.
+                * Fix indents (pspec.xml).
+                * Purge unused direct deps.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-10-20</Date>
+            <Version>0.2.3</Version>
+            <Comment>Added icon tag.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-10-12</Date>
+            <Version>0.2.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="2">
+            <Date>2007-04-29</Date>
+            <Version>0.2.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-04-15</Date>
+            <Version>0.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
