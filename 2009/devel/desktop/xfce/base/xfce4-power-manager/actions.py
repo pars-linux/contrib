@@ -9,7 +9,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-dpms")
+    autotools.configure("--enable-dpms \
+                         --enable-xsltproc \
+                         --enable-xml2po")
 
 def build():
     autotools.make()
@@ -17,4 +19,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("README", "AUTHORS", "ChangeLog", "COPYING", "NEWS", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")

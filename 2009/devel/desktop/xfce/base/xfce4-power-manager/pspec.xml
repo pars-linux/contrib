@@ -15,19 +15,19 @@
         <Description>This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
         <Archive sha1sum="51012fdf09c3fbf94cf73489915f96838abb15e0" type="tarbz2">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.8.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>libxfcegui4</Dependency>
-            <Dependency>xfce4-panel</Dependency>
-            <Dependency>xfconf</Dependency>
+            <Dependency>libxfce4util-devel</Dependency>
+            <Dependency>xfconf-devel</Dependency>
+            <Dependency>libxfcegui4-devel</Dependency>
+            <Dependency>xfce4-panel-devel</Dependency>
             <Dependency>libnotify</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>xfce4-power-manager</Name>
         <RuntimeDependencies>
-            <Dependency>libxfcegui4</Dependency>
             <Dependency>xfce4-panel</Dependency>
-            <Dependency>xfconf</Dependency>
             <Dependency>libnotify</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -44,6 +44,16 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2009-06-18</Date>
+            <Version>0.8.0</Version>
+            <Comment>
+                * Fix dependencies.
+                * Enable xsltproc and xml2po.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2009-06-10</Date>
             <Version>0.8.0</Version>
