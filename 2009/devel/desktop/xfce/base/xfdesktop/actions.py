@@ -10,13 +10,8 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-desktop-icons \
-                         --enable-thunarx \
-                         --enable-file-icons \
-                         --enable-exo \
-                         --enable-desktop-menu \
-                         --enable-desktop-menu-dir-monitor \
-                         --enable-panel-plugin")
+                         --enable-xsltproc \
+                         --enable-xml2po")
 
     pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
@@ -26,4 +21,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
