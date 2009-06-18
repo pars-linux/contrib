@@ -10,8 +10,9 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-final \
                          --enable-gnome \
+                         --enable-libgnome-keyring \
+                         --enable-final \
                          --enable-session-screenshots \
                          --disable-legacy-sm")
 
@@ -23,4 +24,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("TODO", "README", "NEWS", "ChangeLog", "BUGS", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog*", "COPYING", "NEWS", "README", "TODO")
