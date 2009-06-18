@@ -1,26 +1,19 @@
-diff -Nuar launchy-2.1.2.orig/platforms/unix/platform_unix.cpp launchy-2.1.2/platforms/unix/platform_unix.cpp
---- launchy-2.1.2.orig/platforms/unix/platform_unix.cpp	2008-07-27 02:55:39.000000000 +0300
-+++ launchy-2.1.2/platforms/unix/platform_unix.cpp	2008-11-08 19:14:51.000000000 +0200
-@@ -53,7 +53,8 @@
+--- launchy-2.1.2/platforms/unix/platform_unix.cpp.orig	2009-06-18 21:32:19.000000000 +0300
++++ launchy-2.1.2/platforms/unix/platform_unix.cpp	2009-06-18 21:33:25.000000000 +0300
+@@ -52,13 +52,14 @@
+     QList<Directory> list;
      const char *dirs[] = { "/usr/share/applications/",
  			   "/usr/local/share/applications/",
- 			   "/usr/share/gdm/applications/",
--			   "/usr/share/applications/kde/",
-+			   "/usr/kde/3.5/share/applications/kde/",
-+			   "/usr/kde/4/share/applications/kde4/",
+-			   "/usr/share/gdm/applications/",
++			   "/usr/kde/3.5/share/applications/kde",
++			   "/usr/kde/4/share/applications/kde4",
+ 			   "/usr/share/applications/kde/",
  			   "~/.local/share/applications/"};
      QStringList l;
      l << "*.desktop";
-diff -Nuar launchy-2.1.2.orig/platforms/unix/platform_unix_util.cpp launchy-2.1.2/platforms/unix/platform_unix_util.cpp
---- launchy-2.1.2.orig/platforms/unix/platform_unix_util.cpp	2008-08-06 04:57:52.000000000 +0300
-+++ launchy-2.1.2/platforms/unix/platform_unix_util.cpp	2008-11-08 19:15:30.000000000 +0200
-@@ -265,7 +265,8 @@
- 	const char *dirs[] = { "/usr/share/applications/",
- 			       "/usr/local/share/applications/",
- 			       "/usr/share/gdm/applications/",
--			       "/usr/share/applications/kde/",
-+			       "/usr/kde/3.5/share/applications/kde/",
-+			       "/usr/kde/4/share/applications/kde4/",
- 			       "~/.local/share/applications/"};
- 	for(int i = 0; i < 5; i++) {
- 	    QString dir = dirs[i];
+     
+-    for(int i = 0; i < 5; i++)
++    for(int i = 0; i < 6; i++)
+ 	list.append(Directory(dirs[i],l,false,false,100));
+ 
+     list.append(Directory("~",QStringList(),true,false,0));

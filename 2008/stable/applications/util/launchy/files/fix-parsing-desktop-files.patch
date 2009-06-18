@@ -1,0 +1,116 @@
+diff -Nuar launchy-2.1.2.orig/platforms/unix/platform_unix.cpp launchy-2.1.2/platforms/unix/platform_unix.cpp
+--- launchy-2.1.2.orig/platforms/unix/platform_unix.cpp	2008-07-27 02:55:39.000000000 +0300
++++ launchy-2.1.2/platforms/unix/platform_unix.cpp	2009-06-05 21:22:40.000000000 +0300
+@@ -159,7 +159,8 @@
+ 	else if (line.startsWith("Icon", Qt::CaseInsensitive))
+ 	    icon = line.split("=")[1].trimmed();
+ 	else if (line.startsWith("Exec", Qt::CaseInsensitive))
+-	    exe = line.split("=")[1].trimmed();	
++		//exe = line.split("=")[1].trimmed();	
++	    exe = line.section('=', 1).trimmed();	
+     }
+     if (name.size() >= item->shortName.size() - 8) {
+ 	item->shortName = name;
+diff -Nuar launchy-2.1.2.orig/src/main.cpp launchy-2.1.2/src/main.cpp
+--- launchy-2.1.2.orig/src/main.cpp	2008-08-06 04:57:52.000000000 +0300
++++ launchy-2.1.2/src/main.cpp	2009-06-05 21:30:26.000000000 +0300
+@@ -301,8 +301,35 @@
+ 		if (inputData.count() > 1)
+ 			for(int i = 1; i < inputData.count(); ++i)
+ 				args += inputData[i].getText() + " ";
+-		if (!platform->Execute(res.fullPath, args))
+-			runProgram(res.fullPath, args);
++		if (!platform->Execute(res.fullPath, args)) {
++			#ifdef Q_WS_X11
++			if (res.fullPath.contains("%")) {
++				/*
++				* Here should be handled all codes
++				* from Desktop Entry Specification
++				* section The Exec key
++				* http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
++				*/
++				//qDebug() << "Short name: " << res.shortName << " Low name: " << res.lowName;
++				res.fullPath.replace("%u", args); // A single URL. Local files may either be passed as file: URLs or as file path.
++				res.fullPath.replace("%U", args); // A list of URLs. Each URL is passed as a separate argument to the executable program. Local files may either be passed as file: URLs or as file res.fullPath.
++				res.fullPath.replace("%f", args); // A single file name, even if multiple files are selected. The system reading the desktop entry should recognize that the program in question cannot handle multiple file arguments, and it should should probably spawn and execute multiple copies of a program for each selected file if the program is not able to handle additional file arguments. If files are not on the local file system (i.e. are on HTTP or FTP locations), the files will be copied to the local file system and %f will be expanded to point at the temporary file. Used for programs that do not understand the URL syntax.
++				res.fullPath.replace("%F", args); // A list of files. Use for apps that can open several local files at once. Each file is passed as a separate argument to the executable program.
++				//res.fullPath.replace("%i", res.icon); // The Icon key of the desktop entry expanded as two arguments, first --icon and then the value of the Icon key. Should not expand to any arguments if the Icon key is empty or missing.
++				res.fullPath.replace("%i", ""); // Above does not work. Programs have it in their .desktop files but do not accept this parameter
++				res.fullPath.replace("%c", res.shortName); // The translated name of the application as listed in the appropriate Name key in the desktop entry.
++				res.fullPath.replace("%k", ""); // We do not know it. This would have to be added when idexing item. The location of the desktop file as either a URI (if for example gotten from the vfolder system) or a local filename or empty if no location is known.
++				res.fullPath.replace("%d", ""); // Deprecated.
++				res.fullPath.replace("%D", ""); // Deprecated.
++				res.fullPath.replace("%n", ""); // Deprecated.
++				res.fullPath.replace("%N", ""); // Deprecated.
++				res.fullPath.replace("%v", ""); // Deprecated.
++				res.fullPath.replace("%m", ""); // Deprecated.*/
++				
++			} 
++			#endif
++ 			runProgram(res.fullPath, args);
++		}
+ 	}
+ 	else {
+ 		int ops = plugins.execute(&inputData, &res);
+diff -Nuar launchy-2.1.2.orig/src/plugin_interface.cpp launchy-2.1.2/src/plugin_interface.cpp
+--- launchy-2.1.2.orig/src/plugin_interface.cpp	2008-07-18 05:05:49.000000000 +0300
++++ launchy-2.1.2/src/plugin_interface.cpp	2009-06-05 21:32:39.000000000 +0300
+@@ -79,34 +79,24 @@
+     QStringList largs;
+     QFileInfo info(path);
+ 
+-
+-    if (path.contains("%")) {
+-	path.replace("%u", args);
+-	path.replace("%U", args);
+-	path.replace("%f", args);
+-	path.replace("%F", args);
+-	path.replace("%c", path.split(" ")[0]);
+-	path.replace("%k", path.split(" ")[0]);
+-	args = "";
+-    } 
+-
+     QString toRun = path + " " + args;
+     toRun = toRun.simplified();
+-    
+-
+-
+-
+-
+-
+ 
+     QString r;
+ 
+     //    r = "xdg-open \"" + path + "\" " + args + " 2>/dev/null || sh -c \"" + path + "\" " + args;
+ 
+-    r = "xdg-open \"" + path.trimmed() + "\" " + args.trimmed() + " 2>/dev/null || sh -c \"" + path.trimmed() + " "  + args + "\"";
++    //r = "xdg-open \"" + path.trimmed().replace('"', "\\\"") + "\" " + args.trimmed().replace('"', "\\\"") + " 2>/dev/null || sh -c \"" + path.trimmed().replace('"', "\\\"") + " "  + args.replace('"', "\\\"") + "\"";
+ 
++    // this is a hack to avoid errors when executing commands with parameters
++    if (path.contains(" "))
++      // it is a command with parameters. xdg-utils cannot handle commands with parameters :(
++      r = "sh -c \"" + path.trimmed().replace('"', "\\\"") + " "  + args.replace('"', "\\\"") + "\"";
++    else
++      r = "xdg-open \"" + path.trimmed().replace('"', "\\\"") + "\" " + args.trimmed().replace('"', "\\\"") + " 2>/dev/null";
+ 
+     //    qDebug() << r.simplified();
++	  // qDebug() << r;
+     QStringList ra;
+ 
+     ra += "-c";
+@@ -129,15 +119,6 @@
+ }
+ 
+ 
+-
+-
+-
+-
+-
+-
+-
+-
+-
+ /*
+ void runProgram(QString path, QString args) {
+     // My own launcher..
