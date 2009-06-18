@@ -10,7 +10,8 @@ from pisi.actionsapi import pisitools
 def setup():
     autotools.configure("--disable-static \
                          --enable-cups \
-                         --disable-letter")
+                         --disable-letter \
+                         --enable-gtk-doc")
 
     pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
@@ -22,4 +23,4 @@ def install():
 
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    pisitools.dodoc("README", "TODO", "NEWS", "AUTHORS", "ChangeLog")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
