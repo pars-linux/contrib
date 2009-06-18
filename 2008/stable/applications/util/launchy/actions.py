@@ -19,4 +19,3 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("LICENSE.txt", "[Rr]eadme.*")
-
