@@ -11,7 +11,8 @@ from pisi.actionsapi import get
 WorkDir = "xfce4-screenshooter-%s" % get.srcVERSION()
 
 def setup():
-    autotools.configure()
+    autotools.configure("--enable-xsltproc \
+                         --enable-xml2po")
 
 def build():
     autotools.make()
@@ -19,4 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("README", "AUTHORS", "ChangeLog", "COPYING")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
