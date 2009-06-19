@@ -10,17 +10,18 @@
         </Packager>
         <License>GPLv2</License>
         <IsA>app:gui</IsA>
-        <Summary>This plugin shows the date and time in the panel, and a calendar appears when you left-click on it.</Summary>
+        <Summary>Calendar plugin for Xfce4 panel</Summary>
+        <Description>This plugin shows the date and time in the panel, and a calendar appears when you left-click on it.</Description>
         <Archive sha1sum="7ad64f68787446e8daf5102fc0691bd8e4cc2fa6" type="tarbz2">http://goodies.xfce.org/releases/xfce4-datetime-plugin/xfce4-datetime-plugin-0.6.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+            <Dependency>xfce4-panel-devel</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>xfce4-datetime-plugin</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+            <Dependency>xfce4-panel</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="library">/usr/lib</Path>
@@ -31,6 +32,17 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-06-19</Date>
+            <Version>0.6.1</Version>
+            <Comment>
+                * Fix dependencies.
+                * Add description.
+                * Purge unused direct dependencies.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-12-10</Date>
             <Version>0.6.1</Version>
