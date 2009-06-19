@@ -6,15 +6,17 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir = "%s-%s" % (get.srcNAME(), get.srcVERSION().replace("_", "-"))
 
 def setup():
+    autotools.autoreconf("-vfi")
     autotools.configure("--with-x \
                          --disable-nm \
-                         --disable-webkit \
-                         --disable-gtkhtml2 \
-                         --with-gecko=libxul \
-                         --enable-gnutls \
                          --disable-schemas-install")
+
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
@@ -22,7 +24,6 @@ def build():
 def install():
     autotools.install()
 
-    # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
