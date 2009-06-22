@@ -12,21 +12,24 @@
         <IsA>library</IsA>
         <Summary>An advanced MilkDrop-compatible music visualization library</Summary>
         <Description>libprojectm is an iterative music visualization library which uses OpenGL for hardware acceleration. It is a reimplementation of Winamp visualization plug-in MilkDrop which uses 3D graphics hardware, combined with iterative image-based rendering techniques and compatible with MilkDrop presets.</Description>
-        <Archive sha1sum="34cfef93c480729389ef660e6124467fbb123f70" type="tarbz2">mirrors://sourceforge/projectm/libprojectM-1.1.tar.bz2</Archive>
+        <Archive sha1sum="e8264009e7c6c588e6f4f2e51a10498e0b1d07b7" type="tarbz2">mirrors://sourceforge/projectm/libprojectM-1.2.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="1.5.0">glew</Dependency>
-            <Dependency versionFrom="2.1.2">ftgl</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>ftgl</Dependency>
+            <Dependency>mesa</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>gcc43.patch</Patch>
+            <Patch level="1">ftgl.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>libprojectM</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="1.5.0">glew</Dependency>
-            <Dependency versionFrom="2.1.2">ftgl</Dependency>
+            <Dependency>glew</Dependency>
+            <Dependency>ftgl</Dependency>
+            <Dependency>mesa</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -38,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-06-22</Date>
+            <Version>1.2.0</Version>
+            <Comment>Stable bump, remove strict dependencies, add mesa dependency</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2008-05-31</Date>
             <Version>1.1</Version>
