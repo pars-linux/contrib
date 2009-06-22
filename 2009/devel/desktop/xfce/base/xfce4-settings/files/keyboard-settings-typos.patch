@@ -1,0 +1,21 @@
+diff -Naur xfce4-settings-4.6.1/dialogs/keyboard-settings/xfce-keyboard-settings.c xfce4-settings-4.6.1.tpg/dialogs/keyboard-settings/xfce-keyboard-settings.c
+--- xfce4-settings-4.6.1/dialogs/keyboard-settings/xfce-keyboard-settings.c	2009-03-02 17:48:00.000000000 +0000
++++ xfce4-settings-4.6.1.tpg/dialogs/keyboard-settings/xfce-keyboard-settings.c	2009-06-17 19:47:08.000000000 +0000
+@@ -322,7 +322,7 @@
+   xfconf_g_property_bind (settings->priv->keyboards_channel, "/Default/KeyRepeat/Rate", G_TYPE_INT, G_OBJECT (xkb_key_repeat_rate_scale), "value");
+ 
+   xkb_key_repeat_delay_scale = gtk_range_get_adjustment (GTK_RANGE (glade_xml_get_widget (settings->priv->glade_xml, "xkb_key_repeat_delay_scale")));
+-  xfconf_g_property_bind (settings->priv->keyboards_channel, "/DefaultKeyRepeat/Delay", G_TYPE_INT, G_OBJECT (xkb_key_repeat_delay_scale), "value");
++  xfconf_g_property_bind (settings->priv->keyboards_channel, "/Default/KeyRepeat/Delay", G_TYPE_INT, G_OBJECT (xkb_key_repeat_delay_scale), "value");
+ 
+   /* XSETTINGS */
+   net_cursor_blink_check = glade_xml_get_widget (settings->priv->glade_xml, "net_cursor_blink_check");
+@@ -331,7 +331,7 @@
+   xfconf_g_property_bind (settings->priv->xsettings_channel, "/Net/CursorBlink", G_TYPE_BOOLEAN, G_OBJECT (net_cursor_blink_check), "active");
+ 
+   net_cursor_blink_time_scale = gtk_range_get_adjustment (GTK_RANGE (glade_xml_get_widget (settings->priv->glade_xml, "net_cursor_blink_time_scale")));
+-  xfconf_g_property_bind (settings->priv->xsettings_channel, "/NetCursorBlinkTime", G_TYPE_INT, G_OBJECT (net_cursor_blink_time_scale), "value");
++  xfconf_g_property_bind (settings->priv->xsettings_channel, "/Net/CursorBlinkTime", G_TYPE_INT, G_OBJECT (net_cursor_blink_time_scale), "value");
+ 
+   /* Configure shortcuts tree view */
+   kbd_shortcuts_view = glade_xml_get_widget (settings->priv->glade_xml, "kbd_shortcuts_view");
