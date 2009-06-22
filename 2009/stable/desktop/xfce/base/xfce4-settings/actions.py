@@ -22,4 +22,7 @@ def build():
 def install():
     autotools.install()
 
+    # The xsettings.xml file should be in pardus-default-settings-xfce package.
+    pisitools.removeDir("/etc/xdg/xfce4")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
