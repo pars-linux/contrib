@@ -18,6 +18,10 @@ def setup():
                          --enable-pulse \
                          --enable-arts \
                          --with-artsc-prefix=%s \
+                         --disable-filewriter \
+                         --disable-filewriter_flac \
+                         --disable-filewriter_vorbis \
+                         --disable-filewriter_mp3 \
                          --disable-coreaudio \
                          --disable-gconf \
                          --disable-gnomeshortcuts \
