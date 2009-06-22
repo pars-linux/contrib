@@ -15,12 +15,12 @@ def setup():
                          --disable-schemas-install\
                          --enable-pixbuf\
                          --enable-impress")
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
     pisitools.dodoc("README", "TODO", "AUTHORS", "ChangeLog")
