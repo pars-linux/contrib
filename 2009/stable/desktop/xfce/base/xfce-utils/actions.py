@@ -20,4 +20,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    # X config files are already in pardus-default-settings-xfce
+    pisitools.removeDir("/etc/xdg/xfce4")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
