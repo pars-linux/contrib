@@ -21,6 +21,7 @@
         </BuildDependencies>
         <Patches>
             <Patch level="1">desktop.patch</Patch>
+            <Patch level="1">pdf_reader.patch</Patch>
         </Patches>
     </Source>
 
@@ -30,12 +31,14 @@
             <Dependency>wxGTK</Dependency>
             <Dependency>mesa</Dependency>
             <Dependency>boost</Dependency>
+            <Dependency>xdg-utils</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/usr/share/kicad</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/mime</Path>
             <Path fileType="data">/usr/share/mimelnk</Path>
             <Path fileType="data">/usr/share/icons</Path>
@@ -52,6 +55,7 @@
                 -Bump to latest svn snapshot, now using CMake
                 -Library and doc packages are seperated
                 -Remove redundant additional files, add all direct dependencies and Description
+                -Prefer xdg-open firstly for .pdf files
             </Comment>
             <Name>Mehmet Nur Olcay</Name>
             <Email>mnurolcay@gmail.com</Email>
