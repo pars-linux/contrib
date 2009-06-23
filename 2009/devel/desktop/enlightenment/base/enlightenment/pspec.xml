@@ -22,13 +22,15 @@
             <Dependency versionFrom="0.9.9.061">embryo</Dependency>
             <Dependency versionFrom="0.5.0.061">efreet</Dependency>
             <Dependency versionFrom="0.5.0.061">e_dbus</Dependency>
-
+            <!--mixer module's dependency-->
             <Dependency>alsa-lib</Dependency>
         </BuildDependencies>
-        <!--<Patches>-->
-            <!--<Patch level="1">fileman-default.patch</Patch>-->
-            <!--<Patch level="1">desktop-default.patch</Patch>-->
-        <!--</Patches>-->
+        <Patches>
+            <Patch level="1">fileman-default.patch</Patch>
+            <Patch level="1">desktop-default.patch</Patch>
+            <Patch level="1">tr-update.diff</Patch>
+            <Patch level="1">everything-module-fix-several-segvs.diff</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -42,7 +44,7 @@
             <Dependency versionFrom="0.9.9.061">embryo</Dependency>
             <Dependency versionFrom="0.5.0.061">efreet</Dependency>
             <Dependency versionFrom="0.5.0.061">e_dbus</Dependency>
-
+            <!--mixer module's dependency-->
             <Dependency>alsa-lib</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -63,9 +65,9 @@
 
     <History>
         <Update release="12">
-            <Date>2009-06-15</Date>
+            <Date>2009-06-23</Date>
             <Version>0.16.999.061</Version>
-            <Comment>New snapshot, add alsa-lib dependency for mixer module.</Comment>
+            <Comment>New snapshot, add alsa-lib dependency for mixer module, fix several segfaults in everything module, update Turkish translation.</Comment>
             <Name>H. İbrahim Güngör</Name>
             <Email>h.ibrahim.gungor@gmail.com</Email>
         </Update>

@@ -10,12 +10,14 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.export("AUTOPOINT", "/bin/true")
     autotools.autoreconf("-fi")
+    #battery and temp module has issues with 2.6.30 kernel like random locks or crashes
     autotools.configure("--disable-static \
                          --enable-nls \
                          --enable-pam \
                          --disable-rpath \
+                         --disable-battery \
+                         --disable-temperature \
                          --with-x")
 def build():
     autotools.make()
