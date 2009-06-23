@@ -20,4 +20,6 @@ def build():
 def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    pisitools.insinto("/usr/share/pixmaps", "bitmaps/icon_eeschema.xpm", "eeschema.xpm")
+
     pisitools.dodoc("AUTHORS.txt", "CHANGELOG*", "TODO.txt", "version.txt")
