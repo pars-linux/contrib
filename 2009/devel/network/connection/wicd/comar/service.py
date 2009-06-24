@@ -1,16 +1,16 @@
+from comar.service import *
+
 serviceType = "local"
 serviceDesc = _({
     "en": "Wicd Connection Manager",
     "tr": "Wicd Ağ Yöneticisi"})
-serviceConf = "wicd"
-serviceDefault = "on"
 
-from comar.service import *
+serviceDefault = "on"
 
 @synchronized
 def start():
     loadEnvironment()
-    startService(command="/usr/lib/wicd/wicd-daemon.py",
+    startService(command="/usr/sbin/wicd",
                  pidfile="/var/run/wicd/wicd.pid",
                  donotify=True)
 
