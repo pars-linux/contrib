@@ -21,4 +21,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    pisitools.domo("po/tr.po", "tr", "enlightenment.mo")
+
     pisitools.dodoc("AUTHORS", "COPYING", "README")
