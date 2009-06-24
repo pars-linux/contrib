@@ -12,7 +12,8 @@ WorkDir = "%s-%s" % (get.srcNAME(), get.srcVERSION().replace("_", "-"))
 
 def setup():
     autotools.autoreconf("-vfi")
-    autotools.configure("--disable-nm \
+    autotools.configure("--with-x \
+                         --disable-nm \
                          --disable-schemas-install")
 
     pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
