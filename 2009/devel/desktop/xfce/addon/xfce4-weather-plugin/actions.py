@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--with-x")
+    autotools.configure("--disable-static")
 
 def build():
     autotools.make()
@@ -19,6 +19,4 @@ def install():
 
     pisitools.dosym("/usr/share/xfce4/weather/icons/liquid/0.png", "/usr/share/pixmaps/xfce4-weather.png")
 
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
-
-    pisitools.dodoc("NEWS", "TODO", "AUTHORS", "ChangeLog")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
