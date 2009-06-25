@@ -20,5 +20,4 @@ def install():
 
     pisitools.dosym("/usr/share/icons/hicolor/48x48/apps/xfce-radio.png", "/usr/share/pixmaps/xfce-radio.png")
 
-    pisitools.dodoc("README", "COPYING", "NEWS", "ChangeLog")
-
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
