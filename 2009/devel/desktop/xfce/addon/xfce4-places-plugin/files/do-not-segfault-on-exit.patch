@@ -1,0 +1,62 @@
+diff -Naur xfce4-places-plugin-1.1.0/panel-plugin/button.c xfce4-places-plugin-1.1.0.tpg/panel-plugin/button.c
+--- xfce4-places-plugin-1.1.0/panel-plugin/button.c	2008-06-07 18:01:09.000000000 +0000
++++ xfce4-places-plugin-1.1.0.tpg/panel-plugin/button.c	2008-11-23 18:38:58.000000000 +0000
+@@ -262,9 +262,9 @@
+     g_signal_connect(G_OBJECT(plugin), "size-changed",
+                      G_CALLBACK(places_button_size_changed), self);
+ 
+-    g_signal_connect(G_OBJECT(self), "style-set",
++    self->style_set_id = g_signal_connect(G_OBJECT(self), "style-set",
+                      G_CALLBACK(places_button_theme_changed), NULL);
+-    g_signal_connect(G_OBJECT(self), "screen-changed",
++    self->screen_changed_id = g_signal_connect(G_OBJECT(self), "screen-changed",
+                      G_CALLBACK(places_button_theme_changed), NULL);
+ 
+ }
+@@ -288,6 +288,16 @@
+ {
+     PlacesButton *self = PLACES_BUTTON(object);
+ 
++    if (self->style_set_id != 0) {
++        g_signal_handler_disconnect(self, self->style_set_id);
++        self->style_set_id = 0;
++    }
++
++    if (self->screen_changed_id != 0) {
++        g_signal_handler_disconnect(self, self->screen_changed_id);
++        self->screen_changed_id = 0;
++    }
++
+     if (self->plugin != NULL) {
+         g_object_unref(self->plugin);
+         self->plugin = NULL;
+@@ -393,6 +403,9 @@
+     gint button_width, button_height;
+     gint box_width,    box_height;
+ 
++    if (self->plugin == NULL)
++        return;
++
+     new_size = xfce_panel_plugin_get_size(self->plugin);
+     self->plugin_size = new_size;
+     DBG("Panel size: %d", new_size);
+@@ -440,7 +453,6 @@
+             total_height += label_height;
+         }
+     }
+-
+     /* at this point, total width and height reflect just image and label */
+     /* now, add on the button and box overhead */
+     total_width  += button_width;
+diff -Naur xfce4-places-plugin-1.1.0/panel-plugin/button.h xfce4-places-plugin-1.1.0.tpg/panel-plugin/button.h
+--- xfce4-places-plugin-1.1.0/panel-plugin/button.h	2008-06-07 18:01:09.000000000 +0000
++++ xfce4-places-plugin-1.1.0.tpg/panel-plugin/button.h	2008-11-23 18:38:58.000000000 +0000
+@@ -51,6 +51,8 @@
+     gchar *label_text;
+     places_button_image_pixbuf_factory *pixbuf_factory;
+     gint plugin_size;
++    gulong style_set_id;
++    gulong screen_changed_id;
+ };
+ 
+ struct _PlacesButtonClass
