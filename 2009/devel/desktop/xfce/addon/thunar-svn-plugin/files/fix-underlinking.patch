@@ -1,0 +1,16 @@
+diff -Nuar thunar-svn-plugin-0.0.3.orig/thunar-svn-plugin/Makefile.in thunar-svn-plugin-0.0.3/thunar-svn-plugin/Makefile.in
+--- thunar-svn-plugin-0.0.3.orig/thunar-svn-plugin/Makefile.in	2009-06-25 21:53:57.000000000 +0300
++++ thunar-svn-plugin-0.0.3/thunar-svn-plugin/Makefile.in	2009-06-25 22:23:46.000000000 +0300
+@@ -280,6 +280,12 @@
+ 	$(THUNAR_VFS_LDFLAGS)						\
+ 	$(APR_LDFLAGS)
+ 
++thunar_svn_plugin_la_LIBADD = \
++	$(GLIB_LIBS) \
++	$(THUNARX_LIBS) \
++	$(THUNAR_VFS_LIBS) \
++	$(APR_LIBS)
++
+ all: all-am
+ 
+ .SUFFIXES:

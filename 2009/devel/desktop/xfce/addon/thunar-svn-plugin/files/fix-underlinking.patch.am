@@ -1,0 +1,13 @@
+--- thunar-svn-plugin-0.0.3/thunar-svn-plugin/Makefile.am.orig	2009-06-25 22:53:47.000000000 +0300
++++ thunar-svn-plugin-0.0.3/thunar-svn-plugin/Makefile.am	2009-06-25 22:55:05.000000000 +0300
+@@ -39,4 +39,10 @@
+ 	$(THUNAR_VFS_LDFLAGS)						\
+ 	$(APR_LDFLAGS)
+ 
++thunar_svn_plugin_la_LIBADD = \
++	$(GLIB_LIBS) \
++	$(THUNARX_LIBS) \
++	$(THUNAR_VFS_LIBS) \
++	$(APR_LIBS)
++
+ # vi:set ts=8 sw=8 noet ai nocindent:
