@@ -9,18 +9,20 @@
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>xfce4-panel</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Command line plugin for Xfce4 Panel</Summary>
+        <Summary>Xfce4 command line plugin</Summary>
+        <Description>Verve plugin is a mini command line plugin for Xfce4 panel.</Description>
         <Archive sha1sum="e9f6d6e90a21895d63f8c346f08cdc4232b56038" type="tarbz2">http://goodies.xfce.org/releases/xfce4-verve-plugin/xfce4-verve-plugin-0.3.6.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+            <Dependency>xfce4-panel-devel</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>xfce4-verve-plugin</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.4.3">xfce4-panel</Dependency>
+            <Dependency>xfce4-panel</Dependency>
         </RuntimeDependencies>
         <Replaces>
             <Package>verve-plugin</Package>
@@ -29,13 +31,26 @@
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/libexec</Path>
             <Path fileType="data">/usr/share/xfce4</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-06-25</Date>
+            <Version>0.3.6</Version>
+            <Comment>
+                * Add icon.
+                * Fix dependency.
+                * Add description.
+                * Fix translations.xml.
+                * Enable final.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-12-10</Date>
             <Version>0.3.6</Version>
