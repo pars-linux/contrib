@@ -1,0 +1,12 @@
+diff -Naur xfce4-places-plugin-1.1.0/panel-plugin/xfce4-popup-places.c xfce4-places-plugin-1.1.0.tpg/panel-plugin/xfce4-popup-places.c
+--- xfce4-places-plugin-1.1.0/panel-plugin/xfce4-popup-places.c	2008-06-07 18:01:09.000000000 +0000
++++ xfce4-places-plugin-1.1.0.tpg/panel-plugin/xfce4-popup-places.c	2009-03-08 22:13:22.000000000 +0000
+@@ -75,7 +75,7 @@
+     gev.send_event        = TRUE;
+     gev.message_type      = gdk_atom_intern ("STRING", FALSE);
+     gev.data_format       = 8;
+-    g_snprintf (gev.data.b, sizeof (gev.data.b), message);
++    g_snprintf (gev.data.b, sizeof (gev.data.b), message, "%s");
+ 
+     if (plugin_check_is_running (win, &id))
+         gdk_event_send_client_message ((GdkEvent *)&gev, (GdkNativeWindow)id);
