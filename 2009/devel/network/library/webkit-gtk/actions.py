@@ -16,9 +16,15 @@ docs = ["AUTHORS", "ChangeLog", "COPYING.LIBS", "THANKS", \
         "LICENSE-LGPL-2", "LICENSE-LGPL-2.1", "LICENSE"]
 
 def setup():
+    shelltools.export("CFLAGS", get.CFLAGS().replace("-g3", "-g"))
+    shelltools.export("CXXFLAGS", get.CXXFLAGS().replace("-g3", "-g"))
+
+    pisitools.dosed("configure", "-O2", "")
+
     autotools.configure("--enable-video \
                          --with-font-backend=pango \
                          --with-unicode-backend=icu \
+                         --enable-filters \
                          --enable-gnomekeyring \
                          --enable-gtk-doc")
 
