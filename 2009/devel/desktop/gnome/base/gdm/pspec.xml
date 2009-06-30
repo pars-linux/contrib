@@ -22,6 +22,7 @@
             <Dependency>libart_lgpl</Dependency>
             <Dependency>glitz</Dependency>
             <Dependency>tcp-wrappers</Dependency>
+            <Dependency>xorg-server-xephyr</Dependency>
             <Dependency>docbook-xml4_1_2</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
         </BuildDependencies>
@@ -30,7 +31,6 @@
             <Patch>gdm-autologin-with-pam.patch</Patch>
             <Patch>login-settings.patch</Patch>
             <Patch>pardus-menus.patch</Patch>
-            <Patch>remove-unsupported-languages.patch</Patch>
             <Patch level="1">xterm-size.patch</Patch>
         </Patches>
     </Source>
@@ -46,12 +46,14 @@
             <Dependency>libart_lgpl</Dependency>
             <Dependency>glitz</Dependency>
             <Dependency>tcp-wrappers</Dependency>
+            <Dependency>xorg-server-xephyr</Dependency>
             <Dependency>xdg-utils</Dependency>
             <Dependency>xterm</Dependency>
-            <Dependency>jimmac-xcursor</Dependency>
+            <Dependency>xinit</Dependency>
+            <Dependency>pardus-default-settings</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="config">/etc/gdm</Path>
+            <Path fileType="config">/etc/X11/gdm</Path>
             <Path fileType="config">/etc/pam.d</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="executable">/usr/sbin</Path>
@@ -77,6 +79,16 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-06-30</Date>
+            <Version>2.20.10</Version>
+            <Comment>
+                - Add xsm and xephyr support
+                - Change gdm sysconfdir from /etc to /etc/X11
+            </Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2009-06-09</Date>
             <Version>2.20.10</Version>
