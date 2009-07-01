@@ -10,7 +10,9 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.autoreconf("-fiv")
-    autotools.configure("--disable-scrollkeeper\
+    autotools.configure("--sysconfdir=/etc/X11/ \
+                         --with-pam-prefix=/etc \
+                         --disable-scrollkeeper \
                          --disable-static")
 
 def build():
@@ -23,10 +25,14 @@ def install():
 
     pisitools.domove("/usr/share/gdm/applications/","/usr/share")
 
-    remove = ["/usr/sbin/gdm","/usr/sbin/gdm-restart","/usr/sbin/gdm-safe-restart","/usr/sbin/gdm-stop",
-              "/usr/share/gdm/BuiltInSessions/*","/usr/share/xsessions/gnome.desktop",
-              "/usr/share/applications/gdmflexiserver.desktop"]
+    remove = ["/usr/sbin/gdm","/usr/sbin/gdm-restart","/usr/sbin/gdm-safe-restart",
+              "/usr/sbin/gdm-stop", "/usr/share/applications/gdmflexiserver.desktop",
+              "/usr/share/gdm/BuiltInSessions/*"]
     for r in remove:
         pisitools.remove(r)
+    pisitools.removeDir("/usr/share/xsessions")
+
+    pisitools.remove("/etc/X11/gdm/Xsession")
+    pisitools.dosym("/usr/lib/X11/xinit/Xsession", "/etc/X11/gdm/Xsession")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README")
