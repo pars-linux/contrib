@@ -26,7 +26,8 @@ def install():
     pisitools.domove("/usr/share/gdm/applications/","/usr/share")
 
     remove = ["/usr/sbin/gdm","/usr/sbin/gdm-restart","/usr/sbin/gdm-safe-restart",
-              "/usr/sbin/gdm-stop", "/usr/share/applications/gdmflexiserver.desktop"]
+              "/usr/sbin/gdm-stop", "/usr/share/applications/gdmflexiserver.desktop",
+              "/usr/share/gdm/BuiltInSessions/*"]
     for r in remove:
         pisitools.remove(r)
     pisitools.removeDir("/usr/share/xsessions")
