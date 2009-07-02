@@ -13,11 +13,8 @@
         <IsA>app:gui</IsA>
         <Summary>A power manager dedicated for Xfce desktop environment</Summary>
         <Description>This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
-        <Archive sha1sum="51012fdf09c3fbf94cf73489915f96838abb15e0" type="tarbz2">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.8.0.tar.bz2</Archive>
+        <Archive sha1sum="6113a2b2113a24296f6f78ed86f279810b124e25" type="tarbz2">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.8.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>libxfce4util-devel</Dependency>
-            <Dependency>xfconf-devel</Dependency>
-            <Dependency>libxfcegui4-devel</Dependency>
             <Dependency>xfce4-panel-devel</Dependency>
             <Dependency>libnotify</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
@@ -37,13 +34,29 @@
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/icons</Path>
-            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/xfce4*</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-07-02</Date>
+            <Version>0.8.1</Version>
+            <Comment>
+                * Version bump:
+                    - Remove libglade dependency and use GtkBuilder instead.
+                    - Add lock screen option on lid event.
+                    - Use generic value for storing and retrieving configuration instead of individual variables.
+                    - Don't allow brightness timeout to be less than DPMS sleep timeout.
+                    - Change the brightness popup indicator style.
+                    - Translation updates.
+                * Remove unnecessary buildtime dependencies.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-06-18</Date>
             <Version>0.8.0</Version>
