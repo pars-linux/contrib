@@ -13,9 +13,6 @@ WorkDir = "sidplay-%s" % get.srcVERSION()
 
 def setup():
     shelltools.export("CXXFLAGS", "%s -D_GNU_SOURCE" % get.CXXFLAGS())
-    shelltools.export("CFLAGS", get.CFLAGS())
-
-    autotools.autoreconf("-fi")
 
     autotools.configure()
 
