@@ -1,0 +1,111 @@
+Index: src/notify.py
+===================================================================
+--- src/notify.py
++++ src/notify.py	2009-04-15 00:47:12.000000000 +0200
+@@ -496,17 +496,42 @@
+ 					'chat_msg_recv.png')) # img to display
+ 			ntype = 'im' # Notification Type
+ 
+-		self.notif = dbus_support.get_notifications_interface()
++		self.notif = dbus_support.get_notifications_interface(self)
+ 		if self.notif is None:
+ 			raise dbus.DBusException('unable to get notifications interface')
+ 		self.ntype = ntype
+ 
+-		self.get_version()
++		if self.kde_notifications:
++			self.attempt_notify()
++		else:
++			self.get_version()
+ 
+ 	def attempt_notify(self):
+-		version = self.version
+ 		timeout = gajim.config.get('notification_timeout') # in seconds
+ 		ntype = self.ntype
++		if self.kde_notifications:
++			notification_text = '<html><img src="%(image)s" align=left />' + \
++				'%(title)s<br/>%(text)s</html>' % {'title': self.title,
++				'text': self.text, 'image': self.path_to_image}
++			gajim_icon = os.path.abspath(os.path.join(gajim.DATA_DIR, 'pixmaps',
++				'gajim.png'))
++			self.notif.Notify(
++				dbus.String(_('Gajim')),			# app_name (string)
++				dbus.UInt32(0),						# replaces_id (uint)
++				ntype,									# event_id (string)
++				dbus.String(gajim_icon),			# app_icon (string)
++				dbus.String(_('')),					# summary (string)
++				dbus.String(notification_text),	# body (string)
++				# actions (stringlist)
++				(dbus.String('default'), dbus.String(self.event_type),
++					dbus.String('ignore'), dbus.String(_('Ignore'))),
++				[],										# hints (not used in KDE yet)
++				dbus.UInt32(timeout*1000),			# timeout (int), in ms
++				reply_handler=self.attach_by_id,
++				error_handler=self.notify_another_way)
++			return
++		version = self.version
++
+ 		if version[:2] == [0, 2]:
+ 			try:
+ 				self.notif.Notify(
+@@ -584,6 +609,9 @@
+ 		self.notif.CloseNotification(dbus.UInt32(id_))
+ 		self.notif = None
+ 
++		if reason == 'ignore':
++			return
++
+ 		gajim.interface.handle_event(self.account, self.jid, self.msg_type)
+ 
+ 	def version_reply_handler(self, name, vendor, version, spec_version=None):
+Index: src/common/dbus_support.py
+===================================================================
+--- src/common/dbus_support.py
++++ src/common/dbus_support.py	2009-04-15 00:49:25.000000000 +0200
+@@ -111,7 +111,7 @@
+ 
+ session_bus = SessionBus()
+ 
+-def get_interface(interface, path):
++def get_interface(interface, path, start_service=True):
+ 	'''Returns an interface on the current SessionBus. If the interface isn\'t 
+ 	running, it tries to start it first.'''
+ 	if not supported:
+@@ -127,7 +127,7 @@
+ 		started = True
+ 		if interface not in running_services:
+ 			# try to start the service
+-			if dbus_iface.StartServiceByName(interface, dbus.UInt32(0)) == 1:
++			if start_service and dbus_iface.StartServiceByName(interface, dbus.UInt32(0)) == 1:
+ 				started = True
+ 			else:
+ 				started = False
+@@ -140,10 +140,24 @@
+ 		return None
+ 
+ 
+-def get_notifications_interface():
+-	'''Returns the notifications interface.'''
+-	return get_interface('org.freedesktop.Notifications',
+-		'/org/freedesktop/Notifications')
++def get_notifications_interface(notif=None):
++	'''Returns the notifications interface.
++
++	:param notif: DesktopNotification instance'''
++	# try to see if KDE notifications are available
++	iface = get_interface('org.kde.VisualNotifications', '/VisualNotifications',
++		start_service=False)
++	if iface != None:
++		if notif != None:
++			notif.kde_notifications = True
++		return iface
++	# KDE notifications don't seem to be available, falling back to
++	# notification-daemon
++	else:
++		if notif != None:
++			notif.kde_notifications = False
++		return get_interface('org.freedesktop.Notifications',
++			'/org/freedesktop/Notifications')
+ 
+ if supported:
+ 	class MissingArgument(dbus.DBusException):
