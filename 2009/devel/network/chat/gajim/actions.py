@@ -8,7 +8,10 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--with-x")
+    autotools.autoreconf()
+    autotools.configure()
+
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
@@ -16,4 +19,5 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "README*", "THANKS")
+    pisitools.dohtml("README.html")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "THANK*")
