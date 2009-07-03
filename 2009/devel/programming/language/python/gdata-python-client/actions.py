@@ -9,7 +9,7 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="gdata.py-%s" % get.srcVERSION()
+WorkDir="gdata-%s" % get.srcVERSION()
 
 def install():
     pythonmodules.install()
