@@ -4,10 +4,11 @@
 import os
 
 def postInstall(fromVersion, fromRelease, toVersion, toRelease):
-    for d in ["/var/lib/mpd", "/var/lib/mpd/playlists", "/var/log/mpd", "/var/run/mpd"]:
+    for d in ["/var/lib/mpd", "/var/lib/mpd/playlists", "/var/log/mpd", "/var/run/mpd", "/var/db/mpd", "/var/state/mpd"]:
         if not os.path.exists(d):
             os.mkdir(d)
             # $ id nobody
-            # uid=65534(nobody) gid=65534(nobody) gruplar=65534(nobody)
-            os.chown(d, 65534, 65534)
+            # uid=250(mpd) gid=18(audio)
+            os.chown(d, 250, 18)
+            os.chmod(d, 0750)
 

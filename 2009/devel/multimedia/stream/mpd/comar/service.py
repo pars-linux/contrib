@@ -9,26 +9,17 @@ from comar.service import *
 import re
 import os
 
+pidfile = "/var/run/mpd/mpd.pid"
+
 @synchronized
 def start():
-    conf = open("/etc/mpd.conf")
-
-    # control if music_directory has been correctly set
-    for line in conf.readlines():
-        if line.startswith("music_directory"):
-            regex = re.compile('"(.*?)"')
-            music_dir = regex.search(line).groups()[0]
-
-            if not os.path.exists(music_dir):
-                fail('Music directory "%s" doesn\'t exist, please edit your /etc/mpd.conf and set a valid directory' % music_dir)
-
-    conf.close()
-
-    startService(command="/usr/bin/mpd", donotify=True)
+    startService(command="/usr/bin/mpd",
+                 donotify=True)
 
 @synchronized
 def stop():
-    stopService(command="/usr/bin/mpd", args="--kill", donotify=True)
+    stopService(pidfile,
+                donotify=True)
 
 def status():
-    return isServiceRunning("/var/run/mpd/mpd.pid")
+    return isServiceRunning(pidfile)
