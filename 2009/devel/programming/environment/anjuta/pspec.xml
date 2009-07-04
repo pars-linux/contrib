@@ -12,38 +12,25 @@
         <Icon>anjuta</Icon>
         <IsA>app:gui</IsA>
         <Summary>Versatile Integrated Development Environment (IDE) for C and C++ on GNU/Linux</Summary>
-        <Archive sha1sum="bcbab37d362f36bf1811bcd5c62c26c4fd31ec3e" type="tarbz2">mirrors://gnome/anjuta/2.24/anjuta-2.24.2.tar.bz2</Archive>
+        <Description>Anjuta DevStudio is a versatile Integrated Development Environment (IDE) on GNOME Desktop Environment and features a number of advanced programming facilities. These include project management, application and class wizards, an on-board interactive debugger, powerful source editor, syntax highlighting, intellisense autocompletions, symbol navigation, version controls, integrated GUI designing and other tools.</Description>
+        <Archive sha1sum="cac5dd14856e7f57328851ff091271bde792cecb" type="tarbz2">mirrors://gnome/anjuta/2.26/anjuta-2.26.2.2.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.21">devhelp</Dependency>
-            <Dependency versionFrom="0.2.0">gnome-build</Dependency>
-            <Dependency>vte</Dependency>
+            <!-- <Dependency>devhelp</Dependency> -->
+            <Dependency>libgda</Dependency>
+            <Dependency>libunique</Dependency>
+            <Dependency>gdl</Dependency>
+            <Dependency>gtk-doc</Dependency>
+            <Dependency>glade-devel</Dependency>
+            <Dependency>gnome-build</Dependency>
             <Dependency>graphviz</Dependency>
+            <Dependency>gtksourceview</Dependency>
             <Dependency>subversion</Dependency>
-            <Dependency versionFrom="2.4.1">gtksourceview</Dependency>
-            <Dependency versionFrom="3.5.2">glade</Dependency>
-            <Dependency>valgrind</Dependency>
-            <Dependency>gnome-doc-utils</Dependency>
-            <Dependency>libgnomeprintui</Dependency>
-            <Dependency versionFrom="5.9.5">autogen</Dependency>
-            <Dependency>xulrunner-devel</Dependency>
+            <Dependency>vte</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>anjuta</Name>
-        <RuntimeDependencies>
-            <Dependency versionFrom="0.21">devhelp</Dependency>
-            <Dependency versionFrom="0.2.0">gnome-build</Dependency>
-            <Dependency>vte</Dependency>
-            <Dependency>graphviz</Dependency>
-            <Dependency>subversion</Dependency>
-            <Dependency versionFrom="2.4.1">gtksourceview</Dependency>
-            <Dependency versionFrom="3.5.2">glade</Dependency>
-            <Dependency>valgrind</Dependency>
-            <Dependency>gnome-doc-utils</Dependency>
-            <Dependency>libgnomeprintui</Dependency>
-            <Dependency versionFrom="5.9.5">autogen</Dependency>
-        </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
@@ -58,6 +45,17 @@
    </Package>
 
    <History>
+       <Update release="11">
+           <Date>2009-07-03</Date>
+           <Version>2.26.2.2</Version>
+           <Comment>
+               * Version bump.
+               * Fix dependencies.
+               * Add description.
+           </Comment>
+           <Name>Gökmen Görgen</Name>
+           <Email>gkmngrgn@gmail.com</Email>
+       </Update>
        <Update release="10">
            <Date>2008-12-14</Date>
            <Version>2.24.2</Version>

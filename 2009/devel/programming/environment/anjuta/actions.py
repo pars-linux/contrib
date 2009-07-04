@@ -6,17 +6,18 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
+#from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-plugin-scintilla \
-                         --disable-scrollkeeper ")
+    autotools.configure("--disable-scrollkeeper \
+                         --enable-gtk-doc")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("-j1 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR=%s" % get.installDIR())
+    #autotools.rawInstall("-j1 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR=%s" % get.installDIR())
+    autotools.install()
 
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
