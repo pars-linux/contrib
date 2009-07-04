@@ -6,12 +6,22 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 
 def setup():
-    autotools.configure("--disable-static \
-                         --enable-pulse \
-                         --enable-ao")
+    autotools.configure("--enable-pulse \
+                         --enable-ao \
+                         --enable-alsa \
+                         --enable-lsr \
+                         --enable-jack \
+                         --enable-lame-encoder \
+                         --enable-vorbis-encoder \
+                         --enable-httpd-output \
+                         --enable-shout \
+                         --enable-zip \
+                         --enable-bzip2 \
+                         --enable-iso9660 \
+                         --enable-mms \
+                         --enable-curl")
 
 def build():
     autotools.make()
@@ -19,6 +29,4 @@ def build():
 def install():
     autotools.install()
 
-    # remove built-in files and add these to valid directory
-    pisitools.removeDir("/usr/share/doc/mpd")
-    pisitools.dodoc("AUTHORS", "README", "COMMANDS", "TODO")
+    pisitools.dodoc("AUTHORS", "COPYING", "NEWS", "README")
