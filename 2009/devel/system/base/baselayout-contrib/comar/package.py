@@ -34,7 +34,7 @@ def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     for group in groups:
         deleteGroup(group)
 
-    users = ["teamspeak", "gdm"]
+    users = ["teamspeak", "gdm", "mpd"]
 
     for user in users:
         deleteUser(user)
@@ -48,4 +48,5 @@ def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     # addUser(uid, nick, realname, homedir, shell, password, groups, grantedauths, blockedauths)
     hav("addUser", (400, "teamspeak", "Teamspeak", "/dev/null", "/bin/false", "", ["teamspeak"], [], []))
     hav("addUser", (105, "gdm", "GNOME Display Manager", "/dev/null", "/bin/bash", "", ["gdm"], [], []))
+    hav("addUser", (250, "mpd", "Music Player Daemon", "/var/lib/mpd", "/bin/bash", "", ["audio"], [], []))
 
