@@ -9,7 +9,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    cmaketools.configure("-DUSE_FLAC=FALSE -DUSE_PULSE=TRUE")
+    cmaketools.configure("-DUSE_PULSE=TRUE \
+                          -DUSE_ALSA=TRUE \
+                          -DUSE_FFMPEG=TRUE \
+                          -DUSE_CDA=TRUE \
+                          -DUSE_VORBIS=TRUE \
+                          -DUSE_AAC=FALSE")
 
 def build():
     cmaketools.make()
