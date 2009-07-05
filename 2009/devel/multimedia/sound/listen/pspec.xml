@@ -13,32 +13,42 @@
         <IsA>app:gui</IsA>
         <Summary>A music manager for GNOME</Summary>
         <Description>Listen is a music manager and player for GNOME desktop environment.</Description>
-        <Archive sha1sum="7bb648d477ad18fad332418a54cad53fc05f08f1" type="tarbz2">http://download.listen-project.org/0.6/listen-0.6rc1.tar.bz2</Archive>
+        <Archive sha1sum="c0b03b5d0852dba96c605db6e3e53faa4e800ce4" type="targz">http://download.listen-project.org/0.6/listen-0.6.2.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>gnome-python-extras</Dependency>
+            <Dependency>pygtk</Dependency>
             <Dependency>gst-python</Dependency>
-            <Dependency>python-musicbrainz2</Dependency>
+            <Dependency>pyinotify</Dependency>
+            <Dependency>pywebkitgtk</Dependency>
+            <Dependency>python-xlib</Dependency>
+            <Dependency>mutagen</Dependency>
+            <Dependency>python-daap</Dependency>
+            <Dependency>libgpod</Dependency>
+            <Dependency>musicbrainz</Dependency>
+            <Dependency>tunepimp</Dependency>
             <Dependency>sexy-python</Dependency>
-            <Dependency>pywebkit-gtk</Dependency>
+            <Dependency>gnome-python</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>disable-check.patch</Patch>
-            <!--<Patch>dbus.patch</Patch>-->
-            <!--<Patch>encoding-song.py.patch</Patch>-->
-            <!--<Patch>encoding-const.py.patch</Patch>-->
+            <Patch level="1">fix-underlinking.patch</Patch>
+            <Patch level="1">fix-sandbox.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>listen</Name>
         <RuntimeDependencies>
-            <Dependency>gnome-python-extras</Dependency>
+            <Dependency>pygtk</Dependency>
             <Dependency>gst-python</Dependency>
-            <Dependency>python-musicbrainz2</Dependency>
-            <Dependency>sexy-python</Dependency>
             <Dependency>pyinotify</Dependency>
-            <Dependency>pyxdg</Dependency>
-            <Dependency>pywebkit-gtk</Dependency>
+            <Dependency>pywebkitgtk</Dependency>
+            <Dependency>python-xlib</Dependency>
+            <Dependency>mutagen</Dependency>
+            <Dependency>python-daap</Dependency>
+            <Dependency>libgpod</Dependency>
+            <Dependency>musicbrainz</Dependency>
+            <Dependency>tunepimp</Dependency>
+            <Dependency>sexy-python</Dependency>
+            <Dependency>gnome-python</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -51,12 +61,22 @@
             <Path fileType="man">/usr/share/man</Path>
         </Files>
         <AdditionalFiles>
-            <!--<AdditionalFile owner="root" permission="0755" target="/usr/bin/listen">listen</AdditionalFile>-->
             <AdditionalFile owner="root" permission="0644" target="/usr/share/man/man1/listen.1">listen.1</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-07-05</Date>
+            <Version>0.6.2</Version>
+            <Comment>
+                * Stable version bump.
+                * Fix dependencies.
+                * Update man page.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2009-03-25</Date>
             <Version>0.6_rc1</Version>
