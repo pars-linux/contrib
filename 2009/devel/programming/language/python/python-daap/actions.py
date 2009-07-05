@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 
 WorkDir = "PythonDaap-%s" % get.srcVERSION()
 
-examples = "%s/%s/examples" % (get.docDIR(), get.srcTAG())
+examples = "%s/%s/examples" % (get.docDIR(), get.srcNAME())
 
 def build():
     pythonmodules.compile()
