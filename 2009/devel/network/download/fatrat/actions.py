@@ -8,6 +8,8 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
+WorkDir="."
+
 def setup():
     cmaketools.configure("-DWITH_NLS=ON \
                           -DWITH_JABBER=ON \
