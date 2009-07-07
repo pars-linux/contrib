@@ -1,0 +1,32 @@
+--- listen-0.6.2.orig/Makefile	2009-07-05 19:31:49.000000000 +0300
++++ listen-0.6.2/Makefile	2009-07-05 20:19:08.000000000 +0300
+@@ -4,7 +4,7 @@
+ VERSION = 0.6.2
+ 
+ #0 = don't check dependencies usefull to make distribued packages
+-CHECK_DEPENDS ?= 1
++CHECK_DEPENDS = 0
+ 
+ PYTHON  = python
+ PREFIX ?= /usr
+@@ -52,7 +52,6 @@
+ 	docbook2x-man misc/listen.1.docbook --to-stdout | gzip > listen.1.gz
+ 
+ 	python -m compileall src
+-	python -O -m compileall src
+ 	@echo "Done"
+ 	@echo "Type: make install now"
+ 
+@@ -103,12 +102,8 @@
+ 
+ install: make-install-dirs
+ 	install -m 644 src/*.py $(DESTDIR)$(LIBDIR)/listen
+-	install -m 644 src/*.pyc $(DESTDIR)$(LIBDIR)/listen
+-	install -m 644 src/*.pyo $(DESTDIR)$(LIBDIR)/listen
+ 	for dir in $(PYSRC_DIR); do \
+ 		install -m 644 src/$${dir}/*.py $(DESTDIR)$(LIBDIR)/listen/$${dir} ; \
+-		install -m 644 src/$${dir}/*.pyc $(DESTDIR)$(LIBDIR)/listen/$${dir} ; \
+-		install -m 644 src/$${dir}/*.pyo $(DESTDIR)$(LIBDIR)/listen/$${dir} ; \
+ 	done
+ 	
+ 	install -m 644 src/mmkeys.so $(DESTDIR)$(LIBDIR)/listen/
