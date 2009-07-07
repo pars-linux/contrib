@@ -6,9 +6,10 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-#from pisi.actionsapi import get
+from pisi.actionsapi import get
 
 def setup():
+    autotools.autoreconf()
     autotools.configure("--disable-scrollkeeper \
                          --enable-gtk-doc")
 
@@ -16,10 +17,9 @@ def build():
     autotools.make()
 
 def install():
-    #autotools.rawInstall("-j1 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR=%s" % get.installDIR())
-    autotools.install()
+    autotools.rawInstall("-j1 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 DESTDIR=%s" % get.installDIR())
 
-    # conflict
-    pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+    #exists already in gnome-build
+    pisitools.remove("/usr/bin/gbf-*")
 
-    pisitools.dodoc("TODO", "AUTHORS", "ChangeLog", "README", "ROADMAP", "THANKS", "FUTURE")
+    pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "FUTURE", "MAINTAINERS", "NEWS", "README", "ROADMAP", "THANKS", "TODO")
