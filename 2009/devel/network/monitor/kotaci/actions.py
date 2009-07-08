@@ -13,6 +13,8 @@ from pisi.actionsapi import shelltools
 def setup():
     shelltools.system("qmake-qt4")
 
+    pisitools.dosed("data/kotaci.desktop", "ok", "kotaci")
+
     # Change C/XXFLAGS
     pisitools.dosed("Makefile", "CFLAGS        = -pipe -O2", "CFLAGS        = %s" % get.CFLAGS())
     pisitools.dosed("Makefile", "CXXFLAGS      = -pipe -O2", "CXXFLAGS      = %s" % get.CXXFLAGS())
@@ -23,5 +25,8 @@ def build():
 def install():
     pisitools.dobin("bin/kotaci")
     pisitools.insinto("/usr/share/applications", "data/kotaci.desktop")
+
+    pisitools.insinto("/usr/share/pixmaps", "data/icons/ok.png")
+    pisitools.rename("/usr/share/pixmaps/ok.png", "kotaci.png")
 
     pisitools.dodoc("AUTHORS", "COPYING", "README", "TODO")
