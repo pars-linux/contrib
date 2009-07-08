@@ -9,11 +9,11 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
-WorkDir="Miro-2.0.4_svn"
+WorkDir="Miro-%s" % get.srcVERSION().replace("_","-")
+
 shelltools.export("HOME", "%s" % get.workDIR())
 
 def build():
-    pisitools.dosed("platform/gtk-x11/setup.py", ".\/miro.real", "/usr/bin/miro.real")
     shelltools.cd("platform/gtk-x11")
     pythonmodules.compile()
 
@@ -21,7 +21,7 @@ def install():
     shelltools.cd("platform/gtk-x11")
     pythonmodules.install()
 
-    for i in ("24x24", "72x72", "128x128"):
-        pisitools.insinto("/usr/share/icons/hicolor/%s/apps" % i, "miro-%s.png" %i, "miro.png")
+    #Fix xulrunner dir
+    pisitools.dosed("%s/usr/bin/miro" % get.installDIR(), "1.9.1", "1.9")
 
-    pisitools.dodoc("../../README", "../../license.txt", "../../CREDITS")
+    pisitools.dodoc("README", "../../README", "../../license.txt", "../../CREDITS", "../../ADOPTERS")
