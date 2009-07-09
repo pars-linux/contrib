@@ -20,7 +20,7 @@ def setup():
                          --disable-gnomeshortcuts \
                          --enable-amidiplug \
                          --enable-amidiplug-alsa \
-                         --enable-amidiplug-dummy" % get.kdeDIR())
+                         --enable-amidiplug-dummy")
 
 def build():
     autotools.make()
