@@ -16,18 +16,10 @@ def setup():
                          --enable-chardet \
                          --disable-esd \
                          --enable-pulse \
-                         --enable-arts \
-                         --with-artsc-prefix=%s \
-                         --disable-filewriter \
-                         --disable-filewriter_flac \
-                         --disable-filewriter_vorbis \
-                         --disable-filewriter_mp3 \
                          --disable-coreaudio \
-                         --disable-gconf \
                          --disable-gnomeshortcuts \
                          --enable-amidiplug \
                          --enable-amidiplug-alsa \
-                         --disable-amidiplug-flysn \
                          --enable-amidiplug-dummy" % get.kdeDIR())
 
 def build():
@@ -36,4 +28,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "COPYING", "NEWS")
+    pisitools.dodoc("AUTHORS", "COPYING", "README*")

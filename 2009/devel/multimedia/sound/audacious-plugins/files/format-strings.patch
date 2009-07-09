@@ -1,7 +1,7 @@
-diff -p -up audacious-plugins-2.0.0/src/amidi-plug/i_utils.c~ audacious-plugins-2.0.0/src/amidi-plug/i_utils.c
---- audacious-plugins-2.0.0/src/amidi-plug/i_utils.c~	2009-05-13 01:33:31.000000000 +0200
-+++ audacious-plugins-2.0.0/src/amidi-plug/i_utils.c	2009-05-13 10:01:43.000000000 +0200
-@@ -125,9 +125,9 @@ gpointer i_message_gui( gchar * title , 
+diff -Naur audacious-plugins-2.1.orig/src/amidi-plug/i_utils.c audacious-plugins-2.1/src/amidi-plug/i_utils.c
+--- audacious-plugins-2.1.orig/src/amidi-plug/i_utils.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/amidi-plug/i_utils.c	2009-07-09 18:54:32.000000000 +0300
+@@ -125,9 +125,9 @@
  
    if ( parent_win != NULL )
      win = gtk_message_dialog_new( GTK_WINDOW(parent_win) , GTK_DIALOG_DESTROY_WITH_PARENT ,
@@ -13,46 +13,10 @@ diff -p -up audacious-plugins-2.0.0/src/amidi-plug/i_utils.c~ audacious-plugins-
  
    gtk_window_set_title( GTK_WINDOW(win) , title );
    g_signal_connect_swapped( G_OBJECT(win) , "response" , G_CALLBACK(gtk_widget_destroy) , win );
-diff -p -up audacious-plugins-2.0.0/src/cdaudio-ng/cdaudio-ng.c~ audacious-plugins-2.0.0/src/cdaudio-ng/cdaudio-ng.c
---- audacious-plugins-2.0.0/src/cdaudio-ng/cdaudio-ng.c~	2009-05-13 01:33:31.000000000 +0200
-+++ audacious-plugins-2.0.0/src/cdaudio-ng/cdaudio-ng.c	2009-05-13 10:02:40.000000000 +0200
-@@ -895,7 +895,7 @@ static gboolean show_noaudiocd_info()
- 			   GTK_DIALOG_DESTROY_WITH_PARENT,
- 			   GTK_MESSAGE_ERROR,
- 			   GTK_BUTTONS_OK,
--			   _(markup));
-+							 "%s", _(markup));
-             gtk_widget_show (dialog);
-             g_signal_connect (G_OBJECT (dialog), "response",
-              G_CALLBACK (destroy_dialog), & dialog);
-diff -p -up audacious-plugins-2.0.0/src/skins/ui_main.c~ audacious-plugins-2.0.0/src/skins/ui_main.c
---- audacious-plugins-2.0.0/src/skins/ui_main.c~	2009-05-13 01:33:32.000000000 +0200
-+++ audacious-plugins-2.0.0/src/skins/ui_main.c	2009-05-13 10:08:58.000000000 +0200
-@@ -1861,7 +1861,7 @@ run_no_output_device_dialog(gpointer hoo
-                                            GTK_DIALOG_DESTROY_WITH_PARENT,
-                                            GTK_MESSAGE_ERROR,
-                                            GTK_BUTTONS_OK,
--                                           _(markup));
-+                                           "%s", _(markup));
-     gtk_dialog_run(GTK_DIALOG(dialog));
-     gtk_widget_destroy(dialog);
-     GDK_THREADS_LEAVE();
-diff -p -up audacious-plugins-2.0.0/src/evdev-plug/ed_ui.c~ audacious-plugins-2.0.0/src/evdev-plug/ed_ui.c
---- audacious-plugins-2.0.0/src/evdev-plug/ed_ui.c~	2009-05-13 01:33:31.000000000 +0200
-+++ audacious-plugins-2.0.0/src/evdev-plug/ed_ui.c	2009-05-13 10:13:11.000000000 +0200
-@@ -1533,7 +1533,7 @@ ed_ui_message_show ( gchar * title , gch
-   message_win = gtk_message_dialog_new(
-                   parent_win ,
-                   ( parent_win != NULL ? GTK_DIALOG_DESTROY_WITH_PARENT : 0 ) ,
--                  GTK_MESSAGE_INFO , GTK_BUTTONS_CLOSE , message );
-+                  GTK_MESSAGE_INFO , GTK_BUTTONS_CLOSE , "%s", message );
-   gtk_window_set_title( GTK_WINDOW(message_win) , title );
- 
-   gtk_dialog_run( GTK_DIALOG(message_win) );
-diff -p -up audacious-plugins-2.0.0/src/bluetooth/agent.c~ audacious-plugins-2.0.0/src/bluetooth/agent.c
---- audacious-plugins-2.0.0/src/bluetooth/agent.c~	2009-05-13 01:33:31.000000000 +0200
-+++ audacious-plugins-2.0.0/src/bluetooth/agent.c	2009-05-13 10:21:22.000000000 +0200
-@@ -722,7 +722,7 @@ static void bonding_created(DBusGProxy *
+diff -Naur audacious-plugins-2.1.orig/src/bluetooth/agent.c audacious-plugins-2.1/src/bluetooth/agent.c
+--- audacious-plugins-2.1.orig/src/bluetooth/agent.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/bluetooth/agent.c	2009-07-09 18:56:24.000000000 +0300
+@@ -722,7 +722,7 @@
  			device = g_strdup_printf("%s (%s)", name, address);
  	} else
  		device = g_strdup(address);
@@ -61,10 +25,34 @@ diff -p -up audacious-plugins-2.0.0/src/bluetooth/agent.c~ audacious-plugins-2.0
  
  
  	text = g_strdup_printf(_("Created bonding with %s"), device);
-diff -p -up audacious-plugins-2.0.0/src/mtp_up/mtp.c~ audacious-plugins-2.0.0/src/mtp_up/mtp.c
---- audacious-plugins-2.0.0/src/mtp_up/mtp.c~	2009-05-13 01:33:31.000000000 +0200
-+++ audacious-plugins-2.0.0/src/mtp_up/mtp.c	2009-05-13 10:14:55.000000000 +0200
-@@ -63,7 +63,7 @@ void show_dialog(const gchar* message)
+diff -Naur audacious-plugins-2.1.orig/src/evdev-plug/ed_ui.c audacious-plugins-2.1/src/evdev-plug/ed_ui.c
+--- audacious-plugins-2.1.orig/src/evdev-plug/ed_ui.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/evdev-plug/ed_ui.c	2009-07-09 18:55:58.000000000 +0300
+@@ -1533,7 +1533,7 @@
+   message_win = gtk_message_dialog_new(
+                   parent_win ,
+                   ( parent_win != NULL ? GTK_DIALOG_DESTROY_WITH_PARENT : 0 ) ,
+-                  GTK_MESSAGE_INFO , GTK_BUTTONS_CLOSE , message );
++                  GTK_MESSAGE_INFO , GTK_BUTTONS_CLOSE , "%s", message );
+   gtk_window_set_title( GTK_WINDOW(message_win) , title );
+ 
+   gtk_dialog_run( GTK_DIALOG(message_win) );
+diff -Naur audacious-plugins-2.1.orig/src/lastfm/lastfm.c audacious-plugins-2.1/src/lastfm/lastfm.c
+--- audacious-plugins-2.1.orig/src/lastfm/lastfm.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/lastfm/lastfm.c	2009-07-09 18:57:55.000000000 +0300
+@@ -99,7 +99,7 @@
+                                 GTK_DIALOG_DESTROY_WITH_PARENT,
+                                 GTK_MESSAGE_ERROR,
+                                 GTK_BUTTONS_OK,
+-                                _(markup));
++                                "%s", _(markup));
+         gtk_dialog_run(GTK_DIALOG(dialog));
+         gtk_widget_destroy(dialog);
+ }
+diff -Naur audacious-plugins-2.1.orig/src/mtp_up/mtp.c audacious-plugins-2.1/src/mtp_up/mtp.c
+--- audacious-plugins-2.1.orig/src/mtp_up/mtp.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/mtp_up/mtp.c	2009-07-09 18:57:16.000000000 +0300
+@@ -63,7 +63,7 @@
              GTK_DIALOG_MODAL,
              GTK_MESSAGE_ERROR,
              GTK_BUTTONS_OK,
@@ -73,15 +61,15 @@ diff -p -up audacious-plugins-2.0.0/src/mtp_up/mtp.c~ audacious-plugins-2.0.0/sr
      gtk_dialog_run (GTK_DIALOG (dialog));
      gtk_widget_show(dialog);
      /* gtk_widget_destroy(dialog); */
-diff -p -up audacious-plugins-2.0.0/src/lastfm/lastfm.c~ audacious-plugins-2.0.0/src/lastfm/lastfm.c
---- audacious-plugins-2.0.0/src/lastfm/lastfm.c~	2009-05-13 01:33:31.000000000 +0200
-+++ audacious-plugins-2.0.0/src/lastfm/lastfm.c	2009-05-13 10:34:04.000000000 +0200
-@@ -99,7 +99,7 @@ static void show_login_error_dialog(void
-                                 GTK_DIALOG_DESTROY_WITH_PARENT,
-                                 GTK_MESSAGE_ERROR,
-                                 GTK_BUTTONS_OK,
--                                _(markup));
-+						   "%s", _(markup));
-         gtk_dialog_run(GTK_DIALOG(dialog));
-         gtk_widget_destroy(dialog);
- }
+diff -Naur audacious-plugins-2.1.orig/src/skins/ui_main.c audacious-plugins-2.1/src/skins/ui_main.c
+--- audacious-plugins-2.1.orig/src/skins/ui_main.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/skins/ui_main.c	2009-07-09 18:55:28.000000000 +0300
+@@ -1766,7 +1766,7 @@
+                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            GTK_MESSAGE_ERROR,
+                                            GTK_BUTTONS_OK,
+-                                           _(markup));
++                                           "%s", _(markup));
+     gtk_dialog_run(GTK_DIALOG(dialog));
+     gtk_widget_destroy(dialog);
+     GDK_THREADS_LEAVE();
