@@ -10,8 +10,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    shelltools.system("sh autogen.sh")
     autotools.configure("--enable-nls \
-                         --enable-ipv6 \
                          --enable-chardet \
                          --enable-dbus \
                          --enable-samplerate \
