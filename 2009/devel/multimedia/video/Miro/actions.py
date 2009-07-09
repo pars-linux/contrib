@@ -21,7 +21,4 @@ def install():
     shelltools.cd("platform/gtk-x11")
     pythonmodules.install()
 
-    #Fix xulrunner dir
-    pisitools.dosed("%s/usr/bin/miro" % get.installDIR(), "1.9.1", "1.9")
-
     pisitools.dodoc("README", "../../README", "../../license.txt", "../../CREDITS", "../../ADOPTERS")
