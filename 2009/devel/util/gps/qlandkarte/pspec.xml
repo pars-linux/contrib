@@ -14,8 +14,8 @@
         <Description>View and upload map files, track and waypoint data to your Garmin GPS.</Description>
         <Archive sha1sum="8d4bd5729c827ed5e069d3f5030950ce735a7ec9" type="targz">mirrors://sourceforge/qlandkarte/QLandkarte_0.7.3.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.2">qt4</Dependency>
-            <Dependency versionFrom="4.4">proj</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>proj</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>menuicon.patch</Patch>
@@ -25,14 +25,14 @@
     <Package>
         <Name>qlandkarte</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.2">qt4</Dependency>
-            <Dependency versionFrom="4.4">proj</Dependency>
+            <Dependency>qt</Dependency>
+            <Dependency>proj</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc/qlandkarte</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
@@ -42,6 +42,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-07-11</Date>
+            <Version>0.7.3</Version>
+            <Comment>Update doc path, remove strict deps for 2009.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2008-06-16</Date>
             <Version>0.7.3</Version>
