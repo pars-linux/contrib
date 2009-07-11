@@ -14,19 +14,19 @@
         <Description>QComicBook is a viewer for comic book archives (cbz, cbr, cbt). QComicBook has specific features like page preview, thumbnails view, bookmarks, manga mode for easing comicbook reading.</Description>
         <Archive sha1sum="ad77be0fa84032d6d14b79268d0dd88e9b4c80eb" type="targz">http://linux.bydg.org/~yogin/qcomicbook/qcomicbook-0.4.0.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="4.2.0">qt4</Dependency>
+            <Dependency>qt</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>qcomicbook</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="4.2.0">qt4</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>unrar</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="doc">/usr/share/doc/qcomicbook</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="data">/usr/share/qcomicbook</Path>
             <Path fileType="data">/usr/share/applications</Path>
@@ -34,6 +34,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2009-07-11</Date>
+            <Version>0.4.0</Version>
+            <Comment>Update doc path, remove strict deps for 2009.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="4">
             <Date>2008-05-12</Date>
             <Version>0.4.0</Version>
