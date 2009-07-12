@@ -24,4 +24,7 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    # It's also in pardus-default-settings-xfce package.
+    pisitools.remove("/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml")
+
     pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog*", "COPYING", "NEWS", "README", "TODO")
