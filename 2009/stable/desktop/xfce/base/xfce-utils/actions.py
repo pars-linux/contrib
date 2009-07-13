@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --with-browser=firefox \
+                         --with-browser=midori \
                          --with-terminal=Terminal \
                          --with-vendor-info=Pardus")
 
