@@ -1,0 +1,75 @@
+diff -Naur audacious-plugins-2.1.orig/src/amidi-plug/i_utils.c audacious-plugins-2.1/src/amidi-plug/i_utils.c
+--- audacious-plugins-2.1.orig/src/amidi-plug/i_utils.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/amidi-plug/i_utils.c	2009-07-09 18:54:32.000000000 +0300
+@@ -125,9 +125,9 @@
+ 
+   if ( parent_win != NULL )
+     win = gtk_message_dialog_new( GTK_WINDOW(parent_win) , GTK_DIALOG_DESTROY_WITH_PARENT ,
+-                                  mtype , GTK_BUTTONS_OK , message );
++                                  mtype , GTK_BUTTONS_OK , "%s", message );
+   else
+-    win = gtk_message_dialog_new( NULL , 0 , mtype , GTK_BUTTONS_OK , message );
++    win = gtk_message_dialog_new( NULL , 0 , mtype , GTK_BUTTONS_OK , "%s", message );
+ 
+   gtk_window_set_title( GTK_WINDOW(win) , title );
+   g_signal_connect_swapped( G_OBJECT(win) , "response" , G_CALLBACK(gtk_widget_destroy) , win );
+diff -Naur audacious-plugins-2.1.orig/src/bluetooth/agent.c audacious-plugins-2.1/src/bluetooth/agent.c
+--- audacious-plugins-2.1.orig/src/bluetooth/agent.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/bluetooth/agent.c	2009-07-09 18:56:24.000000000 +0300
+@@ -722,7 +722,7 @@
+ 			device = g_strdup_printf("%s (%s)", name, address);
+ 	} else
+ 		device = g_strdup(address);
+-       bonded_dev = g_strdup_printf(address);
++       bonded_dev = g_strdup_printf("%s", address);
+ 
+ 
+ 	text = g_strdup_printf(_("Created bonding with %s"), device);
+diff -Naur audacious-plugins-2.1.orig/src/evdev-plug/ed_ui.c audacious-plugins-2.1/src/evdev-plug/ed_ui.c
+--- audacious-plugins-2.1.orig/src/evdev-plug/ed_ui.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/evdev-plug/ed_ui.c	2009-07-09 18:55:58.000000000 +0300
+@@ -1533,7 +1533,7 @@
+   message_win = gtk_message_dialog_new(
+                   parent_win ,
+                   ( parent_win != NULL ? GTK_DIALOG_DESTROY_WITH_PARENT : 0 ) ,
+-                  GTK_MESSAGE_INFO , GTK_BUTTONS_CLOSE , message );
++                  GTK_MESSAGE_INFO , GTK_BUTTONS_CLOSE , "%s", message );
+   gtk_window_set_title( GTK_WINDOW(message_win) , title );
+ 
+   gtk_dialog_run( GTK_DIALOG(message_win) );
+diff -Naur audacious-plugins-2.1.orig/src/lastfm/lastfm.c audacious-plugins-2.1/src/lastfm/lastfm.c
+--- audacious-plugins-2.1.orig/src/lastfm/lastfm.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/lastfm/lastfm.c	2009-07-09 18:57:55.000000000 +0300
+@@ -99,7 +99,7 @@
+                                 GTK_DIALOG_DESTROY_WITH_PARENT,
+                                 GTK_MESSAGE_ERROR,
+                                 GTK_BUTTONS_OK,
+-                                _(markup));
++                                "%s", _(markup));
+         gtk_dialog_run(GTK_DIALOG(dialog));
+         gtk_widget_destroy(dialog);
+ }
+diff -Naur audacious-plugins-2.1.orig/src/mtp_up/mtp.c audacious-plugins-2.1/src/mtp_up/mtp.c
+--- audacious-plugins-2.1.orig/src/mtp_up/mtp.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/mtp_up/mtp.c	2009-07-09 18:57:16.000000000 +0300
+@@ -63,7 +63,7 @@
+             GTK_DIALOG_MODAL,
+             GTK_MESSAGE_ERROR,
+             GTK_BUTTONS_OK,
+-            message);
++            "%s", message);
+     gtk_dialog_run (GTK_DIALOG (dialog));
+     gtk_widget_show(dialog);
+     /* gtk_widget_destroy(dialog); */
+diff -Naur audacious-plugins-2.1.orig/src/skins/ui_main.c audacious-plugins-2.1/src/skins/ui_main.c
+--- audacious-plugins-2.1.orig/src/skins/ui_main.c	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/skins/ui_main.c	2009-07-09 18:55:28.000000000 +0300
+@@ -1766,7 +1766,7 @@
+                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            GTK_MESSAGE_ERROR,
+                                            GTK_BUTTONS_OK,
+-                                           _(markup));
++                                           "%s", _(markup));
+     gtk_dialog_run(GTK_DIALOG(dialog));
+     gtk_widget_destroy(dialog);
+     GDK_THREADS_LEAVE();
