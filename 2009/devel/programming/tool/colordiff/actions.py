@@ -15,8 +15,8 @@ def install():
     pisitools.dosed("colordiffrc", "newtext=blue", "newtext=yellow")
 
     pisitools.insinto("/etc", "colordiffrc")
-    pisitools.insinto("/usr/share/doc/%s/examples" % get.srcTAG(), "colordiffrc-lightbg")
+    pisitools.insinto("/usr/share/doc/%s/examples" % get.srcNAME(), "colordiffrc-lightbg")
 
     pisitools.doman("colordiff.1")
 
-    pisitools.dodoc("CHANGES", "README*", "COPYING")
+    pisitools.dodoc("CHANGES", "README", "COPYING")
