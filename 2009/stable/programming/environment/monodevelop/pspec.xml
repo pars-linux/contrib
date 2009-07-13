@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI
+      SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>monodevelop</Name>
+        <Homepage>http://monodevelop.com</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>monodevelop</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A free .NET development environment</Summary>
+        <Description>MonoDevelop is a free GNOME IDE primarily designed for C# and other .NET languages.</Description>
+        <Archive sha1sum="80b8671a8c0085bf1bfb1291ada5bcca48c99c60" type="tarbz2" >ftp://ftp.sudrap.org/gkmngrgn/mono-sources/monodevelop-2.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>subversion</Dependency>
+            <Dependency>gnome-sharp</Dependency>
+            <Dependency>mono-addins</Dependency>
+            <Dependency>xulrunner-devel</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">monodevelop-1.9.2-libxul.patch</Patch>
+            <Patch level="1">update_templates_for_gtk-sharp_2.12.patch</Patch>
+            <Patch level="1">desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>monodevelop</Name>
+        <RuntimeDependencies>
+            <Dependency>subversion</Dependency>
+            <Dependency>gnome-sharp</Dependency>
+            <Dependency>mono-addins</Dependency>
+            <Dependency>xulrunner</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-06-19</Date>
+            <Version>2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
