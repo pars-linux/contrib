@@ -1,0 +1,163 @@
+diff -Naur audacious-plugins-2.1.orig/src/adplug/Makefile audacious-plugins-2.1/src/adplug/Makefile
+--- audacious-plugins-2.1.orig/src/adplug/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/adplug/Makefile	2009-07-09 18:43:23.000000000 +0300
+@@ -60,4 +60,4 @@
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CXXFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  ${BINIO_CFLAGS} -I../.. -I./core -Dstricmp=strcasecmp
+-LIBS += ${BINIO_LIBS} ${GTK_LIBS} ${GLIB_LIBS}  ${MOWGLI_LIBS}
++LIBS += ${BINIO_LIBS} ${GTK_LIBS} ${GLIB_LIBS}  ${MOWGLI_LIBS} -lstdc++ -lm
+diff -Naur audacious-plugins-2.1.orig/src/alsa-ng/Makefile audacious-plugins-2.1/src/alsa-ng/Makefile
+--- audacious-plugins-2.1.orig/src/alsa-ng/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/alsa-ng/Makefile	2009-07-09 18:43:49.000000000 +0300
+@@ -12,4 +12,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS}  ${GTK_CFLAGS} ${GLIB_CFLAGS}  ${ALSA_CFLAGS} -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS}  ${ALSA_LIBS}
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  ${ALSA_LIBS} -ldl
+diff -Naur audacious-plugins-2.1.orig/src/bluetooth/Makefile audacious-plugins-2.1/src/bluetooth/Makefile
+--- audacious-plugins-2.1.orig/src/bluetooth/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/bluetooth/Makefile	2009-07-09 18:50:23.000000000 +0300
+@@ -14,5 +14,5 @@
+ plugindir := ${plugindir}/${GENERAL_PLUGIN_DIR}
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${BEEP_DEFINES} ${MOWGLI_CFLAGS} ${DBUS_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS} ${DBUS_GLIB_CFLAGS} ${PANGO_CFLAGS} -I../../intl -I../.. ${BLUEZ_CFLAGS}
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${PANGO_LIBS} ${BLUEZ_LIBS}
++LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${PANGO_LIBS} ${BLUEZ_LIBS} ${DBUS_LIBS}
+ 
+diff -Naur audacious-plugins-2.1.orig/src/hotkey/Makefile audacious-plugins-2.1/src/hotkey/Makefile
+--- audacious-plugins-2.1.orig/src/hotkey/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/hotkey/Makefile	2009-07-09 18:44:16.000000000 +0300
+@@ -9,4 +9,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${GTK_CFLAGS} ${MOWGLI_CFLAGS} ${GLIB_CFLAGS}  -I../.. -I..
+-LIBS += ${GLIB_LIBS}  ${GTK_LIBS}
++LIBS += ${GLIB_LIBS}  ${GTK_LIBS}  -lX11
+diff -Naur audacious-plugins-2.1.orig/src/jack/Makefile audacious-plugins-2.1/src/jack/Makefile
+--- audacious-plugins-2.1.orig/src/jack/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/jack/Makefile	2009-07-09 18:44:44.000000000 +0300
+@@ -11,4 +11,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  ${SAMPLERATE_CFLAGS} -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS}  ${JACK_LIBS} ${SAMPLERATE_LIBS} -pthread
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  ${JACK_LIBS} ${SAMPLERATE_LIBS} -pthread -lm
+diff -Naur audacious-plugins-2.1.orig/src/ladspa/Makefile audacious-plugins-2.1/src/ladspa/Makefile
+--- audacious-plugins-2.1.orig/src/ladspa/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/ladspa/Makefile	2009-07-09 18:45:01.000000000 +0300
+@@ -9,4 +9,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} 
++LIBS += ${GTK_LIBS} ${GLIB_LIBS} -ldl
+diff -Naur audacious-plugins-2.1.orig/src/modplug/Makefile audacious-plugins-2.1/src/modplug/Makefile
+--- audacious-plugins-2.1.orig/src/modplug/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/modplug/Makefile	2009-07-09 18:46:00.000000000 +0300
+@@ -53,4 +53,4 @@
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CXXFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS}  ${GTK_CFLAGS} ${GLIB_CFLAGS}  -I.. -I../.. -I../../intl
+-LIBS += ${MOWGLI_LIBS}  ${GTK_LIBS} ${GLIB_LIBS}  -lstdc++
++LIBS += ${MOWGLI_LIBS}  ${GTK_LIBS} ${GLIB_LIBS}  -lstdc++ -lm
+diff -Naur audacious-plugins-2.1.orig/src/musepack/Makefile audacious-plugins-2.1/src/musepack/Makefile
+--- audacious-plugins-2.1.orig/src/musepack/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/musepack/Makefile	2009-07-09 18:46:24.000000000 +0300
+@@ -9,4 +9,4 @@
+ 
+ CXXFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS}  ${GTK_CFLAGS} ${GLIB_CFLAGS}  ${TAGLIB_CFLAGS} -I../..
+-LIBS += ${TAGLIB_LIBS} ${GTK_LIBS} ${GLIB_LIBS}  ${MOWGLI_LIBS} -lmpcdec
++LIBS += ${TAGLIB_LIBS} ${GTK_LIBS} ${GLIB_LIBS}  ${MOWGLI_LIBS} -lmpcdec -lstdc++ -lm
+diff -Naur audacious-plugins-2.1.orig/src/projectm-1.0/Makefile audacious-plugins-2.1/src/projectm-1.0/Makefile
+--- audacious-plugins-2.1.orig/src/projectm-1.0/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/projectm-1.0/Makefile	2009-07-09 18:49:34.000000000 +0300
+@@ -14,4 +14,4 @@
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CXXFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${DBUS_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS} ${PANGO_CFLAGS} ${ARCH_DEFINES} ${XML_CPPFLAGS} ${SDL_CFLAGS} ${LIBPROJECTM1_CFLAGS} -I../../intl -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${PANGO_LIBS} ${SDL_LIBS} ${LIBPROJECTM1_LIBS}
++LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${PANGO_LIBS} ${SDL_LIBS} ${LIBPROJECTM1_LIBS}  -lGL
+diff -Naur audacious-plugins-2.1.orig/src/sid/Makefile audacious-plugins-2.1/src/sid/Makefile
+--- audacious-plugins-2.1.orig/src/sid/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/sid/Makefile	2009-07-09 18:48:45.000000000 +0300
+@@ -26,4 +26,4 @@
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CXXFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} -D_REENTRANT -I../.. -DAUDACIOUS_PLUGIN ${MOWGLI_CFLAGS} ${SIDPLAY1_CFLAGS} ${SIDPLAY2_CFLAGS} ${BUILDERS_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}
+-LIBS += ${BUILDERS_LDFLAGS} ${SIDPLAY1_LIBS} ${SIDPLAY2_LIBS} ${BUILDERS_LIBS} ${GTK_LIBS} ${GLIB_LIBS} -lstdc++ -laudutil
++LIBS += ${BUILDERS_LDFLAGS} ${SIDPLAY1_LIBS} ${SIDPLAY2_LIBS} ${BUILDERS_LIBS} ${GTK_LIBS} ${GLIB_LIBS} -lstdc++ -laudutil -lm
+diff -Naur audacious-plugins-2.1.orig/src/skins/Makefile audacious-plugins-2.1/src/skins/Makefile
+--- audacious-plugins-2.1.orig/src/skins/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/skins/Makefile	2009-07-09 18:50:03.000000000 +0300
+@@ -39,4 +39,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS} ${BEEP_DEFINES}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS}  ${GTK_CFLAGS} ${GLIB_CFLAGS} ${PANGO_CFLAGS} ${CAIRO_CFLAGS} ${PANGOCAIRO_CFLAGS} ${XRENDER_CFLAGS} ${XCOMPOSITE_CFLAGS} -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${PANGO_LIBS} ${CAIRO_LIBS} ${PANGOCAIRO_LIBS} ${XRENDER_LIBS} ${XCOMPOSITE_LIBS} ${MOWGLI_LIBS}
++LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${PANGO_LIBS} ${CAIRO_LIBS} ${PANGOCAIRO_LIBS} ${XRENDER_LIBS} ${XCOMPOSITE_LIBS} ${MOWGLI_LIBS} -lm
+diff -Naur audacious-plugins-2.1.orig/src/sndfile/Makefile audacious-plugins-2.1/src/sndfile/Makefile
+--- audacious-plugins-2.1.orig/src/sndfile/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/sndfile/Makefile	2009-07-09 18:47:02.000000000 +0300
+@@ -10,4 +10,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}   -I../.. 
+-LIBS += ${MOWGLI_LIBS} ${SNDFILE_LIBS} ${GTK_LIBS} ${GLIB_LIBS} 
++LIBS += ${MOWGLI_LIBS} ${SNDFILE_LIBS} ${GTK_LIBS} ${GLIB_LIBS}  -lm
+diff -Naur audacious-plugins-2.1.orig/src/sndstretch/Makefile audacious-plugins-2.1/src/sndstretch/Makefile
+--- audacious-plugins-2.1.orig/src/sndstretch/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/sndstretch/Makefile	2009-07-09 18:47:17.000000000 +0300
+@@ -10,4 +10,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS} ${MOWGLI_CFLAGS}  -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${MOWGLI_LIBS} 
++LIBS += ${GTK_LIBS} ${GLIB_LIBS} ${MOWGLI_LIBS}  -lm
+diff -Naur audacious-plugins-2.1.orig/src/spectrum/Makefile audacious-plugins-2.1/src/spectrum/Makefile
+--- audacious-plugins-2.1.orig/src/spectrum/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/spectrum/Makefile	2009-07-09 18:47:34.000000000 +0300
+@@ -9,4 +9,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} 
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  -lm
+diff -Naur audacious-plugins-2.1.orig/src/statusicon/Makefile audacious-plugins-2.1/src/statusicon/Makefile
+--- audacious-plugins-2.1.orig/src/statusicon/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/statusicon/Makefile	2009-07-09 18:47:53.000000000 +0300
+@@ -12,4 +12,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${BEEP_DEFINES} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} 
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  -lX11
+diff -Naur audacious-plugins-2.1.orig/src/tonegen/Makefile audacious-plugins-2.1/src/tonegen/Makefile
+--- audacious-plugins-2.1.orig/src/tonegen/Makefile	2009-07-07 01:40:36.000000000 +0300
++++ audacious-plugins-2.1/src/tonegen/Makefile	2009-07-09 18:48:09.000000000 +0300
+@@ -9,4 +9,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  -I../..
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} 
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  -lm
+diff -Naur audacious-plugins-2.1.orig/src/wma/Makefile audacious-plugins-2.1/src/wma/Makefile
+--- audacious-plugins-2.1.orig/src/wma/Makefile	2009-07-07 01:40:37.000000000 +0300
++++ audacious-plugins-2.1/src/wma/Makefile	2009-07-09 18:48:25.000000000 +0300
+@@ -28,4 +28,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS}
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS}  ${GTK_CFLAGS} ${GLIB_CFLAGS}  ${SIMD_CFLAGS} -I../.. -I./libffwma -std=c99 ${GCC42_CFLAGS} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -D_GNU_SOURCE
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS} 
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  -lm
+diff -Naur audacious-plugins-2.1.orig/src/xsf/Makefile audacious-plugins-2.1/src/xsf/Makefile
+--- audacious-plugins-2.1.orig/src/xsf/Makefile	2009-07-07 01:40:37.000000000 +0300
++++ audacious-plugins-2.1/src/xsf/Makefile	2009-07-09 18:49:06.000000000 +0300
+@@ -13,4 +13,4 @@
+ 
+ CFLAGS += ${PLUGIN_CFLAGS} -O0
+ CPPFLAGS += ${PLUGIN_CPPFLAGS} ${MOWGLI_CFLAGS} ${GTK_CFLAGS} ${GLIB_CFLAGS}  -I../.. -Ispu/ -I.
+-LIBS += ${GTK_LIBS} ${GLIB_LIBS}  ${MOWGLI_LIBS} -lz
++LIBS += ${GTK_LIBS} ${GLIB_LIBS}  ${MOWGLI_LIBS} -lz -lm
