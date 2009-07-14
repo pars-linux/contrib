@@ -1,13 +1,16 @@
---- Makefile.orig	2009-06-13 00:24:15.000000000 +0300
-+++ Makefile	2009-06-13 00:34:25.000000000 +0300
-@@ -5,11 +5,11 @@
+diff -Naur fotoxx-7.5.orig/Makefile fotoxx-7.5/Makefile
+--- fotoxx-7.5.orig/Makefile	2009-07-14 09:25:17.000000000 +0300
++++ fotoxx-7.5/Makefile	2009-07-14 09:28:12.000000000 +0300
+@@ -5,13 +5,13 @@
  PROGRAM = fotoxx
- VERSION = 7.0
+ VERSION = 7.5
  SOURCE = $(PROGRAM)-$(VERSION).cpp
 -CFLAGS = -O -Wall -c `pkg-config --cflags gtk+-2.0`
 -LFLAGS = -O -Wall -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
 +CFLAGS += -Wall -c `pkg-config --cflags gtk+-2.0`
 +LFLAGS = -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
+ LAUNCHER = $(HOME)/Desktop/kornelix-$(PROGRAM).desktop
+ LOWNER = `stat --format="%u:%g" $(HOME)/Desktop`
  
  ifeq "$(PREFIX)" ""
 -	PREFIX = /usr/local
@@ -15,7 +18,7 @@
  endif
  
  BINDIR = $(PREFIX)/bin
-@@ -19,14 +19,14 @@
+@@ -21,14 +21,14 @@
  
  $(PROGRAM): $(PROGRAM).o zfuncs.o
  	@ ./dependencies.sh
