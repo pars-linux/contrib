@@ -67,5 +67,3 @@ def install():
         pisitools.dosym("%s.0.0" % t, "/usr/lib/%s" % t)
 
     pisitools.removeDir("/usr/include")
-    pisitools.dodoc("README")
-
