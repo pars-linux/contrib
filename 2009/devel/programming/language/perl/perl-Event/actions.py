@@ -19,4 +19,5 @@ def build():
 def install():
     perlmodules.install()
 
-    pisitools.dodoc("ANNOUNCE", "ChangeLog", "README", "TODO", "Tutorial.pdf")
+    pisitools.removeDir("/usr/lib/perl5/5.10.0")
+    pisitools.dodoc("ANNOUNCE", "ChangeLog", "README", "TODO" )
