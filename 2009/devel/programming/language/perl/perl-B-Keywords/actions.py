@@ -19,6 +19,8 @@ def build():
 
 def install():
     perlmodules.install()
+
+    pisitools.removeDir("/usr/lib/perl5/5.10.0")
     pisitools.removeDir("/usr/lib/perl5/vendor_perl/5.10.0/i686-linux-thread-multi/")
 
     pisitools.dodoc("Changes", "LICENSE", "README")
