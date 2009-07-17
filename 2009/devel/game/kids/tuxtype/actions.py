@@ -19,7 +19,6 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.insinto("/usr/share/applications", "tuxtype.desktop")
 
-    pisitools.removeDir("/usr/doc")
-    pisitools.removeDir("/usr/share/doc/tuxtype")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "TODO", "COPYING", "README", "doc/en/howtotheme.html")
+    pisitools.dodoc("doc/AUTHORS", "doc/ChangeLog", "doc/TODO", "COPYING", "README", "doc/en/howtotheme.html")
