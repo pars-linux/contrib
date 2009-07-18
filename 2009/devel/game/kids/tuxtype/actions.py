@@ -19,6 +19,8 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
     pisitools.insinto("/usr/share/applications", "tuxtype.desktop")
+    pisitools.insinto("/usr/share/pixmaps", "icon.png", "tuxtype.png")
 
     pisitools.dodoc("doc/AUTHORS", "doc/ChangeLog", "doc/TODO", "COPYING", "README", "doc/en/howtotheme.html")
