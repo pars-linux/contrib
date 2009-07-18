@@ -967,6 +967,7 @@
             <Summary xml:lang="tr">Çocuklar için daktilo öğretmeni</Summary>
             <Description xml:lang="en">&quot;Tux Typing&quot; is an educational typing tutor for children. It features several different types of gameplay, at a variety of difficulty levels.</Description>
             <Description xml:lang="tr">&quot;Tux Typing&quot; çocuklar için eğitsel bir daktilo öğretmenidir. Çeşitli tipte ve zorluk düzeyinde oyunlar içerir.</Description>
+            <Icon>tuxtype</Icon>
             <Archive type="targz" sha1sum="dd8b3a21283c4bc0d4b34773ce330c32987c9774">http://alioth.debian.org/frs/download.php/3051/tuxtype_w_fonts-1.7.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>sdl-image</Dependency>
@@ -990,6 +991,7 @@
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share/tuxtype</Path>
                 <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
         </Package>
         <History>
@@ -31374,9 +31376,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <BuildDependencies>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
-                <Dependency>libglade2</Dependency>
-                <Dependency>libgnomeprintui</Dependency>
-                <Dependency versionFrom="1.1.0">wv</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>wv</Dependency>
                 <Dependency>fribidi</Dependency>
                 <Dependency>imagemagick</Dependency>
                 <Dependency>libgnomeui</Dependency>
@@ -31388,9 +31389,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <RuntimeDependencies>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
-                <Dependency>libglade2</Dependency>
-                <Dependency>libgnomeprintui</Dependency>
-                <Dependency versionFrom="1.1.0">wv</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>wv</Dependency>
                 <Dependency>fribidi</Dependency>
                 <Dependency>imagemagick</Dependency>
                 <Dependency>libgnomeui</Dependency>
@@ -31407,6 +31407,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-07-18</Date>
+                <Version>2.6.8</Version>
+                <Comment>Make the package ready for Pardus 2009. For now, it is not ready, waiting some dependencies.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-03-22</Date>
                 <Version>2.6.8</Version>
@@ -37088,60 +37095,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Alper Somuncu</Name>
                 <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Image-ExifTool</Name>
-            <Homepage>http://www.sno.phy.queensu.ca/~phil/exiftool</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <License>Artistic</License>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">a command-line application for reading, writing and editing meta information in image, audio and video files</Summary>
-            <Summary xml:lang="tr">Görüntü, ses ve video dosyalarındaki meta bilgileri okuma, yazma ve düzenleme işlemleri için kullanabileceğiniz bir komut satırı uygulaması</Summary>
-            <Description xml:lang="en">ExifTool is a platform-independent Perl library plus a command-line application for reading, writing and editing meta information in image, audio and video files.</Description>
-            <Description xml:lang="tr">ExifTool; görüntü, ses ve video dosyalarındaki meta bilgileri okuma, yazma ve düzenleme işlemleri için kullanabileceğiniz platformdan bağımsız bir Perl kütüphanesi ve komut satırı uygulamasıdır.</Description>
-            <Archive type="targz" sha1sum="2447a916a520fae1ae4405a6722cb9574063c8f9">http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-7.77.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Image-ExifTool/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Image-ExifTool</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2009-09-11</Date>
-                <Version>7.77</Version>
-                <Comment>-Version bump, separate translations.xml
-                -Remove redundant PartOf, and an empty directory
-                -Add tests and some cosmetics</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2008-08-04</Date>
-                <Version>7.39</Version>
-                <Comment>Version bump</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-07-05</Date>
-                <Version>7.34</Version>
-                <Comment>First release</Comment>
-                <Name>Fırat Özgül</Name>
-                <Email>kistihza@yahoo.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -43746,53 +43699,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>pytextile</Name>
-            <Homepage>http://cheeseshop.python.org/pypi/textile</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>freedist</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">A python implementation of Textile, Dean Allen&apos;s Human Text Generator. Textile simplifies the work of creating (X)HTML</Summary>
-            <Description xml:lang="en">A python implementation of Textile, Dean Allen&apos;s Human Text Generator. Textile simplifies the work of creating (X)HTML</Description>
-            <Archive type="targz" sha1sum="c750ea67dfbcdfb55ceae1268c39917622c283a1">http://cheeseshop.python.org/packages/source/t/textile/textile-2.1.3.tar.gz</Archive>
-            <SourceURI>programming/language/python/pytextile/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pytextile</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2009-02-24</Date>
-                <Version>2.1.3</Version>
-                <Comment>Version bump and package takeover.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-03-24</Date>
-                <Version>2.0.11</Version>
-                <Comment>Added missing dep</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-11-14</Date>
-                <Version>2.0.11</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>pyro</Name>
             <Homepage>http://pyro.sourceforge.net/</Homepage>
             <Packager>
@@ -45205,52 +45111,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release</Comment>
                 <Name>Rajeev J Sebastian</Name>
                 <Email>rajeev.sebastian@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>pycha</Name>
-            <Homepage>http://www.lorenzogil.com/projects/pycha/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>LGPLv3</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">A very simple Python package for drawing charts using the great Cairo library</Summary>
-            <Archive type="tarbz2" sha1sum="ce28db8fa398fbcc23030e2935174e9257802e19">http://knec.org/dist/pycha-0.3.0.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>setuptools</Dependency>
-                <Dependency>pycairo</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/python/pycha/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pycha</Name>
-            <RuntimeDependencies>
-                <Dependency>pycairo</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-09-20</Date>
-                <Version>0.3.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Cenk Güre</Name>
-                <Email>gure.cenk@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-12-13</Date>
-                <Version>0.2.0_20071211</Version>
-                <Comment>First Release</Comment>
-                <Name>Cenk Güre</Name>
-                <Email>gure.cenk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
