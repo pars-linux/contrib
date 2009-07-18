@@ -11,4 +11,3 @@ from pisi.actionsapi import pisitools
 def install():
     pythonmodules.install()
 
-    pisitools.dodoc("AUTHORS", "CHANGES.txt", "README.txt", "COPYING")
