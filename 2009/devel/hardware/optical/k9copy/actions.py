@@ -4,20 +4,19 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import kde
-from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import cmaketools
+from pisi.actionsapi import pisitools
+
+WorkDir="k9copy-%s-Source" % get.srcVERSION()
 
 def setup():
-    kde.make("-f admin/Makefile.common")
-    kde.configure()
+    cmaketools.configure(installPrefix="/usr/kde/4", sourceDir=".")
 
 def build():
-    kde.make()
+    cmaketools.make()
 
 def install():
-    kde.install()
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.removeDir("/usr/kde/3.5/include")
-
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING")
+    pisitools.dodoc("COPYING", "README")
