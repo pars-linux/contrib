@@ -3356,9 +3356,9 @@
             <Summary xml:lang="fr">libQGLViewer est une librairie C++ basée sur QT qui facilite la création de visionnieur OpenGL 3D</Summary>
             <Summary xml:lang="en">libQGLViewer is a C++ library based on Qt that eases the creation of OpenGL 3D viewers</Summary>
             <Summary xml:lang="tr">libQGLViewer OpenGL 3D göstericiler oluşturmayı kolaylaştıran, Qt tabanlı bir C++ kütüphanesidir</Summary>
-            <Archive type="targz" sha1sum="08d86c8eebe796e3bb548bfbd1dee66038d45629">http://www.libqglviewer.com/src/libQGLViewer-2.3.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="6faead8d37910caa51d9212362e6b3fe2de30d2e">http://www.libqglviewer.com/src/libQGLViewer-2.3.3.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
                 <Dependency>glut</Dependency>
                 <Dependency>libXmu</Dependency>
                 <Dependency>lcms</Dependency>
@@ -3368,7 +3368,7 @@
         <Package>
             <Name>libqglviewer</Name>
             <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
                 <Dependency>glut</Dependency>
                 <Dependency>libXmu</Dependency>
                 <Dependency>lcms</Dependency>
@@ -3380,6 +3380,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-07-19</Date>
+                <Version>2.3.3</Version>
+                <Comment>Version bump and 2009 migration.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2008-10-06</Date>
                 <Version>2.3.1</Version>
@@ -8449,7 +8456,7 @@
     <SpecFile>
         <Source>
             <Name>vamps</Name>
-            <Homepage>http://vamps.sourceforge.net/</Homepage>
+            <Homepage>http://vamps.sourceforge.net</Homepage>
             <Packager>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
@@ -8457,18 +8464,20 @@
             <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>multimedia.converter</PartOf>
-            <Summary xml:lang="en">Vamps was written to make cheap backups of DVDs under Linux</Summary>
-            <Description xml:lang="en">Vamps was written to make cheap backups of DVDs under Linux</Description>
+            <Summary xml:lang="en">A tool to recompress and modify the structure of a DVD</Summary>
+            <Summary xml:lang="tr">DVD içeriğini sıkıştırmak ve düzenlemek için bir araç</Summary>
+            <Description xml:lang="en">Vamps was written to make cheap backups of DVDs under Linux. It reduces the size of DVD compliant MPEG2 program streams by selectively copying audio and subpicture tracks and by resizing the embedded elementary video stream.</Description>
+            <Description xml:lang="tr">Vamps, Linux sistemler altında kolayca DVD yedekleyebilmeniz için yazılmıştır. DVD içeriğindeki ses ve görüntü kanallarından uygun olanları seçip boyutlandırarak sıkıştırma sağlar.</Description>
             <Archive type="targz" sha1sum="b25e68508f43bee37156fd83cde09a519e0db778">mirrors://sourceforge/vamps/vamps-0.99.2.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.7">libdvdread</Dependency>
+                <Dependency>libdvdread</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/converter/vamps/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>vamps</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
+                <Dependency>dvdauthor</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -8476,6 +8485,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-07-19</Date>
+                <Version>0.99.2</Version>
+                <Comment>Remove strict dependencies, better Summary and Description, add translations.xml</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-01-20</Date>
                 <Version>0.99.2</Version>
@@ -20661,6 +20677,7 @@
             <Archive type="tarbz2" sha1sum="7c180d85a50bdbfc208214c94cfaa793bbc7d0f6">mirrors://sourceforge/wicd/wicd-1.6.2.tar.bz2</Archive>
             <Patches>
                 <Patch level="1">desktop.patch</Patch>
+                <Patch level="1">add-policykit-support.patch</Patch>
             </Patches>
             <SourceURI>network/connection/wicd/pspec.xml</SourceURI>
         </Source>
@@ -20683,6 +20700,9 @@
             <Provides>
                 <COMAR script="service.py">System.Service</COMAR>
             </Provides>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/lib/python2.6/site-packages/wicd/startservice.py" permission="0644" owner="root">startservice.py</AdditionalFile>
+            </AdditionalFiles>
         </Package>
         <Package>
             <Name>wicd-client</Name>
@@ -20690,7 +20710,7 @@
             <Summary xml:lang="tr">Wicd&apos;in GTK+ ile yazılmış arayüz istemcisi</Summary>
             <IsA>app:gui</IsA>
             <RuntimeDependencies>
-                <Dependency releaseFrom="6">wicd</Dependency>
+                <Dependency releaseFrom="7">wicd</Dependency>
                 <Dependency>pygtk</Dependency>
                 <Dependency>notify-python</Dependency>
                 <Dependency>gksu</Dependency>
@@ -20715,7 +20735,7 @@
             <Summary xml:lang="tr">Wicd&apos;in Urwid ile yazılmış arayüz istemcisi</Summary>
             <IsA>app:console</IsA>
             <RuntimeDependencies>
-                <Dependency releaseFrom="6">wicd</Dependency>
+                <Dependency releaseFrom="7">wicd</Dependency>
                 <Dependency>urwid</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -20726,6 +20746,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-07-19</Date>
+                <Version>1.6.2</Version>
+                <Comment>* Add PolicyKit support for Pardus.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-07-09</Date>
                 <Version>1.6.2</Version>
@@ -21289,9 +21316,11 @@
             <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>network.monitor</PartOf>
+            <Summary xml:lang="fr">Relais de transfert de données biderctionnel à usage multiple (netcat++)</Summary>
             <Summary xml:lang="en">Multipurpose relay for bidirectional data transfer (netcat++)</Summary>
+            <Description xml:lang="fr">Socat établi 2 flux d&apos;octet bidirectionnel et transfert les données entre eux. Les canaux de données peuvent être des fichiers, des pipes, des péréphérioques ou des sockets. Il permet de forker, tracer et de logguer différent modes pour la communication interprocessus et bien d&apos;autres options.</Description>
             <Description xml:lang="en">Socat establishes two bidirectional byte streams and transfers data between them. Data channels may be files, pipes, devices, or sockets (Unix, IPv4, IPv6, raw, UDP, TCP, SSL). It provides forking, logging and tracing, different modes for interprocess communication and many more options.</Description>
-            <Archive type="targz" sha1sum="f20badcaff11c4dad1e89f2ce396bd60a14d3464">http://www.dest-unreach.org/socat/download/socat-1.7.0.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="885f89e52012fd73c35c4dffc47ac917f4fc7268">http://www.dest-unreach.org/socat/download/socat-1.7.1.1.tar.gz</Archive>
             <SourceURI>network/monitor/socat/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -21303,6 +21332,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-07-19</Date>
+                <Version>1.7.1.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-10-16</Date>
                 <Version>1.7.0.0</Version>
@@ -21619,7 +21655,9 @@
             <IsA>app:console</IsA>
             <PartOf>util.misc</PartOf>
             <Summary xml:lang="en">Non-interactive SSH password provider</Summary>
+            <Summary xml:lang="tr">Etkileşimsiz SSH parola sağlayıcısı</Summary>
             <Description xml:lang="en">Sshpass is a tool for non-interactively performing password authentication with SSH&apos;s so called &quot;interactive keyboard password authentication&quot;</Description>
+            <Description xml:lang="tr">Sshpass ile SSH&apos;ın &quot;klavye ile etkileşimli parola denetimi&quot; denilen özelliğini alt edip klavye etkileşiminden bağımsız bir şekilde parola denetiminizi gerçekleştirebilirsiniz.</Description>
             <Archive type="targz" sha1sum="c91a6e0d128cc8d27e8cd0cff05b030abf367ccf">mirrors://sourceforge/sshpass/sshpass-1.04.tar.gz</Archive>
             <SourceURI>util/misc/sshpass/pspec.xml</SourceURI>
         </Source>
@@ -28025,58 +28063,80 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>k9copy</Name>
-            <Homepage>http://k9copy.sourceforge.net/</Homepage>
+            <Homepage>http://k9copy.sourceforge.net</Homepage>
             <Packager>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>hardware.optical</PartOf>
-            <Summary xml:lang="en">Small utility to copy DVD&apos;s on Linux</Summary>
-            <Description xml:lang="en">K9copy is a DVD backup utility which allow the copy of one or more titles from a DVD9 to a DVD5.</Description>
+            <Summary xml:lang="en">A small utility which allows the copy of DVD on Linux</Summary>
+            <Summary xml:lang="tr">Linux için basit bir DVD kopyalama aracı</Summary>
+            <Description xml:lang="en">k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
+            <Description xml:lang="tr">k9copy bir DVD&apos;deki bir veya daha fazla bölümü kopyalamak için kullanabileceğiniz bir DVD yedekleme aracıdır.</Description>
             <Icon>k9copy</Icon>
-            <Archive type="targz" sha1sum="169073a8c99535277d2d549b93cffe3f586682d8">mirrors://sourceforge/k9copy/k9copy-1.2.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f39585a4ec7d4a34c6ce8b4e1c058774975c4abe">mirrors://sourceforge/k9copy/k9copy-2.3.2-Source.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
-                <Dependency versionFrom="0.9.7">libdvdread</Dependency>
-                <Dependency versionFrom="0.1.10">libdvdnav</Dependency>
-                <Dependency versionFrom="7.0">dvd+rw-tools</Dependency>
-                <Dependency versionFrom="0.99.2">vamps</Dependency>
-                <Dependency versionFrom="0.12.17">k3b</Dependency>
-                <Dependency versionFrom="0.0_20061209">mplayer</Dependency>
-                <Dependency versionFrom="0.4.9_20080605">ffmpeg</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency>automoc4</Dependency>
+                <Dependency>kdelibs-devel</Dependency>
+                <Dependency>vamps</Dependency>
+                <Dependency>dvd+rw-tools</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>xine-lib</Dependency>
+                <Dependency>libmpeg2</Dependency>
+                <Dependency>qt</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">k9copy-1.2.3-gcc43.patch</Patch>
+                <Patch level="1">desktop_tr.patch</Patch>
+                <Patch level="1">compile.patch</Patch>
+                <Patch level="1">gcc43.patch</Patch>
+                <Patch level="1">gcc44.patch</Patch>
             </Patches>
             <SourceURI>hardware/optical/k9copy/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>k9copy</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
-                <Dependency versionFrom="0.9.7">libdvdread</Dependency>
-                <Dependency versionFrom="0.1.10">libdvdnav</Dependency>
-                <Dependency versionFrom="7.0">dvd+rw-tools</Dependency>
-                <Dependency versionFrom="0.99.2">vamps</Dependency>
-                <Dependency versionFrom="0.12.17">k3b</Dependency>
-                <Dependency versionFrom="0.0_20061209">mplayer</Dependency>
-                <Dependency versionFrom="0.4.9_20080605">ffmpeg</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency>kdelibs</Dependency>
+                <Dependency>vamps</Dependency>
+                <Dependency>dvd+rw-tools</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>k3b</Dependency>
+                <Dependency>phonon</Dependency>
+                <Dependency>xine-lib</Dependency>
+                <Dependency>libmpeg2</Dependency>
+                <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applications</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
+                <Path fileType="data">/usr/kde/4/share/applications</Path>
+                <Path fileType="data">/usr/kde/4/share/apps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+                <Path fileType="doc">/usr/kde/4/share/doc</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
+            <Conflicts>
+                <Package>k9copy-kde4</Package>
+            </Conflicts>
+            <Replaces>
+                <Package>k9copy-kde4</Package>
+            </Replaces>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2009-07-19</Date>
+                <Version>2.3.2</Version>
+                <Comment>-Bump to KDE4 port 2.3.2, now using CMake
+                -Fix paths and dependencies
+                -Add translations.xml
+                -Add Conflicts and Replaces for k9copy-kde4</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="14">
                 <Date>2008-10-30</Date>
                 <Version>1.2.4</Version>
@@ -43694,69 +43754,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>pyro</Name>
-            <Homepage>http://pyro.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
-            </Packager>
-            <License>MIT</License>
-            <IsA>library</IsA>
-            <IsA>app:gui</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">remote objects for Python</Summary>
-            <Archive type="targz" sha1sum="88270d400a0dd7286bef1a8c934c5dc7fe98b57a">mirrors://sourceforge/pyro/Pyro-3.8.1.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>setuptools</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>pyro-setup.cfg.patch</Patch>
-                <Patch>pyro-setup.py.patch</Patch>
-                <Patch level="1">pyro-set-pidfile.patch</Patch>
-            </Patches>
-            <SourceURI>programming/language/python/pyro/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pyro</Name>
-            <RuntimeDependencies>
-                <Dependency releaseFrom="17">comar-api</Dependency>
-                <Dependency>wxPython</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Provides>
-                <COMAR script="service.py">System.Service</COMAR>
-            </Provides>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2009-02-14</Date>
-                <Version>3.8.1</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2008-09-01</Date>
-                <Version>3.8</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-02-10</Date>
-                <Version>3.7</Version>
-                <Comment>First release.</Comment>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -62342,9 +62339,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">C++ library for symbolic mathematical calculations.</Summary>
             <Summary xml:lang="tr">Matematiksel hesaplamalar için C++ kütüphanesi.</Summary>
             <Description xml:lang="en">GiNaC (which stands for &quot;GiNaC is Not a CAS&quot; (computer algebra system)) is a C++ library for symbolic mathematical calculations.</Description>
-            <Archive type="tarbz2" sha1sum="d9b818197979200ea3d7c1bfba26d4a3980b819f">http://www.ginac.de/ginac-1.5.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="65b58f17d0e47489c87abc714f9863e1a00b0635">http://www.ginac.de/ginac-1.5.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>cln</Dependency>
+                <Dependency>doxygen</Dependency>
+                <Dependency>transfig</Dependency>
             </BuildDependencies>
             <SourceURI>science/mathematics/ginac/pspec.xml</SourceURI>
         </Source>
@@ -62364,6 +62363,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-07-19</Date>
+                <Version>1.5.2</Version>
+                <Comment>Version bump, add missing dependencies and make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-03-07</Date>
                 <Version>1.5.1</Version>
