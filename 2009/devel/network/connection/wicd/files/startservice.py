@@ -1,12 +1,26 @@
-#!/usr/bin/env python
-#-*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+# @author: Gökmen Görgen, <gkmngrgn_gmail.com>
+#
 
-# Author: Gökmen Görgen, <gkmngrgn@gmail.com>
+import comar
 
-import pygtk, gtk
-import os
+link = comar.Link()
+link.setLocale()
+link.useAgent()
 
-def main(widget = None):
+def startService(service):
+    link.System.Service[service].start()
+
+def infoService(service):
+    # return 'on' or 'stopped'.
+    return link.System.Service[service].info()[2]
+
+def warningWidget():
+    import gtk
+    import os
+
     if os.getenv("LANG").startswith("tr"):
         msg = "Wicd servisi şuan etkin değil! Servis Yöneticisi'nden\nWicd ağ yöneticisini çalıştırın ve tekrar deneyin."
 
