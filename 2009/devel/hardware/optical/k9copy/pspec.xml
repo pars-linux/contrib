@@ -3,58 +3,80 @@
 <PISI>
     <Source>
         <Name>k9copy</Name>
-        <Homepage>http://k9copy.sourceforge.net/</Homepage>
+        <Homepage>http://k9copy.sourceforge.net</Homepage>
         <Packager>
-            <Name>Kenan Pelit</Name>
-            <Email>kpelit@gmail.com</Email>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <Icon>k9copy</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Small utility to copy DVD's on Linux</Summary>
-        <Description>K9copy is a DVD backup utility which allow the copy of one or more titles from a DVD9 to a DVD5.</Description>
-        <Archive sha1sum="169073a8c99535277d2d549b93cffe3f586682d8" type="targz">mirrors://sourceforge/k9copy/k9copy-1.2.4.tar.gz</Archive>
+        <Summary>A small utility which allows the copy of DVD on Linux</Summary>
+        <Description>k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
+        <Archive sha1sum="f39585a4ec7d4a34c6ce8b4e1c058774975c4abe" type="targz">mirrors://sourceforge/k9copy/k9copy-2.3.2-Source.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
-            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
-            <Dependency versionFrom="0.1.10">libdvdnav</Dependency>
-            <Dependency versionFrom="7.0">dvd+rw-tools</Dependency>
-            <Dependency versionFrom="0.99.2">vamps</Dependency>
-            <Dependency versionFrom="0.12.17">k3b</Dependency>
-            <Dependency versionFrom="0.0_20061209">mplayer</Dependency>
-            <Dependency versionFrom="0.4.9_20080605">ffmpeg</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>automoc4</Dependency>
+            <Dependency>kdelibs-devel</Dependency>
+            <Dependency>vamps</Dependency>
+            <Dependency>dvd+rw-tools</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency>xine-lib</Dependency>
+            <Dependency>libmpeg2</Dependency>
+            <Dependency>qt</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">k9copy-1.2.3-gcc43.patch</Patch>
+            <Patch level="1">desktop_tr.patch</Patch>
+            <Patch level="1">compile.patch</Patch>
+            <Patch level="1">gcc43.patch</Patch>
+            <Patch level="1">gcc44.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>k9copy</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.6.11">dvdauthor</Dependency>
-            <Dependency versionFrom="0.9.7">libdvdread</Dependency>
-            <Dependency versionFrom="0.1.10">libdvdnav</Dependency>
-            <Dependency versionFrom="7.0">dvd+rw-tools</Dependency>
-            <Dependency versionFrom="0.99.2">vamps</Dependency>
-            <Dependency versionFrom="0.12.17">k3b</Dependency>
-            <Dependency versionFrom="0.0_20061209">mplayer</Dependency>
-            <Dependency versionFrom="0.4.9_20080605">ffmpeg</Dependency>
+            <Dependency>ffmpeg</Dependency>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>vamps</Dependency>
+            <Dependency>dvd+rw-tools</Dependency>
+            <Dependency>mplayer</Dependency>
+            <Dependency>k3b</Dependency>
+            <Dependency>phonon</Dependency>
+            <Dependency>xine-lib</Dependency>
+            <Dependency>libmpeg2</Dependency>
+            <Dependency>qt</Dependency>
         </RuntimeDependencies>
+        <Conflicts>
+            <Package>k9copy-kde4</Package>
+        </Conflicts>
+        <Replaces>
+            <Package>k9copy-kde4</Package>
+        </Replaces>
         <Files>
-            <Path fileType="executable">/usr/kde/3.5/bin</Path>
-            <Path fileType="library">/usr/kde/3.5/lib</Path>
-            <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
-            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-            <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="executable">/usr/kde/4/bin</Path>
+            <Path fileType="data">/usr/kde/4/share/applications</Path>
+            <Path fileType="data">/usr/kde/4/share/apps</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+            <Path fileType="doc">/usr/kde/4/share/doc</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="15">
+            <Date>2009-07-19</Date>
+            <Version>2.3.2</Version>
+            <Comment>
+                -Bump to KDE4 port 2.3.2, now using CMake
+                -Fix paths and dependencies
+                -Add translations.xml
+                -Add Conflicts and Replaces for k9copy-kde4
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="14">
             <Date>2008-10-30</Date>
             <Version>1.2.4</Version>
