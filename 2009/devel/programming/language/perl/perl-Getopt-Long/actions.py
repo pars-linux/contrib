@@ -22,5 +22,6 @@ def build():
 def install():
     perlmodules.install()
 
+    pisitools.removeDir("/usr/lib/perl5/%s" % get.curPERL())
     pisitools.insinto(examples, "examples/*")
     pisitools.dodoc("CHANGES", "README")
