@@ -15,14 +15,10 @@
         <Summary xml:lang="tr">KDE için Ağ İzleyicisi</Summary>
         <Description>KNemo offers a network monitor similar to the one found in Windows. For every network interface it displays an icon in the systray.</Description>
         <Description xml:lang="tr">Bu programcık knetstats'da olmayan kota takibi gibi birkaç özellik içerir. Sistem tepsisine yerleşerek ağ erişimini takip edebilmenizi sağlar.</Description>
-        <Archive sha1sum="ee6e8f56fe20b81318c60e38584db6fe3a46fd01" type="tarbz2">http://www.kde-apps.org/CONTENT/content-files/12956-knemo-0.4.8.tar.bz2</Archive>
+        <Archive sha1sum="f6016233e87a0203eeaea150845ef99636788f19" type="targz">http://www.kde-apps.org/CONTENT/content-files/12956-knemo-0.5.2.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>kdelibs</Dependency>
+            <Dependency>kdelibs-devel</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>knemo-desktop.patch</Patch>
-            <Patch>turkish.patch</Patch>
-        </Patches>
     </Source>
     <Package>
         <Name>knemo</Name>
@@ -30,16 +26,25 @@
             <Dependency>kdelibs</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="library">/usr/kde/3.5/lib</Path>
-            <Path fileType="data">/usr/kde/3.5/share/applications</Path>
-            <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-            <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-            <Path fileType="data">/usr/kde/3.5/share/services</Path>
-            <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+            <Path fileType="executable">/usr/kde/4/bin</Path>
+            <Path fileType="library">/usr/kde/4/lib</Path>
+            <Path fileType="data">/usr/kde/4/share/applications</Path>
+            <Path fileType="data">/usr/kde/4/share/apps</Path>
+            <Path fileType="data">/usr/kde/4/share/autostart</Path>
+            <Path fileType="data">/usr/kde/4/share/kde4</Path>
+            <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+            <Path fileType="data">/usr/share/icons</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-07-20</Date>
+            <Version>0.5.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
         <Update release="5">
             <Date>2008-05-19</Date>
             <Version>0.4.8</Version>
