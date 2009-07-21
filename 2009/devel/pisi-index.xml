@@ -3783,7 +3783,7 @@
     <SpecFile>
         <Source>
             <Name>libmpd</Name>
-            <Homepage>http://sarine.nl/libmpd/</Homepage>
+            <Homepage>http://gmpc.wikia.com</Homepage>
             <Packager>
                 <Name>Güngör Erseymen</Name>
                 <Email>gelurine@gmail.com</Email>
@@ -3791,8 +3791,9 @@
             <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>multimedia.library</PartOf>
-            <Summary xml:lang="en">Client development library for MPD.</Summary>
-            <Archive type="targz" sha1sum="8c48341ff6333347f1c0119df7986b0e72ff3d2a">http://download.sarine.nl/gmpc-0.15.5/libmpd-0.15.0.tar.gz</Archive>
+            <Summary xml:lang="en">Client development library for MPD</Summary>
+            <Summary xml:lang="tr">MPD için istemci geliştirme kütüphanesi</Summary>
+            <Archive type="targz" sha1sum="8b4199975d56579437f2381a5549b1e037ea652d">mirrors://sourceforge/musicpd/libmpd-0.18.0.tar.gz</Archive>
             <SourceURI>multimedia/library/libmpd/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -3804,6 +3805,24 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-07-21</Date>
+                <Version>0.18.0</Version>
+                <Comment>- Added translations.xml
+	      - Removeed dot in summary</Comment>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2009-07-21</Date>
+                <Version>0.18.0</Version>
+                <Comment>- Version bump.
+	      - New home page address
+	      - New download url
+	      - Remove unneeded libtool&apos;s la files.</Comment>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-01-27</Date>
                 <Version>0.15.0</Version>
@@ -18317,7 +18336,7 @@
             <PartOf>network.p2p</PartOf>
             <Summary xml:lang="en">Java Gnutella client</Summary>
             <Summary xml:lang="tr">Java ile yazılmış bir Gnutella istemcisi</Summary>
-            <Archive type="zip" sha1sum="0961b8733aab99e8c41d7a051ad1a1e04145e5ca">http://www.limewire.com/LimeWireSoftOther</Archive>
+            <Archive type="zip" sha1sum="b865546f88cf042f7e28d1c1aacca6b05eaa6372">http://www.limewire.com/LimeWireSoftOther</Archive>
             <SourceURI>network/p2p/limewire/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -18338,6 +18357,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-07-21</Date>
+                <Version>5.1.4</Version>
+                <Comment>Version bump.</Comment>
+                <Name>İnanç Yıldırgan</Name>
+                <Email>inancyildirgan@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-02-09</Date>
                 <Version>5.0.11</Version>
@@ -48140,9 +48166,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Xfce4 weather plugin shows the current temperature and weather condition, using weather data provided by xoap.weather.com (www.weather.com).</Description>
             <Description xml:lang="tr">Xfce4 hava durumu eklentisi, Xfce4 panelinde hava durumunu ve sıcaklığını gösteren bir uygulamacıktır. İklim bilgilerini xoap.weather.com sitesinden almaktadır.</Description>
             <Icon>xfce4-weather</Icon>
-            <Archive type="tarbz2" sha1sum="061b34e49bb1b6bb67553eabf450ecb880176d0d">http://goodies.xfce.org/releases/xfce4-weather-plugin/xfce4-weather-plugin-0.7.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f6e8d93905c61425f3b510daab65fb7cd8ecbdb8">http://goodies.xfce.org/releases/xfce4-weather-plugin/xfce4-weather-plugin-0.7.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel-devel</Dependency>
+                <Dependency>libxfcegui4-devel</Dependency>
+                <Dependency>libxfce4util-devel</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce/addon/xfce4-weather-plugin/pspec.xml</SourceURI>
         </Source>
@@ -48150,6 +48180,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-weather-plugin</Name>
             <RuntimeDependencies>
                 <Dependency>xfce4-panel</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -48162,6 +48196,18 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-07-21</Date>
+                <Version>0.7.1</Version>
+                <Comment>* Version bump:
+                - Fix bug Xfce #5505 about localize.
+                - Use getaddrinfo() instead of the deprecated gethostbyname().
+                - Stop closing stdout on network error.
+                - Implement label change on mouse scroll.
+                * Fix dependencies for lddtree.sh output.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-06-25</Date>
                 <Version>0.7.0</Version>
@@ -50139,7 +50185,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>Terminal</Name>
-            <Homepage>http://www.xfce.org</Homepage>
+            <Homepage>http://goodies.xfce.org/projects/applications/terminal</Homepage>
             <Packager>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -50152,24 +50198,29 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Terminal is a modern, lightweight, and low memory cost terminal emulator with tabs and multiple windows for the Xfce desktop environment. It offers full-customization for the key bindings, the aspect, the colors, and more.</Description>
             <Description xml:lang="tr">Terminal çağdaş, hafif ve az bellek harcayan; sekmeli ve çoklu pencereyi destekleyen, Xfce masaüstü ortamı için yazılmış bir uçbirim öykünücüsüdür. Renkler, görünüm, kısayol tuşları ve daha fazlası için kişiselleştirmeye izin verir.</Description>
             <Icon>terminal</Icon>
-            <Archive type="tarbz2" sha1sum="f32dc0c0231fd0f93fe020cbd9107a1ec8f5801d">http://goodies.xfce.org/releases/terminal/Terminal-0.2.99.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8b52e1841e922a1be28228873bde84eea4c6b456">http://goodies.xfce.org/releases/terminal/Terminal-0.4.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>exo-devel</Dependency>
+                <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>vte</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>pango</Dependency>
                 <Dependency>startup-notification</Dependency>
+                <Dependency>docbook-xsl</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce/base/Terminal/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>Terminal</Name>
             <RuntimeDependencies>
-                <Dependency>atk</Dependency>
                 <Dependency>exo</Dependency>
-                <Dependency>gtk2</Dependency>
                 <Dependency>libxfce4util</Dependency>
+                <Dependency>vte</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>atk</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>startup-notification</Dependency>
-                <Dependency>vte</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -50185,6 +50236,18 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2009-07-21</Date>
+                <Version>0.4.0</Version>
+                <Comment>* Stable version bump:
+                - Don&apos;t show the set title dialog when double-clicking on the scrollbar.
+                - Don&apos;t build the menubar when not enabled on startup.
+                - Various small code cleanups.
+                - Translation updates (cs, eu, ja, kk).
+                * Update homepage url.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2009-07-17</Date>
                 <Version>0.2.99.1</Version>
@@ -51738,14 +51801,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Midori is a lightweight GTK+ web browser based on WebkitGtk. It features tabs, windows and session management, bookmarks stored with XBEL, searchbox based on OpenSearch, and user script support.</Description>
             <Description xml:lang="tr">Midori, WebkitGtk tarayıcı motorunu kullanan, hafif bir GTK+ tabanlı internet tarayıcısıdır. Birçok internet tarayıcısında olduğu gibi, Midori de sekmeleri, pencereleri ve oturum yöneticisini; XBEL ile sık kullanılanları kaydetmeyi, OpenSearch tabanlı arama kutusunu ve kullanıcı betiklerini kullanma gibi özellikleri desteklemektedir.</Description>
             <Icon>midori</Icon>
-            <Archive type="tarbz2" sha1sum="29ee96a632eacbfd40852f9ae386ea666f7f9fdb">http://goodies.xfce.org/releases/midori/midori-0.1.7.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="14a76d88c402ef325db7212fb1768c68abf9ab9b">http://goodies.xfce.org/releases/midori/midori-0.1.8.tar.bz2</Archive>
             <BuildDependencies>
+                <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>libsoup</Dependency>
-                <Dependency>libunique</Dependency>
                 <Dependency>webkit-gtk-devel</Dependency>
-                <Dependency>libsexy</Dependency>
                 <Dependency>docutils</Dependency>
                 <Dependency>gtk-doc</Dependency>
             </BuildDependencies>
@@ -51758,12 +51820,11 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>midori</Name>
             <RuntimeDependencies>
+                <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>libsoup</Dependency>
-                <Dependency>libunique</Dependency>
                 <Dependency>webkit-gtk</Dependency>
-                <Dependency>libsexy</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -51777,6 +51838,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-07-21</Date>
+                <Version>0.1.8</Version>
+                <Comment>* Version bump.
+                * Update Turkish translation.
+                * Fix dependencies for lddtree.sh output.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-07-10</Date>
                 <Version>0.1.7</Version>
