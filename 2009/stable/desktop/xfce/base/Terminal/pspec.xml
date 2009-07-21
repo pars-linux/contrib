@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>Terminal</Name>
-        <Homepage>http://www.xfce.org</Homepage>
+        <Homepage>http://goodies.xfce.org/projects/applications/terminal</Homepage>
         <Packager>
             <Name>Gökmen Görgen</Name>
             <Email>gkmngrgn@gmail.com</Email>
@@ -13,24 +13,29 @@
         <IsA>app:gui</IsA>
         <Summary>Terminal for Xfce</Summary>
         <Description>Terminal is a modern, lightweight, and low memory cost terminal emulator with tabs and multiple windows for the Xfce desktop environment. It offers full-customization for the key bindings, the aspect, the colors, and more.</Description>
-        <Archive sha1sum="f32dc0c0231fd0f93fe020cbd9107a1ec8f5801d" type="tarbz2">http://goodies.xfce.org/releases/terminal/Terminal-0.2.99.1.tar.bz2</Archive>
+        <Archive sha1sum="8b52e1841e922a1be28228873bde84eea4c6b456" type="tarbz2">http://goodies.xfce.org/releases/terminal/Terminal-0.4.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>exo-devel</Dependency>
+            <Dependency>libxfce4util-devel</Dependency>
             <Dependency>vte</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>pango</Dependency>
             <Dependency>startup-notification</Dependency>
+            <Dependency>docbook-xsl</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>Terminal</Name>
         <RuntimeDependencies>
-            <Dependency>atk</Dependency>
             <Dependency>exo</Dependency>
-            <Dependency>gtk2</Dependency>
             <Dependency>libxfce4util</Dependency>
+            <Dependency>vte</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>atk</Dependency>
             <Dependency>pango</Dependency>
             <Dependency>startup-notification</Dependency>
-            <Dependency>vte</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -47,6 +52,20 @@
     </Package>
 
     <History>
+        <Update release="17">
+            <Date>2009-07-21</Date>
+            <Version>0.4.0</Version>
+            <Comment>
+                * Stable version bump:
+                - Don't show the set title dialog when double-clicking on the scrollbar.
+                - Don't build the menubar when not enabled on startup.
+                - Various small code cleanups.
+                - Translation updates (cs, eu, ja, kk).
+                * Update homepage url.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="16">
             <Date>2009-07-17</Date>
             <Version>0.2.99.1</Version>
