@@ -17,4 +17,4 @@ def install():
     autotools.install()
 
     pisitools.doman("sshpass.1")
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "CREDITS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING" )
