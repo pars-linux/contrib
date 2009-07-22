@@ -5732,18 +5732,21 @@
             <Description xml:lang="en">QuodLibet is designed around the idea that you know better than we do how to organize your music. It lets you make playlists based on regular expressions (don&apos;t worry, regular searches work too). It lets you display and edit any tags you want in the file.</Description>
             <Description xml:lang="tr">QuodLibet, kendi müziğinizi bizim yaptığımızdan daha iyi nasıl yönetebileceğiniz düşüncesi üzerine tasarlanmıştır. Uygulamayı düzenli ifadelerle çalma listesi oluşturacak biçimde kullanabilirsiniz (düzenli arama yapabiliyorsunuz) veya istediğiniz dosyanın etiketlerini düzenleyip görüntüleyebilirsiniz.</Description>
             <Icon>quodlibet</Icon>
-            <Archive type="targz" sha1sum="93d378234feae798c65452085add0b46a2440be4">http://quodlibet.googlecode.com/files/quodlibet-2.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="15a40c054955d1ad539432a265b2c96225b864c2">http://quodlibet.googlecode.com/files/quodlibet-2.1.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.12.0">pygtk</Dependency>
+                <Dependency>pygtk</Dependency>
                 <Dependency>gst-python</Dependency>
                 <Dependency>mutagen</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">fix-icons.patch</Patch>
+            </Patches>
             <SourceURI>multimedia/sound/quodlibet/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>quodlibet</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.12.0">pygtk</Dependency>
+                <Dependency>pygtk</Dependency>
                 <Dependency>gst-python</Dependency>
                 <Dependency>mutagen</Dependency>
                 <Dependency>gst-plugins-good</Dependency>
@@ -5763,6 +5766,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-07-23</Date>
+                <Version>2.1</Version>
+                <Comment>* Version bump.
+                * Add patch for fixing icons.
+                * Use subprocess instead of os.popen2.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-12-16</Date>
                 <Version>2.0</Version>
