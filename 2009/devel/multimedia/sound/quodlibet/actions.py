@@ -8,29 +8,15 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+imageDir = "/usr/lib/%s/site-packages/quodlibet/images" % get.curPYTHON()
+
 def build():
     pythonmodules.compile()
 
 def install():
-    # edit prefix for sandbox error
-    pisitools.dosed("gdist/shortcuts.py", "self.prefix", "'%s/usr'" % get.installDIR())
-    pisitools.dosed("gdist/man.py", "self.prefix", "'%s/usr'" % get.installDIR())
-    pisitools.dosed("gdist/po.py", "self.install_base", "'%s/usr'" % get.installDIR())
-
-    # install quodlibet and exfalso
     pythonmodules.install()
 
-    # and then, copy images for desktop files' icons
-    pisitools.insinto("/usr/share/pixmaps", "quodlibet/images/quodlibet.png")
-    pisitools.insinto("/usr/share/pixmaps", "quodlibet/images/exfalso.png")
+    for i in ["quodlibet.png", "exfalso.png"]:
+        pisitools.dosym("%s/%s" % (imageDir, i), "/usr/share/pixmaps/%s" % i)
 
-    # there is no need to extensions
-    pisitools.dosed("%s/usr/share/applications/quodlibet.desktop" % get.installDIR(),
-                    "Icon=quodlibet.png",
-                    "Icon=quodlibet")
-    pisitools.dosed("%s/usr/share/applications/exfalos.desktop" % get.installDIR(),
-                    "Icon=exfalso.png",
-                    "Icon=exfalso")
-
-    # don't forget to include this documents
     pisitools.dodoc("COPYING", "HACKING", "NEWS", "README")
