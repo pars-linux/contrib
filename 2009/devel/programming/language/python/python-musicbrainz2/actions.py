@@ -9,14 +9,18 @@ from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-examples = "%s/%s/examples" % (get.docDIR(), get.srcTAG())
+examples = "%s/%s/examples" % (get.docDIR(), get.srcNAME())
 
 def setup():
     shelltools.chmod("examples/*", 0644)
+
+def build():
+    pythonmodules.compile()
+    pythonmodules.run("setup.py docs")
 
 def install():
     pythonmodules.install()
 
     pisitools.insinto(examples, "examples/*")
-
-    pisitools.dodoc("AUTHORS.txt", "CHANGES.txt", "COPYING.txt", "README.txt")
+    pisitools.dohtml("html/*")
+    pisitools.dodoc("AUTHORS.txt", "CHANGES.txt")
