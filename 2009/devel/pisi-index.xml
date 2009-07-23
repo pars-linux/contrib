@@ -2770,6 +2770,7 @@
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>libmad</Dependency>
                 <Dependency>python-eyeD3</Dependency>
+                <Dependency>pulseaudio-jack</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">desktop.patch</Patch>
@@ -2795,6 +2796,7 @@
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>libmad</Dependency>
                 <Dependency>python-eyeD3</Dependency>
+                <Dependency>pulseaudio-jack</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -2808,6 +2810,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-07-23</Date>
+                <Version>0.7.17</Version>
+                <Comment>Add pulseaudio-jack dependency. BUG:FIXED:10600</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-07-13</Date>
                 <Version>0.7.17</Version>
@@ -5530,6 +5539,9 @@
                 <Dependency>libmpcdec</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">tr.patch</Patch>
+            </Patches>
             <SourceURI>multimedia/sound/qmmp/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -5564,6 +5576,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-07-23</Date>
+                <Version>0.3.0</Version>
+                <Comment>Turkish translation update.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-07-04</Date>
                 <Version>0.3.0</Version>
@@ -7945,7 +7964,7 @@
             <Description xml:lang="en">Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
             <Description xml:lang="tr">Miro, RSS ve BitTorrent destekli bir internet multimedya oynatıcısıdır.</Description>
             <Icon>miro</Icon>
-            <Archive type="targz" sha1sum="96889474528b61ae153cabb0976bf3dfa84778e8">http://participatoryculture.org/nightlies/Miro-2.5-rc1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="a2772c2344df4369769fa13aee2db103beb4f80c">http://ftp.osuosl.org/pub/pculture.org/miro/src/Miro-2.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-python-extras</Dependency>
@@ -7987,6 +8006,7 @@
                 <Dependency>libXv</Dependency>
                 <Dependency>nspr</Dependency>
                 <Dependency>gst-python</Dependency>
+                <Dependency>notify-python</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -8003,6 +8023,19 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-07-23</Date>
+                <Version>2.5</Version>
+                <Comment>Bump to 2.5 stable, add notify-python support:
+                *New audio podcast section of the Miro Guide
+                *Better interface for audio playback
+                *Smarter handling of bittorrent files, especially videos
+                *New Library interface with ‘Video’, ‘Audio’, and ‘Other’ sections
+                *New keyboard shortcuts for virtually all functions
+                *Lots of bug fixes and tweaks</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-07-08</Date>
                 <Version>2.5_rc1</Version>
@@ -9502,9 +9535,9 @@
             <PartOf>multimedia.graphics</PartOf>
             <Summary xml:lang="en">A lightweight video thumbnailer</Summary>
             <Summary xml:lang="tr">Dosya yöneticileri için hafif görüntü önizleyicisi</Summary>
-            <Description xml:lang="en">This video thumbnailer can be used by file managers to create thumbnails for your video files. The thumbnailer uses ffmpeg to decode frames from the video files, so supported video format depend on the configuration flags of ffmpeg.</Description>
-            <Description xml:lang="tr">Bu görüntü önizleyicisi, görüntü dosyalarınız için dosya yöneticilerinizde önizlemeler oluşturmaya yarar.</Description>
-            <Archive type="targz" sha1sum="b1c10535b835ad6f9b759b25945e7a5710f63a31">http://ffmpegthumbnailer.googlecode.com/files/ffmpegthumbnailer-1.5.3.tar.gz</Archive>
+            <Description xml:lang="en">Ffmpeg Thumbnailer can be used by file managers to create thumbnails for your video files. The thumbnailer uses ffmpeg to decode frames from the video files, so supported video format depend on the configuration flags of ffmpeg.</Description>
+            <Description xml:lang="tr">Ffmpeg Thumbnailer, görüntü dosyalarınız için dosya yöneticilerinizde önizlemeler oluşturmaya yarar.</Description>
+            <Archive type="targz" sha1sum="e926814d241267d61e1d43979219533e949f195f">http://ffmpegthumbnailer.googlecode.com/files/ffmpegthumbnailer-1.5.4.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>ffmpeg</Dependency>
             </BuildDependencies>
@@ -9524,6 +9557,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-07-23</Date>
+                <Version>1.5.4</Version>
+                <Comment>* Version bump:
+                - Fixed support for large files.
+                * Update descriptions.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-06-16</Date>
                 <Version>1.5.3</Version>
