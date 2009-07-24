@@ -11,12 +11,14 @@
         <License>MIT</License>
         <License>GPLv2</License>
         <Icon>transmission</Icon>
-        <IsA>app:gui</IsA>
+        <IsA>service</IsA>
+        <IsA>app:console</IsA>
         <Summary>A fast, easy, and free BitTorrent client</Summary>
-        <Description>Transmission is a free, lightweight Bittorrent client. It features a simple, intuitive interface on top of an efficient backend.</Description>
-        <Archive sha1sum="18d25c031d4aaf3b8ae546d5b4b492672214ef0a" type="tarbz2">http://download.m0k.org/transmission/files/transmission-1.72.tar.bz2</Archive>
+        <Description>Transmission is a free, lightweight Bittorrent client. It features a simple, intuitive interface on top of an efficient backend. This package provides only daemon, web interface and command line client. If you use Transmission with graphical interface, you should install transmission-gtk or transmission-qt.</Description>
+        <Archive sha1sum="18e347141fcd65a385cd1406ba8a3303b0c99156" type="tarbz2">http://download.m0k.org/transmission/files/transmission-1.73.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>libnotify</Dependency>
         </BuildDependencies>
         <Patches>
@@ -26,23 +28,76 @@
 
     <Package>
         <Name>transmission</Name>
-        <RuntimeDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>libnotify</Dependency>
-        </RuntimeDependencies>
         <Files>
+            <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
-            <Path fileType="data">/usr/share/icons</Path>
-            <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/transmission</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
         </Files>
     </Package>
 
+    <Package>
+        <Name>transmission-gtk</Name>
+        <IsA>app:gui</IsA>
+        <Summary>Transmission's GTK+ interface (default)</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="14">transmission</Dependency>
+            <Dependency>libnotify</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libevent</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package releaseTo="13">transmission</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="executable">/usr/bin/transmission</Path>
+            <Path fileType="man">/usr/share/man/man1/transmission.1</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/applications/transmission.desktop</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>transmission-qt</Name>
+        <IsA>app:gui</IsA>
+        <Summary>Transmission's Qt interface</Summary>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="14">transmission</Dependency>
+            <Dependency>qt</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/qtr</Path>
+            <Path fileType="executable">/usr/bin/transmission-qt</Path>
+            <Path fileType="doc">/usr/share/doc/transmission/README-QT</Path>
+            <Path fileType="data">/usr/share/applications/transmission-qt.desktop</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/transmission-qt.desktop">transmission-qt.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
     <History>
+        <Update release="14">
+            <Date>2009-07-24</Date>
+            <Version>1.73</Version>
+            <Comment>
+                * Version bump:
+                - Fix bug where user-configured peer limits could be exceeded.
+                - Use less memory in some high-peer situations.
+                - Better estimation of time left to download.
+                - Support supportcrypto and requirecrypto flags in http tracker announces.
+                - Update to newer snapshots of libnatpmp and miniupnpc.
+                - Make DHT a compile-time option.
+                * Enable Qt gui support.
+                * Split package.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="13">
             <Date>2009-06-30</Date>
             <Version>1.72</Version>
