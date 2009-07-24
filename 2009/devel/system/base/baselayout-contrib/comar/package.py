@@ -48,5 +48,5 @@ def postInstall(fromVersion, fromRelease, toVersion, toRelease):
     # addUser(uid, nick, realname, homedir, shell, password, groups, grantedauths, blockedauths)
     hav("addUser", (400, "teamspeak", "Teamspeak", "/dev/null", "/bin/false", "", ["teamspeak"], [], []))
     hav("addUser", (105, "gdm", "GNOME Display Manager", "/dev/null", "/bin/bash", "", ["gdm"], [], []))
-    hav("addUser", (250, "mpd", "Music Player Daemon", "/var/lib/mpd", "/bin/bash", "", ["audio"], [], []))
+    hav("addUser", (250, "mpd", "Music Player Daemon", "/var/lib/mpd", "/bin/bash", "", ["audio", "pulse", "pulse-access", "pulse-rt"], [], []))
 
