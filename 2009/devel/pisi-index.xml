@@ -2896,8 +2896,10 @@
             <IsA>service</IsA>
             <PartOf>multimedia.stream</PartOf>
             <Summary xml:lang="en">Music Player Daemon</Summary>
+            <Summary xml:lang="tr">Müzik Çalıcı Sunucusu (MPD)</Summary>
             <Description xml:lang="en">Music Player Daemon (MPD) allows remote access for playing music (MP3, Ogg Vorbis, FLAC, AAC, Mod, and wave files) and managing playlists.</Description>
-            <Archive type="tarbz2" sha1sum="05707b007a2fd51885aa301922c0ac15dcbf9c86">mirrors://sourceforge/musicpd/mpd-0.15.tar.bz2</Archive>
+            <Description xml:lang="tr">MPD çoğu müzik dosyasını (MP3, Ogg Vorbis, FLAC, AAC, Mod vs.) çalar ve ağda yayınlar.</Description>
+            <Archive type="tarbz2" sha1sum="eca8821e2c34b37232621b7219e39f0a6d67d190">mirrors://sourceforge/musicpd/mpd-0.15.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>avahi</Dependency>
                 <Dependency>libmpcdec</Dependency>
@@ -2921,6 +2923,7 @@
                 <Dependency>libshout</Dependency>
                 <Dependency>libsamplerate</Dependency>
                 <Dependency>libmikmod</Dependency>
+                <Dependency>zziplib</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/stream/mpd/pspec.xml</SourceURI>
         </Source>
@@ -2948,6 +2951,7 @@
                 <Dependency>pulseaudio</Dependency>
                 <Dependency>libshout</Dependency>
                 <Dependency>libsamplerate</Dependency>
+                <Dependency>zziplib</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -2964,6 +2968,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-07-24</Date>
+                <Version>0.15.1</Version>
+                <Comment>Version bump, add missing zziplib dependency, add translations.xml.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-07-04</Date>
                 <Version>0.15</Version>
@@ -5866,15 +5877,16 @@
             <PartOf>multimedia.sound</PartOf>
             <Summary xml:lang="en">A MPD client for Xfce4</Summary>
             <Summary xml:lang="tr">Xfce&apos;nin MPD istemcisi</Summary>
-            <Description xml:lang="en">A MPD client focusing on low footprint for Xfce desktop environment.</Description>
-            <Description xml:lang="tr">Xfmpc, Xfce için yazılmış, az yer kaplama amaçlı GTK+ arayüzlü MPD istemcisidir.</Description>
+            <Description xml:lang="en">Xfmpc is a MPD (Music Player Daemon) client focusing on low footprint for Xfce desktop environment.</Description>
+            <Description xml:lang="tr">Xfmpc, Xfce için yazılmış, az yer kaplama amaçlı GTK+ arayüzlü MPD (Müzik Çalar Servisi) istemcisidir.</Description>
             <Icon>xfmpc</Icon>
             <Archive type="tarbz2" sha1sum="5a7b80c0226b947d59c101217df060ef0491ff4f">http://goodies.xfce.org/releases/xfmpc/xfmpc-0.1.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
-                <Dependency versionFrom="0.15.0">libmpd</Dependency>
+                <Dependency>libxfcegui4-devel</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libxfce4util-devel</Dependency>
+                <Dependency>libmpd</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
@@ -5884,10 +5896,11 @@
         <Package>
             <Name>xfmpc</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
-                <Dependency versionFrom="4.4.2">libxfcegui4</Dependency>
-                <Dependency versionFrom="4.4.2">libxfce4util</Dependency>
-                <Dependency versionFrom="0.15.0">libmpd</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>libmpd</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -5897,6 +5910,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-07-24</Date>
+                <Version>0.1.0</Version>
+                <Comment>* Fix dependencies.
+               * Fix descriptions.
+               * Fix configuration parameters.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-03-29</Date>
                 <Version>0.1.0</Version>
@@ -14416,13 +14438,18 @@
             <Description xml:lang="en">Liferea (abbreviation of Linux Feed Reader) is a news aggreagator for RSS/RDF feeds which also supports CDF channels, Atom/Echo/PIE feeds and OCS or OPML directories. It is a simple FeedReader clone for Unix.</Description>
             <Description xml:lang="tr">Liferea (Linux Feed Reader&apos;in kısaltması), RSS/RDF beslemelerini okumak için yazılmış ve aynı zamanda CDF kanallarını destekleyen haber okuyucudur. Atom/Echo/PIE beslemelerini ve OCS veya OPML dizinlerini ayrıca desteklemektedir. Unix için yazılmış basit bir FeedReader benzeri uygulamadır.</Description>
             <Icon>liferea</Icon>
-            <Archive type="targz" sha1sum="34dfb31752726bc20b3dad0b832ddb0c4d3fd0b8">mirrors://sourceforge/liferea/liferea-1.6.0-rc6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="0537bec71fbe2d3e9d0e6003e3b6664f62f34d0a">mirrors://sourceforge/liferea/liferea-1.6.0-rc7.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gconf</Dependency>
-                <Dependency>libnotify</Dependency>
                 <Dependency>libglade</Dependency>
+                <Dependency versionFrom="1.1.10">webkit-gtk-devel</Dependency>
+                <Dependency>libsoup</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libnotify</Dependency>
                 <Dependency>lua</Dependency>
-                <Dependency>webkit-gtk-devel</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">fix-liferea-desktop.patch</Patch>
@@ -14433,10 +14460,15 @@
             <Name>liferea</Name>
             <RuntimeDependencies>
                 <Dependency>gconf</Dependency>
-                <Dependency>libnotify</Dependency>
                 <Dependency>libglade</Dependency>
+                <Dependency versionFrom="1.1.10">webkit-gtk</Dependency>
+                <Dependency>libsoup</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libnotify</Dependency>
                 <Dependency>lua</Dependency>
-                <Dependency>webkit-gtk</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -14452,6 +14484,27 @@
             </Files>
         </Package>
         <History>
+            <Update release="36">
+                <Date>2009-07-24</Date>
+                <Version>1.6.0_rc7</Version>
+                <Comment>* Version bump:
+                - Update translations: Arabic and Brazilian Portuguese.
+                - Fix infinite loop on 404 errors.
+                - Fix work around a format misdetection in item_set_description().
+                - Don&apos;t scale images when scaling the text.
+                - Add strict webkitgtk dependency to avoid problems with older versions.
+                - Fix subscription, new source crashes.
+                - Reduce memory usage by only using a WebKitWebSettings for all the htmlviews.
+                - Fix crash when quitting during download.
+                - Fix crash when removing Google Reader node when update of one of it&apos;s subscriptions is in progress.
+                - Open new windows opened by Javascript in a new tab.
+                - Fixes a crash on some newsbin items without parents.
+                - Fix targe=&quot;_blank&quot; links not opening in tabs.
+                - Fix work around several eggtrayicon crashes.
+                - Open the &quot;Decrease/Increase Text Size&quot; menu instead of the normal link menu on JavaScript links.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="35">
                 <Date>2009-06-23</Date>
                 <Version>1.6.0_rc6</Version>
@@ -44542,45 +44595,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>python-musicbrainz2</Name>
-            <Homepage>http://musicbrainz.org/doc/PythonMusicBrainz2</Homepage>
-            <Packager>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Packager>
-            <License>as-is</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">A client library written in Python, which provides easy object oriented access to the MusicBrainz Database using the XMLWebService</Summary>
-            <Archive type="targz" sha1sum="8fdbb2f572d62496f22d8ef9de727271019c68b3">http://ftp.musicbrainz.org/pub/musicbrainz/python-musicbrainz2/python-musicbrainz2-0.6.0.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>libdiscid</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/python/python-musicbrainz2/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>python-musicbrainz2</Name>
-            <RuntimeDependencies>
-                <Dependency>libdiscid</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-05-23</Date>
-                <Version>0.6.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>python2-biggles</Name>
             <Homepage>http://biggles.sourceforge.net/</Homepage>
             <Packager>
@@ -44676,8 +44690,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>zsi</Name>
             <Homepage>http://pywebsvcs.sourceforge.net/</Homepage>
             <Packager>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>PYTHON</License>
             <IsA>library</IsA>
@@ -45050,45 +45064,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release</Comment>
                 <Name>Rajeev J Sebastian</Name>
                 <Email>rajeev.sebastian@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>python-mpd</Name>
-            <Homepage>http://www.musicpd.org/~jat/python-mpd/</Homepage>
-            <Packager>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Packager>
-            <License>GPLv3</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">An MPD (Music Player Daemon) client library written in pure Python.</Summary>
-            <Archive type="tarbz2" sha1sum="55961e2052fc0b59d8d6de34f5c391818868d874">http://pypi.python.org/packages/source/p/python-mpd/python-mpd-0.2.1.tar.bz2</Archive>
-            <SourceURI>programming/language/python/python-mpd/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>python-mpd</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-07-03</Date>
-                <Version>0.2.1</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-04-08</Date>
-                <Version>0.2.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -47937,6 +47912,65 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-mpc-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-mpc-plugin</Homepage>
+            <Packager>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Packager>
+            <License>as-is</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce.addon</PartOf>
+            <Summary xml:lang="en">A simple MPD client for Xfce4 panel</Summary>
+            <Summary xml:lang="tr">Xfce4 paneli için basit MPD istemcisi</Summary>
+            <Description xml:lang="en">Xfce4-mpc-plugin is a simple Music Player Daemon client to send play, pause, stop or more commands for Xfce4 panel.</Description>
+            <Description xml:lang="tr">Xfce4-mpc-plugin, Xfce4 paneline yerleşen; çalma, durdurma, duraklama gibi komutları istemciye göndermeye yarayan basit bir Müzik Çalar Servisi (MPD) istemcisidir.</Description>
+            <Icon>xfce-multimedia</Icon>
+            <Archive type="targz" sha1sum="e79e403f6b4e3dfd16f80dfe02ab554294eda961">http://goodies.xfce.org/releases/xfce4-mpc-plugin/xfce4-mpc-plugin-0.3.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel-devel</Dependency>
+                <Dependency>libxfcegui4-devel</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxfce4util-devel</Dependency>
+                <Dependency>libmpd</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce/addon/xfce4-mpc-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-mpc-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>libmpd</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/xfce4</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2009-07-24</Date>
+                <Version>0.3.3</Version>
+                <Comment>* Fix dependencies for lddtree.sh output.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2009-04-26</Date>
+                <Version>0.3.3</Version>
+                <Comment>First release.</Comment>
+                <Name>Özgür Kuru</Name>
+                <Email>ozgurkuru@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xfce4-systemload-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-systemload-plugin</Homepage>
             <Packager>
@@ -49713,26 +49747,27 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Xfburn is a simple CD/DVD burning tool based on libburnia libraries. It can blank CD-RWs, burn and create iso images, as well as burn personal compositions of data to either CD or DVD.</Description>
             <Description xml:lang="tr">Xfburn, libburnia kütüphanelerini kullanan basit bir CD/DVD yazma aracıdır. Yeniden yazılabilir CD&apos;leri silebilir, yazabilir ve iso kalıpları oluşturabilir. Ayrıca hem CD, hem DVD verilerini kullanarak yeni bir kalıp da oluşturabilmektedir.</Description>
             <Icon>xfburn</Icon>
-            <Archive type="tarbz2" sha1sum="7086fcdb2fa2c1b634cf64a9eef704656e774c26">http://goodies.xfce.org/releases/xfburn/xfburn-0.4.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="dbc1731b8c690b0b29d3567b8e1cd93646b0c7e7">mirrors://xfce/src/apps/xfburn/0.4/xfburn-0.4.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>exo-devel</Dependency>
-                <Dependency>Thunar-devel</Dependency>
                 <Dependency>libburn</Dependency>
                 <Dependency>libisofs</Dependency>
-                <Dependency>gstreamer</Dependency>
+                <Dependency>Thunar-devel</Dependency>
+                <Dependency>exo-devel</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">fix-tr-translation.patch</Patch>
-            </Patches>
             <SourceURI>desktop/xfce/base/xfburn/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>xfburn</Name>
             <RuntimeDependencies>
+                <Dependency>libburn</Dependency>
+                <Dependency>libisofs</Dependency>
+                <Dependency>libxfcegui4</Dependency>
                 <Dependency>Thunar</Dependency>
                 <Dependency>exo</Dependency>
-                <Dependency>libisofs</Dependency>
-                <Dependency>libburn</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
                 <Dependency>gstreamer</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -49748,6 +49783,18 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-07-24</Date>
+                <Version>0.4.2</Version>
+                <Comment>* Version bump:
+                - Fix a number of bugs, mainly for audio CD, drag and drop, and file browser issues.
+                - Some internals were rewritten to restore the balance of all things.
+                - Update translations.
+                * Remove translation patch, not necessary.
+                * Fix dependencies for lddtree.sh output.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-07-02</Date>
                 <Version>0.4.1</Version>
@@ -64159,7 +64206,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>data</IsA>
             <PartOf>system.base</PartOf>
             <Summary xml:lang="en">Filesystem baselayout for contrib repository</Summary>
+            <Summary xml:lang="tr">Contrib deposu için dosya sisteminin temel planı</Summary>
+            <Description xml:lang="fr">Ce paquet crée la hiérarchie du système de fichier principal de Pardus Linux.</Description>
             <Description xml:lang="en">This package is needed to maintain users and groups needed in contrib packages. This package exists because we can&apos;t directly depend on the baselayout package in Pardus stable repository.</Description>
+            <Description xml:lang="tr">Bu paket, Pardus Linux dosya sisteminin temelini oluşturur.</Description>
             <Archive type="targz" sha1sum="c06e0901dbbbb82d0baad20809dddb13acb751f6">http://www.muratsenel.net/pardus/dist/baselayout-contrib-0.1.tar.gz</Archive>
             <SourceURI>system/base/baselayout-contrib/pspec.xml</SourceURI>
         </Source>
