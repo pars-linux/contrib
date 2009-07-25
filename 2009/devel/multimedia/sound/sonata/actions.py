@@ -6,13 +6,15 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def build():
+    # Move doc files to true directory.
+    pisitools.dosed("setup.py", "'share/sonata'",
+                    "'%s/%s'" % (get.docDIR().replace("usr/", ""),
+                                 get.srcNAME()))
+
     pythonmodules.compile()
 
 def install():
     pythonmodules.install()
-
-    pisitools.dodoc("COPYING", "TODO", "README", "TRANSLATORS", "CHANGELOG")
-
-    pisitools.removeDir("/usr/share/sonata")
