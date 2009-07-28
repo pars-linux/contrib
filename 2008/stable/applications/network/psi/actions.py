@@ -19,4 +19,5 @@ def build():
 def install():
     autotools.rawInstall('INSTALL_ROOT="%s"'  % get.installDIR())
 
-    pisitools.dodoc("README","COPYING")
+    pisitools.domove("/usr/share/psi/README","/usr/share/doc/psi")
+    pisitools.domove("/usr/share/psi/COPYING","/usr/share/doc/psi")
