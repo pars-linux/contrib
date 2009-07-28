@@ -8,8 +8,6 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir='psi-0.13-rc4'
-
 def setup():
     autotools.rawConfigure("--prefix=/usr \
                             --qtdir=/usr/qt/4 \
@@ -21,4 +19,5 @@ def build():
 def install():
     autotools.rawInstall('INSTALL_ROOT="%s"'  % get.installDIR())
 
-    pisitools.dodoc("README","COPYING")
+    pisitools.domove("/usr/share/psi/README","/usr/share/doc/psi")
+    pisitools.domove("/usr/share/psi/COPYING","/usr/share/doc/psi")
