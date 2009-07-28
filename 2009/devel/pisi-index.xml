@@ -8020,6 +8020,11 @@
                 <Patch level="1">desktop.patch</Patch>
                 <Patch level="1">work-around-python-problem.patch</Patch>
                 <Patch level="1">fix_fulscreen_xss_error.patch</Patch>
+                <Patch level="1">youtube_thumbnail.patch</Patch>
+                <Patch>no_autoupdate.patch</Patch>
+                <Patch>xine_default_renderer.patch</Patch>
+                <Patch>debug_fix.patch</Patch>
+                <Patch>disable_xine_hack.patch</Patch>
             </Patches>
             <SourceURI>multimedia/video/Miro/pspec.xml</SourceURI>
         </Source>
@@ -8057,6 +8062,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-07-28</Date>
+                <Version>2.5.1</Version>
+                <Comment>Add patches to:
+                *Disable autoupdates and Xine Hack
+                *Fix broken Youtube thumbnails and debugging
+                *Switch from Gstreamer to Xine for rendering, as gst is a bit buggy</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-07-26</Date>
                 <Version>2.5.1</Version>
@@ -16509,7 +16524,7 @@
             <Description xml:lang="en">Psi is a fast and lightweight jabber instant messaging client that utilises the best in open source technologies.</Description>
             <Description xml:lang="tr">Psi, açık kaynak teknolojilerinin en iyilerinden faydalanan hızlı ve hafif bir jabber anında mesajlaşma istemcisidir.</Description>
             <Icon>psi</Icon>
-            <Archive type="tarbz2" sha1sum="6fdcea3a072b40333faecc37acdb925f9bf8c5c3">mirrors://sourceforge/psi/psi-0.12.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="36d9d058531b29a47f94418b6e8a8b75e5446adf">mirrors://sourceforge/psi/psi-0.13.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qca2</Dependency>
                 <Dependency>qca2-ossl</Dependency>
@@ -16524,11 +16539,26 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/psi</Path>
                 <Path fileType="doc">/usr/share/doc/psi</Path>
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2009-07-28</Date>
+                <Version>0.13</Version>
+                <Comment>Version bump:
+             - Optional voice calls support (Jingle RTP).
+             - Basic XMPP URI handler.
+             - Ability to permanently trust certificates at connect time.
+             - Mini command system (Ctrl+7 in chat window).
+             - Various bugfixes.
+             - Don&apos;t include docs twice</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="11">
                 <Date>2009-06-09</Date>
                 <Version>0.12.1</Version>
@@ -48346,7 +48376,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Xfce4 weather plugin shows the current temperature and weather condition, using weather data provided by xoap.weather.com (www.weather.com).</Description>
             <Description xml:lang="tr">Xfce4 hava durumu eklentisi, Xfce4 panelinde hava durumunu ve sıcaklığını gösteren bir uygulamacıktır. İklim bilgilerini xoap.weather.com sitesinden almaktadır.</Description>
             <Icon>xfce4-weather</Icon>
-            <Archive type="tarbz2" sha1sum="f6e8d93905c61425f3b510daab65fb7cd8ecbdb8">http://goodies.xfce.org/releases/xfce4-weather-plugin/xfce4-weather-plugin-0.7.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2d01fa46356fbdaf8aff75b63a2b3c8bd257894d">http://archive.xfce.org/src/panel-plugins/xfce4-weather-plugin/0.7/xfce4-weather-plugin-0.7.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -48376,6 +48406,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-07-28</Date>
+                <Version>0.7.2</Version>
+                <Comment>* Version bump:
+                - Remove weather.com logo, and instead download it from their website the first time it&apos;s needed.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-07-21</Date>
                 <Version>0.7.1</Version>
