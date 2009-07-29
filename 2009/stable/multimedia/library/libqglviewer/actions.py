@@ -15,7 +15,7 @@ WorkDir="libQGLViewer-%s" % get.srcVERSION().replace("_", "-")
 def setup():
     shelltools.cd("QGLViewer")
     shelltools.system("qmake-qt4 PREFIX=%s/usr DOC_DIR=%s/usr/share/doc/%s/html" %
-            (get.installDIR(), get.installDIR(), get.srcTAG()))
+            (get.installDIR(), get.installDIR(), get.srcNAME()))
 
 def build():
     shelltools.cd("QGLViewer")
@@ -26,5 +26,5 @@ def install():
     autotools.rawInstall("PREFIX=%s/usr DESTDIR=%s" % (get.installDIR(), get.installDIR()))
 
     shelltools.cd("..")
-    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "examples" )
+    pisitools.insinto("/usr/share/doc/%s" % get.srcNAME(), "examples" )
     pisitools.dodoc("CHANGELOG", "LICENCE", "README")
