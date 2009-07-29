@@ -10,26 +10,19 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.export("CXXFLAGS", "%s -I/usr/include/lcms" % get.CXXFLAGS())
-    shelltools.export("LDFLAGS", "%s -L/usr/lib -llcms" % get.LDFLAGS())
-
     autotools.configure("--enable-gtk2 \
-                         --enable-nls \
-                         --enable-jpeg \
-                         --enable-png \
-                         --enable-tiff \
-                         --enable-gimp \
-                         --enable-lcms \
-                         --disable-sanetest \
-                         --disable-gimptest \
-                         --disable-gtktest")
+            --enable-nls \
+            --enable-jpeg \
+            --enable-png \
+            --enable-tiff \
+            --enable-gimp \
+            --enable-lcms")
 
 def build():
     autotools.make()
 
-
 def install():
-    autotools.install()
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     # Make xsane symlink. Now, it is seen as a plugin in gimp.
     pisitools.dosym("/usr/bin/xsane", "/usr/lib/gimp/2.0/plug-ins/xsane")
@@ -37,3 +30,4 @@ def install():
     pisitools.dodoc("xsane.*")
 
     pisitools.removeDir("/usr/sbin")
+
