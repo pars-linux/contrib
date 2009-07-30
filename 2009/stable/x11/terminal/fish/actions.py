@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--without-xsel \
-                        docdir=/usr/share/doc/%s" % get.srcTAG())
+                        docdir=/usr/share/doc/fish")
 
 def build():
     autotools.make()
