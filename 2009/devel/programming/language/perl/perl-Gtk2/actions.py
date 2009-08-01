@@ -10,6 +10,8 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 WorkDir="Gtk2-%s" % get.srcVERSION()
+examples = "%s/%s/examples" % (get.docDIR(), get.srcNAME())
+demo = "%s/%s/demo" % (get.docDIR(), get.srcNAME())
 
 def setup():
     perlmodules.configure()
@@ -20,4 +22,8 @@ def build():
 def install():
     perlmodules.install()
 
-    pisitools.dodoc("AUTHORS", "NEW", "ChangeLog", "README", "TODO")
+    pisitools.insinto(examples, "examples/*")
+    pisitools.insinto(demo, "gtk-demo/*")
+    pisitools.remove("/usr/lib/perl5/vendor_perl/%s/i686-linux-thread-multi/auto/Gtk2/.packlist" % get.curPERL())
+
+    pisitools.dodoc("AUTHORS", "NEWS", "MAINTAINERS", "README", "TODO")
