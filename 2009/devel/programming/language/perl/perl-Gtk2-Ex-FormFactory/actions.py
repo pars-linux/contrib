@@ -23,3 +23,6 @@ def install():
     for dir in ["examples", "tutorial"]:
         pisitools.insinto("%s/%s" % (get.docDIR(), get.srcTAG()), dir)
     pisitools.dodoc("README", "Changes")
+
+    pisitools.removeDir("/usr/lib/perl5/%s" % get.curPERL())
+    pisitools.removeDir("/usr/lib/perl5/vendor_perl/%s/i686-linux-thread-multi" % get.curPERL())
