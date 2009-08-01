@@ -19,5 +19,6 @@ def build():
 def install():
     perlmodules.install()
 
-    pisitools.removeDir("/usr/lib/perl5/5.10.0/")
+    pisitools.removeDir("/usr/lib/perl5/%s" % get.curPERL())
+    pisitools.remove("/usr/lib/perl5/vendor_perl/%s/i686-linux-thread-multi/auto/Gtk2/TrayIcon/.packlist" % get.curPERL())
     pisitools.dodoc("TODO", "ChangeLog", "README")
