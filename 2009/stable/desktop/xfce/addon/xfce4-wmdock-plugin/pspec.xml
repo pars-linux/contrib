@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-wmdock-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-wmdock-plugin</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>xfce4-wmdock</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce4 WMdock plugin</Summary>
+        <Description>WMdock plugin is a compatibility layer for Window Maker dockapps for Xfce.</Description>
+        <Archive sha1sum="c892678af7303b180a21feaf2a29b736474afe12" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-wmdock-plugin/0.3/xfce4-wmdock-plugin-0.3.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel-devel</Dependency>
+            <Dependency>libxfcegui4-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-wmdock-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>xfce4-panel</Dependency>
+            <Dependency>libwnck</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>gtk2</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-08-02</Date>
+            <Version>0.3.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
