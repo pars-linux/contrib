@@ -12799,141 +12799,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>kino</Name>
-            <Homepage>http://www.kinodv.org/</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.editor</PartOf>
-            <Summary xml:lang="en">A non-linear DV editor for GNU/Linux</Summary>
-            <Summary xml:lang="tr">GNU/Linux için doğrusal olmayan bir DV düzenleyicisi</Summary>
-            <Description xml:lang="en">Kino is a non-linear DV editor for GNU/Linux.</Description>
-            <Description xml:lang="tr">Kino GNU/Linux için doğrusal olmayan bir DV düzenleyicisidir.</Description>
-            <Icon>kino</Icon>
-            <Archive type="targz" sha1sum="22d63f69cf72d9c4b81d2b3d5362f88f4aa23f8f">mirrors://sourceforge/kino/kino-1.3.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>libiec61883</Dependency>
-                <Dependency>libquicktime</Dependency>
-                <Dependency>libglade</Dependency>
-                <Dependency>audiofile</Dependency>
-                <Dependency>libsamplerate</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>libXv</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>potfiles.patch</Patch>
-            </Patches>
-            <SourceURI>multimedia/editor/kino/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kino</Name>
-            <RuntimeDependencies>
-                <Dependency>libiec61883</Dependency>
-                <Dependency>libquicktime</Dependency>
-                <Dependency>libglade</Dependency>
-                <Dependency>audiofile</Dependency>
-                <Dependency>gpac</Dependency>
-                <Dependency>qdvdauthor</Dependency>
-                <Dependency>libXv</Dependency>
-                <Dependency>dvdauthor</Dependency>
-                <Dependency>rawrec</Dependency>
-                <Dependency>dvd+rw-tools</Dependency>
-                <Dependency>gst-plugins-base</Dependency>
-                <Dependency>sox</Dependency>
-                <Dependency>vorbis-tools</Dependency>
-                <Dependency>brasero</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin/</Path>
-                <Path fileType="library">/usr/lib/</Path>
-                <Path fileType="data">/usr/share/kino</Path>
-                <Path fileType="data">/usr/share/mime</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="9">
-                <Date>2009-03-15</Date>
-                <Version>1.3.3</Version>
-                <Comment>* Package takeover.
-                * Respect our CXX flags.
-                * Version bump:
-                - New DVD Video authoring script that launches the Brasero burning application.
-                - New export script for the PLAYSTATION 3.
-                - Bug fixes.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2008-09-02</Date>
-                <Version>1.3.2</Version>
-                <Comment>Version bump and remove unneccessary dependencies.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="7">
-                <Date>2008-03-02</Date>
-                <Version>1.3.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Koray Löker</Name>
-                <Email>loker@pardus.org.tr</Email>
-            </Update>
-            <Update release="6">
-                <Date>2008-02-18</Date>
-                <Version>1.2.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-03-24</Date>
-                <Version>1.0.0</Version>
-                <Comment>Version bump and bugfix #5321</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-01-28</Date>
-                <Version>0.9.5</Version>
-                <Comment>Version bump and takeover</Comment>
-                <Name>Koray Löker</Name>
-                <Email>loker@pardus.org.tr</Email>
-            </Update>
-            <Update release="3">
-                <Date>2006-09-20</Date>
-                <Version>0.9.2</Version>
-                <Comment>Version bump</Comment>
-                <Name>Fethi Aymaz</Name>
-                <Email>fethi@linux-sevenler.org</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-08-20</Date>
-                <Version>0.9.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Fethi Aymaz</Name>
-                <Email>fethi@linux-sevenler.org</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-04-30</Date>
-                <Version>0.8.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Fethi Aymaz</Name>
-                <Email>fethi@linux-sevenler.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>denemo</Name>
             <Homepage>http://denemo.sourceforge.net/</Homepage>
             <Packager>
@@ -16578,6 +16443,7 @@
             <BuildDependencies>
                 <Dependency>qca2</Dependency>
                 <Dependency>qca2-ossl</Dependency>
+                <Dependency>aspell</Dependency>
             </BuildDependencies>
             <SourceURI>network/chat/psi/pspec.xml</SourceURI>
         </Source>
@@ -16586,6 +16452,7 @@
             <RuntimeDependencies>
                 <Dependency>qca2</Dependency>
                 <Dependency>qca2-ossl</Dependency>
+                <Dependency>aspell</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -16596,6 +16463,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2009-08-02</Date>
+                <Version>0.13</Version>
+                <Comment>Add missing aspell dependency.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="12">
                 <Date>2009-07-28</Date>
                 <Version>0.13</Version>
@@ -21444,7 +21318,7 @@
             <Summary xml:lang="en">KDE Network Monitor</Summary>
             <Summary xml:lang="tr">KDE için Ağ İzleyicisi</Summary>
             <Description xml:lang="en">KNemo offers a network monitor similar to the one found in Windows. For every network interface it displays an icon in the systray.</Description>
-            <Description xml:lang="tr">Bu programcık knetstats&apos;da olmayan kota takibi gibi birkaç özellik içerir. Sistem tepsisine yerleşerek ağ erişimini takip edebilmenizi sağlar.</Description>
+            <Description xml:lang="tr">Bu programcık knetstats&apos;da olmayan kota takibi gibi birkaç özellik içerir. Sistem çekmecesine yerleşerek ağ erişimini takip edebilmenizi sağlar.</Description>
             <Icon>knemo</Icon>
             <Archive type="targz" sha1sum="f6016233e87a0203eeaea150845ef99636788f19">http://www.kde-apps.org/CONTENT/content-files/12956-knemo-0.5.2.tar.gz</Archive>
             <BuildDependencies>
@@ -36923,85 +36797,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>perlconsole</Name>
-            <Homepage>http://www.sukria.net/perlconsole.html</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Console based perl compiler</Summary>
-            <Summary xml:lang="tr">Konsol tabanlı Perl yorumlayıcısı</Summary>
-            <Description xml:lang="en">Perl Console is a small program that lets you evaluate Perl code interactively.</Description>
-            <Description xml:lang="tr">Perl Console, etkileşimli olarak perl kodunu derlemenizi saplayan bir uygulamadır.</Description>
-            <Archive type="targz" sha1sum="96722582df6763eeb6eecc5086064835edcf560e">mirrors://cpan/authors/id/S/SU/SUKRIA/perlconsole-0.4.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>perl-Lexical-Persistence</Dependency>
-                <Dependency>perl-Getopt-Long</Dependency>
-                <Dependency>perl-Term-ReadLine-Perl</Dependency>
-                <Dependency>perl-Module-Refresh</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/perl/perlconsole/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perlconsole</Name>
-            <RuntimeDependencies>
-                <Dependency>perl-YAML</Dependency>
-                <Dependency>perl-B-Keywords</Dependency>
-                <Dependency>perl-Data-Dumper</Dependency>
-                <Dependency>perl-Lexical-Persistence</Dependency>
-                <Dependency>perl-Module-Refresh</Dependency>
-                <Dependency>perl-Getopt-Long</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="5">
-                <Date>2009-08-02</Date>
-                <Version>0.4</Version>
-                <Comment>Make the package ready for Pardus 2009.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2008-09-20</Date>
-                <Version>0.4</Version>
-                <Comment>Version bump, add dependency perl-B-Keywords and package takeover.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-08-29</Date>
-                <Version>0.3</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-08-14</Date>
-                <Version>0.2</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-08-11</Date>
-                <Version>0.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>perl-Audio</Name>
             <Homepage>http://search.cpan.org/~ni-s/Audio-1.029/Data/Data.pm</Homepage>
             <Packager>
@@ -37042,50 +36837,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Sys-Syslog</Name>
-            <Homepage>http://search.cpan.org/dist/Sys-Syslog</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">An interface to the UNIX syslog(3) program.</Summary>
-            <Description xml:lang="en">Sys::Syslog is an interface to the UNIX syslog(3) program. Call syslog() with a string priority and a list of printf() args just like syslog(3).</Description>
-            <Archive type="targz" sha1sum="2c25720da0f4b709951b785d1b296ec901e4e033">mirrors://cpan/authors/id/S/SA/SAPER/Sys-Syslog-0.24.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Sys-Syslog/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Sys-Syslog</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Replaces>
-                <Package>Sys-Syslog</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-06-03</Date>
-                <Version>0.24</Version>
-                <Comment>Version bump</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-12-10</Date>
-                <Version>0.23</Version>
-                <Comment>First release</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
             </Update>
         </History>
     </SpecFile>
@@ -47089,6 +46840,55 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-wmdock-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-wmdock-plugin</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce.addon</PartOf>
+            <Summary xml:lang="en">Xfce4 WMdock plugin</Summary>
+            <Summary xml:lang="tr">Xfce4 WMdock eklentisi</Summary>
+            <Description xml:lang="en">WMdock plugin is a compatibility layer for Window Maker dockapps for Xfce.</Description>
+            <Description xml:lang="tr">WMdock eklentisi, Window Maker masaüstü için yazılmış eklentileri Xfce&apos;de kullanmaya yarayan bir panel eklentisidir.</Description>
+            <Icon>xfce4-wmdock</Icon>
+            <Archive type="tarbz2" sha1sum="c892678af7303b180a21feaf2a29b736474afe12">http://archive.xfce.org/src/panel-plugins/xfce4-wmdock-plugin/0.3/xfce4-wmdock-plugin-0.3.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel-devel</Dependency>
+                <Dependency>libxfcegui4-devel</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce/addon/xfce4-wmdock-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-wmdock-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+                <Dependency>libwnck</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>gtk2</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/xfce4</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-08-02</Date>
+                <Version>0.3.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xfce4-eyes-plugin</Name>
             <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-eyes-plugin</Homepage>
             <Packager>
@@ -47274,6 +47074,52 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>xfce4-stopwatch-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-stopwatch-plugin</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>BSD-2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce.addon</PartOf>
+            <Summary xml:lang="en">Xfce4 stopwatch plugin</Summary>
+            <Summary xml:lang="tr">Xfce4 kronometre eklentisi</Summary>
+            <Description xml:lang="en">The stopwatch plugin is written for Xfce4 panel to keep track of elapsed time.</Description>
+            <Description xml:lang="tr">Kronometre eklentisi, Xfce4 paneli için yazılmış, üzerinde yeniden başlatma düğmesi olan ve denetimini panel üzerinden yapabileceğiniz güzel bir zaman sayacı eklentisidir.</Description>
+            <Icon>xfce4-stopwatch-plugin</Icon>
+            <Archive type="tarbz2" sha1sum="7e338db6a7a0b459ba8b541464777abdc5d85d43">http://archive.xfce.org/src/panel-plugins/xfce4-stopwatch-plugin/0.2/xfce4-stopwatch-plugin-0.2.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel-devel</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce/addon/xfce4-stopwatch-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-stopwatch-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>xfce4-panel</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/xfce4</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-07-31</Date>
+                <Version>0.2.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -52773,6 +52619,45 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gdm-pardus-theme</Name>
+            <Homepage>http://gkmngrgn.github.com</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>data</IsA>
+            <PartOf>desktop.gnome.addon</PartOf>
+            <Summary xml:lang="en">Pardus Air GDM theme</Summary>
+            <Summary xml:lang="tr">Pardus Air GDM teması</Summary>
+            <Description xml:lang="en">This package provides Pardus&apos; default theme that is called Pardus Air. It is clone of kdm-pardus-theme for GNOME display manager.</Description>
+            <Description xml:lang="tr">Bu paket, Pardus&apos;taki kdm-pardus-theme paketinin, GNOME&apos;un giriş yöneticisi için uyarlanmış sürümüdür; Pardus Air temasını içerir.</Description>
+            <Icon>gdm-foot-logo</Icon>
+            <Archive type="targz" sha1sum="b84ccc2e3d1c27659147d3950a8f2cec15015348">ftp://sudrap.org/gkmngrgn/gdm-pardus-theme-0.1.2.tar.gz</Archive>
+            <SourceURI>desktop/gnome/addon/gdm-pardus-theme/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gdm-pardus-theme</Name>
+            <RuntimeDependencies>
+                <Dependency>gdm</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-07-18</Date>
+                <Version>0.1.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -60136,8 +60021,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>kicad</Name>
             <Homepage>http://kicad.sourceforge.net</Homepage>
             <Packager>
-                <Name>Cihan Okyay</Name>
-                <Email>okyaycihan@gmail.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
