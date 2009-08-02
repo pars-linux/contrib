@@ -10632,12 +10632,14 @@
             <Summary xml:lang="tr">Boyama programı</Summary>
             <Description xml:lang="en">MyPaint is a fast and easy painting application. It lets you focus on the art instead of the program</Description>
             <Description xml:lang="tr">MyPaint hızlı ve kolay bir boyama programıdır. Programa yoğunlaşacağınıza sanata yoğunlaşmanızı sağlar.</Description>
-            <Archive type="tarbz2" sha1sum="c1e02ba4ecc50cef842c320a40ea21f2d7474ee6">http://ee-staff.ethz.ch/%7Emrenold/mypaint/mypaint-0.5.1.tar.bz2</Archive>
+            <Icon>mypaint</Icon>
+            <Archive type="tarbz2" sha1sum="3cba8cf280e95ebbccbbfb3a8ad02c662a7dd1ba">http://download.gna.org/mypaint/mypaint-0.7.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
+                <Dependency>numpy</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>desktop.patch</Patch>
+                <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>multimedia/graphics/mypaint/pspec.xml</SourceURI>
         </Source>
@@ -10645,6 +10647,7 @@
             <Name>mypaint</Name>
             <RuntimeDependencies>
                 <Dependency>pygtk</Dependency>
+                <Dependency>numpy</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -10656,6 +10659,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-01</Date>
+                <Version>0.7.1</Version>
+                <Comment>* Version Bump.
+                * Add missing dependency numpy.
+                * Make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@cclub.metu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-09-02</Date>
                 <Version>0.5.1</Version>
@@ -36867,196 +36879,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>perl-Test-Number-Delta</Name>
-            <Homepage>http://search.cpan.org/dist/Test-Number-Delta/</Homepage>
-            <Packager>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <License>Artistic</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Compare the difference between numbers against a given tolerance</Summary>
-            <Description xml:lang="en">At some point or another, most programmers find they need to compare floating-point numbers for equality. The typical idiom is to test if the absolute value of the difference of the numbers is within a desired tolerance, usually called epsilon.</Description>
-            <Archive type="targz" sha1sum="f7693a1cb856a9ab441a1ea2c9f8c14fc0e561b6">http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Test-Number-Delta-1.03.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Test-Number-Delta/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Test-Number-Delta</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-            <Replaces>
-                <Package>Test-Number-Delta</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-06-30</Date>
-                <Version>1.03</Version>
-                <Comment>Fix dependencies for Pardus 2008.</Comment>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-01-30</Date>
-                <Version>1.03</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen.eraslan@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Astro-SunTime</Name>
-            <Homepage>http://search.cpan.org/dist/Astro-SunTime</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>Artistic</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Provides a function interface to calculate sun rise/set times.</Summary>
-            <Archive type="targz" sha1sum="f3dc7123154c4f881cb7e0b682dd01437a9644c8">mirrors://cpan/authors/id/R/RO/ROBF/Astro-SunTime-0.01.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>perl-Time-modules</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/perl/perl-Astro-SunTime/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Astro-SunTime</Name>
-            <RuntimeDependencies>
-                <Dependency>perl-Time-modules</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Replaces>
-                <Package>Astro-SunTime</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-12-10</Date>
-                <Version>0.01</Version>
-                <Comment>First release</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Cairo</Name>
-            <Homepage>http://www.cairographics.org</Homepage>
-            <Packager>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Packager>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Perl bindings to the cairo graphics library</Summary>
-            <Description xml:lang="en">Cairo provides Perl bindings for the vector graphics library cairo. It supports multiple output targets, including PNG, PDF and SVG. Cairo produces identical output on all those targets.</Description>
-            <Archive type="targz" sha1sum="af0334d7732f991509c0b90e509040d4bbd2b939">mirrors://sourceforge/gtk2-perl/Cairo-1.060.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>perl-ExtUtils-Depends</Dependency>
-                <Dependency>perl-ExtUtils-PkgConfig</Dependency>
-                <Dependency>perl-Test-Number-Delta</Dependency>
-                <Dependency>cairo</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/perl/perl-Cairo/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Cairo</Name>
-            <RuntimeDependencies>
-                <Dependency>cairo</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-            <Replaces>
-                <Package>cairo-perl</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-06-27</Date>
-                <Version>1.060</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-01-30</Date>
-                <Version>1.045</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Gtk2-TrayIcon</Name>
-            <Homepage>http://search.cpan.org/perldoc?Gtk2::TrayIcon</Homepage>
-            <Packager>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Gtk2::TrayIcon -- Perl interface to the EggTrayIcon library</Summary>
-            <Description xml:lang="en">This module allows a Perl developer to embed an arbitrary widget in a System Tray like the Gnome notification area.</Description>
-            <Archive type="targz" sha1sum="aff8cb22ecc5ce4f8898cd7d8183a41f0e507b79">mirrors://cpan/authors/id/B/BO/BORUP/Gtk2-TrayIcon-0.06.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>perl-ExtUtils-Depends</Dependency>
-                <Dependency>perl-ExtUtils-PkgConfig</Dependency>
-                <Dependency>perl-Gtk2</Dependency>
-                <Dependency>glitz</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/perl/perl-Gtk2-TrayIcon/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Gtk2-TrayIcon</Name>
-            <RuntimeDependencies>
-                <Dependency>perl-Gtk2</Dependency>
-                <Dependency>glitz</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-09-25</Date>
-                <Version>0.06</Version>
-                <Comment>Fix Dependencies, add documentation and description tag</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-09-16</Date>
-                <Version>0.06</Version>
-                <Comment>First release.</Comment>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>perl-X10</Name>
             <Homepage>http://search.cpan.org/dist/X10-0.03/</Homepage>
             <Packager>
@@ -37101,97 +36923,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>perl-XML-LibXML</Name>
-            <Homepage>http://search.cpan.org/~pajas/XML-LibXML-1.66</Homepage>
-            <Packager>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Packager>
-            <License>Artistic</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Perl Binding for libxml2</Summary>
-            <Description xml:lang="en">This module implements much of the DOM Level 2 API as an interface to the Gnome libxml2 library. This makes it a fast and highly capable validating XML parser library, as well as a high performance DOM.</Description>
-            <Archive type="targz" sha1sum="ac6b4b5acddeda5938ef7535aecfa6dfb7074308">mirrors://cpan/authors/id/P/PA/PAJAS/XML-LibXML-1.66.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>perl-XML-SAX</Dependency>
-                <Dependency>perl-XML-LibXML-Common</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">sax.patch</Patch>
-                <Patch level="1">no-warnings.patch</Patch>
-            </Patches>
-            <SourceURI>programming/language/perl/perl-XML-LibXML/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-XML-LibXML</Name>
-            <RuntimeDependencies>
-                <Dependency>perl-XML-SAX</Dependency>
-                <Dependency>perl-XML-LibXML-Common</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-10-28</Date>
-                <Version>1.66</Version>
-                <Comment>First release.</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Term-ReadLine-Perl</Name>
-            <Homepage>http://search.cpan.org/dist/Term-ReadLine-Perl</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>Artistic</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Console display Perl library</Summary>
-            <Description xml:lang="en">Term-Readline library provides a set of functions for use by applications that allow users to edit command lines as they are typed in.</Description>
-            <Description xml:lang="tr">Term-Readline modülü, komut satırlarının yazıldığı anda düzenlenmesini sağlayan uygulamalarda kullanılmak amacıyla bir işlev seti sunmaktadır.</Description>
-            <Archive type="targz" sha1sum="532eff986bf3bd5920f74d6a1dc2912104efc7ba">mirrors://cpan/authors/id/I/IL/ILYAZ/modules/Term-ReadLine-Perl-1.0302.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Term-ReadLine-Perl/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Term-ReadLine-Perl</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-            <Replaces>
-                <Package>Term-ReadLine</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-09-20</Date>
-                <Version>1.0302</Version>
-                <Comment>Reorganize Files section of pspec.xml, reorganize translations.xml and package takeover.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-08-29</Date>
-                <Version>1.0302</Version>
-                <Comment>First release.</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>perlconsole</Name>
             <Homepage>http://www.sukria.net/perlconsole.html</Homepage>
             <Packager>
@@ -37205,7 +36936,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Konsol tabanlı Perl yorumlayıcısı</Summary>
             <Description xml:lang="en">Perl Console is a small program that lets you evaluate Perl code interactively.</Description>
             <Description xml:lang="tr">Perl Console, etkileşimli olarak perl kodunu derlemenizi saplayan bir uygulamadır.</Description>
-            <Archive type="targz" sha1sum="96722582df6763eeb6eecc5086064835edcf560e">mirrors:/cpan/authors/id/S/SU/SUKRIA/perlconsole-0.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="96722582df6763eeb6eecc5086064835edcf560e">mirrors://cpan/authors/id/S/SU/SUKRIA/perlconsole-0.4.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>perl-Lexical-Persistence</Dependency>
                 <Dependency>perl-Getopt-Long</Dependency>
@@ -37232,6 +36963,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-08-02</Date>
+                <Version>0.4</Version>
+                <Comment>Make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-09-20</Date>
                 <Version>0.4</Version>
@@ -37259,173 +36997,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Alper Somuncu</Name>
                 <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Crypt-Blowfish</Name>
-            <Homepage>http://search.cpan.org/perldoc?Crypt::Blowfish</Homepage>
-            <Packager>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Crypt::Blowfish module for perl</Summary>
-            <Archive type="targz" sha1sum="793bc598dfdd5e647f0615c3db50e9e8ca25e39c">mirrors://cpan/authors/id/D/DP/DPARIS/Crypt-Blowfish-2.10.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Crypt-Blowfish/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Crypt-Blowfish</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-09-17</Date>
-                <Version>2.10</Version>
-                <Comment>First release.</Comment>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Time-modules</Name>
-            <Homepage>http://search.cpan.org/dist/Time-modules</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>Artistic</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">A Date/Time Parsing Perl Module</Summary>
-            <Summary xml:lang="tr">Zaman ayrıştırmak için bir Perl Modülü</Summary>
-            <Archive type="targz" sha1sum="a79c6bcce924fcb3a0b08eea37dbad27d2880ebf">mirrors://cpan/modules/by-module/Time/MUIR/modules/Time-modules-2006.0814.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Time-modules/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Time-modules</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Replaces>
-                <Package>Time-modules</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2009-07-17</Date>
-                <Version>2006.0814</Version>
-                <Comment>Take care of the package, remove unused directories and add translations.xml and make it ready for Pardus 2009.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-12-10</Date>
-                <Version>2006.0814</Version>
-                <Comment>First release</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Gtk2-Sexy</Name>
-            <Homepage>http://search.cpan.org/perldoc?Gtk2::Sexy</Homepage>
-            <Packager>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Packager>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Gtk2::Sexy module for perl</Summary>
-            <Archive type="targz" sha1sum="42f94fe44f2c45842326de428efee6ce0d640d2c">mirrors://cpan/authors/id/F/FL/FLORA/Gtk2-Sexy-0.04.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>pkgconfig</Dependency>
-                <Dependency>perl-Gtk2</Dependency>
-                <Dependency>perl-ExtUtils-Depends</Dependency>
-                <Dependency>perl-ExtUtils-PkgConfig</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/perl/perl-Gtk2-Sexy/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Gtk2-Sexy</Name>
-            <RuntimeDependencies>
-                <Dependency>libsexy</Dependency>
-                <Dependency>perl-Gtk2</Dependency>
-                <Dependency>perl-ExtUtils-Depends</Dependency>
-                <Dependency>perl-ExtUtils-PkgConfig</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-09-17</Date>
-                <Version>0.04</Version>
-                <Comment>Fix Dependency part of pspec.xml, add examples</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-09-17</Date>
-                <Version>0.04</Version>
-                <Comment>First release.</Comment>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Crypt-Simple</Name>
-            <Homepage>http://search.cpan.org/perldoc?Crypt::Simple</Homepage>
-            <Packager>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Crypt::Simple module for perl</Summary>
-            <Archive type="targz" sha1sum="12cd1419656855c10bd4b957235bf69ebde0e1e8">mirrors://cpan/authors/id/K/KA/KASEI/Crypt-Simple-0.06.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Crypt-Simple/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Crypt-Simple</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-09-17</Date>
-                <Version>0.06</Version>
-                <Comment>First release.</Comment>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -37515,99 +37086,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Gtk2</Name>
-            <Homepage>http://gtk2-perl.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">Perl interface to the 2.x series of the Gimp Toolkit library</Summary>
-            <Description xml:lang="en">gtk2-perl is the collective name for a set of perl bindings for Gtk+ 2.x and various related libraries. These modules make it easy to write Gtk and Gnome applications using a natural, perlish, object-oriented syntax.</Description>
-            <Archive type="targz" sha1sum="f2d9293b7f59afa47692d43e9567783b82a81563">mirrors://sourceforge/gtk2-perl/Gtk2-1.183.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>perl-Cairo</Dependency>
-                <Dependency>perl-ExtUtils-Depends</Dependency>
-                <Dependency>perl-ExtUtils-PkgConfig</Dependency>
-                <Dependency>perl-Glib</Dependency>
-                <Dependency>gtk2</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/perl/perl-Gtk2/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Gtk2</Name>
-            <RuntimeDependencies>
-                <Dependency>perl-Cairo</Dependency>
-                <Dependency>perl-Glib</Dependency>
-                <Dependency>gtk2</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Replaces>
-                <Package>gtk2-perl</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-06-30</Date>
-                <Version>1.183</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Jérôme Schneider</Name>
-                <Email>jerome.schneider@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-01-30</Date>
-                <Version>1.164</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>perl-Gtk2-Ex-FormFactory</Name>
-            <Homepage>http://search.cpan.org/dist/Gtk2-Ex-FormFactory/</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.perl</PartOf>
-            <Summary xml:lang="en">A perl module for building complex GUI&apos;s easy</Summary>
-            <Description xml:lang="en">This is a framework which tries to make building complex GUI&apos;s easy, by offering these two main features: 1- Consistent looking GUI without the need to code resp. tune each widget by hand. Instead you declare the structure of your GUI, connect it to the data of your program (which should be a well defined set of objects) and control how this structure is transformed into a specific layout in a very generic way. 2- Automatically keep widget and object states in sync (in both directions), even with complex data structures with a lot of internal dependencies, object nesting etc.</Description>
-            <Archive type="targz" sha1sum="ff98e55cc1a11c12b6e8874654506c03041fd711">mirrors://cpan/authors/id/J/JR/JRED/Gtk2-Ex-FormFactory-0.65.tar.gz</Archive>
-            <SourceURI>programming/language/perl/perl-Gtk2-Ex-FormFactory/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>perl-Gtk2-Ex-FormFactory</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Replaces>
-                <Package>gtk2-ex-formfactory-perl</Package>
-            </Replaces>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-01-30</Date>
-                <Version>0.65</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -52036,7 +51514,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Midori is a lightweight GTK+ web browser based on WebkitGtk. It features tabs, windows and session management, bookmarks stored with XBEL, searchbox based on OpenSearch, and user script support.</Description>
             <Description xml:lang="tr">Midori, WebkitGtk tarayıcı motorunu kullanan, hafif bir GTK+ tabanlı internet tarayıcısıdır. Birçok internet tarayıcısında olduğu gibi, Midori de sekmeleri, pencereleri ve oturum yöneticisini; XBEL ile sık kullanılanları kaydetmeyi, OpenSearch tabanlı arama kutusunu ve kullanıcı betiklerini kullanma gibi özellikleri desteklemektedir.</Description>
             <Icon>midori</Icon>
-            <Archive type="tarbz2" sha1sum="14a76d88c402ef325db7212fb1768c68abf9ab9b">http://goodies.xfce.org/releases/midori/midori-0.1.8.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="d54314f7e0e2714866e0e57dc55f142c2285757c">http://archive.xfce.org/src/apps/midori/0.1/midori-0.1.9.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
@@ -52073,6 +51551,21 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-02</Date>
+                <Version>0.1.9</Version>
+                <Comment>* Version bump:
+                - Remove the very much disliked popup below the address field.
+                - Fix user scripts, user styles and the Netscape plugin panel.
+                - Improve the tab panel. It has close icons now, ellipsizes titles, tooltips and you can hide the panel operating controls now to make it really space efficient.
+                - Show up tools in the compact menu button now.
+                - If you like to keep open certain tabs, now you can minimize them, whic means reducing them to icons - support for this in the tab panel will follow in a future version.
+                - There&apos;s a new tick mark in a dialogue in Tools &gt; Delete private data, that tells Midori to delete the chosen information when quitting.
+                - A nice goodie is that navigation history is preserved in newly opened tabs now.
+                * Change default homepage; use pardus.org.tr instead of ozgurlukicin.com.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-07-21</Date>
                 <Version>0.1.8</Version>
@@ -52107,7 +51600,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
             <Description xml:lang="tr">Bu yazılım, Xfce için yazılmış güç yöneticisidir. Dizüstü bilgisayar kullanıcıları, pil ve güç olarak iki farklı güç profili ayarlayabilir; masaüstü bilgisayar kullanıcıları ise, DPMS ayarlarını kullanarak işlemci frekansını yazılımın ana penceresinden değiştirebilirler.</Description>
             <Icon>xfpm-cpu</Icon>
-            <Archive type="tarbz2" sha1sum="079812a6a9b0a0a504f40099948617ca096dfd62">http://goodies.xfce.org/releases/xfce4-power-manager/xfce4-power-manager-0.8.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2d531b9fc2afec3cff034e1acfc331051d8bf47a">http://archive.xfce.org/src/apps/xfce4-power-manager/0.8/xfce4-power-manager-0.8.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel-devel</Dependency>
                 <Dependency>libnotify</Dependency>
@@ -52134,6 +51627,20 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-08-01</Date>
+                <Version>0.8.3</Version>
+                <Comment>* Version bump:
+                - Provides more standard org.fd.PowerManagement DBus methods and signal.
+                - Make it possible to compile without network manager support.
+                - Add never show icon to the system tray configuration.
+                - Fix a typo that prevents from getting the correct critical configuration.
+                - Use GTK+ as a popup indicator to show the brightness level as the cairo.
+                - Problematic on some hardware.
+                - Better alignment in the interface file.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-07-10</Date>
                 <Version>0.8.2</Version>
@@ -52142,7 +51649,8 @@ processing unit (GPU) present in modern graphics cards</Description>
                 - Automatically switch inactivity sleep mode to hibernate if suspend is not supported.
                 - Allow 15 minutes as a minimum value for idle.
                 - Fix regression for detecting when HAL restarts.
-                - Automatically detect if the running Notification daemon is notify-osd and use its brightness feedback interface for displaying the brightness level.</Comment>
+                - Automatically detect if the running Notification daemon is notify-osd and use its brightness feedback interface for displaying the brightness level.
+                * Disable xml2po, it&apos;s not required.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
             </Update>
