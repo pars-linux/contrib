@@ -20,4 +20,6 @@ def build():
 def install():
     perlmodules.install()
 
+    pisitools.removeDir("/usr/lib/perl5/%s"  % get.curPERL())
+    pisitools.remove("/usr/lib/perl5/vendor_perl/%s/i686-linux-thread-multi/auto/Sys/Syslog/.packlist" % get.curPERL())
     pisitools.dodoc("Changes", "README")
