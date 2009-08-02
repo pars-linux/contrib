@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>xfce4-stopwatch-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-stopwatch-plugin</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>BSD-2</License>
+        <Icon>xfce4-stopwatch-plugin</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Xfce4 stopwatch plugin</Summary>
+        <Description>The stopwatch plugin is written for Xfce4 panel to keep track of elapsed time.</Description>
+        <Archive sha1sum="7e338db6a7a0b459ba8b541464777abdc5d85d43" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-stopwatch-plugin/0.2/xfce4-stopwatch-plugin-0.2.0.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>xfce4-panel-devel</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>xfce4-stopwatch-plugin</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>xfce4-panel</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/libexec</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-07-31</Date>
+            <Version>0.2.0</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
