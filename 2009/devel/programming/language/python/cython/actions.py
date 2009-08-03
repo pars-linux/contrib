@@ -10,6 +10,9 @@ from pisi.actionsapi import get
 
 WorkDir = "Cython-%s" % get.srcVERSION()
 
+def build():
+    pythonmodules.compile()
+
 def install():
     pythonmodules.install()
 
