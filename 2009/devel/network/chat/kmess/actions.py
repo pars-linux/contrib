@@ -6,6 +6,9 @@
 
 from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
+
+shelltools.export("HOME", get.workDIR())
 
 def setup():
     cmaketools.configure(installPrefix=get.kdeDIR())
