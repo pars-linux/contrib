@@ -20566,7 +20566,7 @@
     <SpecFile>
         <Source>
             <Name>gtkterm</Name>
-            <Homepage>http://www.jls-info.com/julien/linux/</Homepage>
+            <Homepage>http://www.jls-info.com/julien/linux</Homepage>
             <Packager>
                 <Name>Cihan Okyay</Name>
                 <Email>okyaycihan@gmail.com</Email>
@@ -20580,7 +20580,7 @@
             <Description xml:lang="tr">Bu program ünlü Hyperterminal&apos;in bir kopyasıdır. Fakat ondan daha basittir. Sadece seri bağlantı kurabilir ve bütün modem protokollerini desteklemez. Eğer modem protokolleriyle daha uyumlu bir program arıyorsanız minicom işinizi görecektir.</Description>
             <Archive type="targz" sha1sum="ec91d7e1045b707029ad11259468337e48867f95">http://www.jls-info.com/julien/linux/gtkterm-0.99.5.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
+                <Dependency>gtk2</Dependency>
                 <Dependency>vte</Dependency>
             </BuildDependencies>
             <SourceURI>network/remoteshell/gtkterm/pspec.xml</SourceURI>
@@ -20588,7 +20588,7 @@
         <Package>
             <Name>gtkterm</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.12.8">gtk2</Dependency>
+                <Dependency>gtk2</Dependency>
                 <Dependency>vte</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -20598,6 +20598,14 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-03</Date>
+                <Version>0.99.5</Version>
+                <Comment>* Fix dependency tag
+                * Ready for 2009</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-11-15</Date>
                 <Version>0.99.5</Version>
@@ -31279,7 +31287,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Klavaro is just another free touch typing tutor program. Klavaro intends to be keyboard and language independent, saving memory and time (and money).</Description>
             <Description xml:lang="tr">Klavaro ücretsiz bir klavye eğitimi programıdır. Bir çok dilde klavye ve arayüz desteği sağlar.</Description>
             <Icon>klavaro</Icon>
-            <Archive type="tarbz2" sha1sum="a833db5a5e6fb8772e95308ad28981b35e06ec4e">http://downloads.sourceforge.net/klavaro/klavaro-1.2.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f8ebc2d66d2d507359af6453a70a2995661223b6">mirrors://sourceforge/klavaro/klavaro-1.2.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtkdatabox</Dependency>
                 <Dependency>libsexy</Dependency>
@@ -31313,6 +31321,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-03</Date>
+                <Version>1.2.2</Version>
+                <Comment>New stable release with a new kind of exercise: error analysis. Use sourceforge mirrors for source code</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-06-07</Date>
                 <Version>1.2.0</Version>
@@ -36243,85 +36258,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>cppunit</Name>
-            <Homepage>http://cppunit.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Packager>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>programming.tool</PartOf>
-            <Summary xml:lang="en">C++ port of the famous JUnit framework for unit testing</Summary>
-            <Description xml:lang="en">CppUnit is a C++ unit testing framework. It started its life as a port of JUnit to C++ by Michael Feathers.</Description>
-            <Archive type="targz" sha1sum="f1ab8986af7a1ffa6760f4bacf5622924639bf4a">mirrors://sourceforge/cppunit/cppunit-1.12.1.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>qt</Dependency>
-                <Dependency>doxygen</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">cppunit-1.10.2-asneeded.patch</Patch>
-                <Patch>cppunit-1.12.0-add_missing_include.patch</Patch>
-                <Patch level="1">qttestrunner_shared.patch</Patch>
-            </Patches>
-            <SourceURI>programming/tool/cppunit/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>cppunit</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>cppunit-devel</Name>
-            <Summary xml:lang="en">Contains the headers and other files necessary for developing programs that use cppunit</Summary>
-            <RuntimeDependencies>
-                <Dependency>cppunit</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="data">/usr/share/aclocal</Path>
-                <Path fileType="data">/usr/lib/pkgconfig</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>cppunit-doc</Name>
-            <Summary xml:lang="en">Contains man file and HTML formatted API documention generated by the popular doxygen documentation generation tool</Summary>
-            <Files>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2009-01-19</Date>
-                <Version>1.12.1</Version>
-                <Comment>Takeover, version bump, package splitted to cppunit, devel and doc.</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-07-16</Date>
-                <Version>1.12.0</Version>
-                <Comment>Symlink correction for libqttestrunner.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-24</Date>
-                <Version>1.12.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -43702,64 +43638,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Akın Ömeroğlu</Name>
                 <Email>akin@omeroglu.net</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>cython</Name>
-            <Homepage>http://www.cython.org</Homepage>
-            <Packager>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Packager>
-            <License>Apache-2.0</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">C extensions for the Python</Summary>
-            <Summary xml:lang="tr">Python için C eklentileri</Summary>
-            <Description xml:lang="en">Cython is a language that makes writing C extensions for the Python language as easy as Python itself.</Description>
-            <Description xml:lang="tr">Cython, Python için C eklentileri yazmayı kolaylaştıran bir dildir.</Description>
-            <Archive type="targz" sha1sum="67ae3bdfdb6f2e5ee5f54e21a295d880d3c3bb9e">http://www.cython.org/Cython-0.11.2.tar.gz</Archive>
-            <SourceURI>programming/language/python/cython/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>cython</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="4">
-                <Date>2009-06-05</Date>
-                <Version>0.11.2</Version>
-                <Comment>Version bump</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2009-03-14</Date>
-                <Version>0.11</Version>
-                <Comment>Version bump</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2009-03-11</Date>
-                <Version>0.10.3</Version>
-                <Comment>Version bump</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-11-13</Date>
-                <Version>0.9.6.8</Version>
-                <Comment>First release</Comment>
-                <Name>Ahmet Erdoğan</Name>
-                <Email>tuxposta@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -64106,7 +63984,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>geany</Name>
-            <Homepage>http://geany.uvena.de</Homepage>
+            <Homepage>http://www.geany.org</Homepage>
             <Packager>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -64122,7 +64000,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Archive type="tarbz2" sha1sum="98b0f12c1e5b9732aa63be74eae25622393cdbe5">mirrors://sourceforge/geany/geany-0.17.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
-                <Dependency>vte</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">geany-0.17-fix-underlinking.patch</Patch>
@@ -64133,7 +64013,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>geany</Name>
             <RuntimeDependencies>
                 <Dependency>gtk2</Dependency>
-                <Dependency>vte</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
                 <Dependency>xterm</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -64150,6 +64032,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2009-08-03</Date>
+                <Version>0.17</Version>
+                <Comment>* Remove vte dependency, it&apos;s not required for compiling or running Geany. Thanks to Enrico.
+                * Fix dependencies for lddtree.sh.
+                * Update homepage URL.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="12">
                 <Date>2009-06-06</Date>
                 <Version>0.17</Version>
