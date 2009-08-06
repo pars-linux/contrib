@@ -1,5 +1,14 @@
---- config/gdm.conf.in.orig	2008-12-11 00:25:43.000000000 +0200
-+++ config/gdm.conf.in	2009-03-04 15:56:21.000000000 +0200
+--- config/gdm.conf.in.orig	2009-03-19 06:59:27.000000000 +0200
++++ config/gdm.conf.in	2009-08-06 21:00:05.181949881 +0300
+@@ -68,7 +68,7 @@
+ 
+ # The greeter for attached (non-xdmcp) logins.  Change gdmlogin to gdmgreeter
+ # to get the new graphical greeter.
+-#Greeter=@libexecdir@/gdmlogin
++Greeter=@libexecdir@/gdmchooser
+ 
+ # The greeter for xdmcp logins, usually you want a less graphically intensive
+ # greeter here so it's better to leave this with gdmlogin
 @@ -163,9 +163,9 @@
  # really a PATH style variable since 2.4.4.2 to allow actual interoperability
  # with KDM.  Note that <dmconfdir>/Sessions is there for backwards
@@ -59,6 +68,15 @@
  #ShowXtermFailsafeSession=true
  # Normally there is a session type called 'Last' that is shown which refers to
  # the last session the user used.  If off, we will be in 'switchdesk' mode
+@@ -509,7 +509,7 @@
+ # list then provide a list that is delimited by /: to the GraphicalThemes
+ # key and set GraphicalThemeRand to true.  Otherwise use GraphicalTheme
+ # and specify just one theme.
+-#GraphicalTheme=circles
++GraphicalTheme=pardus-air
+ #GraphicalThemes=circles/:happygnome
+ GraphicalThemeDir=@datadir@/gdm/themes/
+ GraphicalThemeRand=false
 @@ -525,7 +525,7 @@
  # user input.  If SoundOnLogin is a file and the greeter finds the 'play'
  # executable (see daemon/SoundProgram) it will play that file instead of just
