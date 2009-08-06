@@ -1,0 +1,45 @@
+diff -urp gdm-2.20.10.orig/gui/greeter/greeter.c gdm-2.20.10/gui/greeter/greeter.c
+--- gdm-2.20.10.orig/gui/greeter/greeter.c	2009-03-19 06:59:10.000000000 +0200
++++ gdm-2.20.10/gui/greeter/greeter.c	2009-08-06 21:02:22.558232412 +0300
+@@ -1414,41 +1414,6 @@ main (int argc, char *argv[])
+ 			gdm_wm_screen.height,
+ 			&error);
+ 
+-    if G_UNLIKELY (root == NULL)
+-      {
+-        GtkWidget *dialog;
+-	char *s;
+-	char *tmp;
+-
+-        gdm_wm_init (0);
+-        gdm_wm_focus_new_windows (TRUE);
+-    
+-	tmp = ve_filename_to_utf8 (ve_sure_string (gdm_graphical_theme));
+-	s = g_strdup_printf (_("There was an error loading the "
+-			       "theme %s"), tmp);
+-	g_free (tmp);
+-        dialog = hig_dialog_new (NULL /* parent */,
+-                                 GTK_DIALOG_MODAL /* flags */,
+-                                 GTK_MESSAGE_ERROR,
+-                                 GTK_BUTTONS_OK,
+-                                 s,
+-                                 (error && error->message) ? error->message : "");
+-	g_free (s);
+-    
+-        gtk_widget_show_all (dialog);
+-        gdm_wm_center_window (GTK_WINDOW (dialog));
+-
+-        gdm_common_setup_cursor (GDK_LEFT_PTR);
+-    
+-        gtk_dialog_run (GTK_DIALOG (dialog));
+-	gtk_widget_destroy (dialog);
+-
+-	if (DOING_GDM_DEVELOPMENT)
+-	  {
+-	    exit (1);
+-	  }
+-      }
+-
+   if G_UNLIKELY (error)
+     g_clear_error (&error);
+ 
