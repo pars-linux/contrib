@@ -9,28 +9,36 @@
             <Email>ert976@gmail.com</Email>
         </Packager>
         <License>GPLv3</License>
+        <!-- weed library license LGPLv3 -->
+        <License>LGPLv3</License>
         <Icon>lives</Icon>
         <IsA>app:gui</IsA>
         <Summary>Linux Video Editing System</Summary>
-        <Archive sha1sum="a98775d2785a8a2c9b6f25cbfa0feba6b3e4bf33" type="tarbz2">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-0.9.9.6.tar.bz2</Archive>
+        <Description>The Linux Video Editing System (LiVES) is intended to be a simple yet powerful video effects and editing system.</Description>
+        <Archive sha1sum="3d68b4fccab650d6a8d14c59eb2b28c931891613" type="tarbz2">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>mplayer</Dependency>
             <Dependency>imagemagick</Dependency>
-            <Dependency>gtk2</Dependency>
-            <Dependency>libsdl</Dependency>
-            <Dependency>ffmpeg</Dependency>
+            <Dependency versionFrom="2.10">gtk2</Dependency>
+            <Dependency versionFrom="1.2">libsdl</Dependency> 
+            <Dependency>ffmpeg</Dependency>    
             <Dependency>sox</Dependency>
+            <Dependency>transcode</Dependency> 
             <Dependency>cdrtools</Dependency>
-            <Dependency>mjpegtools</Dependency>
-            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="1.6.2">mjpegtools</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>        
             <Dependency>dvgrab</Dependency>
-            <Dependency>libvisual</Dependency>
-            <Dependency>liboil</Dependency>
+            <Dependency>libdv</Dependency>        
+            <Dependency>libavc1394</Dependency>
+            <Dependency>libraw1394</Dependency>
+            <Dependency versionFrom="0.4.0">libvisual</Dependency>   
+            <Dependency versionFrom="0.3.9">liboil</Dependency>
             <Dependency>mkvtoolnix</Dependency>
+            <!--Dependency>frei0r-plugins</Dependency-->
         </BuildDependencies>
         <Patches>
             <Patch>desktop-tr.patch</Patch>
-            <Patch>smogrify.patch</Patch>
+            <Patch>frei0r_plugin_disable.patch</Patch>  
         </Patches>
     </Source>
 
@@ -39,17 +47,22 @@
         <RuntimeDependencies>
             <Dependency>mplayer</Dependency>
             <Dependency>imagemagick</Dependency>
-            <Dependency>gtk2</Dependency>
-            <Dependency>libsdl</Dependency>
-            <Dependency>ffmpeg</Dependency>
+            <Dependency versionFrom="2.10">gtk2</Dependency>
+            <Dependency versionFrom="1.2">libsdl</Dependency> 
+            <Dependency>ffmpeg</Dependency>    
             <Dependency>sox</Dependency>
+            <Dependency>transcode</Dependency> 
             <Dependency>cdrtools</Dependency>
-            <Dependency>mjpegtools</Dependency>
-            <Dependency>jack-audio-connection-kit</Dependency>
+            <Dependency versionFrom="1.6.2">mjpegtools</Dependency>
+            <Dependency>jack-audio-connection-kit</Dependency>        
             <Dependency>dvgrab</Dependency>
-            <Dependency>libvisual</Dependency>
-            <Dependency>liboil</Dependency>
+            <Dependency>libdv</Dependency>        
+            <Dependency>libavc1394</Dependency>
+            <Dependency>libraw1394</Dependency>
+            <Dependency versionFrom="0.4.0">libvisual</Dependency>   
+            <Dependency versionFrom="0.3.9">liboil</Dependency>
             <Dependency>mkvtoolnix</Dependency>
+            <!--Dependency>frei0r-plugins</Dependency-->
         </RuntimeDependencies>
 
         <Files>
@@ -65,6 +78,20 @@
     </Package>
 
     <History>
+        <Update release="12">
+            <Date>2009-08-08</Date>
+            <Version>1.0.0</Version>
+            <Comment>Version bump. Add dep transcode, libdv, libavc1394, libraw1394. Add frei0r_plugin_disable.patch. Remove sandbox.patch. Add autoreconf</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
+        <Update release="11">
+            <Date>2009-04-22</Date>
+            <Version>0.9.9.7</Version>
+            <Comment>Version bump. Add  weed library license LGPLv3. Remove smogrify.patch , add sandbox.patch, add translations.xml. Add configure parameters</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
        <Update release="10">
             <Date>2009-02-09</Date>
             <Version>0.9.9.6</Version>
