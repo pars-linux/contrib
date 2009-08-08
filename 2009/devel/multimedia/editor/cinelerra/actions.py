@@ -1,23 +1,29 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright 2008 TUBITAK/UEKAE
+# Copyright 2008, 2009  TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "hvirtual"
+WorkDir = "cinelerra"
 
 def setup():
-    autotools.autoreconf("-fi")
+    shelltools.export("AUTOPOINT", "/bin/true")
+    autotools.autoreconf("-fiv")
+
     autotools.configure("--enable-alsa \
                          --enable-mmx \
                          --with-external-ffmpeg \
-                         --enable-opengl \
-                         --disable-static")
+                         --disable-opengl \
+                         --enable-esd \
+                         --disable-rpath \
+                         --disable-static \
+                         --with-buildinfo=cust/GIT\ Pardus\ build")
 
 def build():
     autotools.make()
@@ -31,4 +37,4 @@ def install():
     pisitools.rename("/usr/bin/mpeg3dump", "mpeg3dump.hv")
     pisitools.rename("/usr/bin/mpeg3toc", "mpeg3toc.hv")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "LICENSE", "NEWS", "TODO", "doc/*_en")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "LICENSE", "NEWS", "TODO")
