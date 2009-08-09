@@ -13,11 +13,16 @@
         <IsA>app:gui</IsA>
         <Summary>A power manager dedicated for Xfce desktop environment</Summary>
         <Description>This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
-        <Archive sha1sum="2d531b9fc2afec3cff034e1acfc331051d8bf47a" type="tarbz2">http://archive.xfce.org/src/apps/xfce4-power-manager/0.8/xfce4-power-manager-0.8.3.tar.bz2</Archive>
+        <Archive sha1sum="e6a9139bf8fcb116ecffc9d3986cf469643db50b" type="tarbz2">http://archive.xfce.org/src/apps/xfce4-power-manager/0.8/xfce4-power-manager-0.8.3.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xfce4-panel-devel</Dependency>
+            <Dependency>libxfcegui4-devel</Dependency>
+            <Dependency>libxfce4util-devel</Dependency>
+            <Dependency>xfconf-devel</Dependency>
             <Dependency>libnotify</Dependency>
-            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libXext</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -25,7 +30,13 @@
         <Name>xfce4-power-manager</Name>
         <RuntimeDependencies>
             <Dependency>xfce4-panel</Dependency>
+            <Dependency>libxfcegui4</Dependency>
+            <Dependency>libxfce4util</Dependency>
+            <Dependency>xfconf</Dependency>
             <Dependency>libnotify</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libXext</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
@@ -41,6 +52,20 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2009-09-10</Date>
+            <Version>0.8.3.1</Version>
+            <Comment>
+                * Version bump:
+                - Missing signal handler for power button settings.
+                - Allow 5% as a minimum critical change instead of 10%.
+                - Change some property names, specially for buttons to avoid problems with old 0.6 configuration.
+                * Remove unrequired dependency.
+                * Fix dependencies for lddtree.sh output.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2009-08-01</Date>
             <Version>0.8.3</Version>
