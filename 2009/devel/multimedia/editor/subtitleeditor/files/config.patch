@@ -1,0 +1,57 @@
+--- configure	2009-06-23 17:51:06.000000000 +0300
++++ configure_new	2009-08-10 15:05:07.551534399 +0300
+@@ -20934,44 +20934,6 @@
+ 
+ 	gst_inspect="$toolsdir/gst-inspect-0.10"
+ 
+-	if test "x$gst_inspect" != "x"; then
+-		{ $as_echo "$as_me:$LINENO: checking for GStreamer-0.10 element level (gstreamer0.10-plugins-good)" >&5
+-$as_echo_n "checking for GStreamer-0.10 element level (gstreamer0.10-plugins-good)... " >&6; }
+-
+-		element_version=`$gst_inspect level | $EGREP Version | $SED 's/^.*\s0.10/0.10/'`
+-
+-		if  $gst_inspect level > /dev/null 2> /dev/null ; then
+-			{ $as_echo "$as_me:$LINENO: result: yes" >&5
+-$as_echo "yes" >&6; }
+-		else
+-			{ $as_echo "$as_me:$LINENO: result: no" >&5
+-$as_echo "no" >&6; }
+-			{ { $as_echo "$as_me:$LINENO: error:
+-	GStreamer-0.10 plugin 'level' not found. This plugins is
+-	absolutely required. Please install it.
+-
+-	The name of the package you need to install varies among
+-	distros/systems. Debian and Ubuntu users will need to
+-	install the gstreamer0.10-plugins-good package." >&5
+-$as_echo "$as_me: error:
+-	GStreamer-0.10 plugin 'level' not found. This plugins is
+-	absolutely required. Please install it.
+-
+-	The name of the package you need to install varies among
+-	distros/systems. Debian and Ubuntu users will need to
+-	install the gstreamer0.10-plugins-good package." >&2;}
+-   { (exit 1); exit 1; }; }
+-		fi
+-
+-	else										# test gst_inspect
+-		{ $as_echo "$as_me:$LINENO: result: no" >&5
+-$as_echo "no" >&6; }
+-		{ { $as_echo "$as_me:$LINENO: error: gst-inspect-0.10 not found. Please install it." >&5
+-$as_echo "$as_me: error: gst-inspect-0.10 not found. Please install it." >&2;}
+-   { (exit 1); exit 1; }; }
+-	fi
+-
+-
+ # =========================================================================
+ # check iso-codes 639, 3166 and 15924
+ 
+@@ -23760,7 +23722,8 @@
+ if test -n "$CONFIG_FILES"; then
+ 
+ 
+-ac_cr=''
++ac_cr='
++'
+ ac_cs_awk_cr=`$AWK 'BEGIN { print "a\rb" }' </dev/null 2>/dev/null`
+ if test "$ac_cs_awk_cr" = "a${ac_cr}b"; then
+   ac_cs_awk_cr='\\r'
