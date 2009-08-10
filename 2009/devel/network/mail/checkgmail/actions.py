@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 
 def install():
    pisitools.dobin("checkgmail")
-   #pisitools.doman("man/checkgmail.1.gz") //going to be fixed, follow the bug #8426
+   pisitools.doman("man/checkgmail.1.gz")
 
    pisitools.dodoc("Readme", "copying", "ChangeLog", "todo")
 
