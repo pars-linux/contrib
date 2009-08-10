@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 WorkDir = "imageshack_upload"
 
 def install():
-    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "imageshack.desktop")
+    pisitools.insinto("%s/share/kde4/services/ServiceMenus" % get.kdeDIR(), "imageshack.desktop")
     pisitools.insinto("%s/share/icons" % get.kdeDIR(), "imageshack.png")
     pisitools.dobin("imageshack_upload")
     pisitools.dodoc("README")
