@@ -8194,7 +8194,8 @@
             <Icon>qt-recordmydesktop</Icon>
             <Archive type="targz" sha1sum="50fc62a9475f3894f2503e4767b3eb89d041f15e">mirrors://sourceforge/recordmydesktop/qt-recordmydesktop-0.3.8.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>PyQt4</Dependency>
+                <Dependency>PyQt</Dependency>
+                <Dependency>Qt</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop-tr.patch</Patch>
@@ -8205,8 +8206,9 @@
         <Package>
             <Name>qt-recordmydesktop</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.3.8.1">recordmydesktop</Dependency>
-                <Dependency>PyQt4</Dependency>
+                <Dependency>recordmydesktop</Dependency>
+                <Dependency>PyQt</Dependency>
+                <Dependency>Qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -8218,6 +8220,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-08-10</Date>
+                <Version>0.3.8</Version>
+                <Comment>Fix dependencies for 2009</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2008-12-15</Date>
                 <Version>0.3.8</Version>
@@ -11460,26 +11469,42 @@
             <Summary xml:lang="tr">GTK+2 ile yapılmış altyazı düzenleme aracı</Summary>
             <Description xml:lang="en">It can be used for new subtitles or as a tool to transform, edit, correct and refine existing subtitle. This program also shows sound waves, which makes it easier to synchronise subtitles to voices.</Description>
             <Description xml:lang="tr">Bu program yeni altyazı oluşturmanın yanında mevcut altyazıları düzenlemeyi de sağlar. Ses dalgalarını da gösterdiği için senkronizasyonu kolaylaştırır.</Description>
-            <Archive type="targz" sha1sum="171cd5c7bb6919c60fc3e4b67087811c300bb3f1">http://download.gna.org/subtitleeditor/0.25/subtitleeditor-0.25.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="7d31c99e6da384a9b5636148f7cee79cc371d279">http://download.gna.org/subtitleeditor/0.33/subtitleeditor-0.33.0.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.4">libglademm</Dependency>
-                <Dependency>libxmlpp2</Dependency>
+                <Dependency>libglademm</Dependency>
+                <Dependency>libxmlpp</Dependency>
                 <Dependency>gst-plugins-base</Dependency>
                 <Dependency>enchant</Dependency>
+                <Dependency>gtkmm</Dependency>
+                <Dependency>pangomm</Dependency>
+                <Dependency>cairomm</Dependency>
+                <Dependency>glibmm</Dependency>
+                <Dependency>libsigc++</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gstreamer</Dependency>
+                <Dependency>libpcre</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
-                <Patch>sandbox.patch</Patch>
+                <Patch>config.patch</Patch>
             </Patches>
             <SourceURI>multimedia/editor/subtitleeditor/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>subtitleeditor</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.4">libglademm</Dependency>
-                <Dependency>libxmlpp2</Dependency>
+                <Dependency>libglademm</Dependency>
+                <Dependency>libxmlpp</Dependency>
                 <Dependency>gst-plugins-base</Dependency>
                 <Dependency>enchant</Dependency>
+                <Dependency>gtkmm</Dependency>
+                <Dependency>pangomm</Dependency>
+                <Dependency>cairomm</Dependency>
+                <Dependency>glibmm</Dependency>
+                <Dependency>libsigc++</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gstreamer</Dependency>
+                <Dependency>libpcre</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -11488,10 +11513,26 @@
                 <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="data">/usr/share/subtitleeditor</Path>
                 <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="library">/usr/lib</Path>
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2009-08-10</Date>
+                <Version>0.33.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
+            <Update release="11">
+                <Date>2009-08-03</Date>
+                <Version>0.25.0</Version>
+                <Comment>fix dependency tags</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2008-10-15</Date>
                 <Version>0.25.0</Version>
@@ -11824,29 +11865,37 @@
                 <Email>ert976@gmail.com</Email>
             </Packager>
             <License>GPLv3</License>
+            <License>LGPLv3</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.editor</PartOf>
             <Summary xml:lang="en">Linux Video Editing System</Summary>
+            <Summary xml:lang="tr">Görüntü işleme aracı</Summary>
+            <Description xml:lang="en">The Linux Video Editing System (LiVES) is intended to be a simple yet powerful video effects and editing system.</Description>
+            <Description xml:lang="tr">LiVES video efektleri de verebileceğiniz güçlü bir video düzenleme programıdır.</Description>
             <Icon>lives</Icon>
-            <Archive type="tarbz2" sha1sum="a98775d2785a8a2c9b6f25cbfa0feba6b3e4bf33">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-0.9.9.6.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="3d68b4fccab650d6a8d14c59eb2b28c931891613">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>mplayer</Dependency>
                 <Dependency>imagemagick</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libsdl</Dependency>
+                <Dependency versionFrom="2.10">gtk2</Dependency>
+                <Dependency versionFrom="1.2">libsdl</Dependency>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>sox</Dependency>
+                <Dependency>transcode</Dependency>
                 <Dependency>cdrtools</Dependency>
-                <Dependency>mjpegtools</Dependency>
+                <Dependency versionFrom="1.6.2">mjpegtools</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
                 <Dependency>dvgrab</Dependency>
-                <Dependency>libvisual</Dependency>
-                <Dependency>liboil</Dependency>
+                <Dependency>libdv</Dependency>
+                <Dependency>libavc1394</Dependency>
+                <Dependency>libraw1394</Dependency>
+                <Dependency versionFrom="0.4.0">libvisual</Dependency>
+                <Dependency versionFrom="0.3.9">liboil</Dependency>
                 <Dependency>mkvtoolnix</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop-tr.patch</Patch>
-                <Patch>smogrify.patch</Patch>
+                <Patch>frei0r_plugin_disable.patch</Patch>
             </Patches>
             <SourceURI>multimedia/editor/lives/pspec.xml</SourceURI>
         </Source>
@@ -11855,16 +11904,20 @@
             <RuntimeDependencies>
                 <Dependency>mplayer</Dependency>
                 <Dependency>imagemagick</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libsdl</Dependency>
+                <Dependency versionFrom="2.10">gtk2</Dependency>
+                <Dependency versionFrom="1.2">libsdl</Dependency>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>sox</Dependency>
+                <Dependency>transcode</Dependency>
                 <Dependency>cdrtools</Dependency>
-                <Dependency>mjpegtools</Dependency>
+                <Dependency versionFrom="1.6.2">mjpegtools</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
                 <Dependency>dvgrab</Dependency>
-                <Dependency>libvisual</Dependency>
-                <Dependency>liboil</Dependency>
+                <Dependency>libdv</Dependency>
+                <Dependency>libavc1394</Dependency>
+                <Dependency>libraw1394</Dependency>
+                <Dependency versionFrom="0.4.0">libvisual</Dependency>
+                <Dependency versionFrom="0.3.9">liboil</Dependency>
                 <Dependency>mkvtoolnix</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -11879,6 +11932,20 @@
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2009-08-08</Date>
+                <Version>1.0.0</Version>
+                <Comment>Version bump. Add dep transcode, libdv, libavc1394, libraw1394. Add frei0r_plugin_disable.patch. Remove sandbox.patch. Add autoreconf</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
+            <Update release="11">
+                <Date>2009-04-22</Date>
+                <Version>0.9.9.7</Version>
+                <Comment>Version bump. Add  weed library license LGPLv3. Remove smogrify.patch , add sandbox.patch, add translations.xml. Add configure parameters</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2009-02-09</Date>
                 <Version>0.9.9.6</Version>
@@ -12366,42 +12433,58 @@
             <Summary xml:lang="tr">Profesyonel vidyo düzenleme programı</Summary>
             <Description xml:lang="en">Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
             <Description xml:lang="tr">Paket kurulumu yaptıktan sonra root olarak /etc/sysctl.conf dosyasının en alt satırına kernel/shmmax=0x7fffffff satırını ekleyip sysctl -p komutunu uygulayın.</Description>
-            <Icon>multimedia</Icon>
-            <Archive type="tarbz2" sha1sum="a7d4b9eebd62b6d7259a45afd843cc1a274d61f3">http://pardus.kilu.de/dist/cinelerra_cv1061.tar.bz2</Archive>
+            <Icon>cinelerra</Icon>
+            <Archive type="tarbz2" sha1sum="ddd4c6c63d108f85ce05e1d54e71ac6a431ae06b">http://pardus.kilu.de/dist/cinelerra-2.1_20090601.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.7.4">a52dec</Dependency>
-                <Dependency versionFrom="1.0.17">libsndfile</Dependency>
-                <Dependency versionFrom="3.8.2">tiff</Dependency>
+                <Dependency>a52dec</Dependency>
+                <Dependency>libsndfile</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency versionFrom="3.1.2">fftw3</Dependency>
-                <Dependency>mjpegtools</Dependency>
-                <Dependency versionFrom="1.6.1">openexr</Dependency>
+                <Dependency>fftw3</Dependency>
+                <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
+                <Dependency>openexr</Dependency>
                 <Dependency>libtheora</Dependency>
-                <Dependency versionFrom="0.5.3">libavc1394</Dependency>
-                <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+                <Dependency>esound</Dependency>
+                <Dependency>alsa-lib</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>lame</Dependency>
+                <Dependency>libogg</Dependency>
+                <Dependency>ilmbase</Dependency>
+                <Dependency>libdv</Dependency>
+                <Dependency>libavc1394</Dependency>
+                <Dependency>libiec61883</Dependency>
+                <Dependency>libraw1394</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>bcclipboardC.patch</Patch>
                 <Patch level="1">ffmpeg_external.patch</Patch>
                 <Patch>fix_lib.patch</Patch>
                 <Patch>libGL_fix.patch</Patch>
-                <Patch level="1">configure_in.patch</Patch>
+                <Patch>videodev2.patch</Patch>
+                <Patch level="1">new_ffmpeg.patch</Patch>
+                <Patch level="1">libmpeg3.patch</Patch>
+                <Patch>desktop.patch</Patch>
             </Patches>
             <SourceURI>multimedia/editor/cinelerra/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>cinelerra</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.7.4">a52dec</Dependency>
-                <Dependency versionFrom="1.0.17">libsndfile</Dependency>
-                <Dependency versionFrom="3.8.2">tiff</Dependency>
+                <Dependency>a52dec</Dependency>
+                <Dependency>libsndfile</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency versionFrom="3.1.2">fftw3</Dependency>
-                <Dependency>mjpegtools</Dependency>
-                <Dependency versionFrom="1.6.1">openexr</Dependency>
+                <Dependency>fftw3</Dependency>
+                <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
+                <Dependency>openexr</Dependency>
                 <Dependency>libtheora</Dependency>
-                <Dependency versionFrom="0.5.3">libavc1394</Dependency>
-                <Dependency versionFrom="1.1.0">libiec61883</Dependency>
+                <Dependency>esound</Dependency>
+                <Dependency>alsa-lib</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>lame</Dependency>
+                <Dependency>libogg</Dependency>
+                <Dependency>ilmbase</Dependency>
+                <Dependency>libdv</Dependency>
+                <Dependency>libavc1394</Dependency>
+                <Dependency>libiec61883</Dependency>
+                <Dependency>libraw1394</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -12414,6 +12497,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-08-09</Date>
+                <Version>2.1_20090621</Version>
+                <Comment>New snapshot.(Git Version). Icon tag has been changed.
+                     Remove bcclipboardC.patch. Add libmpeg3.patch , new_ffmpeg.patch and desktop.patch.
+                     Configure the parameter &quot;enable-OpenGL&quot; &quot;disable-OpenGL&quot; done. disable-rpath, with-buildinfo parameters added.     
+                     Add esound support.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-07-24</Date>
                 <Version>2.1_20080724</Version>
@@ -12689,12 +12782,12 @@
             <Summary xml:lang="en">Music tagging application</Summary>
             <Description xml:lang="en">Picard is the next generation MusicBrainz tagging application.</Description>
             <Icon>picard-32</Icon>
-            <Archive type="targz" sha1sum="e519d0b63a7e64d3c9131afa20a7ffca6a8a813c">ftp://ftp.musicbrainz.org/pub/musicbrainz/picard/picard-0.10.tar.gz</Archive>
+            <Archive type="targz" sha1sum="702e6be6d0e595c87b21e7a20894d004efc3693f">ftp://ftp.musicbrainz.org/pub/musicbrainz/picard/picard-0.11.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>mutagen</Dependency>
                 <Dependency>libofa</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency>PyQt4</Dependency>
+                <Dependency>PyQt</Dependency>
                 <Dependency>libdiscid</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/editor/picard/pspec.xml</SourceURI>
@@ -12705,7 +12798,7 @@
                 <Dependency>mutagen</Dependency>
                 <Dependency>libofa</Dependency>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency>PyQt4</Dependency>
+                <Dependency>PyQt</Dependency>
                 <Dependency>libdiscid</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -12717,6 +12810,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-08-10</Date>
+                <Version>0.11</Version>
+                <Comment>bump to new version and fix dependency name</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-10-13</Date>
                 <Version>0.10</Version>
@@ -16343,12 +16443,20 @@
                 <Dependency>ncurses</Dependency>
             </RuntimeDependencies>
             <Files>
+                <Path fileType="data">/usr/share/gtmess</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="man">/usr/share/man/man1</Path>
                 <Path fileType="executable">/usr/bin</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-08</Date>
+                <Version>0.94</Version>
+                <Comment>Fixed files tag.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-06-12</Date>
                 <Version>0.94</Version>
@@ -20524,14 +20632,16 @@
             <Name>checkgmail</Name>
             <Homepage>http://checkgmail.sourceforge.net</Homepage>
             <Packager>
-                <Name>Nathan Hourt</Name>
-                <Email>nat.hourt@gmail.com</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
             </Packager>
             <License>GPLv2+</License>
             <IsA>app:gui</IsA>
             <PartOf>network.mail</PartOf>
             <Summary xml:lang="en">A small, fast, and powerful GMail checker using ATOM feeds</Summary>
+            <Summary xml:lang="tr">ATOM beslemelerini kullanan, küçük, hızlı ve kuvvetli bir GMail kontrolcüsü</Summary>
             <Description xml:lang="en">A tray app that checks your GMail account via ATOM feeds and alerts you when new messages arrive. Allows you to preview and perform basic tasks (open, archive, report spam, delete, etc) on messages directly from the alert. Supports password encryption</Description>
+            <Description xml:lang="tr">Sistem çekmecesine yerleşip gmail hesabınıza e-posta geldiğinde uyaran bir program. Mesajları gösterip uyarı mesajının üzerinden e-postaları açma, arşivleme, spam olarak işaretleme ve silme gibi basit işlemleri yapmaya yarar. Şifreleme desteği bulunmaktadır.</Description>
             <Icon>checkgmail</Icon>
             <Archive type="tarbz2" sha1sum="d4b928838746975608803a79c258872b0dc8ccf9">mirrors://sourceforge/checkgmail/checkgmail-1.13.tar.bz2</Archive>
             <Patches>
@@ -20564,6 +20674,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-10</Date>
+                <Version>1.13</Version>
+                <Comment>Make the package ready for Pardus 2009: package takeover, fix indentation and add translations.xml</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-09-25</Date>
                 <Version>1.13</Version>
@@ -45292,14 +45409,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="tr">İleri seviye programlama bilgisi olmayan kişilerin (çoğunlukla öğrenciler) kullanımına uygun bir editördür . Klasik bir &quot;kodu yaz, tek tıkla çalıştır&quot; editörüdür.</Description>
             <Archive type="tarbz2" sha1sum="cf6d3c33c17188c1549ff40e2e40527916f3a13b">http://deveditor.googlecode.com/files/peditor-0.3.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
             </BuildDependencies>
             <SourceURI>programming/environment/deveditor/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>deveditor</Name>
             <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -45312,6 +45429,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-08-08</Date>
+                <Version>0.3</Version>
+                <Comment>Changed dependency name.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-07-07</Date>
                 <Version>0.3</Version>
@@ -51348,11 +51472,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">This software is a power manager for the Xfce desktop, laptop users can set up a power profile for two different modes “on battery power” and “on ac power”, desktop users still can change DPMS settings and CPU frequency using the settings dialog.</Description>
             <Description xml:lang="tr">Bu yazılım, Xfce için yazılmış güç yöneticisidir. Dizüstü bilgisayar kullanıcıları, pil ve güç olarak iki farklı güç profili ayarlayabilir; masaüstü bilgisayar kullanıcıları ise, DPMS ayarlarını kullanarak işlemci frekansını yazılımın ana penceresinden değiştirebilirler.</Description>
             <Icon>xfpm-cpu</Icon>
-            <Archive type="tarbz2" sha1sum="2d531b9fc2afec3cff034e1acfc331051d8bf47a">http://archive.xfce.org/src/apps/xfce4-power-manager/0.8/xfce4-power-manager-0.8.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="e6a9139bf8fcb116ecffc9d3986cf469643db50b">http://archive.xfce.org/src/apps/xfce4-power-manager/0.8/xfce4-power-manager-0.8.3.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel-devel</Dependency>
+                <Dependency>libxfcegui4-devel</Dependency>
+                <Dependency>libxfce4util-devel</Dependency>
+                <Dependency>xfconf-devel</Dependency>
                 <Dependency>libnotify</Dependency>
-                <Dependency>gnome-doc-utils</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libXext</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/xfce/base/xfce4-power-manager/pspec.xml</SourceURI>
         </Source>
@@ -51360,7 +51489,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xfce4-power-manager</Name>
             <RuntimeDependencies>
                 <Dependency>xfce4-panel</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>xfconf</Dependency>
                 <Dependency>libnotify</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libXext</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -51375,6 +51510,18 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-09-10</Date>
+                <Version>0.8.3.1</Version>
+                <Comment>* Version bump:
+                - Missing signal handler for power button settings.
+                - Allow 5% as a minimum critical change instead of 10%.
+                - Change some property names, specially for buttons to avoid problems with old 0.6 configuration.
+                * Remove unrequired dependency.
+                * Fix dependencies for lddtree.sh output.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-08-01</Date>
                 <Version>0.8.3</Version>
@@ -55537,7 +55684,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Imageshack&apos;e resimleri kolayca yüklemeyi sağlayan bir KDE servis menüsü</Summary>
             <Archive type="targz" sha1sum="98480bef3c2592c00c6bcf525a189504c2ace953">http://www.kde-apps.org/CONTENT/content-files/51247-imageshack_upload-0.5.tar.gz</Archive>
             <Patches>
-                <Patch>tr_and_xterm_fix.patch</Patch>
+                <Patch>desktop.patch</Patch>
             </Patches>
             <SourceURI>desktop/kde3/addon/imageshack-upload/pspec.xml</SourceURI>
         </Source>
@@ -55545,11 +55692,18 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>imageshack-upload</Name>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
+                <Path fileType="data">/usr/kde/4/share</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-08-10</Date>
+                <Version>0.5</Version>
+                <Comment>change install dir and make it work with kde4</Comment>
+                <Name>Ayan Öztürk</Name>
+                <Email>ayanozturk@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2007-06-25</Date>
                 <Version>0.5</Version>
