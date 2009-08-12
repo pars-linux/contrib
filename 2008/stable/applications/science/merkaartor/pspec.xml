@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Qt4 map editor for OpenStreetMap</Summary>
         <Description>This is a Qt4-based editor for the OpenStreetMap with features such as map view near-WYSIWYG, style editor, transparent display of map features, support for handling seperate highways, import NMEA-files, etc.</Description>
-        <Archive sha1sum="e8e0d006ba6a4859425cccefacbf2bfc4352d883" type="tarbz2">http://www.merkaartor.org/downloads/source/merkaartor-0.13.2.tar.bz2</Archive>
+        <Archive sha1sum="6d61f021466e0b532136fb4301c96e7c93234846" type="tarbz2">http://www.merkaartor.org/downloads/source/merkaartor-0.14.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="4.4">qt4</Dependency>
             <Dependency>exiv2</Dependency>
@@ -29,17 +29,38 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/merkaartor</Path>
             <Path fileType="localedata">/usr/share/merkaartor/translations</Path>
+            <Path fileType="data">/usr/share/merkaartor</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/icons</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/merkaartor.png">merkaartor.png</AdditionalFile>
-        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-08-12</Date>
+            <Version>0.14</Version>
+            <Comment>Version bump :
+             * Switch to API 0.6, remove support for API 0.5
+             * Add a Features dock displaying the features in the current viewport
+             * Alternative way of drawing GPX tracks
+             * Support for proxy authentication
+             * Ability to create a junction between to crossing roads, polygons of any number of sides, house numbers "Karlsruhe" style
+             * Ability to rotate roads/areas
+             * Spatial indexing of features for faster display with large downloaded areas
+             * Support for multiple image layers
+             * Support for multi-selection of layers; allow to show/hide or readonly several layers at once
+             * Drag and drop re-ordering of layers
+             * Plugin-based background layers
+             * Ability to choose Qt style
+             * Discardable dialog/messageboxes
+             * Other minor tweaks and bug fixes
+            </Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="5">
             <Date>2009-04-26</Date>
             <Version>0.13.2</Version>

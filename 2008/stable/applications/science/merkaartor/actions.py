@@ -12,10 +12,10 @@ from pisi.actionsapi import shelltools
 
 def build():
     shelltools.system('/usr/qt/4/bin/lrelease Merkaartor.pro')
-    shelltools.system('/usr/qt/4/bin/qmake Merkaartor.pro NOUSEWEBKIT=1 GEOIMAGE=1 PREFIX=/usr NODEBUG=1')
+    shelltools.system('/usr/qt/4/bin/qmake Merkaartor.pro GEOIMAGE=1 PREFIX=/usr NODEBUG=1')
 
 def install():
     autotools.rawInstall('INSTALL_ROOT="%s"' % get.installDIR())
-    pisitools.insinto('/usr/share/applications', 'merkaartor.desktop')
+    pisitools.insinto('/usr/share/applications', 'src/merkaartor.desktop')
 
     pisitools.dodoc("AUTHORS", "CHANGELOG", "HACKING", "LICENSE")
