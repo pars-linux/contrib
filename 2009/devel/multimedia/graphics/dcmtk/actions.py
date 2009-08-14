@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
 def setup():
-    shelltools.export("CXXFLAGS", get.CXXFLAGS())
+    shelltools.export("CXXFLAGS", "%s -lcrypto -lpthread" % get.CXXFLAGS())
     shelltools.export("CFLAGS", get.CFLAGS())
     autotools.configure("--sysconfdir=/etc/dcmtk \
                          --with-private-tags")
@@ -23,7 +23,5 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     autotools.rawInstall("DESTDIR=%s" % get.installDIR(), "install-lib")
     autotools.rawInstall("DESTDIR=%s" % get.installDIR(), "install-include")
-
-    pisitools.domove("/usr/share/doc/dcmtk/", "/usr/share/doc/%s/" % get.srcTAG())
 
     pisitools.dodoc("CHANGES.354")
