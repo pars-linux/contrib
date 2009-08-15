@@ -8,6 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir = "%s" % get.srcNAME()
+
 def setup():
     autotools.configure("--disable-mpg123-symlink")
 

@@ -11,16 +11,13 @@
         <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>Free MP3 player</Summary>
-        <Archive sha1sum="90268d0d187ddd7625d143b95791cb39a1630b79" type="targz">mirrors://sourceforge/mpg321/mpg321-0.2.10.tar.gz</Archive>
+        <Description>mpg321 is a free replacement for mpg123, a very popular command-line mp3 player and it can be used as a drop-in replacement for mpg123.</Description>
+        <Archive sha1sum="8498795a00b867aa53feceb3c379de1b678154b6" type="targz">mirrors://sourceforge/mpg321/mpg321-0.2.11.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libmad</Dependency>
             <Dependency>libid3tag</Dependency>
-            <Dependency versionFrom="0.8.0">libao</Dependency>
+            <Dependency>libao</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">mpg321-0.2.10-file-descriptors-leak.patch</Patch>
-            <Patch>mpg321-0.2.10-useragent.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -28,7 +25,7 @@
         <RuntimeDependencies>
             <Dependency>libmad</Dependency>
             <Dependency>libid3tag</Dependency>
-            <Dependency versionFrom="0.8.0">libao</Dependency>
+            <Dependency>libao</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -38,6 +35,17 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-08-15</Date>
+            <Version>0.2.11</Version>
+            <Comment>Make the package ready for Pardus 2009:
+                * Version bump.
+                * Fix strict dependencies.
+                * Description added.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2008-09-19</Date>
             <Version>0.2.10</Version>
