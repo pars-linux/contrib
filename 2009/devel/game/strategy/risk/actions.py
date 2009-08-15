@@ -21,9 +21,6 @@ def fixperms(d):
         for name in files:
             shelltools.chmod(os.path.join(root, name), 0644)
 
-def build():
-    shelltools.system("ant")
-
 def install():
     pisitools.insinto(datadir, "Domination.jar", "Risk.jar")
 
