@@ -108,6 +108,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-08-15</Date>
+                <Version>1.0.9.8</Version>
+                <Comment>Remove unneeded ant build in actions.py, make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2008-10-03</Date>
                 <Version>1.0.9.8</Version>
@@ -6885,16 +6892,14 @@
             <PartOf>multimedia.sound</PartOf>
             <Summary xml:lang="en">Free MP3 player</Summary>
             <Summary xml:lang="tr">Özgür bir MP3 çalıcısı</Summary>
-            <Archive type="targz" sha1sum="90268d0d187ddd7625d143b95791cb39a1630b79">mirrors://sourceforge/mpg321/mpg321-0.2.10.tar.gz</Archive>
+            <Description xml:lang="en">mpg321 is a free replacement for mpg123, a very popular command-line mp3 player and it can be used as a drop-in replacement for mpg123.</Description>
+            <Description xml:lang="tr">mpg321, popüler komut satırı mp3 çalıcısı mpg123&apos;ün özgür bir alternatifidir ve mpg123&apos;ün yerine kullanılabilir.</Description>
+            <Archive type="targz" sha1sum="8498795a00b867aa53feceb3c379de1b678154b6">mirrors://sourceforge/mpg321/mpg321-0.2.11.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libmad</Dependency>
                 <Dependency>libid3tag</Dependency>
-                <Dependency versionFrom="0.8.0">libao</Dependency>
+                <Dependency>libao</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">mpg321-0.2.10-file-descriptors-leak.patch</Patch>
-                <Patch>mpg321-0.2.10-useragent.patch</Patch>
-            </Patches>
             <SourceURI>multimedia/sound/mpg321/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -6902,7 +6907,7 @@
             <RuntimeDependencies>
                 <Dependency>libmad</Dependency>
                 <Dependency>libid3tag</Dependency>
-                <Dependency versionFrom="0.8.0">libao</Dependency>
+                <Dependency>libao</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -6911,6 +6916,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-15</Date>
+                <Version>0.2.11</Version>
+                <Comment>Make the package ready for Pardus 2009:
+                * Version bump.
+                * Fix strict dependencies.
+                * Description added.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-09-19</Date>
                 <Version>0.2.10</Version>
@@ -21754,6 +21769,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-08-15</Date>
+                <Version>1.88</Version>
+                <Comment>Remove useless files and directories and make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-03-07</Date>
                 <Version>1.88</Version>
@@ -25195,7 +25217,7 @@
             <Summary xml:lang="tr">Arşiv dosyaları yönetmek için betikler</Summary>
             <Description xml:lang="en">atool is a script for managing file archives of various types (tar, tar+gzip, zip etc).</Description>
             <Description xml:lang="tr">atool; tar, tar+gzip, zip gibi arşiv dosyalarını kolayca yönetebilmeniz için hazırlanmış betiklerden oluşur.</Description>
-            <Archive type="targz" sha1sum="8977d0dfa455607f16b5a1e254636de5df96ffa9">http://savannah.nongnu.org/download/atool/atool-0.36.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="26dc7799db048183e106df5adc9748e831b37490">http://savannah.nongnu.org/download/atool/atool-0.37.0.tar.gz</Archive>
             <Patches>
                 <Patch level="1">bash-completion.patch</Patch>
             </Patches>
@@ -25211,6 +25233,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-08-15</Date>
+                <Version>0.37.0</Version>
+                <Comment>Version bump:
+                *Support for lzip and xz
+                *Fixes a bug in arepack with tar archives
+                *Support for GNU tar&apos;s --xv, --lzop and --lzma options</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-06-08</Date>
                 <Version>0.36.0</Version>
@@ -25824,12 +25856,19 @@
             <Name>zibu</Name>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/doc/zibu</Path>
                 <Path fileType="config">/etc</Path>
                 <Path fileType="library">/usr/lib</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-08-15</Date>
+                <Version>0.3.5</Version>
+                <Comment>Make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-01-13</Date>
                 <Version>0.3.5</Version>
@@ -62054,11 +62093,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">C++ library for symbolic mathematical calculations.</Summary>
             <Summary xml:lang="tr">Matematiksel hesaplamalar için C++ kütüphanesi.</Summary>
             <Description xml:lang="en">GiNaC (which stands for &quot;GiNaC is Not a CAS&quot; (computer algebra system)) is a C++ library for symbolic mathematical calculations.</Description>
-            <Archive type="tarbz2" sha1sum="65b58f17d0e47489c87abc714f9863e1a00b0635">http://www.ginac.de/ginac-1.5.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a2dc144729d4e57ee40bf0ea4ffde8c2e0d7f5f9">http://www.ginac.de/ginac-1.5.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>cln</Dependency>
                 <Dependency>doxygen</Dependency>
-                <Dependency>transfig</Dependency>
             </BuildDependencies>
             <SourceURI>science/mathematics/ginac/pspec.xml</SourceURI>
         </Source>
@@ -62071,13 +62109,33 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share</Path>
                 <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="info">/usr/share/info</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/doc/ginac</Path>
+                <Path fileType="doc">/usr/share/doc/ginac/examples</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>ginac-doc</Name>
+            <Summary xml:lang="en">Documentation for ginac package</Summary>
+            <Description xml:lang="en">Ginac reference documentations generated by doxygen</Description>
+            <RuntimeDependencies>
+                <Dependency>ginac</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="doc">/usr/share/doc/ginac/html</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-08-15</Date>
+                <Version>1.5.3</Version>
+                <Comment>Make the package ready for 2009:
+                * Version bump.
+                * Create documentation and make a seperate package for reference documentation.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-07-19</Date>
                 <Version>1.5.2</Version>
