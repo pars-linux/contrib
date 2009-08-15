@@ -16,4 +16,5 @@ def install():
     pisitools.insinto("/etc","doc/zibu.list")
     pisitools.dodir("/var/lib/zibu")
 
-    pisitools.dodoc("doc/*")
+    for file in ["doc/ChangeLog", "doc/LICENSE", "doc/README"]:
+        pisitools.dodoc(file)
