@@ -8,7 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "aircrack-ng-1.0-rc1"
+WorkDir = "%s-%s" % (get.srcNAME(), get.srcVERSION().replace("_", "-"))
 
 def build():
     autotools.make("sqlite=true")
