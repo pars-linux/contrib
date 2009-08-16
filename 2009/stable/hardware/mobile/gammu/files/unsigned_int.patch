@@ -1,0 +1,11 @@
+--- common/service/gsmcal.c	2007-12-05 10:07:53.000000000 +0200
++++ common/service/gsmcal.c	2007-12-13 00:41:54.000000000 +0200
+@@ -27,7 +27,7 @@
+ 
+ void GSM_SetCalendarRecurranceRepeat(unsigned char *rec, unsigned char *endday, GSM_CalendarEntry *entry)
+ {
+-	unsigned int i;
++	unsigned int i = 0;
+ 	int start=-1,frequency=-1,dow=-1,day=-1,month=-1,end=-1,Recurrance = 0, Repeat=0, j;
+ 	char 		Buf[20];
+ 	GSM_DateTime	DT;
