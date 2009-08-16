@@ -4127,7 +4127,7 @@
             <Description xml:lang="en">A standards-compliant graphical Web browser.</Description>
             <Description xml:lang="tr">Opera, standartlarla uyumlu, grafik arayüzlü bir internet tarayıcısıdır.</Description>
             <Icon>opera</Icon>
-            <Archive type="targz" sha1sum="9a36fbff9b9e400a5b821964386617e29eb0acba">http://get.opera.com/pub/opera/linux/1000b2/beta2/en/i386/shared/opera-10.00-b2.gcc4-shared-qt3.i386.tar.gz</Archive>
+            <Archive type="targz" sha1sum="e57925b5cc6b03756a3eae82797478b95bd306d6">http://get.opera.com/pub/opera/linux/1000b3/beta3/en/i386/shared/opera-10.00-b3.gcc4-shared-qt3.i386.tar.gz</Archive>
             <SourceURI>applications/network/opera/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -4156,6 +4156,15 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="25">
+                <Date>2009-08-13</Date>
+                <Version>10.00_beta3</Version>
+                <Comment>Version bump to 10.00 beta3. many bugfixes, improvements and language files.
+                See http://www.opera.com/docs/changelogs/linux/1000b3/ for details.
+                Fixes bug #10897, package request and #10189, missing language files.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="24">
                 <Date>2009-07-17</Date>
                 <Version>10.00_beta2</Version>
@@ -7630,7 +7639,7 @@
             <PartOf>applications.network.amsn</PartOf>
             <Summary xml:lang="en">Various plugins for aMSN</Summary>
             <Summary xml:lang="tr">aMSN için çeşitli eklentiler</Summary>
-            <Archive type="targz" sha1sum="52cac64be3e415044de4a4845e7e54232dd32eb3">ftp://ftp.sudrap.org/mnurolcay/source/amsn-plugins-0.0_20090419.tar.gz</Archive>
+            <Archive type="tarbz2" sha1sum="cf488d2cc3c4626a45b4b9b037f130e59f143b48">ftp://ftp.sudrap.org/mnurolcay/source/amsn-plugins-0.0_20090713.tar.bz2</Archive>
             <SourceURI>applications/network/amsn/amsn-plugins/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -7643,6 +7652,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-09</Date>
+                <Version>0.0_20090713</Version>
+                <Comment>New plugins Kryptonite(MSN GnuPG Encryption) and (Google)Translate</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-04-19</Date>
                 <Version>0.0_20090419</Version>
@@ -10081,10 +10097,11 @@
             <Description xml:lang="en">Psi is a fast and lightweight jabber instant messaging client that utilises the best in open source technologies.</Description>
             <Description xml:lang="tr">Psi, açık kaynak teknolojilerinin en iyilerinden faydalanan hızlı ve hafif bir jabber anında mesajlaşma istemcisidir.</Description>
             <Icon>psi</Icon>
-            <Archive type="tarbz2" sha1sum="6fdcea3a072b40333faecc37acdb925f9bf8c5c3">mirrors://sourceforge/psi/psi-0.12.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="36d9d058531b29a47f94418b6e8a8b75e5446adf">mirrors://sourceforge/psi/psi-0.13.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qca2</Dependency>
                 <Dependency>qca2-ossl</Dependency>
+                <Dependency>aspell</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>determine-pardus-version.patch</Patch>
@@ -10096,14 +10113,58 @@
             <RuntimeDependencies>
                 <Dependency>qca2</Dependency>
                 <Dependency>qca2-ossl</Dependency>
+                <Dependency>aspell</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/psi</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2009-07-28</Date>
+                <Version>0.13</Version>
+                <Comment>Version bump to stable:
+             - Optional voice calls support (Jingle RTP).
+             - Basic XMPP URI handler.
+             - Ability to permanently trust certificates at connect time.
+             - Mini command system (Ctrl+7 in chat window).
+             - Various bugfixes.
+             - Don&apos;t include docs twice, more elaborate file directories in package&apos;s pspec.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
+            <Update release="14">
+                <Date>2009-07-15</Date>
+                <Version>0.13_rc4</Version>
+                <Comment>Version bump for testing.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
+            <Update release="13">
+                <Date>2009-07-10</Date>
+                <Version>0.13_rc3</Version>
+                <Comment>Version bump for testing.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
+            <Update release="12">
+                <Date>2009-07-01</Date>
+                <Version>0.13_rc2</Version>
+                <Comment>Version bump for testing, add missing aspell dependency.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
+            <Update release="11">
+                <Date>2009-05-25</Date>
+                <Version>0.13_rc1</Version>
+                <Comment>Version bump for testing.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="10" type="security">
                 <Date>2009-04-19</Date>
                 <Version>0.12.1</Version>
@@ -21417,7 +21478,7 @@
             <Summary xml:lang="en">Qt4 map editor for OpenStreetMap</Summary>
             <Description xml:lang="en">This is a Qt4-based editor for the OpenStreetMap with features such as map view near-WYSIWYG, style editor, transparent display of map features, support for handling seperate highways, import NMEA-files, etc.</Description>
             <Icon>merkaartor</Icon>
-            <Archive type="tarbz2" sha1sum="e8e0d006ba6a4859425cccefacbf2bfc4352d883">http://www.merkaartor.org/downloads/source/merkaartor-0.13.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="74b5a955f4bd514a8b13ac6a8a10c5239d567871">http://www.merkaartor.org/downloads/source/merkaartor-0.14.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="4.4">qt4</Dependency>
                 <Dependency>exiv2</Dependency>
@@ -21433,16 +21494,36 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib/merkaartor</Path>
                 <Path fileType="localedata">/usr/share/merkaartor/translations</Path>
+                <Path fileType="data">/usr/share/merkaartor</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
             </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/pixmaps/merkaartor.png" permission="0644" owner="root">merkaartor.png</AdditionalFile>
-            </AdditionalFiles>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-08-12</Date>
+                <Version>0.14</Version>
+                <Comment>Version bump :
+             * Switch to API 0.6, remove support for API 0.5
+             * Add a Features dock displaying the features in the current viewport
+             * Alternative way of drawing GPX tracks
+             * Support for proxy authentication
+             * Ability to create a junction between to crossing roads, polygons of any number of sides, house numbers &quot;Karlsruhe&quot; style
+             * Ability to rotate roads/areas
+             * Spatial indexing of features for faster display with large downloaded areas
+             * Support for multiple image layers
+             * Support for multi-selection of layers; allow to show/hide or readonly several layers at once
+             * Drag and drop re-ordering of layers
+             * Plugin-based background layers
+             * Ability to choose Qt style
+             * Discardable dialog/messageboxes
+             * Other minor tweaks and bug fixes</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-04-26</Date>
                 <Version>0.13.2</Version>
@@ -23560,6 +23641,7 @@
                 <Patch level="1">dia-0.96.1-64bit-fixes.patch</Patch>
                 <Patch>dia-0.96.1-gnome-doc.patch</Patch>
                 <Patch>dia-0.96.1-xml-fixes.patch</Patch>
+                <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>applications/office/dia/pspec.xml</SourceURI>
         </Source>
@@ -23579,6 +23661,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-16</Date>
+                <Version>0.96.1</Version>
+                <Comment>Add desktop patch (Pardus: #8496).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-10-13</Date>
                 <Version>0.96.1</Version>
@@ -36445,6 +36534,90 @@
                 <Comment>initial release</Comment>
                 <Name>Barış Metin</Name>
                 <Email>baris@pardus.org.tr</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>Q7Z</Name>
+            <Homepage>http://k7z.sourceforge.net/</Homepage>
+            <Packager>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.kde</PartOf>
+            <Summary xml:lang="en">KDE frontend for 7z compressed files</Summary>
+            <Summary xml:lang="tr">7z sıkıştırılmış dosyaları için KDE arayüzü</Summary>
+            <Description xml:lang="en">Use Q7Z if you want to create/extract a password-protected archive or update an existing archive.</Description>
+            <Description xml:lang="tr">Şifre korumalı 7z arşivleri oluşturmak ve bunları açmak için bu arayüzü kullanabilirsiniz.</Description>
+            <Icon>Q7Z</Icon>
+            <Archive type="tarbz2" sha1sum="b105e498f3799f3104e4c345051b7ec15b313258">mirrors://sourceforge/k7z/Q7Z-0.7.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>PyQt4</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>destdir.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/kde/q7z/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>Q7Z</Name>
+            <RuntimeDependencies>
+                <Dependency>PyQt4</Dependency>
+                <Dependency>p7zip</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/kde/3.5/bin</Path>
+                <Path fileType="data">/usr/kde/3.5/share</Path>
+            </Files>
+            <Replaces>
+                <Package>K7Z</Package>
+            </Replaces>
+        </Package>
+        <History>
+            <Update release="6">
+                <Date>2008-07-18</Date>
+                <Version>0.7.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+            <Update release="5">
+                <Date>2007-11-24</Date>
+                <Version>0.6.3</Version>
+                <Comment>Rename to Q7Z, version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+            <Update release="4">
+                <Date>2007-08-07</Date>
+                <Version>0.6</Version>
+                <Comment>Fix sandbox violation and broken symlinks.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+            <Update release="3">
+                <Date>2007-01-06</Date>
+                <Version>0.6</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+            <Update release="2">
+                <Date>2006-12-09</Date>
+                <Version>0.5</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+            <Update release="1">
+                <Date>2006-10-23</Date>
+                <Version>0.4.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
             </Update>
         </History>
     </SpecFile>
