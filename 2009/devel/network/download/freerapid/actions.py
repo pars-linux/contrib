@@ -5,31 +5,33 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 WorkDir = "FreeRapid-%s" % get.srcVERSION()
 
-def setup():
-    pisitools.dodir("%s/usr/share/freerapid" % get.installDIR())
-    pisitools.dodir("%s/usr/share/pixmaps/" % get.installDIR())
+def fixperms(d):
+    import os
+
+    for root, dirs, files in os.walk(d):
+        for name in dirs:
+            shelltools.chmod(os.path.join(root, name), 0755)
+
+        for name in files:
+            shelltools.chmod(os.path.join(root, name), 0644)
 
 def install():
-    shelltools.copytree("lib/", "%s/usr/share/freerapid/" % get.installDIR())
-    shelltools.copytree("lookandfeel/", "%s/usr/share/freerapid/" % get.installDIR())
-    shelltools.copytree("plugins/", "%s/usr/share/freerapid/" % get.installDIR())
-    shelltools.copytree("tools/", "%s/usr/share/freerapid/" % get.installDIR())
+    pisitools.insinto("/usr/share/freerapid", "./*")
+    fixperms(get.installDIR())
 
-    pisitools.dobin("frd.sh", "/usr/share/freerapid")
-
-    pisitools.insinto("/usr/share/pixmaps/", "frd.png")
-    shelltools.copy("*", "%s/usr/share/freerapid/" % get.installDIR())
+    shelltools.chmod("%s/usr/share/freerapid/frd.sh" % get.installDIR())
+    pisitools.dosym("/usr/share/freerapid/frd.sh", "/usr/bin/freerapid")
+    pisitools.dosym("/usr/share/freerapid/frd.png", "/usr/share/pixmaps/freerapid.png")
 
     pisitools.remove("/usr/share/freerapid/frd.exe")
-    pisitools.remove("/usr/share/freerapid/readme*txt")
+    pisitools.remove("/usr/share/freerapid/tools/nircmd/nircmd.exe")
+    pisitools.removeDir("/usr/share/freerapid/tools/gocr")
+    pisitools.removeDir("/usr/share/freerapid/doc")
 
-    shelltools.system("chmod +x %s/usr/share/freerapid/frd.sh" % get.installDIR())
-
-    pisitools.dosym("/usr/share/freerapid/frd.sh", "/usr/bin/freerapid") 
+    pisitools.dodoc("doc/*", "License")
