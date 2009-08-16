@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>freerapid</Name>
+        <Homepage>http://wordrider.net/freerapid</Homepage>
+        <Packager>
+            <Name>H.Gökhan Sarı</Name>
+            <Email>hsa2@difuzyon.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>freerapid</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A java application to download files from rapidshare-alike web pages</Summary>
+        <Description>Freerapid is an application which automaticly downloads a list of files from public sharing web pages like rapidshare.com.</Description>
+        <Archive sha1sum="5a18a23ff9b323312abbff1cfb8ad1cf02fddd42" type="zip">http://freerapid-downloader.sweb.cz/FreeRapiD-0.82.zip</Archive>
+        <Patches>
+            <Patch level="1">path-fix.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>freerapid</Name>
+        <RuntimeDependencies>
+            <Dependency>sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/freerapid</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/freerapid.desktop">freerapid.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2009-08-16</Date>
+            <Version>0.82</Version>
+            <Comment>
+                * Version bump.
+                * Fix actions.py.
+                * Remove .exe binary files.
+                * Fix file paths in pspec.xml.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+        <Update release="1">
+            <Date>2009-03-08</Date>
+            <Version>0.81</Version>
+            <Comment>First release.</Comment>
+            <Name>H.Gökhan Sarı</Name>
+            <Email>hsa2@difuzyon.net</Email>
+        </Update>
+    </History>
+</PISI>
