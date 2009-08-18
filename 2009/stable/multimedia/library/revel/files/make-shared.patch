@@ -1,0 +1,93 @@
+--- src/Makefile.in.orig	2004-12-09 22:42:01.000000000 +0200
++++ src/Makefile.in	2007-11-25 00:58:09.000000000 +0200
+@@ -24,7 +24,7 @@
+ 
+ am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
+ INSTALL = @INSTALL@
+-install_sh_DATA = $(install_sh) -c -m 644
++install_sh_DATA = $(install_sh) -c -m 755
+ install_sh_PROGRAM = $(install_sh) -c
+ install_sh_SCRIPT = $(install_sh) -c
+ INSTALL_HEADER = $(INSTALL_DATA)
+@@ -128,13 +128,13 @@
+ target_cpu = @target_cpu@
+ target_os = @target_os@
+ target_vendor = @target_vendor@
+-librevel_a_SOURCES = avilib.c avilib.h \
++librevel_so_SOURCES = avilib.c avilib.h \
+ 		BaseEncoder.cpp BaseEncoder.h \
+ 		revelcore.cpp \
+ 		XvidEncoder.cpp XvidEncoder.h
+ 
+ INCLUDES = $(AM_CFLAGS)
+-lib_LIBRARIES = librevel.a
++lib_LIBRARIES = librevel.so
+ include_HEADERS = ../include/revel.h
+ 
+ reveltest_SOURCES = reveltest.cpp
+@@ -151,11 +151,11 @@
+ CONFIG_CLEAN_FILES =
+ LIBRARIES = $(lib_LIBRARIES)
+ 
+-librevel_a_AR = $(AR) cru
+-librevel_a_LIBADD =
+-am_librevel_a_OBJECTS = avilib.$(OBJEXT) BaseEncoder.$(OBJEXT) \
++librevel_so_CC = $(CC) -fPIC -shared -Wl
++librevel_so_LIBADD =
++am_librevel_so_OBJECTS = avilib.$(OBJEXT) BaseEncoder.$(OBJEXT) \
+ 	revelcore.$(OBJEXT) XvidEncoder.$(OBJEXT)
+-librevel_a_OBJECTS = $(am_librevel_a_OBJECTS)
++librevel_so_OBJECTS = $(am_librevel_so_OBJECTS)
+ check_PROGRAMS = reveltest$(EXEEXT)
+ am_reveltest_OBJECTS = reveltest.$(OBJEXT)
+ reveltest_OBJECTS = $(am_reveltest_OBJECTS)
+@@ -176,11 +176,11 @@
+ CXXLD = $(CXX)
+ CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
+ 	-o $@
+-DIST_SOURCES = $(librevel_a_SOURCES) $(reveltest_SOURCES)
++DIST_SOURCES = $(librevel_so_SOURCES) $(reveltest_SOURCES)
+ HEADERS = $(include_HEADERS)
+ 
+ DIST_COMMON = $(include_HEADERS) $(srcdir)/Makefile.in Makefile.am
+-SOURCES = $(librevel_a_SOURCES) $(reveltest_SOURCES)
++SOURCES = $(librevel_so_SOURCES) $(reveltest_SOURCES)
+ 
+ all: all-am
+ 
+@@ -197,19 +197,11 @@
+ install-libLIBRARIES: $(lib_LIBRARIES)
+ 	@$(NORMAL_INSTALL)
+ 	$(mkinstalldirs) $(DESTDIR)$(libdir)
+-	@list='$(lib_LIBRARIES)'; for p in $$list; do \
++	@list='$(lib_LIBRARIES).$(VERSION)'; for p in $$list; do \
+ 	  if test -f $$p; then \
+ 	    f="`echo $$p | sed -e 's|^.*/||'`"; \
+ 	    echo " $(libLIBRARIES_INSTALL) $$p $(DESTDIR)$(libdir)/$$f"; \
+-	    $(libLIBRARIES_INSTALL) $$p $(DESTDIR)$(libdir)/$$f; \
+-	  else :; fi; \
+-	done
+-	@$(POST_INSTALL)
+-	@list='$(lib_LIBRARIES)'; for p in $$list; do \
+-	  if test -f $$p; then \
+-	    p="`echo $$p | sed -e 's|^.*/||'`"; \
+-	    echo " $(RANLIB) $(DESTDIR)$(libdir)/$$p"; \
+-	    $(RANLIB) $(DESTDIR)$(libdir)/$$p; \
++	    $(install_sh_DATA) $$p $(DESTDIR)$(libdir)/$$f; \
+ 	  else :; fi; \
+ 	done
+ 
+@@ -223,10 +215,9 @@
+ 
+ clean-libLIBRARIES:
+ 	-test -z "$(lib_LIBRARIES)" || rm -f $(lib_LIBRARIES)
+-librevel.a: $(librevel_a_OBJECTS) $(librevel_a_DEPENDENCIES) 
+-	-rm -f librevel.a
+-	$(librevel_a_AR) librevel.a $(librevel_a_OBJECTS) $(librevel_a_LIBADD)
+-	$(RANLIB) librevel.a
++librevel.so: $(librevel_so_OBJECTS) $(librevel_so_DEPENDENCIES) 
++	-rm -f $(lib_LIBRARIES).$(VERSION) 
++	$(librevel_so_CC),-soname=$(lib_LIBRARIES).1 -o $(lib_LIBRARIES).$(VERSION) $(librevel_so_OBJECTS)
+ 
+ clean-checkPROGRAMS:
+ 	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
