@@ -19,7 +19,7 @@ def build():
     cmaketools.make()
 
 def install():
-    cmaketools.install()
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     shelltools.system("msgfmt -v po/tr.po -o po/tr.mo")
     pisitools.insinto("%s/share/locale/tr/LC_MESSAGES" % get.kdeDIR(), "po/tr.mo", "subtitlecomposer.mo")
