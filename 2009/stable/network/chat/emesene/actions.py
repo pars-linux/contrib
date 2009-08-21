@@ -5,20 +5,23 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import pythonmodules
+from pisi.actionsapi import get
+
+share = "/usr/share/emesene"
+remove_dirs = ["misc", "libmimic"]
+remove_files = ["setup.py", "PKG-INFO"]
+move_files = ["LGPL", "PSF", "COPYING", "GPL", "README"]
 
 def install():
-
-    # .desktop entry
     pisitools.insinto("/usr/share/applications", "misc/emesene.desktop")
-
-    # icon
     pisitools.insinto("/usr/share/pixmaps", "emesene-logo.png", "emesene.png")
-
-    # emesene script
     pisitools.insinto("/usr/share/emesene", "*")
 
-    # license & translators
-    pisitools.dodoc("COPYING", "docs/TRANSLATORS")
+    for f in move_files:
+        pisitools.domove("%s/%s" % (share, f), "%s/%s" % (get.docDIR(), get.srcNAME()))
 
-    # no need for setup.py
-    pisitools.remove("/usr/share/emesene/setup.py")
+    for d in remove_dirs:
+        pisitools.removeDir("%s/%s" % (share, d))
+    for f in remove_files:
+        pisitools.remove("%s/%s" % (share, f))
