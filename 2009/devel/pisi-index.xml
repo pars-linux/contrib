@@ -16879,6 +16879,9 @@
                 <Dependency>enchant</Dependency>
                 <Dependency>gnome-keyring</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="2">webkit-CVE-2009-1725.patch</Patch>
+            </Patches>
             <SourceURI>network/library/webkit-gtk/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -16915,6 +16918,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-08-20</Date>
+                <Version>1.1.10</Version>
+                <Comment>* Fix numeric character reference error (CVE-2009-1725)</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-06-29</Date>
                 <Version>1.1.10</Version>
@@ -28542,7 +28552,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
             <Description xml:lang="tr">k9copy bir DVD&apos;deki bir veya daha fazla bölümü kopyalamak için kullanabileceğiniz bir DVD yedekleme aracıdır.</Description>
             <Icon>k9copy</Icon>
-            <Archive type="targz" sha1sum="f39585a4ec7d4a34c6ce8b4e1c058774975c4abe">mirrors://sourceforge/k9copy/k9copy-2.3.2-Source.tar.gz</Archive>
+            <Archive type="targz" sha1sum="db9f4a358922d464b673757f425aab7c5b3e0efb">mirrors://sourceforge/k9copy/k9copy-2.3.3-Source.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>automoc4</Dependency>
@@ -28556,9 +28566,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">desktop_tr.patch</Patch>
-                <Patch level="1">compile.patch</Patch>
                 <Patch level="1">gcc43.patch</Patch>
-                <Patch level="1">gcc44.patch</Patch>
             </Patches>
             <SourceURI>hardware/optical/k9copy/pspec.xml</SourceURI>
         </Source>
@@ -28593,6 +28601,18 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Replaces>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2009-08-20</Date>
+                <Version>2.3.3</Version>
+                <Comment>Bump to latest stable, drop upstreamed patches:
+                - Many improvements in video encoding
+                - Fixes for matroska, mencoder-xvid, ffmpeg encoding
+                - Fixed crash in avi import (dvd authoring)
+                - Fixed bug on dvd open in the wizard
+                - Fixed build issue with latest versions of ffmpeg</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2009-07-19</Date>
                 <Version>2.3.2</Version>
