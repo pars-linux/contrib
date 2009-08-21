@@ -9,10 +9,8 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 
 def setup():
-    autotools.autoreconf("-fi")
+    autotools.autoreconf("-fiv")
     autotools.configure("--with-python \
-                         --with-gnomeprint \
-                         --with-gnome \
                          --with-cairo")
 
 def build():
@@ -20,5 +18,7 @@ def build():
 
 def install():
     autotools.install()
+
+    pisitools.removeDir("/usr/share/oaf")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README")
