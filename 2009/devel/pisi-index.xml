@@ -16404,17 +16404,18 @@
             <PartOf>network.chat</PartOf>
             <Summary xml:lang="en">Platform independent instant messaging client for the Windows Live Messenger (tm) network</Summary>
             <Summary xml:lang="tr">Windows Live Messenger (tm) ağı için platform bağımsız anlık sohbet istemcisi</Summary>
+            <Description xml:lang="en">Emesene is an OS independent MSN Messenger client written in Python and GTK+. The main idea is to make a client similar to the official MSN Messenger client but keeping it simple and with a nice GUI.</Description>
+            <Description xml:lang="tr">Emesene, işletim sistemi bağımsız, Python ve GTK+ ile yazılmış MSN istemcisidir. Resmi MSN Messenger&apos;a benzemekle birlikte, basitlikten ve güzel bir grafik arayüze sahip olmak konusunda ödün verilmemiştir.</Description>
             <Icon>emesene</Icon>
-            <Archive type="targz" sha1sum="5fe019fb54654b560211aa89cc14b7005fa291d2">mirrors://sourceforge/emesene/emesene-1.0.1.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>pygtk</Dependency>
-            </BuildDependencies>
+            <Archive type="targz" sha1sum="db687afe598c66bbec5342a0ce3cfd04a576e629">mirrors://sourceforge/emesene/emesene-1.5.tar.gz</Archive>
             <SourceURI>network/chat/emesene/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>emesene</Name>
             <RuntimeDependencies>
                 <Dependency>pygtk</Dependency>
+                <Dependency>gnome-python-extras</Dependency>
+                <Dependency>notify-python</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -16428,6 +16429,14 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-08-20</Date>
+                <Version>1.5</Version>
+                <Comment>* Version bump.
+                * Add description.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-08-16</Date>
                 <Version>1.0.1</Version>
@@ -30502,23 +30511,18 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">Diagramming tool</Summary>
             <Summary xml:lang="tr">Diyagram Çizme Aracı</Summary>
             <Description xml:lang="en">Dia is an editor for semi-structured diagrams like UML, ER, flowcharts etc, somewhat inspired by Visio.</Description>
-            <Description xml:lang="tr">Dia, Visio&apos;dan esinlenilerek geliştirilmiş, UML, ER ve akış şeması gibi yarı yapılandırılmış diyagramlar çizmek için bir editördür</Description>
-            <Archive type="tarbz2" sha1sum="e3d8f16f50dbbd03c1ce0235dba28c3e9612bb6e">mirrors://gnome/dia/0.96/dia-0.96.1.tar.bz2</Archive>
+            <Description xml:lang="tr">Dia, Visio&apos;dan esinlenilerek geliştirilmiş, UML, ER ve akış şeması gibi yarı yapılandırılmış diyagramlar çizmek için bir editördür.</Description>
+            <Archive type="tarbz2" sha1sum="1c5a727e9e4f59b823a4616fc881055006eb8b96">mirrors://gnome/dia/0.97/dia-0.97.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libart_lgpl</Dependency>
                 <Dependency>pygtk</Dependency>
                 <Dependency>libgnome</Dependency>
                 <Dependency>libgnomeui</Dependency>
-                <Dependency>libgnomeprint</Dependency>
                 <Dependency>docbook-xml4_2</Dependency>
                 <Dependency>docbook-xsl</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
-                <Patch level="1">dont_use_x_during_build.patch</Patch>
-                <Patch level="1">dia-0.96.1-64bit-fixes.patch</Patch>
-                <Patch>dia-0.96.1-gnome-doc.patch</Patch>
-                <Patch>dia-0.96.1-xml-fixes.patch</Patch>
+                <Patch level="1">fix-underlinking.patch</Patch>
             </Patches>
             <SourceURI>office/misc/dia/pspec.xml</SourceURI>
         </Source>
@@ -30526,7 +30530,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>dia</Name>
             <RuntimeDependencies>
                 <Dependency>libart_lgpl</Dependency>
-                <Dependency>libgnomeprint</Dependency>
                 <Dependency>pygtk</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -30538,6 +30541,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-08-21</Date>
+                <Version>0.97</Version>
+                <Comment>* Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-10-13</Date>
                 <Version>0.96.1</Version>
