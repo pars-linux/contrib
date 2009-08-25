@@ -30004,6 +30004,59 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>terminator</Name>
+            <Homepage>http://www.tenshu.net/terminator</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>x11.terminal</PartOf>
+            <Summary xml:lang="en">A simple way to run multiple terminals in a single window</Summary>
+            <Summary xml:lang="tr">Tek bir pencerede birden fazla terminal çalıştırabilen uygulama</Summary>
+            <Description xml:lang="en">Terminator is an attempt to maximise useful space on a given desktop for terminals</Description>
+            <Description xml:lang="tr">Terminator tek pencerede birden çok terminal çalıştırarak masaüstü alanınızı daha rahat kullanmanızı amaçlar.</Description>
+            <Icon>terminator</Icon>
+            <Archive type="targz" sha1sum="685d54ac62210b6ef056e77a2bd16d7dc6dd77b2">http://launchpad.net/terminator/trunk/0.13/+download/terminator_0.13.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gnome-python</Dependency>
+                <Dependency>vte</Dependency>
+            </BuildDependencies>
+            <SourceURI>x11/terminal/terminator/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>terminator</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gnome-python</Dependency>
+                <Dependency>vte</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-08-18</Date>
+                <Version>0.13</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>tilda</Name>
             <Homepage>http://tilda.sourceforge.net/</Homepage>
             <Packager>
