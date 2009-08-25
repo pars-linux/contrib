@@ -1,0 +1,24 @@
+--- decoder_plugins/ffmpeg/ffmpeg.c	2008-04-09 21:44:00.000000000 +0300
++++ decoder_plugins/ffmpeg/ffmpeg.c.new	2009-08-26 00:14:45.769796448 +0300
+@@ -345,6 +345,10 @@
+ 		strcpy (buf, "MP4");
+ 	else if (!strcasecmp(ext, "m4a"))
+ 		strcpy (buf, "M4A");
++	else if (!strcasecmp(ext, "ape"))
++		strcpy (buf, "APE");
++	else if (!strcasecmp(ext, "wv"))
++		strcpy (buf, "WV");
+ }
+ 
+ static int ffmpeg_our_format_ext (const char *ext)
+@@ -353,7 +357,9 @@
+ 		|| !strcasecmp(ext, "ra")
+ 		|| !strcasecmp(ext, "m4a")
+ 		|| !strcasecmp(ext, "mp4")
+-		|| !strcasecmp(ext, "aac");
++		|| !strcasecmp(ext, "aac")
++		|| !strcasecmp(ext, "ape")
++		|| !strcasecmp(ext, "wv");
+ }
+ 
+ static void ffmpeg_get_error (void *prv_data, struct decoder_error *error)
