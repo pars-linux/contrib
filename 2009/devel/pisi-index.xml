@@ -19665,7 +19665,7 @@
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Description xml:lang="tr">Filezilla; dosyalarınızı ftp, sftp, ftps ile göndermenize ve indirmenize yarar</Description>
             <Icon>filezilla</Icon>
-            <Archive type="tarbz2" sha1sum="0e40c49c96afab6e3f644afb95947c14ba1428fe">mirrors://sourceforge/filezilla/FileZilla_3.2.7_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8e1c2c1488ef320ccb5643bc9c74d95afe6d4187">mirrors://sourceforge/filezilla/FileZilla_3.2.7.1_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8.9">wxGTK-devel</Dependency>
                 <Dependency versionFrom="2.8.3">gnutls</Dependency>
@@ -19694,8 +19694,8 @@
         </Package>
         <History>
             <Update release="26">
-                <Date>2009-08-13</Date>
-                <Version>3.2.7</Version>
+                <Date>2009-08-28</Date>
+                <Version>3.2.7.1</Version>
                 <Comment>Version bump. Minimum required GnuTLS version to 2.8.3</Comment>
                 <Name>Ertan Argüden</Name>
                 <Email>ert976@gmail.com</Email>
@@ -65658,6 +65658,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Archive type="tarbz2" sha1sum="c61d6271c49e9fa8c728724e6aadde33a227bdea">http://www.bennewitz.com/bluefish/stable/source/bluefish-1.0.7.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
                 <Dependency>aspell</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
                 <Dependency>libgnomeui</Dependency>
@@ -65672,6 +65673,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>bluefish</Name>
             <RuntimeDependencies>
                 <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
                 <Dependency>aspell</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
                 <Dependency>libgnomeui</Dependency>
@@ -65681,7 +65683,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="data">/usr/share/application-registry</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/bluefish</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/doc/bluefish</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share/mime-info</Path>
                 <Path fileType="data">/usr/share/mime</Path>
@@ -65693,6 +65695,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Provides>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-08-29</Date>
+                <Version>1.0.7</Version>
+                <Comment>Make the package ready for Pardus 2009:
+                * Fix dependencies.
+                * Fix typo in desktop.patch.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-09-19</Date>
                 <Version>1.0.7</Version>
