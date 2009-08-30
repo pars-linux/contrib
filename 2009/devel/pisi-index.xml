@@ -15199,6 +15199,9 @@
                 <Dependency>qca2-ossl</Dependency>
                 <Dependency>xscreensaver</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>turkish.patch</Patch>
+            </Patches>
             <SourceURI>network/chat/kmess/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -15223,6 +15226,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-08-30</Date>
+                <Version>2.0</Version>
+                <Comment>Added Turkish translation.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-07-31</Date>
                 <Version>2.0</Version>
@@ -53107,6 +53117,56 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>gnome-menus</Name>
+            <Homepage>http://www.gnome.org</Homepage>
+            <Packager>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <License>LGPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.gnome.base</PartOf>
+            <Summary xml:lang="en">Base menu layout and its edit application for GNOME desktop</Summary>
+            <Summary xml:lang="tr">GNOME masaüstü için temel menü düzeni ve düzenleme aracı</Summary>
+            <Description xml:lang="en">gnome-menus contains binaries that provide an implementation of the freedesktop.org menu specification.</Description>
+            <Description xml:lang="tr">gnome-menus, freedesktop.org menü belirtimlerini uygulamayı sağlayan ikili dosyalar içerir.</Description>
+            <Archive type="tarbz2" sha1sum="ab914a083ef63bacd960349b3dee3dbd3a005a82">mirrors://gnome/gnome-menus/2.26/gnome-menus-2.26.2.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>gnome-common</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">no-shave-init.patch</Patch>
+                <Patch level="1">python-underlinking.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/gnome/base/gnome-menus/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gnome-menus</Name>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/desktop-directories</Path>
+                <Path fileType="data">/usr/share/gnome-menus</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-08-27</Date>
+                <Version>2.26.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>gnome-icon-theme</Name>
             <Homepage>http://www.gnome.org</Homepage>
             <Packager>
@@ -53222,6 +53282,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Patch>pardus-menus.patch</Patch>
                 <Patch level="1">xterm-size.patch</Patch>
                 <Patch level="1">disable-theme-warnings.patch</Patch>
+                <Patch level="1">translations-fix.patch</Patch>
             </Patches>
             <SourceURI>desktop/gnome/base/gdm/pspec.xml</SourceURI>
         </Source>
