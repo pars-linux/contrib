@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnome-menus</Name>
+        <Homepage>http://www.gnome.org</Homepage>
+        <Packager>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <License>LGPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Base menu layout and its edit application for GNOME desktop</Summary>
+        <Description>gnome-menus contains binaries that provide an implementation of the freedesktop.org menu specification.</Description>
+        <Archive sha1sum="ab914a083ef63bacd960349b3dee3dbd3a005a82" type="tarbz2">mirrors://gnome/gnome-menus/2.26/gnome-menus-2.26.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>gnome-common</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">no-shave-init.patch</Patch>
+            <Patch level="1">python-underlinking.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gnome-menus</Name>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/desktop-directories</Path>
+            <Path fileType="data">/usr/share/gnome-menus</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-08-27</Date>
+            <Version>2.26.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Burak Çalışkan</Name>
+            <Email>burakclskn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
