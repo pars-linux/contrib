@@ -1,0 +1,114 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>kmess</Name>
+        <Homepage>http://kmess.sourceforge.net/</Homepage>
+        <Packager>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>kmess</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>MSN Messenger clone for KDE</Summary>
+        <Description>KMess is a MSN Messenger compatible chat client for Linux. It enables Linux users to chat with friends online who are using MSN Messenger in Windows or Mac OS. The strength of KMess is it's integration with the KDE desktop environment, focus on MSN Messenger specific features and an easy-to-use interface.</Description>
+        <Archive sha1sum="56b91fd21aac45ac1a3eddcb3f52fc81debb8b7d" type="targz">mirrors://sourceforge/kmess/kmess-2.0.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>kdelibs-devel</Dependency>
+            <Dependency>qca2-ossl</Dependency>
+            <Dependency>xscreensaver</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>turkish.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>kmess</Name>
+        <RuntimeDependencies>
+            <Dependency>kdelibs</Dependency>
+            <Dependency>qca2-ossl</Dependency>
+            <Dependency>xscreensaver</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/kde/4/bin</Path>
+            <Path fileType="library">/usr/kde/4/lib</Path>
+            <Path fileType="data">/usr/kde/4/share/applications</Path>
+            <Path fileType="data">/usr/kde/4/share/apps</Path>
+            <Path fileType="config">/usr/kde/4/share/config</Path>
+            <Path fileType="doc">/usr/kde/4/share/doc</Path>
+            <Path fileType="data">/usr/kde/4/share/emoticons</Path>
+            <Path fileType="data">/usr/kde/4/share/kde4/services</Path>
+            <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+            <Path fileType="data">/usr/kde/4/share/sounds</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="9">
+            <Date>2009-08-30</Date>
+            <Version>2.0</Version>
+            <Comment>Added Turkish translation.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-07-31</Date>
+            <Version>2.0</Version>
+            <Comment>Version bump to KDE4 port.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="7">
+            <Date>2009-03-24</Date>
+            <Version>1.5.2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="6">
+            <Date>2008-06-03</Date>
+            <Version>1.5.1</Version>
+            <Comment>Added gcc4 patch.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="5">
+            <Date>2008-04-07</Date>
+            <Version>1.5.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-01-10</Date>
+            <Version>1.5</Version>
+            <Comment>Version bump, add package icon.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-03-19</Date>
+            <Version>1.5_pre2</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2006-10-11</Date>
+            <Version>1.5_pre1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-04-25</Date>
+            <Version>1.4.3</Version>
+            <Comment>First Release.</Comment>
+            <Name>Uğur Çetin</Name>
+            <Email>jnmbk@users.sourceforge.net</Email>
+        </Update>
+    </History>
+</PISI>
