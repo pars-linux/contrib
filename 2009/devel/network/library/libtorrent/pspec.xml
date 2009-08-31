@@ -12,11 +12,14 @@
         <IsA>library</IsA>
         <Summary>Full featured torrent client library</Summary>
         <Description>Rasterbar's C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
-        <Archive sha1sum="3494f610ea0a329d33c03d031043476453897acd" type="targz">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.4.tar.gz</Archive>
+        <Archive sha1sum="ce19fddad4165502d3fcd9f1fc120ad2fad8bcd6" type="targz">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.5.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libsigc++</Dependency>
             <Dependency>boost-devel</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">libtorrent-rasterbar-0.14.4-underlink.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -33,6 +36,16 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-08-31</Date>
+            <Version>0.14.5</Version>
+            <Comment>
+                * Version bump.
+                * Fix undefined symbol errors.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-06-05</Date>
             <Version>0.14.4</Version>
