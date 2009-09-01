@@ -2906,7 +2906,7 @@
             <Summary xml:lang="tr">Müzik Çalıcı Sunucusu (MPD)</Summary>
             <Description xml:lang="en">Music Player Daemon (MPD) allows remote access for playing music (MP3, Ogg Vorbis, FLAC, AAC, Mod, and wave files) and managing playlists.</Description>
             <Description xml:lang="tr">MPD çoğu müzik dosyasını (MP3, Ogg Vorbis, FLAC, AAC, Mod vs.) çalar ve ağda yayınlar.</Description>
-            <Archive type="tarbz2" sha1sum="eca8821e2c34b37232621b7219e39f0a6d67d190">mirrors://sourceforge/musicpd/mpd-0.15.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f53f984d8ffcc58d83268f30afb11b8342118d22">mirrors://sourceforge/musicpd/mpd-0.15.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>avahi</Dependency>
                 <Dependency>libmpcdec</Dependency>
@@ -2975,6 +2975,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-08-31</Date>
+                <Version>0.15.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Güngör Erseymen</Name>
+                <Email>gelurine@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-07-24</Date>
                 <Version>0.15.1</Version>
@@ -17037,11 +17044,14 @@
             <Summary xml:lang="tr">Gelişmiş bir torrent kitaplığı</Summary>
             <Description xml:lang="en">Rasterbar&apos;s C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
             <Description xml:lang="tr">Rasterbar C++ kitaplığı, diğer bittorrent kitaplıklarına karşın iyi bir alternatifdir.</Description>
-            <Archive type="targz" sha1sum="3494f610ea0a329d33c03d031043476453897acd">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="ce19fddad4165502d3fcd9f1fc120ad2fad8bcd6">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libsigc++</Dependency>
                 <Dependency>boost-devel</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">libtorrent-rasterbar-0.14.4-underlink.patch</Patch>
+            </Patches>
             <SourceURI>network/library/libtorrent/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -17057,6 +17067,14 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-08-31</Date>
+                <Version>0.14.5</Version>
+                <Comment>* Version bump.
+                * Fix undefined symbol errors.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-06-05</Date>
                 <Version>0.14.4</Version>
@@ -28025,7 +28043,7 @@
             <Summary xml:lang="tr">ISO kalıbı oluşturmak için gerekli kütüphane</Summary>
             <Description xml:lang="en">Libisofs is a library that handles creating ISO disc image files. It is intended to work together with libburn to write these images to discs.</Description>
             <Description xml:lang="tr">Libisofs, ISO kalıbını oluşturmak için gerekli kütüphaneleri içeren pakettir. Bu paket ayrıca Libburn&apos;u kullanarak, ISO kalıplarını CD, DVD veya benzeri disklere yazdırmanıza olanağı sağlar.</Description>
-            <Archive type="targz" sha1sum="67683d7a9ef2ed5c5501173747a03402054e20cb">http://files.libburnia-project.org/releases/libisofs-0.6.20.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2d0237d8a0b2c98da23e9ac64713145eef581ee5">http://files.libburnia-project.org/releases/libisofs-0.6.22.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libburn</Dependency>
             </BuildDependencies>
@@ -28040,6 +28058,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-08-31</Date>
+                <Version>0.6.22</Version>
+                <Comment>* Version bump:
+                - can record MD5 checksums for the whole session and for each single data file.
+                - Checksum tags allow to verify superblock and directory tree before importing them.
+                - The content of data files can be verified.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-06-11</Date>
                 <Version>0.6.20</Version>
@@ -28088,7 +28116,7 @@
             <Summary xml:lang="tr">Optik diskleri okumak, idare etmek ve yazmak için kütüphane</Summary>
             <Description xml:lang="en">Libburn is an open-source library for reading, mastering and writing optical discs.</Description>
             <Description xml:lang="tr">Libburn, optik diskleri okumak, idare etmek ve yazmak için yazılmış, açık kaynak kodlu bir kütüphanedir.</Description>
-            <Archive type="targz" sha1sum="c496c9b72d53cd958eae08d46f27351f880f2164">http://files.libburnia-project.org/releases/libburn-0.6.8.pl00.tar.gz</Archive>
+            <Archive type="targz" sha1sum="1594ca2ce23176fe65471c3c14008cf8e4312bed">http://files.libburnia-project.org/releases/libburn-0.7.0.pl00.tar.gz</Archive>
             <SourceURI>hardware/library/libburn/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -28102,6 +28130,14 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-08-31</Date>
+                <Version>0.7.0</Version>
+                <Comment>* Version bump:
+                - his release fixes a bug with U3 memory sticks. It introduces new API calls to inquire the list of supported media from a drive, and an API call to reduce drive noise if no i/o is intended for a while.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-07-17</Date>
                 <Version>0.6.8</Version>
@@ -36233,8 +36269,10 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <IsA>app:console</IsA>
             <PartOf>programming.build</PartOf>
             <Summary xml:lang="en">ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs</Summary>
+            <Summary xml:lang="tr">Bazı mikrodenetleyiciler için bir C derleyicisi</Summary>
             <Description xml:lang="en">SDCC is a Freeware, retargettable, optimizing ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs. Work is in progress on supporting the Microchip PIC16 and PIC18 series.</Description>
-            <Archive type="targz" sha1sum="ec30089a879ea15f68dc3f86d0b4cc6b1d60bbb1">http://surfnet.dl.sourceforge.net/sourceforge/sdcc/sdcc-src-2.6.0.tar.gz</Archive>
+            <Description xml:lang="tr">sdcc, Intel 8051, Maxim 80DS390, Zilog Z80, Motorola 68HC08 temelli mikro denetleyiciler ve Microchip PIC16 - PIC18 serisi için yeniden hedeflendirilebilir ve eniyleştirilmiş bir C derleyicisi.</Description>
+            <Archive type="tarbz2" sha1sum="487a9c576130bb1bfb225fe36984f485aac0f513">mirrors://sourceforge/sdcc/2.8.0/sdcc-src-2.8.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boehm-gc</Dependency>
                 <Dependency>lyx</Dependency>
@@ -36252,6 +36290,16 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-08-28</Date>
+                <Version>2.8.0</Version>
+                <Comment>* Version bump
+                * Added sdcc-2.8.0-flags.patch
+                * Added sdcc-2.8.0-gcc44.patch
+                * Update Copyright line</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-08-27</Date>
                 <Version>2.6.0</Version>
@@ -50999,6 +51047,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>gamin</Dependency>
                 <Dependency>gconf</Dependency>
                 <Dependency>libexif</Dependency>
+                <Dependency>desktop-file-utils</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -51036,6 +51085,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2009-09-01</Date>
+                <Version>1.0.1</Version>
+                <Comment>* Add missing runtime dependency.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2009-06-19</Date>
                 <Version>1.0.1</Version>
