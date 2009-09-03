@@ -13,10 +13,11 @@
         <IsA>app:gui</IsA>
         <Summary>A clipboard plugin for the Xfce4 panel</Summary>
         <Description>The clipman plugin allows you to keep several clipboard selections in memory which you can then use to toggle.</Description>
-        <Archive sha1sum="b0ac9175f98b062995d8af7dbcdabcea41e48f6f" type="tarbz2">http://goodies.xfce.org/releases/xfce4-clipman-plugin/xfce4-clipman-plugin-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="dc5998f1c7a67f721703a309e45a304c81af602c" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.1/xfce4-clipman-plugin-1.1.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xfce4-panel-devel</Dependency>
-            <Dependency>gnome-doc-utils</Dependency>
+            <Dependency>libunique</Dependency>
+            <Dependency>docbook-xsl</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -24,10 +25,12 @@
         <Name>xfce4-clipman-plugin</Name>
         <RuntimeDependencies>
             <Dependency>xfce4-panel</Dependency>
+            <Dependency>libunique</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="doc">/usr/share/xfce4/doc</Path>
             <Path fileType="data">/usr/share/xfce4</Path>
@@ -38,6 +41,26 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-09-03</Date>
+            <Version>1.1.0</Version>
+            <Comment>
+                * Version bump:
+                - Settings dialog is an external application xfce4-clipman-settings. Optional support for libunique to make the settings dialog unique.
+                - Switched to GIO for file monitoring support over the actions XML file. Minimum version requirement for glib bumped to 2.16.
+                - The bundle "standalone app/panel plugin" is splitted in two binaries.
+                - The autostart behavior has changed. Now when the standalone application is launched the autostart file is automatically set to true, and when it is dropped by the user it is set to false.
+                - Added the daemon from gnome-settings-daemon, it keeps a copy of all targets and replicates them to the clipboard before it is going empty.
+                - Added groups into ClipmanActions identified by integers where -1 represents all the groups. This makes it possible to retrieve only a set of actions. The Clipman settings dialog has a new checkbox to retrieve actions only on manual copies (e.g. Ctrl+C).
+                - Fixed a bug with KDE where the status icon is getting smaller and smaller.
+                - Updated some translations.
+                * Disable again xml2po parameter. Not necessary.
+                * Add libunique dependency.
+                * Add missing docbook-xsl build dependency.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2009-06-29</Date>
             <Version>1.0.2</Version>
