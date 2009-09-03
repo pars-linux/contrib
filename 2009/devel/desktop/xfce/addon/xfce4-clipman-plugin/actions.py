@@ -10,8 +10,7 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static \
-                         --enable-xsltproc \
-                         --enable-xml2po")
+                         --enable-xsltproc")
 
 def build():
     autotools.make()
