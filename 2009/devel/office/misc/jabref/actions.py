@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Copyright 2007 TUBITAK/UEKAE
+# Copyright 2007-2009 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
@@ -14,9 +14,8 @@ def setup():
     shelltools.system("ant")
 
 def install():
-
     shelltools.cd("build")
 
-    for directory in ["classes","help","images","lib","resources"]:
+    for directory in ["classes","help","images","lib","resource"]:
         pisitools.insinto("/usr/lib/jabref",directory)
 
