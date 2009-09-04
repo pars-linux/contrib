@@ -13,7 +13,7 @@ def setup():
     autotools.configure()
 
 def build():
-    pisitools.dosed("Makefile", "docsdir = .*", "docsdir = %s/usr/share/doc/%s" % (get.installDIR(), get.srcTAG()))
+    pisitools.dosed("Makefile", "docsdir = .*", "docsdir = %s/usr/share/doc/%s" % (get.installDIR(), get.srcNAME()))
     autotools.make()
 
 def install():
