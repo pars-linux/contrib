@@ -15,6 +15,6 @@ def install():
     pythonmodules.install()
 
     # Code samples
-    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(),"samples")
+    pisitools.insinto("/usr/share/doc/%s" % get.srcNAME(),"samples")
 
     pisitools.dodoc("RELEASE_NOTES.txt", "README.txt")
