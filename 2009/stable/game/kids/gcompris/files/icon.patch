@@ -1,0 +1,11 @@
+--- gcompris-8.1/src/gcompris/gcompris.c~	2006-10-15 14:44:14.000000000 +0200
++++ gcompris-8.1/src/gcompris/gcompris.c	2006-10-15 14:44:14.000000000 +0200
+@@ -625,7 +625,7 @@
+    * Set an icon for gcompris
+    * ------------------------
+    */
+-  icon_file = g_strconcat(properties->system_icon_dir, "/gcompris.png", NULL);
++  icon_file = g_strconcat("/usr/share/pixmaps", "/gcompris.png", NULL);
+   if (!g_file_test (icon_file, G_FILE_TEST_EXISTS)) {
+       /* Now check if this file is on the net */
+       icon_file = gc_net_get_url_from_file("gcompris.png", NULL);
