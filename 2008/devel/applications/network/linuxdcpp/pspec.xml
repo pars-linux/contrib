@@ -4,7 +4,7 @@
 <PISI>
     <Source>
         <Name>linuxdcpp</Name>
-        <Homepage>http://linuxdcpp.berlios.de</Homepage>
+        <Homepage>https://launchpad.net/linuxdcpp</Homepage>
         <Packager>
             <Name>Fahri Tuğrul Gürkaynak</Name>
             <Email>tugrul@pardus.org.tr</Email>
@@ -14,16 +14,33 @@
         <IsA>app:gui</IsA>
         <Summary>Direct Connect client for Linux</Summary>
         <Description>Port of the DC++ direct connect client to Linux.</Description>
-        <Archive type="tarbz2" sha1sum="0ee61b524dc0d79d4f981bd0a91951f07239e2a0">http://download.berlios.de/linuxdcpp/linuxdcpp-1.0.2.tar.bz2</Archive>
+        <Archive type="tarbz2" sha1sum="383a55bbc2169280e982571aac92555a25dc05e4">http://launchpad.net/linuxdcpp/1.0/1.0.3/+download/linuxdcpp-1.0.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libglade2</Dependency>
+            <Dependency>gtk2</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>linuxdcpp</Name>
         <RuntimeDependencies>
+            <Dependency>atk</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>glitz</Dependency>
+            <Dependency>gtk2</Dependency>
             <Dependency>libglade2</Dependency>
+            <Dependency>libXcomposite</Dependency>
+            <Dependency>libXcursor</Dependency>
+            <Dependency>libXdamage</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXfixes</Dependency>
+            <Dependency>libXinerama</Dependency>
+            <Dependency>libXrandr</Dependency>
+            <Dependency>libXrender</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>pixman</Dependency>
+            <Dependency>xcb-util</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -36,6 +53,13 @@
    </Package>
 
    <History>
+        <Update release="2">
+            <Date>2009-09-06</Date>
+            <Version>1.0.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Fahri Tuğrul Gürkaynak</Name>
+            <Email>tugrul@pardus.org.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2008-11-06</Date>
             <Version>1.0.2</Version>
