@@ -11,9 +11,9 @@ from pisi.actionsapi import get
 WorkDir = "tools-%s" % get.srcVERSION().split('_')[-1]
 
 def build():
+    pisitools.dosed("Makefile", "(?<=CFLAGS = ).*", "%s" % get.CFLAGS())
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
     pisitools.dodoc("COPYING")
