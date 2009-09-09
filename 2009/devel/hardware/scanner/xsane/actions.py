@@ -11,12 +11,12 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-gtk2 \
-            --enable-nls \
-            --enable-jpeg \
-            --enable-png \
-            --enable-tiff \
-            --enable-gimp \
-            --enable-lcms")
+                         --enable-nls \
+                         --enable-jpeg \
+                         --enable-png \
+                         --enable-tiff \
+                         --enable-gimp \
+                         --enable-lcms")
 
 def build():
     autotools.make()
