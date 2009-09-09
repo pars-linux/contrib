@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>gnumeric</Name>
+        <Homepage>http://www.gnome.org/projects/gnumeric</Homepage>
+        <Packager>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>gnome-gnumeric</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>Full featured spreadsheet program</Summary>
+        <Description>This is the Gnumeric, the GNOME spreadsheet program. If you are familiar with Excel, you should be ready to use Gnumeric. It tries to clone all of the good features and stay as compatible as possible with Excel in terms of usability. Hopefully the bugs have been left behind.</Description>
+        <Archive sha1sum="2d765b0d06509e0695c4d3ec96b94f8acba88735" type="tarbz2">mirrors://gnome/gnumeric/1.8/gnumeric-1.8.4.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>goffice-devel</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libglade</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">gnumeric-1.8.2-CVE-2009-0318-rh.patch</Patch>
+            <Patch level="1">gtk2.16.diff</Patch>
+            <Patch level="1">set-flag.diff</Patch>
+            <Patch>fix-desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>gnumeric</Name>
+        <RuntimeDependencies>
+            <Dependency>goffice</Dependency>
+            <Dependency>gconf</Dependency>
+            <Dependency>libgnomeui</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>libbonobo</Dependency>
+            <Dependency>libgnome</Dependency>
+            <Dependency>libbonoboui</Dependency>
+            <Dependency>libglade</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>libart_lgpl</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/gnumeric</Path>
+            <Path fileType="data">/usr/share/omf</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/lib/pkgconfig</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-09-07</Date>
+            <Version>1.8.4</Version>
+            <Comment>First release.</Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
