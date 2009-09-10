@@ -28812,41 +28812,67 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <PartOf>hardware.scanner</PartOf>
             <Summary xml:lang="fr">Interface graphique pour scanner</Summary>
             <Summary xml:lang="en">Graphical scanning frontend</Summary>
-            <Summary xml:lang="tr">Grafiksel tarayıcı önucu</Summary>
+            <Summary xml:lang="tr">Grafiksel tarayıcı arayüzü</Summary>
             <Description xml:lang="en">XSane uses the SANE-library to talk to scanners. This means that XSane does not support any scanners itself.</Description>
+            <Description xml:lang="tr">XSane, SANE kitaplığını kullanarak yazıcılarla iletişim kurar. Yazıcı desteği için SANE&apos;ye ihtiyaç duyar.</Description>
+            <Icon>xsane</Icon>
             <Archive type="targz" sha1sum="2f2a709b577463cc57d6dacec4a530a8c4feb8c6">ftp://ftp.sane-project.org/pub/sane/xsane/xsane-0.996.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="1.0.19">sane-backends</Dependency>
-                <Dependency versionFrom="2.12.10">gtk2</Dependency>
-                <Dependency versionFrom="1.17">lcms</Dependency>
+                <Dependency>sane-backends</Dependency>
+                <Dependency>gtk2</Dependency>
                 <Dependency>gimp-devel</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>MissingCapsFlag.patch</Patch>
+                <Patch level="1">close-fds.patch</Patch>
+                <Patch level="1">xdg-open.patch</Patch>
             </Patches>
             <SourceURI>hardware/scanner/xsane/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>xsane</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="1.0.19">sane-backends</Dependency>
-                <Dependency versionFrom="2.12.10">gtk2</Dependency>
-                <Dependency versionFrom="1.17">lcms</Dependency>
+                <Dependency>sane-backends</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>xdg-utils</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/sane</Path>
                 <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/applications/xsane.desktop" permission="0644" owner="root">xsane.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
+        <Package>
+            <Name>gimp-xsane-plugin</Name>
+            <Summary xml:lang="en">GIMP plugin to transfer the scanned image automatically to the GIMP</Summary>
+            <IsA>library</IsA>
+            <RuntimeDependencies>
+                <Dependency releaseFrom="8">xsane</Dependency>
+                <Dependency>gimp</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/gimp</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="8">
+                <Date>2009-09-10</Date>
+                <Version>0.996</Version>
+                <Comment>- Remove strict dependencies and system.base one
+                - Cosmetix fixes and add icon tag
+                - Split gimp-xsane-plugin
+                - Use xdg-open for default browser
+                - Add a Fedora patch to fix fd leak prevention (https://bugzilla.redhat.com/show_bug.cgi?id=455450)</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-07-29</Date>
                 <Version>0.996</Version>
@@ -30695,6 +30721,85 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Serdar Soytetir</Name>
                 <Email>tulliana@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gnumeric</Name>
+            <Homepage>http://www.gnome.org/projects/gnumeric</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>office.misc</PartOf>
+            <Summary xml:lang="en">Full featured spreadsheet program</Summary>
+            <Summary xml:lang="tr">Tam destekli hesap çizelgesi</Summary>
+            <Description xml:lang="en">This is the Gnumeric, the GNOME spreadsheet program. If you are familiar with Excel, you should be ready to use Gnumeric. It tries to clone all of the good features and stay as compatible as possible with Excel in terms of usability. Hopefully the bugs have been left behind.</Description>
+            <Description xml:lang="tr">Gnumeric, GNOME&apos;un hesap çizelgesi uygulamasıdır. Excel kullanıcıları Gnumeric kullanmakta zorlanmazlar. Excel&apos;in tüm iyi yönlerini ve buna ek olarak kendi üstün özelliklerini içinde barındırır.</Description>
+            <Icon>gnome-gnumeric</Icon>
+            <Archive type="tarbz2" sha1sum="2d765b0d06509e0695c4d3ec96b94f8acba88735">mirrors://gnome/gnumeric/1.8/gnumeric-1.8.4.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>goffice-devel</Dependency>
+                <Dependency>gconf</Dependency>
+                <Dependency>libgnomeui</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libbonobo</Dependency>
+                <Dependency>libgnome</Dependency>
+                <Dependency>libbonoboui</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>libart_lgpl</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">gnumeric-1.8.2-CVE-2009-0318-rh.patch</Patch>
+                <Patch level="1">gtk2.16.diff</Patch>
+                <Patch level="1">set-flag.diff</Patch>
+                <Patch>fix-desktop.patch</Patch>
+            </Patches>
+            <SourceURI>office/misc/gnumeric/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gnumeric</Name>
+            <RuntimeDependencies>
+                <Dependency>goffice</Dependency>
+                <Dependency>gconf</Dependency>
+                <Dependency>libgnomeui</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libbonobo</Dependency>
+                <Dependency>libgnome</Dependency>
+                <Dependency>libbonoboui</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>libart_lgpl</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/gnome</Path>
+                <Path fileType="data">/usr/share/gnumeric</Path>
+                <Path fileType="data">/usr/share/omf</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/lib/pkgconfig</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-09-07</Date>
+                <Version>1.8.4</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -32803,6 +32908,71 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>goffice</Name>
+            <Homepage>http://freshmeat.net/projects/goffice</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>office.library</PartOf>
+            <Summary xml:lang="en">Set of document centric objects and utilities for Glib / GTK+</Summary>
+            <Summary xml:lang="tr">Glib / GTK+ için merkezi araç ve nesneleri içeren birtakım belgeler</Summary>
+            <Description xml:lang="en">goffice, shared library implementing document centric objects and utilities for Glib / GTK+.</Description>
+            <Description xml:lang="tr">goffice, Glib / GTK+ için gerekli merkezi araç ve nesneleri içeren paylaşımlı kitaplıktır.</Description>
+            <Archive type="tarbz2" sha1sum="ac3b768198ee13264ddd26bc7b039d9788c14ad7">mirrors://gnome/goffice/0.6/goffice-0.6.6.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>gtk-doc</Dependency>
+                <Dependency>libgsf</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>libgsf-gnome</Dependency>
+            </BuildDependencies>
+            <SourceURI>office/library/goffice/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>goffice</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libgsf</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>libgsf-gnome</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/goffice</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>goffice-devel</Name>
+            <Summary xml:lang="en">Development files for Goffice</Summary>
+            <Summary xml:lang="tr">Goffice için geliştirici dosyaları</Summary>
+            <IsA>data:doc</IsA>
+            <RuntimeDependencies>
+                <Dependency>goffice</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="data">/usr/lib/pkgconfig</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/gtk-doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-09-07</Date>
+                <Version>0.6.6</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -45882,7 +46052,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">MonoDevelop is a free GNOME IDE primarily designed for C# and other .NET languages.</Description>
             <Description xml:lang="tr">MonoDevelop, öncelikle C# ve diğer .NET dilleri için tasarlanmış, özgür bir GNOME geliştirme ortamıdır.</Description>
             <Icon>monodevelop</Icon>
-            <Archive type="tarbz2" sha1sum="80b8671a8c0085bf1bfb1291ada5bcca48c99c60">ftp://ftp.sudrap.org/gkmngrgn/mono-sources/monodevelop-2.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="5dc6f1a6b2f227b8c5f5fa5d0a57ad9275d70eda">http://ftp.novell.com/pub/mono/sources/monodevelop/monodevelop-2.1.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>subversion</Dependency>
                 <Dependency>gnome-sharp</Dependency>
@@ -45891,7 +46061,6 @@ processing unit (GPU) present in modern graphics cards</Description>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">monodevelop-1.9.2-libxul.patch</Patch>
-                <Patch level="1">update_templates_for_gtk-sharp_2.12.patch</Patch>
                 <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>programming/environment/monodevelop/pspec.xml</SourceURI>
@@ -45917,6 +46086,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-09-09</Date>
+                <Version>2.1.0</Version>
+                <Comment>* Version bump:
+                - Initial support for .NET 4.0
+                - For more news see this url: http://monodevelop.com/Download/What%27s_new_in_MonoDevelop_2.2</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-06-19</Date>
                 <Version>2.0</Version>
