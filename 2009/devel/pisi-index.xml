@@ -20384,7 +20384,7 @@
     <SpecFile>
         <Source>
             <Name>kgmailnotifier</Name>
-            <Homepage>http://kgmailnotifier.info</Homepage>
+            <Homepage>http://www.kde-apps.org/content/show.php/KGmailNotifier?content=55375</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -20393,29 +20393,49 @@
             <IsA>app:gui</IsA>
             <PartOf>network.mail</PartOf>
             <Summary xml:lang="en">Gmail notifier applet for KDE</Summary>
-            <Description xml:lang="en">Application for checking a Gmail account for new messages.</Description>
-            <Archive type="tarbz2" sha1sum="d01b15b757af0abeb22ab511cdbb6b1b160205b9">http://kde-apps.org/CONTENT/content-files/55375-KGmailNotifier-0.4-beta2.tar.bz2</Archive>
+            <Summary xml:lang="tr">KDE için Gmail uyarı uygulaması</Summary>
+            <Description xml:lang="en">KGmailnotifier is an application for checking a Gmail account for new messages.</Description>
+            <Description xml:lang="tr">KGmailnotifier, Gmail hesabınızı kontrol edip, yeni mesajlarınız hakkında sizi bilgilendiren bir KDE uygulamasıdır.</Description>
+            <Icon>kgmailnotifier</Icon>
+            <Archive type="targz" sha1sum="354320f9da5562b7ae72c6430434def69ea220d6">http://www.kde-apps.org/CONTENT/content-files/55375-kgmailnotifier-0.5.0.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>kdebase</Dependency>
+                <Dependency>qt</Dependency>
+                <Dependency>kdelibs-devel</Dependency>
+                <Dependency>phonon</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>tr.patch</Patch>
+                <Patch level="1">desktop.patch</Patch>
             </Patches>
             <SourceURI>network/mail/kgmailnotifier/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>kgmailnotifier</Name>
             <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
+                <Dependency>qt</Dependency>
+                <Dependency>kdelibs</Dependency>
+                <Dependency>phonon</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
+                <Path fileType="data">/usr/kde/4/share/applications</Path>
+                <Path fileType="data">/usr/kde/4/share/apps</Path>
+                <Path fileType="data">/usr/kde/4/share/config.kcfg</Path>
+                <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+                <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-09-11</Date>
+                <Version>0.5.0</Version>
+                <Comment>Stable bump:
+                - Ported to KDE4
+                - Turkish translation is in now
+                - Add icon tag and desktop patch, fix home page, dependencies and some cosmetics</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2008-04-13</Date>
                 <Version>0.4_beta2</Version>
@@ -49811,10 +49831,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Pardus-default-settings-xfce package provides configuration files about theme, wallpaper, panel, etc for default Xfce4 settings in Pardus.</Description>
             <Description xml:lang="tr">Pardus-default-settings-xfce paketi, Pardus&apos;ta Xfce&apos;nin öntanımlı arkaplan, panel, tema ve benzeri ayarları için gerekli yapılandırma dosyalarını içerir.</Description>
             <Icon>xfce-pardus-icon</Icon>
-            <Archive type="targz" sha1sum="b3a7be077e6f4a5a4c2e954a355b1a043ba368bd">http://cloud.github.com/downloads/gkmngrgn/pardus-default-settings-xfce/pardus-default-settings-xfce-0.1.2.tar.gz</Archive>
-            <Patches>
-                <Patch level="1">fix-xfce4-session.patch</Patch>
-            </Patches>
+            <Archive type="tarbz2" sha1sum="ff50deea7d09f8c941f18efdc130896a64bcb14c">http://cloud.github.com/downloads/gkmngrgn/pardus-default-settings-xfce/pardus-default-settings-xfce-0.1.3.tar.bz2</Archive>
             <SourceURI>desktop/xfce/base/pardus-default-settings-xfce/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -49836,6 +49853,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-09-10</Date>
+                <Version>0.1.3</Version>
+                <Comment>* Version bump:
+                - Use Pardus 2009 branch icon for application menu.
+                - Include patch to package archive.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-07-15</Date>
                 <Version>0.1.2</Version>
