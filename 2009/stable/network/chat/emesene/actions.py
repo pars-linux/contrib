@@ -13,10 +13,16 @@ remove_dirs = ["misc", "libmimic"]
 remove_files = ["setup.py", "PKG-INFO"]
 move_files = ["LGPL", "PSF", "COPYING", "GPL", "README"]
 
+def build():
+    pythonmodules.run("setup.py build_ext -i")
+
 def install():
     pisitools.insinto("/usr/share/applications", "misc/emesene.desktop")
     pisitools.insinto("/usr/share/pixmaps", "emesene-logo.png", "emesene.png")
-    pisitools.insinto("/usr/share/emesene", "*")
+    pisitools.insinto(share, "*")
+
+    pisitools.removeDir("%s/build" % share)
+    pisitools.remove("%s/conversation_themes/*/*~" % share)
 
     for f in move_files:
         pisitools.domove("%s/%s" % (share, f), "%s/%s" % (get.docDIR(), get.srcNAME()))
