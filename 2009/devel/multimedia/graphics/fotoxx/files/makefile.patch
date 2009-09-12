@@ -1,24 +1,27 @@
-diff -Naur fotoxx-7.5.orig/Makefile fotoxx-7.5/Makefile
---- fotoxx-7.5.orig/Makefile	2009-07-14 09:25:17.000000000 +0300
-+++ fotoxx-7.5/Makefile	2009-07-14 09:28:12.000000000 +0300
-@@ -5,13 +5,13 @@
- PROGRAM = fotoxx
- VERSION = 7.5
- SOURCE = $(PROGRAM)-$(VERSION).cpp
--CFLAGS = -O -Wall -c `pkg-config --cflags gtk+-2.0`
--LFLAGS = -O -Wall -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
-+CFLAGS += -Wall -c `pkg-config --cflags gtk+-2.0`
-+LFLAGS = -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
- LAUNCHER = $(HOME)/Desktop/kornelix-$(PROGRAM).desktop
- LOWNER = `stat --format="%u:%g" $(HOME)/Desktop`
+diff -Naur fotoxx-8.4.orig/Makefile fotoxx-8.4/Makefile
+--- fotoxx-8.4.orig/Makefile	2009-09-12 14:34:18.620187981 +0300
++++ fotoxx-8.4/Makefile	2009-09-12 14:49:51.755061888 +0300
+@@ -5,30 +5,30 @@
  
+ # use $PREFIX if defined, else assume /usr/local
  ifeq "$(PREFIX)" ""
 -	PREFIX = /usr/local
 +	PREFIX = /usr
  endif
  
+ SOURCE = $(PROGRAM)-$(VERSION).cpp
  BINDIR = $(PREFIX)/bin
-@@ -21,14 +21,14 @@
+ DATADIR = $(PREFIX)/share/$(PROGRAM)
+ DOCDIR = $(PREFIX)/share/doc/$(PROGRAM)
+-DESKTOP = $(DATADIR)/kornelix-$(PROGRAM).desktop
++DESKTOP = $(PREFIX)/share/applications/$(PROGRAM).desktop
+ MANDIR = $(PREFIX)/share/man/man1
+ 
+ # replace CFLAGS and LFLAGS -O (oh) with -g for GDB debugging
+-CFLAGS = -O -Wall -c `pkg-config --cflags gtk+-2.0`
+-LFLAGS = -O -Wall -rdynamic -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
++CFLAGS += -Wall -c `pkg-config --cflags gtk+-2.0`
++LFLAGS = -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
  
  $(PROGRAM): $(PROGRAM).o zfuncs.o
  	@ ./dependencies.sh
@@ -27,12 +30,39 @@ diff -Naur fotoxx-7.5.orig/Makefile fotoxx-7.5/Makefile
  
  $(PROGRAM).o: $(SOURCE) zfuncs.h
 -	@ g++ $(CFLAGS) -o $(PROGRAM).o $(SOURCE)		\
-+	@ $(CXX) $(CFLAGS) -o $(PROGRAM).o $(SOURCE)		\
++	@ $(CXX) $(CFLAGS) -o $(PROGRAM).o $(SOURCE)        \
  	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\""
  
  zfuncs.o: zfuncs.cpp zfuncs.h
 -	@ g++ $(CFLAGS) zfuncs.cpp	\
-+	@ $(CXX) $(CFLAGS) zfuncs.cpp	\
++	@ $(CXX) $(CFLAGS) zfuncs.cpp   \
  	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\"" -D "BINDIR=\"$(BINDIR)\""
  
- 
+ install: $(PROGRAM)
+@@ -42,16 +42,16 @@
+ 	cp $(PROGRAM) $(DESTDIR)$(BINDIR)
+ 	cp -R locales/* $(DESTDIR)$(DATADIR)/locales
+ #  install .desktop file (menu entry)
+-	@echo "[Desktop Entry]" > $(DESKTOP)
+-	@echo "Name=$(PROGRAM)" >> $(DESKTOP)
+-	@echo "Categories=Graphics" >> $(DESKTOP)
+-	@echo "Type=Application" >> $(DESKTOP)
+-	@echo "Terminal=false" >> $(DESKTOP)
+-	@echo "Exec=$(BINDIR)/$(PROGRAM)" >> $(DESKTOP)
+-	@echo "Icon=$(DATADIR)/icons/$(PROGRAM).png" >> $(DESKTOP)
+-	@echo "GenericName=Digital Photo Editor" >> $(DESKTOP)
+-	@chown $(USER): $(DESKTOP)
+-	xdg-desktop-menu install $(DESKTOP)
++# 	@echo "[Desktop Entry]" > $(DESKTOP)
++# 	@echo "Name=$(PROGRAM)" >> $(DESKTOP)
++# 	@echo "Categories=Graphics" >> $(DESKTOP)
++# 	@echo "Type=Application" >> $(DESKTOP)
++# 	@echo "Terminal=false" >> $(DESKTOP)
++# 	@echo "Exec=$(BINDIR)/$(PROGRAM)" >> $(DESKTOP)
++# 	@echo "Icon=$(DATADIR)/icons/$(PROGRAM).png" >> $(DESKTOP)
++# 	@echo "GenericName=Digital Photo Editor" >> $(DESKTOP)
++# 	@chown $(USER): $(DESKTOP)
++# 	xdg-desktop-menu install $(DESTDIR)$(DESKTOP)
+ #  install man page
+ 	cp -f doc/$(PROGRAM).man $(PROGRAM).1
+ 	gzip -f $(PROGRAM).1
