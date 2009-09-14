@@ -15,7 +15,7 @@
         <IsA>app:console</IsA>
         <Summary>A fast, easy, and free BitTorrent client</Summary>
         <Description>Transmission is a free, lightweight Bittorrent client. It features a simple, intuitive interface on top of an efficient backend. This package provides only daemon, web interface and command line client. If you use Transmission with graphical interface, you should install transmission-gtk or transmission-qt.</Description>
-        <Archive sha1sum="0a80dadc273cab862d7dc2f5f47c0a06d059589a" type="tarbz2">http://download.m0k.org/transmission/files/transmission-1.74.tar.bz2</Archive>
+        <Archive sha1sum="8ce610a9d743cdd6fa6495824d03416bee9a3512" type="tarbz2">http://mirrors.m0k.org/transmission/files/transmission-1.75.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>qt</Dependency>
@@ -81,6 +81,27 @@
     </Package>
 
     <History>
+        <Update release="16">
+            <Date>2009-09-14</Date>
+            <Version>1.75</Version>
+            <Comment>
+                * Version bump:
+                - Don't wait so long on unresponsive trackers if there are other trackers to try.
+                - Adding corrupt/invalid torrents could crash Transmission.
+                - Fix 1.74 bug that caused a high CPU load on startup.
+                - Fix 1.74 bug that stopped multitracker if a single tracker sent an error message.
+                - Fix bug in converting other charsets to UTF-8.
+                - Handle HTTP redirects more gracefully.
+                - Faster verification of local data for torrents with small piece size.
+                - Fix 1.74 build error when compiling without DHT.
+                - Fix "sort by time remaining".
+                - Fix the turtle toggle button on old versions of GTK+.
+                - Fix startup error if another copy of the Transmission GTK client is running.
+                - Fix clang build issue.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="15">
             <Date>2009-08-25</Date>
             <Version>1.74</Version>
