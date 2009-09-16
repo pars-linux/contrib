@@ -15,7 +15,7 @@
         <IsA>app:gui</IsA>
         <Summary>Linux Video Editing System</Summary>
         <Description>The Linux Video Editing System (LiVES) is intended to be a simple yet powerful video effects and editing system.</Description>
-        <Archive sha1sum="3d68b4fccab650d6a8d14c59eb2b28c931891613" type="tarbz2">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.0.tar.bz2</Archive>
+        <Archive sha1sum="c9b9092b9ca680f8e1a6049665232c9fc5f41bf8" type="tarbz2">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>mplayer</Dependency>
             <Dependency>imagemagick</Dependency>
@@ -34,11 +34,10 @@
             <Dependency versionFrom="0.4.0">libvisual</Dependency>   
             <Dependency versionFrom="0.3.9">liboil</Dependency>
             <Dependency>mkvtoolnix</Dependency>
-            <!--Dependency>frei0r-plugins</Dependency-->
+            <Dependency>frei0r-plugins</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop-tr.patch</Patch>
-            <Patch>frei0r_plugin_disable.patch</Patch>  
         </Patches>
     </Source>
 
@@ -62,7 +61,7 @@
             <Dependency versionFrom="0.4.0">libvisual</Dependency>   
             <Dependency versionFrom="0.3.9">liboil</Dependency>
             <Dependency>mkvtoolnix</Dependency>
-            <!--Dependency>frei0r-plugins</Dependency-->
+            <Dependency>frei0r-plugins</Dependency>
         </RuntimeDependencies>
 
         <Files>
@@ -78,6 +77,13 @@
     </Package>
 
     <History>
+        <Update release="13">
+            <Date>2009-09-16</Date>
+            <Version>1.0.2</Version>
+            <Comment>Version bump. Add frei0r-plugins support</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
         <Update release="12">
             <Date>2009-08-08</Date>
             <Version>1.0.0</Version>
