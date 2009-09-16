@@ -15,7 +15,6 @@ def setup():
     
     autotools.configure("--disable-static\
                          --disable-rpath \
-                         --disable-frei0r \
                          --enable-nls")
 
 def build():
