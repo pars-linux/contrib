@@ -47215,6 +47215,66 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-xkb-plugin</Name>
+            <Homepage>http://goodies.xfce.org/projects/panel-plugins/xfce4-xkb-plugin</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>BSD-2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce.addon</PartOf>
+            <Summary xml:lang="en">A plugin to switch keyboard layouts for the Xfce4 panel</Summary>
+            <Summary xml:lang="tr">Klavye yerleşimini değiştirmek için Xfce4 panel eklentisi</Summary>
+            <Description xml:lang="en">A plugin for the Xfce4 panel displaying keyboard layout. The plugin may be used as an indicator for the current layout and to switch layouts.</Description>
+            <Description xml:lang="tr">xfce4-xkb-plugin ile Xfce4 panelinden klavye yerleşimini bir iki tıklamayla değiştirebilir, uygulama veya pencere içinde de farklı klavye yerleşimi kullanabilirsiniz. Ayrıca klavye geçiş kısayollarını destekler.</Description>
+            <Icon>gnome-dev-keyboard</Icon>
+            <Archive type="targz" sha1sum="5e83d55cd6f14a62a87ccadd0f11eee070a6f4a7">http://goodies.xfce.org/releases/xfce4-xkb-plugin/xfce4-xkb-plugin-0.5.3.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel-devel</Dependency>
+                <Dependency>libxfcegui4-devel</Dependency>
+                <Dependency>libxfce4util-devel</Dependency>
+                <Dependency>libxklavier</Dependency>
+                <Dependency>libwnck</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/xfce/addon/xfce4-xkb-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-xkb-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>libxfce4util</Dependency>
+                <Dependency>libxklavier</Dependency>
+                <Dependency>libwnck</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/xfce4</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-09-06</Date>
+                <Version>0.5.3.3</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>thunar-volman</Name>
             <Homepage>http://foo-projects.org/~benny/projects/thunar-volman</Homepage>
             <Packager>
@@ -51036,6 +51096,59 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>xfce4-volumed</Name>
+            <Homepage>https://launchpad.net/xfce4-volumed</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce.base</PartOf>
+            <Summary xml:lang="en">Volume manager for Xfce</Summary>
+            <Summary xml:lang="tr">Xfce için ses ayarları servisi</Summary>
+            <Description xml:lang="en">This daemon is responsible of making the volume up / down and mute keys of the keyboard work automatically, and uses the Xfce 4 mixer&apos;s card setting for chosing which card to act on. It also provides volume change / mute toggle notifications if the notification server used supports x-canonical-icon-only and x-canonical-synchronous notifications.</Description>
+            <Description xml:lang="tr">xfce4-volumed, klavyedeki ses artırma / azaltma ve kapama tuşları otomatik olarak kullanabilmenizi sağlar. Hangi ses kartı ile çalışılacağının belirlenmesi için Xfce4 ses karıştırıcısının ses kartı ayarı kullanılır. Aynı zamanda uyarı servisi çalışıyorsa, yapılan ses ayarlarını ekranda bildirir.</Description>
+            <Archive type="tarbz2" sha1sum="c4fff691c7a131064bf7a2353ac4b8638e2a1559">http://archive.xfce.org/src/apps/xfce4-volumed/0.1/xfce4-volumed-0.1.4.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xfconf-devel</Dependency>
+                <Dependency>libnotify</Dependency>
+                <Dependency>xcb-util</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>gstreamer</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="1">desktop.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/xfce/base/xfce4-volumed/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-volumed</Name>
+            <RuntimeDependencies>
+                <Dependency>xfconf</Dependency>
+                <Dependency>libnotify</Dependency>
+                <Dependency>xcb-util</Dependency>
+                <Dependency>gst-plugins-base</Dependency>
+                <Dependency>gstreamer</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="config">/etc</Path>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-09-04</Date>
+                <Version>0.1.4</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>xfce4-icon-theme</Name>
             <Homepage>http://www.xfce.org</Homepage>
             <Packager>
@@ -51641,7 +51754,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>app:gui</IsA>
             <PartOf>desktop.fluxbox.base</PartOf>
             <Summary xml:lang="en">Fluxbox is an X11 window manager featuring tabs and an iconbar</Summary>
-            <Archive type="tarbz2" sha1sum="8c83168611f027c178d64215e966a7ded422b300">http://kpelit.com/dist/files/fluxbox-1.1.2_20081122.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="26839b5261b317c7886b65a65044d022bacbf5c3">http://developer.pardus.org.tr/people/taner/src/fluxbox-1.1.2_20090917.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xorg-server</Dependency>
                 <Dependency>imlib2</Dependency>
@@ -51680,6 +51793,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-09-17</Date>
+                <Version>1.1.2_20090917</Version>
+                <Comment>New snapshot</Comment>
+                <Name>Taner Taş</Name>
+                <Email>taner@pardus.org.tr</Email>
+            </Update>
             <Update release="5">
                 <Date>2008-11-22</Date>
                 <Version>1.1.2_20081122</Version>
