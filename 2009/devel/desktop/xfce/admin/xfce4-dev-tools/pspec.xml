@@ -12,7 +12,7 @@
         <IsA>app:console</IsA>
         <Summary>Xfce developer tools</Summary>
         <Description>Xfce4-dev-tools contains common tools required by Xfce developers and people that want to build Xfce from SVN. In addition, this package contains the Xfce developer's handbook.</Description>
-        <Archive sha1sum="a5a5cbc9e5f84f4939e53e3327c51f4b749c38a2" type="tarbz2">mirrors://xfce/xfce-4.6.0/src/xfce4-dev-tools-4.6.0.tar.bz2</Archive>
+        <Archive sha1sum="d3f3abe0c1b63df51df73874325d67254fbc6962" type="tarbz2">http://archive.xfce.org/src/xfce/xfce4-dev-tools/4.7/xfce4-dev-tools-4.7.1.tar.bz2</Archive>
     </Source>
 
     <Package>
@@ -25,6 +25,23 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-09-20</Date>
+            <Version>4.7.1</Version>
+            <Comment>
+                * New release for new Xfce version:
+                - Also support for new AC_CONFIG_HEADERS macro.
+                - Add XDT_FEATURE_VISIBILITY to check for and enable symbol visibility support (only useful for building libraries).
+                - Add XDT_FEATURE_LINKER_OPTS that checks for and enables useful linker optimizations if supported.  This currently only checks for --as-needed and -O1, but more may be added in the future.
+                - Beef up XDT_FEATURE_DEBUG:
+                -- Add new 'minimum' debug level, which is now the default and behaves similarly to the old 'no' default.
+                -- Debug level 'no' disables many glib/gobject-related checks and asserts (this is not really recommended).
+                -- Debug level 'full' disables code optimization.
+                -- The macro now takes an argument to specify the default debug level.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2009-03-01</Date>
             <Version>4.6.0</Version>
