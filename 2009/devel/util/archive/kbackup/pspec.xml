@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>KDE Archiving/Backup application</Summary>
         <Description>KBackup is a program that lets you back up any directories or files, whereby it uses an easy to use directory tree to select the things to back up.</Description>
-        <Archive sha1sum="87edf68e19d7f467566ea692c84db826c7850b59" type="tarbz2">http://www.kde-apps.org/CONTENT/content-files/44998-kbackup-0.6.1.tar.bz2</Archive>
+        <Archive sha1sum="e94a3677a9ef8530b784d36c87188ec3b98352d1" type="tarbz2">http://www.kde-apps.org/CONTENT/content-files/44998-kbackup-0.6.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs-devel</Dependency>
             <Dependency>qt</Dependency>
@@ -43,8 +43,18 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-09-26</Date>
+            <Version>0.6.3</Version>
+            <Comment>Bugfix release:
+                - When running in non interactive mode (e.g. cron), do not use KIO but only direct file access
+                - Fix handling of disk-full situation (and a crash with it)
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="3">
-            <Date>2008-06-07</Date>
+            <Date>2009-06-07</Date>
             <Version>0.6.1</Version>
             <Comment>
                 *Bump to first KDE4 release, now using CMake
