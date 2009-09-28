@@ -2,35 +2,40 @@
 <!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
 <PISI>
     <Source>
-        <Name>thunar-svn-plugin</Name>
-        <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-svn-plugin</Homepage>
+        <Name>thunar-vcs-plugin</Name>
+        <Homepage>http://goodies.xfce.org/projects/thunar-plugins/thunar-vcs-plugin</Homepage>
         <Packager>
-            <Name>Özgür Kuru</Name>
-            <Email>ozgurkuru@gmail.com</Email>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <Icon>Thunar</Icon>
         <IsA>app:gui</IsA>
-        <Summary>A svn plugin for Thunar</Summary>
-        <Description>Thunar-svn-plugin is for using Subversion with Thunar file manager.</Description>
-        <Archive sha1sum="e9f87a397ce4115704c1c9685541b2e4d402403b" type="tarbz2">http://goodies.xfce.org/releases/thunar-svn-plugin/thunar-svn-plugin-0.0.3.tar.bz2</Archive>
+        <Summary>A vcs plugin for Thunar</Summary>
+        <Description>thunar-vcs-plugin is for using version control system (Subversion and GIT) with Thunar file manager.</Description>
+        <Archive sha1sum="4242d4cdeb2cca3523a9453cc614b136637ff160" type="tarbz2">http://archive.xfce.org/src/thunar-plugins/thunar-vcs-plugin/0.1/thunar-vcs-plugin-0.1.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>Thunar-devel</Dependency>
             <Dependency>subversion</Dependency>
+            <Dependency>git</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">fix-underlinking.patch</Patch>
+            <!--
             <Patch>thunar-svn-0.0.3-subversion-1.6.patch</Patch>
+            -->
             <Patch>99_ltmain_as-needed.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
-        <Name>thunar-svn-plugin</Name>
+        <Name>thunar-vcs-plugin</Name>
         <RuntimeDependencies>
             <Dependency>Thunar</Dependency>
-            <Dependency>subversion</Dependency>
         </RuntimeDependencies>
+        <Replaces>
+            <Package>thunar-svn-plugin</Package>
+        </Replaces>
         <Files>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="executable">/usr/libexec</Path>
@@ -41,6 +46,15 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-09-28</Date>
+            <Version>0.1.0</Version>
+            <Comment>
+                * Version bump. Now it's supporting GIT version control system.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2009-06-19</Date>
             <Version>0.0.3</Version>
