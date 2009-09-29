@@ -18,5 +18,6 @@ def build():
 
 def install():
     autotools.rawInstall('INSTALL_ROOT="%s"' % get.installDIR())
+    pisitools.remove("/usr/share/menu/qlandkarte.menu")
 
     pisitools.dodoc("skin/README.SKIN", "skin/skin.txt")
