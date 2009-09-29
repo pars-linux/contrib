@@ -12,24 +12,20 @@
         <IsA>app:gui</IsA>
         <Summary>Hierarchical notebook</Summary>
         <Description>With TuxCards it is possible to create as many different entries or notes as you wish. Everytime you add a new one and you think your new entry belongs to the same topic as notes you already have, then you may decide to group them and to create a kind of "folder" where you store them all together.</Description>
-        <Archive type="targz" sha1sum="aa2ec47bd094eee884631af3d8608a7610ae54a0">http://www.tifskom.de/tux/1.2/tuxcards-1.2.tar.gz</Archive>
+        <Archive type="targz" sha1sum="107a72001c190087618d056df6e25903d4dd4cc9">http://tuxcards.de/src/tuxcards-2.2/tuxcards-2.2.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="3.1.1">qt</Dependency>
+            <Dependency versionFrom="4.4.3">qt4</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>tuxcards-gcc43.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
         <Name>tuxcards</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="3.1.1">qt</Dependency>
+            <Dependency versionFrom="4.4.3">qt4</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share/tuxcards</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/applications</Path>
         </Files>
@@ -39,6 +35,13 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2009-09-29</Date>
+            <Version>2.2</Version>
+            <Comment>Version bump to QT4 port.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2008-06-16</Date>
             <Version>1.2</Version>
