@@ -11944,7 +11944,7 @@
             <Description xml:lang="en">The Linux Video Editing System (LiVES) is intended to be a simple yet powerful video effects and editing system.</Description>
             <Description xml:lang="tr">LiVES video efektleri de verebileceğiniz güçlü bir video düzenleme programıdır.</Description>
             <Icon>lives</Icon>
-            <Archive type="tarbz2" sha1sum="c9b9092b9ca680f8e1a6049665232c9fc5f41bf8">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f20e060ce58cfd38f83a202c9aba5e8b145e46a1">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>mplayer</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -12004,6 +12004,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="14">
+                <Date>2009-09-29</Date>
+                <Version>1.0.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="13">
                 <Date>2009-09-16</Date>
                 <Version>1.0.2</Version>
@@ -24619,7 +24626,10 @@
             <PartOf>util.archive</PartOf>
             <Summary xml:lang="en">A tool that backs up directory trees and files</Summary>
             <Description xml:lang="en">A full featured backup tool, aimed for disks (floppy,CDR(W),DVDR(W),zip,jazz etc.)</Description>
-            <Archive type="targz" sha1sum="d0394ff9dd6a287e3b9b62ebe99e126bb6d8abd0">mirrors://sourceforge/dar/dar-2.3.8.tar.gz</Archive>
+            <Archive type="targz" sha1sum="9f49f03aa542c8132383293f3939db2457cc1524">mirrors://sourceforge/dar/dar-2.3.9.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>doxygen</Dependency>
+            </BuildDependencies>
             <SourceURI>util/archive/dar/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -24627,14 +24637,33 @@
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="header">/usr/include</Path>
                 <Path fileType="data">/usr/share/dar</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="man">/usr/share/man</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>dar-devel</Name>
+            <RuntimeDependencies>
+                <Dependency>dar</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="data">/usr/lib/pkgconfig</Path>
+                <Path fileType="doc">/usr/share/dar/api_tutorial.html</Path>
+                <Path fileType="doc">/usr/share/dar/html</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="9">
+                <Date>2009-09-29</Date>
+                <Version>2.3.9</Version>
+                <Comment>* Version bump to 2.3.9 bugfix release
+                * Separate out the -devel package</Comment>
+                <Name>David Stegbauer</Name>
+                <Email>daaste@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-05-20</Date>
                 <Version>2.3.8</Version>
@@ -30644,24 +30673,21 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Hiyerarşik not defteri</Summary>
             <Description xml:lang="en">With TuxCards it is possible to create as many different entries or notes as you wish. Everytime you add a new one and you think your new entry belongs to the same topic as notes you already have, then you may decide to group them and to create a kind of &quot;folder&quot; where you store them all together.</Description>
             <Description xml:lang="tr">Tuxcards ile istediğiniz sayıda not yazmak mümkün. Tutulan notlar hiyerarşik olarak oluşturulabilen çeşitli &quot;klasör&quot;lerde gruplanabiliyor.</Description>
-            <Archive type="targz" sha1sum="aa2ec47bd094eee884631af3d8608a7610ae54a0">http://www.tifskom.de/tux/1.2/tuxcards-1.2.tar.gz</Archive>
+            <Icon>tuxcards</Icon>
+            <Archive type="targz" sha1sum="107a72001c190087618d056df6e25903d4dd4cc9">http://tuxcards.de/src/tuxcards-2.2/tuxcards-2.2.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="3.1.1">qt</Dependency>
+                <Dependency>qt</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch>tuxcards-gcc43.patch</Patch>
-            </Patches>
             <SourceURI>office/misc/tuxcards/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>tuxcards</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="3.1.1">qt</Dependency>
+                <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/tuxcards</Path>
+                <Path fileType="doc">/usr/share/doc/tuxcards</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/applications</Path>
             </Files>
@@ -30670,6 +30696,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-09-29</Date>
+                <Version>2.2</Version>
+                <Comment>Version bump to QT4 port, add icon tag. Remove strict deps, update doc path for 2009.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-06-16</Date>
                 <Version>1.2</Version>
@@ -48316,7 +48349,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce ayar yöneticisi</Summary>
             <Description xml:lang="en">Xfce4-settings is a configuration manager for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Xfce4-settings, Xfce masaüstü yöneticisi için yazılmış ayar yöneticisidir.</Description>
-            <Archive type="tarbz2" sha1sum="ab117c3923571e2437095fd165ac4bf392e658e0">mirrors://xfce/xfce-4.6.1/src/xfce4-settings-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8a7f114ae5cab071668937351a0b3b4be1b9b51c">http://archive.xfce.org/src/xfce/xfce4-settings/4.6/xfce4-settings-4.6.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfcegui4-devel</Dependency>
                 <Dependency>exo-devel</Dependency>
@@ -48330,7 +48363,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libcanberra</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">keyboard-settings-typos.patch</Patch>
                 <Patch level="1">format_not_a_string_literal_and_no_format_arguments.patch</Patch>
                 <Patch level="1">fix-desktop-entry.patch</Patch>
             </Patches>
@@ -48362,6 +48394,21 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Replaces>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-09-29</Date>
+                <Version>4.6.3</Version>
+                <Comment>* Version bump:
+                - Avoid causing xfce4-session to time out on startup (bug #5040).
+                - Fix type in xfconf property name (debian bug #527238).
+                - Fix mnemonic widgets in accessibility dialog (bug #5550).
+                - Fix translation macros in settings helper (bug #5554).
+                - Always restore the default displa scheme on startup (bug #5311).
+                - Make sure --verbose is simmilar to --debug instead of --version
+                - Fix compile-issue with libxklavier &gt;= 4
+                * Remove typo-fix patch. It&apos;s included to this version.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-06-22</Date>
                 <Version>4.6.1</Version>
@@ -60799,7 +60846,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Name>Doruk Fişek</Name>
                 <Email>dfisek@fisek.com.tr</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>GPLv3</License>
             <IsA>app:gui</IsA>
             <PartOf>science.gis</PartOf>
             <Summary xml:lang="en">Open Street Map (OSM) Offline Editor</Summary>
@@ -60807,7 +60854,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">JOSM is a feature-rich offline editor for the experienced OSM mapper. It supports stand alone GPX tracks, GPX track data from the OSM database and existing nodes, line segments and metadata tags from the OSM database.</Description>
             <Description xml:lang="tr">JOSM, deneyimli OSM haritacılarına yönelik zengin özelliklere sahip bir çevirim-dışı düzenleyicisidir. Bağımsız GPX izlerinin yanı sıra; OSM veritabanından GPX izlerini, mevcut düğümlerini, hat parçalarını ve etiketlerini kullanabilir.</Description>
             <Icon>josm</Icon>
-            <Archive type="tarlzma" sha1sum="8134482a0b0b9982ba74fa8abb2ad533f0384cc6">http://josm.fabian-fingerle.de/josm-1669.tar.lzma</Archive>
+            <Archive type="tarlzma" sha1sum="63ea2e5fbe614e59841bd4bd2605ec5d339f0586">http://josm.fabian-fingerle.de/josm-1981.tar.lzma</Archive>
             <BuildDependencies>
                 <Dependency>sun-jdk</Dependency>
                 <Dependency>ant</Dependency>
@@ -60832,6 +60879,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-09-29</Date>
+                <Version>1.5_p1981</Version>
+                <Comment>Version bump to latest stable.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-07-11</Date>
                 <Version>1.5_p1669</Version>
