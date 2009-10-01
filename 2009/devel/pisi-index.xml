@@ -1692,6 +1692,79 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>gnubg</Name>
+            <Homepage>http://www.gnubg.org</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>game.board</PartOf>
+            <Summary xml:lang="en">GNU Backgammon</Summary>
+            <Summary xml:lang="tr">GNU Tavla oyunu</Summary>
+            <Description xml:lang="en">GNU Backgammon (gnubg) plays and analyses backgammon games and matches.</Description>
+            <Description xml:lang="tr">gnubg, tavla maçları yapıp ardından maçlarınızı analiz edebileceğiniz bir tavla oyunudur.</Description>
+            <Icon>gnubg</Icon>
+            <Archive type="targz" sha1sum="2a248ccdd7362151d85010cb1ba1d0c20542adc6">http://www.gnubg.org/media/sources/gnubg-source-SNAPSHOT-20090817.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libcanberra</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>gtkglext</Dependency>
+                <Dependency>esound</Dependency>
+            </BuildDependencies>
+            <SourceURI>game/board/gnubg/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gnubg</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libcanberra</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>gtkglext</Dependency>
+                <Dependency>esound</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/gnubg</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/gnubg.desktop" permission="0644" owner="root">gnubg.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <Package>
+            <Name>gnubg-docs</Name>
+            <Summary xml:lang="en">GNU Backgammon docs</Summary>
+            <Summary xml:lang="tr">gnubg dökümanları</Summary>
+            <Description xml:lang="en">Doc files for GNU Backgammon.</Description>
+            <Description xml:lang="tr">gnubg için belgelendirme dosyaları.</Description>
+            <IsA>data:doc</IsA>
+            <RuntimeDependencies>
+                <Dependency>gnubg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="doc">/usr/share/doc/gnubg</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-09-14</Date>
+                <Version>0.0_20090817</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>pegsolitaire</Name>
             <Homepage>http://www.asselstine.com/pegsolitaire/</Homepage>
             <Packager>
