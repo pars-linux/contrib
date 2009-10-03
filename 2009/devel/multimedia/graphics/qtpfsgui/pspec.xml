@@ -3,33 +3,40 @@
 <PISI>
     <Source>
         <Name>qtpfsgui</Name>
-        <Homepage>http://qtpfsgui.sourceforge.net/</Homepage>
+        <Homepage>http://qtpfsgui.sourceforge.net</Homepage>
         <Packager>
             <Name>Pardus</Name>
             <Email>admins@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>qtpfsgui</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Qtpfsgui is a Qt4 graphical user interface that aims to provide a workflow for HDR imaging.</Summary>
-        <Archive sha1sum="a47bcf234318325273f64ede9f694052bc4102d8" type="targz">mirrors://sourceforge/qtpfsgui/qtpfsgui-1.9.2.tar.gz</Archive>
+        <Summary>A graphical tool for creating and tone-mapping HDR images</Summary>
+        <Description>Qtpfsgui is a graphical program for assembling bracketed photos into High Dynamic Range (HDR) images. It also provides a number of tone-mapping operators for creating low dynamic range versions of HDR images.</Description>
+        <Archive sha1sum="adf037c54f55be50d931fa484cca169c01d0384d" type="targz">mirrors://sourceforge/qtpfsgui/qtpfsgui-1.9.3.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>exiv2</Dependency>
             <Dependency>openexr</Dependency>
+            <Dependency>ilmbase</Dependency>
+            <Dependency>libgomp</Dependency>
             <Dependency>fftw3</Dependency>
             <Dependency>tiff</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>qtpfsgui.desktop.patch</Patch>
+            <Patch level="1">qtpfsgui.desktop.patch</Patch>
+            <Patch level="1">fix-str-fmt.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>qtpfsgui</Name>
         <RuntimeDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>exiv2</Dependency>
             <Dependency>openexr</Dependency>
+            <Dependency>ilmbase</Dependency>
+            <Dependency>libgomp</Dependency>
             <Dependency>fftw3</Dependency>
             <Dependency>tiff</Dependency>
         </RuntimeDependencies>
@@ -42,6 +49,18 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2009-10-03</Date>
+            <Version>1.9.3</Version>
+            <Comment>Stable bump:
+                -Add icon tag, and translations.xml
+                -Better summary and description
+                -Add a str-fmt patch
+                -Fix dependecies for 2009, add libgomp and ilmbase direct dependecies
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-07-28</Date>
             <Version>1.9.2</Version>
