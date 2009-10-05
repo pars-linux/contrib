@@ -19619,7 +19619,7 @@
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Description xml:lang="tr">Filezilla; dosyalarınızı ftp, sftp, ftps ile göndermenize ve indirmenize yarar</Description>
             <Icon>filezilla</Icon>
-            <Archive type="tarbz2" sha1sum="8e1c2c1488ef320ccb5643bc9c74d95afe6d4187">mirrors://sourceforge/filezilla/FileZilla_3.2.7.1_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="d2629c67de429f6979da58ff288bc2c864b607fb">mirrors://sourceforge/filezilla/FileZilla_3.2.8_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8.9">wxGTK-devel</Dependency>
                 <Dependency versionFrom="2.8.3">gnutls</Dependency>
@@ -19647,6 +19647,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="27">
+                <Date>2009-10-04</Date>
+                <Version>3.2.8</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="26">
                 <Date>2009-08-28</Date>
                 <Version>3.2.7.1</Version>
@@ -30321,61 +30328,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First Release</Comment>
                 <Name>Ceyhun Asılkazancı</Name>
                 <Email>ceyhunasilkazanci@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>rarian</Name>
-            <Homepage>http://rarian.freedesktop.org</Homepage>
-            <Packager>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <License>LGPLv2.1</License>
-            <IsA>app:console</IsA>
-            <PartOf>office.misc</PartOf>
-            <Summary xml:lang="en">Documentation metadata library and scrollkeeper wrapper</Summary>
-            <Summary xml:lang="tr">Veri belgeleyici kütüphanesi ve scrollkeeper bağlayıcısı</Summary>
-            <Description xml:lang="en">Rarian is a documentation metadata library based on the freedesktop.org specification and contains well-designed scrollkeeper wrapper.</Description>
-            <Description xml:lang="tr">Rarian freedesktop.org tanımlamalarını temel alan veri belgeleyici kütüphanesidir ve iyi tasarlanmış scrollkeeper bağlayıcıları içerir.</Description>
-            <Archive type="tarbz2" sha1sum="9b3f1bad1cdbb0de51d6f74431b20eb3647edc5a">mirrors://gnome/rarian/0.8/rarian-0.8.1.tar.bz2</Archive>
-            <Patches>
-                <Patch>user-segfault.patch</Patch>
-                <Patch>01_info_shortnames.patch</Patch>
-            </Patches>
-            <SourceURI>office/misc/rarian/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>rarian</Name>
-            <Files>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/help</Path>
-                <Path fileType="data">/usr/share/librarian</Path>
-                <Path fileType="data">/usr/share/xml</Path>
-            </Files>
-            <Replaces>
-                <Package>scrollkeeper</Package>
-            </Replaces>
-            <Provides>
-                <COMAR script="package.py">System.Package</COMAR>
-            </Provides>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/xml/scrollkeeper/dtds/scrollkeeper-omf.dtd" permission="0644" owner="root">scrollkeeper-omf.dtd</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2009-05-31</Date>
-                <Version>0.8.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -52504,118 +52456,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>İlker Kesen</Name>
                 <Email>ikesen92@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>gnome-doc-utils</Name>
-            <Homepage>http://live.gnome.org/GnomeDocUtils</Homepage>
-            <Packager>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>desktop.gnome.addon</PartOf>
-            <Summary xml:lang="en">A collection of documentation utilities for the Gnome project</Summary>
-            <Summary xml:lang="tr">Gnome projesi için döküman araçları takımı</Summary>
-            <Archive type="tarbz2" sha1sum="b2f8623de2d0989ad2b6b8147cd8dba62895faa9">mirrors://gnome/gnome-doc-utils/0.16/gnome-doc-utils-0.16.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>rarian</Dependency>
-                <Dependency>docbook-xml4_4</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/gnome/addon/gnome-doc-utils/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>gnome-doc-utils</Name>
-            <RuntimeDependencies>
-                <Dependency>intltool</Dependency>
-                <Dependency>rarian</Dependency>
-                <Dependency>docbook-xml4_4</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/aclocal</Path>
-                <Path fileType="data">/usr/share/gnome-doc-utils</Path>
-                <Path fileType="data">/usr/share/gnome</Path>
-                <Path fileType="data">/usr/share/omf</Path>
-                <Path fileType="data">/usr/share/xml</Path>
-                <Path fileType="data">/usr/share/xml2po</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="9">
-                <Date>2009-06-01</Date>
-                <Version>0.16.1</Version>
-                <Comment>- Version bump.
-                - Remove COMAR script</Comment>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2009-03-02</Date>
-                <Version>0.15.2</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2008-01-26</Date>
-                <Version>0.12.0</Version>
-                <Comment>Remove docbook-xml4_4 from runtime dependencies. It&apos;s only needed when building the package.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-09-18</Date>
-                <Version>0.12.0</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-04-09</Date>
-                <Version>0.10.2</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-03-12</Date>
-                <Version>0.10.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-03-12</Date>
-                <Version>0.10.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-02-15</Date>
-                <Version>0.8.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-05-28</Date>
-                <Version>0.6.0</Version>
-                <Comment>First release</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
