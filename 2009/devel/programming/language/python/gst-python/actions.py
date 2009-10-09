@@ -18,6 +18,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.removeDir("/usr/share/gst-python/0.10/examples/")
+    pisitools.domove("/usr/share/gst-python/0.10/examples/", "/%s/%s/" % (get.docDIR(), get.srcNAME()))
 
     pisitools.dodoc("AUTHORS", "ChangeLog" ,"COPYING", "README", "TODO")
