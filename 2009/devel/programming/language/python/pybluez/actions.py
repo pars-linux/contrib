@@ -11,6 +11,9 @@ from pisi.actionsapi import get
 
 WorkDir="PyBluez-%s" % get.srcVERSION()
 
+def build():
+    pythonmodules.compile()
+
 def install():
     pythonmodules.install()
 
