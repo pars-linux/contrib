@@ -21069,7 +21069,7 @@
             <Description xml:lang="en">Wicd is a daemon that manages wired and wireless connections.</Description>
             <Description xml:lang="tr">Wicd, kablolu ve kablosuz bağlantıları yöneten bir servistir.</Description>
             <Icon>wicd-client</Icon>
-            <Archive type="tarbz2" sha1sum="7c180d85a50bdbfc208214c94cfaa793bbc7d0f6">mirrors://sourceforge/wicd/wicd-1.6.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="d5b65aacb40bba8fbdc4176f40730d9d662afa09">mirrors://sourceforge/wicd/wicd-1.6.2.2.tar.bz2</Archive>
             <Patches>
                 <Patch level="1">desktop.patch</Patch>
                 <Patch level="1">add-policykit-support.patch</Patch>
@@ -21141,6 +21141,14 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-09-11</Date>
+                <Version>1.6.2.2</Version>
+                <Comment>* Version bump:
+                - Fix handling of ESSIDs with spaces and special characters.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-07-19</Date>
                 <Version>1.6.2</Version>
@@ -26552,6 +26560,81 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>acetoneiso</Name>
+            <Homepage>http://www.acetoneteam.org</Homepage>
+            <Packager>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>hardware.disk</PartOf>
+            <Summary xml:lang="en">A CD/DVD image manipulator for GNU/Linux</Summary>
+            <Summary xml:lang="tr">GNU/Linux için CD/DVD yapılandırma aracı</Summary>
+            <Description xml:lang="en">AcetoneISO, is an application to manage CD/DVD images. It will let you mount typical proprietary images formats of the Windows world such as ISO, BIN, NRG, MDF, IMG and do plenty of other things.</Description>
+            <Description xml:lang="tr">AcetoneISO, CD/DVD imajlarını yapılandırabileceğiniz bir araçtır. ISO, BIN, NRG, MDF, IMG gibi formatlardaki imajları bağlayıp, çeşitli düzenlemeler yapabilirsiniz.</Description>
+            <Icon>acetoneiso</Icon>
+            <Archive type="targz" sha1sum="c9213cd10ef73ce662cd5c5b8b76dcda7ba396fa">mirrors://sourceforge/acetoneiso/acetoneiso/acetoneiso_2.1.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>qt</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch level="2">desktop.patch</Patch>
+            </Patches>
+            <SourceURI>hardware/disk/acetoneiso/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>acetoneiso</Name>
+            <RuntimeDependencies>
+                <Dependency>qt</Dependency>
+                <Dependency>fuseiso</Dependency>
+                <Dependency>fuse</Dependency>
+                <Dependency>cdrdao</Dependency>
+                <Dependency>p7zip</Dependency>
+                <Dependency>gnupg</Dependency>
+                <Dependency>pinentry</Dependency>
+                <Dependency>ffmpeg</Dependency>
+                <Dependency>cdparanoia</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>poweriso</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <Conflicts>
+                <Package>acetoneiso2</Package>
+            </Conflicts>
+            <Replaces>
+                <Package>acetoneiso2</Package>
+            </Replaces>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2009-10-10</Date>
+                <Version>2.1.1</Version>
+                <Comment>Stable bump:
+                - Rename package to acetoneiso
+                - Remove additional desktop file, add desktop.patch
+                - Reorganise actions.py
+                - Fix homepage, add better summary and description
+                - Add conflict/replace tags for an upgrade from 2008 scenerio</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-07-24</Date>
+                <Version>2.0.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Türker Sezer</Name>
+                <Email>turkersezer@tsdesign.info</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>hddtemp</Name>
             <Homepage>http://www.guzu.net/linux/hddtemp.php</Homepage>
             <Packager>
@@ -26765,58 +26848,6 @@
                 <Date>2007-04-14</Date>
                 <Version>0.0_20061017</Version>
                 <Comment>First release</Comment>
-                <Name>Türker Sezer</Name>
-                <Email>turkersezer@tsdesign.info</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>acetoneiso2</Name>
-            <Homepage>http://www.acetoneiso.netsons.org</Homepage>
-            <Packager>
-                <Name>Türker Sezer</Name>
-                <Email>turkersezer@tsdesign.info</Email>
-            </Packager>
-            <License>GPLv3</License>
-            <IsA>app:gui</IsA>
-            <PartOf>hardware.disk</PartOf>
-            <Summary xml:lang="en">An ISO-Tool program for KDE</Summary>
-            <Icon>Acetino2</Icon>
-            <Archive type="tarbz2" sha1sum="036653d1dfbf21cae418b0fcfd91d99ac32d114c">mirrors://sourceforge/acetoneiso2/acetoneiso2_2.0.2_source.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>qt4</Dependency>
-            </BuildDependencies>
-            <SourceURI>hardware/disk/acetoneiso2/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>acetoneiso2</Name>
-            <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
-                <Dependency>fuseiso</Dependency>
-                <Dependency>p7zip</Dependency>
-                <Dependency>mplayer</Dependency>
-                <Dependency>cdrtools</Dependency>
-                <Dependency>cdrdao</Dependency>
-                <Dependency>gnupg</Dependency>
-                <Dependency>pinentry</Dependency>
-                <Dependency>poweriso</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/opt/acetoneiso</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/AcetoneISO.desktop" permission="0644" owner="root">AcetoneISO.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-07-24</Date>
-                <Version>2.0.2</Version>
-                <Comment>First release.</Comment>
                 <Name>Türker Sezer</Name>
                 <Email>turkersezer@tsdesign.info</Email>
             </Update>
@@ -50608,7 +50639,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce eklenti kitaplığı</Summary>
             <Description xml:lang="en">Exo is an extension library to Xfce, developed by os-cillation. While Xfce comes with quite a few libraries that are targeted at desktop development, Exo is targeted at application development.</Description>
             <Description xml:lang="tr">Exo, os-cillation tarafından geliştirilen Xfce eklenti kitaplığıdır. Xfce masaüstü ortamını hedefleyen az kitaplıkla gelirken, Exo uygulama geliştirmeyi hedefliyor.</Description>
-            <Archive type="tarbz2" sha1sum="ef85488a713911d1afeea5ddd8d70943f2c5a323">http://archive.xfce.org/src/xfce/exo/0.3/exo-0.3.102.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="af0555a07f2a16c7889a55a4741e769fce965cad">http://archive.xfce.org/src/xfce/exo/0.3/exo-0.3.103.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>perl-URI</Dependency>
                 <Dependency>libxfce4util-devel</Dependency>
@@ -50667,6 +50698,21 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="14">
+                <Date>2009-09-10</Date>
+                <Version>0.3.103</Version>
+                <Comment>* Version bump.
+                - Update translations.
+                - Fix some small compiler warnings.
+                - Open trash:// uris with the file manager.
+                - Also drop the r in the revision.
+                - Drop INSTALL since it&apos;s generated at build time.
+                - Make mounting NTFS drives work in exo-mount.
+                - Add support for iocharset in exo-mount.
+                - Use the update-preview signal for updating the preview.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="13">
                 <Date>2009-08-25</Date>
                 <Version>0.3.102</Version>
