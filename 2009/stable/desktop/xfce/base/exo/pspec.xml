@@ -12,7 +12,7 @@
         <IsA>library</IsA>
         <Summary>Xfce extension library</Summary>
         <Description>Exo is an extension library to Xfce, developed by os-cillation. While Xfce comes with quite a few libraries that are targeted at desktop development, Exo is targeted at application development.</Description>
-        <Archive sha1sum="ddd49dc4efd32697c195f2790c8459b5f2b7e624" type="tarbz2">http://archive.xfce.org/src/xfce/exo/0.3/exo-0.3.104.tar.bz2</Archive>
+        <Archive sha1sum="2f424cf473ff834b2208a436061af75c6c6b80a9" type="tarbz2">http://archive.xfce.org/src/xfce/exo/0.3/exo-0.3.105.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>perl-URI</Dependency>
             <Dependency>libxfce4util-devel</Dependency>
@@ -20,7 +20,6 @@
             <Dependency>libnotify</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">noatime.patch</Patch>
             <Patch level="1">iocharset.patch</Patch>
             <Patch level="1">fix-underlinking.patch</Patch>
             <Patch level="1">link-with-python.patch</Patch>
@@ -71,6 +70,21 @@
     </Package>
 
     <History>
+        <Update release="16">
+            <Date>2009-10-18</Date>
+            <Version>0.3.105</Version>
+            <Comment>
+                * Version bump:
+                - Post release tag bump.
+                - Read mount options from a rc file (bug #2891).
+                - Version the API docs.
+                - Fix notes when generating the man pages.
+                - Merge stable back into xfce-4.6.
+                * Remove unrequired patch.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="15">
             <Date>2009-09-11</Date>
             <Version>0.3.104</Version>
