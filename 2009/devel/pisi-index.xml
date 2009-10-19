@@ -12055,7 +12055,7 @@
             <Description xml:lang="en">The Linux Video Editing System (LiVES) is intended to be a simple yet powerful video effects and editing system.</Description>
             <Description xml:lang="tr">LiVES video efektleri de verebileceğiniz güçlü bir video düzenleme programıdır.</Description>
             <Icon>lives</Icon>
-            <Archive type="tarbz2" sha1sum="f20e060ce58cfd38f83a202c9aba5e8b145e46a1">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="cc220b705e719398872cb8e2bae46184364cbaae">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>mplayer</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -12078,6 +12078,7 @@
             </BuildDependencies>
             <Patches>
                 <Patch>desktop-tr.patch</Patch>
+                <Patch>libvis.c.patch</Patch>
             </Patches>
             <SourceURI>multimedia/editor/lives/pspec.xml</SourceURI>
         </Source>
@@ -12115,6 +12116,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2009-10-18</Date>
+                <Version>1.0.4</Version>
+                <Comment>Version bump. Add patch libvis.c.patch</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="14">
                 <Date>2009-09-29</Date>
                 <Version>1.0.3</Version>
@@ -50563,7 +50571,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce eklenti kitaplığı</Summary>
             <Description xml:lang="en">Exo is an extension library to Xfce, developed by os-cillation. While Xfce comes with quite a few libraries that are targeted at desktop development, Exo is targeted at application development.</Description>
             <Description xml:lang="tr">Exo, os-cillation tarafından geliştirilen Xfce eklenti kitaplığıdır. Xfce masaüstü ortamını hedefleyen az kitaplıkla gelirken, Exo uygulama geliştirmeyi hedefliyor.</Description>
-            <Archive type="tarbz2" sha1sum="ddd49dc4efd32697c195f2790c8459b5f2b7e624">http://archive.xfce.org/src/xfce/exo/0.3/exo-0.3.104.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2f424cf473ff834b2208a436061af75c6c6b80a9">http://archive.xfce.org/src/xfce/exo/0.3/exo-0.3.105.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>perl-URI</Dependency>
                 <Dependency>libxfce4util-devel</Dependency>
@@ -50571,7 +50579,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libnotify</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">noatime.patch</Patch>
                 <Patch level="1">iocharset.patch</Patch>
                 <Patch level="1">fix-underlinking.patch</Patch>
                 <Patch level="1">link-with-python.patch</Patch>
@@ -50621,6 +50628,19 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2009-10-18</Date>
+                <Version>0.3.105</Version>
+                <Comment>* Version bump:
+                - Post release tag bump.
+                - Read mount options from a rc file (bug #2891).
+                - Version the API docs.
+                - Fix notes when generating the man pages.
+                - Merge stable back into xfce-4.6.
+                * Remove unrequired patch.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2009-09-11</Date>
                 <Version>0.3.104</Version>
