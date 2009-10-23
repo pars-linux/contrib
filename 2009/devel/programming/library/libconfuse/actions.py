@@ -22,7 +22,4 @@ def build():
 def install():
     autotools.install()
 
-    # remove empty dir
-    pisitools.removeDir("/usr/bin")
-
-    pisitools.dodoc("AUTHORS", "README", "ChangeLog", "TODO", "NEWS")
+    pisitools.dodoc("AUTHORS", "README", "NEWS")
