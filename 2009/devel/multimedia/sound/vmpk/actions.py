@@ -22,7 +22,5 @@ def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto ("/usr/share/locale", "translations/*.qm")
-    pisitools.dosym ("/usr/share/pixmaps/vmpk_48x48.png", "/usr/share/pixmaps/vmpk.png")
-    pisitools.removeDir("/usr/share/doc/packages/")
 
     pisitools.dodoc("NEWS", "README", "AUTHORS", "ChangeLog", "COPYING", "TODO")
