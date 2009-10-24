@@ -1,18 +1,21 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Licensed under the GNU General Public License, version 2.
-# See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+# Licensed under the GNU General Public License, version 3.
+# See the file http://www.gnu.org/licenses/gpl.txt
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
+from pisi.actionsapi import cmaketools
+
+shelltools.export("HOME", get.workDIR())
 
 def setup():
     autotools.configure()
-    shelltools.cd("plugins/qt-gui")
-    autotools.configure("--with-kde")
+    shelltools.cd("plugins/qt4-gui")
+    cmaketools.configure(installPrefix="/usr -DWITH_KDE=ON", sourceDir=".")
 
     # Optional Plugins
     li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
@@ -27,8 +30,8 @@ def setup():
 def build():
     autotools.make()
 
-    shelltools.cd("plugins/qt-gui")
-    autotools.make()
+    shelltools.cd("plugins/qt4-gui")
+    cmaketools.make()
 
     # Optional Plugins
     li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
@@ -39,8 +42,10 @@ def build():
 def install():
     autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
 
-    shelltools.cd("plugins/qt-gui")
-    autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
+    pisitools.dodoc("README", "README.GPG", "README.OPENSSL", "doc/*")
+
+    shelltools.cd("plugins/qt4-gui")
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     # Optional Plugins
     li = ['rms', 'msn', 'osd', 'console', 'auto-reply', 'email']
@@ -51,5 +56,3 @@ def install():
     # Licq-web plugin
     pisitools.dodir("/var/www/localhost/htdocs")
     shelltools.copytree("../licqweb/", "%s/var/www/localhost/htdocs/licqweb/" % get.installDIR())
-
-    pisitools.dodoc("README", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
