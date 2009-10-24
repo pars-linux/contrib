@@ -39,6 +39,8 @@ def build():
 def install():
     autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
 
+    pisitools.dodoc("README", "README.GPG", "README.OPENSSL", "doc/*")
+
     shelltools.cd("plugins/qt-gui")
     autotools.rawInstall('DESTDIR="%s"'  % get.installDIR())
 
@@ -51,5 +53,3 @@ def install():
     # Licq-web plugin
     pisitools.dodir("/var/www/localhost/htdocs")
     shelltools.copytree("../licqweb/", "%s/var/www/localhost/htdocs/licqweb/" % get.installDIR())
-
-    pisitools.dodoc("README", "README.GPG", "README.ICS", "README.OPENSSL", "LICENSE", "ChangeLog", "doc/*")
