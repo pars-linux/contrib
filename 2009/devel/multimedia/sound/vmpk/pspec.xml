@@ -13,10 +13,11 @@
         <IsA>app:gui</IsA>
         <Summary>Virtual MIDI Piano Keyboard</Summary>
         <Description>VMPK is a Qt4 based virtual MIDI piano keyboard. You must enable timidity service (service-manager in Tasma) and reboot your system to use Vmpk. After reboot, you must also set MIDI Output Connection to Timidity (Vmpk GUI: Edit-> Connections).</Description>
-        <Archive sha1sum="669dbf4d6b5d3f648d8597eda21d4b147b287d64" type="tarbz2">mirrors://sourceforge/vmpk/vmpk-0.2.3.tar.bz2</Archive>
+        <Archive sha1sum="f25f5160e22e1ff6eb72643831e9cdca9a016ea2" type="tarbz2">mirrors://sourceforge/vmpk/vmpk-0.3.0.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>alsa-lib</Dependency>
+            <Dependency>docbook-xsl</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>turkish.patch</Patch>
@@ -27,7 +28,7 @@
     <Package>
         <Name>vmpk</Name>
         <RuntimeDependencies>
-            <Dependency>qt4</Dependency>
+            <Dependency>qt</Dependency>
             <Dependency>timidity</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -35,12 +36,21 @@
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/vmpk</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="doc">/usr/share/doc/vmpk</Path>
+            <Path fileType="man">/usr/share/man</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-10-24</Date>
+            <Version>0.3.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Soytetir</Name>
+            <Email>tulliana@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2009-01-05</Date>
             <Version>0.2.3</Version>
