@@ -6,9 +6,11 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
+    shelltools.system("xdt-autogen")
     autotools.configure("--enable-subversion \
                          --enable-git")
 
@@ -17,5 +19,8 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    # remove empty dir
+    pisitools.removeDir("/usr/share/icons/hicolor/16x16")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
