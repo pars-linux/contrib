@@ -8,6 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
+    autotools.autoreconf("-vfi")
     autotools.configure()
 
 def build():
@@ -16,4 +17,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "README", "TODO", "NEWS")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README", "TODO" )
