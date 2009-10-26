@@ -6249,10 +6249,11 @@
             <Description xml:lang="en">VMPK is a Qt4 based virtual MIDI piano keyboard. You must enable timidity service (service-manager in Tasma) and reboot your system to use Vmpk. After reboot, you must also set MIDI Output Connection to Timidity (Vmpk GUI: Edit-&gt; Connections).</Description>
             <Description xml:lang="tr">Vmpk, Qt4 tabanlı bir MIDI piyano klavyesidir. Bu uygulamayı kullanmak için, Tasma içerisindeki Servis Yöneticisi&apos;nden timidity servisini sistem açılırken başlayacak şekilde etkinleştirip sisteminizi yeniden başlatmalısınız. Sisteminizi yeniden başlattıktan sonra Vmpk arayüzünden Düzen-&gt; Bağlantılar yolunu izleyerek MIDI Çıktı Bağlantısını Timidity&apos;ye ayarlamalısınız.</Description>
             <Icon>vmpk</Icon>
-            <Archive type="tarbz2" sha1sum="669dbf4d6b5d3f648d8597eda21d4b147b287d64">mirrors://sourceforge/vmpk/vmpk-0.2.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f25f5160e22e1ff6eb72643831e9cdca9a016ea2">mirrors://sourceforge/vmpk/vmpk-0.3.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
                 <Dependency>alsa-lib</Dependency>
+                <Dependency>docbook-xsl</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>turkish.patch</Patch>
@@ -6263,7 +6264,7 @@
         <Package>
             <Name>vmpk</Name>
             <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
                 <Dependency>timidity</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -6271,11 +6272,20 @@
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/vmpk</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="doc">/usr/share/doc/vmpk</Path>
+                <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-10-24</Date>
+                <Version>0.3.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Serdar Soytetir</Name>
+                <Email>tulliana@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-01-05</Date>
                 <Version>0.2.3</Version>
@@ -12133,7 +12143,7 @@
         </Package>
         <History>
             <Update release="15">
-                <Date>2009-10-18</Date>
+                <Date>2009-10-25</Date>
                 <Version>1.0.4</Version>
                 <Comment>Version bump. Add patch libvis.c.patch</Comment>
                 <Name>Ertan Argüden</Name>
@@ -12665,7 +12675,7 @@
             <Description xml:lang="en">Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
             <Description xml:lang="tr">Paket kurulumu yaptıktan sonra root olarak /etc/sysctl.conf dosyasının en alt satırına kernel/shmmax=0x7fffffff satırını ekleyip sysctl -p komutunu uygulayın.</Description>
             <Icon>cinelerra</Icon>
-            <Archive type="tarbz2" sha1sum="ddd4c6c63d108f85ce05e1d54e71ac6a431ae06b">http://pardus.kilu.de/dist/cinelerra-2.1_20090601.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="34f00b3253360316ab45b0d4e2eab33b24c42174">http://pardus.kilu.de/dist/cinelerra-2.1_20091024.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
@@ -12684,6 +12694,9 @@
                 <Dependency>libavc1394</Dependency>
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libraw1394</Dependency>
+                <Dependency>faac</Dependency>
+                <Dependency>faad2</Dependency>
+                <Dependency versionFrom="0.0_20091019">x264</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">ffmpeg_external.patch</Patch>
@@ -12693,6 +12706,8 @@
                 <Patch level="1">new_ffmpeg.patch</Patch>
                 <Patch level="1">libmpeg3.patch</Patch>
                 <Patch>desktop.patch</Patch>
+                <Patch>fonts_path.patch</Patch>
+                <Patch>no_install_font.patch</Patch>
             </Patches>
             <SourceURI>multimedia/editor/cinelerra/pspec.xml</SourceURI>
         </Source>
@@ -12716,6 +12731,9 @@
                 <Dependency>libavc1394</Dependency>
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libraw1394</Dependency>
+                <Dependency>faac</Dependency>
+                <Dependency>faad2</Dependency>
+                <Dependency versionFrom="0.0_20091019">x264</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -12728,6 +12746,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-10-25</Date>
+                <Version>2.1_20091024</Version>
+                <Comment>New snapshot.(Git Version). &quot;git://git.cinelerra.org/j6t/cinelerra.git&quot;
+                     Compiled with the new version x264. 
+                     Add depend.facc, faad2, x264. 
+                     System fonts fonts_path.patch and no_install_font.patch patch was achieved with the use.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-08-09</Date>
                 <Version>2.1_20090621</Version>
@@ -15937,19 +15965,15 @@
             <Description xml:lang="en">Licq is a multi-threaded ICQ (originally; now it supports AOL and MSN as well) clone written mostly in C++. It uses an extensive plugin system to manage many different functions.</Description>
             <Description xml:lang="tr">Licq, çoğu C++ da yazılmış, çoklu iş parçacıklı bir ICQ (orjinali öyleydi; artık AOL ve MSN de destekliyor) istemcisidir. Çeşitli fonksiyonlar için kullanılan, genişleyebilen bir eklenti sistemi bulunuyor.</Description>
             <Icon>licq</Icon>
-            <Archive type="tarbz2" sha1sum="a1059173f36694e6e5ec9ba62ced6e9738807916">mirrors://sourceforge/licq/licq-1.3.5.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="7e7d4e81defb2a175914fda3292b4dbb1f1e70c7">mirrors://sourceforge/licq/licq-1.3.7.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>kdelibs</Dependency>
+                <Dependency>qt</Dependency>
                 <Dependency>cdk</Dependency>
                 <Dependency>xosd</Dependency>
                 <Dependency>gpgme</Dependency>
+                <Dependency>hunspell</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch>fixcrashuponexit.patch</Patch>
-                <Patch>CVE-2008-1996.patch</Patch>
-                <Patch level="1">gcc-4.3.patch</Patch>
-                <Patch>licq-1.3.5-logonfix.patch</Patch>
-            </Patches>
             <SourceURI>network/chat/licq/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -15957,13 +15981,16 @@
             <RuntimeDependencies>
                 <Dependency>kdelibs</Dependency>
                 <Dependency>gpgme</Dependency>
+                <Dependency>hunspell</Dependency>
+                <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include/licq</Path>
                 <Path fileType="library">/usr/lib/licq</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/licq</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc/licq</Path>
                 <Path fileType="localedata">/usr/share/locale/de/LC_MESSAGES/licq.mo</Path>
             </Files>
         </Package>
@@ -16071,6 +16098,55 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-10-24</Date>
+                <Version>1.3.7</Version>
+                <Comment>Version bump:
+             * GUI ported to QT4.
+             * New tray icon handling that will work on any desktop with a standard tray area.
+             * Various bugs in both Licq and plugins that caused crashes have been fixed.
+             * Properly handle backslashes in auto responses.
+             * ICQ: Use MD5 based authentication for login instead of sending plain text password.
+             * ICQ: Support for downloading contact pictures from server.
+             * ICQ: Line breaks in received messages from some clients were lost.
+             * ICQ: Manually set aliases were sometimes lost during logon.
+             * ICQ: Files were left open after canceled transfers.
+             * MSN: Sometimes sockets were getting associated with the wrong conversation.
+             * MSN: Fixed a problem with contact pictures sometimes failing to download.
+             * Show contact registration date in user info dialog.
+             * GUI will now update if group data changes.
+             * Startup group setting moved from daemon to GUI.
+             * Automatically switch message dialog to text message after sending file, contact, url, etc.
+             * Birthday icon is now removed at the end of the day.
+             * Main window position/size is now saved on exit.
+             * User info can be opened from authorization request window.
+             * Fixed ICQ server port resetting to default when opening options dialog.
+             * Establishing a secure connection now unchecks &quot;Send through server&quot;.
+             * User info dialog now includes year in all dates.
+             * Buttons for most dialogs are ordered to match the local environment.
+             * Message dialog has new layout which uses less space for the controls.
+             * Settings dialog pages has been reorganized with fewer options per page for easier navigation.
+             * User info dialog has been extended to also include pages with user settings.
+             * Settings dialog and user info dialog now uses a navigation-tree pane instead of tabs.
+             * A completely new history dialog with easier navigation and search functionality.
+             * Message dialog remember its position and size (tabbed mode only).
+             * Option to display user image in message dialog.
+             * Contact list shows contacts awaiting authorization in different colour.
+             * Fixed deleting a user caused the contact list to behave strange or even crash.
+             * Moved Qt style setting from command line to settings dialog.
+             * Moved skin and icon set selections to settings dialog.
+             * Alt+1, Alt+2, etc in message dialog can be used to switch between tabs.
+             * Made keyboard shortcuts configurable.
+             * Several additional functions can be configured to have keyboard shortcuts.
+             * Added option to disable sound for active message window.
+             * Size of view event and send event dialogs are remembered.
+             * Current group in contact list can be changed using scroll wheel on message field.
+             * Shift+PgUp/PgDn in message input can be used to scroll history area.
+             * Added spell checking support for message dialog.
+             * Thread contact list can be split in online and offline parts (group mode 2).</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="6">
                 <Date>2008-08-10</Date>
                 <Version>1.3.5</Version>
@@ -23782,7 +23858,7 @@
     <SpecFile>
         <Source>
             <Name>sqliteman</Name>
-            <Homepage>http://sqliteman.sourceforge.net/</Homepage>
+            <Homepage>http://sqliteman.com/</Homepage>
             <Packager>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
@@ -23795,9 +23871,9 @@
             <Description xml:lang="en">The best developer&apos;s and/or admin&apos;s GUI tool for Sqlite3 in the world. No joking here (or just a bit only) - it contains the most complete feature set of all tools available.</Description>
             <Description xml:lang="tr">Bu araç geliştirici ve yöneticiler için dünyadaki en iyi Sqlite3 arayüzüdür. Varolan bütün araçları bir araya getirir.</Description>
             <Icon>sqliteman</Icon>
-            <Archive type="targz" sha1sum="dc5202708f7611a8900699d1a85adcae3915d55d">mirrors://sourceforge/sqliteman/sqliteman-1.2.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="758b59b2ddf736c4592b3dcc09f2b2531cbf9c26">mirrors://sourceforge/sqliteman/sqliteman-1.2.1.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>qt4-sql-sqlite</Dependency>
+                <Dependency>qt-sql-sqlite</Dependency>
                 <Dependency releaseFrom="4">qscintilla2</Dependency>
             </BuildDependencies>
             <Patches>
@@ -23809,7 +23885,7 @@
         <Package>
             <Name>sqliteman</Name>
             <RuntimeDependencies>
-                <Dependency>qt4-sql-sqlite</Dependency>
+                <Dependency>qt-sql-sqlite</Dependency>
                 <Dependency releaseFrom="4">qscintilla2</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -23821,6 +23897,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2009-10-24</Date>
+                <Version>1.2.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Uğur Çetin</Name>
+                <Email>jnmbk@users.sourceforge.net</Email>
+            </Update>
             <Update release="12">
                 <Date>2009-02-01</Date>
                 <Version>1.2.0</Version>
@@ -45794,7 +45877,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">thunar-vcs-plugin is for using version control system (Subversion and GIT) with Thunar file manager.</Description>
             <Description xml:lang="tr">Thunar-svn-plugin, Thunar dosya yöneticisi için yazılmış bir Subversion eklentisidir.</Description>
             <Icon>Thunar</Icon>
-            <Archive type="tarbz2" sha1sum="4242d4cdeb2cca3523a9453cc614b136637ff160">http://archive.xfce.org/src/thunar-plugins/thunar-vcs-plugin/0.1/thunar-vcs-plugin-0.1.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="39d9525c1cbd4f9df85c1ae1ae47ae84d9e6e376">http://archive.xfce.org/src/thunar-plugins/thunar-vcs-plugin/0.1/thunar-vcs-plugin-0.1.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>Thunar-devel</Dependency>
                 <Dependency>subversion</Dependency>
@@ -45823,6 +45906,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Replaces>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-10-24</Date>
+                <Version>0.1.1</Version>
+                <Comment>* Version bump:
+                - Unimplemented options are hidden in menu.
+                - Problems with text domain for translations fixed.
+                - More git support added. Which is usable now.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-09-28</Date>
                 <Version>0.1.0</Version>
@@ -46731,6 +46824,57 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Özgür Kuru</Name>
                 <Email>ozgurkuru@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>xfce4-mailwatch-plugin</Name>
+            <Homepage>http://spuriousinterrupt.org/projects/mailwatch</Homepage>
+            <Packager>
+                <Name>Osman Karagöz</Name>
+                <Email>osmank3@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.xfce.addon</PartOf>
+            <Summary xml:lang="en">Xfce4 mailwatch plugin</Summary>
+            <Summary xml:lang="tr">Xfce4 e-posta kontrol eklentisi</Summary>
+            <Description xml:lang="en">The mailwatch plugin is written for Xfce4 panel.</Description>
+            <Description xml:lang="tr">e-posta kontrol eklentisi, xfce paneline yerleşen ve belirlediğiniz süre aralığında e-posta kutunuzu kontrol eden eklentidir.</Description>
+            <Icon>xfce-newmail</Icon>
+            <Archive type="tarbz2" sha1sum="fdca7a62a694146fc5cbe48dbaf4db4c60da5510">http://spuriousinterrupt.org/files/mailwatch/xfce4-mailwatch-plugin-1.1.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>xfce4-panel-devel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>turkish.patch</Patch>
+            </Patches>
+            <SourceURI>desktop/xfce/addon/xfce4-mailwatch-plugin/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>xfce4-mailwatch-plugin</Name>
+            <RuntimeDependencies>
+                <Dependency>xfce4-panel</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libxfcegui4</Dependency>
+                <Dependency>libxfce4util</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/libexec</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/xfce4</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-09-25</Date>
+                <Version>1.1.0</Version>
+                <Comment>First release.</Comment>
+                <Name>Osman Karagöz</Name>
+                <Email>osmank3@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
