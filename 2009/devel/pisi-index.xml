@@ -19044,11 +19044,14 @@
             <Description xml:lang="en">Deluge is a Bittorrent client. Deluge is intended to bring a native, full-featured client to Linux GTK+ desktop environments such as GNOME and Xfce.</Description>
             <Description xml:lang="tr">Deluge, bir Bittorrent istemcisidir. Xfce ve GNOME gibi GTK+ tabanlı masaüstü ortamlarıyla görsel kütüphaneler açısından uyumlu çalışması için yazılmış tam donanımlı bir istemcidir.</Description>
             <Icon>deluge</Icon>
-            <Archive type="tarbz2" sha1sum="20d035f75b42382e00cabb8a587866abb00d11fc">http://download.deluge-torrent.org/source/deluge-1.1.9.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a448100c9072bd0aeaf2c45a1aba9dbf7bf724af">http://download.deluge-torrent.org/source/deluge-1.2.0_rc2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>imagemagick</Dependency>
                 <Dependency>setuptools</Dependency>
+                <Dependency>Twisted</Dependency>
+                <Dependency>pyopenssl</Dependency>
+                <Dependency>chardet</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">do-not-check-update.patch</Patch>
@@ -19063,6 +19066,9 @@
                 <Dependency>pygtk</Dependency>
                 <Dependency>setuptools</Dependency>
                 <Dependency>pyxdg</Dependency>
+                <Dependency>Twisted</Dependency>
+                <Dependency>pyopenssl</Dependency>
+                <Dependency>chardet</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -19075,6 +19081,26 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2009-10-27</Date>
+                <Version>1.2.0_rc2</Version>
+                <Comment>* Version bump
+                * Fix localclient authentication by stripping the lines read from the auth file
+                * Do not try to call doIteration() on the reactor if it has already stopped
+                * Fix &apos;autostart localhost if needed&apos; option
+                * Fix starting plugins when the pluginmanager is started
+                * Fix saving torrent state on fresh configs
+                * Fix changing of the allocation in the preferences
+                * Fix updating the Connection Manager when a host is added
+                * Add a --fork option to allow forking the webui to the background
+                * Fix the statusbar menu limits
+                * Fix setting the torrent options via the options tab
+                * Fix the private flag in the options tab
+                * Fix exception when using the &apos;halt&apos; command
+                * Add new dependencies (Twisted, pyopenssl, chardet)</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-08-14</Date>
                 <Version>1.1.9</Version>
