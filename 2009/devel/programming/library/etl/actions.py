@@ -12,11 +12,12 @@ from pisi.actionsapi import get
 WorkDir = "ETL-%s" % get.srcVERSION()
 
 def setup():
-    shelltools.system("./bootstrap")
-
     autotools.configure()
+
+def build():
+    autotools.make()
 
 def install():
     autotools.install()
 
-    pisitools.dodoc("AUTHORS", "README", "NEWS")
+    pisitools.dodoc("AUTHORS", "README", "NEWS", "ChangeLog", "COPYING")
