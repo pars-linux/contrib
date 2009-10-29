@@ -11,6 +11,8 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--without-libfmod")
 
+    pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
+
 def build():
     autotools.make()
 
