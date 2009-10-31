@@ -11025,17 +11025,16 @@
             <Summary xml:lang="en">an easy to use cross-platform GUI for Panorama Tools.</Summary>
             <Summary xml:lang="tr">Panorama Tools arayüzü</Summary>
             <Icon>hugin</Icon>
-            <Archive type="targz" sha1sum="6452ddc4e4d7a67b8e84d0a52a9c536664a62abf">mirrors://sourceforge/hugin/hugin-0.7.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="698f0a7c4bb25efdf06313d05e3980f20d088ce5">mirrors://sourceforge/hugin/hugin-0.8.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libpano13</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>tiff</Dependency>
-                <Dependency>wxGTK-devel</Dependency>
+                <Dependency releaseFrom="14">wxGTK-devel</Dependency>
                 <Dependency>openexr</Dependency>
                 <Dependency>exiv2</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">wxrc.patch</Patch>
                 <Patch level="1">pthread.patch</Patch>
             </Patches>
             <SourceURI>multimedia/graphics/hugin/pspec.xml</SourceURI>
@@ -11046,7 +11045,7 @@
                 <Dependency>libpano13</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>tiff</Dependency>
-                <Dependency>wxGTK</Dependency>
+                <Dependency releaseFrom="14">wxGTK</Dependency>
                 <Dependency>openexr</Dependency>
                 <Dependency>exiv2</Dependency>
                 <Dependency>enblend</Dependency>
@@ -11068,6 +11067,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2009-09-03</Date>
+                <Version>0.8.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Update>
             <Update release="11">
                 <Date>2009-06-26</Date>
                 <Version>0.7.0</Version>
@@ -12104,7 +12110,7 @@
         </Package>
         <History>
             <Update release="16">
-                <Date>2009-10-28</Date>
+                <Date>2009-10-30</Date>
                 <Version>1.0.5</Version>
                 <Comment>Stable version bump. Remove patch libvis.c.patch</Comment>
                 <Name>Ertan Argüden</Name>
@@ -50769,7 +50775,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Xfce için ses ayarları servisi</Summary>
             <Description xml:lang="en">This daemon is responsible of making the volume up / down and mute keys of the keyboard work automatically, and uses the Xfce 4 mixer&apos;s card setting for chosing which card to act on. It also provides volume change / mute toggle notifications if the notification server used supports x-canonical-icon-only and x-canonical-synchronous notifications.</Description>
             <Description xml:lang="tr">xfce4-volumed, klavyedeki ses artırma / azaltma ve kapama tuşları otomatik olarak kullanabilmenizi sağlar. Hangi ses kartı ile çalışılacağının belirlenmesi için Xfce4 ses karıştırıcısının ses kartı ayarı kullanılır. Aynı zamanda uyarı servisi çalışıyorsa, yapılan ses ayarlarını ekranda bildirir.</Description>
-            <Archive type="tarbz2" sha1sum="c4fff691c7a131064bf7a2353ac4b8638e2a1559">http://archive.xfce.org/src/apps/xfce4-volumed/0.1/xfce4-volumed-0.1.4.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="b5f3fc7e3faf10ecdb4e9377ccf9ab9bf5f90993">http://archive.xfce.org/src/apps/xfce4-volumed/0.1/xfce4-volumed-0.1.6.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfconf-devel</Dependency>
                 <Dependency>libnotify</Dependency>
@@ -50798,6 +50804,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2009-10-30</Date>
+                <Version>0.1.6</Version>
+                <Comment>* Version bump:
+                - Support for asynchronous libnotify daemons.
+                - Move support for legacy libxcb-keysyms to the main branch with a build toggle.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-09-04</Date>
                 <Version>0.1.4</Version>
