@@ -7,9 +7,12 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+from pisi.actionsapi import shelltools
 
 def setup():
-    autotools.configure()
+    shelltools.export("HOME", get.workDIR())
+    autotools.configure("--without-magickpp \
+                         --without-openexr")
 
     pisitools.dosed("libtool", " -shared ", " -Wl,--as-needed -shared ")
 
