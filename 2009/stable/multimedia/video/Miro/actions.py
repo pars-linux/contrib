@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
-WorkDir="Miro-%s" % get.srcVERSION().replace("_","-")
+WorkDir="miro-%s" % get.srcVERSION().replace("_","-")
 
 shelltools.export("HOME", "%s" % get.workDIR())
 
