@@ -10,12 +10,13 @@ from pisi.actionsapi import scons
 WorkDir="pouetchess_src_0.2.0"
 
 def setup():
-    scons.make("configure prefix=/usr datadir=/usr/share/pouetchess")
+    scons.make("configure prefix=/usr datadir=/usr/share/pouetchess strip=false optimize=false")
 
 def build():
     scons.make()
 
 def install():
     pisitools.dobin("bin/pouetChess")
-
     pisitools.insinto("/usr/share/pouetchess", "data/*")
+
+    pisitools.dodoc("README", "ChangeLog", "COPYING")
