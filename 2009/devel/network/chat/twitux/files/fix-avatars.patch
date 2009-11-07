@@ -1,0 +1,57 @@
+diff -ur twitux-0.69/src/twitux-network.c twitux-me/src/twitux-network.c
+--- twitux-0.69/src/twitux-network.c	2009-01-23 03:04:50.000000000 +0100
++++ twitux-me/src/twitux-network.c	2009-04-22 10:02:15.000000000 +0200
+@@ -380,8 +380,10 @@
+ /* Get an image from servers */
+ void
+ twitux_network_get_image (const gchar  *url_image,
++						  const gchar  *username,
+ 						  GtkTreeIter   iter)
+ {
++	gchar	*images_dir;
+ 	gchar	*image_file;
+ 	gchar   *image_name;
+ 
+@@ -395,9 +397,14 @@
+ 		image_name = "twitux_unknown_image";
+ 	}
+ 
+-	image_file = g_build_filename (g_get_home_dir(), ".gnome2",
+-								   TWITUX_CACHE_IMAGES,
+-								   image_name, NULL);
++	images_dir = g_build_filename (g_get_home_dir (), ".gnome2", TWITUX_CACHE_IMAGES, NULL);
++	image_file = g_strconcat (images_dir,
++							  G_DIR_SEPARATOR_S,
++							  username,
++							  "-",
++							  image_name,
++							  NULL);
++	g_free (images_dir);
+ 
+ 	/* check if image already exists */
+ 	if (g_file_test (image_file, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR)) {		
+diff -ur twitux-0.69/src/twitux-network.h twitux-me/src/twitux-network.h
+--- twitux-0.69/src/twitux-network.h	2009-01-19 04:00:26.000000000 +0100
++++ twitux-me/src/twitux-network.h	2009-04-22 09:54:17.000000000 +0200
+@@ -73,6 +73,7 @@
+ 
+ /* Get an image from servers */
+ void twitux_network_get_image (const gchar *url_image,
++							   const gchar *username,
+ 							   GtkTreeIter iter);
+ 
+ /* Add a user to follow */
+Only in twitux-me/src: twitux-network.o
+diff -ur twitux-0.69/src/twitux-parser.c twitux-me/src/twitux-parser.c
+--- twitux-0.69/src/twitux-parser.c	2009-01-25 03:25:56.000000000 +0100
++++ twitux-me/src/twitux-parser.c	2009-04-22 09:54:48.000000000 +0200
+@@ -279,6 +279,7 @@
+ 
+ 			/* Get Image */
+ 			twitux_network_get_image (status->user->image_url,
++									  status->user->screen_name,
+ 									  iter);
+ 
+ 			/* Free struct */
+
+ 	  	 

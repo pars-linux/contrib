@@ -1,0 +1,265 @@
+Update to current svn trunk, with the following patches:
+
+------------------------------------------------------------------------
+r388 | bpepple | 2009-07-19 16:12:55 -0700 (Sun, 19 Jul 2009) | 2 lines
+
+add simplied chinese translation
+
+------------------------------------------------------------------------
+r387 | bpepple | 2009-07-19 16:05:00 -0700 (Sun, 19 Jul 2009) | 2 lines
+
+add Korean translation
+
+------------------------------------------------------------------------
+r386 | bpepple | 2009-04-12 04:45:36 -0700 (Sun, 12 Apr 2009) | 2 lines
+
+Added Norwegian translation
+
+------------------------------------------------------------------------
+r385 | bpepple | 2009-04-11 12:53:29 -0700 (Sat, 11 Apr 2009) | 2 lines
+
+updated japanese translation
+
+------------------------------------------------------------------------
+r379 | bpepple | 2009-02-28 13:35:04 -0800 (Sat, 28 Feb 2009) | 2 lines
+
+fix spelling in comment
+
+------------------------------------------------------------------------
+r378 | bpepple | 2009-02-28 13:20:10 -0800 (Sat, 28 Feb 2009) | 2 lines
+
+plug a small leak
+
+------------------------------------------------------------------------
+r373 | bpepple | 2009-02-13 16:21:23 -0800 (Fri, 13 Feb 2009) | 2 lines
+
+Remove intltool-* from Makefile.am to make it work with newer intltool
+
+------------------------------------------------------------------------
+r372 | bpepple | 2009-02-11 18:44:09 -0800 (Wed, 11 Feb 2009) | 2 lines
+
+plug pixbuf leak, and set avatar size
+
+------------------------------------------------------------------------
+r369 | bpepple | 2009-02-01 13:52:15 -0800 (Sun, 01 Feb 2009) | 2 lines
+
+fix grammer error
+
+------------------------------------------------------------------------
+r368 | puntouy | 2009-01-31 16:24:14 -0800 (Sat, 31 Jan 2009) | 2 lines
+
+Bugfix to Add and Remove methods
+
+------------------------------------------------------------------------
+Index: b/src/twitux-app.c
+===================================================================
+--- a/src/twitux-app.c
++++ b/src/twitux-app.c
+@@ -1467,7 +1467,7 @@
+                       GtkTreeIter  iter)
+ {
+ 	GtkListStore *store;
+-	GdkPixbuf	 *pixbuf;
++	GdkPixbuf	 *pixbuf, *resized;
+ 	GError		 *error = NULL;
+ 
+ 	pixbuf = gdk_pixbuf_new_from_file (file, &error);
+@@ -1478,11 +1478,12 @@
+ 		g_error_free (error);
+ 		return;
+ 	}
+-	
+-	store = twitux_tweet_list_get_store ();
+ 
+-	gtk_list_store_set (store, &iter,
+-						PIXBUF_AVATAR, pixbuf, -1);
++	store = twitux_tweet_list_get_store ();
++	resized = gdk_pixbuf_scale_simple (pixbuf, 48, 48, GDK_INTERP_BILINEAR);
++	gtk_list_store_set (store, &iter, PIXBUF_AVATAR, resized, -1);
++	g_object_unref (pixbuf);
++	g_object_unref (resized);
+ }
+ 
+ void
+@@ -1493,6 +1494,7 @@
+ {
+ 	TwituxAppPriv *priv;
+ 	gchar 		  *title_text;
++	GdkPixbuf	  *resized;
+ 	
+ 	priv = GET_PRIV (app);
+ 
+@@ -1503,7 +1505,9 @@
+ 	g_free (title_text);
+ 	
+ 	if (pixbuf) {
+-		gtk_image_set_from_pixbuf (GTK_IMAGE (priv->expand_image), pixbuf);
++		resized = gdk_pixbuf_scale_simple (pixbuf, 73, 73, GDK_INTERP_BILINEAR);
++		gtk_image_set_from_pixbuf (GTK_IMAGE (priv->expand_image), resized);
++		g_object_unref (resized);
+ 	}
+ 	
+ 	gtk_widget_show (priv->expand_box);
+Index: b/src/twitux-network.c
+===================================================================
+--- a/src/twitux-network.c
++++ b/src/twitux-network.c
+@@ -53,7 +53,8 @@
+ 									 gpointer               data);
+ static void network_post_data		(const gchar           *url,
+ 									 gchar                 *formdata,
+-									 SoupSessionCallback    callback);
++									 SoupSessionCallback    callback,
++									 gpointer               data);
+ static gboolean	network_check_http 	(gint                   status_code);
+ static void network_parser_free_lists (void);
+ 
+@@ -237,7 +238,7 @@
+ 					  G_CALLBACK (network_cb_on_auth),
+ 					  NULL);
+ 
+-	/* Verify cedentials */
++	/* Verify credentials */
+ 	network_get_data (TWITUX_API_LOGIN, network_cb_on_login, NULL);
+ }
+ 
+@@ -261,7 +262,8 @@
+ 
+ 	network_post_data (TWITUX_API_POST_STATUS,
+ 					   formdata,
+-					   network_cb_on_post);
++					   network_cb_on_post,
++					   NULL);
+ }
+ 
+ 
+@@ -276,7 +278,8 @@
+ 	
+ 	network_post_data (TWITUX_API_SEND_MESSAGE,
+ 					   formdata,
+-					   network_cb_on_message);
++					   network_cb_on_message,
++					   NULL);
+ }
+ 
+ void
+@@ -429,7 +432,7 @@
+ 	
+ 	url = g_strdup_printf (TWITUX_API_FOLLOWING_ADD, username);
+ 
+-	network_get_data (url, network_cb_on_add, NULL);
++	network_post_data (url, NULL, network_cb_on_add, NULL);
+ 
+ 	g_free (url);
+ }
+@@ -446,7 +449,7 @@
+ 	
+ 	url = g_strdup_printf (TWITUX_API_FOLLOWING_DEL, user->screen_name);
+ 
+-	network_get_data (url, network_cb_on_del, user);
++	network_post_data (url, NULL, network_cb_on_del, user);
+ 
+ 	g_free (url);
+ }
+@@ -472,7 +475,8 @@
+ static void
+ network_post_data (const gchar           *url,
+ 				   gchar                 *formdata,
+-				   SoupSessionCallback    callback)
++				   SoupSessionCallback    callback,
++				   gpointer               data)
+ {
+ 	SoupMessage *msg;
+ 
+@@ -487,13 +491,16 @@
+ 	soup_message_headers_append (msg->request_headers,
+ 								 "X-Twitter-Client-URL", TWITUX_HEADER_URL);
+ 
+-	soup_message_set_request (msg, 
+-							  "application/x-www-form-urlencoded",
+-							  SOUP_MEMORY_TAKE,
+-							  formdata,
+-							  strlen (formdata));
++	if (formdata)
++	{
++		soup_message_set_request (msg, 
++								  "application/x-www-form-urlencoded",
++								  SOUP_MEMORY_TAKE,
++								  formdata,
++								  strlen (formdata));
++	}
+ 
+-	soup_session_queue_message (soup_connection, msg, callback, NULL);
++	soup_session_queue_message (soup_connection, msg, callback, data);
+ }
+ 
+ 
+Index: b/src/twitux-tweet-list.c
+===================================================================
+--- a/src/twitux-tweet-list.c
++++ b/src/twitux-tweet-list.c
+@@ -147,36 +147,38 @@
+ 
+ 	priv = GET_PRIV (list);
+ 	
+-	g_object_set (list,
+-				  "rules-hint", TRUE,
+-				  "reorderable", FALSE,
+-				  "headers-visible", FALSE,
+-				  NULL);
++	g_object_set(list,
++				 "rules-hint", TRUE,
++				 "reorderable", FALSE,
++				 "headers-visible", FALSE,
++				 NULL);
+ 
+-	renderer = gtk_cell_renderer_pixbuf_new ();
++	renderer = gtk_cell_renderer_pixbuf_new();
++	gtk_cell_renderer_set_fixed_size (renderer, 48, 48);
+ 	avatar_column =
+ 		gtk_tree_view_column_new_with_attributes (NULL,
+ 												  renderer,
+ 												  "pixbuf", PIXBUF_AVATAR,
+ 												  NULL);
+-
+-	gtk_tree_view_append_column (GTK_TREE_VIEW (list), avatar_column);
+-
+-	renderer = gtk_cell_renderer_text_new ();
++	gtk_tree_view_column_set_sizing (avatar_column, GTK_TREE_VIEW_COLUMN_FIXED);
++	gtk_tree_view_column_set_min_width (avatar_column, 48);
++	gtk_tree_view_column_set_fixed_width (avatar_column, 48);
++	gtk_tree_view_append_column (GTK_TREE_VIEW (list),
++								 avatar_column);
++	
++	renderer = gtk_cell_renderer_text_new();
+ 	tweet_column =
+ 		gtk_tree_view_column_new_with_attributes (NULL,
+ 												  renderer,
+ 												  "markup", STRING_TEXT,
+ 												  NULL);
+-	gtk_tree_view_column_set_sizing (tweet_column,
+-									 GTK_TREE_VIEW_COLUMN_FIXED);
++	gtk_tree_view_column_set_sizing (tweet_column, GTK_TREE_VIEW_COLUMN_FIXED);
+ 	g_object_set (renderer,
+ 				  "ypad", 0,
+ 				  "xpad", 5,
+ 				  "yalign", 0.0,
+ 				  "wrap-mode", PANGO_WRAP_WORD_CHAR,
+ 				  NULL);
+-
+ 	gtk_tree_view_append_column (GTK_TREE_VIEW (list), tweet_column);
+ 	
+ 	priv->text_column = tweet_column;
+@@ -220,10 +222,11 @@
+ 						-1);
+ 
+ 	twitux_app_expand_message (name, date, tweet, pixbuf);
+-
++	
+ 	g_free (name);
+ 	g_free (tweet);
+ 	g_free (date);
++	g_object_unref(pixbuf);
+ }
+ 
+ static void
