@@ -1,0 +1,31 @@
+diff -Naur twitux-0.69.orig/src/twitux-parser.c twitux-0.69/src/twitux-parser.c
+--- twitux-0.69.orig/src/twitux-parser.c	2009-01-25 04:25:56.000000000 +0200
++++ twitux-0.69/src/twitux-parser.c	2009-11-07 17:51:44.842985172 +0200
+@@ -29,7 +29,7 @@
+ #define _XOPEN_SOURCE
+ #include <time.h>
+ #include <string.h> /* for g_memmove - memmove */
+-
++#include <stdlib.h>
+ #include <gtk/gtk.h>
+ #include <glib/gstdio.h>
+ #include <glib/gi18n.h>
+@@ -65,7 +65,8 @@
+ static gboolean      display_notification      (gpointer     tweet);
+ 
+ /* id of the newest tweet showed */
+-static gint			last_id = 0;
++long long lastTweet = 0;
++static long long last_id = 0;
+ 
+ static xmlDoc*
+ parser_twitux_parse (const char  *data,
+@@ -237,7 +238,7 @@
+ 			/* Parse node */
+ 			status = parser_twitux_node_status (cur_node->children);
+ 
+-			sid = atoi (status->id);
++			sid = atoll (status->id);
+ 			
+ 			/* the first tweet parsed is the 'newest' */
+ 			if (lastTweet == 0){

@@ -1,0 +1,115 @@
+# Patch by Luke Cycon <lcycon@gmail.com>
+#
+# Add a retweet feature to Twitux
+
+--- a/data/main_window.xml	Sun Nov 01 08:53:53 2009 -0800
++++ b/data/main_window.xml	Sun Nov 01 08:53:57 2009 -0800
+@@ -33,6 +33,13 @@
+           <accelerator key="N" modifiers="GDK_CONTROL_MASK"/>
+         </child>
+         <child>
++          <object class="GtkAction" id="twitter_retweet">
++            <property name="name">twitter_retweet</property>
++            <property name="label" translatable="no">ReTweet</property>
++          </object>
++          <accelerator key="F6" modifiers="0"/>
++        </child>
++        <child>
+           <object class="GtkAction" id="twitter_send_direct_message">
+             <property name="name">twitter_send_direct_message</property>
+             <property name="label" translatable="yes">Send Direct Message</property>
+@@ -161,6 +168,7 @@
+           <menuitem action="twitter_disconnect"/>
+           <separator/>
+           <menuitem action="twitter_new_message"/>
++          <menuitem action="twitter_retweet"/>
+           <menuitem action="twitter_send_direct_message"/>
+           <separator/>
+           <menuitem action="twitter_add_friend"/>
+--- a/src/twitux-app.c	Sun Nov 01 08:53:53 2009 -0800
++++ b/src/twitux-app.c	Sun Nov 01 08:53:57 2009 -0800
+@@ -147,6 +147,8 @@
+ 												  TwituxApp             *app);
+ static void     app_new_message_cb               (GtkWidget             *window,
+ 												  TwituxApp             *app);
++static void		app_retweet_cb					 (GtkWidget				*widget,
++												  TwituxApp				*app);
+ static void     app_send_direct_message_cb       (GtkWidget             *window,
+ 												  TwituxApp             *app);
+ static void     app_quit_cb                      (GtkWidget             *window,
+@@ -499,6 +501,7 @@
+ 						"twitter_connect", "activate", app_connect_cb,
+ 						"twitter_disconnect", "activate", app_disconnect_cb,
+ 						"twitter_new_message", "activate", app_new_message_cb,
++						"twitter_retweet", "activate", app_retweet_cb,
+ 						"twitter_send_direct_message", "activate", app_send_direct_message_cb,
+ 						"twitter_refresh", "activate", app_refresh_cb,
+ 						"twitter_quit", "activate", app_quit_cb,
+@@ -792,6 +795,13 @@
+ }
+ 
+ static void
++app_retweet_cb (GtkWidget *widget,
++				TwituxApp *app)
++{
++	twitux_tweet_list_retweet();
++}
++
++static void
+ app_send_direct_message_cb (GtkWidget *widget,
+ 							TwituxApp *app)
+ {
+--- a/src/twitux-tweet-list.c	Sun Nov 01 08:53:53 2009 -0800
++++ b/src/twitux-tweet-list.c	Sun Nov 01 08:53:57 2009 -0800
+@@ -281,6 +281,41 @@
+ 	g_free (message);
+ }
+ 
++void
++twitux_tweet_list_retweet ()
++{
++	TwituxTweetListPriv *priv;
++	GtkTreeSelection    *sel;
++	GtkTreeIter          iter;
++	GtkTreeView			*tree;
++	gchar               *user;
++	gchar               *message;
++
++	priv = GET_PRIV (list);
++
++	tree = &list->parent;
++
++	sel = gtk_tree_view_get_selection (tree);
++
++	if (!gtk_tree_selection_get_selected (sel, NULL, &iter))
++		return;
++
++	gtk_tree_model_get (GTK_TREE_MODEL (priv->store),
++							&iter,
++							STRING_USER, &user,
++							-1);
++
++	gtk_tree_model_get (GTK_TREE_MODEL (priv->store),
++							&iter,
++							STRING_TWEET, &message,
++							-1);
++
++	message = g_strdup_printf ("RT @%s: %s", user, message);
++	twitux_send_message_dialog_show (NULL);
++	twitux_message_show_friends (FALSE);
++	twitux_message_set_message (message);
++}
++
+ TwituxTweetList *
+ twitux_tweet_list_new (void)
+ {
+--- a/src/twitux-tweet-list.h	Sun Nov 01 08:53:53 2009 -0800
++++ b/src/twitux-tweet-list.h	Sun Nov 01 08:53:57 2009 -0800
+@@ -51,6 +51,7 @@
+ };
+ 
+ GType                 twitux_tweet_list_get_type           (void) G_GNUC_CONST;
++void                  twitux_tweet_list_retweet            (void);
+ TwituxTweetList *     twitux_tweet_list_new                (void);
+ GtkListStore *        twitux_tweet_list_get_store          (void);
+ 
