@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>incollector</Name>
+        <Homepage>http://www.incollector.devnull.pl</Homepage>
+        <Packager>
+            <Name>Enis Hürkan Burakçı</Name>
+            <Email>enishurkan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>incollector</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>An application to collect various kinds of information.</Summary>
+        <Description>Incollector is an application to collect various kinds of information (like notes, conversation logs, quotes, serial numbers, source code, web addresses, words). All the entries can be tagged, so you can find them very easily. There are also search folders which allows you to search for entries by specified criteria. You can also export (and import, of course) entries to an external file.</Description>
+        <Archive sha1sum="970d335474760e5bc24decc43630b458e146bb83" type="targz">http://www.incollector.devnull.pl/download/sources/incollector-1.2.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk-sharp</Dependency>
+            <Dependency>mono</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">stats-dialog.patch</Patch>
+            <Patch level="1">iconpath.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>incollector</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk-sharp</Dependency>
+            <Dependency>mono</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2009-10-27</Date>
+            <Version>1.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Enis Hürkan Burakçı</Name>
+            <Email>enishurkan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
