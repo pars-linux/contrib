@@ -8,6 +8,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
+    autotools.autoreconf("-fiv")
     autotools.configure("--disable-static \
                          --with-cups")
 
@@ -17,4 +18,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.dodoc("README", "NEWS", "TODO", "ChangeLog*", "AUTHORS", "BUGS")
+    pisitools.dodoc("README", "NEWS", "ChangeLog*", "AUTHORS", "BUGS")
