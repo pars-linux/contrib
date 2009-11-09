@@ -8,6 +8,8 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+WorkDir='psi-0.14-rc1'
+
 docdir="%s/%s" % (get.docDIR(), get.srcTAG())
 
 def setup():
