@@ -9,18 +9,17 @@
             <Email>dfisek@fisek.com.tr</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>tuxtype</Icon>
         <IsA>app:gui</IsA>
-        <Summary>"Tux Typing" is an educational typing tutor for children. It features several different types of gameplay, at a variety of difficulty levels.</Summary>
+        <Summary>Typing tutor for children.</Summary>
         <Description>"Tux Typing" is an educational typing tutor for children. It features several different types of gameplay, at a variety of difficulty levels.</Description>
-        <Archive sha1sum="4b67027c7832e1a465f1c1eb5a24cf8cf863dff4" type="targz">http://alioth.debian.org/frs/download.php/2686/tuxtype_w_fonts-1.7.0.tar.gz</Archive>
+        <Archive sha1sum="e33d8138b8f0907f228fe0105f6266408332d59d" type="targz">https://alioth.debian.org/frs/download.php/3175/tuxtype_w_fonts-1.8.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.2.3">sdl-image</Dependency>
             <Dependency versionFrom="1.2.5">sdl-mixer</Dependency>
             <Dependency versionFrom="2.0.5">sdl-ttf</Dependency>
+            <Dependency>sdl-pango</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch>font.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -29,6 +28,7 @@
             <Dependency versionFrom="1.2.3">sdl-image</Dependency>
             <Dependency versionFrom="1.2.5">sdl-mixer</Dependency>
             <Dependency versionFrom="2.0.5">sdl-ttf</Dependency>
+            <Dependency>sdl-pango</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -36,13 +36,55 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share/tuxtype</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/var/lib/tuxtype</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile target="/usr/share/applications/tuxtype.desktop" permission="0644" owner="root">tuxtype.desktop</AdditionalFile>
-        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2009-11-12</Date>
+            <Version>1.8.0</Version>
+            <Comment>Version bump :
+             * Word list editor
+             * Much better background images and new music for the "fish cascade"
+             * Significantly expanded word lists, phrase list and lessons
+             * New translations
+            </Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-07-17</Date>
+            <Version>1.7.5</Version>
+            <Comment>Version bump :
+             * i18n and utf8 fixes
+             * Cleanup of some scripting menu issues
+             * Text drawing, background scaling and optimization improvements
+             * Add translations.xml, fix summary
+            </Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-01-15</Date>
+            <Version>1.7.2</Version>
+            <Comment>Version bump :
+             * Fixed crashing bug in fullscreen fish cascade game
+             * Safety checks for null pointers, array bounds violations, etc.
+             * Tweaks to startup screen
+             * Lessons menu now has the same look and feel of the other menus
+            </Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2009-01-12</Date>
+            <Version>1.7.1</Version>
+            <Comment>Version bump, non-essential bugfixes.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2008-12-11</Date>
             <Version>1.7.0</Version>
