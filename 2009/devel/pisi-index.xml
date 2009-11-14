@@ -12749,7 +12749,7 @@
         </Package>
         <History>
             <Update release="3">
-                <Date>2009-10-25</Date>
+                <Date>2009-11-13</Date>
                 <Version>2.1_20091024</Version>
                 <Comment>New snapshot.(Git Version). &quot;git://git.cinelerra.org/j6t/cinelerra.git&quot;
                      Compiled with the new version x264. 
@@ -16706,8 +16706,8 @@
             <Name>emesene</Name>
             <Homepage>http://www.emesene.org</Homepage>
             <Packager>
-                <Name>Emre Yılmaz</Name>
-                <Email>yilmazyemre@yahoo.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>LGPLv2.1</License>
             <IsA>app:gui</IsA>
@@ -39856,8 +39856,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Archive_Tar</Name>
             <Homepage>http://pear.php.net/package/Archive_Tar</Homepage>
             <Packager>
-                <Name>Emre Yılmaz</Name>
-                <Email>yilmazyemre@yahoo.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
@@ -40808,10 +40808,10 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>PEAR</Name>
-            <Homepage>http://pear.php.net/package/PEAR/</Homepage>
+            <Homepage>http://pear.php.net/package/PEAR</Homepage>
             <Packager>
-                <Name>Emre Yılmaz</Name>
-                <Email>yilmazyemre@yahoo.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
@@ -40820,7 +40820,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Ana PEAR sınıfı</Summary>
             <Description xml:lang="en">Base PEAR class that required other PEAR packages</Description>
             <Description xml:lang="tr">PEAR eklentilerini çalıştırabilmek için gerekli olan ana sınıf.</Description>
-            <Archive type="targz" sha1sum="92b7b43ef0872efa461ec22a63769898f95d48c4">http://download.pear.php.net/package/PEAR-1.7.2.tgz</Archive>
+            <Archive type="targz" sha1sum="67cd4a2a831ad2acb29de44eece7c215e5d3b5a3">http://download.pear.php.net/package/PEAR-1.8.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40830,6 +40830,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-11-12</Date>
+                <Version>1.8.1</Version>
+                <Comment>Stable Update</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-03-02</Date>
                 <Version>1.7.2</Version>
@@ -58020,6 +58027,54 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>gpicview</Name>
+            <Homepage>http://www.lxde.org</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.lxde.base</PartOf>
+            <Summary xml:lang="en">A Simple and Fast Image Viewer for X</Summary>
+            <Summary xml:lang="tr">LXDE için resim görüntüleyici</Summary>
+            <Description xml:lang="">Gpicview, LXDE için basit ve hızlı bir resim görüntüleyicidir.</Description>
+            <Description xml:lang="en">GPicView is a simple and fast image viewer for X.</Description>
+            <Icon>gpicview</Icon>
+            <Archive type="targz" sha1sum="471ab9f084215cb024655c72df8fa71fb6536f58">mirrors://sourceforge/lxde/gpicview-0.2.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>desktop-file-utils</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/lxde/base/gpicview/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gpicview</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>desktop-file-utils</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/gpicview</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-11-03</Date>
+                <Version>0.2.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>enterminus</Name>
             <Homepage>www.enlightenment.org</Homepage>
             <Packager>
@@ -65109,6 +65164,69 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release</Comment>
                 <Name>Fatih Aşıcı</Name>
                 <Email>fatih.asici@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>leafpad</Name>
+            <Homepage>http://tarot.freeshell.org/leafpad</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>editor.misc</PartOf>
+            <Summary xml:lang="en">GTK+ based simple text editor</Summary>
+            <Summary xml:lang="tr">GTK+ tabanlı basit metin editörü</Summary>
+            <Description xml:lang="en">Leafpad is a simple GTK+ text editor that emphasizes simplicity. The user interface is similar to &quot;notepad&quot;, and it aims to be lighter than GEdit and KWrite and to be as useful as them.</Description>
+            <Description xml:lang="tr">Leafpad, basitliği vurgulayan basit bir GTK+ metin editörüdür. Kullanıcı arayüzü &quot;Notepad&quot; &apos;e benzerdir. GEdit gibi hafif, KWrite gibi kullanışlı özellikler sunmayı hedefler.</Description>
+            <Icon>leafpad</Icon>
+            <Archive type="targz" sha1sum="d13f585f3b2d9ea263102e1abb9fc688e3e5874a">http://savannah.nongnu.org/download/leafpad/leafpad-0.8.17.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
+            </BuildDependencies>
+            <SourceURI>editor/misc/leafpad/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>leafpad</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>cairo</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2009-11-03</Date>
+                <Version>0.8.17</Version>
+                <Comment>* Version bump.
+                * Fixed find dialog behaviour with GTK+ 2.18
+                * Fixed SEGV when config file is 0 byte
+                * Added translations: br, nn, sl, sr
+                * Updated translations: de, es, fr, id, lv, pl
+                * Added new dependencies
+                * Take over</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2008-11-27</Date>
+                <Version>0.8.16</Version>
+                <Comment>First Release</Comment>
+                <Name>Ceyhun Asılkazancı</Name>
+                <Email>ceyhunasilkazanci@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
