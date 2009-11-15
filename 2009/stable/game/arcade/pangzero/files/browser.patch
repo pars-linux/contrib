@@ -1,0 +1,32 @@
+--- ./bin/pangzero 2007-07-15 11:16:20.000000000 +0300
++++ ./bin/pangzero 2009-07-29 18:25:22.000000000 +0300
+@@ -346,7 +346,7 @@
+ $FullScreen = 1;
+ $UnicodeMode = 0;
+ $Slippery = 0;
+-$ShowWebsite = 0;
++$ShowWebsite = 1.3;
+ 
+ 
+ ##########################################################################
+@@ -4968,18 +4968,9 @@
+   my ($url) = @_;
+   
+   eval("SDL::Quit"); warn $@ if $@;
+-  if (&IsMicrosoftWindows()) {
+-    my $ws = "$DataDir/website.html";
+-    $ws =~ s/\//\\\\/g;
+-    exec 'cmd', '/c', $ws;
+-    exit;
+-  } elsif ($ENV{'DISPLAY'}) {
++  if ($ENV{'DISPLAY'}) {
+     my @tryCommands = (
+-      "gnome-open $url",
+-      "mozilla-firefox $url",
+-      "firefox $url",
+-      "mozilla $url",
+-      "konqueror $url",
++      "xdg-open $url",
+     );
+     foreach (@tryCommands) {
+       `$_`;
