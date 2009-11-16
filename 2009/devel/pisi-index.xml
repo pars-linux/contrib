@@ -271,8 +271,8 @@
             <Name>hedgewars</Name>
             <Homepage>http://www.hedgewars.org/</Homepage>
             <Packager>
-                <Name>Doruk Fişek</Name>
-                <Email>dfisek@fisek.com.tr</Email>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -970,12 +970,12 @@
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>game.kids</PartOf>
-            <Summary xml:lang="en">Typing tutor for children.</Summary>
+            <Summary xml:lang="en">Typing tutor for children</Summary>
             <Summary xml:lang="tr">Çocuklar için daktilo öğretmeni</Summary>
             <Description xml:lang="en">&quot;Tux Typing&quot; is an educational typing tutor for children. It features several different types of gameplay, at a variety of difficulty levels.</Description>
             <Description xml:lang="tr">&quot;Tux Typing&quot; çocuklar için eğitsel bir daktilo öğretmenidir. Çeşitli tipte ve zorluk düzeyinde oyunlar içerir.</Description>
             <Icon>tuxtype</Icon>
-            <Archive type="targz" sha1sum="dd8b3a21283c4bc0d4b34773ce330c32987c9774">http://alioth.debian.org/frs/download.php/3051/tuxtype_w_fonts-1.7.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="e33d8138b8f0907f228fe0105f6266408332d59d">http://alioth.debian.org/frs/download.php/3175/tuxtype_w_fonts-1.8.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>sdl-image</Dependency>
                 <Dependency>sdl-mixer</Dependency>
@@ -999,9 +999,21 @@
                 <Path fileType="data">/usr/share/tuxtype</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/var/lib/tuxtype</Path>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-11-15</Date>
+                <Version>1.8.0</Version>
+                <Comment>Version bump:
+             * Word list editor
+             * Much better background images and new music for the &quot;fish cascade&quot;
+             * Significantly expanded word lists, phrase list and lessons
+             * New translations</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-07-18</Date>
                 <Version>1.7.5</Version>
@@ -1355,6 +1367,58 @@
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>pangzero</Name>
+            <Homepage>http://apocalypse.rulez.org/pangzero</Homepage>
+            <Packager>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>game.arcade</PartOf>
+            <Summary xml:lang="en">A fast-paced action game</Summary>
+            <Summary xml:lang="tr">Bol koşuşturmacalı aksiyon oyunu</Summary>
+            <Description xml:lang="en">Pang Zero is a fast-paced action game that involves popping balloons with a harpoon.</Description>
+            <Description xml:lang="tr">Pang Zero düşen balonların bir zıpkınla patlatılmaya çalışıldığı bol koşuşturmacalı bir aksiyon oyunudur.</Description>
+            <Icon>pangzero</Icon>
+            <Archive type="targz" sha1sum="ccd8d64e36cbc48bb4c5d6c53a21d8f928a99297">mirrors://sourceforge/pangzero/pangzero-1.3.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>perl-SDL</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>browser.patch</Patch>
+            </Patches>
+            <SourceURI>game/arcade/pangzero/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pangzero</Name>
+            <RuntimeDependencies>
+                <Dependency>perl-SDL</Dependency>
+                <Dependency>xdg-utils</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/pangzero</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/pangzero.desktop" permission="0644" owner="root">pangzero.desktop</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-07-26</Date>
+                <Version>1.3</Version>
+                <Comment>First release</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -2796,6 +2860,52 @@
                 <Comment>First release.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gimp-gap</Name>
+            <Homepage>http://www.gimp.org/</Homepage>
+            <Packager>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>library</IsA>
+            <PartOf>multimedia.plugin</PartOf>
+            <Summary xml:lang="en">GIMP Animation Package</Summary>
+            <Summary xml:lang="tr">GIMP Animasyon Paketi</Summary>
+            <Description xml:lang="en">The GIMP-GAP is a collection of Plug-Ins to extend the GIMP with capabilities to edit and create animations as sequences of single frames.</Description>
+            <Description xml:lang="tr">GIMP&apos;e animasyon yapma ve düzenleme özellikleri kazandıran eklentiler bütünü.</Description>
+            <Archive type="tarbz2" sha1sum="5ce9b73de4c992bd2a527197847033e15eb2c346">ftp://ftp.gimp.org/pub/gimp/plug-ins/v2.6/gap/gimp-gap-2.6.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>gimp-devel</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>extern_libs.patch</Patch>
+            </Patches>
+            <SourceURI>multimedia/plugin/gimp-gap/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gimp-gap</Name>
+            <RuntimeDependencies>
+                <Dependency>gimp</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/gimp/2.0/plug-ins</Path>
+                <Path fileType="data">/usr/share/gimp</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-06-05</Date>
+                <Version>2.6.0</Version>
+                <Comment>First release</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
