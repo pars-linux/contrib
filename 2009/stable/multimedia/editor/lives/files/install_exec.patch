@@ -1,24 +1,24 @@
-diff -Naur lives-1.0.5.orig/Makefile.am lives-1.0.5/Makefile.am
---- lives-1.0.5.orig/Makefile.am	2009-11-06 14:53:59.199970778 +0200
-+++ lives-1.0.5/Makefile.am	2009-11-06 14:56:20.185970552 +0200
-@@ -68,7 +68,7 @@
+diff -ur lives-1.1.5/Makefile.am lives-1.1.5~/Makefile.am
+--- lives-1.1.5/Makefile.am	2009-11-12 10:34:28.552131422 +0200
++++ lives-1.1.5~/Makefile.am	2009-11-12 10:34:37.328381932 +0200
+@@ -69,7 +69,7 @@
  
  
  install-exec-hook:
 -	$(LN_S) $(DESTDIR)$(bindir)/lives-exe $(DESTDIR)$(bindir)/lives
-+# 	$(LN_S) $(DESTDIR)$(bindir)/lives-exe $(DESTDIR)$(bindir)/lives
++	$(LN_S) lives-exe $(DESTDIR)$(bindir)/lives
  
  
  
-diff -Naur lives-1.0.5.orig/Makefile.in lives-1.0.5/Makefile.in
---- lives-1.0.5.orig/Makefile.in	2009-11-06 14:53:59.170001604 +0200
-+++ lives-1.0.5/Makefile.in	2009-11-06 14:56:21.839970687 +0200
-@@ -780,7 +780,7 @@
+diff -ur lives-1.1.5/Makefile.in lives-1.1.5~/Makefile.in
+--- lives-1.1.5/Makefile.in	2009-10-27 15:53:18.000000000 +0200
++++ lives-1.1.5~/Makefile.in	2009-11-12 10:27:01.357382211 +0200
+@@ -820,7 +820,7 @@
  	$(top_srcdir)/po/update_with_plugins.sh install $(PACKAGE) $(prefix) $(DESTDIR)
  
  install-exec-hook:
 -	$(LN_S) $(DESTDIR)$(bindir)/lives-exe $(DESTDIR)$(bindir)/lives
-+# 	$(LN_S) $(DESTDIR)$(bindir)/lives-exe $(DESTDIR)$(bindir)/lives
++	$(LN_S) lives-exe $(DESTDIR)$(bindir)/lives
  
  uninstall-local:
  	rm -rf $(DESTDIR)$(bindir)/lives
