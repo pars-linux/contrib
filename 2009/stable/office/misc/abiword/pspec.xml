@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>abiword</Name>
+        <Homepage>http://www.abisource.com/</Homepage>
+        <Packager>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <IsA>app:gui</IsA>
+        <Summary>Fully featured yet light and fast cross platform word processor</Summary>
+        <Description>AbiWord is a free word processing program similar to Microsoft Word. It is suitable for a wide variety of word processing tasks.</Description>
+        <Archive sha1sum="fac4bb888a6426fc3fa3784c4ca500f417d9b7b5" type="targz">http://www.abisource.com/downloads/abiword/2.8.1/source/abiword-2.8.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>aspell</Dependency>
+            <Dependency>enchant</Dependency>
+            <Dependency>libglade</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>wv</Dependency>
+            <Dependency>fribidi</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>libgnomeui</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>abiword</Name>
+        <RuntimeDependencies>
+            <Dependency>aspell</Dependency>
+            <Dependency>enchant</Dependency>
+            <Dependency>libglade</Dependency>
+            <Dependency>libgnomeprintui</Dependency>
+            <Dependency>wv</Dependency>
+            <Dependency>fribidi</Dependency>
+            <Dependency>imagemagick</Dependency>
+            <Dependency>libgnomeui</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/abiword-2.8</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/mime-info</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="7">
+            <Date>2009-11-18</Date>
+            <Version>2.8.1</Version>
+            <Comment>Make the package ready for Pardus 2009:
+                - Version bump to 2.8.1. See ChangeLog for details.
+                - autoreconf before configuring.
+                - Add --disable static parameter to configure.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="6">
+            <Date>2009-03-22</Date>
+            <Version>2.6.8</Version>
+            <Comment>* Description tag is added.
+                * Remove unrecognised configure options: with-fribidi and enable-scripting.
+                * Version bump:
+            # Fix the auto-save feature to actually work and respect the user-selected time interval.
+            # Properly export table border and cell styles for OpenDocument documents.
+            # Make sure the Office Open XML exporter writes out valid documents.
+            # Fix a great number of memory leaks.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="5">
+            <Date>2009-03-01</Date>
+            <Version>2.6.6</Version>
+            <Comment>Version bump:
+            # Fix a bug that caused scrolling in the opposite direction when scrolling quickly on Unix platforms.
+            # Fix a bug which caused the Office Open XML exporter to conflict with other exporters.
+            # Various tweaks to the OpenDocument importer.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>dalgic.srdr@gmail.com</Email>
+        </Update>
+        <Update release="4">
+            <Date>2008-12-19</Date>
+            <Version>2.6.5</Version>
+            <Comment>This release includes the following changes (and more!):
+            # Added our first iteraton of an Office Open XML filter. Features supported are: formatted text, formatted paragraphs, page breaks, columns, tab stops, footnotes, endnotes, headers/footers, fields, images, hyperlinks, bookmarks, lists, tables, and text boxes.
+            # Vastly improved LaTeX export filter, which even supports exporting equations now.
+            # Fixed a couple of annoying crashes in the GTK frontend, for example when overwriting a file or inserting a symbol.
+            # Fixed a bug that prevented the correct shaping of glyphs for complex scripts such as Arabic.
+            The full changelog can be found at http://www.abisource.com/changelogs/2.6.5.phtml
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2008-10-26</Date>
+            <Version>2.6.4</Version>
+            <Comment>Added missing dependency libgnomeui.</Comment>
+            <Name>Tim Miller</Name>
+            <Email>dev@lashni.net</Email>
+        </Update>
+        <Update release="2">
+            <Date>2008-09-14</Date>
+            <Version>2.6.4</Version>
+            <Comment>Version Bump, remove unnecessary dependencies, add some functionalities and package takeover.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@cclub.metu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2007-02-11</Date>
+            <Version>2.4.6</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
