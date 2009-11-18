@@ -10,6 +10,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.autoreconf("-vfi")
     autotools.configure("--disable-static \
                          --disable-dependency-tracking")
 
