@@ -9,7 +9,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--with-x \
+    autotools.autoreconf()
+    autotools.configure("--disable-static \
+                                  --with-x \
                                   --with-ImageMagick \
                                   --with-libxml2 \
                                   --with-zlib \
@@ -24,4 +26,3 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("docs/Abi*", "docs/NonLatin1UnixLocales.abw")

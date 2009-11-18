@@ -12,12 +12,12 @@
         <IsA>app:gui</IsA>
         <Summary>Fully featured yet light and fast cross platform word processor</Summary>
         <Description>AbiWord is a free word processing program similar to Microsoft Word. It is suitable for a wide variety of word processing tasks.</Description>
-        <Archive sha1sum="fc979982edc3445385705afdb1e2ebb1fa53a4f6" type="targz">http://www.abisource.com/downloads/abiword/2.6.8/source/abiword-2.6.8.tar.gz</Archive>
+        <Archive sha1sum="fac4bb888a6426fc3fa3784c4ca500f417d9b7b5" type="targz">http://www.abisource.com/downloads/abiword/2.8.1/source/abiword-2.8.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>aspell</Dependency>
             <Dependency>enchant</Dependency>
             <Dependency>libglade</Dependency>
-            <!--Dependency>libgnomeprintui</Dependency-->
+            <Dependency>libgnomeprintui</Dependency>
             <Dependency>wv</Dependency>
             <Dependency>fribidi</Dependency>
             <Dependency>imagemagick</Dependency>
@@ -31,7 +31,7 @@
             <Dependency>aspell</Dependency>
             <Dependency>enchant</Dependency>
             <Dependency>libglade</Dependency>
-            <!--Dependency>libgnomeprintui</Dependency-->
+            <Dependency>libgnomeprintui</Dependency>
             <Dependency>wv</Dependency>
             <Dependency>fribidi</Dependency>
             <Dependency>imagemagick</Dependency>
@@ -42,7 +42,7 @@
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share/abiword-2.6</Path>
+            <Path fileType="data">/usr/share/abiword-2.8</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/mime-info</Path>
@@ -51,9 +51,13 @@
 
     <History>
         <Update release="7">
-            <Date>2009-07-18</Date>
-            <Version>2.6.8</Version>
-            <Comment>Make the package ready for Pardus 2009. For now, it is not ready, waiting some dependencies.</Comment>
+            <Date>2009-11-18</Date>
+            <Version>2.8.1</Version>
+            <Comment>Make the package ready for Pardus 2009:
+                - Version bump to 2.8.1. See ChangeLog for details.
+                - autoreconf before configuring.
+                - Add --disable static parameter to configure.
+            </Comment>
             <Name>Serdar Dalgıç</Name>
             <Email>dalgic.srdr@gmail.com</Email>
         </Update>
