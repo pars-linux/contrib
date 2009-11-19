@@ -14554,8 +14554,8 @@
             <Name>fatrat</Name>
             <Homepage>http://fatrat.dolezel.info</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -14565,7 +14565,7 @@
             <Description xml:lang="en">FatRat is a download manager that supports multi protocols like sftp, torrent, http, rss feed support etc.</Description>
             <Description xml:lang="tr">FatRat, Torrent, HTTP, RSS besleyicisi gibi protokolleri destekleyen çok işlevli bir indirme yöneticisidir.</Description>
             <Icon>fatrat</Icon>
-            <Archive type="tarbz2" sha1sum="37c806f71ad16c05be2901a2295108b2818afa6e">ftp://ftp.sudrap.org/mnurolcay/source/fatrat-1.1_20090705.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="431fa919e2a1bf4eb4afa7a40dd821da016eba43">ftp://ftp.sudrap.org/gkmngrgn/fatrat/fatrat-1.1_20090902.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>libtorrent</Dependency>
@@ -14593,6 +14593,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-09-02</Date>
+                <Version>1.1_20090902</Version>
+                <Comment>* Update to latest git from 1.1 branch.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-07-05</Date>
                 <Version>1.1_20090705</Version>
@@ -22043,7 +22050,7 @@
             <Summary xml:lang="tr">Grep komutu benzeri metin bulma uygulaması</Summary>
             <Description xml:lang="en">Ack is a grep-like tool tailored to working with large trees of sourcecode.</Description>
             <Description xml:lang="tr">Ack, grep gibi çalışan ve kod üzerinde ağaç yapısı şeklinde de gösterim alabileceğiniz bir metin bulma uygulamasıdır.</Description>
-            <Archive type="targz" sha1sum="3e257fc29e8cc07231a933887183c7c45ec9406c">mirrors://cpan/authors/id/P/PE/PETDANCE/ack-1.88.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b329657754e34cc1aa51a2769ae081fca8183f53">mirrors://cpan/authors/id/P/PE/PETDANCE/ack-1.90.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>perl-File-Next</Dependency>
             </BuildDependencies>
@@ -22057,11 +22064,18 @@
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="doc">/usr/share/doc/ack</Path>
                 <Path fileType="man">/usr/share/man</Path>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-11-18</Date>
+                <Version>1.90</Version>
+                <Comment>Version bump. See Changes file for details.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-08-15</Date>
                 <Version>1.88</Version>
@@ -31598,11 +31612,12 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Hızlı ve her sistemde çalışabilen bir kelime işlemci</Summary>
             <Description xml:lang="en">AbiWord is a free word processing program similar to Microsoft Word. It is suitable for a wide variety of word processing tasks.</Description>
             <Description xml:lang="tr">AbiWord, Microsoft Word&apos;e benzeyen özgür bir kelime işleme programıdır. Geniş bir çeşitlilikte kelime işleme görevlerini yerine getirmek için uygun bir programdır.</Description>
-            <Archive type="targz" sha1sum="fc979982edc3445385705afdb1e2ebb1fa53a4f6">http://www.abisource.com/downloads/abiword/2.6.8/source/abiword-2.6.8.tar.gz</Archive>
+            <Archive type="targz" sha1sum="fac4bb888a6426fc3fa3784c4ca500f417d9b7b5">http://www.abisource.com/downloads/abiword/2.8.1/source/abiword-2.8.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
                 <Dependency>libglade</Dependency>
+                <Dependency>libgnomeprintui</Dependency>
                 <Dependency>wv</Dependency>
                 <Dependency>fribidi</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -31616,6 +31631,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
                 <Dependency>libglade</Dependency>
+                <Dependency>libgnomeprintui</Dependency>
                 <Dependency>wv</Dependency>
                 <Dependency>fribidi</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -31626,7 +31642,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/abiword-2.6</Path>
+                <Path fileType="data">/usr/share/abiword-2.8</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/mime-info</Path>
@@ -31634,9 +31650,12 @@ supported DAQ cards, such as those from National Instruments.</Description>
         </Package>
         <History>
             <Update release="7">
-                <Date>2009-07-18</Date>
-                <Version>2.6.8</Version>
-                <Comment>Make the package ready for Pardus 2009. For now, it is not ready, waiting some dependencies.</Comment>
+                <Date>2009-11-18</Date>
+                <Version>2.8.1</Version>
+                <Comment>Make the package ready for Pardus 2009:
+                - Version bump to 2.8.1. See ChangeLog for details.
+                - autoreconf before configuring.
+                - Add --disable static parameter to configure.</Comment>
                 <Name>Serdar Dalgıç</Name>
                 <Email>dalgic.srdr@gmail.com</Email>
             </Update>
@@ -62719,7 +62738,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">C++ library for symbolic mathematical calculations.</Summary>
             <Summary xml:lang="tr">Matematiksel hesaplamalar için C++ kütüphanesi.</Summary>
             <Description xml:lang="en">GiNaC (which stands for &quot;GiNaC is Not a CAS&quot; (computer algebra system)) is a C++ library for symbolic mathematical calculations.</Description>
-            <Archive type="tarbz2" sha1sum="a2dc144729d4e57ee40bf0ea4ffde8c2e0d7f5f9">http://www.ginac.de/ginac-1.5.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="cf3b18dc7f8a787821b80ab0411314c015bff84f">http://www.ginac.de/ginac-1.5.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>cln</Dependency>
                 <Dependency>doxygen</Dependency>
@@ -62754,6 +62773,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-11-18</Date>
+                <Version>1.5.5</Version>
+                <Comment>- Version bump.
+                - autoreconf before configuring.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-08-15</Date>
                 <Version>1.5.3</Version>
@@ -63348,6 +63375,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-11-18</Date>
+                <Version>2.0.10</Version>
+                <Comment>Update for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-09-29</Date>
                 <Version>2.0.10</Version>
