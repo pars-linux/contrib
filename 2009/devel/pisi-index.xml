@@ -7276,7 +7276,7 @@
                 <Dependency>libsdl</Dependency>
                 <Dependency>imlib2</Dependency>
                 <Dependency>libmodplug</Dependency>
-                <Dependency>uade</Dependency>
+                <Dependency versionFrom="2.13">uade</Dependency>
                 <Dependency>libbinio</Dependency>
                 <Dependency>libsndfile</Dependency>
                 <Dependency>libcddb</Dependency>
@@ -7317,7 +7317,7 @@
                 <Dependency>libsdl</Dependency>
                 <Dependency>imlib2</Dependency>
                 <Dependency>libmodplug</Dependency>
-                <Dependency>uade</Dependency>
+                <Dependency versionFrom="2.13">uade</Dependency>
                 <Dependency>libbinio</Dependency>
                 <Dependency>libsndfile</Dependency>
                 <Dependency>libcddb</Dependency>
@@ -7336,6 +7336,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="26">
+                <Date>2009-11-19</Date>
+                <Version>2.1</Version>
+                <Comment>Add strict dependency for uade 2.13, it&apos;s needed for releated audacious plugin</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="25">
                 <Date>2009-07-09</Date>
                 <Version>2.1</Version>
@@ -7640,7 +7647,7 @@
             <PartOf>multimedia.sound</PartOf>
             <Summary xml:lang="en">Unix Amiga Delitracker Emulator</Summary>
             <Description xml:lang="en">UADE, plays old Amiga tunes through UAE emulation and cloned m68k-assembler Eagleplayer API</Description>
-            <Archive type="tarbz2" sha1sum="799eab82fa984c735bbed179c03190e5249a58ab">http://zakalwe.fi/uade/uade2/uade-2.12.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="61c5ce9dfecc37addf233de06be196c9b15a91d8">http://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libao</Dependency>
             </BuildDependencies>
@@ -7664,6 +7671,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-11-19</Date>
+                <Version>2.13</Version>
+                <Comment>Stable bump, it&apos;s audacious 2.1 compatible now</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-06-22</Date>
                 <Version>2.12</Version>
@@ -29738,7 +29752,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">GCstar is a free open source application for managing your collections. Detailed information on each item can be automatically retrieved from the internet and you can store additional data, such as the location or who you&apos;ve lent it to. You may also search and filter your collection by many criteria.</Description>
             <Description xml:lang="tr">Gcstar, koleksiyonlarınızı yönetebileceğiniz açık kaynaklı bir uygulamadır. Film, oyun, kitap ve müzik koleksiyonlarınız hakkında gerekli bilgileri internetten alabileceğiniz gibi, bazı ek bilgileri kendiniz de girebilirsiniz. Ayrıca çeşitli seçeneklerle filtreleme de yapabilirsiniz.</Description>
             <Icon>gcstar</Icon>
-            <Archive type="targz" sha1sum="06811f486efd2446320864a6172266faa22a2fac">http://download.gna.org/gcstar/gcstar-1.5.0.beta1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="073ad5872cbf79ccd7dab977013aa97e0d08c4aa">http://download.gna.org/gcstar/gcstar-1.5.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>perl-Gtk2</Dependency>
                 <Dependency>perl-XML-Simple</Dependency>
@@ -29771,6 +29785,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Path fileType="data">/usr/share/gcstar</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/mime</Path>
                 <Path fileType="data">/usr/share/mimelnk</Path>
                 <Path fileType="library">/usr/lib</Path>
@@ -29782,6 +29797,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-11-20</Date>
+                <Version>1.5.0</Version>
+                <Comment>Bump to latest stable</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-07-26</Date>
                 <Version>1.5.0_beta1</Version>
@@ -29940,7 +29962,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">Diagramming tool</Summary>
             <Summary xml:lang="tr">Diyagram Çizme Aracı</Summary>
             <Description xml:lang="en">Dia is an editor for semi-structured diagrams like UML, ER, flowcharts etc, somewhat inspired by Visio.</Description>
-            <Description xml:lang="tr">Dia, Visio&apos;dan esinlenilerek geliştirilmiş, UML, ER ve akış şeması gibi yarı yapılandırılmış diyagramlar çizmek için bir editördür.</Description>
+            <Description xml:lang="tr">Dia, Visio&apos;dan esinlenilerek geliştirilmiş, UML, ER ve akış şeması gibi yarı yapılandırılmış diyagramlar çizmek için kullanılan bir editördür.</Description>
             <Archive type="tarbz2" sha1sum="1c5a727e9e4f59b823a4616fc881055006eb8b96">mirrors://gnome/dia/0.97/dia-0.97.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libart_lgpl</Dependency>
@@ -29952,12 +29974,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">fix-underlinking.patch</Patch>
+                <Patch level="1">dia-0.96.1-pythonpath.patch</Patch>
             </Patches>
             <SourceURI>office/misc/dia/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>dia</Name>
             <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>fontconfig</Dependency>
                 <Dependency>libart_lgpl</Dependency>
                 <Dependency>pygtk</Dependency>
             </RuntimeDependencies>
@@ -29970,6 +29997,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-11-19</Date>
+                <Version>0.97</Version>
+                <Comment>* Make the package ready for Pardus 2009 with various patches.
+               * Reorganize the dependencies</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>dalgic.srdr@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-08-21</Date>
                 <Version>0.97</Version>
