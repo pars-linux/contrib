@@ -17,4 +17,7 @@ def install():
     pisitools.insinto("/usr/share/pixmaps", "share/gcstar/icons/gcstar_64x64.png", "gcstar.png")
     pisitools.insinto("/usr/share/mime/packages", "share/applications/gcstar.xml")
 
+    for i in("16", "22", "24", "32", "36", "48", "64", "72", "96", "128", "192", "256"):
+        pisitools.insinto("/usr/share/icons/hicolor/%sx%s/apps/" %(i,i), "share/gcstar/icons/gcstar_%sx%s.png" %(i,i), "gcstar.png")
+
     pisitools.dodoc("CHANGELOG", "README", "LICENSE")
