@@ -11,7 +11,7 @@ from pisi.actionsapi import get
 WorkDir="%s" % get.srcNAME()
 
 def install():
-    shelltools.system("./install --prefix=%s/usr --noclean --nomenu" % get.installDIR())
+    shelltools.system("./install --prefix=%s/usr --noclean --nomenu --verbose" % get.installDIR())
 
     pisitools.insinto("/usr/share/applications", "share/applications/gcstar.desktop")
     pisitools.insinto("/usr/share/pixmaps", "share/gcstar/icons/gcstar_64x64.png", "gcstar.png")
