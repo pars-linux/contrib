@@ -20,7 +20,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    # remove empty dir
-    pisitools.removeDir("/usr/share/icons/hicolor/16x16")
-
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
