@@ -12,7 +12,7 @@
         <IsA>app:gui</IsA>
         <Summary>Volume manager for Xfce</Summary>
         <Description>This daemon is responsible of making the volume up / down and mute keys of the keyboard work automatically, and uses the Xfce 4 mixer's card setting for chosing which card to act on. It also provides volume change / mute toggle notifications if the notification server used supports x-canonical-icon-only and x-canonical-synchronous notifications.</Description>
-        <Archive sha1sum="3682d965e4904a78b7aba3bb576b77f716dd65bf" type="tarbz2">http://archive.xfce.org/src/apps/xfce4-volumed/0.1/xfce4-volumed-0.1.7.tar.bz2</Archive>
+        <Archive sha1sum="7b2c3fea094fab01b4f33916273d82a752e7d89f" type="tarbz2">http://archive.xfce.org/src/apps/xfce4-volumed/0.1/xfce4-volumed-0.1.8.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xfconf-devel</Dependency>
             <Dependency>libnotify</Dependency>
@@ -42,6 +42,21 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-11-24</Date>
+            <Version>0.1.8</Version>
+            <Comment>
+                * Version bump:
+                - Use xfce4-dev-tools.
+                - Now show the actual current volume with a mute icon when muting the v$.
+                - Make sure the desktop file uses the correct prefix for its Exec value.
+                - Fix a bug with sound cards without device names.
+                - Use the low volume icon when volume is 0%, instead of the muted one.
+                - Prevent a crash if there is no XF86Volume key on the system.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2009-11-07</Date>
             <Version>0.1.7</Version>
