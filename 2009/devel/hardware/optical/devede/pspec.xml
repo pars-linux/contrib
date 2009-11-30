@@ -13,14 +13,16 @@
         <IsA>app:gui</IsA>
         <Summary>DVD and CD Video Creator</Summary>
         <Description>DeVeDe is a program to create video DVDs and CDs (VCD, sVCD or CVD)</Description>
-        <Archive sha1sum="6533cc314f9194b5bee03cec1b592d3d1dd86bd4" type="tarbz2">http://www.rastersoft.com/descargas/devede-3.13.1.tar.bz2</Archive>
+        <Archive sha1sum="ef66a5d5437fd7d2ad07b76273badef2d69c971a" type="tarbz2">http://www.rastersoft.com/descargas/devede-3.15.0.tar.bz2</Archive>
         <BuildDependencies>
+            <Dependency>gtk2</Dependency>
             <Dependency>pygtk</Dependency>
             <Dependency>mplayer</Dependency>
             <Dependency>dvdauthor</Dependency>
             <Dependency>vcdimager</Dependency>
             <Dependency>psyco</Dependency>
             <Dependency>cdrtools</Dependency>
+            <Dependency>dejavu-fonts</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop.patch</Patch>
@@ -30,12 +32,14 @@
     <Package>
         <Name>devede</Name>
         <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
             <Dependency>pygtk</Dependency>
             <Dependency>mplayer</Dependency>
             <Dependency>dvdauthor</Dependency>
             <Dependency>vcdimager</Dependency>
             <Dependency>psyco</Dependency>
             <Dependency>cdrtools</Dependency>
+            <Dependency>dejavu-fonts</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -49,6 +53,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2009-11-30</Date>
+            <Version>3.15.0</Version>
+            <Comment>Version Bump.Add dep gtk2, dejavu-fonts</Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2009-06-05</Date>
             <Version>3.13.1</Version>
