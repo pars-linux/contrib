@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>vuze</Name>
+        <Homepage>http://www.vuze.com</Homepage>
+        <Packager>
+            <Name>Renan Cakirerk</Name>
+            <Email>renan@pardus.org.tr</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>vuze</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>One of the most powerful BitTorrent clients.</Summary>
+        <Description>One of the most powerful BitTorrent clients with an excellent user interface.</Description>
+        <Archive sha1sum="e3b7fd0ec425a29efc0db66deace9bfa164efe83" type="tarbz2">http://cache2.vuze.com/files/Vuze_Installer.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>sun-jre</Dependency>
+            <Dependency>xulrunner</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>vuze</Name>
+        <RuntimeDependencies>
+            <Dependency versionFrom="1.9.0.15">xulrunner</Dependency>
+            <Dependency versionFrom="1.6.0_p15">sun-jre</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/opt/vuze</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+        <AdditionalFiles>
+            <AdditionalFile target="/usr/bin/vuze" owner="root" permission="0755">vuze</AdditionalFile>
+            <AdditionalFile target="/usr/share/applications/vuze.desktop" owner="root" permission="0644">vuze.desktop</AdditionalFile>
+        </AdditionalFiles>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-11-30</Date>
+            <Version>4.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Renan Cakirerk</Name>
+            <Email>renan@pardus.org.tr</Email>
+        </Update>
+    </History>
+</PISI>
+
