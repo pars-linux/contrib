@@ -9,17 +9,22 @@
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <License>LGPLv2.1</License>
         <Icon>fatrat</Icon>
         <IsA>app:gui</IsA>
         <Summary>Multi protocol download manager</Summary>
         <Description>FatRat is a download manager that supports multi protocols like sftp, torrent, http, rss feed support etc.</Description>
-        <Archive sha1sum="431fa919e2a1bf4eb4afa7a40dd821da016eba43" type="tarbz2">ftp://ftp.sudrap.org/gkmngrgn/fatrat/fatrat-1.1_20090902.tar.bz2</Archive>
+        <Archive sha1sum="5d31cadf237186f6edd1417444c7cd4393f66eb0" type="targz">http://www.dolezel.info/download/data/fatrat/fatrat-1.1.1.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>qt</Dependency>
             <Dependency>libtorrent</Dependency>
             <Dependency>gloox</Dependency>
             <Dependency>boost-devel</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">desktop.patch</Patch>
+            <Patch level="1">dont_install_docs.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -33,15 +38,27 @@
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/fatrat</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="localedata">/usr/share/fatrat/lang</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/fatrat.desktop">fatrat.desktop</AdditionalFile>
-        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2009-12-02</Date>
+            <Version>1.1.1</Version>
+            <Comment>Stable bump:
+                - Fix doc dir and file paths, drop redundant desktop file
+                - Add LGPL license for 3rd party files in the tarball
+                - Enable CURL to use HTTP(S)/FTP
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-09-02</Date>
             <Version>1.1_20090902</Version>
