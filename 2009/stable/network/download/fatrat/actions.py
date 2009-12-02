@@ -8,14 +8,13 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir="fatrat"
-
 def setup():
     cmaketools.configure("-DWITH_NLS=ON \
                           -DWITH_JABBER=ON \
-                          -DWITH_SFTP=ON \
                           -DWITH_WEBINTERFACE=ON \
-                          -DWITH_BITTORRENT=ON")
+                          -DWITH_BITTORRENT=ON \
+                          -DWITH_CURL=ON \
+                          -DWITH_WEBINTERFACE=ON")
 
 def build():
     cmaketools.make()
@@ -25,4 +24,5 @@ def install():
 
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
+    pisitools.dodoc("AUTHORS", "LICENSE", "README", "TRANSLATIONS")
     pisitools.dohtml("doc/*")
