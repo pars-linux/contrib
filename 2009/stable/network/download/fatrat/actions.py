@@ -13,8 +13,7 @@ def setup():
                           -DWITH_JABBER=ON \
                           -DWITH_WEBINTERFACE=ON \
                           -DWITH_BITTORRENT=ON \
-                          -DWITH_CURL=ON \
-                          -DWITH_WEBINTERFACE=ON")
+                          -DWITH_CURL=ON")
 
 def build():
     cmaketools.make()
