@@ -8,8 +8,6 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
-WorkDir="KGmailNotifier"
-
 def setup():
     cmaketools.configure(installPrefix="/usr/kde/4", sourceDir=".")
 
