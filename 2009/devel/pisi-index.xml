@@ -29660,6 +29660,96 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>openbox</Name>
+            <Homepage>http://icculus.org/openbox</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>x11.wm</PartOf>
+            <Summary xml:lang="en">A standarts compliant, fast, lightweight window manager</Summary>
+            <Summary xml:lang="tr">Standartlara uygun, hızlı, hafif bir pencere yöneticisi</Summary>
+            <Description xml:lang="en">Openbox is a window manager for the X11 windowing system.</Description>
+            <Description xml:lang="tr">Openbox, X11 pencere sistemi için pencere yöneticisidir. </Description>
+            <Archive type="targz" sha1sum="f34c3ec43b7e39bf57d64dbef97c35b68fea5254">http://icculus.org/openbox/releases/openbox-3.4.7.2.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>xorg-server-devel</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libXft</Dependency>
+                <Dependency>libXrandr</Dependency>
+                <Dependency>libXt</Dependency>
+                <Dependency>startup-notification</Dependency>
+                <Dependency>libXinerama</Dependency>
+                <Dependency>libXext</Dependency>
+                <Dependency>libXcursor</Dependency>
+            </BuildDependencies>
+            <SourceURI>x11/wm/openbox/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>openbox</Name>
+            <RuntimeDependencies>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>libXft</Dependency>
+                <Dependency>libXrandr</Dependency>
+                <Dependency>libXt</Dependency>
+                <Dependency>startup-notification</Dependency>
+                <Dependency>libXinerama</Dependency>
+                <Dependency>libXext</Dependency>
+                <Dependency>libXcursor</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="config">/etc/xdg/openbox</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="4">
+                <Date>2009-11-15</Date>
+                <Version>3.4.7.2</Version>
+                <Comment>* Purged unused direct dependencies
+                * Remove libxml2 dependency
+                * add new dependencies
+                * Take over</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+            <Update release="3">
+                <Date>2008-05-08</Date>
+                <Version>3.4.7.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
+            <Update release="2">
+                <Date>2008-04-17</Date>
+                <Version>3.4.7.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-09-27</Date>
+                <Version>3.4.6.1</Version>
+                <Comment>First release</Comment>
+                <Name>Kenan Pelit</Name>
+                <Email>kpelit@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>calcurse</Name>
             <Homepage>http://culot.org/calcurse/</Homepage>
             <Packager>
