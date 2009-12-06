@@ -11,4 +11,4 @@ from pisi.actionsapi import get
 WorkDir = "devede-%s" % get.srcVERSION()
 
 def install():
-    shelltools.system("sh install.sh prefix=/usr uninstall=no targeted=yes DESTDIR=%s" % get.installDIR())
+    shelltools.system("sh install.sh prefix=/usr libdir=/usr/lib uninstall=no targeted=yes DESTDIR=%s" % get.installDIR())
