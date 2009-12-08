@@ -14,6 +14,9 @@
         <Summary>A small, fast, and powerful GMail checker using ATOM feeds</Summary>
         <Description>A tray app that checks your GMail account via ATOM feeds and alerts you when new messages arrive. Allows you to preview and perform basic tasks (open, archive, report spam, delete, etc) on messages directly from the alert. Supports password encryption</Description>
         <Archive sha1sum="d4b928838746975608803a79c258872b0dc8ccf9" type="tarbz2">mirrors://sourceforge/checkgmail/checkgmail-1.13.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency versionFrom="5.10.1">perl</Dependency>
+        </BuildDependencies>
         <Patches>
             <Patch>checkgmail_revert.patch</Patch>
         </Patches>
@@ -22,6 +25,7 @@
     <Package>
         <Name>checkgmail</Name>
         <RuntimeDependencies>
+            <Dependency versionFrom="5.10.1">perl</Dependency>
             <Dependency>perl-Crypt-SSLeay</Dependency>
             <Dependency>perl-XML-Simple</Dependency>
             <Dependency>perl-XML-SAX</Dependency>
@@ -45,6 +49,13 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2009-12-08</Date>
+            <Version>1.13</Version>
+            <Comment>Depend on new perl.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="4">
             <Date>2009-12-01</Date>
             <Version>1.13</Version>
