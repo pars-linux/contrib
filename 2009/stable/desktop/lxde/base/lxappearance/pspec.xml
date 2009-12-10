@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lxappearance</Name>
+        <Homepage>http://lxde.org</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>lxappearance</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>A new feature-rich GTK+ theme switcher</Summary>
+        <Description>LXAppearance is a new GTK+ theme switcher developed for project LXDE.</Description>
+        <Archive sha1sum="d8d5c1d57e6c31813e5a798d3bcd5114898bf322" type="targz">mirrors://sourceforge/lxde/lxappearance-0.2.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>atk</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch level="1">lxappearance-0.2.1-intltool.patch</Patch>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lxappearance</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+            <Dependency>atk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/lxappearance</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-10-01</Date>
+            <Version>0.2.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
