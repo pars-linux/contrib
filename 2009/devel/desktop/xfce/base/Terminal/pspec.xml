@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Terminal for Xfce</Summary>
         <Description>Terminal is a modern, lightweight, and low memory cost terminal emulator with tabs and multiple windows for the Xfce desktop environment. It offers full-customization for the key bindings, the aspect, the colors, and more.</Description>
-        <Archive sha1sum="bf4510e331284d7f68ba193fe1d6f2e57b7815bb" type="tarbz2">http://archive.xfce.org/src/apps/terminal/0.4/Terminal-0.4.2.tar.bz2</Archive>
+        <Archive sha1sum="fb146cc20739f8053a7fc45d9feb3bd9d8402f1f" type="tarbz2">http://archive.xfce.org/src/apps/terminal/0.4/Terminal-0.4.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>exo-devel</Dependency>
             <Dependency>libxfce4util-devel</Dependency>
@@ -48,10 +48,25 @@
             <Path fileType="data">/usr/share/Terminal</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="data">/usr/share/gnome-control-center</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="20">
+            <Date>2009-11-10</Date>
+            <Version>0.4.3</Version>
+            <Comment>
+                * Version bump:
+                - Fix invalid XML in ca and ja doc translations
+                - Make sure we list in the correct directory
+                - Updates to Italian (it) translation
+                - Improve the D-Bus code a bit
+                - Fix double unref in dbus code
+            </Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
         <Update release="19">
             <Date>2009-10-06</Date>
             <Version>0.4.2</Version>
