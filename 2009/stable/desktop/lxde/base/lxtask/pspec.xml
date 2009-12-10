@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lxtask</Name>
+        <Homepage>http://wiki.lxde.org/en/LXTask</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>lxtask</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>LXDE Task manager</Summary>
+        <Description>Lxtask is a lightweight and desktop independent task manager</Description>
+        <Archive sha1sum="213aed1a8673744ec84ae3e59cce33ae2d5b6130" type="targz">mirrors://sourceforge/lxde/lxtask-0.1.1.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>desktop.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>lxtask</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>desktop-file-utils</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-10-01</Date>
+            <Version>0.1.1</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
