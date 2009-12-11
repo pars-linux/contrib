@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>pcmanfm</Name>
+        <Homepage>http://pcmanfm.sourceforge.net</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>pcmanfm</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>PCMan File Manager</Summary>
+        <Description>PCMan File Manager is an extremly fast and lightweight file manager for LXDE.</Description>
+        <Archive sha1sum="4ede3e1cd774a5f789523af102f624d08088d511" type="tarbz2">http://ovh.dl.sourceforge.net/sourceforge/pcmanfm/pcmanfm-0.5.2.tar.bz2</Archive>
+        <BuildDependencies>
+            <Dependency>hal</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>shared-mime-info</Dependency>
+            <Dependency>gamin</Dependency>
+            <Dependency>startup-notification</Dependency>
+        </BuildDependencies>
+        <Patches>
+            <Patch>pcmanfm-0.5.2-fix-ca-trans.patch</Patch>
+            <Patch>pcmanfm-0.5-fix-str-fmt.patch</Patch>
+        </Patches>
+    </Source>
+
+    <Package>
+        <Name>pcmanfm</Name>
+        <RuntimeDependencies>
+            <Dependency>hal</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>shared-mime-info</Dependency>
+            <Dependency>gamin</Dependency>
+            <Dependency>startup-notification</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pcmanfm</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-11-02</Date>
+            <Version>0.5.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
