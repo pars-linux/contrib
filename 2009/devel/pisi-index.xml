@@ -4698,18 +4698,20 @@
     <SpecFile>
         <Source>
             <Name>asunder</Name>
-            <Homepage>http://littlesvr.ca/asunder/</Homepage>
+            <Homepage>http://littlesvr.ca/asunder</Homepage>
             <Packager>
                 <Name>Michael Austin</Name>
                 <Email>tuxedup@gmx.co.uk</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>GPLv2+</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.sound</PartOf>
-            <Summary xml:lang="en">CD Audio extractor</Summary>
-            <Summary xml:lang="tr">Ses CD&apos;si dönüştürücü ve kodlayıcısı</Summary>
+            <Summary xml:lang="en">GTK+ based audio CD ripper and encoder</Summary>
+            <Summary xml:lang="tr">GTK+ tabanlı Ses CD&apos;si dönüştürücü ve kodlayıcısı</Summary>
+            <Description>Asunder Ses CD&apos;lerini dönüştürmek ve kodlamak için kullanabileceğiniz grafik arayüzlü bir uygulamadır. Ses dosyalarını, WAV, MP3, OGG, FLAC, WavPack, Musepack, AAC, veya Monkey&apos;s Audio formatlarına dönüştürüp kaydedebilirsiniz.</Description>
+            <Description xml:lang="en">Asunder is a graphical Audio CD ripper and encoder for Linux. You can use it to save tracks from an Audio CD as any of WAV, MP3, OGG, FLAC, WavPack, Musepack, AAC, and Monkey&apos;s Audio files.</Description>
             <Icon>asunder</Icon>
-            <Archive type="tarbz2" sha1sum="898f7fd0440b0bc1f974946a7d76bb7bd01ed238">http://littlesvr.ca/asunder/releases/asunder-1.6.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="36c4b0eb881f6fa3feaf1a157c693c9121564eca">http://littlesvr.ca/asunder/releases/asunder-1.9.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>libcddb</Dependency>
@@ -4734,14 +4736,20 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/libexec</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-12-19</Date>
+                <Version>1.9.1</Version>
+                <Comment>Version bump, add Description and better Summary, fix paths</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-01-06</Date>
                 <Version>1.6.2</Version>
@@ -5841,7 +5849,7 @@
             <Description xml:lang="en">Qmmp is an audio-player, written with Qt library. It&apos;s similar to Winamp or Xmms. Also supports Xmms and Winamp skins. qmmp-skins package in Contrib repository is recommended, too.</Description>
             <Description xml:lang="tr">Qmmp Qt tabanlı bir müzik oynatıcısıdır. Xmms ve Winamp temalarını destekler. Ayrıca Contrib deposunda bulunan ve Pardus&apos;a özel temalar da içeren qmmp-skins paketini de kurmanız önerilir.</Description>
             <Icon>qmmp</Icon>
-            <Archive type="tarbz2" sha1sum="3bbe00daa0227e64d97f797002ffff49b27e01a0">http://qmmp.ylsoftware.com/files/qmmp-0.3.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="1cc604bd89a7b26fe248d31ed1cd3a668f303ab1">http://qmmp.ylsoftware.com/files/qmmp-0.3.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>libsamplerate</Dependency>
@@ -5861,9 +5869,6 @@
                 <Dependency>libmpcdec</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">tr.patch</Patch>
-            </Patches>
             <SourceURI>multimedia/sound/qmmp/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -5898,6 +5903,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-12-19</Date>
+                <Version>0.3.1</Version>
+                <Comment>Stable bump with lots of new features and bug fixes, drop upstreamed Turkish patch</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-07-23</Date>
                 <Version>0.3.0</Version>
