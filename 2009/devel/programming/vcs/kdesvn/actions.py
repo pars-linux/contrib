@@ -9,7 +9,7 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    cmaketools.configure(installPrefix = "%s" % (get.kdeDIR()))
+    cmaketools.configure(installPrefix="/usr/kde/4", sourceDir=".")
 
 def build():
     cmaketools.make()
@@ -17,6 +17,7 @@ def build():
 def install():
     cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    #remove files conflicts kdesvn
-    pisitools.remove("/usr/kde/3.5/share/services/svn+*.protocol")
-    pisitools.remove("/usr/kde/3.5/share/services/svn.protocol")
+    #Remove files conflicts with kdesdk(cervisia)
+    pisitools.remove("/usr/kde/4/share/kde4/services/svn*.protocol")
+
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "GPL*", "README", "TODO")
