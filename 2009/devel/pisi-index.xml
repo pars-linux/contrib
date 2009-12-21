@@ -14873,6 +14873,58 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>tucan</Name>
+            <Homepage>http://tucaneando.com</Homepage>
+            <Packager>
+                <Name>Osman Karagöz</Name>
+                <Email>osmank3@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>network.download</PartOf>
+            <Summary xml:lang="en">Download manager</Summary>
+            <Summary xml:lang="tr">İndirme yöneticisi</Summary>
+            <Description xml:lang="en">Tucan Manager is a free and open source software designed for automatic management of downloads and uploads at hosting sites like rapidshare or megaupload.</Description>
+            <Description xml:lang="tr">Tucan, rapidshare, megaupload vb. sitelerden otomatik olarak dosya indirebilmeniz için açık kaynaklı bir yazılımdır.</Description>
+            <Icon>tucan</Icon>
+            <Archive type="targz" sha1sum="c2aa4447a6a802c975b218815648536814ea2ae4">http://forja.rediris.es/frs/download.php/1470/tucan-0.3.9.tar.gz</Archive>
+            <Patches>
+                <Patch>turkish.patch</Patch>
+                <Patch>desktop.patch</Patch>
+                <Patch>locale.patch</Patch>
+            </Patches>
+            <SourceURI>network/download/tucan/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>tucan</Name>
+            <RuntimeDependencies>
+                <Dependency>pygtk</Dependency>
+                <Dependency>python-imaging</Dependency>
+                <Dependency>tesseract</Dependency>
+                <Dependency>librsvg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/tucan</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-10-25</Date>
+                <Version>0.3.9</Version>
+                <Comment>First release.</Comment>
+                <Name>Osman Karagöz</Name>
+                <Email>osmank3@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>ktu</Name>
             <Homepage>http://www.kde-apps.org/content/show.php?content=43429</Homepage>
             <Packager>
@@ -26474,7 +26526,7 @@
             <PartOf>hardware.emulator</PartOf>
             <Summary xml:lang="en">Multi console emulator</Summary>
             <Description xml:lang="en">An emulator capable of playing Atari Lynx, Gameboy (Colour), Gameboy Advance, NES, Pc Engine, SuperGrafx, Neo Geo Pocket (Colour), PC-FX and WonderSwan (Colour) games.</Description>
-            <Archive type="tarbz2" sha1sum="dafbfb1d83ec944ce8bab67eb1f1f0cfb4fb5f72">mirrors://sourceforge/mednafen/mednafen-0.8.A.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="1ac99a1845e4d339c07072a78de287102db24c72">mirrors://sourceforge/mednafen/mednafen-0.8.C.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libsdl</Dependency>
                 <Dependency>sdl-net</Dependency>
@@ -26501,6 +26553,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-12-20</Date>
+                <Version>0.8.9</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-02-11</Date>
                 <Version>0.8.9</Version>
@@ -30136,7 +30195,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Homebank</Summary>
             <Description xml:lang="en">HomeBank is free software. Use it to manage your personal accounts. It is designed to easy to use. Analyse your finances in detail using powerful filtering tools and graphs.</Description>
             <Description xml:lang="tr">HomeBank kişisel hesaplarınızı kolayca yönetebileceğiniz özgür bir yazılımdır. Finans kaynaklarınızı güçlü filtreleme araçları ve grafiklerle analiz etmenizi sağlar</Description>
-            <Archive type="targz" sha1sum="b6eeea505806ca41b676f4b019489b70e2fc968c">http://homebank.free.fr/public/homebank-4.0.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f7fc5a14a7d06d3dee4c0275e5a0cb1dc3893e7a">http://homebank.free.fr/public/homebank-4.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
             </BuildDependencies>
@@ -30156,6 +30215,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-12-21</Date>
+                <Version>4.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Michael Austin</Name>
+                <Email>tuxedup@gmx.co.uk</Email>
+            </Update>
             <Update release="7">
                 <Date>2009-06-12</Date>
                 <Version>4.0.4</Version>
