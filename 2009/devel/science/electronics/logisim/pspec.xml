@@ -12,12 +12,11 @@
         <Icon>logisim</Icon>
         <IsA>app:gui</IsA>
         <Summary>An educational tool for designing and simulating digital logic circuits</Summary>
-        <Archive sha1sum="ea602f91b948264a407c9749b0a7140779e4f675" type="zip">mirrors://sourceforge/circuit/logisim-2.1.6.jar</Archive>
+        <Archive sha1sum="7c9d17bb12795d71915f10a4fbf66640cc7e19a7" type="zip">mirrors://sourceforge/circuit/logisim-2.3.2.jar</Archive>
         <BuildDependencies>
             <Dependency>sun-jdk</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>macos.patch</Patch>
             <Patch>makefile.patch</Patch>
         </Patches>
     </Source>
@@ -40,6 +39,24 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-12-21</Date>
+            <Version>2.3.2</Version>
+            <Comment>
+                * Version bump
+                - When drawing diagonally while adding wires, an "L" shape is formed, so two wires are added instead of just one.
+                - When zooming far out, the grid becomes dense and very dark.
+                - On some platforms, the canvas would gray out when a component was selected for addition, and it would not clear except for the component's location until the component was inserted.
+                - In zooming in or out, the scroll bars were not recomputed based on the new zoom distance.
+                - In zooming in or out, the location within the canvas would be lost.
+                - A new package (com.cburch.logisim.instance) provides an API that dramatically simplifies the development of JAR libraries. The built-in Arithmetic, Plexers, Memory, and I/O libraries have been refactored to use it.
+                - Added the capacity to export PNG and JPEG files in addition to GIFs. The menu option Export As GIF... is renamed to Export Image
+                - When a circuit is removed from the project while a tool for adding subcircuits is selected, a different tool is selected.
+                - Removed unneeded patch. (macos.patch)
+            </Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-08-10</Date>
             <Version>2.1.6</Version>
