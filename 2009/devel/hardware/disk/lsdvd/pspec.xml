@@ -5,15 +5,15 @@
         <Name>lsdvd</Name>
         <Homepage>http://untrepid.com/lsdvd</Homepage>
         <Packager>
-            <Name>Murat Şenel</Name>
-            <Email>muratasenel@gmail.com</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>Utility for getting info out of DVDs</Summary>
         <Archive sha1sum="d5c0d32bfb220807ebdc0bfbb17679e7294791f4" type="targz">mirrors://sourceforge/lsdvd/lsdvd-0.16.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.9.6">libdvdread</Dependency>
+            <Dependency>libdvdread</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">lsdvd-0.16-types.patch</Patch>
@@ -23,7 +23,7 @@
     <Package>
         <Name>lsdvd</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.9.6">libdvdread</Dependency>
+            <Dependency>libdvdread</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -33,6 +33,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2009-12-23</Date>
+            <Version>0.16</Version>
+            <Comment>Package takeover, remove strict libdvdread dependency. Autoreconf before configuring.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="1">
             <Date>2006-10-15</Date>
             <Version>0.16</Version>
