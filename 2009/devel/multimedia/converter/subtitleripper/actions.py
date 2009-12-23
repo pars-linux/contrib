@@ -18,8 +18,11 @@ def setup():
 
     pisitools.dosed("pgm2txt", "~/sourceforge/subtitleripper/src/", "/usr/share/subtitleripper")
 
+    pisitools.dosed("subtitle2pgm.c", "ppm.h", "netpbm/ppm.h")
+    pisitools.dosed("spudec.c", "ppm.h", "netpbm/ppm.h")
+
 def build():
-    autotools.make()
+    autotools.make("-j1")
 
 def install():
     binfiles = ["pgm2txt", "srttool", "subtitle2pgm", "subtitle2vobsub", "vobsub2pgm" ]
