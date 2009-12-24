@@ -12,9 +12,10 @@
         <IsA>app:console</IsA>
         <Summary>Grep-like text finder</Summary>
         <Description>Ack is a grep-like tool tailored to working with large trees of sourcecode.</Description>
-        <Archive sha1sum="b329657754e34cc1aa51a2769ae081fca8183f53" type="targz">mirrors://cpan/authors/id/P/PE/PETDANCE/ack-1.90.tar.gz</Archive>
+        <Archive sha1sum="6ea70ccab642909e7f274b372efdb6b0161e0d1e" type="targz">mirrors://cpan/authors/id/P/PE/PETDANCE/ack-1.92.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>perl-File-Next</Dependency>
+            <Dependency versionFrom="5.10.1">perl</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -22,6 +23,7 @@
         <Name>ack</Name>
         <RuntimeDependencies>
             <Dependency>perl-File-Next</Dependency>
+            <Dependency versionFrom="5.10.1">perl</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -32,6 +34,15 @@
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2009-12-24</Date>
+            <Version>1.92</Version>
+            <Comment>* Version bump. See Changes file for details.
+                * Add strict perl Dependency.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="9">
             <Date>2009-11-18</Date>
             <Version>1.90</Version>
