@@ -9,18 +9,22 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-nls \
-                         --disable-rpath \
-                         --disable-sse2 \
+    autotools.configure("--enable-dbus \
+                         --enable-nls \
                          --enable-ipv6 \
                          --enable-chardet \
-                         --disable-esd \
-                         --enable-pulse \
-                         --disable-coreaudio \
-                         --disable-gnomeshortcuts \
                          --enable-amidiplug \
                          --enable-amidiplug-alsa \
-                         --enable-amidiplug-dummy")
+                         --enable-amidiplug-dummy \
+                         --enable-pulse \
+                         --enable-aosd \
+                         --enable-aosd-xcomp \
+                         --enable-mp3 \
+                         --disable-rpath \
+                         --disable-sse2 \
+                         --disable-esd \
+                         --disable-coreaudio \
+                         --disable-gnomeshortcuts ")
 
 def build():
     autotools.make()
