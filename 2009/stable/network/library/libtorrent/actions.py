@@ -12,7 +12,14 @@ WorkDir = "libtorrent-rasterbar-%s" % get.srcVERSION()
 
 def setup():
     autotools.autoreconf("-fi")
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --enable-python-binding \
+                         --with-zlib=system \
+                         --with-asio=system \
+                         --with-libgeoip=system \
+                         --with-encryption=on \
+                         --with-dht=on \
+                         --with-ssl ")
 
 def build():
     autotools.make("CXX=%s" % get.CXX())
