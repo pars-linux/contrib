@@ -30,4 +30,4 @@ def install():
 
     pisitools.dosym("/usr/share/lmms/themes/default/icon.png", "/usr/share/pixmaps/lmms.png")
 
-    pisitools.dodoc("../AUTHORS", "../COPYING", "../ChangeLog", "../TODO", "../README")
+    pisitools.dodoc("../AUTHORS", "../COPYING", "../TODO", "../README")
