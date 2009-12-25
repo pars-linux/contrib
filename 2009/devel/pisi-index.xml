@@ -271,8 +271,8 @@
             <Name>hedgewars</Name>
             <Homepage>http://www.hedgewars.org/</Homepage>
             <Packager>
-                <Name>Deniz Ege Tunçay</Name>
-                <Email>denizutkan@lanetlidiyarlar.com</Email>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -282,7 +282,7 @@
             <Description xml:lang="en">Hedgewars is a turn based strategy game but the real buzz is from watching the devastation caused by those pesky hedgehogs with those fantastic weapons - sneaky little blighters with a bad attitude!.</Description>
             <Description xml:lang="tr">Hedgewars, tur tabanlı bir strateji oyunu ama işin esas eğlencesi o sinir bozucu kirpilerin ellerindeki çeşit çeşit silahlarla yarattıkları yıkımı izlemekte.</Description>
             <Icon>hedgewars</Icon>
-            <Archive type="tarbz2" sha1sum="4df31f0fa7453b63294a9d8b4883e5b3b9016358">http://download.gna.org/hedgewars/hedgewars-src-0.9.11.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f2d5e15a73ae3a876fa7d6c6bfe4cb8962541787">http://download.gna.org/hedgewars/hedgewars-src-0.9.12.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>fpc</Dependency>
@@ -293,7 +293,6 @@
             </BuildDependencies>
             <Patches>
                 <Patch>default_fullscreen.patch</Patch>
-                <Patch>more_turkish_translation.patch</Patch>
             </Patches>
             <SourceURI>game/strategy/hedgewars/pspec.xml</SourceURI>
         </Source>
@@ -319,6 +318,24 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-12-25</Date>
+                <Version>0.9.12</Version>
+                <Comment>* New weapons, maps, theme, visual effects, sounds, training modes
+             * Dynamically zoom in/out in the battlefield with mouse wheel.
+             * Updated graphics
+             * Team chat
+             * Remember net password
+             * Implement room control delegation when host&apos;s connection fails
+             * Colorize chat events in engine
+             * Frontend improvements
+             * Fix crash in replay caused by speech bubbles
+             * Fix some desync causes
+             * Fix rope bugs
+             * Fix bugs in weapon selection code</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-06-21</Date>
                 <Version>0.9.11</Version>
@@ -5060,7 +5077,7 @@
             <Description xml:lang="en">Audacious is a media player based on the BMP music playing application. Its primary goals are usability and usage of current desktop standards.</Description>
             <Description xml:lang="tr">Beep-media-player benzeri bir çoklu ortam oynatıcısı</Description>
             <Icon>audacious</Icon>
-            <Archive type="targz" sha1sum="520c7192ccb89c65353e2d8840cccef9f11c6a42">http://distfiles.atheme.org/audacious-2.1.tgz</Archive>
+            <Archive type="targz" sha1sum="7b946830028f0d8a985107974094cd91b12b0259">http://distfiles.atheme.org/audacious-2.2.tgz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>kdelibs</Dependency>
@@ -5073,7 +5090,6 @@
             </BuildDependencies>
             <Patches>
                 <Patch level="1">audacious.desktop.patch</Patch>
-                <Patch level="1">fix-format-strings.patch</Patch>
             </Patches>
             <SourceURI>multimedia/sound/audacious/pspec.xml</SourceURI>
         </Source>
@@ -5100,8 +5116,8 @@
         <Package>
             <Name>audacious</Name>
             <RuntimeDependencies>
-                <Dependency version="2.1">libaudacious</Dependency>
-                <Dependency version="2.1">audacious-plugins</Dependency>
+                <Dependency version="2.2">libaudacious</Dependency>
+                <Dependency version="2.2">audacious-plugins</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -5114,6 +5130,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="23">
+                <Date>2009-12-24</Date>
+                <Version>2.2</Version>
+                <Comment>Stable bump, drop redundant patch</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="22">
                 <Date>2009-07-09</Date>
                 <Version>2.1</Version>
@@ -7265,9 +7288,9 @@
             <Summary xml:lang="tr">Audacious için eklentiler</Summary>
             <Description xml:lang="en">Plugins for Audacious</Description>
             <Description xml:lang="tr">Audacious için eklentiler</Description>
-            <Archive type="targz" sha1sum="735c773688e65ee57ce72005a72a53bb7cacc78b">http://distfiles.atheme.org/audacious-plugins-2.1.tgz</Archive>
+            <Archive type="targz" sha1sum="f70ef19d397a7d72c00ee9a5c18ae4242e6e412b">http://distfiles.atheme.org/audacious-plugins-2.2.tgz</Archive>
             <BuildDependencies>
-                <Dependency>libaudacious</Dependency>
+                <Dependency versionFrom="2.2">libaudacious</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>libmowgli</Dependency>
@@ -7299,7 +7322,6 @@
                 <Dependency>lirc</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>workaround-local-problem.patch</Patch>
                 <Patch level="1">fix-linking.patch</Patch>
                 <Patch level="1">format-strings.patch</Patch>
             </Patches>
@@ -7308,7 +7330,7 @@
         <Package>
             <Name>audacious-plugins</Name>
             <RuntimeDependencies>
-                <Dependency>libaudacious</Dependency>
+                <Dependency versionFrom="2.2">libaudacious</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>libmowgli</Dependency>
@@ -7348,6 +7370,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="27">
+                <Date>2009-12-24</Date>
+                <Version>2.2</Version>
+                <Comment>Stable bump, drop upstreamed patch</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="26">
                 <Date>2009-11-19</Date>
                 <Version>2.1</Version>
@@ -22194,9 +22223,10 @@
             <Summary xml:lang="tr">Grep komutu benzeri metin bulma uygulaması</Summary>
             <Description xml:lang="en">Ack is a grep-like tool tailored to working with large trees of sourcecode.</Description>
             <Description xml:lang="tr">Ack, grep gibi çalışan ve kod üzerinde ağaç yapısı şeklinde de gösterim alabileceğiniz bir metin bulma uygulamasıdır.</Description>
-            <Archive type="targz" sha1sum="b329657754e34cc1aa51a2769ae081fca8183f53">mirrors://cpan/authors/id/P/PE/PETDANCE/ack-1.90.tar.gz</Archive>
+            <Archive type="targz" sha1sum="6ea70ccab642909e7f274b372efdb6b0161e0d1e">mirrors://cpan/authors/id/P/PE/PETDANCE/ack-1.92.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>perl-File-Next</Dependency>
+                <Dependency versionFrom="5.10.1">perl</Dependency>
             </BuildDependencies>
             <SourceURI>util/misc/ack/pspec.xml</SourceURI>
         </Source>
@@ -22204,6 +22234,7 @@
             <Name>ack</Name>
             <RuntimeDependencies>
                 <Dependency>perl-File-Next</Dependency>
+                <Dependency versionFrom="5.10.1">perl</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -22213,6 +22244,14 @@
             </Files>
         </Package>
         <History>
+            <Update release="10">
+                <Date>2009-12-24</Date>
+                <Version>1.92</Version>
+                <Comment>* Version bump. See Changes file for details.
+                * Add strict perl Dependency.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="9">
                 <Date>2009-11-18</Date>
                 <Version>1.90</Version>
