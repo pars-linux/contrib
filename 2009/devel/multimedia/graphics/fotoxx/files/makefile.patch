@@ -1,14 +1,14 @@
-diff -Naur fotoxx-8.6.2.orig/Makefile fotoxx-8.6.2/Makefile
---- fotoxx-8.6.2.orig/Makefile	2009-11-10 20:31:25.583341000 +0200
-+++ fotoxx-8.6.2/Makefile	2009-11-10 20:34:33.308217090 +0200
+diff -Naur fotoxx-9.1.orig/Makefile fotoxx-9.1/Makefile
+--- fotoxx-9.1.orig/Makefile	2009-12-26 16:25:07.526824509 +0200
++++ fotoxx-9.1/Makefile	2009-12-26 16:28:07.053822116 +0200
 @@ -5,30 +5,30 @@
  SOURCE = $(PROGRAM)-$(VERSION).cpp
  
- # replace CFLAGS and LFLAGS -O (oh) with -g for GDB debugging
--CFLAGS = -O -Wall -c `pkg-config --cflags gtk+-2.0`
--LFLAGS = -O -Wall -rdynamic -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
-+CFLAGS += -Wall -c `pkg-config --cflags gtk+-2.0`
-+LFLAGS = -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
+ # replace CFLAGS and LFLAGS -O3 with -g for GDB debugging
+-CFLAGS = -O3 -Wall -c `pkg-config --cflags gtk+-2.0`
+-LFLAGS = -O3 -Wall -rdynamic `pkg-config --libs gtk+-2.0 gthread-2.0`
++CFLAGS = -g -Wall -c `pkg-config --cflags gtk+-2.0`
++LFLAGS = -g -Wall -rdynamic -lfreeimage `pkg-config --libs gtk+-2.0 gthread-2.0`
  
  # use $PREFIX if defined, else assume /usr/local
  ifeq "$(PREFIX)" ""
@@ -25,15 +25,15 @@ diff -Naur fotoxx-8.6.2.orig/Makefile fotoxx-8.6.2/Makefile
  
  $(PROGRAM): $(PROGRAM).o zfuncs.o
  	@ ./dependencies.sh
--	@ g++ $(LFLAGS) -o $(PROGRAM) $(PROGRAM).o zfuncs.o
-+	@ $(CXX) $(LDFLAGS) $(PROGRAM).o zfuncs.o -o $(PROGRAM) $(LFLAGS)
+-	@ g++ $(LFLAGS) -lfreeimage -o $(PROGRAM) $(PROGRAM).o zfuncs.o
++	@ $(CXX) $(LDFLAGS) -lfreeimage $(PROGRAM).o zfuncs.o -o $(PROGRAM) $(LFLAGS)
  
- $(PROGRAM).o: $(SOURCE) zfuncs.h
+ $(PROGRAM).o: $(SOURCE)
 -	@ g++ $(CFLAGS) -o $(PROGRAM).o $(SOURCE)		\
 +	@ $(CXX) $(CFLAGS) -o $(PROGRAM).o $(SOURCE)        \
  	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\""
  
- zfuncs.o: zfuncs.cpp zfuncs.h
+ zfuncs.o: zfuncs.cpp
 -	@ g++ $(CFLAGS) zfuncs.cpp	\
 +	@ $(CXX) $(CFLAGS) zfuncs.cpp   \
  	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\"" -D "BINDIR=\"$(BINDIR)\""
