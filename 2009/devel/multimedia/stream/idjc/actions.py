@@ -13,6 +13,7 @@ def setup():
     pisitools.dosed("Makefile.in", "{PACKAGE_NAME}-\${PACKAGE_VERSION}", "{PACKAGE_NAME}")
 
     autotools.configure("--disable-static \
+                         --enable-flac \
                          --enable-speex \
                          --enable-lame \
                          --enable-tooltips \
