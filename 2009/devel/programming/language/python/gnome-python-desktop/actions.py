@@ -10,7 +10,24 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 
 def setup():
-    autotools.configure()
+    autotools.autoreconf("-fiv")
+    autotools.configure("--disable-applet \
+                         --enable-gnomeprint \
+                         --enable-gnomeprintui \
+                         --disable-gtksourceview \
+                         --enable-wnck \
+                         --disable-totem_plparser \
+                         --enable-gtop \
+                         --disable-nautilusburn \
+                         --disable-mediaprofiles \
+                         --enable-rsvg \
+                         --disable-metacity \
+                         --enable-gnomekeyring \
+                         --disable-gnomedesktop \
+                         --disable-bugbuddy \
+                         --disable-evolution \
+                         --disable-evolution_ecal \
+                         --disable-evince")
 
 def build():
     autotools.make()
@@ -18,6 +35,4 @@ def build():
 def install():
     autotools.install()
 
-    pythonmodules.fixCompiledPy()
-
-    pisitools.dodoc("README", "NEWS", "ChangeLog","AUTHORS")
+    pisitools.dodoc("README", "NEWS", "ChangeLog", "AUTHORS")
