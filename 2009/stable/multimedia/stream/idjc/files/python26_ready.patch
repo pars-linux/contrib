@@ -1,0 +1,21 @@
+diff -Nur -x '*.orig' -x '*~' idjc-0.7.14/configure idjc-0.7.14.new/configure
+--- idjc-0.7.14/configure	2009-04-22 16:24:49.000000000 +0200
++++ idjc-0.7.14.new/configure	2009-05-02 16:45:42.501619842 +0200
+@@ -2592,7 +2592,7 @@
+ if test "${am_cv_python_pythondir+set}" = set; then
+   $as_echo_n "(cached) " >&6
+ else
+-  am_cv_python_pythondir=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib(0,0,prefix='$PYTHON_PREFIX')" 2>/dev/null ||
++  am_cv_python_pythondir=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib(0,0)" 2>/dev/null ||
+      echo "$PYTHON_PREFIX/lib/python$PYTHON_VERSION/site-packages"`
+ fi
+ { $as_echo "$as_me:$LINENO: result: $am_cv_python_pythondir" >&5
+@@ -2609,7 +2609,7 @@
+ if test "${am_cv_python_pyexecdir+set}" = set; then
+   $as_echo_n "(cached) " >&6
+ else
+-  am_cv_python_pyexecdir=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib(1,0,prefix='$PYTHON_EXEC_PREFIX')" 2>/dev/null ||
++  am_cv_python_pyexecdir=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib(1,0)" 2>/dev/null ||
+      echo "${PYTHON_EXEC_PREFIX}/lib/python${PYTHON_VERSION}/site-packages"`
+ fi
+ { $as_echo "$as_me:$LINENO: result: $am_cv_python_pyexecdir" >&5
