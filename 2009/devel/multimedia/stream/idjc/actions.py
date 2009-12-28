@@ -7,8 +7,11 @@
 from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
+    #Remove internal libshout to be sure it's using system one
+    shelltools.unlinkDir("libshout")
     #Fix docdir
     pisitools.dosed("Makefile.in", "{PACKAGE_NAME}-\${PACKAGE_VERSION}", "{PACKAGE_NAME}")
 
