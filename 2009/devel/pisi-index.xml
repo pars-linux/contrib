@@ -3002,7 +3002,7 @@
             <Description xml:lang="en">Internet DJ Console is a graphical shoutcast and icecast client that runs under GTK+ and the JACK audio connection kit. In short, it&apos;s an Internet radio app for making a live radio show.</Description>
             <Description xml:lang="tr">Internet DJ Console, JACK ses sunucusu kullanan, shoutcast ve icecast destekli bir GTK+ uygulamasıdır. İnternet üzerinden canlı radyo yayınları yapmanızı sağlar.</Description>
             <Icon>idjc</Icon>
-            <Archive type="targz" sha1sum="55ccf7d82877f38bfb49c9a6e60f3ff1b0beba38">mirrors://sourceforge/idjc/idjc-0.7.18a.tar.gz</Archive>
+            <Archive type="targz" sha1sum="f86b124a052127ce4d1aefa7db5a1c1e86b08428">mirrors://sourceforge/idjc/idjc-0.8.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>libvorbis</Dependency>
@@ -3056,6 +3056,20 @@
             </Files>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2009-12-26</Date>
+                <Version>0.8.1</Version>
+                <Comment>Stable bump:
+                - Added APEv2 tagging capability. Includes support for monkeys audio and musepack formats
+                - Added support for multiple metadata tags
+                - Added support for wma tagging and playlist metadata
+                - Added the ability to drag and drop tracks
+                - Added Replay Gain functionality
+                - Fixed the metadata timing for mp3 andd Ogg recordings
+                - Lots of improvements and bug fixes</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="12">
                 <Date>2009-10-23</Date>
                 <Version>0.7.18a</Version>
@@ -8383,7 +8397,7 @@
             <Description xml:lang="en">Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
             <Description xml:lang="tr">Miro, RSS ve BitTorrent destekli bir internet multimedya oynatıcısıdır.</Description>
             <Icon>miro</Icon>
-            <Archive type="targz" sha1sum="553d4e173d978bede9dd570f337a264af8f0e28d">http://ftp.osuosl.org/pub/pculture.org/miro/src/miro-2.5.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="4fd6cb48ed1fb3a9588c4af9f2da55f88654f194">http://ftp.osuosl.org/pub/pculture.org/miro/src/miro-2.5.4.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-python-extras</Dependency>
@@ -8391,7 +8405,7 @@
                 <Dependency>pyrex</Dependency>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>nspr</Dependency>
-                <Dependency>libtorrent</Dependency>
+                <Dependency releaseFrom="7">libtorrent</Dependency>
                 <Dependency>xulrunner-devel</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
                 <Dependency>gconf</Dependency>
@@ -8422,7 +8436,7 @@
                 <Dependency>pyrex</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>nspr</Dependency>
-                <Dependency>libtorrent</Dependency>
+                <Dependency releaseFrom="7">libtorrent</Dependency>
                 <Dependency>xulrunner</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
                 <Dependency>gconf</Dependency>
@@ -8447,6 +8461,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="13">
+                <Date>2009-12-26</Date>
+                <Version>2.5.4</Version>
+                <Comment>Bump to bugfix release, add strict dependency to latest libtorrent to make Miro use system one</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="12">
                 <Date>2009-10-16</Date>
                 <Version>2.5.3</Version>
@@ -9173,61 +9194,6 @@
                 <Comment>First version</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>subtitleripper</Name>
-            <Homepage>http://subtitleripper.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>multimedia.converter</PartOf>
-            <Summary xml:lang="en">DVD subtitle to text converter</Summary>
-            <Summary xml:lang="tr">DVD altyazılarını metine dönüştürücü</Summary>
-            <Description xml:lang="en">Subtitleripper extracts DVD subtitles from a subtitle stream and converts it to pgm or ppm images or into VobSub format. The main purpose is to provide the required input to OCR software to convert the subtitle images into ASCII text. Please note that the conversion into ASCII is not part of this package but requires an OCR program like gocr.</Description>
-            <Description xml:lang="tr">Subtitleripper DVD altyazılarını bir altyazı akımından(stream) seçip çıkartır ve pgm, ppm resimleri haline ya da Vobsub biçimine dönüştürür. Programın temel amacı, Optik Karakter Tanıma(OCR) yazılımlarına altyazı resimlerini ASCII metnine dönüştürmek için gerekli girdiyi sağlamaktır. Not düşülmesi gereken bir nokta da şudur ki, ASCII metnine dönüşüm paketin bir parçası değildir ve gerekli dönüşüm için gocr gibi bir Optik Karakter Tanıma programına ihtiyaç duyulmaktadır.</Description>
-            <Archive type="targz" sha1sum="d93ff3578dd5f722c8f4ef16bc0903eec5781a0d">mirrors://sourceforge/subtitleripper/subtitleripper-0.3-4.tgz</Archive>
-            <BuildDependencies>
-                <Dependency>netpbm</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">subtitleripper-0.3.4-libpng.patch</Patch>
-                <Patch level="1">subtitleripper-0.3.4-glibc210.patch</Patch>
-                <Patch level="1">subtitleripper-0.3.4-linkingorder.patch</Patch>
-            </Patches>
-            <SourceURI>multimedia/converter/subtitleripper/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>subtitleripper</Name>
-            <RuntimeDependencies>
-                <Dependency>netpbm</Dependency>
-                <Dependency>gocr</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/subtitleripper</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2009-12-23</Date>
-                <Version>0.3.4</Version>
-                <Comment>Add two patches and some sed fixes for Pardus 2009.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2009-03-14</Date>
-                <Version>0.3.4</Version>
-                <Comment>First release. And thanks Gökçen for his previous efforts on the package.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>dalgic.srdr@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -10366,13 +10332,13 @@
             <Description xml:lang="en">With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
             <Description xml:lang="tr">Fotoxx ile herhangi bir dijital kameradan aldığınız resim dosyalarını düzenleyebilirsiniz. Renk ve kontrast geliştirmeleri, kırmızı göz efekti (red-eye effect) giderme, keskinleştirme, kırpma, çevirme, gürültü giderme (noise removal), HDR ve panoramik fotoğrafların birleştirilmesi, etiket düzenleme ve arama gibi pek çok özelliğe sahiptir.</Description>
             <Icon>fotoxx</Icon>
-            <Archive type="targz" sha1sum="470e6f0a993af080295e0c1b16b3e5ca6c52288f">http://kornelix.squarespace.com/storage/downloads/fotoxx-8.6.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="e01ff65f8906a2e7fc88f0993c7b12614779fda9">http://kornelix.squarespace.com/storage/downloads/fotoxx-9.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>exiv2</Dependency>
                 <Dependency>perl-Image-ExifTool</Dependency>
                 <Dependency>xdg-utils</Dependency>
-                <Dependency>FreeImage</Dependency>
+                <Dependency releaseFrom="5">FreeImage</Dependency>
                 <Dependency>ufraw</Dependency>
             </BuildDependencies>
             <Patches>
@@ -10387,7 +10353,7 @@
                 <Dependency>exiv2</Dependency>
                 <Dependency>perl-Image-ExifTool</Dependency>
                 <Dependency>xdg-utils</Dependency>
-                <Dependency>FreeImage</Dependency>
+                <Dependency releaseFrom="5">FreeImage</Dependency>
                 <Dependency>ufraw</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -10403,6 +10369,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2009-12-26</Date>
+                <Version>9.1</Version>
+                <Comment>Bump to latest stable, add strict dependency to FreeImage, bug (#11529)</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-11-10</Date>
                 <Version>8.6.2</Version>
@@ -12509,7 +12482,7 @@
     <SpecFile>
         <Source>
             <Name>lmms</Name>
-            <Homepage>http://lmms.sourceforge.net</Homepage>
+            <Homepage>http://lmms.info</Homepage>
             <Packager>
                 <Name>Mehmet Nur Olcay</Name>
                 <Email>mnurolcay@gmail.com</Email>
@@ -12523,7 +12496,7 @@
             <Description xml:lang="en">LMMS is a free alternative to popular programs like FruityLoops/FL Studio, Cubase and Logic allowing you to produce music with your computer. This includes creation of loops, synthesizing and mixing sounds, arranging samples, having fun with your MIDI-keyboard and much more.</Description>
             <Description xml:lang="tr">LMMS; FruityLoops/FL Studio, Cubase ve Logic gibi ücretli müzik işleme programlarının açık kaynaklı ve ücretsiz bir alternatifidir.</Description>
             <Icon>lmms</Icon>
-            <Archive type="tarbz2" sha1sum="b26299c027b1e7f228e4d0110beb4b0a968eecb8">mirrors://sourceforge/lmms/lmms-0.4.5.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="095442fd28ed26add235e9f141f8f37cbca39079">mirrors://sourceforge/lmms/lmms-0.4.6.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>alsa-lib</Dependency>
@@ -12585,6 +12558,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2009-12-25</Date>
+                <Version>0.4.6</Version>
+                <Comment>Bump to latest bugfix release, change home page</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2009-08-13</Date>
                 <Version>0.4.5</Version>
@@ -13475,7 +13455,7 @@
             <Description xml:lang="en">Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
             <Description xml:lang="tr">Qtractor, Qt4 çatısı ile C++ kullanılarak yazılmış çok kanallı bir Ses/MIDI kayıt ve düzenleme yazılımıdır.</Description>
             <Icon>qtractor</Icon>
-            <Archive type="targz" sha1sum="f9205035bc12af3c8183aeac7e00348e41678451">mirrors://sourceforge/qtractor/qtractor-0.4.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="51b3f0e236ee3420fc5766014bf0f65fc4ce21eb">mirrors://sourceforge/qtractor/qtractor-0.4.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
@@ -13515,6 +13495,20 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-12-26</Date>
+                <Version>0.4.3</Version>
+                <Comment>Stable bump:
+                - Connections support for UTF-8 encoded client/port names
+                - Increased tolerance on reading corrupt MIDI files (SMF)
+                - A MIDI SysEx manager is introduced, in some primordial rather basic form though
+                - New MIDI Playback/Queue timer (resolution) option
+                - MIDI instrument definitions can be imported from plain SoundFont files now
+                - Fixed any ghost clip selections that were haunting the main track view, specially after undo/redo
+                - Lots of improvements and bug fixes</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-06-06</Date>
                 <Version>0.4.2</Version>
@@ -17352,10 +17346,11 @@
             <Summary xml:lang="tr">Gelişmiş bir torrent kitaplığı</Summary>
             <Description xml:lang="en">Rasterbar&apos;s C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
             <Description xml:lang="tr">Rasterbar C++ kitaplığı, diğer bittorrent kitaplıklarına karşın iyi bir alternatifdir.</Description>
-            <Archive type="targz" sha1sum="ce19fddad4165502d3fcd9f1fc120ad2fad8bcd6">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="a7765748b6bb9385eb65185702244418dab9098b">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.7.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libsigc++</Dependency>
                 <Dependency>boost-devel</Dependency>
+                <Dependency>geoip</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">libtorrent-rasterbar-0.14.4-underlink.patch</Patch>
@@ -17367,6 +17362,7 @@
             <RuntimeDependencies>
                 <Dependency>libsigc++</Dependency>
                 <Dependency>boost</Dependency>
+                <Dependency>geoip</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="header">/usr/include</Path>
@@ -17375,6 +17371,18 @@
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2009-12-26</Date>
+                <Version>0.14.7</Version>
+                <Comment>Stable bump:
+                - Enable Python Bindings, this will fix some deluge and Miro bugs
+                - Use system libs if possible, instead of shipped ones</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+                <Requires>
+                    <Action>reverseDependencyUpdate</Action>
+                </Requires>
+            </Update>
             <Update release="6">
                 <Date>2009-08-31</Date>
                 <Version>0.14.5</Version>
@@ -19307,7 +19315,7 @@
             <Description xml:lang="en">Deluge is a Bittorrent client. Deluge is intended to bring a native, full-featured client to Linux GTK+ desktop environments such as GNOME and Xfce.</Description>
             <Description xml:lang="tr">Deluge, bir Bittorrent istemcisidir. Xfce ve GNOME gibi GTK+ tabanlı masaüstü ortamlarıyla görsel kütüphaneler açısından uyumlu çalışması için yazılmış tam donanımlı bir istemcidir.</Description>
             <Icon>deluge</Icon>
-            <Archive type="tarbz2" sha1sum="a448100c9072bd0aeaf2c45a1aba9dbf7bf724af">http://download.deluge-torrent.org/source/deluge-1.2.0_rc2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="5f36f5f55a6d84a90840b166c379647f8774ca19">http://download.deluge-torrent.org/source/deluge-1.2.0_rc5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -19332,6 +19340,8 @@
                 <Dependency>Twisted</Dependency>
                 <Dependency>pyopenssl</Dependency>
                 <Dependency>chardet</Dependency>
+                <Dependency releaseFrom="7">libtorrent</Dependency>
+                <Dependency>python-mako</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -19344,6 +19354,20 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2009-12-26</Date>
+                <Version>1.2.0_rc5</Version>
+                <Comment>Add python-mako for web interface plugin</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
+            <Update release="7">
+                <Date>2009-12-26</Date>
+                <Version>1.2.0_rc5</Version>
+                <Comment>Bump to latest RC, add strict dependency to latest libtorrent, will fix some connection/share bugs</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-10-27</Date>
                 <Version>1.2.0_rc2</Version>
@@ -24570,63 +24594,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>pgadmin3</Name>
-            <Homepage>http://www.pgadmin.org</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>Artistic</License>
-            <IsA>app:gui</IsA>
-            <PartOf>util.database</PartOf>
-            <Summary xml:lang="en">wxWidgets GUI for PostgreSQL</Summary>
-            <Summary xml:lang="tr">PostgreSQL grafik arabirimi</Summary>
-            <Description xml:lang="en">Graphical client for PostgreSQL</Description>
-            <Description xml:lang="tr">wxGTK temelli PostgreSQL grafik arabirimi</Description>
-            <Archive type="targz" sha1sum="c3103792c678183c5a9081daac56ebf467d674ff">ftp://ftp.tr.postgresql.org/pub/PostgreSQL//pgadmin3/release/v1.8.4/src/pgadmin3-1.8.4.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
-                <Dependency>wxGTK</Dependency>
-                <Dependency>libxslt</Dependency>
-            </BuildDependencies>
-            <SourceURI>util/database/pgadmin3/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pgadmin3</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
-                <Dependency>wxGTK</Dependency>
-                <Dependency>libxslt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/pgadmin3</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/pgadmin3.desktop" permission="0644" owner="root">pgadmin3.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-08-07</Date>
-                <Version>1.8.4</Version>
-                <Comment>version bump</Comment>
-                <Name>Türker Sezer</Name>
-                <Email>turkersezer@tsdesign.info</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-07-24</Date>
-                <Version>1.6.3</Version>
-                <Comment>First release.</Comment>
-                <Name>Ali Erdinç Köroğlu</Name>
-                <Email>erdinc@pardus.org.tr</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>mysql-administrator</Name>
             <Homepage>http://www.mysql.com/products/tools/administrator/</Homepage>
             <Packager>
@@ -27195,57 +27162,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>lsdvd</Name>
-            <Homepage>http://untrepid.com/lsdvd</Homepage>
-            <Packager>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>hardware.disk</PartOf>
-            <Summary xml:lang="en">Utility for getting info out of DVDs</Summary>
-            <Summary xml:lang="tr">DVD bilgilerini toplamaya yarayan bir araç</Summary>
-            <Description xml:lang="tr">DVD bilgilerini toplamaya yarayan bir araç</Description>
-            <Archive type="targz" sha1sum="d5c0d32bfb220807ebdc0bfbb17679e7294791f4">mirrors://sourceforge/lsdvd/lsdvd-0.16.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>libdvdread</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">lsdvd-0.16-types.patch</Patch>
-            </Patches>
-            <SourceURI>hardware/disk/lsdvd/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>lsdvd</Name>
-            <RuntimeDependencies>
-                <Dependency>libdvdread</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2009-12-23</Date>
-                <Version>0.16</Version>
-                <Comment>Package takeover, remove strict libdvdread dependency. Autoreconf before configuring.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-10-15</Date>
-                <Version>0.16</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>libsynaptics</Name>
             <Homepage>http://qsynaptics.sourceforge.net/</Homepage>
             <Packager>
@@ -27770,73 +27686,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>k9copy-kde4</Name>
-            <Homepage>http://k9copy.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>hardware.optical</PartOf>
-            <Summary xml:lang="en">A small utility which allows the copy of DVD on Linux</Summary>
-            <Summary xml:lang="tr">Linux için basit bir DVD kopyalama aracı</Summary>
-            <Description xml:lang="en">k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
-            <Description xml:lang="tr">k9copy bir DVD&apos;deki bir veya daha fazla bölümü kopyalamak için kullanabileceğiniz bir DVD yedekleme aracıdır</Description>
-            <Icon>k9copy</Icon>
-            <Archive type="targz" sha1sum="653ac96c99b555bad4cafc8f2d4f082337e3e21f">mirrors://sourceforge/k9copy/k9copy-2.2.0-Source.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.4.9_20080909">ffmpeg</Dependency>
-                <Dependency>automoc4</Dependency>
-                <Dependency>kdelibs4-devel</Dependency>
-                <Dependency>vamps</Dependency>
-                <Dependency>dvd+rw-tools</Dependency>
-                <Dependency versionFrom="0.0_20090101">mplayer</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">desktop_tr.patch</Patch>
-            </Patches>
-            <SourceURI>hardware/optical/k9copy-kde4/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>k9copy-kde4</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.4.9_20080909">ffmpeg</Dependency>
-                <Dependency>kdelibs4</Dependency>
-                <Dependency>vamps</Dependency>
-                <Dependency>dvd+rw-tools</Dependency>
-                <Dependency versionFrom="0.0_20090101">mplayer</Dependency>
-                <Dependency releaseFrom="2">k3b-kde4</Dependency>
-                <Dependency>phonon</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/4/bin</Path>
-                <Path fileType="data">/usr/kde/4/share/applications</Path>
-                <Path fileType="data">/usr/kde/4/share/apps</Path>
-                <Path fileType="data">/usr/kde/4/share/icons</Path>
-                <Path fileType="localedata">/usr/kde/4/share/locale</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2009-02-20</Date>
-                <Version>2.2.0</Version>
-                <Comment>New version with Matroska and ffmpeg encoder support</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-12-27</Date>
-                <Version>2.1.0</Version>
-                <Comment>First release for KDE4.(Initial release by Kenan Pelit)</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>devede</Name>
             <Homepage>http://www.rastersoft.com/programas/devede.html</Homepage>
             <Packager>
@@ -28083,7 +27932,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
             <Description xml:lang="tr">k9copy bir DVD&apos;deki bir veya daha fazla bölümü kopyalamak için kullanabileceğiniz bir DVD yedekleme aracıdır.</Description>
             <Icon>k9copy</Icon>
-            <Archive type="targz" sha1sum="db9f4a358922d464b673757f425aab7c5b3e0efb">mirrors://sourceforge/k9copy/k9copy-2.3.3-Source.tar.gz</Archive>
+            <Archive type="targz" sha1sum="c8cec2850a28e01baade78076494ecc7dfe626a9">mirrors://sourceforge/k9copy/k9copy-2.3.4-Source.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>automoc4</Dependency>
@@ -28098,6 +27947,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Patches>
                 <Patch level="1">desktop_tr.patch</Patch>
                 <Patch level="1">gcc43.patch</Patch>
+                <Patch level="1">svn-r493.diff</Patch>
             </Patches>
             <SourceURI>hardware/optical/k9copy/pspec.xml</SourceURI>
         </Source>
@@ -28132,6 +27982,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Replaces>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2009-12-26</Date>
+                <Version>2.3.4</Version>
+                <Comment>Bump to latest svn revision which includes lots of compilation-usage fixes</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2009-08-20</Date>
                 <Version>2.3.3</Version>
@@ -31445,10 +31302,9 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Klavaro is just another free touch typing tutor program. Klavaro intends to be keyboard and language independent, saving memory and time (and money).</Description>
             <Description xml:lang="tr">Klavaro ücretsiz bir klavye eğitimi programıdır. Bir çok dilde klavye ve arayüz desteği sağlar.</Description>
             <Icon>klavaro</Icon>
-            <Archive type="tarbz2" sha1sum="bb355b9d87981007375ca408c55b1a6fa3fa5607">mirrors://sourceforge/klavaro/klavaro-1.3.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="e9ae55fa9bf146a64860e88164cd69641efb75fc">mirrors://sourceforge/klavaro/klavaro-1.4.1.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>gtkdatabox</Dependency>
-                <Dependency>libsexy</Dependency>
+                <Dependency releaseFrom="3">gtkdatabox</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>gtk2</Dependency>
             </BuildDependencies>
@@ -31460,8 +31316,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
         <Package>
             <Name>klavaro</Name>
             <RuntimeDependencies>
-                <Dependency>gtkdatabox</Dependency>
-                <Dependency>libsexy</Dependency>
+                <Dependency releaseFrom="3">gtkdatabox</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>gtk2</Dependency>
             </RuntimeDependencies>
@@ -31479,6 +31334,14 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2009-12-26</Date>
+                <Version>1.4.1</Version>
+                <Comment>-New stable release with translation updates and bug fixes
+                -Drop libsexy dependency, add strict dependency to new gtkdatabox</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-09-26</Date>
                 <Version>1.3.1</Version>
@@ -42985,7 +42848,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>gnome-python-desktop</Name>
-            <Homepage>http://www.pygtk.org</Homepage>
+            <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
                 <Name>Burak Çalışkan</Name>
                 <Email>burakclskn@gmail.com</Email>
@@ -42994,31 +42857,28 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>LGPLv2.1</License>
             <IsA>library</IsA>
             <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">Python bindings for Gnome desktop libraries</Summary>
-            <Summary xml:lang="tr">Gnome masaüstü kütüphaneleri için Python bağlayıcıları</Summary>
-            <Archive type="tarbz2" sha1sum="6f1a93aacfc256ca878f8f3636a0270580d2354b">mirrors://gnome/gnome-python-desktop/2.22/gnome-python-desktop-2.22.0.tar.bz2</Archive>
+            <Summary xml:lang="en">Python bindings for GNOME desktop libraries</Summary>
+            <Summary xml:lang="tr">GNOME masaüstü kütüphaneleri için Python bağlayıcıları</Summary>
+            <Archive type="tarbz2" sha1sum="9f30c470ea73cb11b1daa6e10f1e980ec5698086">mirrors://gnome/gnome-python-desktop/2.26/gnome-python-desktop-2.26.0.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.22.0">gnome-python</Dependency>
-                <Dependency>libgnomeprint</Dependency>
+                <Dependency>gnome-python</Dependency>
                 <Dependency>libgnomeprintui</Dependency>
                 <Dependency>libwnck</Dependency>
                 <Dependency>libgtop</Dependency>
-                <Dependency versionFrom="2.22.0">gnome-keyring</Dependency>
-                <Dependency versionFrom="2.22.0">gconf</Dependency>
+                <Dependency>gnome-keyring</Dependency>
                 <Dependency>librsvg</Dependency>
+                <Dependency>gnome-common</Dependency>
             </BuildDependencies>
             <SourceURI>programming/language/python/gnome-python-desktop/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>gnome-python-desktop</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.22.0">gnome-python</Dependency>
-                <Dependency>libgnomeprint</Dependency>
+                <Dependency>gnome-python</Dependency>
                 <Dependency>libgnomeprintui</Dependency>
                 <Dependency>libwnck</Dependency>
                 <Dependency>libgtop</Dependency>
-                <Dependency versionFrom="2.22.0">gnome-keyring</Dependency>
-                <Dependency versionFrom="2.22.0">gconf</Dependency>
+                <Dependency>gnome-keyring</Dependency>
                 <Dependency>librsvg</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -43029,6 +42889,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-12-27</Date>
+                <Version>2.26.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-04-12</Date>
                 <Version>2.22.0</Version>
@@ -58110,7 +57977,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Hızlı veri gösterimi sağlayan bir Gtk+ kitaplığı</Summary>
             <Description xml:lang="en">GtkDatabox is a widget for the Gtk+ library designed to display large amounts of numerical data fast and easy.</Description>
             <Description xml:lang="tr">GtkDatabox, yüksek miktarda veriyi hızlı ve kolayca görüntülemeyi sağlayan bir Gtk+ kitaplığıdır.</Description>
-            <Archive type="targz" sha1sum="39c3b1263c327d3ab1d8db29ef458a154a944936">http://www.eudoxos.net/gtk/gtkdatabox/download/gtkdatabox-0.9.0.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="dd086f64af52f2a70b2a776d607c870419474289">mirrors://sourceforge/gtkdatabox/gtkdatabox-0.9.1.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>cairo</Dependency>
@@ -58143,6 +58010,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2009-12-26</Date>
+                <Version>0.9.1.1</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-06-07</Date>
                 <Version>0.9.0.1</Version>
