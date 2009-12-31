@@ -12233,7 +12233,7 @@
             <Description xml:lang="en">The Linux Video Editing System (LiVES) is intended to be a simple yet powerful video effects and editing system.</Description>
             <Description xml:lang="tr">LiVES video efektleri de verebileceğiniz güçlü bir video düzenleme programıdır.</Description>
             <Icon>lives</Icon>
-            <Archive type="tarbz2" sha1sum="116ab61ec1c340430410c0dcdbed79466064490b">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.6.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="63951131ad833fcd7dcc7adaa8b1be60811b88b6">http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-1.0.8.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>mplayer</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -12294,6 +12294,19 @@
             </Files>
         </Package>
         <History>
+            <Update release="19">
+                <Date>2009-12-30</Date>
+                <Version>1.0.8</Version>
+                <Comment>Version Bump :
+                     * Fix minor multitrack compositor issue.
+                     * Set encoder output format correctly on first startup.
+                     * Fix problems when mt compositor/transition has 0 input frames.
+                     * Minor compilation updates for OSX and others.
+                     * Resample/undo resample was leaving extra frames in clip.
+                     * Fix some very rare crash conditions.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="18">
                 <Date>2009-11-17</Date>
                 <Version>1.0.6</Version>
@@ -12861,7 +12874,7 @@
             <BuildDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
-                <Dependency>ffmpeg</Dependency>
+                <Dependency versionFrom="0.5.1_20091020">ffmpeg</Dependency>
                 <Dependency>fftw3</Dependency>
                 <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
                 <Dependency>openexr</Dependency>
@@ -12878,7 +12891,7 @@
                 <Dependency>libraw1394</Dependency>
                 <Dependency>faac</Dependency>
                 <Dependency>faad2</Dependency>
-                <Dependency versionFrom="0.0_20091019">x264</Dependency>
+                <Dependency versionFrom="0.0_20091228">x264</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">ffmpeg_external.patch</Patch>
@@ -12898,7 +12911,7 @@
             <RuntimeDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
-                <Dependency>ffmpeg</Dependency>
+                <Dependency versionFrom="0.5.1_20091020">ffmpeg</Dependency>
                 <Dependency>fftw3</Dependency>
                 <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
                 <Dependency>openexr</Dependency>
@@ -12915,7 +12928,7 @@
                 <Dependency>libraw1394</Dependency>
                 <Dependency>faac</Dependency>
                 <Dependency>faad2</Dependency>
-                <Dependency versionFrom="0.0_20091019">x264</Dependency>
+                <Dependency versionFrom="0.0_20091228">x264</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -12928,6 +12941,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2009-12-31</Date>
+                <Version>2.1_20091231</Version>
+                <Comment>Compiled with the new version x264 and ffmpeg.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-11-13</Date>
                 <Version>2.1_20091024</Version>
