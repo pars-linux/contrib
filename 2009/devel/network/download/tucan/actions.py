@@ -16,4 +16,6 @@ def install():
     for i in langs:
         pisitools.domo("i18n/%s/%s.po"% (i,i), i, "tucan.mo")
     pisitools.removeDir("usr/share/tucan/i18n")
+    pisitools.remove("/usr/bin/tucan")
+    pisitools.dosym("/usr/share/tucan/tucan.py","/usr/bin/tucan")
     pisitools.dodoc("CHANGELOG", "LICENSE", "README", "TODO", "VERSION")
