@@ -22,7 +22,6 @@ def install():
     pisitools.insinto(share, "*")
 
     pisitools.removeDir("%s/build" % share)
-    pisitools.remove("%s/conversation_themes/*/*~" % share)
 
     for f in move_files:
         pisitools.domove("%s/%s" % (share, f), "%s/%s" % (get.docDIR(), get.srcNAME()))
