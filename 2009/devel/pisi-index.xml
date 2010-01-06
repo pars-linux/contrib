@@ -17044,7 +17044,7 @@
             <Description xml:lang="en">Emesene is an OS independent MSN Messenger client written in Python and GTK+. The main idea is to make a client similar to the official MSN Messenger client but keeping it simple and with a nice GUI.</Description>
             <Description xml:lang="tr">Emesene, işletim sistemi bağımsız, Python ve GTK+ ile yazılmış MSN istemcisidir. Resmi MSN Messenger&apos;a benzemekle birlikte, basitlikten ve güzel bir grafik arayüze sahip olmak konusunda ödün verilmemiştir.</Description>
             <Icon>emesene</Icon>
-            <Archive type="targz" sha1sum="60882d3d294be281b0e30e775743252a644b0000">mirrors://sourceforge/emesene/emesene-1.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="df87b7fb3a462822dbfaf550fd0bfd6484a2093c">mirrors://sourceforge/emesene/emesene-1.6.tar.gz</Archive>
             <SourceURI>network/chat/emesene/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -17067,6 +17067,17 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2010-01-05</Date>
+                <Version>1.6</Version>
+                <Comment>* Version bump.
+                - Improved gui usability
+                - New preference window (arielj, ukblacknight, nicolaide, mehd36)
+                - Implemented nick and personal message roaming (pablo)
+                - Fixed tons of bugs all around the code (we&apos;re too lazy to write &apos;em all)</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-09-11</Date>
                 <Version>1.5</Version>
@@ -18448,6 +18459,9 @@
             <Description xml:lang="tr">Opera, standartlarla uyumlu, grafik arayüzlü bir internet tarayıcısıdır.</Description>
             <Icon>opera</Icon>
             <Archive type="tarbz2" sha1sum="f6d2938acdc8bbe2d762521313892989fd62a8be">http://get.opera.com/pub/opera/linux/1010/final/en/i386/opera-10.10.gcc4-qt4.i386.tar.bz2</Archive>
+            <Patches>
+                <Patch level="1">add_nsbrowserplugins.patch</Patch>
+            </Patches>
             <SourceURI>network/web/opera/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -18475,6 +18489,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="27">
+                <Date>2010-01-05</Date>
+                <Version>10.10</Version>
+                <Comment>Add nsbrowser plugins to the default paths, bug #11485</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="26">
                 <Date>2009-11-25</Date>
                 <Version>10.10</Version>
@@ -19972,7 +19993,7 @@
             <Description xml:lang="en">Easy-to-use FTP Client which also supports SFTP.</Description>
             <Description xml:lang="tr">Filezilla; dosyalarınızı ftp, sftp, ftps ile göndermenize ve indirmenize yarar</Description>
             <Icon>filezilla</Icon>
-            <Archive type="tarbz2" sha1sum="51ecb7c79c53466595c5691945ad83b49415f1b4">mirrors://sourceforge/filezilla/FileZilla_3.3.0.1_src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="aa0c42e0fed93e7068376b63213ff7c164fd078e">mirrors://sourceforge/filezilla/FileZilla_3.3.1_src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="2.8.9">wxGTK-devel</Dependency>
                 <Dependency versionFrom="2.8.3">gnutls</Dependency>
@@ -20000,6 +20021,31 @@
             </Files>
         </Package>
         <History>
+            <Update release="31">
+                <Date>2010-01-05</Date>
+                <Version>3.3.1</Version>
+                <Comment>New features:
+                          * New tab context menu, can be used to close or refresh current tab or to close all but the current tab.
+                          * *nix, OS X: Display sort indicators in filelist header control.
+                          * Remember size of dialog showing all files opened for editing.
+                          * Add refresh item to filelist context menus.
+                          * Scroll treeview horizontally if needed to keep item in view on changing directories.
+                      Bugfixes and minor changes:
+                          * Fix crash of fzsftp if server closes connection.
+                          * Successfully downloaded update file is no longer deleted if user cancels the finish page of the update check wizard.
+                          * Do not retry connecting if not trusting certificate on FTP over TLS connections.
+                          * Better reporting of handshake failures on FTP over TLS connections.
+                          * *nix: Check for xdg-open. This program from the xdg-utils is an indirect runtime dependency. It is used by wxWidgets to open URLs in the default browser.
+                          * Refactored most of the tabbing code.
+                          * Use proper address type on SOCKS proxies.
+                          * Add missing default button in bookmarks dialog.
+                          * Implement missing tab creation from context menu.
+                          * *nix: Reduce flicker on tab creation.
+                          * Set initial focus in chmod dialog to input box for numeric value.
+                          * Correct handling of unexpected closure of SFTP connection.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="30">
                 <Date>2009-11-17</Date>
                 <Version>3.3.0.1</Version>
@@ -29484,7 +29530,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">Terminator is an attempt to maximise useful space on a given desktop for terminals</Description>
             <Description xml:lang="tr">Terminator tek pencerede birden çok terminal çalıştırarak masaüstü alanınızı daha rahat kullanmanızı amaçlar.</Description>
             <Icon>terminator</Icon>
-            <Archive type="targz" sha1sum="685d54ac62210b6ef056e77a2bd16d7dc6dd77b2">http://launchpad.net/terminator/trunk/0.13/+download/terminator_0.13.tar.gz</Archive>
+            <Archive type="targz" sha1sum="7bee32c6ff9e73699b87710702f1df2e7fcd7562">http://launchpad.net/terminator/trunk/0.14/+download/terminator_0.14.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-python</Dependency>
@@ -29512,6 +29558,18 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-05</Date>
+                <Version>0.14</Version>
+                <Comment>* Version bump
+                - Keybindings can now be disabled by setting them to &quot;None&quot;
+                - Change default behaviour to enable full transparency
+                - Terminal titlebars can now be edited like tab labels
+                - Geometry hinting is now available and enabled by default
+                - Lots of bug fixing</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-08-18</Date>
                 <Version>0.13</Version>
