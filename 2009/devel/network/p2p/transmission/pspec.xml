@@ -15,7 +15,7 @@
         <IsA>app:console</IsA>
         <Summary>A fast, easy, and free BitTorrent client</Summary>
         <Description>Transmission is a free, lightweight Bittorrent client. It features a simple, intuitive interface on top of an efficient backend. This package provides only daemon, web interface and command line client. If you use Transmission with graphical interface, you should install transmission-gtk or transmission-qt.</Description>
-        <Archive sha1sum="8ce610a9d743cdd6fa6495824d03416bee9a3512" type="tarbz2">http://mirrors.m0k.org/transmission/files/transmission-1.75.tar.bz2</Archive>
+        <Archive sha1sum="16582bf2ee44182b6a5fb74f2391d92d6cb8db73" type="tarbz2">http://mirrors.m0k.org/transmission/files/transmission-1.77.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>qt</Dependency>
@@ -49,9 +49,6 @@
             <Dependency>pango</Dependency>
             <Dependency>libevent</Dependency>
         </RuntimeDependencies>
-        <Replaces>
-            <Package releaseTo="13">transmission</Package>
-        </Replaces>
         <Files>
             <Path fileType="executable">/usr/bin/transmission</Path>
             <Path fileType="man">/usr/share/man/man1/transmission.1</Path>
@@ -81,6 +78,17 @@
     </Package>
 
     <History>
+        <Update release="17" type="security">
+            <Date>2010-01-07</Date>
+            <Version>1.77</Version>
+            <Comment>
+                - Version bump
+                - Fix directory traversal vulnerability that causes data loss with malicious torrent files. (CVE-2010-0012, #11935)
+                - Remove incorrect replaces tag in transmission-gtk package
+            </Comment>
+            <Name>Eren Türkay</Name>
+            <Email>eren@pardus.org.tr</Email>
+        </Update>
         <Update release="16">
             <Date>2009-09-14</Date>
             <Version>1.75</Version>
