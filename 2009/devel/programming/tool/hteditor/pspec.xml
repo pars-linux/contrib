@@ -3,15 +3,15 @@
 <PISI>
     <Source>
         <Name>hteditor</Name>
-        <Homepage>http://hte.sourceforge.net/</Homepage>
+        <Homepage>http://hte.sourceforge.net</Homepage>
         <Packager>
-            <Name>Kenan Pelit</Name>
-            <Email>kpelit@gmail.com</Email>
+            <Name>Pardus</Name>
+            <Email>admins@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>HT is a file editor/viewer/analyzer for executables</Summary>
-        <Archive sha1sum="b66df573a30b4840564fa05705827847917dd4ee" type="tarbz2">mirrors://sourceforge/hte/ht-2.0.13.tar.bz2</Archive>
+        <Archive sha1sum="f4e51dae47f8f2a2fe34883714890e9d1c48d3de" type="tarbz2">mirrors://sourceforge/hte/ht-2.0.18.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xorg-server</Dependency>
             <Dependency>lzo</Dependency>
@@ -23,7 +23,6 @@
         <RuntimeDependencies>
             <Dependency>xorg-server</Dependency>
             <Dependency>lzo</Dependency>
-            <Dependency>bison</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -33,6 +32,34 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-01-09</Date>
+            <Version>2.0.18</Version>
+            <Comment>
+                * Version bump
+                - updated c++ demangler
+                - [x86] SSE5/XOP/AVX merge
+                - [x86] AMD LWP instructions
+                - symbols "first" and "last" in hex view
+                - project manager works again
+                - compilation fixes for gcc 4.4
+                - fixed crash on garbage in elf section headers
+                - [x86] intel avx update
+                - updated c++ demangler
+                - small crash fix
+                - fixed clipboard view
+                - fixed ELF symbol viewer
+                - [x86] movbe, invept, invvpid
+                - [eval] better help
+                - [eval] last result (symbol _)
+                - [eval] u8, u16 etc. for current byte, word..
+                - fixed embarrassing endianess bug
+                * removed bison dependency
+                * take over
+            </Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2008-06-11</Date>
             <Version>2.0.13</Version>
