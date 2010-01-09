@@ -19,4 +19,4 @@ def build():
 def install():
     cmaketools.install("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("COPYING")
+    pisitools.dodoc("COPYING", "ChangeLog", "TODO")
