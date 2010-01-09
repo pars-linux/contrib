@@ -5,14 +5,14 @@
         <Name>conky</Name>
         <Homepage>http://conky.sourceforge.net</Homepage>
         <Packager>
-            <Name>Kenan Pelit</Name>
-            <Email>kpelit@gmail.com</Email>
+            <Name>Pardus</Name>
+            <Email>admins@pardus.org.tr</Email>
         </Packager>
         <License>BSD</License>
         <IsA>app:gui</IsA>
         <Summary>An advanced, highly configurable system monitor</Summary>
         <Description>conkyg is an advanced, highly configurable system monitor for X.</Description>
-        <Archive sha1sum="e8a5a814c156b17aa32614e77a25389e00f1cf02" type="tarbz2">mirrors://sourceforge/conky/conky-1.7.1.1.tar.bz2</Archive>
+        <Archive sha1sum="3f4e5cc13651fbf94892b079d447a8549818809e" type="tarbz2">mirrors://sourceforge/conky/conky-1.7.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libXext</Dependency>
             <Dependency>libXdamage</Dependency>
@@ -48,6 +48,23 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-01-09</Date>
+            <Version>1.7.2</Version>
+            <Comment>
+                * Version bump
+                - Fixed minor memleak in pop3/imap code on config reload
+                - Fix crash when using $if_match with objects that may return a null pointer (like $rss, $weather, or $curl before data is available)
+                - Removed alias config option due to brokenness
+                - Changed xoap parsing method to xpath, in preparation to include forecast data
+                - Fixed out-of-tree builds
+                - Overhauled RSS and weather, added $curl
+                * unused direct dependencies
+                * take over
+            </Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2009-06-13</Date>
             <Version>1.7.1.1</Version>

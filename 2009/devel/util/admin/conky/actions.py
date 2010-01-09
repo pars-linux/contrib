@@ -9,6 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.autoreconf("-fi")
     pisitools.dosed("src/linux.c", "#include <linux/route.h>", "#include <net/route.h>")
     autotools.configure("--disable-static \
                          --disable-xmms2 \
