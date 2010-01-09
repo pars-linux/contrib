@@ -28,5 +28,3 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.remove("/usr/lib/irssi/modules/libirc_proxy.a")
-
-    perlmodules.fixLocalPod()
