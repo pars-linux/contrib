@@ -18,7 +18,6 @@ def install():
     autotools.install()
 
     pisitools.insinto("/usr/share/doc/%s/examples"% get.srcTAG(), "doc/*.example")
-    pisitools.insinto("/usr/share/doc/%s/examples"% get.srcTAG(), "scripts/*.sh")
     pisitools.insinto("/usr/share/doc/%s/examples"% get.srcTAG(), "scripts/msmtpqueue/*")
 
     pisitools.dohtml("doc/msmtp.html")
