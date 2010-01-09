@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>A lightweight web browser that is based GTK+</Summary>
         <Description>Midori is a lightweight GTK+ web browser based on WebkitGtk. It features tabs, windows and session management, bookmarks stored with XBEL, searchbox based on OpenSearch, and user script support.</Description>
-        <Archive sha1sum="5e6e9b055cf130f30a287886d908f8a672e66e0a" type="tarbz2">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.1.tar.bz2</Archive>
+        <Archive sha1sum="053718ef0c907d5fb905d3cd71b053460a9b1927" type="tarbz2">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libunique</Dependency>
             <Dependency>gtk2</Dependency>
@@ -51,6 +51,30 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2010-01-10</Date>
+            <Version>0.2.2</Version>
+            <Comment>
+                * Version bump:
+                    - Bookmarks can be imported from Opera, Arora, Kazehakase, Epiphany and
+                    other browser using XBEL. The XBEL support was improved in terms of
+                    performance and compatibility with other applications.
+                    - Colourful Tabs now work in combination with the Tab Panel. Delete
+                    Private data includes Web Cache which it didn't before. And if you have
+                    a small screen or mobile device, Open panels in separate windows can be
+                    useful. Correct ordering of History and Trash were fixed. The Shortcuts
+                    dialogue display issues were fixed.
+                    - The options 'Show in toolbar' and 'Open as web app' were implemented for
+                    bookmarks. So you can selectively decide what bookmarks or folders to
+                    have in the bookmarkbar. And if you mark them as 'web app' bookmarks
+                    open in a separate process.
+                    - Several improvements related to portability and compatibility were
+                    applied, for Hildon and Win32. Build fixes for certain Glib and GTK+
+                    versions were applied. libnotify is now a build-time dependency.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2009-11-24</Date>
             <Version>0.2.1</Version>
