@@ -13,9 +13,10 @@
         <IsA>app:gui</IsA>
         <Summary>Xfce notes plugin</Summary>
         <Description>xfce4-notes-plugin is a notes panel plugin for the Xfce Desktop Environment. It provides a simple system for managing sticky notes on your desktop.</Description>
-        <Archive sha1sum="935bff680c478fe5135b6df69f05ce3d2727b435" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/xfce4-notes-plugin-1.7.1.tar.bz2</Archive>
+        <Archive sha1sum="ac8703b9c63ba38158eb298d77e7d7a1c99c6a80" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/xfce4-notes-plugin-1.7.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xfce4-panel-devel</Dependency>
+            <Dependency>libunique</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -23,18 +24,46 @@
         <Name>xfce4-notes-plugin</Name>
         <RuntimeDependencies>
             <Dependency>xfce4-panel</Dependency>
+            <Dependency>libunique</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/xfce4</Path>
+            <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2010-01-10</Date>
+            <Version>1.7.2</Version>
+            <Comment>
+                * Version bump:
+                    - Update translations.
+                    - Unique support has been introduced as a hard-dependency (because you
+                      just can't provide soft-dependencies when building from Vala sources)
+                    - The plugin is provided both as a panel plugin and as a standalone app
+                      that sits in the notification area (a menu item is available under
+                      Accessories)
+                    - A context menu to go to a specific notes-group appears in the context
+                      menu (right click the panel plugin or the systray icon)
+                    - Navigation bar can be set on/off in the settings dialog
+                    - The tabs can be positioned instead of only on/off
+                    - The top-right/left corners are no more resizable
+                    - A cursor handle to resize on the right/left is displayed
+                    - Some minor esthetic changes
+                    - Small bug fixes
+                * Add new dependency: libunique.
+                * Add new path files.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="6">
             <Date>2009-09-03</Date>
             <Version>1.7.1</Version>
