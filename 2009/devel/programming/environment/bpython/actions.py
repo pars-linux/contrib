@@ -8,11 +8,13 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import get
 
-WorkDir = get.srcNAME()
+def build():
+    pythonmodules.compile()
 
 def install():
     pythonmodules.install()
 
-    pisitools.doman("doc/bpython.1", "doc/bpythonrc.5")
-    pisitools.dodoc("LICENCE", "CHANGES", "README", "sample-rc")
+    pisitools.doman("doc/bpython.1", "doc/bpython-config.5")
+    pisitools.insinto("/usr/share/pixmaps", "bpython/logo.png", "bpython.png")
+    pisitools.dodoc("LICENSE", "CHANGELOG", "README", "sample-config")
 
