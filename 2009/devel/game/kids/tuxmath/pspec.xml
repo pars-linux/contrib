@@ -9,6 +9,7 @@
             <Email>dfisek@fisek.com.tr</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>tuxmath</Icon>
         <IsA>app:gui</IsA>
         <Summary>Educational Math Game</Summary>
         <Description>"Tux, of Math Command" ("TuxMath," for short) is an educational arcade game where you have to solve math problems, starring Tux, the Linux mascot!</Description>
@@ -19,6 +20,9 @@
             <Dependency>sdl-ttf</Dependency>
             <Dependency>sdl-pango</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>menu_tr.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -34,14 +38,19 @@
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="data">/usr/share/tuxmath</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="doc">/usr/share/doc/tuxmath</Path>
         </Files>
-        <AdditionalFiles>
-            <AdditionalFile target="/usr/share/applications/tuxmath.desktop" permission="0644" owner="root">tuxmath.desktop</AdditionalFile>
-        </AdditionalFiles>
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-01-15</Date>
+            <Version>1.7.2</Version>
+            <Comment>Add icon tag, change menu category (and use internal desktop file)</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="7">
             <Date>2009-07-17</Date>
             <Version>1.7.2</Version>
