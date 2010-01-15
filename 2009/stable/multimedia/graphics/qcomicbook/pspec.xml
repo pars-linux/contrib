@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>qcomicbook</Name>
-        <Homepage>http://linux.bydg.org/~yogin/</Homepage>
+        <Homepage>http://qcomicbook.linux-projects.net/</Homepage>
         <Packager>
             <Name>Doruk Fişek</Name>
             <Email>dfisek@fisek.com.tr</Email>
@@ -12,7 +12,7 @@
         <IsA>app:gui</IsA>
         <Summary>An image viewer specifically designed to handle comic books</Summary>
         <Description>QComicBook is a viewer for comic book archives (cbz, cbr, cbt). QComicBook has specific features like page preview, thumbnails view, bookmarks, manga mode for easing comicbook reading.</Description>
-        <Archive sha1sum="ad77be0fa84032d6d14b79268d0dd88e9b4c80eb" type="targz">http://linux.bydg.org/~yogin/qcomicbook/qcomicbook-0.4.0.tar.gz</Archive>
+        <Archive sha1sum="e658a07198652c7d309a2d1aa21681f7331d47d2" type="targz">http://cloud.github.com/downloads/stolowski/QComicBook/qcomicbook-0.5.0.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>qt</Dependency>
         </BuildDependencies>
@@ -28,12 +28,31 @@
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="doc">/usr/share/doc/qcomicbook</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share/qcomicbook</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/applications</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-01-15</Date>
+            <Version>0.5.0</Version>
+            <Comment>Version bump:
+             * implemented true continuous viewing mode. 'Continuous scrolling' option moved to 'View' menu.
+             * removed 'Forward two pages in two pages mode' option.
+             * new and improved 'System Information' dialog.
+             * fixed splash screen showing an put a new splash screen.
+             * fixed bug in subdirectories handling that resulted in missing images
+             * fixed bug with p7zip archiver detection that could result in crash when opening .7z archives
+             * added option to embed page numbers on displayed page
+             * properly clear empty areas when displaying 2 pages of different size
+             * fixed freezing when unpacking some archives (in particular zip)
+             * fixed crash when opening archives via 'Recently opened' menu
+             * thumbnails are now saved with sha1-hashed file names             
+            </Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="5">
             <Date>2009-07-11</Date>
             <Version>0.4.0</Version>
