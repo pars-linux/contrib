@@ -13,10 +13,10 @@
         <IsA>service</IsA>
         <Summary>A lightweight wired and wireless network service</Summary>
         <Description>Wicd is a daemon that manages wired and wireless connections.</Description>
-        <Archive sha1sum="d5b65aacb40bba8fbdc4176f40730d9d662afa09" type="tarbz2">mirrors://sourceforge/wicd/wicd-1.6.2.2.tar.bz2</Archive>
+        <Archive sha1sum="1cd087f53538b1f6e1cfad9735c87741e05698f6" type="tarbz2">mirrors://sourceforge/wicd/wicd-1.7.0.tar.bz2</Archive>
         <Patches>
             <Patch level="1">desktop.patch</Patch>
-            <Patch level="1">add-policykit-support.patch</Patch>
+            <Patch level="1">policykit.patch</Patch>
         </Patches>
     </Source>
 
@@ -28,12 +28,14 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
+            <Path fileType="executable">/usr/bin/wicd-cli*</Path>
             <Path fileType="executable">/usr/sbin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/var/lib</Path>
+            <Path fileType="data">/var/log</Path>
             <Path fileType="data">/usr/share/wicd</Path>
         </Files>
         <AdditionalFiles>
@@ -45,11 +47,11 @@
     </Package>
 
     <Package>
-        <Name>wicd-client</Name>
+        <Name>wicd-gtk</Name>
         <IsA>app:gui</IsA>
         <Summary>Wicd's user interface client that is written in GTK+</Summary>
         <RuntimeDependencies>
-            <Dependency releaseFrom="7">wicd</Dependency>
+            <Dependency releaseFrom="10">wicd</Dependency>
             <Dependency>pygtk</Dependency>
             <Dependency>notify-python</Dependency>
             <Dependency>gksu</Dependency>
@@ -59,13 +61,12 @@
         </Conflicts>
         <Files>
             <Path fileType="config">/etc/xdg</Path>
-            <Path fileType="executable">/usr/bin/wicd-client</Path>
-            <Path fileType="library">/usr/lib/wicd/wicd-client.py</Path>
+            <Path fileType="executable">/usr/bin/wicd-gtk</Path>
+            <Path fileType="library">/usr/share/wicd/gtk</Path>
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/wicd/wicd.glade</Path>
-            <Path fileType="man">/usr/share/man/man1/wicd-client.1</Path>
         </Files>
     </Package>
 
@@ -74,18 +75,47 @@
         <IsA>app:console</IsA>
         <Summary>Wicd's user interface client that is written in Urwid</Summary>
         <RuntimeDependencies>
-            <Dependency releaseFrom="7">wicd</Dependency>
+            <Dependency releaseFrom="10">wicd</Dependency>
             <Dependency>urwid</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin/wicd-curses</Path>
-            <Path fileType="library">/usr/lib/wicd/*curses.py</Path>
-            <Path fileType="library">/usr/lib/wicd/curses_misc.py</Path>
+            <Path fileType="library">/usr/share/wicd/curses</Path>
             <Path fileType="man">/usr/share/man/man8/wicd-curses.8</Path>
+            <Path fileType="man">/usr/share/man/*/man8/wicd-curses.8</Path>
+            <Path fileType="doc">/usr/share/doc/wicd/README.curses</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2010-01-17</Date>
+            <Version>1.7.0</Version>
+            <Comment>
+                * Version bump:
+                    - Add a 1 second sleep after setting essid but before scanning.
+                    - Change to use dict.get instead of dict[].
+                    - Add information about global scripts to wicd(8).
+                    - Mark ioctl not supported in wicd-gtk.
+                    - Have wicd-client pass arguments to wicd-gtk and wicd-curses again.
+                    - Remove useless about menu in wicd's tray icon.
+                    - Create wpath.networks at run time if it doesn't exist.
+                    - Add .empty_on_purpose to empty directories.
+                    - Make wicd-cli easier to use.
+                    - Fix udhcpc not working due to an extra period.
+                    - Fix the case sensitivity in wicd-cli.
+                    - Update wicd-cli calls to work with the current daemon.
+                    - Fix potential urwid compatibility problem.
+                    - Use wicd-gtk to launch the GTK UI instead of wicd-client.
+                    - Add support for copying dhclient.conf.template from a default file if it isn't found.
+                * Fix file paths.
+                * Change wicd-client package name as wicd-gtk.
+                * Remove unrequired patches.
+                * Rewrite patch for policykit support.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="9">
             <Date>2009-10-13</Date>
             <Version>1.6.2.2</Version>
