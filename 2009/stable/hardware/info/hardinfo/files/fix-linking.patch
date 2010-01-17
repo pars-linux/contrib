@@ -1,0 +1,59 @@
+diff -Naur hardinfo-0.5.1.orig/Makefile.in hardinfo-0.5.1/Makefile.in
+--- hardinfo-0.5.1.orig/Makefile.in	2010-01-17 23:13:14.817618033 +0200
++++ hardinfo-0.5.1/Makefile.in	2010-01-17 23:28:01.077864737 +0200
+@@ -1,8 +1,8 @@
+ 
+-CCFLAGS = -fPIC -pipe -Wall -g 
++CCFLAGS += -fPIC -pipe -Wall -g 
+ CFLAGS = $(GTK_CFLAGS) $(SOUP_CFLAGS) -I.
+-CC = gcc $(ARCHOPTS) -g
+-CCSLOW = gcc -O0 -g
++CC +=
++CCSLOW = $(CC) -O0 -g
+ 
+ # ----------------------------------------------------------------------------
+ 
+@@ -14,35 +14,35 @@
+ MODULES = computer.so devices.so benchmark.so network.so
+ 
+ all:	$(OBJECTS) $(MODULES)
+-	$(CC) $(CCFLAGS) -o hardinfo -Wl,-export-dynamic $(OBJECTS) $(GTK_LIBS) \
++	$(CC) $(CCFLAGS) $(LDFLAGS) -o hardinfo -Wl,-export-dynamic $(OBJECTS) $(GTK_LIBS) \
+ 		$(SOUP_LIBS)
+ 
+ md5.o:
+-	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -c md5.c -o $@
++	$(CCSLOW) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -c md5.c -o $@
+ 
+ blowfish.o:
+-	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -c blowfish.c -o $@
++	$(CCSLOW) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -c blowfish.c -o $@
+ 
+ sha1.o:
+-	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -c sha1.c -o $@
++	$(CCSLOW) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -c sha1.c -o $@
+ 
+ fbench.o:
+ 	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -c fbench.c -o $@
+ 
+ fftbench.o:
+-	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -c fftbench.c -o $@
++	$(CCSLOW) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -c fftbench.c -o $@
+ 
+ nqueens.o:
+-	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -c nqueens.c -o $@
++	$(CCSLOW) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -c nqueens.c -o $@
+ 
+ benchmark.so:	benchmark.c
+ 	make $(BENCHMARK_OBJECTS)
+-	$(CCSLOW) $(CCFLAGS) $(CFLAGS) -o $@ -shared $< $(BENCHMARK_OBJECTS) \
++	$(CCSLOW) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ -shared $< $(BENCHMARK_OBJECTS) \
+ 		$(GTK_FLAGS) $(GTK_LIBS)
+ 	ln -sf ../$@ modules
+ 
+ %.so:	%.c
+-	$(CC) $(CCFLAGS) $(CFLAGS) -o $@ -shared $< $(GTK_FLAGS) $(GTK_LIBS)
++	$(CC) $(CCFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ -shared $< $(GTK_FLAGS) $(GTK_LIBS)
+ 	ln -sf ../$@ modules
+ 	
+ clean:
