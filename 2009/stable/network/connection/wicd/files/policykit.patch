@@ -7,7 +7,7 @@ diff -Nuar wicd-1.7.0.orig/wicd/dbusmanager.py wicd-1.7.0/wicd/dbusmanager.py
          """ Connects to wicd's dbus interfaces and loads them into a dict. """
 +        # For Pardus
 +        from wicd import startservice as pardus
-+        if pardus.infoService("wicd") == "stopped":
++        if pardus.infoService("wicd") in ["stopped", "off"]:
 +            pardus.startService("wicd")
 +
          proxy_obj = self._bus.get_object("org.wicd.daemon", '/org/wicd/daemon')
