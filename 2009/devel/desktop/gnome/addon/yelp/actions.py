@@ -8,11 +8,9 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--enable-static=no \
-                         --enable-man \
-                         --with-x \
-                         --with-gecko=firefox \
-                         --with-search=basic")
+    autotools.configure("--disable-static \
+                         --disable-schemas-install \
+                         --with-gecko=libxul-embedding")
 
 def build():
     autotools.make()
