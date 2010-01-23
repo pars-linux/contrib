@@ -52614,22 +52614,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.gnome.addon</PartOf>
-            <Summary xml:lang="en">Help browser for Gnome</Summary>
+            <Summary xml:lang="en">Help viewer for GNOME desktop</Summary>
             <Summary xml:lang="tr">Gnome için Yardım görüntüleyici</Summary>
-            <Archive type="tarbz2" sha1sum="66e446596c22902290d6614b2d356b64d5bd304c">mirrors://gnome/yelp/2.18/yelp-2.18.1.tar.bz2</Archive>
+            <Description xml:lang="en">Yelp is a help viewer which serves as a DocBook viewer, a man page viewer, and an info page viewer.</Description>
+            <Archive type="tarbz2" sha1sum="260719600148490effaba2e78a9d536f251f5b66">mirrors://gnome/yelp/2.28/yelp-2.28.1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gconf</Dependency>
-                <Dependency>gnome-doc-utils</Dependency>
-                <Dependency>gnome-keyring</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libglade2</Dependency>
-                <Dependency>libgnome</Dependency>
-                <Dependency>libgnomeui</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>libxslt</Dependency>
+                <Dependency versionFrom="0.17.2">gnome-doc-utils</Dependency>
+                <Dependency>xulrunner-devel</Dependency>
                 <Dependency>startup-notification</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox-devel</Dependency>
-                <Dependency>intltool</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/gnome/addon/yelp/pspec.xml</SourceURI>
         </Source>
@@ -52637,17 +52630,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>yelp</Name>
             <RuntimeDependencies>
                 <Dependency>gconf</Dependency>
-                <Dependency>gnome-doc-utils</Dependency>
-                <Dependency>gnome-keyring</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>libglade2</Dependency>
-                <Dependency>libgnome</Dependency>
-                <Dependency>libgnomeui</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency>libxslt</Dependency>
+                <Dependency>xulrunner</Dependency>
                 <Dependency>startup-notification</Dependency>
-                <Dependency versionFrom="2.0.0.4">firefox</Dependency>
-                <Dependency>intltool</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -52658,6 +52642,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-22</Date>
+                <Version>2.28.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Burak Çalışkan</Name>
+                <Email>burakclskn@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-06-25</Date>
                 <Version>2.18.1</Version>
