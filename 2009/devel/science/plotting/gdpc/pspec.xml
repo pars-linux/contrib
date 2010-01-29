@@ -12,12 +12,12 @@
         <IsA>app:gui</IsA>
         <Summary>A tool for visualising the output files of a molecular dynamic simulation</Summary>
         <Description>gdpc is a program for visualising molecular dynamic simulations, it is a very versatile program and could easily be used for other purposes. Gdpc reads xyz input and custom formats and can write out pictures of the frames.</Description>
-        <Archive sha1sum="d396c4eb715bbea0885fe6296b1b670199b4bd87" type="targz">http://www.frantz.fi/software/gdpc-2.2.4.tar.gz</Archive>
+        <Archive sha1sum="6c88d70fb0b17e8a7d00ab9d2e87f62e512826ef" type="targz">http://www.frantz.fi/software/gdpc-2.2.5.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch>Makefile_and_gtk.patch</Patch>
+            <Patch level="1">Makefile.patch</Patch>
         </Patches>
     </Source>
 
@@ -39,6 +39,16 @@
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2010-01-29</Date>
+            <Version>2.2.5</Version>
+            <Comment>Bump to new version 2.2.5: 
+                * Updated deprecated symbols in GTK+ 2.16. 
+                * Updated Makefile and spec file, contributed by Jussi Lehtola. 
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2008-11-07</Date>
             <Version>2.2.4</Version>
