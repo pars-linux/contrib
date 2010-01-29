@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 from pisi.actionsapi import shelltools
 
-examples = "%s/%s/examples" % (get.docDIR(), get.srcTAG())
+examples = "%s/%s/examples" % (get.docDIR(), get.srcNAME())
 
 def setup():
     pythonmodules.compile()

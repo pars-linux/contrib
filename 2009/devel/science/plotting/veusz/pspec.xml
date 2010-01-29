@@ -13,11 +13,11 @@
         <IsA>library</IsA>
         <Summary>A scientific plotting package written in Python</Summary>
         <Description>Veusz provides a GUI, command line and scripting interface (based on Python) to its plotting facilities. The plots are built using an object-based system to provide a consistent interface.</Description>
-        <Archive sha1sum="2e9156bb641b579eb2a312425cdfc55e7eb66213" type="targz">http://download.gna.org/veusz/veusz-1.3.tar.gz</Archive>
+        <Archive sha1sum="2d4749dc82e6d7e29f429f9fc7ce4850c6f356c4" type="targz">http://download.gna.org/veusz/veusz-1.6.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="1.0.4">numpy</Dependency>
-            <Dependency versionFrom="1.0">pyfits</Dependency>
-            <Dependency versionFrom="4.3">PyQt4</Dependency>
+            <Dependency>numpy</Dependency>
+            <Dependency>pyfits</Dependency>
+            <Dependency>PyQt</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>veusz.desktop.patch</Patch>
@@ -27,9 +27,9 @@
     <Package>
         <Name>veusz</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="1.0.4">numpy</Dependency>
-            <Dependency versionFrom="1.0">pyfits</Dependency>
-            <Dependency versionFrom="4.3">PyQt4</Dependency>
+            <Dependency>numpy</Dependency>
+            <Dependency>pyfits</Dependency>
+            <Dependency>PyQt</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -41,6 +41,13 @@
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2010-01-28</Date>
+            <Version>1.6</Version>
+            <Comment>Version bump to 1.6. Make the package ready for Pardus 2009.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="6">
             <Date>2009-03-01</Date>
             <Version>1.3</Version>
