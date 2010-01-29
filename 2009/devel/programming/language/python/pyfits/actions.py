@@ -6,9 +6,16 @@
 
 from pisi.actionsapi import pythonmodules
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
+
+tests = "%s/%s/test" % (get.docDIR(), get.srcNAME())
+
+def build():
+    pythonmodules.compile()
 
 def install():
     pythonmodules.install()
 
-    pisitools.dodoc("docs/*")
+    shelltools.chmod("test/*", 0644)
+    pisitools.insinto(tests, "test/*")
