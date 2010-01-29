@@ -8,10 +8,10 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="rlplot"
+WorkDir="%s" % get.srcNAME()
 
 def build():
-    autotools.make()
+    autotools.make("-j1")
 
 def install():
     pisitools.dobin("rlplot")
