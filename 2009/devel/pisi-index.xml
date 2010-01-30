@@ -42853,66 +42853,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>pyfits</Name>
-            <Homepage>http://www.stsci.edu/resources/software_hardware/pyfits</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>BSD</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">PyFITS provides an interface to FITS formatted files under the Python scripting language and PyRAF, the Python-based interface to IRAF.</Summary>
-            <Description xml:lang="en">PyFITS provides an interface to FITS formatted files under the Python scripting language and PyRAF, the Python-based interface to IRAF.</Description>
-            <Archive type="targz" sha1sum="280f29e2ae4b7ded3cb44fc545e8c7217266fbc4">http://www.stsci.edu/resources/software_hardware/pyfits/pyfits-1.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="1.5.2">numarray</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/python/pyfits/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pyfits</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="1.5.2">numarray</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="4">
-                <Date>2008-09-10</Date>
-                <Version>1.3</Version>
-                <Comment>Version bump, remove system.base dependencies and add documentation.</Comment>
-                <Name>Serdar Dalgıç</Name>
-                <Email>serdar@cclub.metu.edu.tr</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-07-12</Date>
-                <Version>1.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-03-15</Date>
-                <Version>1.1_rc1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-11-22</Date>
-                <Version>1.1_beta3</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>gnome-python-desktop</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
@@ -64380,12 +64320,12 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Dinamik moleküler simülasyonların çıktılarını görselleştirmeye yarayan bir araç</Summary>
             <Description xml:lang="en">gdpc is a program for visualising molecular dynamic simulations, it is a very versatile program and could easily be used for other purposes. Gdpc reads xyz input and custom formats and can write out pictures of the frames.</Description>
             <Description xml:lang="tr">gdpc, dinamik moleküler simülasyonların çıktılarını görselleştirmeye yarayan bir araçtır. Çok yönlü bir program olmakla beraber, bir çok başka amaç için kolaylıkla kullanılabilir. Gdpc xyz girdilerini ve özel biçimleri okur, ve karelerin görüntülerinin tamamını yazabilir.</Description>
-            <Archive type="targz" sha1sum="d396c4eb715bbea0885fe6296b1b670199b4bd87">http://www.frantz.fi/software/gdpc-2.2.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="6c88d70fb0b17e8a7d00ab9d2e87f62e512826ef">http://www.frantz.fi/software/gdpc-2.2.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>Makefile_and_gtk.patch</Patch>
+                <Patch level="1">Makefile.patch</Patch>
             </Patches>
             <SourceURI>science/plotting/gdpc/pspec.xml</SourceURI>
         </Source>
@@ -64406,6 +64346,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-01-29</Date>
+                <Version>2.2.5</Version>
+                <Comment>Bump to new version 2.2.5: 
+                * Updated deprecated symbols in GTK+ 2.16. 
+                * Updated Makefile and spec file, contributed by Jussi Lehtola.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-11-07</Date>
                 <Version>2.2.4</Version>
@@ -64438,11 +64387,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Veusz provides a GUI, command line and scripting interface (based on Python) to its plotting facilities. The plots are built using an object-based system to provide a consistent interface.</Description>
             <Description xml:lang="tr">Veusz, grafiksel ya da (Python üzerine şekillenmiş) komut satırı arayüzleri sağlamaktadır. Çizilen kısımlar, tutarlı bir arayüz sağlamak için nesne-temelli bir sistem kullanılarak inşa edilmektedir.</Description>
             <Icon>veusz</Icon>
-            <Archive type="targz" sha1sum="2e9156bb641b579eb2a312425cdfc55e7eb66213">http://download.gna.org/veusz/veusz-1.3.tar.gz</Archive>
+            <Archive type="targz" sha1sum="2d4749dc82e6d7e29f429f9fc7ce4850c6f356c4">http://download.gna.org/veusz/veusz-1.6.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="1.0.4">numpy</Dependency>
-                <Dependency versionFrom="1.0">pyfits</Dependency>
-                <Dependency versionFrom="4.3">PyQt4</Dependency>
+                <Dependency>numpy</Dependency>
+                <Dependency>pyfits</Dependency>
+                <Dependency>PyQt</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>veusz.desktop.patch</Patch>
@@ -64452,9 +64401,9 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>veusz</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="1.0.4">numpy</Dependency>
-                <Dependency versionFrom="1.0">pyfits</Dependency>
-                <Dependency versionFrom="4.3">PyQt4</Dependency>
+                <Dependency>numpy</Dependency>
+                <Dependency>pyfits</Dependency>
+                <Dependency>PyQt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -64465,6 +64414,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2010-01-28</Date>
+                <Version>1.6</Version>
+                <Comment>Version bump to 1.6. Make the package ready for Pardus 2009.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-03-01</Date>
                 <Version>1.3</Version>
@@ -64540,13 +64496,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>app:gui</IsA>
             <PartOf>science.plotting</PartOf>
             <Summary xml:lang="en">A plotting program to create high quality graphs from data</Summary>
+            <Summary xml:lang="tr">Yüksek kalitede grafikler elde etmek için kullanılan bir grafik çizme programı</Summary>
             <Description xml:lang="en">RLPlot is is a plotting program to create high quality graphs from data. Based on values stored in a spreadsheet several menus help you to create graphs of your choice. The Graphs are displayed as you get them (Wysiwyg).</Description>
+            <Description xml:lang="tr">RLPlot, yüksek kalitede grafikler elde etmek için kullanılan bir grafik çizme programıdır. Bir spreadsheet dosyasında tutulan verilere göre menüler aracılığıyla istediğiniz şekilde bir grafik yaratmanıza olanak sağlar.</Description>
             <Archive type="targz" sha1sum="9f6d3ae9f3e023cf20134105d5460fb597be6cc8">mirrors://sourceforge/rlplot/rlplot_1.5.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>qt3-dir-for-rplot_1.5.patch</Patch>
+                <Patch level="1">Makefile.patch</Patch>
             </Patches>
             <SourceURI>science/plotting/rlplot/pspec.xml</SourceURI>
         </Source>
@@ -64567,6 +64525,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-01-29</Date>
+                <Version>1.5</Version>
+                <Comment>Make the package ready for Pardus 2009</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-09-07</Date>
                 <Version>1.5</Version>
