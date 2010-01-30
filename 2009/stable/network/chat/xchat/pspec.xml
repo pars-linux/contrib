@@ -12,6 +12,7 @@
         <Icon>xchat</Icon>
         <IsA>app:gui</IsA>
         <Summary>GTK based IRC client</Summary>
+        <Description>X-chat allows you to join multiple IRC channels (chat rooms) at the same time, talk publicly, private one-on-one conversations etc. Even file transfers are possible.</Description>
         <Archive sha1sum="7a7463e65cb26c680ed70dd96cec98bcc05435a4" type="tarbz2">http://xchat.org/files/source/2.8/xchat-2.8.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
@@ -42,16 +43,31 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="config">/etc</Path>
-            <Path fileType="library">/usr/lib</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc/xchat</Path>
+            <Path fileType="config">/etc/gconf/schemas</Path>
+            <Path fileType="library">/usr/lib/xchat/plugins</Path>
+            <Path fileType="data">/usr/share/dbus-1/services</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="13">
+           <Date>2010-01-30</Date>
+           <Version>2.8.6</Version>
+           <Comment>Add freenode's SSL-IRC addresses</Comment>
+           <Name>Burak Çalışkan</Name>
+           <Email>burakclskn@gmail.com</Email>
+        </Update>
+        <Update release="12">
+           <Date>2010-01-27</Date>
+           <Version>2.8.6</Version>
+           <Comment>Add package description, update Turkish summary, tidy file paths.</Comment>
+           <Name>Doruk Fişek</Name>
+           <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="11">
            <Date>2009-05-20</Date>
            <Version>2.8.6</Version>
