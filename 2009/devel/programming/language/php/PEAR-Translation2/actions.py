@@ -5,8 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Translation2-2.0.0beta12"
+WorkDir="Translation2-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "Translation2.php")
