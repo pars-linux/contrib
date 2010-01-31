@@ -12,5 +12,6 @@ def build():
     autotools.make()
 
 def install():
-    pisitools.dobin("flashrom")
+    pisitools.dosbin("flashrom")
+    pisitools.doman("flashrom.8")
     pisitools.dodoc("README")
