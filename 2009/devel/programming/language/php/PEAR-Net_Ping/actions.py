@@ -12,4 +12,3 @@ WorkDir="Net_Ping-%s" % get.srcVERSION()
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net", "Ping.php")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Net_Ping", "docs/examples/example.php")
-    pisitools.insinto("/usr/share/php5/PEAR/tests/Net_Ping", "tests/*")
