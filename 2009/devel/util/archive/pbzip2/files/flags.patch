@@ -1,11 +1,16 @@
---- Makefile	2007-07-27 19:41:47.000000000 +0300
-+++ Makefile	2007-12-04 09:57:51.000000000 +0200
-@@ -11,7 +11,7 @@
+--- Makefile	2010-01-31 03:30:20.445026895 +0200
++++ Makefile	2010-01-31 03:31:00.740781244 +0200
+@@ -21,11 +21,11 @@
  
  # Standard pbzip2 compile
  pbzip2: pbzip2.cpp
--	$(CC) -O3 -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -o pbzip2 pbzip2.cpp -pthread -lpthread -lbz2
-+	$(CXX) $(CXXFLAGS) -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -o pbzip2 pbzip2.cpp -lpthread -lbz2
+-	$(CC) $(CFLAGS) $^ -o pbzip2 -pthread -lpthread -lbz2
++	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o pbzip2 -pthread -lpthread -lbz2
  
  # Choose this if you want to compile in a static version of the libbz2 library
- pbzip2-static: libbz2.a pbzip2.cpp
+ pbzip2-static: pbzip2.cpp libbz2.a
+-	$(CC) $(CFLAGS) $^ -o pbzip2 -pthread -lpthread -I. -L. -lbz2
++	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o pbzip2 -pthread -lpthread -I. -L. -lbz2
+ 
+ # Install the binary pbzip2 program and man page
+ install: pbzip2
