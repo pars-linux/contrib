@@ -10,4 +10,4 @@ from pisi.actionsapi import get
 WorkDir="Spreadsheet_Excel_Writer-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Spreadsheet/Excel", "Writer*")
+    pisitools.insinto("/usr/share/php5/PEAR/Spreadsheet/Excel", "Spreadsheet/Excel/Writer*")
