@@ -14,5 +14,7 @@ def build():
 def install():
     pisitools.dobin("pbzip2")
     pisitools.doman("pbzip2.1")
-
+    pisitools.dosym("/usr/bin/pbzip2","/usr/bin/bzip2")
+    pisitools.dosym("/usr/bin/pbzip2","/usr/bin/bunzip2")
+    pisitools.dosym("/usr/bin/pbzip2","/usr/bin/bzcat")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
