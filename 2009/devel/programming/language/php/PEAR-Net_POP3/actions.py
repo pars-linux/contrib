@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="Net_POP3-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Net", "POP3.php")
-    pisitools.insinto("/usr/share/php5/PEAR/doc/Net_POP3", "Net_POP3_example.php")
+    pisitools.insinto("/usr/share/php5/PEAR/Net", "Net/POP3.php")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/Net_POP3", "docs/examples/Net_POP3_example.php")
