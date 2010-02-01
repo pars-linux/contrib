@@ -7,7 +7,7 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="HTML_Common2-%s" % get.srcVERSION()
+WorkDir="HTML_Common2-2.0.0RC1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML", "Common2.php")
