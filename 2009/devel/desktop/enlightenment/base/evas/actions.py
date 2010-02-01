@@ -10,7 +10,6 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    #shelltools.touch("README")
     autotools.autoreconf("-fi")
     autotools.configure("--enable-gl-x11 \
                          --enable-buffer \
