@@ -10,7 +10,8 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.autoreconf("-fi")
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --enable-econnman")
 
 def build():
     autotools.make()
