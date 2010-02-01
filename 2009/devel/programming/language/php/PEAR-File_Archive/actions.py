@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 WorkDir="File_Archive-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/File", "File/Archive.php")
-    pisitools.insinto("/usr/share/php5/PEAR/File/Archive", "File/Archive/*")
-    pisitools.insinto("/usr/share/php5/PEAR/doc/File_Archive", "File/doc/*")
-    pisitools.insinto("/usr/share/php5/PEAR/tests/File_Archive", "File/tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/File", "Archive.php")
+    pisitools.insinto("/usr/share/php5/PEAR/File/Archive", "Archive/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/File_Archive", "doc/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/File_Archive", "tests/*")
