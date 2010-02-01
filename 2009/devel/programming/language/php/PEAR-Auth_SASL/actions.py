@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="Auth_SASL-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Auth", "SASL.php")
-    pisitools.insinto("/usr/share/php5/PEAR/Auth/SASL", "SASL/*")
+    pisitools.insinto("/usr/share/php5/PEAR/Auth", "Auth/SASL.php")
+    pisitools.insinto("/usr/share/php5/PEAR/Auth/SASL", "Auth/SASL/*")
