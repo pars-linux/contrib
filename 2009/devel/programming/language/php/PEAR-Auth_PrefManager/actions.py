@@ -12,3 +12,4 @@ WorkDir="Auth_PrefManager-%s" % get.srcVERSION()
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Auth", "PrefManager.php")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Auth_PrefManager", "docs/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/Auth_PrefManager", "tests/*")
