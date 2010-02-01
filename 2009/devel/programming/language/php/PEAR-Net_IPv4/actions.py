@@ -10,4 +10,5 @@ from pisi.actionsapi import get
 WorkDir="Net_IPv4-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Net", "IPv4.php")
+    pisitools.insinto("/usr/share/php5/PEAR/Net", "Net/IPv4.php")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/Net_IPv4", "tests/*")
