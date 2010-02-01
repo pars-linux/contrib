@@ -5,8 +5,10 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="Cache-1.5.5RC4"
+WorkDir="Cache-%s" % get.srcVERSION()
+
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "Cache.php")
