@@ -6850,10 +6850,11 @@
             <PartOf>multimedia.sound</PartOf>
             <Summary xml:lang="en">Metronome application for KDE</Summary>
             <Summary xml:lang="tr">KDE için metronom uygulaması</Summary>
-            <Archive type="tarbz2" sha1sum="dcaca316ba371ed21204b980eed679890ad6cfd2">mirrors://sourceforge/kmetronome/kmetronome-0.8.2.tar.bz2</Archive>
+            <Description xml:lang="en">KMetronome is a MIDI metronome with KDE interface, based on the ALSA sequencer. The intended audience is musicians and music students.</Description>
+            <Description xml:lang="tr">KMetronome, müzisyenler veya müzik öğrenciler için ALSA temelli ve KDE arayüzlü bir MIDI metronom uygulamasıdır.</Description>
+            <Archive type="tarbz2" sha1sum="57a3b1a6fb3163d972e131bae1470b097a251c48">mirrors://sourceforge/kmetronome/kmetronome-0.9.2.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency>cmake</Dependency>
+                <Dependency>kdelibs-devel</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/sound/kmetronome/pspec.xml</SourceURI>
         </Source>
@@ -6861,17 +6862,28 @@
             <Name>kmetronome</Name>
             <RuntimeDependencies>
                 <Dependency>kdelibs</Dependency>
-                <Dependency>cmake</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/kde/4/share/doc</Path>
+                <Path fileType="man">/usr/kde/4/share/man</Path>
+                <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+                <Path fileType="data">/usr/kde/4/share/dbus-1</Path>
+                <Path fileType="data">/usr/kde/4/share/applications/kde4</Path>
+                <Path fileType="data">/usr/kde/4/share/apps</Path>
                 <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-02-01</Date>
+                <Version>0.9.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2008-09-19</Date>
                 <Version>0.8.2</Version>
@@ -25342,15 +25354,17 @@
             <Name>pbzip2</Name>
             <Homepage>http://compression.ca/pbzip2/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>app:console</IsA>
             <PartOf>util.archive</PartOf>
             <Summary xml:lang="en">Parallel implementation of the bzip2</Summary>
+            <Summary xml:lang="tr">bzip2&apos;nin çoklu işlemci kullanabilen hali.</Summary>
             <Description xml:lang="en">PBZIP2 is a parallel implementation of the bzip2 block-sorting file compressor that uses pthreads and achieves near-linear speedup on SMP machines.</Description>
-            <Archive type="targz" sha1sum="8ae0ebcd08761332ade6baa4b1172a3f97f71169">http://compression.ca/pbzip2/pbzip2-1.0.2.tar.gz</Archive>
+            <Description xml:lang="tr">Çoklu işlemcili bilgisayarlarda neredeyse işlemci sayısına yakın bir hız artışı sağlayan bzip2 gerçekleştirimi.</Description>
+            <Archive type="targz" sha1sum="a4ebe13d9168af17789ef0b49072c64e381d6c71">http://compression.ca/pbzip2/pbzip2-1.0.5.tar.gz</Archive>
             <Patches>
                 <Patch>flags.patch</Patch>
             </Patches>
@@ -25365,6 +25379,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-02-01</Date>
+                <Version>1.0.5</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-09-02</Date>
                 <Version>1.0.2</Version>
@@ -38230,15 +38251,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Translation2</Name>
             <Homepage>http://pear.php.net/package/Translation2/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Class for multilingual applications management</Summary>
             <Summary xml:lang="tr">Çoklu dil destekli uygulama yönetimi için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="6ecf8fd79beba1b2fc90cc7abd1ae3645dc85737">http://download.pear.php.net/package/Translation2-2.0.0beta12.tgz</Archive>
+            <Description xml:lang="en">A class provides an easy way to retrieve all the strings for a multilingual site from a data source.</Description>
+            <Description xml:lang="tr">Bir veri kaynağından çoklu dil verilerini almak için kolay bir yol sunan bir sınıf.</Description>
+            <Archive type="targz" sha1sum="15330dcee617abf8ebb56431ec170299a1a22696">http://download.pear.php.net/package/Translation2-2.0.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Translation2/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -38261,6 +38284,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-01-31</Date>
+                <Version>2.0.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2006-12-15</Date>
                 <Version>2.0.0_beta12</Version>
@@ -38706,15 +38736,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_Ping</Name>
             <Homepage>http://pear.php.net/package/Net_Ping/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">A class for executing ping</Summary>
             <Summary xml:lang="tr">Ping çalıştırmak için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="21ae3511e0e07d640b747467070ee1c8cb9abe59">http://download.pear.php.net/package/Net_Ping-2.4.1.tgz</Archive>
+            <Archive type="targz" sha1sum="84c39ab6bdeef67d8db5b181af87ccde14084813">http://download.pear.php.net/package/Net_Ping-2.4.5.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_Ping/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -38729,6 +38759,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-02-01</Date>
+                <Version>2.4.5</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-12</Date>
                 <Version>2.4.1</Version>
@@ -38743,15 +38780,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-XML_Parser</Name>
             <Homepage>http://pear.php.net/package/XML_Parser</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">XML Parsing class</Summary>
             <Summary xml:lang="tr">XML ayrıştırma sınıfı</Summary>
-            <Archive type="targz" sha1sum="3f631d0e45a67cd90c443a7001024dffe8c4de86">http://download.pear.php.net/package/XML_Parser-1.2.7.tgz</Archive>
+            <Archive type="targz" sha1sum="3e0290f135c25a5e03da3699171acd6ce49e5297">http://download.pear.php.net/package/XML_Parser-1.3.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-XML_Parser/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -38766,6 +38803,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>1.3.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-11-08</Date>
                 <Version>1.2.7</Version>
@@ -39007,15 +39051,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-XML_Serializer</Name>
             <Homepage>http://pear.php.net/package/XML_Serializer/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">A simple class for reading and writing xml files</Summary>
             <Summary xml:lang="tr">Xml dosyalarını okumak ve yazmak için kolay bir sınıf</Summary>
-            <Archive type="targz" sha1sum="133ff6bd30803dd6dc6459437079a27a419351df">http://download.pear.php.net/package/XML_Serializer-0.18.0.tgz</Archive>
+            <Archive type="targz" sha1sum="e82bbd9347c32d0271d224cd9480961512a24777">http://download.pear.php.net/package/XML_Serializer-0.20.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-XML_Serializer/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39032,6 +39076,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-01-31</Date>
+                <Version>0.20.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-05-08</Date>
                 <Version>0.18.0</Version>
@@ -39182,15 +39233,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-PHP_Archive</Name>
             <Homepage>http://pear.php.net/package/PHP_Archive/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
-            <License>BSD</License>
+            <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Create and Use PHP Archive files</Summary>
             <Summary xml:lang="tr">PHP Arşiv dosyaları oluştur ve kullan</Summary>
-            <Archive type="targz" sha1sum="f9698f262e9e0bf819e5f497f817ae7e3ac63418">http://download.pear.php.net/package/PHP_Archive-0.10.0.tgz</Archive>
+            <Archive type="targz" sha1sum="d3aa238efddaf8a739ed4f1899071814476ac62d">http://download.pear.php.net/package/PHP_Archive-0.11.4.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-PHP_Archive/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39204,6 +39255,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-01-31</Date>
+                <Version>0.11.4</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2007-02-06</Date>
                 <Version>0.10.0_alpha1</Version>
@@ -39525,15 +39583,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_SmartIRC</Name>
             <Homepage>http://pear.php.net/package/Net_SmartIRC/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
-            <License>LGPLv2.1</License>
+            <License>LGPLv3</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">PHP class for communication with IRC networks</Summary>
             <Summary xml:lang="tr">IRC ağları ile iletişim sağlamak için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="0eb3a6444ae7e862baa8c32cd8ec513f1b4fb0dc">http://download.pear.php.net/package/Net_SmartIRC-1.0.0.tgz</Archive>
+            <Archive type="targz" sha1sum="a2badaa9f238f96441897f33021cf96a23b42a68">http://download.pear.php.net/package/Net_SmartIRC-1.0.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_SmartIRC/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39548,6 +39606,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>1.0.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-13</Date>
                 <Version>1.0</Version>
@@ -39973,15 +40038,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Text_Diff</Name>
             <Homepage>http://pear.php.net/package/Text_Diff/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>LGPLv2</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Engine for performing and rendering text diffs</Summary>
             <Summary xml:lang="tr">Text diff&apos;leri gerçekleştirmek için bir motor</Summary>
-            <Archive type="targz" sha1sum="83ae941d90789f1e0edd95693b693d58e9e39b2c">http://download.pear.php.net/package/Text_Diff-1.0.0.tgz</Archive>
+            <Description xml:lang="en">A Package provides a text-based diff engine and renderers for multiple diff output formats.</Description>
+            <Description xml:lang="tr">Text diff&apos;leri gerçekleştiren ve çoklu diff çıktı formatlarını işleyebilen bir motor.</Description>
+            <Archive type="targz" sha1sum="ecfc28a9be71d962e751c8af6c0aefd3f37bf75b">http://download.pear.php.net/package/Text_Diff-1.1.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Text_Diff/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39999,6 +40066,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Provides>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-01-31</Date>
+                <Version>1.1.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2008-02-01</Date>
                 <Version>1.0.0</Version>
@@ -40109,15 +40183,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_POP3</Name>
             <Homepage>http://pear.php.net/package/Net_POP3/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Provides a POP3 class to access POP3 server</Summary>
             <Summary xml:lang="tr">POP3 sunucusuna erişim sağlamak için POP3 sınıfı</Summary>
-            <Archive type="targz" sha1sum="f2c485f9e2b306f5f75c7c71d373a26cad09667b">http://download.pear.php.net/package/Net_POP3-1.3.6.tgz</Archive>
+            <Archive type="targz" sha1sum="32454b62d984d63c1323801be4509cd3d79df8dd">http://download.pear.php.net/package/Net_POP3-1.3.7.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_POP3/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40133,6 +40207,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-02-01</Date>
+                <Version>1.3.7</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-07</Date>
                 <Version>1.3.6</Version>
@@ -40271,15 +40352,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Spreadsheet_Excel_Writer</Name>
             <Homepage>http://pear.php.net/package/Spreadsheet_Excel_Writer/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
-            <License>LGPLv2.1</License>
+            <License>LGPLv3</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Package for generating Excel spreadsheets</Summary>
             <Summary xml:lang="tr">Excel çizelgeleri oluşturmak için bir paket</Summary>
-            <Archive type="targz" sha1sum="68e6e30bc9b39d8db77beb2dd2b06ae94744f10a">http://download.pear.php.net/package/Spreadsheet_Excel_Writer-0.9.1.tgz</Archive>
+            <Archive type="targz" sha1sum="5ac366e489c606e961ed2dc3f812ad727a4b028b">http://download.pear.php.net/package/Spreadsheet_Excel_Writer-0.9.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Spreadsheet_Excel_Writer/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40294,6 +40375,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>0.9.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-15</Date>
                 <Version>0.9.1</Version>
@@ -40418,15 +40506,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Pager</Name>
             <Homepage>http://pear.php.net/package/Pager/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Data paging class</Summary>
             <Summary xml:lang="tr">Veri sayfalama sınıfı</Summary>
-            <Archive type="targz" sha1sum="0b2cee5a060a152bf63a698c0da7ab36c92287c8">http://download.pear.php.net/package/Pager-2.4.3.tgz</Archive>
+            <Archive type="targz" sha1sum="655fcca2595d6e9068cabbcefb02c1a16fcee1fa">http://download.pear.php.net/package/Pager-2.4.8.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Pager/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40441,6 +40529,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>2.4.8</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-13</Date>
                 <Version>2.4.3</Version>
@@ -40492,15 +40587,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-XML_Beautifier</Name>
             <Homepage>http://pear.php.net/package/XML_Beautifier/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Class to format XML documents</Summary>
             <Summary xml:lang="tr">XML belgelerini işlemek için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="5d41aa331bac0781f897d4050486b49edb9b2e9a">http://download.pear.php.net/package/XML_Beautifier-1.1.tgz</Archive>
+            <Archive type="targz" sha1sum="b9caeae3f1eed8c9448f7298d7a10d50617c789a">http://download.pear.php.net/package/XML_Beautifier-1.2.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-XML_Beautifier/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40517,6 +40612,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>1.2.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-16</Date>
                 <Version>1.1</Version>
@@ -40531,15 +40633,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_IMAP</Name>
             <Homepage>http://pear.php.net/package/Net_IMAP/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Provides an implementation of the IMAP protocol</Summary>
             <Summary xml:lang="tr">IMAP protokolünün kullanımını sağlar</Summary>
-            <Archive type="targz" sha1sum="66561bd673be48da20dcfbbf75f12d77c01df47b">http://download.pear.php.net/package/Net_IMAP-1.1.0beta1.tgz</Archive>
+            <Archive type="targz" sha1sum="6ab2796a578daa1c95f429177d6c3ddf20a85620">http://download.pear.php.net/package/Net_IMAP-1.1.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_IMAP/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40555,6 +40657,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-02-01</Date>
+                <Version>1.1.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-01-11</Date>
                 <Version>1.1.0_beta1</Version>
@@ -40576,15 +40685,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_IPv4</Name>
             <Homepage>http://pear.php.net/package/Net_IPv4/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP-3.01</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">IPv4 network calculations and validation.</Summary>
             <Summary xml:lang="tr">IPv4 ağ hesaplamaları ve doğrulaması</Summary>
-            <Archive type="targz" sha1sum="f2b6ef1486a37994c75624a9a6e28e9c2894e749">http://download.pear.php.net/package/Net_IPv4-1.3.0.tgz</Archive>
+            <Archive type="targz" sha1sum="20d13153dc80e2ef82a075a92c670a7d71db0e95">http://download.pear.php.net/package/Net_IPv4-1.3.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_IPv4/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40598,6 +40707,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-02-01</Date>
+                <Version>1.3.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-12</Date>
                 <Version>1.3.0</Version>
@@ -40695,15 +40811,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Services_Weather</Name>
             <Homepage>http://pear.php.net/package/Services_Weather/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">This class acts as an interface to various online weather-services.</Summary>
             <Summary xml:lang="tr">Çevrimiçi hava tahmin servislerini kullanmak için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="fbe95ed05a8c12433cac6917b30ecc8300b6e886">http://download.pear.php.net/package/Services_Weather-1.4.0.tgz</Archive>
+            <Description xml:lang="en">Services_Weather searches for given locations and retrieves current weather data and, dependent on the used service, also forecasts.</Description>
+            <Description xml:lang="tr">Services_Weather verilen bir konum için güncel hava durumu verisini ve eğer kullanılan servis uygunsa hava tahminini getiren bir pakettir.</Description>
+            <Archive type="targz" sha1sum="db637d0f359472c51c045f6f80390ae6d57ebad9">http://download.pear.php.net/package/Services_Weather-1.4.5.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Services_Weather/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40724,6 +40842,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>1.4.5</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-14</Date>
                 <Version>1.4.0</Version>
@@ -40811,15 +40936,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_UserAgent_Detect</Name>
             <Homepage>http://pear.php.net/package/Net_UserAgent_Detect/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Determines the Web browser, version, and platform from an HTTP user agent string</Summary>
             <Summary xml:lang="tr">Web tarayıcısının versiyon ve ortam bilgilerini HTTP user agent dizgisinden alır</Summary>
-            <Archive type="targz" sha1sum="c949c65eebc8d2444abe64dd6c6be438f6e218a8">http://download.pear.php.net/package/Net_UserAgent_Detect-2.2.0.tgz</Archive>
+            <Archive type="targz" sha1sum="f1459cdf8e440a480c923f1d25dca0b1a8b6f666">http://download.pear.php.net/package/Net_UserAgent_Detect-2.5.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_UserAgent_Detect/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40834,6 +40959,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>2.5.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-13</Date>
                 <Version>2.2.0</Version>
@@ -40922,15 +41054,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_Socket</Name>
             <Homepage>http://pear.php.net/package/Net_Socket/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Class interface to TCP sockets</Summary>
             <Summary xml:lang="tr">TCP Soketleri için sınıf arayüzü</Summary>
-            <Archive type="targz" sha1sum="b4af392f42c7bccebfede098e3fca02ea5d7ab7d">http://download.pear.php.net/package/Net_Socket-1.0.8.tgz</Archive>
+            <Archive type="targz" sha1sum="97235034b2599f7a91d0bc64e926581d102c4419">http://download.pear.php.net/package/Net_Socket-1.0.9.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_Socket/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -40944,6 +41076,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-01-31</Date>
+                <Version>1.0.9</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="3">
                 <Date>2007-05-06</Date>
                 <Version>1.0.8</Version>
@@ -41188,8 +41327,8 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR</Name>
             <Homepage>http://pear.php.net/package/PEAR</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
@@ -41198,7 +41337,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="tr">Ana PEAR sınıfı</Summary>
             <Description xml:lang="en">Base PEAR class that required other PEAR packages</Description>
             <Description xml:lang="tr">PEAR eklentilerini çalıştırabilmek için gerekli olan ana sınıf.</Description>
-            <Archive type="targz" sha1sum="67cd4a2a831ad2acb29de44eece7c215e5d3b5a3">http://download.pear.php.net/package/PEAR-1.8.1.tgz</Archive>
+            <Archive type="targz" sha1sum="a268b9af85a3daad047c77947838932f2737e6aa">http://download.pear.php.net/package/PEAR-1.9.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41208,6 +41347,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-01-31</Date>
+                <Version>1.9.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-11-12</Date>
                 <Version>1.8.1</Version>
@@ -41293,15 +41439,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-XML_Util</Name>
             <Homepage>http://pear.php.net/package/XML_Util/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">XML utiliy class</Summary>
             <Summary xml:lang="tr">XML yardımcı sınıfları</Summary>
-            <Archive type="targz" sha1sum="fbcde364e286848d97ebca67c60e94d5daa89e4c">http://download.pear.php.net/package/XML_Util-1.1.4.tgz</Archive>
+            <Archive type="targz" sha1sum="8072216577fb9ad684f15e0388ab0b1c0b57e2d4">http://download.pear.php.net/package/XML_Util-1.2.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-XML_Util/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41316,6 +41462,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-01-31</Date>
+                <Version>1.2.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2006-12-16</Date>
                 <Version>1.1.4</Version>
@@ -41374,15 +41527,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_Sieve</Name>
             <Homepage>http://pear.php.net/package/Net_Sieve/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Handles talking to timsieved</Summary>
             <Summary xml:lang="tr">Timsieved ile konuşma sağlar</Summary>
-            <Archive type="targz" sha1sum="ca48c015415fbc5ee4523f0cb49be5beef5f2bc8">http://download.pear.php.net/package/Net_Sieve-1.1.5.tgz</Archive>
+            <Archive type="targz" sha1sum="0182585a225976c1ed7737a1551d093d6c9e1e55">http://download.pear.php.net/package/Net_Sieve-1.1.7.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_Sieve/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41397,6 +41550,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-02-01</Date>
+                <Version>1.1.7</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-13</Date>
                 <Version>1.1.5</Version>
@@ -41689,15 +41849,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-System_Command</Name>
             <Homepage>http://pear.php.net/package/System_Command/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
-            <Summary xml:lang="en">PEAR::System_Command is a commandline execution interface</Summary>
-            <Summary xml:lang="tr">PEAR::System_Command komut satırı çalıştırma arayüzüdür</Summary>
-            <Archive type="targz" sha1sum="6308979d796fe2c8a0747b9c434bc9d061ece6e9">http://download.pear.php.net/package/System_Command-1.0.5.tgz</Archive>
+            <Summary xml:lang="en">A commandline execution interface</Summary>
+            <Summary xml:lang="tr">Komut satırı çalıştırma arayüzü.</Summary>
+            <Description xml:lang="en">An unmaintained commandline execution interface.</Description>
+            <Description xml:lang="tr">Geliştirilmesi durdurulmuş bir komut satırı çalıştırma arayüzü.</Description>
+            <Archive type="targz" sha1sum="256e58685e479d948b44987bde31b59cc07856a9">http://download.pear.php.net/package/System_Command-1.0.6.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-System_Command/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41711,6 +41873,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>1.0.6</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-11-08</Date>
                 <Version>1.0.5</Version>
@@ -41851,15 +42020,17 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Validate</Name>
             <Homepage>http://pear.php.net/package/Validate/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Validation class</Summary>
             <Summary xml:lang="tr">Doğrulama sınıfı</Summary>
-            <Archive type="targz" sha1sum="29e76d3a78a4bc43ead68b815014962f1da5e118">http://download.pear.php.net/package/Validate-0.7.0.tgz</Archive>
+            <Description xml:lang="en">Package to validate various datas: numbers, email, date, etc.</Description>
+            <Description xml:lang="tr">Sayı, eposta, tarih gibi verileri doğrulama sınıfı.</Description>
+            <Archive type="targz" sha1sum="36a6552b506c74c97cbdc024dc17dd64bca2db40">http://download.pear.php.net/package/Validate-0.8.3.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Validate/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41875,6 +42046,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>0.8.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-10</Date>
                 <Version>0.7.0</Version>
@@ -41978,15 +42156,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Services_Amazon</Name>
             <Homepage>http://pear.php.net/package/Services_Amazon/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Provides access to Amazon&apos;s retail and associate web services</Summary>
             <Summary xml:lang="tr">Amazon servislerine erişmek ve servisleri kullanmak için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="7b1c3fb2c42dea364c40e358e90aa50cb17e930a">http://download.pear.php.net/package/Services_Amazon-0.7.0.tgz</Archive>
+            <Archive type="targz" sha1sum="4193823746aba9e0b04ef175c7cba7662a01f82c">http://download.pear.php.net/package/Services_Amazon-0.8.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Services_Amazon/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -42004,6 +42182,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>0.8.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-14</Date>
                 <Version>0.7.0</Version>
@@ -42094,15 +42279,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-SOAP</Name>
             <Homepage>http://pear.php.net/package/SOAP/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">SOAP Client/Server for PHP</Summary>
             <Summary xml:lang="tr">PHP için SOAP istemcisi ve sunucusu</Summary>
-            <Archive type="targz" sha1sum="468dd50313f4732f7a65bd4f2c67453acca5a4c3">http://download.pear.php.net/package/SOAP-0.9.4.tgz</Archive>
+            <Archive type="targz" sha1sum="673cb51c8fcc2b8a6c477560786a4cec9bbce086">http://download.pear.php.net/package/SOAP-0.12.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-SOAP/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -42121,6 +42306,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>0.12.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-14</Date>
                 <Version>0.9.4</Version>
@@ -42271,15 +42463,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Numbers_Roman</Name>
             <Homepage>http://pear.php.net/package/Numbers_Roman/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Provides methods for converting to and from Roman Numerals</Summary>
             <Summary xml:lang="tr">Roman ve Sayısal veriler arasında dönüşüm yapmayı sağlayan bir sınıf</Summary>
-            <Archive type="targz" sha1sum="687dee7c3d20fea05d46d3a3a41a0aed58a3f76d">http://download.pear.php.net/package/Numbers_Roman-1.0.1.tgz</Archive>
+            <Archive type="targz" sha1sum="f9dd058ea7a296e1fe1ca42643e9dedb032fcc5b">http://download.pear.php.net/package/Numbers_Roman-1.0.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Numbers_Roman/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -42294,6 +42486,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>1.0.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-08</Date>
                 <Version>1.0.1</Version>
@@ -42389,15 +42588,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Net_SMTP</Name>
             <Homepage>http://pear.php.net/package/Net_SMTP/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">An implementation of the SMTP protocol</Summary>
             <Summary xml:lang="tr">SMTP Protokolü için bir sınıf</Summary>
-            <Archive type="targz" sha1sum="3f3e32db5aa84c1077aeaa73a3d77119f1019d80">http://download.pear.php.net/package/Net_SMTP-1.3.1.tgz</Archive>
+            <Archive type="targz" sha1sum="8ea2769acef612c2afe1394eb166e8a3332b662e">http://download.pear.php.net/package/Net_SMTP-1.4.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_SMTP/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -42414,6 +42613,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-02-01</Date>
+                <Version>1.4.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-06-10</Date>
                 <Version>1.3.1</Version>
@@ -42485,15 +42691,15 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>PEAR-Numbers_Words</Name>
             <Homepage>http://pear.php.net/package/Numbers_Words/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">A class for spelling numerals in words</Summary>
             <Summary xml:lang="tr">Sayısal verileri yazı diline dökmeye yarayan bir sınıf</Summary>
-            <Archive type="targz" sha1sum="1a10e85f122fe0591d8fe1159afb80cddd30e6af">http://download.pear.php.net/package/Numbers_Words-0.15.0.tgz</Archive>
+            <Archive type="targz" sha1sum="be86acb627f8a461d5fa9493717869435c6a6967">http://download.pear.php.net/package/Numbers_Words-0.16.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Numbers_Words/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -42508,6 +42714,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-01-31</Date>
+                <Version>0.16.1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-12-08</Date>
                 <Version>0.15.0</Version>
