@@ -11,3 +11,4 @@ WorkDir="HTTP-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "HTTP.php")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/HTTP", "tests/*")
