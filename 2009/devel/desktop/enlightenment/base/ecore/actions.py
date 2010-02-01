@@ -10,6 +10,7 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
+    shelltools.export("AUTOPOINT", "/bin/true")
     autotools.autoreconf("-fi")
     autotools.configure("--disable-static \
                          --enable-ecore-txt \
