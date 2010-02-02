@@ -5,10 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="OLE-%s" % get.srcVERSION()
+WorkDir="OLE-1.0.0RC1"
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR", "OLE.php")
+    pisitools.insinto("/usr/share/php5/PEAR", "*.php")
     pisitools.insinto("/usr/share/php5/PEAR/OLE", "PPS*")
