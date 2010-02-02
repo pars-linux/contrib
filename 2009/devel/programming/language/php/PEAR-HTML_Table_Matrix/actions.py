@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="HTML_Table_Matrix-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/HTML/Table", "Matrix*")
+    pisitools.insinto("/usr/share/php5/PEAR/HTML/Table", "HTML/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_Table_Matrix", "examples/*")
