@@ -11,3 +11,4 @@ WorkDir="Image_Color-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Image", "Color.php")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/Image", "Tests/*")
