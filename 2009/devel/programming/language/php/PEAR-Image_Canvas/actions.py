@@ -10,6 +10,6 @@ from pisi.actionsapi import get
 WorkDir="Image_Canvas-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Image", "Canvas*")
+    pisitools.insinto("/usr/share/php5/PEAR/Image", "Image/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Image_Canvas", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Image_Canvas", "tests/*")
