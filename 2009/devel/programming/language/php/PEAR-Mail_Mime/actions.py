@@ -12,3 +12,4 @@ WorkDir="Mail_Mime-%s" % get.srcVERSION()
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Mail", "mime*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Mail_Mime", "tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/Mail/scripts", "scripts/*")
