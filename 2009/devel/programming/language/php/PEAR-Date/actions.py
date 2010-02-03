@@ -5,9 +5,8 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="Date-%s" % get.srcVERSION()
+WorkDir="Date-1.5.0a1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "Date*")
