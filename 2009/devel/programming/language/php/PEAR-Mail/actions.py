@@ -5,9 +5,8 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="Mail-%s" % get.srcVERSION()
+WorkDir="Mail-1.2.0b2"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "Mail.php")
