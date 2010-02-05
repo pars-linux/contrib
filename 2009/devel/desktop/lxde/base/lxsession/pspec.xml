@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lxsession</Name>
+        <Homepage>http://www.lxde.org</Homepage>
+        <Packager>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Packager>
+        <License>GPLv2</License>
+        <Icon>lxsession</Icon>
+        <IsA>app:gui</IsA>
+        <Summary>LXDE session manager</Summary>
+        <Description>The default X11 session manager of LXDE.</Description>
+        <Archive sha1sum="6890b23acd50f66457d0531a5bfd19fbf1278a6a" type="targz">mirrors://sourceforge/lxde/lxsession-0.3.8.tar.gz</Archive>
+        <BuildDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>atk</Dependency>
+        </BuildDependencies>
+    </Source>
+
+    <Package>
+        <Name>lxsession</Name>
+        <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>atk</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="data">/usr/share</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2009-11-02</Date>
+            <Version>0.3.8</Version>
+            <Comment>First release.</Comment>
+            <Name>Cihan Okyay</Name>
+            <Email>okyaycihan@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
