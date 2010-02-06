@@ -2227,6 +2227,55 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>peg-e</Name>
+            <Homepage>http://gottcode.org/peg-e</Homepage>
+            <Packager>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>game.board</PartOf>
+            <Summary xml:lang="en">Peg solitaire game</Summary>
+            <Summary xml:lang="tr">Bir solo test türevi</Summary>
+            <Description xml:lang="en">Peg-E is a peg solitaire game in which you jump over pieces in order to remove them from the board, ultimately trying to eliminate all but one.</Description>
+            <Description xml:lang="tr">Peg-E parçaları birbirinin üstünden atlatarak sadece tek bir parça kalmasını sağlamaya çalıştığınız zevkli bir oyundur.</Description>
+            <Icon>peg-e</Icon>
+            <Archive type="tarbz2" sha1sum="75227efcbe0422858dfbaa78190e863fe2d21b98">http://gottcode.org/peg-e/peg-e-1.1.0-src.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>qt</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>desktop.patch</Patch>
+            </Patches>
+            <SourceURI>game/board/peg-e/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>peg-e</Name>
+            <RuntimeDependencies>
+                <Dependency>qt</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="doc">/usr/share/doc/peg-e</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/peg-e</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2010-01-26</Date>
+                <Version>1.1.0</Version>
+                <Comment>First release</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>hearts</Name>
             <Homepage>http://hearts.luispedro.org/</Homepage>
             <Packager>
@@ -59074,6 +59123,57 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Update release="1">
                 <Date>2010-01-27</Date>
                 <Version>0.1.1</Version>
+                <Comment>First release.</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>lxsession</Name>
+            <Homepage>http://www.lxde.org</Homepage>
+            <Packager>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>desktop.lxde.base</PartOf>
+            <Summary xml:lang="en">LXDE session manager</Summary>
+            <Summary xml:lang="tr">LXDE oturum yöneticisi</Summary>
+            <Description xml:lang="en">The default X11 session manager of LXDE.</Description>
+            <Description xml:lang="tr">lxsession, LXDE&apos;nin öntanımlı X11 oturum yöneticisidir.</Description>
+            <Icon>lxsession</Icon>
+            <Archive type="targz" sha1sum="6890b23acd50f66457d0531a5bfd19fbf1278a6a">mirrors://sourceforge/lxde/lxsession-0.3.8.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>atk</Dependency>
+            </BuildDependencies>
+            <SourceURI>desktop/lxde/base/lxsession/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>lxsession</Name>
+            <RuntimeDependencies>
+                <Dependency>gtk2</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>atk</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2009-11-02</Date>
+                <Version>0.3.8</Version>
                 <Comment>First release.</Comment>
                 <Name>Cihan Okyay</Name>
                 <Email>okyaycihan@gmail.com</Email>
