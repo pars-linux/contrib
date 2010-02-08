@@ -20511,7 +20511,8 @@
             <IsA>app:console</IsA>
             <PartOf>network.proxy</PartOf>
             <Summary xml:lang="en">Anonymizing overlay network for TCP</Summary>
-            <Archive type="targz" sha1sum="0e48d0706f1717afc6d19228a8878c3bc379b25d">http://www.torproject.org/dist/tor-0.2.0.32.tar.gz</Archive>
+            <Summary xml:lang="tr">TCP için anonim ağ katmanı</Summary>
+            <Archive type="targz" sha1sum="bf6114592570e0a0d0d8b23de991ecc03bfc6633">http://www.torproject.org/dist/tor-0.2.1.22.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libevent</Dependency>
             </BuildDependencies>
@@ -20530,6 +20531,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="14">
+                <Date>2010-02-07</Date>
+                <Version>0.2.1.22</Version>
+                <Comment>Version bump</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
             <Update release="13" type="security">
                 <Date>2008-12-13</Date>
                 <Version>0.2.0.32</Version>
@@ -38166,6 +38174,176 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Update release="1">
                 <Date>2009-07-27</Date>
                 <Version>0.2</Version>
+                <Comment>First release.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>gnome-desktop-sharp</Name>
+            <Homepage>http://www.mono-project.com/GtkSharp</Homepage>
+            <Packager>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Packager>
+            <License>LGPLv2.1</License>
+            <IsA>library</IsA>
+            <PartOf>programming.language.dotnet</PartOf>
+            <Summary xml:lang="en">C# language binding for GNOME desktop</Summary>
+            <Summary xml:lang="tr">GNOME masaüstü için C# bağlayıcısı</Summary>
+            <Description xml:lang="en">GnomeDesktop# is a .NET language binding for assorted GNOME libraries from the desktop release. GnomeDesktop# is free software, licensed under the GNU LGPL.</Description>
+            <Description xml:lang="tr">GnomeDesktop#, GNOME masaüstündeki çeşitli kitaplıkları kullanmaya yarayan bir .NET dili bağlayıcısıdır. GnomeDesktop# özgür yazılımdır ve GNU LGPL ile lisanslanmıştır.</Description>
+            <Archive type="tarbz2" sha1sum="3c98aca331def4bf0701df80e809c36e183eb135">mirrors://gnome/gnome-desktop-sharp/2.26/gnome-desktop-sharp-2.26.0.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>libgnomeprint</Dependency>
+                <Dependency>libgnomeprintui</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>libwnck</Dependency>
+                <Dependency>gnome-desktop</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gtkhtml3</Dependency>
+                <Dependency>gtksourceview</Dependency>
+                <Dependency>vte</Dependency>
+            </BuildDependencies>
+            <SourceURI>programming/language/dotnet/gnome-desktop-sharp/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>gnome-desktop-sharp</Name>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>gnome-desktop</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/mono/gac/gnomedesktop-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/gnomedesktop-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/gnomedesktop-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/gnome-desktop-sharp-*</Path>
+                <Path fileType="data">/usr/share/gnomedesktop-sharp</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>gnome-print-sharp</Name>
+            <Summary xml:lang="en">C# language binding for GNOME print library</Summary>
+            <Summary xml:lang="tr">GNOME yazdırma kitaplığı için C# bağlayıcısı</Summary>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>libgnomeprint</Dependency>
+                <Dependency>libgnomeprintui</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/mono/gac/gnome-print-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/gnome-print-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/gnome-print-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/gnome-print-sharp-*</Path>
+                <Path fileType="data">/usr/share/gnome-print-sharp</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>gtkhtml-sharp</Name>
+            <Summary xml:lang="en">C# language binding for gtkhtml</Summary>
+            <Summary xml:lang="tr">gtkhtml için C# bağlayıcısı</Summary>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>gtkhtml3</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/libgtkhtmlsharpglue-2.so</Path>
+                <Path fileType="library">/usr/lib/mono/gac/gtkhtml-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/gtkhtml-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/gtkhtml-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/gtkhtml-sharp-*.pc</Path>
+                <Path fileType="data">/usr/share/gtkhtml-sharp</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>gtksourceview-sharp</Name>
+            <Summary xml:lang="en">C# language binding for gtksourceview</Summary>
+            <Summary xml:lang="tr">gtksourceview için C# bağlayıcısı</Summary>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>gtksourceview</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/libgtksourceview2sharpglue-2.so</Path>
+                <Path fileType="library">/usr/lib/mono/gac/gtksourceview2-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/gtksourceview2-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/gtksourceview2-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/gtksourceview2-sharp.pc</Path>
+                <Path fileType="data">/usr/share/gtksourceview2-sharp</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>vte-sharp</Name>
+            <Summary xml:lang="en">C# language binding for vte</Summary>
+            <Summary xml:lang="tr">vte için C# bağlayıcısı</Summary>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>vte</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/libvtesharpglue-2.so</Path>
+                <Path fileType="library">/usr/lib/mono/gac/vte-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/vte-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/vte-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/vte-sharp-*</Path>
+                <Path fileType="data">/usr/share/vte-sharp</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>wnck-sharp</Name>
+            <Summary xml:lang="en">C# language binding for libwnck</Summary>
+            <Summary xml:lang="tr">libwnck için C# bağlayıcısı</Summary>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>libwnck</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/libwncksharpglue-2.so</Path>
+                <Path fileType="library">/usr/lib/mono/gac/wnck-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/wnck-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/wnck-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/wnck-sharp-*</Path>
+                <Path fileType="data">/usr/share/wnck-sharp</Path>
+            </Files>
+        </Package>
+        <Package>
+            <Name>rsvg-sharp</Name>
+            <Summary xml:lang="en">C# language binding for librsvg</Summary>
+            <Summary xml:lang="tr">librsvg için C# bağlayıcısı</Summary>
+            <RuntimeDependencies>
+                <Dependency>mono</Dependency>
+                <Dependency>gtk-sharp</Dependency>
+                <Dependency>gnome-sharp</Dependency>
+                <Dependency>librsvg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="library">/usr/lib/mono/gac/rsvg2-sharp/*/*.dll</Path>
+                <Path fileType="library">/usr/lib/mono/rsvg2-sharp-*</Path>
+                <Path fileType="config">/usr/lib/mono/gac/rsvg2-sharp/*/*.config</Path>
+                <Path fileType="data">/usr/lib/pkgconfig/rsvg2-*</Path>
+                <Path fileType="data">/usr/share/rsvg2-sharp</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2010-02-01</Date>
+                <Version>2.26.0</Version>
                 <Comment>First release.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
