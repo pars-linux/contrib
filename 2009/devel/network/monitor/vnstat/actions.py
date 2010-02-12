@@ -10,13 +10,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def build():
-    autotools.make('CC="%s" CFLAGS="%s"' % (get.CC(), get.CFLAGS()))
+    autotools.make("all")
 
 def install():
-    pisitools.dobin("src/vnstat")
-    pisitools.insinto("/etc", "cfg/vnstat.conf")
-    pisitools.dodir("/var/lib/vnstat")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/usr/share/doc/%s" % get.srcTAG(), "cron/vnstat", "vnstat.cron")
-    pisitools.doman("man/*")
-    pisitools.dodoc("CHANGES", "COPYING", "README", "FAQ")
+    pisitools.dodoc("CHANGES", "COPYING", "FAQ", "README")
