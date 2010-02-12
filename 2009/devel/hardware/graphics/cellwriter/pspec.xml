@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>cellwriter</Name>
-        <Homepage>http://risujin.org/cellwriter</Homepage>
+        <Homepage>http://code.google.com/p/cellwriter</Homepage>
         <Packager>
             <Name>Anıl Özbek</Name>
             <Email>ozbekanil@gmail.com</Email>
@@ -12,11 +12,14 @@
         <IsA>app:gui</IsA>
         <Summary>Grid-entry natural handwriting input panel</Summary>
         <Description>CellWriter is a grid-entry natural handwriting input panel. As you write characters into the cells, your writing is instantly recognized at the character level.</Description>
-        <Archive sha1sum="080697bb54676fa08f80292e5c4675e2906e6b2b" type="targz">http://pub.risujin.org/cellwriter/cellwriter-1.3.4.tar.gz</Archive>
+        <Archive sha1sum="080697bb54676fa08f80292e5c4675e2906e6b2b" type="targz">http://cellwriter.googlecode.com/files/cellwriter-1.3.4.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>libXtst</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>cellwriter-1.3.4-cellwidget-dont-disable-xinput.diff</Patch>
+        </Patches>
     </Source>
 
     <Package>
