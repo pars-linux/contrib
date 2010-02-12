@@ -13,12 +13,11 @@
         <IsA>app:gui</IsA>
         <Summary>Notetaker and PDF annotator</Summary>
         <Description>Xournal is an application for notetaking, sketching, keeping a journal using a stylus.</Description>
-        <Archive sha1sum="e401675154afd207f7b345c2191714f351837251" type="targz">mirrors://sourceforge/xournal/xournal-0.4.2.1.tar.gz</Archive>
+        <Archive sha1sum="390cb275774469ed1b04b7268dd625bd456c895e" type="targz">mirrors://sourceforge/xournal/xournal-0.4.5.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency versionFrom="2.4.0">libgnomecanvas</Dependency>
-            <Dependency versionFrom="2.2.0">libgnomeprint</Dependency>
-            <Dependency versionFrom="2.2.0">libgnomeprintui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>poppler-glib</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -26,16 +25,15 @@
         <Name>xournal</Name>
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency versionFrom="2.4.0">libgnomecanvas</Dependency>
-            <Dependency versionFrom="2.2.0">libgnomeprint</Dependency>
-            <Dependency versionFrom="2.2.0">libgnomeprintui</Dependency>
+            <Dependency>libgnomecanvas</Dependency>
+            <Dependency>poppler-glib</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="localedata">/usr/share/locale</Path>
-            <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/xournal</Path>
+            <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
         <AdditionalFiles>
@@ -45,6 +43,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2010-02-12</Date>
+            <Version>0.4.5</Version>
+            <Comment>Version bump: use gtk-print instead of libgnomeprint for printing, use poppler instead of pdftoppm to render PDF backgrounds</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2008-10-18</Date>
             <Version>0.4.2.1</Version>

@@ -20,8 +20,6 @@ def build():
     autotools.make()
 
 def install():
-    autotools.install()
-
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dosym("/usr/share/xournal/pixmaps/xournal.png", "/usr/share/pixmaps/xournal.png")
-
     pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "README")
