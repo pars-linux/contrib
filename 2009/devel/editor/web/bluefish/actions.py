@@ -15,9 +15,10 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
+    #autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.rename("/usr/share/pixmaps/bluefish-icon.png", "bluefish.png")
+    #pisitools.rename("/usr/share/pixmaps/bluefish-icon.png", "bluefish.png")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
 
