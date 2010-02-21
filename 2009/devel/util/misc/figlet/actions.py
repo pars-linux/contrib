@@ -13,8 +13,10 @@ def build():
     autotools.make("DEFAULTFONTDIR=/usr/share/figlet/fonts")
 
 def install():
+    pisitools.dobin("chkfont")
     pisitools.dobin("figlet")
     pisitools.dobin("figlist")
     pisitools.dobin("showfigfonts")
-
     pisitools.insinto("/usr/share/figlet/fonts", "fonts/*")
+    pisitools.doman("figlet.6")
+    pisitools.dodoc("CHANGES", "FAQ", "figfont.txt", "figmagic", "LICENSE", "README")
