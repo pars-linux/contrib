@@ -9,16 +9,15 @@ from pisi.actionsapi import get
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-update-databases")
+    autotools.autoreconf("-vfi")
+    autotools.configure("--disable-update-databases \
+                        --disable-xml-catalog-update")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
-    #autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    #pisitools.rename("/usr/share/pixmaps/bluefish-icon.png", "bluefish.png")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
 
