@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Simple FTP Client.</Summary>
         <Description>Easy-to-use FTP Client which also supports SFTP.</Description>
-        <Archive sha1sum="aa0c42e0fed93e7068376b63213ff7c164fd078e" type="tarbz2">mirrors://sourceforge/filezilla/FileZilla_3.3.1_src.tar.bz2</Archive>
+        <Archive sha1sum="80c5357eea6ec9ce74d9e85789680eb289abc354" type="tarbz2">mirrors://sourceforge/filezilla/FileZilla_3.3.2_src.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="2.8.9">wxGTK-devel</Dependency>
             <Dependency versionFrom="2.8.3">gnutls</Dependency>
@@ -42,6 +42,32 @@
     </Package>
 
     <History>
+        <Update release="32">
+             <Date>2010-02-22</Date>
+             <Version>3.3.2</Version>
+             <Comment>New features:
+                          * *nix: Add support for forward and backward mouse buttons.
+                          * Speed limits can be quickly set using the menu and a new indicator in the status bar.
+                          * Display number of bytes transferred and duration of transfer in log.
+                          * MSW: React to back button of mouse in file lists.
+                          * Updated blukis icon set.
+                      Bugfixes and minor changes:
+                          * Speed limits can be re-enabled on SFTP connections.
+                          * Changed settings did not come into effect unless FileZilla was restarted.
+                          * Small performance improvements.
+                          * Spelling fixes.
+                          * Rebuilt due to timer problems.
+                          * Refactored large parts of the toolbar and menubar code.
+                          * A race condition in the socket code could lead to crashes.
+                          * Fix connecting to addresses longer than 15 characters if using SOCKS proxy.
+                          * Get add to queue in local directory tree context menu working again.
+                          * Do not open request dialogs if user is holding a mouse button.
+                          * Forward all Ctrl+Tab key events to tab bar.
+                          * Do not report SFTP exitcodes that do not originate from the server.
+             </Comment>
+             <Name>Ertan Argüden</Name>
+             <Email>ert976@gmail.com</Email>
+        </Update>
         <Update release="31">
              <Date>2010-01-05</Date>
              <Version>3.3.1</Version>
