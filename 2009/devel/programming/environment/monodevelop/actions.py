@@ -7,21 +7,26 @@
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+shelltools.export("MONO_SHARED_DIR", get.workDIR())
 
 def setup():
-    autotools.configure("--disable-update-mimedb \
+    autotools.configure("--enable-subversion \
+                         --enable-monoextensions \
+                         --enable-gnome-platform \
+                         --enable-c \
+                         --enable-versioncontrol \
+                         --disable-update-mimedb \
                          --disable-update-desktopdb")
 
 def build():
-    shelltools.export("MONO_SHARED_DIR",".")
-
     autotools.make("-j1")
 
 def install():
-    shelltools.export("MONO_SHARED_DIR",".")
-
     autotools.install()
 
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
+    # Empty files: NEWS
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
