@@ -18,4 +18,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.insinto("/usr/share/icons/hicolor/48x48/apps/", "data/icons/fotoxx.png")
+    pisitools.insinto("/usr/share/icons/hicolor/48x48/apps/", "icons/fotoxx.png")
