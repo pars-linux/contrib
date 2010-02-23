@@ -13,13 +13,13 @@
         <IsA>app:gui</IsA>
         <Summary>Gtk+ based digital photos editing program</Summary>
         <Description>With Fotoxx you can edit image files from a digital camera. Includes color and contrast enhancement, red-eye removal, sharpen, crop, rotate, noise removal, HDR (high dynamic range) and panorama image compositing, thumbnail image browser, tag editing and search.</Description>
-        <Archive sha1sum="3fe88789b7045f04255181968a9c3956168c8084" type="targz">http://kornelix.squarespace.com/storage/downloads/fotoxx-8.4.1.tar.gz</Archive>
+        <Archive sha1sum="03058466a2e097fe9e54c06f970e9e382f2c3b7f" type="targz">http://kornelix.squarespace.com/storage/downloads/fotoxx-9.6.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>exiv2</Dependency>
             <Dependency>perl-Image-ExifTool</Dependency>
             <Dependency>xdg-utils</Dependency>
-            <Dependency>FreeImage</Dependency>
+            <Dependency releaseFrom="5">FreeImage</Dependency>
             <Dependency>ufraw</Dependency>
         </BuildDependencies>
         <Patches>
@@ -34,7 +34,7 @@
             <Dependency>exiv2</Dependency>
             <Dependency>perl-Image-ExifTool</Dependency>
             <Dependency>xdg-utils</Dependency>
-            <Dependency>FreeImage</Dependency>
+            <Dependency releaseFrom="5">FreeImage</Dependency>
             <Dependency>ufraw</Dependency>
         </RuntimeDependencies>
         <Files>
@@ -51,6 +51,27 @@
     </Package>
 
     <History>
+        <Update release="10">
+            <Date>2010-02-23</Date>
+            <Version>9.6</Version>
+            <Comment>Bump to latest stable</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+        <Update release="9">
+            <Date>2009-12-26</Date>
+            <Version>9.1</Version>
+            <Comment>Bump to latest stable, add strict dependency to FreeImage, bug (#11529)</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
+        <Update release="8">
+            <Date>2009-11-10</Date>
+            <Version>8.6.2</Version>
+            <Comment>Bump to latest stable</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2009-09-15</Date>
             <Version>8.4.1</Version>
