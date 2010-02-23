@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>DVD and CD Video Creator</Summary>
         <Description>DeVeDe is a program to create video DVDs and CDs (VCD, sVCD or CVD)</Description>
-        <Archive sha1sum="43469e0407b423badcf3f039b8c94d81acb2c358" type="tarbz2">http://www.rastersoft.com/descargas/devede-3.15.2.tar.bz2</Archive>
+        <Archive sha1sum="a131833a7bba78e64e1f407a29ecbfc2596e3b2f" type="tarbz2">http://www.rastersoft.com/descargas/devede-3.16.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>pygtk</Dependency>
             <Dependency>mplayer</Dependency>
@@ -49,6 +49,30 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2010-02-23</Date>
+            <Version>3.16.3</Version>
+            <Comment>
+                Version bump.
+                # Added support for two-pass encoding (thanks to Gustavo Sanchez)
+                # Fixed a bug when importing old .devede files
+                # Fixed a bug that prevented to manually choose the aspect ratio
+                # Allows to change the final volume
+                # Now remembers the last output directory used, and the last subtitle language and codepage
+                # Added support for UTF-16 subtitles
+                # Autodetects ASCII, UTF-8 and UTF-16 subtitles
+                # Allows to create DVDs without menu
+                # Check if there's a /, | or \ in the file name
+                # Allows to force the subtitles by default
+                # Flush stdout and stderr at end, so it should finally allow to have full debugging info
+                # Fixed a hang when repacking MPEG files instead of reencoding them
+                # Fixed Galician translation
+                # Fixed the audio bitrate when using 5.1 sound
+                # Allows blank spaces in the subtitles filename.
+            </Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2009-12-06</Date>
             <Version>3.15.2</Version>
