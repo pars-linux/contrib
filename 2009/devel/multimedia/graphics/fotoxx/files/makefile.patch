@@ -1,7 +1,7 @@
-diff -Naur fotoxx-9.1.orig/Makefile fotoxx-9.1/Makefile
---- fotoxx-9.1.orig/Makefile	2009-12-26 16:25:07.526824509 +0200
-+++ fotoxx-9.1/Makefile	2009-12-26 16:28:07.053822116 +0200
-@@ -5,30 +5,30 @@
+diff -Naur fotoxx-9.6.orig/Makefile fotoxx-9.6/Makefile
+--- fotoxx-9.6.orig/Makefile	2010-02-23 23:24:20.163771370 +0200
++++ fotoxx-9.6/Makefile	2010-02-23 23:33:10.379524040 +0200
+@@ -5,31 +5,31 @@
  SOURCE = $(PROGRAM)-$(VERSION).cpp
  
  # replace CFLAGS and LFLAGS -O3 with -g for GDB debugging
@@ -18,9 +18,10 @@ diff -Naur fotoxx-9.1.orig/Makefile fotoxx-9.1/Makefile
  
  BINDIR = $(PREFIX)/bin
  DATADIR = $(PREFIX)/share/$(PROGRAM)
- DOCDIR = $(PREFIX)/share/doc/$(PROGRAM)
+ ICONDIR = $(DATADIR)/icons
 -DESKTOP = $(DATADIR)/kornelix-$(PROGRAM).desktop
 +DESKTOP = $(PREFIX)/share/applications/$(PROGRAM).desktop
+ DOCDIR = $(PREFIX)/share/doc/$(PROGRAM)
  MANDIR = $(PREFIX)/share/man/man1
  
  $(PROGRAM): $(PROGRAM).o zfuncs.o
@@ -39,28 +40,3 @@ diff -Naur fotoxx-9.1.orig/Makefile fotoxx-9.1/Makefile
  	  -D "DATADIR=\"$(DATADIR)\"" -D "DOCDIR=\"$(DOCDIR)\"" -D "BINDIR=\"$(BINDIR)\""
  
  install: $(PROGRAM)
-@@ -42,15 +42,15 @@
- 	cp $(PROGRAM) $(DESTDIR)$(BINDIR)
- 	cp -R locales/* $(DESTDIR)$(DATADIR)/locales
- 	#  install .desktop file (menu entry)
--	@echo "[Desktop Entry]" > $(DESKTOP)
--	@echo "Name=$(PROGRAM)" >> $(DESKTOP)
--	@echo "Categories=Graphics" >> $(DESKTOP)
--	@echo "Type=Application" >> $(DESKTOP)
--	@echo "Terminal=false" >> $(DESKTOP)
--	@echo "Exec=$(BINDIR)/$(PROGRAM)" >> $(DESKTOP)
--	@echo "Icon=$(DATADIR)/icons/$(PROGRAM).png" >> $(DESKTOP)
--	@echo "GenericName=Digital Photo Editor" >> $(DESKTOP)
--	xdg-desktop-menu install $(DESKTOP)
-+# 	@echo "[Desktop Entry]" > $(DESKTOP)
-+# 	@echo "Name=$(PROGRAM)" >> $(DESKTOP)
-+# 	@echo "Categories=Graphics" >> $(DESKTOP)
-+# 	@echo "Type=Application" >> $(DESKTOP)
-+# 	@echo "Terminal=false" >> $(DESKTOP)
-+# 	@echo "Exec=$(BINDIR)/$(PROGRAM)" >> $(DESKTOP)
-+# 	@echo "Icon=$(DATADIR)/icons/$(PROGRAM).png" >> $(DESKTOP)
-+# 	@echo "GenericName=Digital Photo Editor" >> $(DESKTOP)
-+# 	xdg-desktop-menu install $(DESKTOP)
- 	#  install man page
- 	cp -f doc/$(PROGRAM).man $(PROGRAM).1
- 	gzip -f -9 $(PROGRAM).1
