@@ -12860,11 +12860,11 @@
             <Description xml:lang="en">Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
             <Description xml:lang="tr">Paket kurulumu yaptıktan sonra root olarak /etc/sysctl.conf dosyasının en alt satırına kernel/shmmax=0x7fffffff satırını ekleyip sysctl -p komutunu uygulayın.</Description>
             <Icon>cinelerra</Icon>
-            <Archive type="tarbz2" sha1sum="34f00b3253360316ab45b0d4e2eab33b24c42174">http://pardus.kilu.de/dist/cinelerra-2.1_20091024.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="5753d427bd91d472cedcf06d79375332e92943c6">http://pardus.kilu.de/dist/cinelerra-2.1_20100212.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
-                <Dependency versionFrom="0.5.1_20091020">ffmpeg</Dependency>
+                <Dependency versionFrom="0.5.1_20100222">ffmpeg</Dependency>
                 <Dependency>fftw3</Dependency>
                 <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
                 <Dependency>openexr</Dependency>
@@ -12880,17 +12880,16 @@
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libraw1394</Dependency>
                 <Dependency>faac</Dependency>
-                <Dependency>faad2</Dependency>
-                <Dependency versionFrom="0.0_20091228">x264</Dependency>
+                <Dependency versionFrom="2.7">faad2</Dependency>
+                <Dependency versionFrom="0.0_20100211">x264</Dependency>
+                <Dependency>libXxf86vm</Dependency>
+                <Dependency>libXv</Dependency>
+                <Dependency>libXext</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch level="1">ffmpeg_external.patch</Patch>
-                <Patch>fix_lib.patch</Patch>
-                <Patch>libGL_fix.patch</Patch>
+                <Patch>desktop.patch</Patch>
                 <Patch>videodev2.patch</Patch>
                 <Patch level="1">new_ffmpeg.patch</Patch>
-                <Patch level="1">libmpeg3.patch</Patch>
-                <Patch>desktop.patch</Patch>
                 <Patch>fonts_path.patch</Patch>
                 <Patch>no_install_font.patch</Patch>
             </Patches>
@@ -12901,7 +12900,7 @@
             <RuntimeDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
-                <Dependency versionFrom="0.5.1_20091020">ffmpeg</Dependency>
+                <Dependency versionFrom="0.5.1_20100222">ffmpeg</Dependency>
                 <Dependency>fftw3</Dependency>
                 <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
                 <Dependency>openexr</Dependency>
@@ -12917,8 +12916,11 @@
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libraw1394</Dependency>
                 <Dependency>faac</Dependency>
-                <Dependency>faad2</Dependency>
-                <Dependency versionFrom="0.0_20091228">x264</Dependency>
+                <Dependency versionFrom="2.7">faad2</Dependency>
+                <Dependency versionFrom="0.0_20100211">x264</Dependency>
+                <Dependency>libXxf86vm</Dependency>
+                <Dependency>libXv</Dependency>
+                <Dependency>libXext</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -12931,6 +12933,16 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-02-12</Date>
+                <Version>2.1_20100212</Version>
+                <Comment>New snapshot.(Git Version). &quot;git://git.cinelerra.org/j6t/cinelerra.git&quot;
+                     Compiled with the new version faac, faad2, x264, ffmpeg.
+                     Add depend libXxf86vm, libXv, libXext. 
+                     Remove ffmpeg_external.patch, fix_lib.patch, libGL_fix.patch, libmpeg3.patch.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2010-01-26</Date>
                 <Version>2.1_20100126</Version>
@@ -28111,7 +28123,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">DeVeDe is a program to create video DVDs and CDs (VCD, sVCD or CVD)</Description>
             <Description xml:lang="tr">DeVeDe, videolarınızı DVD/SVCD yapmanıza yarar</Description>
             <Icon>devede</Icon>
-            <Archive type="tarbz2" sha1sum="a131833a7bba78e64e1f407a29ecbfc2596e3b2f">http://www.rastersoft.com/descargas/devede-3.16.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a8bdb6f2504f2d16f406cf68a35e5a69c2a80f2e">http://www.rastersoft.com/descargas/devede-3.16.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>mplayer</Dependency>
@@ -28146,6 +28158,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-02-24</Date>
+                <Version>3.16.4</Version>
+                <Comment>Adjusts the audio bitrate to the nearest legal value supported in mencoder.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2010-02-23</Date>
                 <Version>3.16.3</Version>
