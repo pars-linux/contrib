@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="Mail-1.2.0b2"
+WorkDir="Mail-1.2.0b5"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR", "Mail.php")
