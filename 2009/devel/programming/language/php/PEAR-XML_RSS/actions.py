@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="XML_RSS-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/XML", "RSS.php")
+    pisitools.insinto("/usr/share/php5/PEAR/XML", "XML/RSS.php")
     pisitools.insinto("/usr/share/php5/PEAR/tests/XML_RSS", "tests/*")
