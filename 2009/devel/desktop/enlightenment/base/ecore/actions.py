@@ -10,23 +10,27 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.export("AUTOPOINT", "/bin/true")
-    autotools.autoreconf("-fi")
-    autotools.configure("--disable-static \
+    shelltools.system("./autogen.sh \
+                         --prefix=/usr \
+                         --disable-static \
+                         --disable-rpath \
+                         --enable-glib \
                          --enable-ecore-txt \
-                         --enable-ecore-x \
                          --enable-ecore-evas \
+                         --enable-ecore-con \
+                         --enable-ecore-ipc \
+                         --enable-ecore-config \
+                         --enable-ecore-file \
+                         --enable-ecore-input \
+                         --enable-ecore-imf \
+                         --enable-ecore-xim \
+                         --enable-ecore-x \
                          --enable-ecore-evas-software-buffer \
                          --enable-ecore-evas-software-x11 \
                          --enable-ecore-evas-xrender-x11 \
                          --enable-ecore-evas-opengl-x11 \
                          --enable-ecore-evas-opengl-glew \
-                         --enable-ecore-con \
                          --enable-openssl \
-                         --enable-ecore-ipc \
-                         --enable-ecore-config \
-                         --enable-ecore-file \
-                         --enable-ecore-job \
                          --enable-inotify \
                          --enable-poll \
                          --enable-curl \
