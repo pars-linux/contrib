@@ -8,8 +8,6 @@ from pisi.actionsapi import cmaketools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir = "%s" % get.srcDIR().replace("_", "-")
-
 def setup():
     cmaketools.configure()
 
