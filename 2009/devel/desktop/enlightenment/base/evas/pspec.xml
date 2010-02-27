@@ -9,13 +9,14 @@
             <Email>h.ibrahim.gungor@gmail.com</Email>
         </Packager>
         <License>BSD</License>
+        <IsA>app:console</IsA>
         <IsA>library</IsA>
         <Summary>Hardware-accelerated canvas API</Summary>
         <Description>Evas is a clean display canvas API for several target display systems that can draw anti-aliased text, smooth super and sub-sampled scaled images, alpha-blend objects much and more.</Description>
-        <Archive sha1sum="40ff48de8f716e84440e267219a9df8afa9c9f88" type="tarbz2">http://download.enlightenment.org/snapshots/2009-12-02/evas-0.9.9.063.tar.bz2</Archive>
+        <Archive sha1sum="b60b2ac0857e9bcc7019ac706f4072153c8ae7ad" type="tarbz2">ftp://ftp.sudrap.org/igungor/src/e/20100215/evas-0.9.9.063_20100215.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.9.9.063">eina</Dependency>
-            <Dependency versionFrom="1.2.3">eet</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+            <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
             <Dependency>fontconfig</Dependency>
             <Dependency>fribidi</Dependency>
 
@@ -30,13 +31,16 @@
             <Dependency>libXrender</Dependency>
             <Dependency>giflib</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">proper_canvas_events_cb.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>evas</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.9.9.063">eina</Dependency>
-            <Dependency versionFrom="1.2.3">eet</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+            <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
             <Dependency>fontconfig</Dependency>
             <Dependency>fribidi</Dependency>
 
@@ -62,8 +66,8 @@
 
     <History>
         <Update release="11">
-            <Date>2010-01-27</Date>
-            <Version>0.9.9.063</Version>
+            <Date>2010-02-15</Date>
+            <Version>0.9.9.063_20100215</Version>
             <Comment>New snapshot.</Comment>
             <Name>H. İbrahim Güngör</Name>
             <Email>h.ibrahim.gungor@gmail.com</Email>
