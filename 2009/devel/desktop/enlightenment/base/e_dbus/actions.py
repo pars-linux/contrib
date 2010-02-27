@@ -8,10 +8,13 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
+KeepSpecial = ["libtool"]
+
 def setup():
     autotools.autoreconf("-fi")
     autotools.configure("--disable-static \
-                         --enable-econnman")
+                         --enable-econnman \
+                         --enable-ebluez")
 
 def build():
     autotools.make()
