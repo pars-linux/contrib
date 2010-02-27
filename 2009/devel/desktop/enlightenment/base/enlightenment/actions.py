@@ -9,10 +9,15 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
+WorkDir = "e-%s" % get.srcVERSION()
+
 def setup():
     shelltools.export("AUTOPOINT", "/bin/true")
-    autotools.autoreconf("-fi")
-    autotools.configure("--disable-static \
+    #autotools.autoreconf("-fi")
+
+    shelltools.system("./autogen.sh \
+                         --prefix=/usr \
+                         --disable-static \
                          --enable-nls \
                          --enable-pam \
                          --disable-rpath \
@@ -22,6 +27,10 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+
+    pisitools.removeDir("/usr/etc")
+    pisitools.removeDir("/usr/share/enlightenment/data/config/illume")
+    pisitools.removeDir("/usr/share/enlightenment/data/config/illume-home")
 
     pisitools.domo("po/tr.po", "tr", "enlightenment.mo")
 

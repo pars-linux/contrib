@@ -12,38 +12,43 @@
         <IsA>app:gui</IsA>
         <Summary>Enlightenment Desktop Shell</Summary>
         <Description>Enlightenment is a window manager for the X Window System that is designed to be powerful, extensible, configurable and pretty darned good looking! It is one of the more graphically intense window managers.</Description>
-        <Archive sha1sum="c2da7dc3c756f01cb823559bfdf4c06a7eb8e40b" type="tarbz2">http://download.enlightenment.org/snapshots/2009-12-02/enlightenment-0.16.999.063.tar.bz2</Archive>
+        <Archive sha1sum="471ebc257f23fee4d9f317e17783391ed27c0188" type="tarbz2">ftp://ftp.sudrap.org/igungor/src/e/20100215/e-0.16.999.063_20100215.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.9.9.063">eina</Dependency>
-            <Dependency versionFrom="1.2.3">eet</Dependency>
-            <Dependency versionFrom="0.9.9.063">evas</Dependency>
-            <Dependency versionFrom="0.9.9.063">ecore</Dependency>
-            <Dependency versionFrom="0.9.93.063">edje</Dependency>
-            <Dependency versionFrom="0.9.9.063">embryo</Dependency>
-            <Dependency versionFrom="0.5.0.063">efreet</Dependency>
-            <Dependency versionFrom="0.5.0.063">e_dbus</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+            <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
+            <Dependency versionFrom="0.9.93.063_20100215">edje</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.063_20100215">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.063_20100215">e_dbus</Dependency>
             <!--mixer module's dependency-->
             <Dependency>alsa-lib</Dependency>
         </BuildDependencies>
         <Patches>
-            <!--<Patch level="1">fileman-default.patch</Patch>-->
-            <!--<Patch level="1">desktop-default.patch</Patch>-->
-            <!--<Patch level="1">default-sysactions.patch</Patch>-->
+            <Patch level="1">fileman-default.patch</Patch>
+            <Patch level="1">e-config.patch</Patch>
+            <Patch level="1">translate_minimal_profile.patch</Patch>
+            <Patch level="1">translate_standard_profile.patch</Patch>
+            <Patch level="1">translate_scaleable_profile.patch</Patch>
+            <Patch level="1">translate_netbook_profile.patch</Patch>
             <Patch level="1">tr.diff</Patch>
+            <Patch level="1">wizard.patch</Patch>
+            <Patch level="1">no-desktop-file.patch</Patch>
         </Patches>
     </Source>
 
     <Package>
         <Name>enlightenment</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.9.9.063">eina</Dependency>
-            <Dependency versionFrom="1.2.3">eet</Dependency>
-            <Dependency versionFrom="0.9.9.063">evas</Dependency>
-            <Dependency versionFrom="0.9.9.063">ecore</Dependency>
-            <Dependency versionFrom="0.9.93.063">edje</Dependency>
-            <Dependency versionFrom="0.9.9.063">embryo</Dependency>
-            <Dependency versionFrom="0.5.0.063">efreet</Dependency>
-            <Dependency versionFrom="0.5.0.063">e_dbus</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+            <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
+            <Dependency versionFrom="0.9.93.063_20100215">edje</Dependency>
+            <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.063_20100215">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.063_20100215">e_dbus</Dependency>
             <!--mixer module's dependency-->
             <Dependency>alsa-lib</Dependency>
         </RuntimeDependencies>
@@ -60,13 +65,15 @@
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/xsessions/enlightenment.desktop">enlightenment.desktop</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/enlightenment/data/images/lang-tr_TR.png">lang-tr_TR.png</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/etc/enlightenment/sysactions.conf">sysactions.conf</AdditionalFile>
         </AdditionalFiles>
     </Package>
 
     <History>
         <Update release="15">
-            <Date>2010-01-27</Date>
-            <Version>0.16.999.063</Version>
+            <Date>2010-02-17</Date>
+            <Version>0.16.999.063_20100215</Version>
             <Comment>New snapshot.</Comment>
             <Name>H. İbrahim Güngör</Name>
             <Email>h.ibrahim.gungor@gmail.com</Email>
