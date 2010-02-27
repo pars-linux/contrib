@@ -10,13 +10,15 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
+    shelltools.touch("README")
+
     autotools.autoreconf("-fi")
     autotools.configure("--enable-gl-x11 \
+                         --enable-fribidi \
                          --enable-buffer \
-                         --enable-software-x11 \
+                         --enable-software-xlib \
                          --enable-xrender-x11 \
-                         --enable-fb \
-                         --enable-directfb \
+                         --enable-gl-x11 \
                          --with-x \
                          --disable-static")
 
