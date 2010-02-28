@@ -3243,163 +3243,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>mpd</Name>
-            <Homepage>http://www.musicpd.org</Homepage>
-            <Packager>
-                <Name>Güngör Erseymen</Name>
-                <Email>gelurine@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>service</IsA>
-            <PartOf>multimedia.stream</PartOf>
-            <Summary xml:lang="en">Music Player Daemon</Summary>
-            <Summary xml:lang="tr">Müzik Çalıcı Sunucusu (MPD)</Summary>
-            <Description xml:lang="en">Music Player Daemon (MPD) allows remote access for playing music (MP3, Ogg Vorbis, FLAC, AAC, Mod, and wave files) and managing playlists.</Description>
-            <Description xml:lang="tr">MPD çoğu müzik dosyasını (MP3, Ogg Vorbis, FLAC, AAC, Mod vs.) çalar ve ağda yayınlar.</Description>
-            <Archive type="tarbz2" sha1sum="f53f984d8ffcc58d83268f30afb11b8342118d22">mirrors://sourceforge/musicpd/mpd-0.15.3.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>avahi</Dependency>
-                <Dependency>libmpcdec</Dependency>
-                <Dependency>wavpack</Dependency>
-                <Dependency>faad2</Dependency>
-                <Dependency>libcdio</Dependency>
-                <Dependency>libmms</Dependency>
-                <Dependency>libid3tag</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libogg</Dependency>
-                <Dependency>flac</Dependency>
-                <Dependency>audiofile</Dependency>
-                <Dependency>libmodplug</Dependency>
-                <Dependency>libmad</Dependency>
-                <Dependency>ffmpeg</Dependency>
-                <Dependency>lame</Dependency>
-                <Dependency>libao</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>jack-audio-connection-kit</Dependency>
-                <Dependency>pulseaudio</Dependency>
-                <Dependency>libshout</Dependency>
-                <Dependency>libsamplerate</Dependency>
-                <Dependency>libmikmod</Dependency>
-                <Dependency>zziplib</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/stream/mpd/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>mpd</Name>
-            <RuntimeDependencies>
-                <Dependency>avahi</Dependency>
-                <Dependency>libmpcdec</Dependency>
-                <Dependency>wavpack</Dependency>
-                <Dependency>faad2</Dependency>
-                <Dependency>libcdio</Dependency>
-                <Dependency>libmms</Dependency>
-                <Dependency>libid3tag</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libogg</Dependency>
-                <Dependency>flac</Dependency>
-                <Dependency>audiofile</Dependency>
-                <Dependency>libmodplug</Dependency>
-                <Dependency>libmad</Dependency>
-                <Dependency>ffmpeg</Dependency>
-                <Dependency>lame</Dependency>
-                <Dependency>libao</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>jack-audio-connection-kit</Dependency>
-                <Dependency>pulseaudio</Dependency>
-                <Dependency>libshout</Dependency>
-                <Dependency>libsamplerate</Dependency>
-                <Dependency>zziplib</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Provides>
-                <COMAR script="service.py">System.Service</COMAR>
-                <COMAR script="package.py">System.Package</COMAR>
-            </Provides>
-            <AdditionalFiles>
-                <AdditionalFile target="/etc/mpd.conf" permission="0640" owner="mpd" group="audio">mpd.conf</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="9">
-                <Date>2009-08-31</Date>
-                <Version>0.15.3</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Güngör Erseymen</Name>
-                <Email>gelurine@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2009-07-24</Date>
-                <Version>0.15.1</Version>
-                <Comment>Version bump, add missing zziplib dependency, add translations.xml.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2009-07-04</Date>
-                <Version>0.15</Version>
-                <Comment>* Version bump,
-                * Overhaul dependencies,
-                * Update COMAR script,
-                * Change permission of configuration file,
-                * Drop priviliges to mpd user.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2008-11-09</Date>
-                <Version>0.13.2</Version>
-                <Comment>- Run as nobody, instead of root.
-                - Not required to detach in service.py.</Comment>
-                <Name>Güngör Erseymen</Name>
-                <Email>gelurine@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2008-10-23</Date>
-                <Version>0.13.2</Version>
-                <Comment>- Version bump
-            - Enable pulse
-            - Fix mpd.conf for pulse support
-            - Edit summary and add description</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2008-08-01</Date>
-                <Version>0.13.1</Version>
-                <Comment>Add mpd.conf as additional file and fix permissions, simplify package.py</Comment>
-                <Name>Onur Küçük</Name>
-                <Email>onur@pardus.org.tr</Email>
-            </Update>
-            <Update release="3">
-                <Date>2008-03-02</Date>
-                <Version>0.13.1</Version>
-                <Comment>Remove unnecessary code from service.py. We should not delete mpd.db upon starting service.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2008-02-03</Date>
-                <Version>0.13.1</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-11-21</Date>
-                <Version>0.13.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>kstreamripper</Name>
             <Homepage>http://kde-apps.org/content/show.php?content=10275</Homepage>
             <Packager>
@@ -5557,52 +5400,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>mpc</Name>
-            <Homepage>http://musicpd.org</Homepage>
-            <Packager>
-                <Name>Recep Kırmızı</Name>
-                <Email>rkirmizi@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>multimedia.sound</PartOf>
-            <Summary xml:lang="en">mpc is a simple console client for Music Player Daemon (MPD).</Summary>
-            <Summary xml:lang="tr">Müzik Çalıcı Sunucu (MPD) için konsol tabanlı bir istemci</Summary>
-            <Description xml:lang="tr">mpc, Müzik Çalıcı Sunucusu (MPD) için konsol tabanlı bir istemcidir. Pipe ile kullanılabilir, klavye çokluortam kısayolu olarak atanabilir.</Description>
-            <Archive type="tarbz2" sha1sum="52a8bd146081e7fdb5dc535bbfbd168e57468cf6">mirrors://sourceforge/musicpd/mpc-0.16.tar.bz2</Archive>
-            <SourceURI>multimedia/sound/mpc/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>mpc</Name>
-            <RuntimeDependencies>
-                <Dependency>mpd</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/mpc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2009-07-04</Date>
-                <Version>0.16</Version>
-                <Comment>Version bump, remove redundant mpd build dependency, add translations.xml.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-03-04</Date>
-                <Version>0.12.1</Version>
-                <Comment>First release</Comment>
-                <Name>Recep Kırmızı</Name>
-                <Email>rkirmizi@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>gnaural</Name>
             <Homepage>http://gnaural.sourceforge.net/</Homepage>
             <Packager>
@@ -5850,148 +5647,6 @@
                 <Comment>First release.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>qmmp</Name>
-            <Homepage>http://qmmp.ylsoftware.com/index_en.html</Homepage>
-            <Packager>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Packager>
-            <License>GPLv2+</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.sound</PartOf>
-            <Summary xml:lang="en">An audio-player, written with Qt library</Summary>
-            <Summary xml:lang="tr">Qt tabanlı müzik oynatıcı</Summary>
-            <Description xml:lang="en">Qmmp is an audio-player, written with Qt library. It&apos;s similar to Winamp or Xmms. Also supports Xmms and Winamp skins. qmmp-skins package in Contrib repository is recommended, too.</Description>
-            <Description xml:lang="tr">Qmmp Qt tabanlı bir müzik oynatıcısıdır. Xmms ve Winamp temalarını destekler. Ayrıca Contrib deposunda bulunan ve Pardus&apos;a özel temalar da içeren qmmp-skins paketini de kurmanız önerilir.</Description>
-            <Icon>qmmp</Icon>
-            <Archive type="tarbz2" sha1sum="1cc604bd89a7b26fe248d31ed1cd3a668f303ab1">http://qmmp.ylsoftware.com/files/qmmp-0.3.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>qt</Dependency>
-                <Dependency>libsamplerate</Dependency>
-                <Dependency>wavpack</Dependency>
-                <Dependency>flac</Dependency>
-                <Dependency>libmodplug</Dependency>
-                <Dependency>libcdio</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libsndfile</Dependency>
-                <Dependency>pulseaudio</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>mesa</Dependency>
-                <Dependency>libprojectM</Dependency>
-                <Dependency>libmad</Dependency>
-                <Dependency>taglib</Dependency>
-                <Dependency>ffmpeg</Dependency>
-                <Dependency>libmpcdec</Dependency>
-                <Dependency>jack-audio-connection-kit</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/sound/qmmp/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>qmmp</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-                <Dependency>libsamplerate</Dependency>
-                <Dependency>wavpack</Dependency>
-                <Dependency>flac</Dependency>
-                <Dependency>libmodplug</Dependency>
-                <Dependency>libcdio</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>libsndfile</Dependency>
-                <Dependency>pulseaudio</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>mesa</Dependency>
-                <Dependency>libprojectM</Dependency>
-                <Dependency>libmad</Dependency>
-                <Dependency>taglib</Dependency>
-                <Dependency>ffmpeg</Dependency>
-                <Dependency>libmpcdec</Dependency>
-                <Dependency>jack-audio-connection-kit</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include/</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/share/qmmp/skins</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/icons</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="10">
-                <Date>2009-12-19</Date>
-                <Version>0.3.1</Version>
-                <Comment>Stable bump with lots of new features and bug fixes, drop upstreamed Turkish patch</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="9">
-                <Date>2009-07-23</Date>
-                <Version>0.3.0</Version>
-                <Comment>Turkish translation update.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2009-07-04</Date>
-                <Version>0.3.0</Version>
-                <Comment>Stable bump with lots of output formats and plugins support, add new dependencies</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2009-06-07</Date>
-                <Version>0.2.4</Version>
-                <Comment>Fix dependencies for 2009, add Mandriva patches</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2009-03-27</Date>
-                <Version>0.2.4</Version>
-                <Comment>Version bump. Add translations.xml and icon tag. Better description/summary</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2009-01-25</Date>
-                <Version>0.2.3</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="4">
-                <Date>2008-04-07</Date>
-                <Version>0.1.6</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="3">
-                <Date>2008-01-28</Date>
-                <Version>0.1.5</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-09-19</Date>
-                <Version>0.1.4</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-28</Date>
-                <Version>0.1.3.1</Version>
-                <Comment>First release</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
             </Update>
         </History>
     </SpecFile>
@@ -15612,127 +15267,6 @@
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>weechat</Name>
-            <Homepage>http://weechat.flashtux.org</Homepage>
-            <Packager>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Packager>
-            <License>GPLv3</License>
-            <IsA>app:console</IsA>
-            <PartOf>network.chat</PartOf>
-            <Summary xml:lang="en">TextUI IRC client</Summary>
-            <Summary xml:lang="tr">Komut satırı IRC istemcisi</Summary>
-            <Description xml:lang="en">weechat is an ncurses based IRC client.</Description>
-            <Description xml:lang="tr">weechat, ncurses tabanlı bir komut satırı IRC istemcisidir.</Description>
-            <Archive type="tarbz2" sha1sum="7bbdba960e3f29400516eab309885da2a840a45e">http://weechat.flashtux.org/download/weechat-0.3.0-rc2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>aspell</Dependency>
-                <Dependency>gnutls</Dependency>
-                <Dependency>ruby</Dependency>
-                <Dependency>lua</Dependency>
-                <Dependency>tcl</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">bug-10793.patch</Patch>
-            </Patches>
-            <SourceURI>network/chat/weechat/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>weechat</Name>
-            <RuntimeDependencies>
-                <Dependency>aspell</Dependency>
-                <Dependency>gnutls</Dependency>
-                <Dependency>ruby</Dependency>
-                <Dependency>lua</Dependency>
-                <Dependency>tcl</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include/weechat</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/lib/pkgconfig</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="10">
-                <Date>2009-08-06</Date>
-                <Version>0.3.0_rc2</Version>
-                <Comment>New development release, fix #10793.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="9">
-                <Date>2009-06-20</Date>
-                <Version>0.3.0_rc1</Version>
-                <Comment>Fix sandbox violation.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2009-06-19</Date>
-                <Version>0.3.0_rc1</Version>
-                <Comment>* Major release, not compatible with 0.2.6 series
-                * Swith to cmake build system</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>h.ibrahim.gungor@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2008-05-12</Date>
-                <Version>0.2.6</Version>
-                <Comment>Remove redundant dependency</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2008-02-07</Date>
-                <Version>0.2.6</Version>
-                <Comment>Fix alt + left/right for #6220</Comment>
-                <Name>Onur Küçük</Name>
-                <Email>onur@pardus.org.tr</Email>
-            </Update>
-            <Update release="5">
-                <Date>2008-02-07</Date>
-                <Version>0.2.6</Version>
-                <Comment>#6220 fixed F5 switch to previous buffer. Thanks Onur Küçük.</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-09-29</Date>
-                <Version>0.2.6</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-06-21</Date>
-                <Version>0.2.5</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-03-30</Date>
-                <Version>0.2.4</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-03-04</Date>
-                <Version>0.2.3</Version>
-                <Comment>First release</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -60008,25 +59542,28 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Grafiksel yerleşim ve canlandırma kitaplığı</Summary>
             <Description xml:lang="en">Edje is a graphical layout and animation library for animated resizable, compressed and scalable themes.</Description>
             <Description xml:lang="tr">Edje, ölçeklenebilir ve sıkıştırılmış temalar için grafiksel yerleşim ve canlandırma kitaplığıdır.</Description>
-            <Archive type="tarbz2" sha1sum="4e2e72e951d1769056e5b38e47d5c2726a799bc7">http://download.enlightenment.org/snapshots/2009-12-02/edje-0.9.93.063.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="cf542e48f526c1b7687e4b6b1249594a1edb62e1">ftp://ftp.sudrap.org/igungor/src/e/20100215/edje-0.9.93.063_20100215.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.0.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
-                <Dependency versionFrom="0.9.9.063">embryo</Dependency>
+                <Dependency versionFrom="0.9.0.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
                 <Dependency>lua</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">reflect_signature_changes.patch</Patch>
+            </Patches>
             <SourceURI>desktop/enlightenment/base/edje/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>edje</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
-                <Dependency versionFrom="0.9.9.063">embryo</Dependency>
+                <Dependency versionFrom="0.9.0.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
                 <Dependency>lua</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -60035,13 +59572,14 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="data">/usr/lib/pkgconfig</Path>
                 <Path fileType="data">/usr/share/edje</Path>
+                <Path fileType="data">/usr/share/mime</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
             <Update release="11">
-                <Date>2010-01-27</Date>
-                <Version>0.9.93.063</Version>
+                <Date>2010-02-15</Date>
+                <Version>0.9.93.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -60134,7 +59672,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Enlightenment bytecode sanal makinesi</Summary>
             <Description xml:lang="en">Embryo is a tiny library designed as a virtual machine to interpret a limited set of small compiled programs.</Description>
             <Description xml:lang="tr">Embryo, derlenmiş programları yorumlayan bir sanal makine olarak tasarlanmış bir kitaplıktır.</Description>
-            <Archive type="tarbz2" sha1sum="f36c41a4e017e1765abf87e2e089aa6bb245a78e">http://download.enlightenment.org/snapshots/2009-12-02/embryo-0.9.9.063.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f5156609ac47dbacd16a7f73d756eb9cdf3c5b9a">ftp://ftp.sudrap.org/igungor/src/e/20100215/embryo-0.9.9.063_20100215.tar.bz2</Archive>
             <SourceURI>desktop/enlightenment/base/embryo/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -60150,8 +59688,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         </Package>
         <History>
             <Update release="11">
-                <Date>2010-01-27</Date>
-                <Version>0.9.9.063</Version>
+                <Date>2010-02-15</Date>
+                <Version>0.9.9.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -60237,16 +59775,17 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>BSD</License>
+            <IsA>app:console</IsA>
             <IsA>library</IsA>
             <PartOf>desktop.enlightenment.base</PartOf>
             <Summary xml:lang="en">Hardware-accelerated canvas API</Summary>
             <Summary xml:lang="tr">Donanım destekli canvas uygulama arayüzü</Summary>
             <Description xml:lang="en">Evas is a clean display canvas API for several target display systems that can draw anti-aliased text, smooth super and sub-sampled scaled images, alpha-blend objects much and more.</Description>
-            <Description xml:lang="tr">Donanım destekli canvas uygulama arayüzü</Description>
-            <Archive type="tarbz2" sha1sum="40ff48de8f716e84440e267219a9df8afa9c9f88">http://download.enlightenment.org/snapshots/2009-12-02/evas-0.9.9.063.tar.bz2</Archive>
+            <Description xml:lang="tr">Evas bir çok görüntü sistemini destekleyen, sub-sample, anti-alias, alpha-blend nesneler gibi çizim tekniklerini kullanabilen gelişmiş bir canvas API&apos;sidir.</Description>
+            <Archive type="tarbz2" sha1sum="b60b2ac0857e9bcc7019ac706f4072153c8ae7ad">ftp://ftp.sudrap.org/igungor/src/e/20100215/evas-0.9.9.063_20100215.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
                 <Dependency>fontconfig</Dependency>
                 <Dependency>fribidi</Dependency>
                 <Dependency>librsvg</Dependency>
@@ -60257,13 +59796,16 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libXrender</Dependency>
                 <Dependency>giflib</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">proper_canvas_events_cb.patch</Patch>
+            </Patches>
             <SourceURI>desktop/enlightenment/base/evas/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>evas</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
                 <Dependency>fontconfig</Dependency>
                 <Dependency>fribidi</Dependency>
                 <Dependency>librsvg</Dependency>
@@ -60284,8 +59826,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         </Package>
         <History>
             <Update release="11">
-                <Date>2010-01-27</Date>
-                <Version>0.9.9.063</Version>
+                <Date>2010-02-15</Date>
+                <Version>0.9.9.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -60378,11 +59920,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Enlightenment cekirdek ve X ayrıştırma katmanı</Summary>
             <Description xml:lang="en">Ecore is the core event abstraction layer and X abstraction layer that makes doing selections, Xdnd, general X stuff, and event loops, timeouts and idle handlers fast, optimized, and convenient.</Description>
             <Description xml:lang="tr">Ecore çekirdek ve X ayrıştırma katmanıdır ve hızlı, verimli ve en kolay yoldan X işlerini halletmeye yarar.</Description>
-            <Archive type="tarbz2" sha1sum="c35a546e578c8bd59a1cdd349f67f58f37ada048">http://download.enlightenment.org/snapshots/2009-12-02/ecore-0.9.9.063.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="22709da86becda3462122d869f1489658e68bef1">ftp://ftp.sudrap.org/igungor/src/e/20100215/ecore-0.9.9.063_20100215.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
                 <Dependency>libXcursor</Dependency>
                 <Dependency>libXdamage</Dependency>
                 <Dependency>libXcomposite</Dependency>
@@ -60394,14 +59936,17 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libXtst</Dependency>
                 <Dependency>libXext</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">reflect_signature_changes.patch</Patch>
+            </Patches>
             <SourceURI>desktop/enlightenment/base/ecore/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>ecore</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
                 <Dependency>libXcursor</Dependency>
                 <Dependency>libXdamage</Dependency>
                 <Dependency>libXcomposite</Dependency>
@@ -60424,8 +59969,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         </Package>
         <History>
             <Update release="11">
-                <Date>2010-01-27</Date>
-                <Version>0.9.9.063</Version>
+                <Date>2010-02-15</Date>
+                <Version>0.9.9.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -60518,18 +60063,18 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">E17 için MIME standartları kitaplığı</Summary>
             <Description xml:lang="en">efreet implements the FreeDesktop.Org application and MIME-handling standards.</Description>
             <Description xml:lang="tr">Efreet, FreeDesktop.Org uygulama ve MIME standartlarını gerçekleyen bir kitaplıktır.</Description>
-            <Archive type="tarbz2" sha1sum="dc036a8ecd1b73ad4ec86f91b1ae7c34120fddf6">http://download.enlightenment.org/snapshots/2009-12-02/efreet-0.5.0.063.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="103753a0bd0fb04a2ac5c53170a2802885920b38">ftp://ftp.sudrap.org/igungor/src/e/20100215/efreet-0.5.0.063_20100215.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/enlightenment/base/efreet/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>efreet</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -60542,8 +60087,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         </Package>
         <History>
             <Update release="6">
-                <Date>2010-01-27</Date>
-                <Version>0.5.0.063</Version>
+                <Date>2010-02-15</Date>
+                <Version>0.5.0.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -60600,34 +60145,42 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Enlightenment Pencere Yöneticisi</Summary>
             <Description xml:lang="en">Enlightenment is a window manager for the X Window System that is designed to be powerful, extensible, configurable and pretty darned good looking! It is one of the more graphically intense window managers.</Description>
             <Description xml:lang="tr">Enlightenment, X Pencere Sistemi için tasarlanmış güçlü, genişletilebilir, yapılandırılabilir ve göze hitap eden bir pencere yöneticisidir.</Description>
-            <Archive type="tarbz2" sha1sum="c2da7dc3c756f01cb823559bfdf4c06a7eb8e40b">http://download.enlightenment.org/snapshots/2009-12-02/enlightenment-0.16.999.063.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="471ebc257f23fee4d9f317e17783391ed27c0188">ftp://ftp.sudrap.org/igungor/src/e/20100215/e-0.16.999.063_20100215.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
-                <Dependency versionFrom="0.9.93.063">edje</Dependency>
-                <Dependency versionFrom="0.9.9.063">embryo</Dependency>
-                <Dependency versionFrom="0.5.0.063">efreet</Dependency>
-                <Dependency versionFrom="0.5.0.063">e_dbus</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
+                <Dependency versionFrom="0.9.93.063_20100215">edje</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
+                <Dependency versionFrom="0.5.0.063_20100215">efreet</Dependency>
+                <Dependency versionFrom="0.5.0.063_20100215">e_dbus</Dependency>
                 <Dependency>alsa-lib</Dependency>
             </BuildDependencies>
             <Patches>
+                <Patch level="1">fileman-default.patch</Patch>
+                <Patch level="1">e-config.patch</Patch>
+                <Patch level="1">translate_minimal_profile.patch</Patch>
+                <Patch level="1">translate_standard_profile.patch</Patch>
+                <Patch level="1">translate_scaleable_profile.patch</Patch>
+                <Patch level="1">translate_netbook_profile.patch</Patch>
                 <Patch level="1">tr.diff</Patch>
+                <Patch level="1">wizard.patch</Patch>
+                <Patch level="1">no-desktop-file.patch</Patch>
             </Patches>
             <SourceURI>desktop/enlightenment/base/enlightenment/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>enlightenment</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="1.2.3">eet</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
-                <Dependency versionFrom="0.9.93.063">edje</Dependency>
-                <Dependency versionFrom="0.9.9.063">embryo</Dependency>
-                <Dependency versionFrom="0.5.0.063">efreet</Dependency>
-                <Dependency versionFrom="0.5.0.063">e_dbus</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
+                <Dependency versionFrom="0.9.93.063_20100215">edje</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
+                <Dependency versionFrom="0.5.0.063_20100215">efreet</Dependency>
+                <Dependency versionFrom="0.5.0.063_20100215">e_dbus</Dependency>
                 <Dependency>alsa-lib</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -60643,12 +60196,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/xsessions/enlightenment.desktop" permission="0644" owner="root">enlightenment.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/enlightenment/data/images/lang-tr_TR.png" permission="0644" owner="root">lang-tr_TR.png</AdditionalFile>
+                <AdditionalFile target="/etc/enlightenment/sysactions.conf" permission="0644" owner="root">sysactions.conf</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
             <Update release="15">
-                <Date>2010-01-27</Date>
-                <Version>0.16.999.063</Version>
+                <Date>2010-02-17</Date>
+                <Version>0.16.999.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
@@ -60769,24 +60324,24 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>app:console</IsA>
             <IsA>library</IsA>
             <PartOf>desktop.enlightenment.base</PartOf>
-            <Summary xml:lang="en">A Dbus wrapper for EFL based applications</Summary>
+            <Summary xml:lang="en">A D-Bus wrapper for EFL based applications</Summary>
             <Summary xml:lang="tr">EFL kullanan uygulamalar için DBus katmanı</Summary>
-            <Description xml:lang="en">e_dbus is a basic convenience wrapper around dbus.</Description>
+            <Description xml:lang="en">e_dbus is a basic convenience wrapper around D-Bus.</Description>
             <Description xml:lang="tr">E_DBus, EFL kullanan uygulamaların DBus kullanımını kolaylaştırması için tasarlanmış bir ara katmandır.</Description>
-            <Archive type="tarbz2" sha1sum="305038ecc2f2d00b9f15d7969371385e9c39db8f">http://download.enlightenment.org/snapshots/2009-12-02/e_dbus-0.5.0.063.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="4c4de2eca747192f58478682630d0cc4509aa38d">ftp://ftp.sudrap.org/igungor/src/e/20100215/e_dbus-0.5.0.063_20100215.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/enlightenment/base/e_dbus/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>e_dbus</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.9.063">eina</Dependency>
-                <Dependency versionFrom="0.9.9.063">evas</Dependency>
-                <Dependency versionFrom="0.9.9.063">ecore</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
+                <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -60798,8 +60353,8 @@ processing unit (GPU) present in modern graphics cards</Description>
         </Package>
         <History>
             <Update release="6">
-                <Date>2010-01-27</Date>
-                <Version>0.5.0.063</Version>
+                <Date>2010-02-15</Date>
+                <Version>0.5.0.063_20100215</Version>
                 <Comment>New snapshot.</Comment>
                 <Name>H. İbrahim Güngör</Name>
                 <Email>h.ibrahim.gungor@gmail.com</Email>
