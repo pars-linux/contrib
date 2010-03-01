@@ -9,8 +9,10 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--enable-artist-screen \
-                         --enable-colors \
+    autotools.autoreconf("-fi")
+
+    autotools.configure("--enable-colors \
+                         --enable-lirc \
                          --enable-lyrics-screen")
 
 def build():
