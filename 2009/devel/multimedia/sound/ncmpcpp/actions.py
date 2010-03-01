@@ -11,6 +11,8 @@ from pisi.actionsapi import get
 def setup():
     autotools.configure("--enable-unicode=yes \
                          --enable-clock=yes \
+                         --enable-visualizer=yes \
+                         --enable-outputs=yes \
                          --with-taglib=yes \
                          --with-curl=yes")
 
@@ -22,5 +24,6 @@ def install():
 
     pisitools.removeDir("usr/share/doc")
     pisitools.doman("doc/ncmpcpp.1")
+    pisitools.insinto("/etc/bash_completion.d/", "doc/ncmpcpp-completion.bash", "ncmpcpp")
 
-    pisitools.dodoc("AUTHORS", "COPYING", "ChangeLog", "NEWS", "doc/config", "doc/keys")
+    pisitools.dodoc("AUTHORS", "COPYING", "NEWS", "doc/config", "doc/keys")
