@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-shelltools.export("MONO_SHARED_DIR", ".")
+shelltools.export("MONO_SHARED_DIR", get.workDIR())
 
 def setup():
     autotools.configure()
