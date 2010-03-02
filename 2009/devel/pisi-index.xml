@@ -5655,8 +5655,8 @@
             <Name>ncmpcpp</Name>
             <Homepage>http://unkart.ovh.org/ncmpcpp</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:console</IsA>
@@ -5665,9 +5665,11 @@
             <Summary xml:lang="tr">Ncurses tabanlı MPD istemcisi</Summary>
             <Description xml:lang="en">Ncmpcpp is an Music Player Daemon (MPD) client which has a tag editor, playlist editor, lyrics support and etc.</Description>
             <Description xml:lang="tr">Ncmpcpp; etiket düzenleyici, çalma listesi düzenleyici, şarkı sözü desteği vb. özellikleri olan bir MPD istemcisidir.</Description>
-            <Archive type="tarbz2" sha1sum="7c483e66ffa24826b8b6c081e1155286b5e4b421">http://unkart.ovh.org/ncmpcpp/ncmpcpp-0.3.5.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="fefa8a6a120a479f83a0af7cd60596289d7d1398">http://unkart.ovh.org/ncmpcpp/ncmpcpp-0.5.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>taglib</Dependency>
+                <Dependency>fftw3</Dependency>
+                <Dependency>libmpdclient</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/sound/ncmpcpp/pspec.xml</SourceURI>
         </Source>
@@ -5676,14 +5678,24 @@
             <RuntimeDependencies>
                 <Dependency>mpd</Dependency>
                 <Dependency>taglib</Dependency>
+                <Dependency>fftw3</Dependency>
+                <Dependency>libmpdclient</Dependency>
             </RuntimeDependencies>
             <Files>
+                <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2010-03-01</Date>
+                <Version>0.5.2</Version>
+                <Comment>Version bump, add new dependency libmpdclient.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-07-04</Date>
                 <Version>0.3.5</Version>
@@ -6699,8 +6711,8 @@
             <Name>ncmpc</Name>
             <Homepage>http://hem.bredband.net/kaw/ncmpc</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
             </Packager>
             <License>GPLv2+</License>
             <IsA>app:console</IsA>
@@ -6709,13 +6721,22 @@
             <Summary xml:lang="tr">Ncurses tabanlı MPD istemcisi</Summary>
             <Description xml:lang="en">ncmpc connects to an MPD running on a machine on the local network, and controls this with an interface inspired by cplay.</Description>
             <Description xml:lang="tr">Ncmpc; uzaktan kontrol destekli, çalma listesi düzenleyici, şarkı sözü desteği vb. özellikleri olan bir MPD istemcisidir.</Description>
-            <Archive type="tarbz2" sha1sum="0a2ea890129cf9cc2929ab93554d4892f7f19e7f">mirrors://sourceforge/musicpd/ncmpc-0.14.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="1728d4a3a880d08c356354d2ebaf2a18fdc56016">mirrors://sourceforge/musicpd/ncmpc-0.16.1.tar.bz2</Archive>
+            <BuildDependencies>
+                <Dependency>libmpdclient</Dependency>
+                <Dependency>lirc</Dependency>
+            </BuildDependencies>
+            <Patches>
+                <Patch>ncmpc-lirc.patch</Patch>
+            </Patches>
             <SourceURI>multimedia/sound/ncmpc/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>ncmpc</Name>
             <RuntimeDependencies>
                 <Dependency>mpd</Dependency>
+                <Dependency>libmpdclient</Dependency>
+                <Dependency>lirc</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -6726,6 +6747,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-03-01</Date>
+                <Version>0.16.1</Version>
+                <Comment>Version bump, add new libmpdclient dependency, enable lirc support.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-05-25</Date>
                 <Version>0.14</Version>
@@ -10602,7 +10630,7 @@
             <Description xml:lang="en">MyPaint is a fast and easy painting application. It lets you focus on the art instead of the program</Description>
             <Description xml:lang="tr">MyPaint hızlı ve kolay bir boyama programıdır. Programa yoğunlaşacağınıza sanata yoğunlaşmanızı sağlar.</Description>
             <Icon>mypaint</Icon>
-            <Archive type="tarbz2" sha1sum="3acca424b0c642a70b7681742965f4f8b5e1ca1b">http://download.gna.org/mypaint/mypaint-0.8.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="f82ca2e25a1a1db291877a0fd0e170b2b7ce8da4">http://download.gna.org/mypaint/mypaint-0.8.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>numpy</Dependency>
@@ -10630,6 +10658,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-03-01</Date>
+                <Version>0.8.2</Version>
+                <Comment>Version bump to latest version:
+                - fix regression in 0.8.1 causing temporary layers to stick
+                - complain about unsupported pygtk version</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="5">
                 <Date>2010-02-22</Date>
                 <Version>0.8.1</Version>
