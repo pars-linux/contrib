@@ -30510,8 +30510,9 @@ supported DAQ cards, such as those from National Instruments.</Description>
         </Package>
         <History>
             <Update release="2">
-                <Date>2010-02-21</Date>
+                <Date>2010-03-02</Date>
                 <Version>1.2</Version>
+                <Comment>* Fix dependencies.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
             </Update>
@@ -37373,76 +37374,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>webkit-sharp</Name>
-            <Homepage>http://www.mono-project.com/Libraries</Homepage>
-            <Packager>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Packager>
-            <License>MIT</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.dotnet</PartOf>
-            <Summary xml:lang="en">WebKit-gtk bindings for Mono</Summary>
-            <Summary xml:lang="tr">Mono için WebKit bağlayıcısı</Summary>
-            <Description xml:lang="en">Webkit-sharp is a Mono bindings for WebKit libraries. It is made to be embedded in other applications, such as mail readers, or web browsers.</Description>
-            <Description xml:lang="tr">Webkit-sharp, Mono için yazılmış bir WebKit kitaplığıdır. Eposta okuyucu, internet tarayıcı gibi C# ile yazılmış uygulamalarınızda internet sayfalarını görüntülemek için uygundur.</Description>
-            <Archive type="tarbz2" sha1sum="751a5f352d3a03b8a0a37c9a8d98c5fd934f68a6">http://ftp.novell.com/pub/mono/sources/webkit-sharp/webkit-sharp-0.2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>gtk-sharp</Dependency>
-                <Dependency>mono-devel</Dependency>
-                <Dependency>webkit-gtk-devel</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>webkit-sharp-libname-fix.patch</Patch>
-            </Patches>
-            <SourceURI>programming/language/dotnet/webkit-sharp/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>webkit-sharp</Name>
-            <RuntimeDependencies>
-                <Dependency>gtk-sharp</Dependency>
-                <Dependency>mono-runtime</Dependency>
-                <Dependency>webkit-gtk</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="data">/usr/lib/pkgconfig</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>webkit-sharp-docs</Name>
-            <Summary xml:lang="en">webkit-sharp docs</Summary>
-            <Summary xml:lang="tr">webkit-sharp docs</Summary>
-            <RuntimeDependencies>
-                <Dependency releaseFrom="2">webkit-sharp</Dependency>
-                <Dependency>monodoc-core</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/lib/monodoc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2010-02-21</Date>
-                <Version>0.2</Version>
-                <Comment>* Update dependencies.
-                * Remove empty doc files.
-                * Split docs.</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2009-07-27</Date>
-                <Version>0.2</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>gnome-desktop-sharp</Name>
             <Homepage>http://www.mono-project.com/GtkSharp</Homepage>
             <Packager>
@@ -37612,51 +37543,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Update release="1">
                 <Date>2010-02-01</Date>
                 <Version>2.26.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>gnome-sharp</Name>
-            <Homepage>http://www.mono-project.com/GtkSharp</Homepage>
-            <Packager>
-                <Name>Gökmen Görgen</Name>
-                <Email>gkmngrgn@gmail.com</Email>
-            </Packager>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.dotnet</PartOf>
-            <Summary xml:lang="en">A GNOME bindings for C#</Summary>
-            <Summary xml:lang="tr">C# için GNOME bağlayıcıları</Summary>
-            <Description xml:lang="en">Gnome-sharp is a GNOME bindings for using with .Net.</Description>
-            <Description xml:lang="tr">Gnome-sharp, C# için yazılmış GNOME bağlayıcılarıdır.</Description>
-            <Archive type="tarbz2" sha1sum="22ac47dc6dd1ca6858467b9d53affc84a9308baf">mirrors://gnome/gnome-sharp/2.24/gnome-sharp-2.24.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>libgnomeui</Dependency>
-                <Dependency>gtk-sharp</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/dotnet/gnome-sharp/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>gnome-sharp</Name>
-            <RuntimeDependencies>
-                <Dependency>libgnomeui</Dependency>
-                <Dependency>gtk-sharp</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2009-04-24</Date>
-                <Version>2.24.1</Version>
                 <Comment>First release.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
@@ -58340,7 +58226,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Lxterminal is a Lightweight vte-based tabbed terminal emulator for LXDE.</Description>
             <Description xml:lang="tr">Lxterminal, LXDE için hafif ve vte tabanlı bir terminal emülatörüdür. </Description>
             <Icon>lxterminal</Icon>
-            <Archive type="targz" sha1sum="f2109f42d72ef43ab293128469dc561c2a4ce09b">mirrors://sourceforge/lxde/lxterminal-0.1.6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b689f753238faf610a361a524eca24e1583b7f94">mirrors://sourceforge/lxde/lxterminal-0.1.7.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>vte</Dependency>
                 <Dependency>gtk2</Dependency>
@@ -58364,6 +58250,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-03-02</Date>
+                <Version>0.1.7</Version>
+                <Comment>Version bump</Comment>
+                <Name>Cihan Okyay</Name>
+                <Email>okyaycihan@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-10-01</Date>
                 <Version>0.1.6</Version>
