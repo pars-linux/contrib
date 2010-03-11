@@ -5,11 +5,9 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="Net_Sieve-%s" % get.srcVERSION()
+WorkDir="Net_Sieve-1.2.0b1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net", "Sieve.php")
-    pisitools.insinto("/usr/share/php5/PEAR/Net", "largescript.siv")
-    pisitools.insinto("/usr/share/php5/PEAR/tests/Net_Sieve", "SieveTest.php")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/Net_Sieve", "tests/*")
