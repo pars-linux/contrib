@@ -21,6 +21,8 @@ def setup():
                          --enable-nls \
                          --enable-pam \
                          --disable-rpath \
+                         --disable-illume \
+                         --disable-illume2 \
                          --with-x")
 def build():
     autotools.make()
@@ -29,8 +31,6 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.removeDir("/usr/etc")
-    pisitools.removeDir("/usr/share/enlightenment/data/config/illume")
-    pisitools.removeDir("/usr/share/enlightenment/data/config/illume-home")
 
     pisitools.domo("po/tr.po", "tr", "enlightenment.mo")
 
