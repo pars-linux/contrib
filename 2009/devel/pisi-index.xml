@@ -1574,6 +1574,56 @@
     </SpecFile>
     <SpecFile>
         <Source>
+            <Name>tosla</Name>
+            <Homepage>http://code.google.com/p/tosla</Homepage>
+            <Packager>
+                <Name>Kaan Akşit</Name>
+                <Email>kunguz@gmail.com</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>game.arcade</PartOf>
+            <Summary xml:lang="en">PC clone of traffic rush game</Summary>
+            <Summary xml:lang="tr">Traffic rush benzeri bir oyun</Summary>
+            <Description xml:lang="en">Tosla is a amusing game that you try to keeping the traffic flowing on a busy junction and preventing crashes. You can speed vehicles to the other side by clicking them with your mouse. Also you can make them stop by right clicking on them. For every vehicle that makes it to the other side, you score a point. If there&apos;s a crash, the game ends.</Description>
+            <Description xml:lang="tr">Tosla kalabalık bir kavşakta trafiği düzenleyerek kazaları engellemeye çalıştığınız eğlenceli bir oyundur. Araçları fareyle tıklayarak hızlandırabilir ve karşıya hiç bir araca çarpmadan geçmesini sağlayabilirsiniz. Ayrıca araçları sağ tıklayarak durdurabilirsiniz de. Karşı tarafa geçen her araç için bir puan alırsınız ve eğer bir kaza olursa oyun biter.</Description>
+            <Icon>tosla</Icon>
+            <Archive type="targz" sha1sum="29517c8f071a8358291e7bd7fb10ee00670665f1">http://tosla.googlecode.com/files/tosla-0.1.5.tar.gz</Archive>
+            <Patches>
+                <Patch>setup.patch</Patch>
+            </Patches>
+            <SourceURI>game/arcade/tosla/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>tosla</Name>
+            <RuntimeDependencies>
+                <Dependency>pygame</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/tosla</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="localedata">/usr/share/tosla/datas/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/applications/tosla.desktop" permission="0644" owner="root">tosla.desktop</AdditionalFile>
+                <AdditionalFile target="/usr/share/pixmaps/tosla.png" permission="0644" owner="root">tosla.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2010-03-18</Date>
+                <Version>0.1.5</Version>
+                <Comment>First release.</Comment>
+                <Name>Kaan Akşit</Name>
+                <Email>kunguz@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
             <Name>torrent</Name>
             <Homepage>http://www.shiftygames.com/torrent/torrent.html</Homepage>
             <Packager>
