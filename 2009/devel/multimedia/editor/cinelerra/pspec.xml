@@ -17,7 +17,7 @@
         <BuildDependencies>
             <Dependency>a52dec</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency versionFrom="0.5.1_20100222">ffmpeg</Dependency>
+            <Dependency>ffmpeg</Dependency>
             <Dependency>fftw3</Dependency>
             <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
             <Dependency>openexr</Dependency>
@@ -33,8 +33,8 @@
             <Dependency>libiec61883</Dependency>
             <Dependency>libraw1394</Dependency>
             <Dependency>faac</Dependency>
-            <Dependency versionFrom="2.7">faad2</Dependency>
-            <Dependency versionFrom="0.0_20100211">x264</Dependency>
+            <Dependency>faad2</Dependency>
+            <Dependency>x264</Dependency>
             <Dependency>libXxf86vm</Dependency>
             <Dependency>libXv</Dependency> 
             <Dependency>libXext</Dependency>      
@@ -43,7 +43,7 @@
             <!-- cinelerra.desktop turkish language patch-->
             <Patch>desktop.patch</Patch>
             <!-- The configure script test if v4l2 can be built with linux/time.h (and fails) but this header isn't specified in the source codec else where. Instead time.h is found and the test will succeed if this file is used.-->         
-            <Patch>videodev2.patch</Patch>
+            <Patch>v4l2.patch</Patch>
             <!-- Fix build with libavutil 50, ie ffmpeg trunk by not using pixel formats that have been deprecated for years.-->
             <Patch level="1">new_ffmpeg.patch</Patch>
             <!-- The cinelerra package bundles many fonts (used by the title plugins) that doesn't seems even redistributable (usually found with the mscorefonts package).This should be avoided since this will leads to the fonts to be provided twice; and it will save about 6Mb for the cinelerra package. Instead cinelerra should scan in the system fonts directory (/usr/share/fonts ) for system fonts.-->         
@@ -57,7 +57,7 @@
         <RuntimeDependencies>
             <Dependency>a52dec</Dependency>
             <Dependency>libsndfile</Dependency>
-            <Dependency versionFrom="0.5.1_20100222">ffmpeg</Dependency>
+            <Dependency>ffmpeg</Dependency>
             <Dependency>fftw3</Dependency>
             <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
             <Dependency>openexr</Dependency>
@@ -73,8 +73,8 @@
             <Dependency>libiec61883</Dependency>
             <Dependency>libraw1394</Dependency>
             <Dependency>faac</Dependency>
-            <Dependency versionFrom="2.7">faad2</Dependency>
-            <Dependency versionFrom="0.0_20100211">x264</Dependency>
+            <Dependency>faad2</Dependency>
+            <Dependency>x264</Dependency>
             <Dependency>libXxf86vm</Dependency>
             <Dependency>libXv</Dependency> 
             <Dependency>libXext</Dependency>     
@@ -92,7 +92,7 @@
 
     <History>
         <Update release="5">
-            <Date>2010-02-12</Date>
+            <Date>2010-03-21</Date>
             <Version>2.1_20100212</Version>
             <Comment>New snapshot.(Git Version). "git://git.cinelerra.org/j6t/cinelerra.git"
                      Compiled with the new version faac, faad2, x264, ffmpeg.
