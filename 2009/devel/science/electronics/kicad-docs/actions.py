@@ -7,7 +7,7 @@
 from pisi.actionsapi import get
 from pisi.actionsapi import cmaketools
 
-WorkDir = "kicad-docs-%s" % get.srcVERSION()[4:]
+WorkDir = "kicad-docs"
 
 def setup():
     cmaketools.configure(sourceDir=".")
