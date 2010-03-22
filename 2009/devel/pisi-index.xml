@@ -12616,7 +12616,7 @@
             <BuildDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
-                <Dependency versionFrom="0.5.1_20100222">ffmpeg</Dependency>
+                <Dependency>ffmpeg</Dependency>
                 <Dependency>fftw3</Dependency>
                 <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
                 <Dependency>openexr</Dependency>
@@ -12632,15 +12632,15 @@
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libraw1394</Dependency>
                 <Dependency>faac</Dependency>
-                <Dependency versionFrom="2.7">faad2</Dependency>
-                <Dependency versionFrom="0.0_20100211">x264</Dependency>
+                <Dependency>faad2</Dependency>
+                <Dependency>x264</Dependency>
                 <Dependency>libXxf86vm</Dependency>
                 <Dependency>libXv</Dependency>
                 <Dependency>libXext</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
-                <Patch>videodev2.patch</Patch>
+                <Patch>v4l2.patch</Patch>
                 <Patch level="1">new_ffmpeg.patch</Patch>
                 <Patch>fonts_path.patch</Patch>
                 <Patch>no_install_font.patch</Patch>
@@ -12652,7 +12652,7 @@
             <RuntimeDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
-                <Dependency versionFrom="0.5.1_20100222">ffmpeg</Dependency>
+                <Dependency>ffmpeg</Dependency>
                 <Dependency>fftw3</Dependency>
                 <Dependency versionFrom="1.6.3">mjpegtools</Dependency>
                 <Dependency>openexr</Dependency>
@@ -12668,8 +12668,8 @@
                 <Dependency>libiec61883</Dependency>
                 <Dependency>libraw1394</Dependency>
                 <Dependency>faac</Dependency>
-                <Dependency versionFrom="2.7">faad2</Dependency>
-                <Dependency versionFrom="0.0_20100211">x264</Dependency>
+                <Dependency>faad2</Dependency>
+                <Dependency>x264</Dependency>
                 <Dependency>libXxf86vm</Dependency>
                 <Dependency>libXv</Dependency>
                 <Dependency>libXext</Dependency>
@@ -12686,7 +12686,7 @@
         </Package>
         <History>
             <Update release="5">
-                <Date>2010-02-12</Date>
+                <Date>2010-03-21</Date>
                 <Version>2.1_20100212</Version>
                 <Comment>New snapshot.(Git Version). &quot;git://git.cinelerra.org/j6t/cinelerra.git&quot;
                      Compiled with the new version faac, faad2, x264, ffmpeg.
@@ -61266,7 +61266,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>GPLv2+</License>
             <IsA>app:gui</IsA>
             <PartOf>science.electronics</PartOf>
             <Summary xml:lang="en">Electronic schematic and PCB design tools</Summary>
@@ -61274,7 +61274,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Kicad is an open source (GPL) software for the creation of electronic schematic diagrams and printed circuit board artwork.</Description>
             <Description xml:lang="tr">Kicad, elektronik şema diagramları hazırlamak ve devrelerin çıktısını almak için kullanılan bir yazılımdır.</Description>
             <Icon>kicad</Icon>
-            <Archive type="tarbz2" sha1sum="281234006bd99c3f4748a1e008af19a3d36ea84d">ftp://ftp.sudrap.org/mnurolcay/source/kicad-20090714.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="57a773b27945a26a0bd855744a1c4ffe0985cca0">mirrors://sourceforge/kicad/kicad-20100314.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>wxGTK-devel</Dependency>
                 <Dependency>mesa</Dependency>
@@ -61283,6 +61283,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Patches>
                 <Patch level="1">desktop.patch</Patch>
                 <Patch level="1">pdf_reader.patch</Patch>
+                <Patch level="1">kicad-2010.03.14-link-fixes.patch</Patch>
+                <Patch>kicad-2010.03.14-rev2463.patch</Patch>
             </Patches>
             <SourceURI>science/electronics/kicad/pspec.xml</SourceURI>
         </Source>
@@ -61297,18 +61299,25 @@ processing unit (GPU) present in modern graphics cards</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/kicad</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/kicad</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/mime</Path>
                 <Path fileType="data">/usr/share/mimelnk</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2010-03-21</Date>
+                <Version>0.0_20100314</Version>
+                <Comment>Bump to new upstream release</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-06-23</Date>
                 <Version>0.0_20090714</Version>
@@ -62220,22 +62229,29 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Documents for Kicad, an open source (GPL) software for the creation of electronic schematic diagrams and printed circuit board artwork.</Description>
             <Description xml:lang="tr">Elektronik şema diagramları hazırlamak ve devrelerin çıktısını almak için kullanılan bir yazılım olan Kicad için belgeler.</Description>
             <Icon>kicad</Icon>
-            <Archive type="tarbz2" sha1sum="cf569726d0d39c0522c0aef3aa430a02fdec32ee">ftp://ftp.sudrap.org/mnurolcay/source/kicad-docs-20090623.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="537dadaac2f215af73f8dd0b7d4b746c0731c48f">ftp://ftp.sudrap.org/mnurolcay/source/kicad-docs-20100314.tar.bz2</Archive>
             <SourceURI>science/electronics/kicad-docs/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>kicad-docs</Name>
             <RuntimeDependencies>
-                <Dependency releaseFrom="5">kicad</Dependency>
+                <Dependency releaseFrom="7">kicad</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="data">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/doc/kicad</Path>
             </Files>
             <Conflicts>
                 <Package releaseTo="4">kicad</Package>
             </Conflicts>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-03-21</Date>
+                <Version>0.0_20100314</Version>
+                <Comment>New upstream release</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2009-06-23</Date>
                 <Version>0.0_20090623</Version>
