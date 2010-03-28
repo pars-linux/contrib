@@ -23,4 +23,4 @@ def install():
     #Remove files conflicts with kdesdk(cervisia)
     pisitools.remove("/usr/kde/4/share/kde4/services/svn*.protocol")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "GPL*", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "GPL*", "TODO")
