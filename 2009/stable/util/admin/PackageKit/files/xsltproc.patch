@@ -1,0 +1,40 @@
+diff -Nuar PackageKit-0.4.9-orig/man/Makefile.am PackageKit-0.4.9/man/Makefile.am
+--- PackageKit-0.4.9-orig/man/Makefile.am	2009-08-27 09:27:36.882468077 +0300
++++ PackageKit-0.4.9/man/Makefile.am	2009-08-28 15:23:33.198334244 +0300
+@@ -12,13 +12,13 @@
+ 
+ if HAVE_DOCBOOK2MAN
+ pkcon.1: pkcon.xml
+-	xsltproc http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $? &> /dev/null
++	xsltproc  /usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl $? &> /dev/null
+ 
+ pkmon.1: pkmon.xml
+-	xsltproc http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $? &> /dev/null
++	xsltproc /usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl $? &> /dev/null
+ 
+ pkgenpack.1: pkgenpack.xml
+-	xsltproc http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $? &> /dev/null
++	xsltproc /usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl $? &> /dev/null
+ 
+ endif
+ 
+diff -Nuar PackageKit-0.4.9-orig/man/Makefile.in PackageKit-0.4.9/man/Makefile.in
+--- PackageKit-0.4.9-orig/man/Makefile.in	2009-08-27 09:27:36.882468077 +0300
++++ PackageKit-0.4.9/man/Makefile.in	2009-08-28 15:24:16.680334231 +0300
+@@ -571,13 +571,13 @@
+ 
+ 
+ @HAVE_DOCBOOK2MAN_TRUE@pkcon.1: pkcon.xml
+-@HAVE_DOCBOOK2MAN_TRUE@	xsltproc http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $? &> /dev/null
++@HAVE_DOCBOOK2MAN_TRUE@	xsltproc /usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl $? &> /dev/null
+ 
+ @HAVE_DOCBOOK2MAN_TRUE@pkmon.1: pkmon.xml
+-@HAVE_DOCBOOK2MAN_TRUE@	xsltproc http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $? &> /dev/null
++@HAVE_DOCBOOK2MAN_TRUE@	xsltproc /usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl $? &> /dev/null
+ 
+ @HAVE_DOCBOOK2MAN_TRUE@pkgenpack.1: pkgenpack.xml
+-@HAVE_DOCBOOK2MAN_TRUE@	xsltproc http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $? &> /dev/null
++@HAVE_DOCBOOK2MAN_TRUE@	xsltproc /usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl $? &> /dev/null
+ 
+ clean-local :
+ 	rm -f *~
