@@ -6,13 +6,13 @@
         <Homepage>http://www.ginac.de</Homepage>
         <Packager>
             <Name>Serdar Dalgıç</Name>
-            <Email>dalgic.srdr@gmail.com</Email>
+            <Email>serdar@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>C++ library for symbolic mathematical calculations.</Summary>
         <Description>GiNaC (which stands for "GiNaC is Not a CAS" (computer algebra system)) is a C++ library for symbolic mathematical calculations.</Description>
-        <Archive sha1sum="cf3b18dc7f8a787821b80ab0411314c015bff84f" type="tarbz2">http://www.ginac.de/ginac-1.5.5.tar.bz2</Archive>
+        <Archive sha1sum="defc247327017d43dc457f2c4490551186cc8a9a" type="tarbz2">http://www.ginac.de/ginac-1.5.7.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>cln</Dependency>
             <Dependency>doxygen</Dependency>
@@ -48,6 +48,21 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2010-03-30</Date>
+            <Version>1.5.7</Version>
+            <Comment>Version bump:
+                1.5.7 (29 March 2010)
+                * Fixed a bug in the GCD code (infinite loop in pgcd()).
+                * Fixed a bug in atan2() (division by zero error for atan2(x,0) if x is a negative and composite term).
+                * Products now correctly set info_flags::negative and info_flags::negint.
+                1.5.6 (28 January 2010)
+                * Fixed compile problem with gcc 3.4.
+                * Improved excompiler: The ginac-excompiler script will only be installed if excompiler is supported and enabled.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="8">
             <Date>2009-11-18</Date>
             <Version>1.5.5</Version>
