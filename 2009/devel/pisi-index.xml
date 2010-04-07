@@ -50694,7 +50694,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>sdcc</Name>
-            <Homepage>http://sdcc.sourceforge.net/</Homepage>
+            <Homepage>http://sdcc.sourceforge.net</Homepage>
             <Packager>
                 <Name>Cihan Okyay</Name>
                 <Email>okyaycihan@gmail.com</Email>
@@ -50704,26 +50704,38 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.build</PartOf>
             <Summary xml:lang="en">ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs</Summary>
             <Summary xml:lang="tr">Bazı mikrodenetleyiciler için bir C derleyicisi</Summary>
-            <Description xml:lang="en">SDCC is a Freeware, retargettable, optimizing ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs. Work is in progress on supporting the Microchip PIC16 and PIC18 series.</Description>
+            <Description xml:lang="en">SDCC is an open source, retargettable, optimizing ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs. Work is in progress on supporting the Microchip PIC16 and PIC18 series.</Description>
             <Description xml:lang="tr">sdcc, Intel 8051, Maxim 80DS390, Zilog Z80, Motorola 68HC08 temelli mikro denetleyiciler ve Microchip PIC16 - PIC18 serisi için yeniden hedeflendirilebilir ve eniyleştirilmiş bir C derleyicisi.</Description>
-            <Archive type="tarbz2" sha1sum="487a9c576130bb1bfb225fe36984f485aac0f513">mirrors://sourceforge/sdcc/2.8.0/sdcc-src-2.8.0.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="03308a233a67e7fdce3f7e4972acb8731ae42666">mirrors://sourceforge/sdcc/sdcc/2.9.0/sdcc-src-2.9.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boehm-gc</Dependency>
-                <Dependency>lyx</Dependency>
+                <Dependency>gputils</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">sdcc-2.9.0-patch-out-getline.diff</Patch>
+                <Patch level="1">sdcc-2.9.0-configure.diff</Patch>
+                <Patch level="2">sdcc-2.9.0-r5476-fix-doublefree.diff</Patch>
+                <Patch level="1">sdcc-2.9.0-r5508-fix-bug2805333.diff</Patch>
+            </Patches>
             <SourceURI>programming/build/sdcc/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>sdcc</Name>
-            <RuntimeDependencies>
-                <Dependency>boehm-gc</Dependency>
-            </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="header">/usr/share/sdcc/include</Path>
+                <Path fileType="library">/usr/share/sdcc/lib</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-04-07</Date>
+                <Version>2.9.0</Version>
+                <Comment>Version bump, remove lyx dependency, extend fileTypes.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>h.ibrahim.gungor@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-08-28</Date>
                 <Version>2.8.0</Version>
@@ -61255,14 +61267,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Transmission is a free, lightweight Bittorrent client. It features a simple, intuitive interface on top of an efficient backend. This package provides only daemon, web interface and command line client. If you use Transmission with graphical interface, you should install transmission-gtk or transmission-qt.</Description>
             <Description xml:lang="tr">Transmission özgür ve hafif BitTorrent istemcisidir. İki değişik kitaplıkla yazılmış basit ve kullanışlı arayüz istemcisi vardır. Qt ile yazılmış arayüz paketinin adı transmission-qt, GTK+ ile yazılmış olanı ise transmission-gtk&apos;dir. Bu pakette sadece servis, komut satırı istemcisi ve Web arayüzü bulunmaktadır.</Description>
             <Icon>transmission</Icon>
-            <Archive type="tarbz2" sha1sum="16582bf2ee44182b6a5fb74f2391d92d6cb8db73">http://mirrors.m0k.org/transmission/files/transmission-1.77.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="129a3d67b4f7d22431df3c1aebdd8e4b76c64706">http://download.m0k.org/transmission/files/transmission-1.92.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>qt</Dependency>
                 <Dependency>libnotify</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>desktop.patch</Patch>
+                <Patch>dont-install-web.patch</Patch>
             </Patches>
             <SourceURI>network/p2p/transmission/pspec.xml</SourceURI>
         </Source>
@@ -61316,7 +61328,54 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <AdditionalFile target="/usr/share/applications/transmission-qt.desktop" permission="0644" owner="root">transmission-qt.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
+        <Package>
+            <Name>transmission-web</Name>
+            <Summary xml:lang="en">Transmission&apos;s web interface</Summary>
+            <Summary xml:lang="tr">Transmission&apos;un web arayüz istemcisi</Summary>
+            <IsA>app:gui</IsA>
+            <RuntimeDependencies>
+                <Dependency releaseFrom="18">transmission</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="data">/usr/share/transmission/web</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="18" type="security">
+                <Date>2010-04-06</Date>
+                <Version>1.92</Version>
+                <Comment>* Version bump:
+                  All Platforms:
+                    - Fix possible data corruption issue caused by data sent by bad peers during endgame
+                    - Fix potential buffer overflow when adding maliciously-crafted magnet links
+                    - Fix announces to IPv6 trackers
+                    - Fix DNS problems on some platforms, including Debian
+                    - Fix issues with the incomplete directory functionality
+                    - Fix port forwarding error on some routers by updating libnatpmp and miniupnp
+
+                  Mac:
+                    - Fix bug where setting low priority in the add window resulted in high priority
+
+                  GTK+:
+                    - Fix directory selection error in GTK+ 2.19
+                    - Small GUI improvements: HIG correctness, remove deprecated GTK+ calls, etc.
+
+                  Daemon:
+                    - Fix 1.91 build error on Mac and FreeBSD
+                    - Standardize the daemon&apos;s watchdir feature to behave like the other clients&apos;
+
+                  Web Client:
+                    - Statistics dialog
+                    - Fix error in &quot;trash data and remove from list&quot; that didn&apos;t trash all data
+                    - Fix display of ratios and time
+                    - Update to jQuery 1.4.2
+                * Remove desktop.patch. Not required. It fixed on this version.
+                * Fix actions.py for pep8.
+                * Split transmission-web.
+                * Update translations.xml.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="17" type="security">
                 <Date>2010-01-07</Date>
                 <Version>1.77</Version>
