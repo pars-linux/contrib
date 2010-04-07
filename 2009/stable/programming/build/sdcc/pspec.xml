@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>sdcc</Name>
-        <Homepage>http://sdcc.sourceforge.net/</Homepage>
+        <Homepage>http://sdcc.sourceforge.net</Homepage>
         <Packager>
             <Name>Cihan Okyay</Name>
             <Email>okyaycihan@gmail.com</Email>
@@ -11,26 +11,38 @@
         <License>GPLv2</License>
         <IsA>app:console</IsA>
         <Summary>ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs</Summary>
-        <Description>SDCC is a Freeware, retargettable, optimizing ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs. Work is in progress on supporting the Microchip PIC16 and PIC18 series.</Description>
-        <Archive sha1sum="487a9c576130bb1bfb225fe36984f485aac0f513" type="tarbz2">mirrors://sourceforge/sdcc/2.8.0/sdcc-src-2.8.0.tar.bz2</Archive>
+        <Description>SDCC is an open source, retargettable, optimizing ANSI - C compiler that targets the Intel 8051, Maxim 80DS390, Zilog Z80 and the Motorola 68HC08 based MCUs. Work is in progress on supporting the Microchip PIC16 and PIC18 series.</Description>
+        <Archive sha1sum="03308a233a67e7fdce3f7e4972acb8731ae42666" type="tarbz2">mirrors://sourceforge/sdcc/2.9.0/sdcc-src-2.9.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>boehm-gc</Dependency>
-            <Dependency>lyx</Dependency>
+            <Dependency>gputils</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">sdcc-2.9.0-patch-out-getline.diff</Patch>
+            <Patch level="1">sdcc-2.9.0-configure.diff</Patch>
+            <Patch level="2">sdcc-2.9.0-r5476-fix-doublefree.diff</Patch>
+            <Patch level="1">sdcc-2.9.0-r5508-fix-bug2805333.diff</Patch>
+        </Patches>
     </Source>
 
     <Package>
         <Name>sdcc</Name>
-        <RuntimeDependencies>
-            <Dependency>boehm-gc</Dependency>
-        </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="header">/usr/share/sdcc/include</Path>
+            <Path fileType="library">/usr/share/sdcc/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2010-04-07</Date>
+            <Version>2.9.0</Version>
+            <Comment>Version bump, remove lyx dependency, extend fileTypes.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>h.ibrahim.gungor@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2009-08-28</Date>
             <Version>2.8.0</Version>
