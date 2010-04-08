@@ -7,15 +7,20 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 WorkDir = "sdcc"
 NoStrip = ["/"]
 
+shelltools.export("HOME", get.workDIR())
+
 def setup():
-    autotools.configure("--enable-libgc")
+    autotools.configure("--enable-libgc \
+                         --disable-doc")
 
 def build():
-    autotools.make("-j1")
+    autotools.make()
 
 def install():
     autotools.install()
