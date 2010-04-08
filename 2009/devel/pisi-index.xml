@@ -25157,6 +25157,7 @@
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>numpy</Dependency>
+                <Dependency>protobuf</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
@@ -25168,6 +25169,7 @@
             <RuntimeDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>numpy</Dependency>
+                <Dependency>protobuf</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -25184,9 +25186,10 @@
             <Update release="6">
                 <Date>2010-03-01</Date>
                 <Version>0.8.2</Version>
-                <Comment>Version bump to latest version:
+                <Comment>* Version bump to latest version:
                 - fix regression in 0.8.1 causing temporary layers to stick
-                - complain about unsupported pygtk version</Comment>
+                - complain about unsupported pygtk version
+                * Add protobuf dependency.</Comment>
                 <Name>Serdar Dalgıç</Name>
                 <Email>serdar@pardus.org.tr</Email>
             </Update>
@@ -55972,7 +55975,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Hızlı ve her sistemde çalışabilen bir kelime işlemci</Summary>
             <Description xml:lang="en">AbiWord is a free word processing program similar to Microsoft Word. It is suitable for a wide variety of word processing tasks.</Description>
             <Description xml:lang="tr">AbiWord, Microsoft Word&apos;e benzeyen özgür bir kelime işleme programıdır. Geniş bir çeşitlilikte kelime işleme görevlerini yerine getirmek için uygun bir programdır.</Description>
-            <Archive type="targz" sha1sum="fac4bb888a6426fc3fa3784c4ca500f417d9b7b5">http://www.abisource.com/downloads/abiword/2.8.1/source/abiword-2.8.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="71dbb1f728277a85067e71d3af55697c136a35c9">http://www.abisource.com/downloads/abiword/2.8.3/source/abiword-2.8.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>aspell</Dependency>
                 <Dependency>enchant</Dependency>
@@ -55984,6 +55987,14 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libgnomeui</Dependency>
                 <Dependency>goffice</Dependency>
                 <Dependency>libgsf-gnome</Dependency>
+                <Dependency>libgsf</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>gnome-vfs</Dependency>
             </BuildDependencies>
             <SourceURI>office/misc/abiword/pspec.xml</SourceURI>
         </Source>
@@ -56000,12 +56011,21 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>libgnomeui</Dependency>
                 <Dependency>goffice</Dependency>
                 <Dependency>libgsf-gnome</Dependency>
+                <Dependency>libgsf</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>pango</Dependency>
+                <Dependency>fontconfig</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>atk</Dependency>
+                <Dependency>cairo</Dependency>
+                <Dependency>gnome-vfs</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="header">/usr/include</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="data">/usr/share/abiword-2.8</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/icons</Path>
@@ -56013,6 +56033,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-04-08</Date>
+                <Version>2.8.3</Version>
+                <Comment>Version bump and add a bunch of missing gtk2+ stuff dependencies.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-12-18</Date>
                 <Version>2.8.1</Version>
@@ -63322,9 +63349,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>network.connection</PartOf>
             <Summary xml:lang="en">OpenDNS update client</Summary>
             <Summary xml:lang="tr">Pardus için OpenDNS istemcisi</Summary>
-            <Description xml:lang="en">OpenDNS update client</Description>
+            <Description xml:lang="en">Pog is an OpenDNS update client.</Description>
             <Description xml:lang="tr">Pardus için OpenDNS istemcisi</Description>
-            <Archive type="targz" sha1sum="cfabc12a5bb67ff03643c6c6ea6b15387b92310e">http://cloud.github.com/downloads/alierkanimrek/pog/pog-0.2.4.tar.gz</Archive>
+            <Archive type="targz" sha1sum="b08bd979f758121630134f2c4887b4fa2a4c1d7f">http://cloud.github.com/downloads/alierkanimrek/pog/pog-0.3.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>PyQt</Dependency>
@@ -63347,6 +63374,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-04-08</Date>
+                <Version>0.3.0</Version>
+                <Comment>Version bump: Updated ip address control added.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="1">
                 <Date>2010-01-12</Date>
                 <Version>0.2.4</Version>
