@@ -13,13 +13,14 @@
         <IsA>app:gui</IsA>
         <Summary>Painting application</Summary>
         <Description>MyPaint is a fast and easy painting application. It lets you focus on the art instead of the program</Description>
-        <Archive sha1sum="3cba8cf280e95ebbccbbfb3a8ad02c662a7dd1ba" type="tarbz2">http://download.gna.org/mypaint/mypaint-0.7.1.tar.bz2</Archive>
+        <Archive sha1sum="f82ca2e25a1a1db291877a0fd0e170b2b7ce8da4" type="tarbz2">http://download.gna.org/mypaint/mypaint-0.8.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>pygtk</Dependency>
             <Dependency>numpy</Dependency>
+            <Dependency>protobuf</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">desktop.patch</Patch>
+            <Patch>desktop.patch</Patch>
         </Patches>
     </Source>
 
@@ -28,11 +29,14 @@
         <RuntimeDependencies>
             <Dependency>pygtk</Dependency>
             <Dependency>numpy</Dependency>
+            <Dependency>protobuf</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/share/mypaint</Path>
+            <Path fileType="data">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
@@ -40,6 +44,24 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-03-01</Date>
+            <Version>0.8.2</Version>
+            <Comment>* Version bump to latest version:
+                - fix regression in 0.8.1 causing temporary layers to stick
+                - complain about unsupported pygtk version
+                * Add protobuff dependency.
+            </Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
+        <Update release="5">
+            <Date>2010-02-22</Date>
+            <Version>0.8.1</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="4">
             <Date>2010-01-18</Date>
             <Version>0.7.1</Version>
