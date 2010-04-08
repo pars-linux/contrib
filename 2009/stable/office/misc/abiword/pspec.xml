@@ -12,7 +12,7 @@
         <IsA>app:gui</IsA>
         <Summary>Fully featured yet light and fast cross platform word processor</Summary>
         <Description>AbiWord is a free word processing program similar to Microsoft Word. It is suitable for a wide variety of word processing tasks.</Description>
-        <Archive sha1sum="fac4bb888a6426fc3fa3784c4ca500f417d9b7b5" type="targz">http://www.abisource.com/downloads/abiword/2.8.1/source/abiword-2.8.1.tar.gz</Archive>
+        <Archive sha1sum="71dbb1f728277a85067e71d3af55697c136a35c9" type="targz">http://www.abisource.com/downloads/abiword/2.8.3/source/abiword-2.8.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>aspell</Dependency>
             <Dependency>enchant</Dependency>
@@ -24,6 +24,14 @@
             <Dependency>libgnomeui</Dependency>
             <Dependency>goffice</Dependency>
             <Dependency>libgsf-gnome</Dependency>
+            <Dependency>libgsf</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>gnome-vfs</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -40,12 +48,21 @@
             <Dependency>libgnomeui</Dependency>
             <Dependency>goffice</Dependency>
             <Dependency>libgsf-gnome</Dependency>
+            <Dependency>libgsf</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>fontconfig</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>gnome-vfs</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="man">/usr/share/man</Path>
             <Path fileType="data">/usr/share/abiword-2.8</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/icons</Path>
@@ -54,12 +71,19 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2010-04-08</Date>
+            <Version>2.8.3</Version>
+            <Comment>Version bump and add a bunch of missing gtk2+ stuff dependencies.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="8">
             <Date>2009-12-18</Date>
             <Version>2.8.1</Version>
             <Comment>Thanks to Anil Ozbek, add missing dependencies goffice and libgsf-gnome.</Comment>
             <Name>Serdar Dalgıç</Name>
-            <Email>dalgic.srdr@gmail.com</Email>
+            <Email>serdar@pardus.org.tr</Email>
         </Update>
         <Update release="7">
             <Date>2009-11-18</Date>

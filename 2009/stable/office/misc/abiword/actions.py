@@ -9,16 +9,12 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.autoreconf()
+    autotools.autoreconf("-vif")
     autotools.configure("--disable-static \
-                                  --with-x \
-                                  --with-ImageMagick \
-                                  --with-libxml2 \
-                                  --with-zlib \
-                                  --with-libpng \
-                                  --with-popt \
-                                  --enable-printing \
-                                  --enable-gnomeui")
+                                  --enable-clipart \
+                                  --enable-templates \
+                                  --with-pic \
+                                  --with-gnomevfs")
 
 def build():
     autotools.make()
