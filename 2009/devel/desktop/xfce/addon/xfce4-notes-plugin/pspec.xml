@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Xfce notes plugin</Summary>
         <Description>xfce4-notes-plugin is a notes panel plugin for the Xfce Desktop Environment. It provides a simple system for managing sticky notes on your desktop.</Description>
-        <Archive sha1sum="ac8703b9c63ba38158eb298d77e7d7a1c99c6a80" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/xfce4-notes-plugin-1.7.2.tar.bz2</Archive>
+        <Archive sha1sum="753b138a2a3b20e353620a9750d3de22b6cdd57b" type="tarbz2">http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/xfce4-notes-plugin-1.7.6.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xfce4-panel-devel</Dependency>
             <Dependency>libunique</Dependency>
@@ -34,11 +34,37 @@
             <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/xfce4</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/xfce4-notes-plugin</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-04-13</Date>
+            <Version>1.7.6</Version>
+            <Comment>
+              - Set Notebook tab reorderable via drag and drop
+              - Link to Math lib (-lm) useful for lib/color.c
+              - Try to open a link with exo-open first
+              - Bump GTK+ version to 2.14
+              - Properly save notes when leaving (handle UNIX TERM and INT signals)
+              - Rework the GTK+ RC theme with custom scrollbars, a shaded title bar and
+                replaced the close button against a self painted widget with Cairo
+              - Align the note name in the title bar on the left near the menu icon
+              - Restore tab orientation when the tab label changes (bug #6246)
+              - Reorganize right click title bar menu and add new item "About"
+              - Renamed sub-menu "Go" into "Groups" (bug #6249)
+              - New right click menu option in panel "Add new group"
+              - Fix undo feature not working after a small delay
+              - Fix sticky window not being restored and reset "keep-above" after hidding
+              - Updated translations: Kazakh, Catalan, Russian, Ukrainian, Hungarian,
+                Galician, Japanese, Czech, French, German, Danish, Basque, Latvian, Slovak,
+                Portuguese
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="7">
             <Date>2010-01-10</Date>
             <Version>1.7.2</Version>
