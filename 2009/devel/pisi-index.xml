@@ -7599,7 +7599,7 @@
             <Description xml:lang="en">xfce4-notes-plugin is a notes panel plugin for the Xfce Desktop Environment. It provides a simple system for managing sticky notes on your desktop.</Description>
             <Description xml:lang="tr">Xfce4-notes-plugin, Xfce masaüstü ortamı için bir panel eklentisidir. Masaüstünüzdeki yapışkan notları yönetmek için basit bir sistem içerir.</Description>
             <Icon>xfce4-panel</Icon>
-            <Archive type="tarbz2" sha1sum="ac8703b9c63ba38158eb298d77e7d7a1c99c6a80">http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/xfce4-notes-plugin-1.7.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="753b138a2a3b20e353620a9750d3de22b6cdd57b">http://archive.xfce.org/src/panel-plugins/xfce4-notes-plugin/1.7/xfce4-notes-plugin-1.7.6.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfce4-panel-devel</Dependency>
                 <Dependency>libunique</Dependency>
@@ -7620,10 +7620,34 @@
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/xfce4</Path>
                 <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/xfce4-notes-plugin</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2010-04-13</Date>
+                <Version>1.7.6</Version>
+                <Comment>- Set Notebook tab reorderable via drag and drop
+              - Link to Math lib (-lm) useful for lib/color.c
+              - Try to open a link with exo-open first
+              - Bump GTK+ version to 2.14
+              - Properly save notes when leaving (handle UNIX TERM and INT signals)
+              - Rework the GTK+ RC theme with custom scrollbars, a shaded title bar and
+                replaced the close button against a self painted widget with Cairo
+              - Align the note name in the title bar on the left near the menu icon
+              - Restore tab orientation when the tab label changes (bug #6246)
+              - Reorganize right click title bar menu and add new item &quot;About&quot;
+              - Renamed sub-menu &quot;Go&quot; into &quot;Groups&quot; (bug #6249)
+              - New right click menu option in panel &quot;Add new group&quot;
+              - Fix undo feature not working after a small delay
+              - Fix sticky window not being restored and reset &quot;keep-above&quot; after hidding
+              - Updated translations: Kazakh, Catalan, Russian, Ukrainian, Hungarian,
+                Galician, Japanese, Czech, French, German, Danish, Basque, Latvian, Slovak,
+                Portuguese</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2010-01-10</Date>
                 <Version>1.7.2</Version>
@@ -23183,148 +23207,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>hugin</Name>
-            <Homepage>http://hugin.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.graphics</PartOf>
-            <Summary xml:lang="en">an easy to use cross-platform GUI for Panorama Tools.</Summary>
-            <Summary xml:lang="tr">Panorama Tools arayüzü</Summary>
-            <Icon>hugin</Icon>
-            <Archive type="targz" sha1sum="698f0a7c4bb25efdf06313d05e3980f20d088ce5">mirrors://sourceforge/hugin/hugin-0.8.0.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>libpano13</Dependency>
-                <Dependency>boost</Dependency>
-                <Dependency>tiff</Dependency>
-                <Dependency releaseFrom="14">wxGTK-devel</Dependency>
-                <Dependency>openexr</Dependency>
-                <Dependency>exiv2</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">pthread.patch</Patch>
-            </Patches>
-            <SourceURI>multimedia/graphics/hugin/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>hugin</Name>
-            <RuntimeDependencies>
-                <Dependency>libpano13</Dependency>
-                <Dependency>boost</Dependency>
-                <Dependency>tiff</Dependency>
-                <Dependency releaseFrom="14">wxGTK</Dependency>
-                <Dependency>openexr</Dependency>
-                <Dependency>exiv2</Dependency>
-                <Dependency>enblend</Dependency>
-                <Dependency>autopano-sift-C</Dependency>
-                <Dependency>perl-Image-ExifTool</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-                <Path fileType="data">/usr/share/icons</Path>
-                <Path fileType="data">/usr/share/mime</Path>
-                <Path fileType="data">/usr/share/hugin</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="12">
-                <Date>2009-09-03</Date>
-                <Version>0.8.0</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="11">
-                <Date>2009-06-26</Date>
-                <Version>0.7.0</Version>
-                <Comment>fix build dep.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="10">
-                <Date>2009-01-25</Date>
-                <Version>0.7.0</Version>
-                <Comment>upstream release tarball</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="9">
-                <Date>2008-07-17</Date>
-                <Version>0.7.0</Version>
-                <Comment>Version bump to rev 3197, tidy up, fix compiling with new libraries</Comment>
-                <Name>Onur Küçük</Name>
-                <Email>onur@pardus.org.tr</Email>
-            </Update>
-            <Update release="8">
-                <Date>2008-07-04</Date>
-                <Version>0.7_beta4</Version>
-                <Comment>compile with new toolchain</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="7" type="security">
-                <Date>2007-11-18</Date>
-                <Version>0.7_beta4</Version>
-                <Comment>Also fix insecure temporary file usage in src/hugin/AutoCtrlPointCreator.cpp</Comment>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-11-13</Date>
-                <Version>0.7_beta4</Version>
-                <Comment>Use libpano13 deps.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="5" type="security">
-                <Date>2007-10-13</Date>
-                <Version>0.7_beta4</Version>
-                <Comment>Fix CVE-2007-5200</Comment>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-03-07</Date>
-                <Version>0.7_beta4</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-01-27</Date>
-                <Version>0.7_beta3</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-12-31</Date>
-                <Version>0.7_beta1</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-12-04</Date>
-                <Version>0.6.1</Version>
-                <Comment>First release</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>gthumb</Name>
             <Homepage>http://gthumb.sourceforge.net/</Homepage>
             <Packager>
@@ -24476,102 +24358,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>enblend</Name>
-            <Homepage>http://enblend.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>multimedia.graphics</PartOf>
-            <Summary xml:lang="en">Enblend is a tool for compositing images</Summary>
-            <Summary xml:lang="tr">Enblend is a tool for compositing images</Summary>
-            <Description xml:lang="en">Enblend is a tool for compositing images</Description>
-            <Description xml:lang="tr">Enblend is a tool for compositing images</Description>
-            <Archive type="targz" sha1sum="e44226ec6759dd3e6dcf46bb34848b64536ad495">http://downloads.sourceforge.net/enblend/enblend-enfuse-3.2.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>boost</Dependency>
-                <Dependency>boost-devel</Dependency>
-                <Dependency>tiff</Dependency>
-                <Dependency>glew</Dependency>
-                <Dependency>plotutils</Dependency>
-                <Dependency>lcms</Dependency>
-                <Dependency>openexr</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/graphics/enblend/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>enblend</Name>
-            <RuntimeDependencies>
-                <Dependency>boost</Dependency>
-                <Dependency>tiff</Dependency>
-                <Dependency>glew</Dependency>
-                <Dependency>plotutils</Dependency>
-                <Dependency>lcms</Dependency>
-                <Dependency>openexr</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/info</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="7">
-                <Date>2008-11-24</Date>
-                <Version>3.2</Version>
-                <Comment>stable version.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2008-10-19</Date>
-                <Version>3.1_20080723</Version>
-                <Comment>Cvs version, change deps.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2008-07-23</Date>
-                <Version>3.1_20080723</Version>
-                <Comment>Cvs version, add deps.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2008-07-03</Date>
-                <Version>3.0</Version>
-                <Comment>gcc43 patch added, unneeded lcms patch removed.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-07-05</Date>
-                <Version>3.0</Version>
-                <Comment>360 degree patch, Fix compile with AMD patch added.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-02-16</Date>
-                <Version>3.0</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-12-04</Date>
-                <Version>2.5</Version>
-                <Comment>First release</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>autopano-sift</Name>
             <Homepage>http://user.cs.tu-berlin.de/~nowozin/autopano-sift/</Homepage>
             <Packager>
@@ -24965,52 +24751,6 @@
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>autopano-sift-C</Name>
-            <Homepage>http://hugin.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>multimedia.graphics</PartOf>
-            <Summary xml:lang="en">is a helper program for panorama image generation.</Summary>
-            <Description xml:lang="en">autopano-sift-C is a helper program for panorama image generation, ported to plain &quot;C&quot;.</Description>
-            <Archive type="targz" sha1sum="f774e8619d72957860dd0e2fe5449b228f1feb72">http://ertugrulerata.googlepages.com/autopano-sift-C-2.5_20080722.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>libpano13</Dependency>
-                <Dependency>tiff</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/graphics/autopano-sift-C/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>autopano-sift-C</Name>
-            <RuntimeDependencies>
-                <Dependency>libpano13</Dependency>
-                <Dependency>tiff</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share/doc</Path>
-            </Files>
-            <Conflicts>
-                <Package>autopano-sift</Package>
-                <Package>libsift</Package>
-            </Conflicts>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-07-22</Date>
-                <Version>2.5_20080722</Version>
-                <Comment>First release</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -39891,53 +39631,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libpano13</Name>
-            <Homepage>http://sourceforge.net/projects/panotools</Homepage>
-            <Packager>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <IsA>app:console</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">The cross-platform library behind Panorama Tools and many other GUI photo stitchers</Summary>
-            <Summary xml:lang="tr">The cross-platform library behind Panorama Tools and many other GUI photo stitchers</Summary>
-            <Archive type="targz" sha1sum="6848d4c127b77fd59a1787806e36d24a9403fc59">mirrors://sourceforge/panotools/libpano13-2.9.12.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>tiff</Dependency>
-                <Dependency>sun-jdk</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/library/libpano13/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libpano13</Name>
-            <RuntimeDependencies>
-                <Dependency>tiff</Dependency>
-                <Dependency>sun-jre</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <Conflicts>
-                <Package>libpano12</Package>
-            </Conflicts>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-11-13</Date>
-                <Version>2.9.12</Version>
-                <Comment>First release</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
