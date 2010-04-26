@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PEAR-File_SMBPasswd</Name>
+        <Homepage>http://pear.php.net/package/File_SMBPasswd/</Homepage>
+        <Packager>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Class for managing SAMBA style password files</Summary>
+        <Archive sha1sum="29089b9220be623af5436d29cf419577a1e7d414" type="targz" >http://download.pear.php.net/package/File_SMBPasswd-1.0.3.tgz</Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-File_SMBPasswd</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR</Dependency>
+            <Dependency versionFrom="1.0.0">PEAR-Crypt_CHAP</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="2">
+            <Date>2010-02-01</Date>
+            <Version>1.0.3</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-07</Date>
+            <Version>1.0.2</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
