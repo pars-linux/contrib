@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PEAR-Net_Sieve</Name>
+        <Homepage>http://pear.php.net/package/Net_Sieve/</Homepage>
+        <Packager>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>Handles talking to timsieved</Summary>
+        <Archive sha1sum="0cba46d78853899241b04d640c484426d4e9941b" type="targz">http://download.pear.php.net/package/Net_Sieve-1.2.1.tgz</Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-Net_Sieve</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR</Dependency>
+            <Dependency versionFrom="1.0">PEAR-Net_Socket</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+        </Files>
+    </Package>
+
+    <History>
+
+        <Update release="5">
+            <Date>2010-04-23</Date>
+            <Version>1.2.1</Version>
+            <Comment>Fix DIGEST-MD5 authentication with Dovecot</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+        <Update release="4">
+            <Date>2010-04-06</Date>
+            <Version>1.2.0</Version>
+            <Comment>
+                * Fix DIGEST-MD5 authentication (Aleksander Machniak, Bug #17285).
+                * Don't try to call dl() if mbstring extension isn't loaded (Bug #17038).
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+        <Update release="3">
+            <Date>2010-03-11</Date>
+            <Version>1.2.0_beta1</Version>
+            <Comment>
+                * Added support for adding a custom debug handler
+                * Fix breakage with certain locales, especially Turkish.
+                * Fix reading authentication responses without literals
+                * Code cleanup.
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+        <Update release="2">
+            <Date>2010-02-01</Date>
+            <Version>1.1.7</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+        <Update release="1">
+            <Date>2006-12-13</Date>
+            <Version>1.1.5</Version>
+            <Comment>First release.</Comment>
+            <Name>Eren Türkay</Name>
+            <Email>turkay.eren@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
