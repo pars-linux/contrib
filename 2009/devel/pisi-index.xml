@@ -28652,10 +28652,9 @@
             <Description xml:lang="en">This is a Qt4-based editor for the OpenStreetMap with features such as map view near-WYSIWYG, style editor, transparent display of map features, support for handling seperate highways, import NMEA-files, etc.</Description>
             <Description xml:lang="tr">Açık Sokak Haritası (OpenStreetMap) için bir Qt4 tabanlı harita düzenleyicisi olan Merkaartor&apos;un stil düzenleyici, harita özelliklerinin saydam gösterilmesi, bağımsız otoyol desteği, NMEA dosyalarının içe aktarılmabilesi, WYSIWYG tarzı düzenleme gibi birçok özelliği bulunuyor.</Description>
             <Icon>merkaartor</Icon>
-            <Archive type="tarbz2" sha1sum="122cf565785274dacabdae9abd9d24ac37af003c">http://www.merkaartor.org/downloads/source/merkaartor-0.14.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="115583b2065c1eb87dfc9da431b47a1430a144d1">http://www.merkaartor.org/downloads/source/merkaartor-0.15.3.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency>qt-webkit</Dependency>
                 <Dependency>exiv2</Dependency>
             </BuildDependencies>
             <SourceURI>science/gis/merkaartor/pspec.xml</SourceURI>
@@ -28664,7 +28663,6 @@
             <Name>merkaartor</Name>
             <RuntimeDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency>qt-webkit</Dependency>
                 <Dependency>exiv2</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -28678,6 +28676,31 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2010-04-28</Date>
+                <Version>0.15.3</Version>
+                <Comment>Version bump:
+             * Virtual nodes allow fast creation of intermediary nodes
+             * Allow to move node in Node creation mode
+             * Only generate log files on request (--log) on release builds
+             * Re-added tiled Yahoo! imagery as a plugin
+             * NearMap Austalian TMS to the default list
+             * Allow all platforms to connect to a gpsd backend
+             * Support for OSM short link as input
+             * Show distance measurement during area creation
+             * Add language to changeset created_by
+             * Add GlobeXplorer (DigitalGlobe) to default WMS list
+             * Make the point where nodes are not displayed configurable
+             * Keep directional arrows blue for oneway roads in &quot;Show directional arrows - Always&quot; mode.
+             * GeoTIFF background plugin
+             * Grabbing hand icon in single mouse mode
+             * When in &quot;single mouse button&quot; mode, allow to cancel most operation with a right-click
+             * &quot;Zoom lock&quot; mode. Zoom steps are locked to TMS ones and projection is locked to Mercator
+             * Add a preference disallowing selection of relations when hidden
+             * Various bugfixes</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="7">
                 <Date>2010-01-17</Date>
                 <Version>0.14</Version>
@@ -28778,7 +28801,7 @@
             <Description xml:lang="en">JOSM is a feature-rich offline editor for the experienced OSM mapper. It supports stand alone GPX tracks, GPX track data from the OSM database and existing nodes, line segments and metadata tags from the OSM database.</Description>
             <Description xml:lang="tr">JOSM, deneyimli OSM haritacılarına yönelik zengin özelliklere sahip bir çevirim-dışı düzenleyicisidir. Bağımsız GPX izlerinin yanı sıra; OSM veritabanından GPX izlerini, mevcut düğümlerini, hat parçalarını ve etiketlerini kullanabilir.</Description>
             <Icon>josm</Icon>
-            <Archive type="tarlzma" sha1sum="315039987319d1c6e04cef3e34ee3a75cbfba221">http://josm.fabian-fingerle.de/josm-2561.tar.lzma</Archive>
+            <Archive type="tarlzma" sha1sum="1f572462eb65eca61dfb44cf51a34d511b211ef7">http://zzz.fisek.com.tr/files/sources/josm-3208.tar.lzma</Archive>
             <BuildDependencies>
                 <Dependency>sun-jdk</Dependency>
                 <Dependency>ant</Dependency>
@@ -28803,6 +28826,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2010-04-28</Date>
+                <Version>1.5_p3208</Version>
+                <Comment>Version bump to latest stable.</Comment>
+                <Name>Doruk Fişek</Name>
+                <Email>dfisek@fisek.com.tr</Email>
+            </Update>
             <Update release="6">
                 <Date>2010-01-17</Date>
                 <Version>1.5_p2561</Version>
@@ -44273,8 +44303,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>xdebug</Name>
             <Homepage>http://www.xdebug.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
             </Packager>
             <License>Xdebug</License>
             <IsA>library</IsA>
@@ -44283,10 +44313,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">PHP hata ayıklama ve profilleme eklentisi</Summary>
             <Description xml:lang="en">The Xdebug extension helps you debugging your script by providing a lot of valuable debug information.</Description>
             <Description xml:lang="tr">Xdebug eklentisi birçok değerli hata ayıklama bilgisi sunarak betiklerinizin hatalarını ayıklamada size yardımcı olur.</Description>
-            <Archive type="targz" sha1sum="a9b77edc8deb959dbb6a691b7659302b1b4f8677">http://pecl.php.net/get/xdebug-2.0.0RC3.tgz</Archive>
+            <Archive type="targz" sha1sum="18cbe782df04bb2ae67b70ea1d1be64b42d54628">http://www.xdebug.org/files/xdebug-2.1.0RC1.tgz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="5.2.0">mod_php</Dependency>
-                <Dependency versionFrom="5.2.0">php-cli</Dependency>
+                <Dependency versionFrom="5.2.12">mod_php</Dependency>
+                <Dependency versionFrom="5.2.12">php-cli</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>xdebug-default-config.patch</Patch>
@@ -44296,7 +44326,7 @@ processing unit (GPU) present in modern graphics cards</Description>
         <Package>
             <Name>xdebug</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="5.2.0">mod_php</Dependency>
+                <Dependency versionFrom="5.2.12">mod_php</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc/php</Path>
@@ -44305,6 +44335,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-04-28</Date>
+                <Version>2.1.0_rc1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>nyucel@comu.edu.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-04-16</Date>
                 <Version>2.0.0_rc3</Version>
