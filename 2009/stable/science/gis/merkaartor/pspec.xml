@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Qt4 map editor for OpenStreetMap</Summary>
         <Description>This is a Qt4-based editor for the OpenStreetMap with features such as map view near-WYSIWYG, style editor, transparent display of map features, support for handling seperate highways, import NMEA-files, etc.</Description>
-        <Archive sha1sum="74b5a955f4bd514a8b13ac6a8a10c5239d567871" type="tarbz2">http://www.merkaartor.org/downloads/source/merkaartor-0.14.tar.bz2</Archive>
+        <Archive sha1sum="115583b2065c1eb87dfc9da431b47a1430a144d1" type="tarbz2">http://www.merkaartor.org/downloads/source/merkaartor-0.15.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>qt</Dependency>
             <Dependency>exiv2</Dependency>
@@ -25,7 +25,6 @@
         <RuntimeDependencies>
             <Dependency>qt</Dependency>
             <Dependency>exiv2</Dependency>
-            <Dependency>inkscape</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -39,6 +38,39 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-04-28</Date>
+            <Version>0.15.3</Version>
+            <Comment>Version bump:
+             * Virtual nodes allow fast creation of intermediary nodes
+             * Allow to move node in Node creation mode
+             * Only generate log files on request (--log) on release builds
+             * Re-added tiled Yahoo! imagery as a plugin
+             * NearMap Austalian TMS to the default list
+             * Allow all platforms to connect to a gpsd backend
+             * Support for OSM short link as input
+             * Show distance measurement during area creation
+             * Add language to changeset created_by
+             * Add GlobeXplorer (DigitalGlobe) to default WMS list
+             * Make the point where nodes are not displayed configurable
+             * Keep directional arrows blue for oneway roads in "Show directional arrows - Always" mode.
+             * GeoTIFF background plugin
+             * Grabbing hand icon in single mouse mode
+             * When in "single mouse button" mode, allow to cancel most operation with a right-click
+             * "Zoom lock" mode. Zoom steps are locked to TMS ones and projection is locked to Mercator
+             * Add a preference disallowing selection of relations when hidden
+             * Various bugfixes
+            </Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
+        <Update release="7">
+            <Date>2010-01-17</Date>
+            <Version>0.14</Version>
+            <Comment>Update tarball sha1sum (includes non-trivial fix), add translations.xml, remove optional dependency, add qt-webkit dependency since it's a seperate package now.</Comment>
+            <Name>Doruk Fişek</Name>
+            <Email>dfisek@fisek.com.tr</Email>
+        </Update>
         <Update release="6">
             <Date>2009-08-12</Date>
             <Version>0.14</Version>
