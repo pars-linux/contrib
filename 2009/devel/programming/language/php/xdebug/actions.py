@@ -10,7 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "xdebug-2.0.0RC3"
+WorkDir = "xdebug-2.1.0RC1"
 
 def setup():
     shelltools.system("phpize")
