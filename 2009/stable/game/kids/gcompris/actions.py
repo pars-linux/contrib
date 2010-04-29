@@ -10,13 +10,12 @@ from pisi.actionsapi import get
 
 def setup():
     autotools.autoreconf("-vfi")
-    autotools.configure("--disable-sdltest \
-                         --disable-glibtest \
-                         --enable-xf86vidmode \
+    autotools.configure("--disable-static \
+                         --disable-silent-rules \
+                         --enable-py-build-only \
+                         --enable-gnet \
                          --enable-sqlite \
-                         --disable-cairo \
-                         --with-python=/usr/bin/python \
-                         --with-x")
+                         --with-python=/usr/bin/python")
 
 def build():
     autotools.make()
