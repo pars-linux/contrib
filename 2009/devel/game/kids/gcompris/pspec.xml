@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Full featured educational application for children from 2 to 10</Summary>
         <Description>GCompris is an educational software suite comprising of numerous activities for children aged 2 to 10. Some of the activities are game orientated, but nonetheless still educational.</Description>
-        <Archive sha1sum="55b6619d7e05fcfa0934c8564d8085d5aa880bbe" type="targz">mirrors://sourceforge/gcompris/gcompris-8.4.12.tar.gz</Archive>
+        <Archive sha1sum="a7bbd6a8a8f111e41012709f29a07fb7b0f1079a" type="targz">mirrors://sourceforge/gcompris/gcompris-9.3.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libXxf86vm</Dependency>
             <Dependency>gstreamer</Dependency>
@@ -37,9 +37,10 @@
             <Dependency>gnuchess</Dependency>
             <Dependency>numeric</Dependency>
             <Dependency>libogg</Dependency>
+            <Dependency>librsvg</Dependency>
         </BuildDependencies>
         <Patches>
-            <Patch level="1">tuxpaint-fullscreen.patch</Patch>
+            <Patch level="1">fix-linkage.patch</Patch>
             <Patch level="1">icon.patch</Patch>
             <Patch>lang-tr.patch</Patch>
             <Patch>desktop.patch</Patch>
@@ -74,22 +75,35 @@
             <Dependency>pango</Dependency>
             <Dependency>gnucap</Dependency>
             <Dependency>tuxpaint</Dependency>
+            <Dependency>librsvg</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/gcompris</Path>
             <Path fileType="data">/usr/share/info</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/gnome/help</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="15">
+            <Date>2010-04-29</Date>
+            <Version>9.3</Version>
+            <Comment>
+                Stable bump with lots of improvements and bug fixes:
+                - Fix linkage, paths and build paramaters
+                - Add librsvg dependency
+            </Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="14">
             <Date>2009-09-05</Date>
             <Version>8.4.12</Version>
