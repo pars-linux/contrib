@@ -7,15 +7,12 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
-from pisi.actionsapi import get
 
 def build():
     autotools.make()
 
 def install():
     pisitools.dobin("wbar", "/usr/bin")
-    pisitools.dodir("/usr/share/wbar")
-    shelltools.copytree("iconpack", "%s/usr/share/wbar" % get.installDIR())
+    pisitools.insinto("/usr/share/wbar", "iconpack")
     pisitools.dosym("/usr/share/wbar/iconpack/comic.ttf", "/usr/share/wbar/iconpack/wbar.osx/font.ttf")
-    shelltools.copy("dot.wbar", "%s/usr/share/wbar" % get.installDIR())
+    pisitools.insinto("/usr/share/wbar", "dot.wbar")
