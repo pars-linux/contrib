@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Fast and lightweight programming tool using GTK+</Summary>
         <Description>Geany is a small C editor using GTK+ with basic features of an integrated development environment. It features syntax highlighting, code completion, call tips, many supported filetypes (including C, Java, PHP, HTML, DocBook, Perl, LateX, and Bash), and symbol lists.</Description>
-        <Archive sha1sum="5284e069d5da5581cf87474b5a4b37aed015d77e" type="tarbz2">http://download.geany.org/geany-0.18.tar.bz2</Archive>
+        <Archive sha1sum="cb039ac4c6fe3738afb8d0aa9f4ddb024eebb084" type="tarbz2">http://download.geany.org/geany-0.18.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>atk</Dependency>
@@ -49,6 +49,40 @@
     </Package>
 
     <History>
+        <Update release="15">
+            <Date>2010-05-04</Date>
+            <Version>0.18.1</Version>
+            <Comment>
+              * Version bump:
+                - Remove filetypes.common invert_all option - use 'Invert syntax highlighting colors' pref instead.
+                - Fix 'Open Selected File' for unsaved new documents.
+                - Fix updating main menu accelerators after changing keybindings
+                - Fix using 'Insert date' keybinding when a custom date string has not been set.
+                - Set the cursor color for the split window plugin.
+                - Remove plugin from plugin manager dialog on unloading if it no longer exists or is incompatible.
+                - Fix 'Reflow block' command when at the last paragraph and there's no last newline.
+                - Fix opening filenames beginning with two dots (closes #2858487).
+                - Show Find in Files stderr output in messages window instead of debug window so that invalid regex messages can be seen easily.
+                - Speed up sorting in utils_get_file_list().
+                - Fix a bug with not w3c compatible HTML code on export plugin
+                - Fix non-working Home and End keys on numpads.
+                - Fix loading of files on network resources on Windows.
+                - Fix wrong alignment of printed pages when page headers are disabled (closes #2856822).
+                - Extend auto_latex() function to check whether an environment has been closed within the next lines to avoid auto adding double \end{}.
+                - Replace some icons which could cause licensing problems by icons from the Rodent icon theme.
+                - Parse contents of D extern{} and version{} blocks.
+                - Fix creating D interface tags properly.
+                - Parse D functions with contracts (fixes #1885480).
+                - Parse D alias statement like typedef.
+                - Improve parsing of LaTeX, PHP and Python files.
+                - Add 'Scope autocompletion' section.
+                - Add 'Tools menu items' section to explain configuration files submenu, reload configuration item.
+                - Minor updates/fixes.
+                - Added translations: gl
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="14">
             <Date>2009-08-17</Date>
             <Version>0.18</Version>
