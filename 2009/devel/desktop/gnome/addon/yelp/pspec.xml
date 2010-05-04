@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>yelp</Name>
-        <Homepage>http://www.gnome.org/</Homepage>
+        <Homepage>http:/live.gnome.org/Yelp</Homepage>
         <Packager>
             <Name>Burak Çalışkan</Name>
             <Email>burakclskn@gmail.com</Email>
@@ -12,10 +12,10 @@
         <IsA>app:gui</IsA>
         <Summary>Help viewer for GNOME desktop</Summary>
         <Description>Yelp is a help viewer which serves as a DocBook viewer, a man page viewer, and an info page viewer.</Description>
-        <Archive sha1sum="260719600148490effaba2e78a9d536f251f5b66" type="tarbz2">mirrors://gnome/yelp/2.28/yelp-2.28.1.tar.bz2</Archive>
+        <Archive sha1sum="941b4c3aecd379ea2ff26d12a37efe32afbf0ab1" type="tarbz2">mirrors://gnome/yelp/2.30/yelp-2.30.1.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>gconf</Dependency>
-            <Dependency versionFrom="0.17.2">gnome-doc-utils</Dependency>
+            <Dependency versionFrom="0.19.1">gnome-doc-utils</Dependency>
             <Dependency>xulrunner-devel</Dependency>
             <Dependency>startup-notification</Dependency>
         </BuildDependencies>
@@ -24,20 +24,32 @@
     <Package>
         <Name>yelp</Name>
         <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
+            <Dependency>atk</Dependency>
+            <Dependency>pango</Dependency>
+            <Dependency>rarian</Dependency>
             <Dependency>gconf</Dependency>
-            <Dependency>xulrunner</Dependency>
             <Dependency>startup-notification</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/yelp</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="data">/usr/share</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2010-05-03</Date>
+            <Version>2.30.1</Version>
+            <Comment>Version bump, overhaul dependencies, fix homepage.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
         <Update release="2">
             <Date>2010-01-22</Date>
             <Version>2.28.1</Version>
