@@ -14,7 +14,7 @@ def setup():
     autotools.configure("--disable-static \
                          --disable-xmms2 \
                          --disable-bmpx \
-                         --disable-audacious \
+                         --enable-audacious \
                          --enable-mpd \
                          --disable-debug \
                          --enable-rss \
