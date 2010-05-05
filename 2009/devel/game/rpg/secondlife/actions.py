@@ -5,8 +5,12 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
-WorkDir="SecondLife_i686_1_20_17_98669"
+WorkDir = "SecondLife-i686-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/SecondLife",  "*")
+    pisitools.insinto("/opt/secondlife",  "*")
+    # pisitools.dobin("secondlife")
+    pisitools.insinto("/usr/share/pixmaps", "secondlife_icon.png", "secondlife.png")
+    pisitools.dodoc("*.txt")
