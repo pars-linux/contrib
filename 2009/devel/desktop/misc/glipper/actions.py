@@ -8,12 +8,14 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.configure("--disable-scrollkeeper")
+    # checking for gnomeapplet module... no
+    # configure: error: gnomeapplet Python module required to build glipper
+    autotools.configure("--disable-scrollkeeper \
+                         --disable-schemas-install")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
-
-    pisitools.dodoc("NEWS", "README", "ChangeLog", "AUTHORS")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "MAINTAINERS", "NEWS", "README")
