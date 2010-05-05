@@ -2776,16 +2776,27 @@
             <License>LGPLv2.1</License>
             <IsA>app:gui</IsA>
             <PartOf>desktop.misc</PartOf>
-            <Summary xml:lang="en">Clipboard manager for Gnome</Summary>
-            <Summary xml:lang="tr">Gnome için kopyalama yöneticisi</Summary>
-            <Archive type="targz" sha1sum="478b53101caee97d34c667e8168eaf17b462f126">mirrors://sourceforge/glipper/glipper-0.95.1.tar.gz</Archive>
+            <Summary xml:lang="en">A clipboard manager</Summary>
+            <Summary xml:lang="tr">Bir pano yöneticisi</Summary>
+            <Description xml:lang="en">Glipper is a clipboardmanager for GNOME.</Description>
+            <Description xml:lang="tr">Glipper, GNOME için bir pano yöneticisidir.</Description>
+            <Archive type="tarbz2" sha1sum="66291124adf595bd5d53809958ac197c4f80ffb3">mirrors://sourceforge/glipper/glipper/glipper%201.0/glipper-1.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-doc-utils</Dependency>
                 <Dependency>libgnome</Dependency>
-                <Dependency>libglade2</Dependency>
+                <Dependency>libglade</Dependency>
                 <Dependency>intltool</Dependency>
+                <Dependency>gnome-applets</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>gnome-desktop</Dependency>
+                <Dependency>pygobject</Dependency>
+                <Dependency>pygtk</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>glipper-1.0-binary-data.patch</Patch>
+                <Patch>glipper-1.0-transparent.patch</Patch>
+            </Patches>
             <SourceURI>desktop/misc/glipper/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -2794,17 +2805,29 @@
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-doc-utils</Dependency>
                 <Dependency>libgnome</Dependency>
-                <Dependency>libglade2</Dependency>
+                <Dependency>libglade</Dependency>
                 <Dependency>intltool</Dependency>
+                <Dependency>gnome-applets</Dependency>
+                <Dependency>gnome-vfs</Dependency>
+                <Dependency>gnome-desktop</Dependency>
+                <Dependency>pygobject</Dependency>
+                <Dependency>pygtk</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-05-05</Date>
+                <Version>1.0</Version>
+                <Comment>Version bump</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-02-20</Date>
                 <Version>0.95.1</Version>
@@ -3172,24 +3195,34 @@
             <Name>dmz-xcursor</Name>
             <Homepage>http://jimmac.musichall.cz/themes.php?skin=7</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>MIT</License>
             <IsA>data</IsA>
             <PartOf>desktop.lookandfeel</PartOf>
             <Summary xml:lang="en">DMZ X11 mouse theme cursors</Summary>
             <Summary xml:lang="tr">DMZ imleç teması</Summary>
+            <Description xml:lang="en">dmz-xcursor is a X11 mouse theme that designed by Jakub &apos;jimmac&apos; Steiner.</Description>
+            <Description xml:lang="tr">dmz-xcursor, Jakub &apos;jimmac&apos; Steiner&apos;ın tasarladığı fare imleci temasını içerir.</Description>
             <Archive type="tarbz2" sha1sum="f62095110ec288b1382f33909f5119a232ebc125">http://jimmac.musichall.cz/zip/vanilla-dmz-0.4.tar.bz2</Archive>
             <SourceURI>desktop/lookandfeel/dmz-xcursor/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>dmz-xcursor</Name>
             <Files>
-                <Path fileType="data">/usr/share/cursors/xorg-x11</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-05</Date>
+                <Version>0.4</Version>
+                <Comment>Take over the package</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-05-12</Date>
                 <Version>0.4</Version>
@@ -3211,24 +3244,34 @@
             <Name>dmz-aa-xcursor</Name>
             <Homepage>http://jimmac.musichall.cz/themes.php?skin=7</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>MIT</License>
             <IsA>data</IsA>
             <PartOf>desktop.lookandfeel</PartOf>
             <Summary xml:lang="en">DMZ-AA X11 mouse theme cursors</Summary>
             <Summary xml:lang="tr">DMZ-AA imleç teması</Summary>
+            <Description xml:lang="en">dmz-aa-xcursor is a X11 mouse theme that designed by Jakub &apos;jimmac&apos; Steiner.</Description>
+            <Description xml:lang="tr">dmz-aa-xcursor, Jakub &apos;jimmac&apos; Steiner&apos;ın tasarladığı fare imleci temasını içerir.</Description>
             <Archive type="tarbz2" sha1sum="7ed0b4b5c70c16866ad79b1daf9edafc35a82ef0">http://jimmac.musichall.cz/zip/vanilla-dmz-aa-0.4.tar.bz2</Archive>
             <SourceURI>desktop/lookandfeel/dmz-aa-xcursor/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>dmz-aa-xcursor</Name>
             <Files>
-                <Path fileType="data">/usr/share/cursors/xorg-x11</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-05</Date>
+                <Version>0.4</Version>
+                <Comment>Take over the package</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-05-12</Date>
                 <Version>0.4</Version>
@@ -5822,74 +5865,6 @@
             <Update release="1">
                 <Date>2007-03-27</Date>
                 <Version>2.0.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>yelp</Name>
-            <Homepage>http:/live.gnome.org/Yelp</Homepage>
-            <Packager>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.gnome.addon</PartOf>
-            <Summary xml:lang="en">Help viewer for GNOME desktop</Summary>
-            <Summary xml:lang="tr">Gnome için Yardım görüntüleyici</Summary>
-            <Description xml:lang="en">Yelp is a help viewer which serves as a DocBook viewer, a man page viewer, and an info page viewer.</Description>
-            <Description xml:lang="tr">Yelp DocBook, man sayfaları ve info sayfaları için bir yardım belgeleri görüntüleyicidir.</Description>
-            <Archive type="tarbz2" sha1sum="941b4c3aecd379ea2ff26d12a37efe32afbf0ab1">mirrors://gnome/yelp/2.30/yelp-2.30.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>gconf</Dependency>
-                <Dependency versionFrom="0.19.1">gnome-doc-utils</Dependency>
-                <Dependency>xulrunner-devel</Dependency>
-                <Dependency>startup-notification</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/gnome/addon/yelp/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>yelp</Name>
-            <RuntimeDependencies>
-                <Dependency>gtk2</Dependency>
-                <Dependency>atk</Dependency>
-                <Dependency>pango</Dependency>
-                <Dependency>rarian</Dependency>
-                <Dependency>gconf</Dependency>
-                <Dependency>startup-notification</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/icons</Path>
-                <Path fileType="data">/usr/share/yelp</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2010-05-03</Date>
-                <Version>2.30.1</Version>
-                <Comment>Version bump, overhaul dependencies, fix homepage.</Comment>
-                <Name>H. İbrahim Güngör</Name>
-                <Email>ibrahim@pardus.org.tr</Email>
-            </Update>
-            <Update release="2">
-                <Date>2010-01-22</Date>
-                <Version>2.28.1</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-25</Date>
-                <Version>2.18.1</Version>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
@@ -17279,27 +17254,37 @@
     <SpecFile>
         <Source>
             <Name>ctronome</Name>
-            <Homepage>http://ctronome.kign.org/</Homepage>
+            <Homepage>http://ctronome.kign.org</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>multimedia.sound</PartOf>
             <Summary xml:lang="en">Console based metronome</Summary>
             <Summary xml:lang="tr">Konsol tabanlı metronom</Summary>
-            <Archive type="targz" sha1sum="8a0d5ce5a4e051be793062ec802fa39345af15d1">http://ctronome.kign.org/source/ctronome-0.5.1.tar.gz</Archive>
+            <Description xml:lang="en">ctronome is a very simple yet powerful programmable console metronome software.</Description>
+            <Description xml:lang="tr">ctronome, bir başka güçlü, basit ve programlanabilir terminal tabanlı metronom yazılımıdır.</Description>
+            <Archive type="targz" sha1sum="35e8084b1047f38a006539cc28719162aa1e46b4">http://ctronome.kign.org/source/ctronome-0.5.3.tar.gz</Archive>
             <SourceURI>multimedia/sound/ctronome/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>ctronome</Name>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/ctronome</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-05-05</Date>
+                <Version>0.5.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-08-29</Date>
                 <Version>0.5.1</Version>
@@ -18473,22 +18458,25 @@
     <SpecFile>
         <Source>
             <Name>gnaural</Name>
-            <Homepage>http://gnaural.sourceforge.net/</Homepage>
+            <Homepage>http://gnaural.sourceforge.net</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.sound</PartOf>
-            <Summary xml:lang="en">A programmable audio generator intended as an aural aid to meditation</Summary>
-            <Summary xml:lang="tr">Meditasyona işitsel bir yardım olarak planlanmış  programlanabilir bir ses yaratıcısı.</Summary>
-            <Description xml:lang="en">A programmable audio generator intended as an aural aid to meditation, implementing the binaural beat principle as described in Gerald Oster&apos;s Oct. 1973 Scientific American article &quot;Auditory Beats in the Brain.</Description>
-            <Description xml:lang="tr">Gerald Oster&apos;s Oct. 1973 Scientific American makalesinde tanımlandığı gibi stereofonik vuruşları oluşturan, meditasyona işitsel bir yardım olarak planlanmış  programlanabilir bir ses yaratıcısı.</Description>
+            <Summary xml:lang="en">An binaural-beat generator</Summary>
+            <Summary xml:lang="tr">Programlanabilir bir ses yaratıcısı</Summary>
+            <Description xml:lang="en">Gnaural is a programmable audio generator intended as an aural aid to meditation, implementing the binaural beat principle as described in Gerald Oster&apos;s Oct. 1973 Scientific American article &quot;Auditory Beats in the Brain.</Description>
+            <Description xml:lang="tr">Gnaural, Gerald Oster&apos;s Oct. 1973 Scientific American makalesinde tanımlandığı gibi stereofonik vuruşları oluşturan, meditasyona işitsel bir yardım olarak planlanmış programlanabilir bir ses yaratıcısıdır.</Description>
             <Icon>gnaural-icon</Icon>
-            <Archive type="targz" sha1sum="cd03bf142b6ec26e953b851f8dc8a633dcb99298">mirrors://sourceforge/gnaural/gnaural-0.4.20070301.tar.gz</Archive>
+            <Archive type="targz" sha1sum="25a901b85ab23403e4dedc7c9a090c6e4afdccea">mirrors://sourceforge/gnaural/Gnaural/gnaural-1.0.20100408.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.10.6">gtk2</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>libsndfile</Dependency>
+                <Dependency>portaudio</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>gnaural.tr.patch</Patch>
@@ -18498,19 +18486,32 @@
         <Package>
             <Name>gnaural</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.10.6">gtk2</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libglade</Dependency>
+                <Dependency>libsndfile</Dependency>
+                <Dependency>portaudio</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/gnaural</Path>
+                <Path fileType="data">/usr/share/gnome</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/applications/gnaural.desktop" permission="0644" owner="root">gnaural.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-05-05</Date>
+                <Version>1.0.20100408</Version>
+                <Comment>Version bump</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-03-27</Date>
                 <Version>0.4.20</Version>
@@ -32116,40 +32117,46 @@
     <SpecFile>
         <Source>
             <Name>klogshow</Name>
-            <Homepage>http://www.srvxes.com</Homepage>
+            <Homepage>http://kde-apps.org/content/show.php/KlogShow?content=53460</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>util.misc</PartOf>
-            <Summary xml:lang="en">A tool that used to display the last few lines of a text files on your desktop.</Summary>
-            <Description xml:lang="en">It append new lines to the display as new lines are added.Klogshow used to display the last few lines of a text files on your desktop.</Description>
-            <Archive type="targz" sha1sum="d75711654264565a819aed0f342c972ebcda10ee">http://www.srvxes.com/softwares/klogshow-1.0.3.tgz</Archive>
+            <Summary xml:lang="en">A Qt based monitoring application</Summary>
+            <Summary xml:lang="tr">Qt temelli bir gözlemleme yazılımı</Summary>
+            <Description xml:lang="en">Klogshow used to display the last few lines of a text files on your desktop. It append new lines to the display as new lines are added.</Description>
+            <Description xml:lang="tr">Klogshow, metin dosyalarının son bir kaç satırını masaüstünüzde göstermek için kullanabileceğiniz bir yazılımdır. Dosylara yeni satırlar eklendikçe bunlar anında görüntülenecektir.</Description>
+            <Archive type="targz" sha1sum="d0a0e3fb4700e2819a00cc918729c1f62dfc86e1">mirrors://sourceforge/klogshow/klogshow/1.0.4/klogshow_1.0.4.tgz</Archive>
             <BuildDependencies>
                 <Dependency>kdebase</Dependency>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch>desktop.patch</Patch>
-            </Patches>
             <SourceURI>util/misc/klogshow/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>klogshow</Name>
             <RuntimeDependencies>
                 <Dependency>kdebase</Dependency>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-05-06</Date>
+                <Version>1.0.4</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2007-10-14</Date>
                 <Version>1.0.3</Version>
@@ -37052,23 +37059,24 @@ supported DAQ cards, such as those from National Instruments.</Description>
     <SpecFile>
         <Source>
             <Name>kmobiletools</Name>
-            <Homepage>http://www.kmobiletools.org/</Homepage>
+            <Homepage>http://websvn.kde.org/trunk/playground/pim/kmobiletools</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>hardware.mobile</PartOf>
-            <Summary xml:lang="en">Kde Mobile Tool</Summary>
-            <Summary xml:lang="tr">Kde telefon aracı</Summary>
+            <Summary xml:lang="en">KDE Mobile Tool</Summary>
+            <Summary xml:lang="tr">KDE telefon aracı</Summary>
             <Description xml:lang="en">KMobiletools is a KDE-based application that allows to control mobile phones with your PC.</Description>
-            <Description xml:lang="tr">KMobileTools kde tabanlı, cep telefonunuzu bilgisayarınızdan kontrol etmeye yarayan bir uygulamadır</Description>
-            <Archive type="tarbz2" sha1sum="ce9b6d3a53ab0b771e8d4615d545625eccea54b6">mirrors://berlios/kmobiletools/kmobiletools-0.5.0-beta3.tar.bz2</Archive>
+            <Description xml:lang="tr">KMobileTools, cep telefonunuzu bilgisayarınızdan kontrol etmeye yarayan KDE tabanlı bir uygulamadır.</Description>
+            <Archive type="targz" sha1sum="41f5e0ff67eee2daba6764a062911dbf5b5666ef">http://dl.dropbox.com/u/1836567/Paketler/kmobiletools-0.6.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>kdebase</Dependency>
                 <Dependency>kdebluetooth</Dependency>
-                <Dependency>kdepim</Dependency>
+                <Dependency>kdepimlibs-devel</Dependency>
+                <Dependency>gammu</Dependency>
             </BuildDependencies>
             <SourceURI>hardware/mobile/kmobiletools/pspec.xml</SourceURI>
         </Source>
@@ -37077,16 +37085,26 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <RuntimeDependencies>
                 <Dependency>kdebase</Dependency>
                 <Dependency>kdebluetooth</Dependency>
-                <Dependency>kdepim</Dependency>
+                <Dependency>kdepimlibs</Dependency>
+                <Dependency>gammu</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="header">/usr/kde/3.5/include</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
+                <Path fileType="library">/usr/kde/4/lib</Path>
+                <Path fileType="header">/usr/kde/4/include</Path>
+                <Path fileType="data">/usr/kde/4/share</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-05-06</Date>
+                <Version>0.6</Version>
+                <Comment>Bump to svn version</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2007-08-28</Date>
                 <Version>0.5_beta3</Version>
@@ -51271,48 +51289,53 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Homepage>http://www.secondlife.com</Homepage>
             <Packager>
                 <Name>Pardus</Name>
-                <Email>alsaberk@gmail.com</Email>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>game.rpg</PartOf>
-            <Summary xml:lang="en">Client for SecondLife</Summary>
-            <Summary xml:lang="tr">SecondLife istemcisi</Summary>
+            <Summary xml:lang="en">Client for Second Life</Summary>
+            <Summary xml:lang="tr">Second Life istemcisi</Summary>
+            <Description xml:lang="en">Second Life is a 3-D virtual world entirely built and owned by its residents.</Description>
+            <Description xml:lang="tr">Second Life, sakinleri tarafından oluşturulan ve sahip olunan 3B bir sanal dünyadır.</Description>
             <Icon>secondlife</Icon>
-            <Archive type="tarbz2" sha1sum="cd1dab47e24aa12faf4e6580bda5126fd452ca70">http://download-secondlife-com.s3.amazonaws.com/SecondLife_i686_1_20_17_98669.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency releaseFrom="5">jpeg</Dependency>
-                <Dependency>libsdl</Dependency>
-                <Dependency>boost</Dependency>
-                <Dependency>xmlrpc-epi</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>openjpeg</Dependency>
-                <Dependency>curl</Dependency>
-                <Dependency>openal</Dependency>
-                <Dependency>freealut</Dependency>
-                <Dependency>google-perftools</Dependency>
-            </BuildDependencies>
+            <Archive type="tarbz2" sha1sum="3fb70fd38c9584c6b32b1c7aceb2996476a70039">http://download.cloud.secondlife.com/Viewer-2/SecondLife-i686-2.0.1.203797.tar.bz2</Archive>
             <SourceURI>game/rpg/secondlife/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>secondlife</Name>
             <RuntimeDependencies>
-                <Dependency>libsdl</Dependency>
+                <Dependency>apr</Dependency>
+                <Dependency>apr-util</Dependency>
                 <Dependency>boost</Dependency>
-                <Dependency>xmlrpc-epi</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>gtk2</Dependency>
-                <Dependency>openjpeg</Dependency>
                 <Dependency>curl</Dependency>
-                <Dependency>openal</Dependency>
+                <Dependency>expat</Dependency>
                 <Dependency>freealut</Dependency>
-                <Dependency>google-perftools</Dependency>
+                <Dependency>freetype</Dependency>
+                <Dependency>gstreamer</Dependency>
+                <Dependency>gst-plugins-bad</Dependency>
+                <Dependency>gst-plugins-good</Dependency>
+                <Dependency>gst-plugins-ugly</Dependency>
+                <Dependency>gtk2</Dependency>
+                <Dependency>libgcrypt</Dependency>
+                <Dependency>libgpg-error</Dependency>
+                <Dependency>libogg</Dependency>
+                <Dependency>libsdl</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>libX11</Dependency>
+                <Dependency>libXau</Dependency>
+                <Dependency>libXdmcp</Dependency>
+                <Dependency>libXext</Dependency>
+                <Dependency>libXinerama</Dependency>
+                <Dependency>libvorbis</Dependency>
+                <Dependency>openal</Dependency>
+                <Dependency>openjpeg</Dependency>
+                <Dependency>openssl</Dependency>
             </RuntimeDependencies>
             <Files>
+                <Path fileType="data">/opt/secondlife</Path>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/share/secondlife</Path>
-                <Path fileType="data">/usr/share/</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
@@ -51322,6 +51345,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="19">
+                <Date>2010-05-05</Date>
+                <Version>2.0.1.203797</Version>
+                <Comment>Version Bump</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="18">
                 <Date>2008-10-17</Date>
                 <Version>1.20.17</Version>
@@ -51709,23 +51739,30 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>toycars</Name>
-            <Homepage>http://sourceforge.net/projects/toycars</Homepage>
+            <Homepage>http://toycars.sourceforge.net</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>BSD-3</License>
             <IsA>app:gui</IsA>
             <PartOf>game.sports</PartOf>
-            <Summary xml:lang="en">Toycars - a physics based 2-D racer inspired by Micromachines</Summary>
-            <Summary xml:lang="tr">Fizik kurallarına uygun olarak hazırlanmış 2 boyutlu yarış oyunu</Summary>
+            <Summary xml:lang="en">Top down physics based car racing game</Summary>
+            <Summary xml:lang="tr">Üstten görünümlü araba yarışı oyunu</Summary>
+            <Description xml:lang="en">Toycars is a physics based 2-D racer inspired by Micromachines.</Description>
+            <Description xml:lang="tr">Toycars, Micromachinesis&apos;ten ilham alınarak hazırlanmış ve fizik kurallarına uygun bir 2B araba yarışı oyunudur.</Description>
             <Icon>toycars</Icon>
-            <Archive type="targz" sha1sum="6b030690e158e754648f9bf0484039fe98e27288">mirrors://sourceforge/toycars/toycars-0.3.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="594f7cd3b586fc68289ea36945464dd4125dfded">mirrors://sourceforge/toycars/toycars/0.3.10/toycars-0.3.10.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>sdl-image</Dependency>
                 <Dependency>sdl-mixer</Dependency>
                 <Dependency>glut</Dependency>
+                <Dependency>fltk-devel</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>toycars-0.3.10-gcc45.patch</Patch>
+                <Patch>toycars-0.3.10-glibc-2.10.patch</Patch>
+            </Patches>
             <SourceURI>game/sports/toycars/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -51734,6 +51771,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>sdl-image</Dependency>
                 <Dependency>sdl-mixer</Dependency>
                 <Dependency>glut</Dependency>
+                <Dependency>fltk</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -51748,6 +51786,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-05-05</Date>
+                <Version>0.3.10</Version>
+                <Comment>Version bump</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-02-21</Date>
                 <Version>0.3.5</Version>
@@ -56158,6 +56203,58 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>pyroom</Name>
+            <Homepage>http://pyroom.org/</Homepage>
+            <Packager>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
+            </Packager>
+            <License>GPLv3</License>
+            <IsA>app:gui</IsA>
+            <PartOf>office.misc</PartOf>
+            <Summary xml:lang="en">Python dark room editor</Summary>
+            <Summary xml:lang="tr">Python karanlık oda metin editörü</Summary>
+            <Description xml:lang="en">PyRoom is a free editor that stays out your way - and keeps other things out of your way, too. As a fullscreen editor without buttons, widgets, formatting options, menus and with only the minimum of required dialog windows.</Description>
+            <Description xml:lang="tr">Python ile kodlanmış, yazarken dikkatinizin dağılmasını engellemek amacıyla tasarlanmış bir metin düzenleyici.</Description>
+            <Icon>pyroom</Icon>
+            <Archive type="targz" sha1sum="b138eaaeaf82d2fd99cd1f5b754a0901a5d8c4ca">http://launchpad.net/pyroom/0.4/0.4.1/+download/pyroom-0.4.1.tar.gz</Archive>
+            <BuildDependencies>
+                <Dependency>gconf</Dependency>
+            </BuildDependencies>
+            <SourceURI>office/misc/pyroom/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>pyroom</Name>
+            <RuntimeDependencies>
+                <Dependency>pygtk</Dependency>
+                <Dependency>pyxdg</Dependency>
+                <Dependency>gconf</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="library">/usr/lib</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pyroom</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+            <AdditionalFiles>
+                <AdditionalFile target="/usr/share/pixmaps/pyroom.png" permission="0644" owner="root">pyroom.png</AdditionalFile>
+            </AdditionalFiles>
+        </Package>
+        <History>
+            <Update release="1">
+                <Date>2010-04-08</Date>
+                <Version>0.4.1</Version>
+                <Comment>First Release</Comment>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
             </Update>
         </History>
     </SpecFile>
