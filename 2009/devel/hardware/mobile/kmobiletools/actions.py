@@ -4,15 +4,16 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import kde
-
-WorkDir="kmobiletools-0.5.0-beta3"
+from pisi.actionsapi import cmaketools
+from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
-    kde.configure("--disable-kioslaves")
+    cmaketools.configure("-DCMAKE_BUILD_TYPE=release", installPrefix="/usr/kde/4")
 
 def build():
-    kde.make()
+    cmaketools.make()
 
 def install():
-    kde.install()
+    cmaketools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README*", "TODO")
