@@ -6,46 +6,53 @@
         <Homepage>http://www.secondlife.com</Homepage>
         <Packager>
             <Name>Pardus</Name>
-            <Email>alsaberk@gmail.com</Email>
+            <Email>admins@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
+        <!-- buraya yüz tane daha lisans gelecek licenses.txt-->
         <Icon>secondlife</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Client for SecondLife</Summary>
-        <Archive sha1sum="cd1dab47e24aa12faf4e6580bda5126fd452ca70" type="tarbz2">http://download-secondlife-com.s3.amazonaws.com/SecondLife_i686_1_20_17_98669.tar.bz2</Archive>
-        <BuildDependencies>
-            <Dependency releaseFrom="5">jpeg</Dependency>
-            <Dependency>libsdl</Dependency>
-            <Dependency>boost</Dependency>
-            <Dependency>xmlrpc-epi</Dependency>
-            <Dependency>libvorbis</Dependency>
-            <Dependency>gtk2</Dependency>
-            <Dependency>openjpeg</Dependency>
-            <Dependency>curl</Dependency>
-            <Dependency>openal</Dependency>
-            <Dependency>freealut</Dependency>
-            <Dependency>google-perftools</Dependency>
-        </BuildDependencies>
+        <Summary>Client for Second Life</Summary>
+        <Description>Second Life is a 3-D virtual world entirely built and owned by its residents.</Description>
+        <Archive sha1sum="3fb70fd38c9584c6b32b1c7aceb2996476a70039" type="tarbz2">http://download.cloud.secondlife.com/Viewer-2/SecondLife-i686-2.0.1.203797.tar.bz2</Archive>
     </Source>
 
     <Package>
         <Name>secondlife</Name>
         <RuntimeDependencies>
-            <Dependency>libsdl</Dependency>
+            <Dependency>apr</Dependency>
+            <Dependency>apr-util</Dependency>
             <Dependency>boost</Dependency>
-            <Dependency>xmlrpc-epi</Dependency>
-            <Dependency>libvorbis</Dependency>
-            <Dependency>gtk2</Dependency>
-            <Dependency>openjpeg</Dependency>
             <Dependency>curl</Dependency>
-            <Dependency>openal</Dependency>
+            <!--Dependency>elfio</Dependency-->
+            <Dependency>expat</Dependency>
+            <!--Dependency>fmodex</Dependency-->
             <Dependency>freealut</Dependency>
-            <Dependency>google-perftools</Dependency>
+            <Dependency>freetype</Dependency>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>gst-plugins-bad</Dependency>
+            <Dependency>gst-plugins-good</Dependency>
+            <Dependency>gst-plugins-ugly</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libgcrypt</Dependency>
+            <Dependency>libgpg-error</Dependency>
+            <Dependency>libogg</Dependency>
+            <Dependency>libsdl</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>libX11</Dependency>
+            <Dependency>libXau</Dependency>
+            <Dependency>libXdmcp</Dependency>
+            <Dependency>libXext</Dependency>
+            <Dependency>libXinerama</Dependency>
+            <Dependency>libvorbis</Dependency>
+            <Dependency>openal</Dependency>
+            <Dependency>openjpeg</Dependency>
+            <Dependency>openssl</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="data">/opt/secondlife</Path>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="executable">/usr/share/secondlife</Path>
-            <Path fileType="data">/usr/share/</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="doc">/usr/share/doc</Path>
         </Files>
@@ -56,6 +63,13 @@
     </Package>
 
     <History>
+        <Update release="19">
+             <Date>2010-05-05</Date>
+             <Version>2.0.1.203797</Version>
+             <Comment>Version Bump</Comment>
+             <Name>Anıl Özbek</Name>
+             <Email>ozbekanil@gmail.com</Email>
+        </Update>
         <Update release="18">
              <Date>2008-10-17</Date>
              <Version>1.20.17</Version>
