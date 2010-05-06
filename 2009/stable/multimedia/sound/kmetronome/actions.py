@@ -4,9 +4,12 @@
 # Licensed under the GNU General Public License, version 2
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import cmaketools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
+
+shelltools.export("HOME", "%s" % get.workDIR())
 
 def setup():
     cmaketools.configure("-DCMAKE_BUILD_TYPE=release", installPrefix="/usr/kde/4")
