@@ -6,15 +6,15 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-glibtest \
-                         --disable-gtktest ")
+                         --disable-gtktest")
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
-
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "FAQ", "NEWS", "README", "TODO")
