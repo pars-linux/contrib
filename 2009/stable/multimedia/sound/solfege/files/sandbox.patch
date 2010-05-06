@@ -1,0 +1,13 @@
+--- Makefile.in.orig	2008-11-08 12:35:31.000000000 +0200
++++ Makefile.in	2009-01-01 22:35:39.000000000 +0200
+@@ -105,10 +105,6 @@
+ %.1: %.1.txt
+ 	txt2man -r "GNU Solfege @VERSION@" -t Solfege -s 1 $< > $@
+ 
+-# We need src/_version.py because solfege imports it at runtime.
+-solfege.1: solfege.1.txt src/_version.py
+-	cat $< | sed -e "s/XXOPTIONS/LANGUAGE=C .\/solfege.py --help|sed -n '5,999p'/e" | txt2man -t Solfege -s 1 > $@
+-
+ rsync-manual: $(foreach lang,$(USER_MANUAL_LANGUAGES),help/$(lang)/one-big-page.html)
+ 	rm -rf tmp-build
+ 	make prefix=`pwd`/tmp-build
