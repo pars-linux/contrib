@@ -3,15 +3,17 @@
 <PISI>
     <Source>
         <Name>gtranslator</Name>
-        <Homepage>http://gtranslator.sourceforge.net/</Homepage>
+        <Homepage>http://gtranslator.sourceforge.net</Homepage>
         <Packager>
             <Name>Pardus</Name>
             <Email>admins@pardus.org.tr</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv3</License>
+        <Icon>gtranslator</Icon>
         <IsA>app:gui</IsA>
         <Summary>Gettext po file editor for Gnome</Summary>
-        <Archive sha1sum="91fa41c87f2e3cdef1cc59baaa4c27ad853d07e7" type="tarbz2">mirrors://gnome/gtranslator/1.1/gtranslator-1.1.7.tar.bz2</Archive>
+        <Description>Gtranslator is an enhanced gettext po file editor for the GNOME desktop environment.</Description>
+        <Archive sha1sum="628560d3cb1afca640f288390b80c6aea66ddef7" type="tarbz2">mirrors://gnome/gtranslator/1.9/gtranslator-1.9.10.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libxml2</Dependency>
             <Dependency>libgnome</Dependency>
@@ -20,12 +22,12 @@
             <Dependency>libbonoboui</Dependency>
             <Dependency>libgnomecanvas</Dependency>
             <Dependency>gnome-vfs</Dependency>
-            <Dependency>scrollkeeper</Dependency>
+            <!--Dependency>scrollkeeper</Dependency-->
             <Dependency>intltool</Dependency>
         </BuildDependencies>
-        <Patches>
+        <!--Patches>
             <Patch level="1">do-not-update-scrollkeeper-database.patch</Patch>
-        </Patches>
+        </Patches-->
     </Source>
 
     <Package>
@@ -38,15 +40,18 @@
             <Dependency>libbonoboui</Dependency>
             <Dependency>libgnomecanvas</Dependency>
             <Dependency>gnome-vfs</Dependency>
-            <Dependency>scrollkeeper</Dependency>
+            <!--Dependency>scrollkeeper</Dependency-->
             <Dependency>intltool</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="library">/usr/lib</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/etc/gconf</Path>
+            <Path fileType="data">/usr/share</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
         <Provides>
             <COMAR script="package.py">System.Package</COMAR>
@@ -54,6 +59,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2010-05-07</Date>
+            <Version>1.9.10</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2007-02-24</Date>
             <Version>1.1.7</Version>
