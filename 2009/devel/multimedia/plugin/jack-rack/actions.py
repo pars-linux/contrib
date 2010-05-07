@@ -9,13 +9,13 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 def setup():
-    autotools.configure("--disable-desktop-inst \
-                         --disable-gnome")
+    autotools.autoreconf("-vfi")
+    autotools.configure("--disable-gnome \
+                         --disable-rpath")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    pisitools.dodoc("BUGS", "ChangeLog", "AUTHORS", "THANKS", "TODO", "WISHLIST")
+    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog", "COPYING", "NEWS", "README", "THANKS", "TODO", "WISHLIST")
