@@ -10,16 +10,17 @@
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
-        <Summary>C++ library for loading Gigasampler files</Summary>
-        <Archive sha1sum="6abee09284e06f75e3fe403b9c93c41b231bd59d" type="tarbz2">http://download.linuxsampler.org/packages/libgig-3.2.1.tar.bz2</Archive>
+        <Summary>Gigasampler file access library</Summary>
+        <Description>libgig is a C++ library for loading Gigasampler and DLS files.</Description>
+        <Archive sha1sum="7a32d4377136b0852458187d7f36f944b9d517fa" type="tarbz2">http://download.linuxsampler.org/packages/libgig-3.3.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency versionFrom="1.0.17">libsndfile</Dependency>
             <Dependency versionFrom="0.2.6">audiofile</Dependency>
             <Dependency versionFrom="1.2.1">flac</Dependency>
         </BuildDependencies>
-        <Patches>
+        <!--Patches>
             <Patch level="1">20_gcc43.dpatch</Patch>
-        </Patches>
+        </Patches-->
     </Source>
 
     <Package>
@@ -31,14 +32,21 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="header">/usr/include</Path>
             <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2010-05-07</Date>
+            <Version>3.3.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2008-06-01</Date>
             <Version>3.2.1</Version>
