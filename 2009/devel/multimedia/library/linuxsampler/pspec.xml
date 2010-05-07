@@ -10,8 +10,9 @@
         </Packager>
         <License>GPLv2</License>
         <IsA>app:console</IsA>
-        <Summary>A software audio sampler engine with professional grade features</Summary>
-        <Archive sha1sum="706cde371009080d47c12d1a70cb9abae15ae6e3" type="tarbz2">http://download.linuxsampler.org/packages/linuxsampler-0.5.0.tar.bz2</Archive>
+        <Summary>A sampler engine / backend</Summary>
+        <Description>LinuxSampler is a software audio sampler engine with professional grade features.</Description>
+        <Archive sha1sum="445ed786215c5bede3faef13fa82493b9d50d702" type="tarbz2">http://download.linuxsampler.org/packages/linuxsampler-1.0.0.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>jack-audio-connection-kit</Dependency>
             <Dependency versionFrom="3.2.0">libgig</Dependency>
@@ -32,14 +33,22 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
+            <Path fileType="header">/usr/include</Path>
+            <Path fileType="data">/var/lib/linuxsampler</Path>
             <Path fileType="man">/usr/share/man</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2010-05-07</Date>
+            <Version>1.0.0</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-11-10</Date>
             <Version>0.5.0</Version>
