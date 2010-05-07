@@ -4,18 +4,22 @@
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-from pisi.actionsapi import kde
+from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
-WorkDir="kyamo-0.40a4-2"
+# paketi alacaklar için notlar:
+# kurulum sisteminde sorun var, düzeltilmesi veya elle kurulması gerekebilir
+# bu kadar :)
+WorkDir = "kyamoqt4-0.50-alpha-3"
 
 def setup():
-    kde.configure()
+    shelltools.system("qmake-qt4 PREFIX=/usr")
 
 def build():
-    kde.make()
+    autotools.make("-j1")
 
 def install():
-    kde.install() 
-
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
+    autotools.rawInstall("INSTALL_ROOT=%s" % get.installDIR())
+    pisitools.dodoc("Changelog")
