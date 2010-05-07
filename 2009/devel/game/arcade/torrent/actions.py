@@ -6,14 +6,16 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
+    pisitools.dosed("src/torrent.c", "inline void SE_CheckEvents", "void SE_CheckEvents")
     autotools.configure()
 
 def build():
     autotools.make()
 
 def install():
-    autotools.install()
-
-    pisitools.dodoc("AUTHORS", "NEWS", "README", "ChangeLog")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
+    pisitools.doman("torrent.6")
