@@ -6,6 +6,7 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--disable-static")
@@ -14,6 +15,5 @@ def build():
     autotools.make("-j1")
 
 def install():
-    autotools.install()
-
-    pisitools.dodoc("TODO", "NEWS", "README", "ChangeLog", "AUTHORS")
+    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "TODO")
