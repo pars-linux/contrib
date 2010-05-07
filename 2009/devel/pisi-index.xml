@@ -15508,17 +15508,16 @@
             <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>multimedia.library</PartOf>
-            <Summary xml:lang="en">C++ library for loading Gigasampler files</Summary>
-            <Summary xml:lang="tr">Gigasampler dosyalarının yüklenmesi için bir kütüphane</Summary>
-            <Archive type="tarbz2" sha1sum="6abee09284e06f75e3fe403b9c93c41b231bd59d">http://download.linuxsampler.org/packages/libgig-3.2.1.tar.bz2</Archive>
+            <Summary xml:lang="en">Gigasampler file access library</Summary>
+            <Summary xml:lang="tr">Gigasampler dosya erişim kütüphanesi</Summary>
+            <Description xml:lang="en">libgig is a C++ library for loading Gigasampler and DLS files.</Description>
+            <Description xml:lang="tr">libgig, Gigasampler ve DLS dosyalarına erişim imkanı veren bir kütüphanedir.</Description>
+            <Archive type="tarbz2" sha1sum="7a32d4377136b0852458187d7f36f944b9d517fa">http://download.linuxsampler.org/packages/libgig-3.3.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.0.17">libsndfile</Dependency>
                 <Dependency versionFrom="0.2.6">audiofile</Dependency>
                 <Dependency versionFrom="1.2.1">flac</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">20_gcc43.dpatch</Patch>
-            </Patches>
             <SourceURI>multimedia/library/libgig/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -15530,13 +15529,20 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-05-07</Date>
+                <Version>3.3.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-06-01</Date>
                 <Version>3.2.1</Version>
@@ -15571,9 +15577,11 @@
             <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>multimedia.library</PartOf>
-            <Summary xml:lang="en">A software audio sampler engine with professional grade features</Summary>
-            <Summary xml:lang="tr">Profesyonel özellikleri ile bir ses işleme motoru</Summary>
-            <Archive type="tarbz2" sha1sum="706cde371009080d47c12d1a70cb9abae15ae6e3">http://download.linuxsampler.org/packages/linuxsampler-0.5.0.tar.bz2</Archive>
+            <Summary xml:lang="en">A sampler engine / backend</Summary>
+            <Summary xml:lang="tr">Bir örnekleme motoru / arkaucu</Summary>
+            <Description xml:lang="en">LinuxSampler is a software audio sampler engine with professional grade features.</Description>
+            <Description xml:lang="tr">LinuxSampler, profesyonel özelliklere sahip bir ses işleme motorudur.</Description>
+            <Archive type="tarbz2" sha1sum="445ed786215c5bede3faef13fa82493b9d50d702">http://download.linuxsampler.org/packages/linuxsampler-1.0.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>jack-audio-connection-kit</Dependency>
                 <Dependency versionFrom="3.2.0">libgig</Dependency>
@@ -15594,13 +15602,21 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="header">/usr/include</Path>
+                <Path fileType="data">/var/lib/linuxsampler</Path>
                 <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-07</Date>
+                <Version>1.0.0</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-11-10</Date>
                 <Version>0.5.0</Version>
@@ -16114,20 +16130,29 @@
             <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>multimedia.library</PartOf>
-            <Summary xml:lang="en">C++ library for the Linux Sampler control protocol.</Summary>
-            <Summary xml:lang="tr">Linux Sample kontrol protokolü için C++ kütüphanesi</Summary>
-            <Archive type="targz" sha1sum="533e82d5e156b993361ae8c96aae9a69956596b5">http://download.linuxsampler.org/packages/liblscp-0.5.5.tar.gz</Archive>
+            <Summary xml:lang="en">LinuxSampler Control Protocol (LSCP) wrapper library</Summary>
+            <Summary xml:lang="tr">LinuxSampler Control Protocol için C++ kütüphanesi</Summary>
+            <Description xml:lang="en">liblscp is a C++ library for the Linux Sampler control protocol.</Description>
+            <Description xml:lang="tr">liblscp, LinuxSampler Control Protocol için bir C++ kütüphanesidir.</Description>
+            <Archive type="targz" sha1sum="6ed06fd46fe275ae0f3dcc3d5c39f1772a18bbaa">http://download.linuxsampler.org/packages/liblscp-0.5.6.tar.gz</Archive>
             <SourceURI>multimedia/library/liblscp/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>liblscp</Name>
             <Files>
-                <Path fileType="header">/usr/include</Path>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-07</Date>
+                <Version>0.5.6</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-11-10</Date>
                 <Version>0.5.5</Version>
@@ -18130,7 +18155,7 @@
     <SpecFile>
         <Source>
             <Name>kyamo</Name>
-            <Homepage>http://k-yamo.sourceforge.net/</Homepage>
+            <Homepage>http://k-yamo.sourceforge.net</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -18139,7 +18164,11 @@
             <IsA>app:gui</IsA>
             <PartOf>multimedia.sound</PartOf>
             <Summary xml:lang="en">Music collection organizer</Summary>
-            <Archive type="targz" sha1sum="7ee4477564bbb8d3c5de5b0ab6c858373f4a4881">http://www.kde-apps.org/CONTENT/content-files/34604-kyamo-0.40a4-2.tar.gz</Archive>
+            <Summary xml:lang="tr">Müzik koleksiyonu düzenleyici</Summary>
+            <Description xml:lang="en">K-Yamo is a mp3-Tagger. It is able to clean-up complete diricetories with an easy to use filtersystem.</Description>
+            <Description xml:lang="tr">K-Yamo, bir MP3 etiketleme uygulamasıdır. Tüm dizinleri süzgeç sistemiyle kolayca düzenlemenizi sağlar.</Description>
+            <Icon>kyamo</Icon>
+            <Archive type="targz" sha1sum="e60f48475d9272e622575c9cdafb347c00831d5d">mirrors://sourceforge/k-yamo/k-yamo/K-Yamo-qt4/kyamoqt4-0.50-alpha-3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>id3lib</Dependency>
                 <Dependency>taglib</Dependency>
@@ -18151,19 +18180,28 @@
         <Package>
             <Name>kyamo</Name>
             <RuntimeDependencies>
+                <Dependency>id3lib</Dependency>
+                <Dependency>taglib</Dependency>
                 <Dependency>kdelibs</Dependency>
                 <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
+                <Path fileType="data">/usr/kde/4/share</Path>
+                <Path fileType="data">/usr/kde/4/share/icons</Path>
+                <Path fileType="doc">/usr/kde/4/share/doc</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
+                <Path fileType="localedata">/usr/kde/4/share/locale</Path>
             </Files>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-05-07</Date>
+                <Version>0.50_alpha3</Version>
+                <Comment>Bump to Qt4 version</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2007-01-23</Date>
                 <Version>0.40_alpha4</Version>
@@ -19287,7 +19325,7 @@
     <SpecFile>
         <Source>
             <Name>jack-rack</Name>
-            <Homepage>http://jack-rack.sourceforge.net/</Homepage>
+            <Homepage>http://jack-rack.sourceforge.net</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -19295,9 +19333,12 @@
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.plugin</PartOf>
-            <Summary xml:lang="en">JACK Rack is an effects &quot;rack&quot; for the JACK low latency audio API.</Summary>
-            <Summary xml:lang="tr">JACK rack; JACK, düşük gecikme süreli ses API&apos;si için efektlerdir</Summary>
-            <Archive type="tarbz2" sha1sum="9e37e6e348c7f797198e0dc75f65f79c6d9a7f1e">mirrors://sourceforge/jack-rack/jack-rack-1.4.6.tar.bz2</Archive>
+            <Summary xml:lang="en">Effects rack for JACK</Summary>
+            <Summary xml:lang="tr">JACK efekt çalıştırıcı</Summary>
+            <Description xml:lang="en">JACK Rack is an effects &quot;rack&quot; for the JACK low latency audio API.</Description>
+            <Description xml:lang="tr">JACK rack; JACK, düşük gecikme süreli ses uygulama programlama arayüzü için efekt çalıştırıcıdır.</Description>
+            <Icon>jack-rack-icon</Icon>
+            <Archive type="tarbz2" sha1sum="42e0e1b9b42db3249d565c5458f585f16b39974f">mirrors://sourceforge/jack-rack/jack-rack/1.4.7/jack-rack-1.4.7.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>jack-audio-connection-kit</Dependency>
                 <Dependency>gtk2</Dependency>
@@ -19306,7 +19347,13 @@
                 <Dependency>raptor</Dependency>
                 <Dependency>alsa-lib</Dependency>
                 <Dependency>liblrdf</Dependency>
+                <Dependency>lash</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>jack-rack-1.4.5-asneeded.patch</Patch>
+                <Patch>jack-rack-1.4.6-noalsa.patch</Patch>
+                <Patch>jack-rack-1.4.7-desktopfile.patch</Patch>
+            </Patches>
             <SourceURI>multimedia/plugin/jack-rack/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -19319,15 +19366,23 @@
                 <Dependency>raptor</Dependency>
                 <Dependency>alsa-lib</Dependency>
                 <Dependency>liblrdf</Dependency>
+                <Dependency>lash</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
                 <Path fileType="data">/usr/share</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-07</Date>
+                <Version>1.4.7</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-07-30</Date>
                 <Version>1.4.6</Version>
@@ -19729,7 +19784,7 @@
     <SpecFile>
         <Source>
             <Name>qsampler</Name>
-            <Homepage>http://qsampler.sourceforge.net/qsampler-index.html</Homepage>
+            <Homepage>http://qsampler.sourceforge.net</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -19737,12 +19792,14 @@
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.editor</PartOf>
-            <Summary xml:lang="en">A LinuxSampler GUI front-end application written in C++</Summary>
-            <Summary xml:lang="tr">LinuxSampler uygulamasının C++ ile yazılan arayüzü</Summary>
-            <Archive type="targz" sha1sum="eac4cb80e0a4a84e9901ce34a004485e31141e0e">mirrors://sourceforge/qsampler/qsampler-0.1.5.tar.gz</Archive>
+            <Summary xml:lang="en">A LinuxSampler Qt GUI</Summary>
+            <Summary xml:lang="tr">Qt temelli bir LinuxSampler önyüzü</Summary>
+            <Description xml:lang="en">QSampler is a LinuxSampler GUI front-end application written in C++.</Description>
+            <Description xml:lang="tr">QSampler, LinuxSampler uygulaması için C++ ile yazılmış bir önyüzdür.</Description>
+            <Archive type="targz" sha1sum="a3e5847a50e93310704da8430d3e248c49d9ae49">mirrors://sourceforge/qsampler/qsampler%20%28stable%29/0.2.2/qsampler-0.2.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency versionFrom="0.5.0">linuxsampler</Dependency>
+                <Dependency versionFrom="1.0.0">linuxsampler</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/editor/qsampler/pspec.xml</SourceURI>
         </Source>
@@ -19750,18 +19807,25 @@
             <Name>qsampler</Name>
             <RuntimeDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency versionFrom="0.5.0">linuxsampler</Dependency>
+                <Dependency versionFrom="1.0.0">linuxsampler</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/applications/qsampler.desktop" permission="0644" owner="root">qsampler.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-07</Date>
+                <Version>0.2.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-11-10</Date>
                 <Version>0.1.5</Version>
@@ -30113,7 +30177,7 @@
     <SpecFile>
         <Source>
             <Name>komparator</Name>
-            <Homepage>http://komparator.sourceforge.net</Homepage>
+            <Homepage>http://kde-apps.org/content/show.php?content=116039</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -30121,35 +30185,41 @@
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>util.archive</PartOf>
-            <Summary xml:lang="en">KDE application that searches and synchronizes two directories</Summary>
+            <Summary xml:lang="en">A synchronization tool</Summary>
             <Summary xml:lang="tr">KDE için senkronizasyon uygulaması</Summary>
-            <Description xml:lang="en">Komparator is a KDE application that searches and synchronizes two directories</Description>
+            <Description xml:lang="en">Komparator is a KDE application that searches and synchronizes two directories.</Description>
+            <Description xml:lang="tr">Komparator, iki dizini karşılaştıran ve bu iki dizini eşzamanlayan KDE tabanlı bir senkronizasyon uygulamasıdır.</Description>
             <Icon>komparator</Icon>
-            <Archive type="tarbz2" sha1sum="50abc950baf90acfeed8a25ee530df3d2b17c164">mirrors://sourceforge/komparator/komparator-0.8.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="11eb45034522298a406eb6cb4455ffca62511b0c">http://kde-apps.org/CONTENT/content-files/116039-komparator4-0.1b.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
+                <Dependency versionFrom="4.4.3">kdelibs-devel</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch>tr_desktop.patch</Patch>
-            </Patches>
             <SourceURI>util/archive/komparator/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>komparator</Name>
             <RuntimeDependencies>
                 <Dependency>qt</Dependency>
+                <Dependency versionFrom="4.4.3">kdelibs</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-                <Path fileType="data">/usr/kde/3.5/share/pixmaps</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
+                <Path fileType="executable">/usr/kde/4/bin</Path>
+                <Path fileType="data">/usr/kde/4/share/applications</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/kde/4/share/locale</Path>
+                <Path fileType="doc">/usr/kde/4/share/doc</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-07</Date>
+                <Version>0.1b</Version>
+                <Comment>Bumb to KDE 4 version</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-10-12</Date>
                 <Version>0.8</Version>
@@ -51045,7 +51115,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>torrent</Name>
-            <Homepage>http://www.shiftygames.com/torrent/torrent.html</Homepage>
+            <Homepage>http://www.brothersoft.com/games/sg-torrent.html</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -51053,11 +51123,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>game.arcade</PartOf>
-            <Summary xml:lang="en">Match rising tiles to score as many points as possible before the tiles touch the top of the board</Summary>
-            <Summary xml:lang="tr">Yükselen parçaları eşleştirerek oynanan bir oyun.</Summary>
-            <Description xml:lang="en">Match rising tiles to score as many points as possible before the tiles touch the top of the board</Description>
-            <Description xml:lang="tr">Yükselen parçaları eşleştirerek oynanan bir oyun.</Description>
-            <Archive type="targz" sha1sum="9cd8c6629f38344674c34f67091f3ded5152b287">http://www.shiftygames.com/torrent/torrent-0.8.2.tar.gz</Archive>
+            <Summary xml:lang="en">A matching game</Summary>
+            <Summary xml:lang="tr">Bir eşleştirme oynu</Summary>
+            <Description xml:lang="en">Torrent is a game which you try to match rising tiles to score as many points as possible before the tiles touch the top of the board.</Description>
+            <Description xml:lang="tr">Torrent, yükselen parçaları ekranın en üstüne kadar çıkmadan eşleştirmeye ve olabildiğince çok puan almaya çalıştığınız bir oyundur.</Description>
+            <Archive type="targz" sha1sum="9cd8c6629f38344674c34f67091f3ded5152b287">http://mirror.amdmi3.ru/distfiles/torrent-0.8.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.2.4">libsdl</Dependency>
                 <Dependency versionFrom="1.2">sdl-mixer</Dependency>
@@ -51077,7 +51147,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/man</Path>
+                <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
@@ -51086,6 +51156,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-08</Date>
+                <Version>0.8.2</Version>
+                <Comment>Change homepage and archive link</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-05-04</Date>
                 <Version>0.8.2</Version>
@@ -51114,14 +51191,21 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>app:gui</IsA>
             <PartOf>game.arcade</PartOf>
             <Summary xml:lang="en">Super Mario War</Summary>
-            <Icon>swm</Icon>
-            <Archive type="targz" sha1sum="6feac529df4e1bafe6fa8171ca340dbc026382f3">http://www.alpersomuncu.com/dist/smw-1.7.tar.gz</Archive>
+            <Summary xml:lang="tr">Super Mario War</Summary>
+            <Description xml:lang="en">Super Mario War is a Super Mario multiplayer game. The goal is to stomp as many other Marios as possible to win the game.</Description>
+            <Description xml:lang="tr">Super Mario War, bir Super Mario çoklu oyunudur. Oyundaki amacınız diğer Mario&apos;ları olabildiğince çok ezmektir.</Description>
+            <Icon>smw</Icon>
+            <Archive type="zip" sha1sum="e7a44fde98e3850503232a75178caf7bb285f69d">http://www.fileden.com/files/2007/9/11/1425938/smw-1.7afe-src.zip</Archive>
             <BuildDependencies>
                 <Dependency>xorg-server</Dependency>
                 <Dependency>libsdl</Dependency>
                 <Dependency>sdl-mixer</Dependency>
                 <Dependency>sdl-image</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch>configure.patch</Patch>
+                <Patch>gcc43.patch</Patch>
+            </Patches>
             <SourceURI>game/arcade/smw/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -51134,10 +51218,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share/smw</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/applications/smw.desktop" permission="0644" owner="root">smw.desktop</AdditionalFile>
@@ -51146,6 +51230,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-05-08</Date>
+                <Version>1.7</Version>
+                <Comment>Find a new archive</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2008-01-31</Date>
                 <Version>1.7</Version>
@@ -52452,7 +52543,7 @@ processing unit (GPU) present in modern graphics cards</Description>
     <SpecFile>
         <Source>
             <Name>hangman</Name>
-            <Homepage>http://www.shiftygames.com/hangman/hangman.html</Homepage>
+            <Homepage>http://www.brothersoft.com/games/shiftygames-hangman-for-linux.html</Homepage>
             <Packager>
                 <Name>Pardus</Name>
                 <Email>admins@pardus.org.tr</Email>
@@ -52461,8 +52552,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>app:gui</IsA>
             <PartOf>game.board</PartOf>
             <Summary xml:lang="en">The classic word guessing game</Summary>
-            <Summary xml:lang="tr">Klasik kelime tahmin oyunu.</Summary>
-            <Archive type="targz" sha1sum="70fe78f2c0e4c725895ec68d50cf0d5f96ee9323">http://www.shiftygames.com/hangman/hangman-0.9.2.tar.gz</Archive>
+            <Summary xml:lang="tr">Klasik kelime tahmin oyunu</Summary>
+            <Description xml:lang="en">Hangman is a classic word guessing game.</Description>
+            <Description xml:lang="tr">Hangman, klasik bir kelime tahmin oyunudur.</Description>
+            <Archive type="targz" sha1sum="70fe78f2c0e4c725895ec68d50cf0d5f96ee9323">http://mirror.amdmi3.ru/distfiles/hangman-0.9.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency versionFrom="1.2.4">libsdl</Dependency>
                 <Dependency versionFrom="1.2">sdl-mixer</Dependency>
@@ -52492,6 +52585,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-05-08</Date>
+                <Version>0.9.2</Version>
+                <Comment>Change homepage and archive link</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-05-04</Date>
                 <Version>0.9.2</Version>
