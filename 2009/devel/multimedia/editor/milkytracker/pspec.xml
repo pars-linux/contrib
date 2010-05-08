@@ -4,22 +4,29 @@
 <PISI>
     <Source>
         <Name>milkytracker</Name>
-        <Homepage>http://www.milkytracker.net/</Homepage>
+        <Homepage>http://www.milkytracker.org</Homepage>
         <Packager>
-            <Name>Pardus</Name>
-            <Email>alsaberk@gmail.com</Email>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
         </Packager>
-        <License>GPLv2</License>
+        <License>GPLv3</License>
+        <Icon>milkytracker</Icon>
         <IsA>app:gui</IsA>
-        <Summary>Mod Tracker Music Design</Summary>
-        <Archive sha1sum="abbf3922d6063de770e00410439c7f8570caa63c" 
-type="targz">http://peter.nxbone.net/testing/unix/linux/x86/MilkyTracker_linux_x86_2007_05_20.tgz</Archive>
+        <Summary>FastTracker 2 inspired music tracker</Summary>
+        <Description>MilkyTracker is an music application for creating .MOD and .XM module files. It attempts to recreate the module replay and user experience of the popular DOS program Fasttracker II, with special playback modes available for improved Amiga ProTracker 2/3 compatibility.</Description>
+        <Archive sha1sum="9b58a01e5da9b484308cc2acd2e55b1d8a5949f1" type="tarbz2">http://www.milkytracker.org/files/milkytracker-0.90.85.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>aalib</Dependency>
             <Dependency>libsdl</Dependency>
             <Dependency>libcaca</Dependency>
             <Dependency>DirectFB</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">64bit_freebsd_fix.patch</Patch>
+            <Patch level="1">jack_autoconnect.patch</Patch>
+            <Patch level="1">doc_fix.patch</Patch>
+            <Patch level="1">no_zziplib_dep.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -29,27 +36,35 @@ type="targz">http://peter.nxbone.net/testing/unix/linux/x86/MilkyTracker_linux_x
             <Dependency>libsdl</Dependency>
             <Dependency>libcaca</Dependency>
             <Dependency>DirectFB</Dependency>
-            <Dependency>milkytracker-xi</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="data">/usr/share/applications</Path>
-            <Path fileType="data">/opt</Path>
+            <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/milkytracker</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/milkytracker.desktop">milkytracker.desktop</AdditionalFile>
-            <AdditionalFile owner="root" permission="0755" target="/usr/bin/milkytracker">milkytracker</AdditionalFile>
+            <AdditionalFile owner="root" permission="0644" target="/usr/share/pixmaps/milkytracker.png">milkytracker.png</AdditionalFile>
         </AdditionalFiles>
-   </Package>
+    </Package>
 
-   <History>
-	<Update release="3">
-	    <Date>2007-12-13</Date>
-	    <Version>0.90.60</Version>
-	    <Comment>Version Bump</Comment>
-	    <Name>Rasim AKAR</Name>
-	    <Email>alsaberk@gmail.com</Email>
-	</Update>
+    <History>
+        <Update release="4">
+            <Date>2010-05-08</Date>
+            <Version>0.90.85</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Anıl Özbek</Name>
+            <Email>ozbekanil@gmail.com</Email>
+        </Update>
+        <Update release="3">
+            <Date>2007-12-13</Date>
+            <Version>0.90.60</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Rasim AKAR</Name>
+            <Email>alsaberk@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2006-12-10</Date>
             <Version>0.90.50</Version>
