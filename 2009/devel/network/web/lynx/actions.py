@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="lynx2-8-6"
+WorkDir="lynx2-8-7"
 
 def setup():
     shelltools.export("CFLAGS", "%s -DNCURSES -DNCURSES_MOUSE_VERSION" % get.CFLAGS())
