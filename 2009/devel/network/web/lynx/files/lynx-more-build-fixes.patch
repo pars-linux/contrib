@@ -1,6 +1,6 @@
-diff -Nur lynx2-8-6-orig/makefile.in lynx2-8-6/makefile.in
---- lynx2-8-6-orig/makefile.in	2006-09-03 18:25:39.000000000 -0500
-+++ lynx2-8-6/makefile.in	2008-05-16 23:53:02.000000000 -0500
+diff -Nur makefile.in.orig makefile.in
+--- makefile.in.orig	2006-09-03 18:25:39.000000000 -0500
++++ makefile.in	2008-05-16 23:53:02.000000000 -0500
 @@ -159,12 +159,12 @@
  
  all lynx$x: cfg_defs.h LYHelp.h
@@ -82,9 +82,9 @@ diff -Nur lynx2-8-6-orig/makefile.in lynx2-8-6/makefile.in
  	-rm -f $(BINDIR)/lynx$x
  	-rm -f $(MANDIR)/lynx.1
  	-rm -f $(SYSCONFDIR)/lynx.cfg
-diff -Nur lynx2-8-6-orig/src/makefile.in lynx2-8-6/src/makefile.in
---- lynx2-8-6-orig/src/makefile.in	2008-05-16 23:26:20.000000000 -0500
-+++ lynx2-8-6/src/makefile.in	2008-05-17 00:20:31.000000000 -0500
+diff -Nur src/makefile.in.orig src/makefile.in
+--- src/makefile.in.orig	2008-05-16 23:26:20.000000000 -0500
++++ src/makefile.in	2008-05-17 00:20:31.000000000 -0500
 @@ -195,7 +195,7 @@
  	UCdomap.h $(CMN)UCMap.h $(TABLES) $(top_srcdir)/userdefs.h
  
@@ -92,5 +92,4 @@ diff -Nur lynx2-8-6-orig/src/makefile.in lynx2-8-6/src/makefile.in
 -	$(MAKE) -C chrtrans makeuctb$(BUILD_EXEEXT)
 +	-$(MAKE) -C chrtrans makeuctb$(BUILD_EXEEXT)
  
- UCAux$o : UCAux.c $(CMN)UCAux.h $(CMN)UCDefs.h
- LYCookie$o : $(top_srcdir)/userdefs.h
+ UCAux$o : UCAux.c $(CMN)UCAux.h $(CMN)UCCookie$o : $(top_srcdir)/userdefs.h
