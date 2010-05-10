@@ -30,10 +30,9 @@
             <Dependency>jpeg</Dependency>
             <Dependency>tiff</Dependency>
             <Dependency>intltool</Dependency>
-            <!--
-            <Dependency>scrollkeeper</Dependency>
-            -->
+            <Dependency>rarian</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
+            <Dependency versionFrom="1.1.2">libunique</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -41,37 +40,41 @@
         <Name>gthumb</Name>
         <RuntimeDependencies>
             <Dependency>gtk2</Dependency>
-            <Dependency>libxml2</Dependency>
-            <Dependency>libgnome</Dependency>
-            <Dependency>libgnomeui</Dependency>
-            <Dependency>libgnomecanvas</Dependency>
-            <Dependency>gnome-vfs</Dependency>
-            <Dependency>libglade2</Dependency>
-            <Dependency>libgnomeprint</Dependency>
-            <Dependency>libgnomeprintui</Dependency>
-            <Dependency>libbonobo</Dependency>
-            <Dependency>libbonoboui</Dependency>
+            <Dependency>cairo</Dependency>
+            <Dependency>exiv2</Dependency>
             <Dependency>gconf</Dependency>
-            <Dependency>libexif</Dependency>
-            <Dependency>libgphoto2</Dependency>
-            <Dependency>jpeg</Dependency>
-            <Dependency>tiff</Dependency>
-            <Dependency>intltool</Dependency>
-            <Dependency>scrollkeeper</Dependency>
+            <Dependency>gst-plugins-base</Dependency>
+            <Dependency>gstreamer</Dependency>
+            <Dependency>gtk2</Dependency>
+            <Dependency>libsoup</Dependency>
+            <Dependency versionFrom="1.1.2">libunique</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="executable">/usr/libexec</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="localedata">/usr/share/locale</Path>
             <Path fileType="man">/usr/share/man</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/gnome</Path>
+            <Path fileType="data">/usr/share/gthumb</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="data">/usr/share/omf</Path>
         </Files>
         <Provides>
             <COMAR script="package.py">System.Package</COMAR>
         </Provides>
+    </Package>
+
+    <Package>
+        <Name>gthumb-lib</Name>
+        <RuntimeDependencies>
+            <Dependency releaseFrom="11">gthumb</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
     </Package>
 
     <History>
@@ -81,6 +84,7 @@
             <Comment>
                 * Version bump.
                 * Take over.
+                * gthumb-lib
             </Comment>
             <Name>Aşkın Yollu</Name>
             <Email>askin@askin.ws</Email>
