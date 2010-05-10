@@ -11,7 +11,8 @@ def setup():
     autotools.configure("--enable-static=no \
                          --disable-scrollkeeper \
                          --disable-gtkunique \
-                         --disable-libopenraw")
+                         --disable-libopenraw \
+                         --disable-schemas-install")
 
 def build():
     autotools.make()
@@ -22,4 +23,4 @@ def install():
     # conflict
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
-    pisitools.dodoc("README", "TODO", "NEWS", "ChangeLog", "MAINTAINERS", "AUTHORS")
+    pisitools.dodoc("README", "NEWS", "ChangeLog", "MAINTAINERS", "AUTHORS")
