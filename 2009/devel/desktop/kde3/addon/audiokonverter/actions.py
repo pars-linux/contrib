@@ -7,11 +7,13 @@
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-def install():
-    pisitools.insinto("/usr/bin", "anytowav")
-    pisitools.insinto("/usr/bin", "audioconvert")
-    pisitools.insinto("/usr/bin", "movie2sound")
-    pisitools.insinto("/usr/bin", "oggdrop-lx")
-    pisitools.insinto("%s/share/apps/konqueror/servicemenus" % get.kdeDIR(), "*.desktop")
+WorkDir = "audiokonverter-%s" % get.srcVERSION()
 
-    pisitools.dodoc("ChangeLog", "COPYING", "README")
+def install():
+    pisitools.dobin("anytowav4")
+    pisitools.dobin("audioconvert4")
+    pisitools.dobin("movie2sound4")
+    pisitools.dobin("oggdrop-lx")
+    pisitools.insinto("/usr/kde/4/share/kde4/services/ServiceMenus", "*4.desktop")
+    pisitools.insinto("/usr/kde/4/share/kde4/services/ServiceMenus", "Oggdrop-Lx.desktop")
+    pisitools.dodoc("Changelog", "COPYING", "README", "TODO")
