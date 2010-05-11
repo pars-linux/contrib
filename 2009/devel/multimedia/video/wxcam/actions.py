@@ -10,6 +10,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import get
 
 def setup():
+    autotools.autoreconf("-vif")
     autotools.configure("--with-wx-config=/usr/bin/wx-config \
                          --disable-static")
 
@@ -21,4 +22,4 @@ def install():
 
     pisitools.removeDir("/usr/doc")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
+    pisitools.dodoc("COPYING")

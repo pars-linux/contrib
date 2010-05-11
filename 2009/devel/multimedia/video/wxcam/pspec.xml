@@ -5,20 +5,21 @@
         <Name>wxcam</Name>
         <Homepage>http://wxcam.sourceforge.net/</Homepage>
         <Packager>
-            <Name>Pardus</Name>
-            <Email>admins@pardus.org.tr</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
         </Packager>
         <License>GPLv2</License>
         <Icon>wxcam</Icon>
         <IsA>app:gui</IsA>
         <Summary>A webcam application for linux</Summary>
         <Description>wxcam supports video recording (in an avi uncompressed and Xvid format) and snapshot taking for webcams</Description>
-        <Archive sha1sum="c93f8907b362243c568c2911ffd8c6176cb37cc1" type="tarbz2">http://knec.org/dist/wxcam-1.0.2.tar.bz2</Archive>
+        <Archive sha1sum="3b9477b6658765d2fc607358e25d1a238e1b4bd6" type="tarbz2">mirrors://sourceforge/wxcam/wxcam-1.0.5.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xvid</Dependency>
             <Dependency>revel</Dependency>
             <Dependency>wxGTK-devel</Dependency>
             <Dependency>mjpegtools</Dependency>
+            <Dependency>CImg</Dependency>
         </BuildDependencies>
     </Source>
 
@@ -29,6 +30,7 @@
             <Dependency>revel</Dependency>
             <Dependency>wxGTK</Dependency>
             <Dependency>mjpegtools</Dependency>
+            <Dependency>CImg</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -42,6 +44,13 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-05-11</Date>
+            <Version>1.0.5</Version>
+            <Comment>Version bump to latest version, add missing CImg dependency. translations.xml added.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="7">
             <Date>2008-08-12</Date>
             <Version>1.0.2</Version>
