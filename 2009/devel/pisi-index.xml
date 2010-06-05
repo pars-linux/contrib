@@ -9121,13 +9121,13 @@
             <Description xml:lang="en">Midori is a lightweight GTK+ web browser based on WebkitGtk. It features tabs, windows and session management, bookmarks stored with XBEL, searchbox based on OpenSearch, and user script support.</Description>
             <Description xml:lang="tr">Midori, WebkitGtk tarayıcı motorunu kullanan, hafif bir GTK+ tabanlı internet tarayıcısıdır. Birçok internet tarayıcısında olduğu gibi, Midori de sekmeleri, pencereleri ve oturum yöneticisini; XBEL ile sık kullanılanları kaydetmeyi, OpenSearch tabanlı arama kutusunu ve kullanıcı betiklerini kullanma gibi özellikleri desteklemektedir.</Description>
             <Icon>midori</Icon>
-            <Archive type="tarbz2" sha1sum="053718ef0c907d5fb905d3cd71b053460a9b1927">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="c70f6d75e2ea2947dcf05201192b9405bb4036f4">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.6.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>libsoup</Dependency>
-                <Dependency>webkit-gtk-devel</Dependency>
+                <Dependency versionFrom="1.2.1">webkit-gtk-devel</Dependency>
                 <Dependency>docutils</Dependency>
                 <Dependency>gtk-doc</Dependency>
             </BuildDependencies>
@@ -9144,7 +9144,7 @@
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
                 <Dependency>libsoup</Dependency>
-                <Dependency>webkit-gtk</Dependency>
+                <Dependency versionFrom="1.2.1">webkit-gtk</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -9158,6 +9158,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2010-06-04</Date>
+                <Version>0.2.6</Version>
+                <Comment>* Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2010-01-10</Date>
                 <Version>0.2.2</Version>
