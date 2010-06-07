@@ -12,27 +12,23 @@
         <IsA>app:gui</IsA>
         <Summary>Enlightenment Desktop Shell</Summary>
         <Description>Enlightenment is a window manager for the X Window System that is designed to be powerful, extensible, configurable and pretty darned good looking! It is one of the more graphically intense window managers.</Description>
-        <Archive sha1sum="471ebc257f23fee4d9f317e17783391ed27c0188" type="tarbz2">ftp://ftp.sudrap.org/igungor/src/e/20100215/e-0.16.999.063_20100215.tar.bz2</Archive>
+        <Archive sha1sum="976f142348ae10d9568f4c5c2efef7d31054039c" type="tarbz2">http://download.enlightenment.org/snapshots/2010-06-07/enlightenment-0.16.999.49539.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
-            <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
-            <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
-            <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
-            <Dependency versionFrom="0.9.93.063_20100215">edje</Dependency>
-            <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
-            <Dependency versionFrom="0.5.0.063_20100215">efreet</Dependency>
-            <Dependency versionFrom="0.5.0.063_20100215">e_dbus</Dependency>
+            <Dependency versionFrom="0.9.9.49539">eina</Dependency>
+            <Dependency versionFrom="1.3.0">eet</Dependency>
+            <Dependency versionFrom="0.9.9.49539">evas</Dependency>
+            <Dependency versionFrom="0.9.9.49539">ecore</Dependency>
+            <Dependency versionFrom="0.9.9.49539">edje</Dependency>
+            <Dependency versionFrom="0.9.9.49539">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.49539">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.49539">e_dbus</Dependency>
+            <Dependency>libXext</Dependency>
             <!--mixer module's dependency-->
             <Dependency>alsa-lib</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">fileman-default.patch</Patch>
-            <Patch level="1">e-config.patch</Patch>
-            <Patch level="1">translate_minimal_profile.patch</Patch>
-            <Patch level="1">translate_standard_profile.patch</Patch>
-            <Patch level="1">translate_scaleable_profile.patch</Patch>
-            <Patch level="1">translate_netbook_profile.patch</Patch>
-            <Patch level="1">tr.diff</Patch>
+            <!--<Patch level="1">e-config.patch</Patch>-->
             <Patch level="1">wizard.patch</Patch>
             <Patch level="1">no-desktop-file.patch</Patch>
         </Patches>
@@ -41,14 +37,15 @@
     <Package>
         <Name>enlightenment</Name>
         <RuntimeDependencies>
-            <Dependency versionFrom="0.9.9.063_20100215">eina</Dependency>
-            <Dependency versionFrom="1.2.3_20100215">eet</Dependency>
-            <Dependency versionFrom="0.9.9.063_20100215">evas</Dependency>
-            <Dependency versionFrom="0.9.9.063_20100215">ecore</Dependency>
-            <Dependency versionFrom="0.9.93.063_20100215">edje</Dependency>
-            <Dependency versionFrom="0.9.9.063_20100215">embryo</Dependency>
-            <Dependency versionFrom="0.5.0.063_20100215">efreet</Dependency>
-            <Dependency versionFrom="0.5.0.063_20100215">e_dbus</Dependency>
+            <Dependency versionFrom="0.9.9.49539">eina</Dependency>
+            <Dependency versionFrom="1.3.0">eet</Dependency>
+            <Dependency versionFrom="0.9.9.49539">evas</Dependency>
+            <Dependency versionFrom="0.9.9.49539">ecore</Dependency>
+            <Dependency versionFrom="0.9.9.49539">edje</Dependency>
+            <Dependency versionFrom="0.9.9.49539">embryo</Dependency>
+            <Dependency versionFrom="0.5.0.49539">efreet</Dependency>
+            <Dependency versionFrom="0.5.0.49539">e_dbus</Dependency>
+            <Dependency>libXext</Dependency>
             <!--mixer module's dependency-->
             <Dependency>alsa-lib</Dependency>
         </RuntimeDependencies>
@@ -71,26 +68,33 @@
     </Package>
 
     <History>
+        <Update release="16">
+            <Date>2010-06-07</Date>
+            <Version>0.16.999.49539</Version>
+            <Comment>New snapshot.</Comment>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
         <Update release="15">
             <Date>2010-02-17</Date>
             <Version>0.16.999.063_20100215</Version>
             <Comment>New snapshot.</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="14">
             <Date>2009-08-04</Date>
             <Version>0.16.999.062</Version>
             <Comment>Change default sysactions.</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="13">
             <Date>2009-07-30</Date>
             <Version>0.16.999.062</Version>
             <Comment>New snapshot.</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="12">
             <Date>2009-06-24</Date>
@@ -103,35 +107,35 @@
                 * Update Turkish translation.
             </Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="11">
             <Date>2009-04-04</Date>
             <Version>0.16.999.050_20090404</Version>
             <Comment>New snapshot</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="10">
             <Date>2009-01-22</Date>
             <Version>0.16.999.050_20090319</Version>
             <Comment>Bump to latest snapshot</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="9">
             <Date>2008-11-26</Date>
             <Version>0.0_20081126</Version>
             <Comment>Bump to latest snapshot</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="8">
             <Date>2008-11-22</Date>
             <Version>0.16.999.043</Version>
             <Comment>Minor fixes.</Comment>
             <Name>H. İbrahim Güngör</Name>
-            <Email>h.ibrahim.gungor@gmail.com</Email>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Update>
         <Update release="7">
             <Date>2008-05-20</Date>
