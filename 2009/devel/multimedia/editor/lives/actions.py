@@ -12,7 +12,7 @@ from pisi.actionsapi import get
 def setup():
     shelltools.export("AUTOPOINT", "/bin/true")
     autotools.autoreconf("-fiv")
-    
+
     autotools.configure("--disable-static\
                          --disable-rpath \
                          --enable-nls")
