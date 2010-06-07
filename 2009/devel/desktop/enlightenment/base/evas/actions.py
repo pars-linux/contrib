@@ -18,9 +18,15 @@ def setup():
                          --enable-buffer \
                          --enable-software-xlib \
                          --enable-xrender-x11 \
-                         --enable-gl-x11 \
+                         --enable-pthreads \
+                         --enable-pipe-render \
+                         --enable-async-render \
+                         --enable-async-events \
+                         --enable-async-preload \
                          --with-x \
                          --disable-static")
+
+
 
 def build():
     autotools.make()
