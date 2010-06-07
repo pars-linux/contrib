@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="HTML_Template_Flexy-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/HTML/Template", "Flexy*")
+    pisitools.insinto("/usr/share/php5/PEAR/HTML/Template", "HTML/Template/Flexy*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/HTML_Template_Flexy", "tests/*")
