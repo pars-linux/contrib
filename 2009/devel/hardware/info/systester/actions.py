@@ -17,7 +17,6 @@ def build():
     autotools.make()
 
 def install():
-    # autotools.rawInstall("DESTDIR=%s" % get.installDIR())
     pisitools.dobin("systester")
     pisitools.insinto("/usr/share/systester/data", "images/*.png")
     pisitools.insinto("/usr/share/pixmaps", "images/generic.png", "systester.png")
