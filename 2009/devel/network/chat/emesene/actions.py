@@ -10,7 +10,7 @@ from pisi.actionsapi import get
 
 share = "/usr/share/emesene"
 remove_dirs = ["misc", "libmimic"]
-remove_files = ["setup.py", "PKG-INFO"]
+remove_files = ["setup.py"]
 move_files = ["LGPL", "PSF", "COPYING", "GPL", "README"]
 
 def build():
