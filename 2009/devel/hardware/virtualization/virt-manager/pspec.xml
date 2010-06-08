@@ -13,7 +13,7 @@
         <IsA>app:gui</IsA>
         <Summary>Graphical tool for administering virtual machines for KVM, Xen, and QEmu</Summary>
         <Description>Virtual Machine Manager provides a graphical tool for administering virtual machines for KVM, Xen, and QEmu. Start, stop, add or remove virtual devices, connect to a graphical or serial console, and see resource usage statistics for existing VMs on local or remote machines. Uses libvirt as the backend management API.</Description>
-        <Archive type="targz" sha1sum="3c1f233ea55bd79a5c818547a4bf2ea2fb566fa1">http://virt-manager.et.redhat.com/download/sources/virt-manager/virt-manager-0.8.0.tar.gz</Archive>
+        <Archive type="targz" sha1sum="cdc8e65c84164c28ac5027c3bba46a3cd7531e96">http://virt-manager.et.redhat.com/download/sources/virt-manager/virt-manager-0.8.4.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>gnome-python</Dependency>
@@ -38,6 +38,7 @@
             <Dependency>rarian</Dependency>
             <Dependency>gtk-vnc</Dependency>
             <Dependency>cairo</Dependency>
+            <Dependency>x11-ssh-askpass</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
@@ -56,6 +57,13 @@
         </AdditionalFiles>
     </Package>
     <History>
+        <Update release="2">
+            <Date>2010-06-09</Date>
+            <Version>0.8.4</Version>
+            <Comment>Version Bump</Comment>
+            <Name>Emre Erenoglu</Name>
+            <Email>paketci@erenoglu.com</Email>
+        </Update>
         <Update release="1">
             <Date>2009-08-19</Date>
             <Version>0.8.0</Version>
