@@ -20,8 +20,8 @@ def install():
 
     pisitools.dobin("playonlinux/playonlinux")
 
-    pisitools.domo("playonlinux/lang/po/tr.po", "tr", "pol.mo")
+#    pisitools.domo("playonlinux/lang/po/tr.po", "tr", "pol.mo")
 
-    pisitools.domove("usr/share/locale/tr/LC_MESSAGES", "/usr/share/playonlinux/lang/locale/tr")
+#    pisitools.domove("usr/share/locale/tr/LC_MESSAGES", "/usr/share/playonlinux/lang/locale/tr")
 
     pisitools.dodoc("playonlinux/LICENCE", "playonlinux/CHANGELOG")
