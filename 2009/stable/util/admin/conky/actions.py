@@ -40,3 +40,6 @@ def install():
 
     pisitools.dohtml("doc/*.html")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
+
+    # delete empty directory
+    pisitools.removeDir("/usr/lib")
