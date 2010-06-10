@@ -2535,6 +2535,7 @@
                 <Dependency versionFrom="0.5.0.49539">e_dbus</Dependency>
                 <Dependency>libXext</Dependency>
                 <Dependency>alsa-lib</Dependency>
+                <Dependency>xterm</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc</Path>
@@ -14249,8 +14250,8 @@
             <Name>audacious</Name>
             <Homepage>http://audacious-media-player.org</Homepage>
             <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
+                <Name>Renan Çakırerk</Name>
+                <Email>renan@pardus.org.tr</Email>
             </Packager>
             <License>GPLv3</License>
             <IsA>app:gui</IsA>
@@ -14260,7 +14261,7 @@
             <Description xml:lang="en">Audacious is a media player based on the BMP music playing application. Its primary goals are usability and usage of current desktop standards.</Description>
             <Description xml:lang="tr">Beep-media-player benzeri bir çoklu ortam oynatıcısı</Description>
             <Icon>audacious</Icon>
-            <Archive type="targz" sha1sum="7b946830028f0d8a985107974094cd91b12b0259">http://distfiles.atheme.org/audacious-2.2.tgz</Archive>
+            <Archive type="targz" sha1sum="a7041650c54b6db68d0f3b3cf68f61fc7f841f34">http://distfiles.atheme.org/audacious-2.3.tgz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
                 <Dependency>kdelibs</Dependency>
@@ -14271,9 +14272,6 @@
                 <Dependency>libglade</Dependency>
                 <Dependency>libsamplerate</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">audacious.desktop.patch</Patch>
-            </Patches>
             <SourceURI>multimedia/sound/audacious/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -14299,8 +14297,8 @@
         <Package>
             <Name>audacious</Name>
             <RuntimeDependencies>
-                <Dependency version="2.2">libaudacious</Dependency>
-                <Dependency version="2.2">audacious-plugins</Dependency>
+                <Dependency version="2.3">libaudacious</Dependency>
+                <Dependency version="2.3">audacious-plugins</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -14313,6 +14311,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="24">
+                <Date>2010-06-09</Date>
+                <Version>2.3</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Renan Çakırerk</Name>
+                <Email>renan@pardus.org.tr</Email>
+            </Update>
             <Update release="23">
                 <Date>2009-12-24</Date>
                 <Version>2.2</Version>
@@ -16388,8 +16393,8 @@
             <Name>audacious-plugins</Name>
             <Homepage>http://audacious-media-player.org</Homepage>
             <Packager>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
+                <Name>Renan Çakırerk</Name>
+                <Email>renan@pardus.org.tr</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>library</IsA>
@@ -16398,9 +16403,9 @@
             <Summary xml:lang="tr">Audacious için eklentiler</Summary>
             <Description xml:lang="en">Plugins for Audacious</Description>
             <Description xml:lang="tr">Audacious için eklentiler</Description>
-            <Archive type="targz" sha1sum="f70ef19d397a7d72c00ee9a5c18ae4242e6e412b">http://distfiles.atheme.org/audacious-plugins-2.2.tgz</Archive>
+            <Archive type="targz" sha1sum="1e18e2f3a070a23e58b8f91f2923ef7d9bbaf153">http://distfiles.atheme.org/audacious-plugins-2.3.tgz</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="2.2">libaudacious</Dependency>
+                <Dependency versionFrom="2.3">libaudacious</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>libmowgli</Dependency>
@@ -16431,16 +16436,12 @@
                 <Dependency>gtkglext</Dependency>
                 <Dependency>lirc</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">fix-linking.patch</Patch>
-                <Patch level="1">format-strings.patch</Patch>
-            </Patches>
             <SourceURI>multimedia/sound/audacious-plugins/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>audacious-plugins</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="2.2">libaudacious</Dependency>
+                <Dependency versionFrom="2.3">libaudacious</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>libmowgli</Dependency>
@@ -16480,6 +16481,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="28">
+                <Date>2010-06-09</Date>
+                <Version>2.3</Version>
+                <Comment>Stable bump</Comment>
+                <Name>Renan Çakırerk</Name>
+                <Email>renan@pardus.org.tr</Email>
+            </Update>
             <Update release="27">
                 <Date>2009-12-24</Date>
                 <Version>2.2</Version>
@@ -16847,8 +16855,8 @@
             <Name>sonata</Name>
             <Homepage>http://sonata.berlios.de</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
             </Packager>
             <License>GPLv3</License>
             <IsA>app:gui</IsA>
@@ -20353,6 +20361,8 @@
                 <Dependency versionFrom="0.10.10">gst-ffmpeg</Dependency>
                 <Dependency>pywebkitgtk</Dependency>
                 <Dependency>webkit-gtk</Dependency>
+                <Dependency>gnome-python</Dependency>
+                <Dependency>gnome-python-extras</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -20369,6 +20379,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2010-06-10</Date>
+                <Version>3.0.2</Version>
+                <Comment>Add missed dependency gnome-python and gnome-python-extras.Fix for #13437</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2010-05-25</Date>
                 <Version>3.0.2</Version>
@@ -35010,11 +35027,10 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft&apos;s Windows.</Description>
             <Description xml:lang="tr">PlayOnLinux, Microsoft&apos;s Windows için hazırlanan çok sayıdaki oyunu ve uygulamayı Linux&apos;ta kullanmanıza olanak sağlayan bir uygulamadır.</Description>
             <Icon>PlayOnLinux</Icon>
-            <Archive type="targz" sha1sum="0e2b433ae1f1c657b54c1c848e2d067356fe3ff4">http://www.playonlinux.com/script_files/PlayOnLinux/3.7.2/PlayOnLinux_3.7.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="888e81c3d56838181d927b2ff2955b87fa1ee9da">http://www.playonlinux.com/script_files/PlayOnLinux/3.7.6/PlayOnLinux_3.7.6.tar.gz</Archive>
             <Patches>
                 <Patch>bin_path.patch</Patch>
                 <Patch>konsole.patch</Patch>
-                <Patch>turkish.patch</Patch>
             </Patches>
             <SourceURI>hardware/emulator/playonlinux/pspec.xml</SourceURI>
         </Source>
@@ -35041,6 +35057,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2010-06-09</Date>
+                <Version>3.7.6</Version>
+                <Comment>Stable update.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>denizutkan@lanetlidiyarlar.com</Email>
+            </Update>
             <Update release="14">
                 <Date>2010-01-16</Date>
                 <Version>3.7.2</Version>
