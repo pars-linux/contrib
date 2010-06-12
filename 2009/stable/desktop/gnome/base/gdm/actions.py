@@ -33,6 +33,7 @@ def install():
     pisitools.removeDir("/usr/share/xsessions")
 
     pisitools.remove("/etc/X11/gdm/Xsession")
+    pisitools.removeDir("/etc/X11/dm")
     pisitools.dosym("/usr/lib/X11/xinit/Xsession", "/etc/X11/gdm/Xsession")
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README")
