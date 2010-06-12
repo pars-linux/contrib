@@ -1,16 +1,16 @@
-diff -Naur idjc-0.7.10.orig/idjcpython/Makefile.in idjc-0.7.10/idjcpython/Makefile.in
---- idjc-0.7.10.orig/idjcpython/Makefile.in	2008-09-27 21:30:50.000000000 +0300
-+++ idjc-0.7.10/idjcpython/Makefile.in	2008-09-28 19:48:56.000000000 +0300
-@@ -56,7 +56,7 @@
- 	"$(DESTDIR)$(pkgdatadir)"
+diff -Naur idjc-0.8.2.orig/idjcpython/Makefile.in idjc-0.8.2/idjcpython/Makefile.in
+--- idjc-0.8.2.orig/idjcpython/Makefile.in	2010-06-12 14:30:32.589314344 +0300
++++ idjc-0.8.2/idjcpython/Makefile.in	2010-06-12 14:34:02.700189364 +0300
+@@ -54,7 +54,7 @@
+ am__installdirs = "$(DESTDIR)$(pkgpythondir)" "$(DESTDIR)$(pythondir)"
  pkgpythonPYTHON_INSTALL = $(INSTALL_DATA)
  pythonPYTHON_INSTALL = $(INSTALL_DATA)
 -py_compile = $(top_srcdir)/py-compile
 +# py_compile = $(top_srcdir)/py-compile
- dist_pkgdataDATA_INSTALL = $(INSTALL_DATA)
- DATA = $(dist_pkgdata_DATA)
  DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-@@ -238,13 +238,13 @@
+ ACLOCAL = @ACLOCAL@
+ AMDEP_FALSE = @AMDEP_FALSE@
+@@ -233,13 +233,13 @@
  	    $(pkgpythonPYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(pkgpythondir)/$$f"; \
  	  else :; fi; \
  	done; \
@@ -31,7 +31,7 @@ diff -Naur idjc-0.7.10.orig/idjcpython/Makefile.in idjc-0.7.10/idjcpython/Makefi
  
  uninstall-pkgpythonPYTHON:
  	@$(NORMAL_UNINSTALL)
-@@ -266,13 +266,13 @@
+@@ -261,13 +261,13 @@
  	    $(pythonPYTHON_INSTALL) "$$b$$p" "$(DESTDIR)$(pythondir)/$$f"; \
  	  else :; fi; \
  	done; \
