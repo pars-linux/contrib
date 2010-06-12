@@ -13,22 +13,21 @@
         <IsA>app:gui</IsA>
         <Summary>A small utility which allows the copy of DVD on Linux</Summary>
         <Description>k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
-        <Archive sha1sum="c8cec2850a28e01baade78076494ecc7dfe626a9" type="targz">mirrors://sourceforge/k9copy/k9copy-2.3.4-Source.tar.gz</Archive>
+        <Archive sha1sum="9ca21db87120fe9ad5a424c8a42aebf499497563" type="targz">mirrors://sourceforge/k9copy/k9copy-2.3.5-Source.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>ffmpeg</Dependency>
             <Dependency>automoc4</Dependency>
-            <Dependency>kdelibs-devel</Dependency>
+            <Dependency versionFrom="4.4.4">kdelibs-devel</Dependency>
             <Dependency>vamps</Dependency>
             <Dependency>dvd+rw-tools</Dependency>
             <Dependency>mplayer</Dependency>
             <Dependency>xine-lib</Dependency>
             <Dependency>libmpeg2</Dependency>
-            <Dependency>qt</Dependency>
+            <Dependency versionFrom="4.6.2">qt-devel</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">desktop_tr.patch</Patch>
             <Patch level="1">gcc43.patch</Patch>
-            <Patch level="1">svn-r493.diff</Patch>
         </Patches>
     </Source>
 
@@ -36,7 +35,7 @@
         <Name>k9copy</Name>
         <RuntimeDependencies>
             <Dependency>ffmpeg</Dependency>
-            <Dependency>kdelibs</Dependency>
+            <Dependency versionFrom="4.4.4">kdelibs</Dependency>
             <Dependency>vamps</Dependency>
             <Dependency>dvd+rw-tools</Dependency>
             <Dependency>mplayer</Dependency>
@@ -44,7 +43,7 @@
             <Dependency>phonon</Dependency>
             <Dependency>xine-lib</Dependency>
             <Dependency>libmpeg2</Dependency>
-            <Dependency>qt</Dependency>
+            <Dependency versionFrom="4.6.2">qt</Dependency>
         </RuntimeDependencies>
         <Conflicts>
             <Package>k9copy-kde4</Package>
@@ -64,6 +63,13 @@
     </Package>
 
     <History>
+        <Update release="18">
+            <Date>2010-10-12</Date>
+            <Version>2.3.5</Version>
+            <Comment>Bump to latest stable, drop redundant patch, add strict dependencies to new KDE/Qt</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+        </Update>
         <Update release="17">
             <Date>2009-12-26</Date>
             <Version>2.3.4</Version>
