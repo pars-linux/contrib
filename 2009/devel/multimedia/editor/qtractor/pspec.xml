@@ -13,9 +13,9 @@
         <IsA>app:gui</IsA>
         <Summary>An Audio/MIDI multi-track sequencer application</Summary>
         <Description>Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
-        <Archive sha1sum="0bc483768b996487692d29891863fd011d244b99" type="targz">mirrors://sourceforge/qtractor/qtractor-0.4.5.tar.gz</Archive>
+        <Archive sha1sum="93dfb2b4852bde5adc6ddd5366635bfb8939d122" type="targz">mirrors://sourceforge/qtractor/qtractor-0.4.6.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>qt</Dependency>
+            <Dependency versionFrom="4.6.2">qt-devel</Dependency>
             <Dependency>jack-audio-connection-kit</Dependency>
             <Dependency>alsa-lib</Dependency>
             <Dependency>libsndfile</Dependency>
@@ -35,7 +35,7 @@
     <Package>
         <Name>qtractor</Name>
         <RuntimeDependencies>
-            <Dependency>qt</Dependency>
+            <Dependency versionFrom="4.6.2">qt</Dependency>
             <Dependency>jack-audio-connection-kit</Dependency>
             <Dependency>alsa-lib</Dependency>
             <Dependency>libsndfile</Dependency>
@@ -49,13 +49,21 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="data">/usr/share/pixmaps</Path>
+            <Path fileType="data">/usr/share/icons</Path>
             <Path fileType="data">/usr/share/applications</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+       <Update release="9">
+            <Date>2010-06-12</Date>
+            <Version>0.4.6</Version>
+            <Comment>Bump to latest stable with lots of improvements and bug fixes, add strict dependency to Qt 4.6</Comment>
+            <Name>Mehmet Nur Olcay</Name>
+            <Email>mnurolcay@gmail.com</Email>
+       </Update>
        <Update release="8">
             <Date>2010-02-24</Date>
             <Version>0.4.5</Version>
