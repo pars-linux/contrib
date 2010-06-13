@@ -4048,6 +4048,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-06-11</Date>
+                <Version>2.20.10</Version>
+                <Comment>remove empty /etc/X11/dm directory</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-08-06</Date>
                 <Version>2.20.10</Version>
@@ -18346,9 +18353,9 @@
             <Description xml:lang="en">Qtractor is an audio/MIDI multi-track sequencer application written in C++ with the Qt4 framework.</Description>
             <Description xml:lang="tr">Qtractor, Qt4 çatısı ile C++ kullanılarak yazılmış çok kanallı bir Ses/MIDI kayıt ve düzenleme yazılımıdır.</Description>
             <Icon>qtractor</Icon>
-            <Archive type="targz" sha1sum="0bc483768b996487692d29891863fd011d244b99">mirrors://sourceforge/qtractor/qtractor-0.4.5.tar.gz</Archive>
+            <Archive type="targz" sha1sum="93dfb2b4852bde5adc6ddd5366635bfb8939d122">mirrors://sourceforge/qtractor/qtractor-0.4.6.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>qt</Dependency>
+                <Dependency versionFrom="4.6.2">qt-devel</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
                 <Dependency>alsa-lib</Dependency>
                 <Dependency>libsndfile</Dependency>
@@ -18368,7 +18375,7 @@
         <Package>
             <Name>qtractor</Name>
             <RuntimeDependencies>
-                <Dependency>qt</Dependency>
+                <Dependency versionFrom="4.6.2">qt</Dependency>
                 <Dependency>jack-audio-connection-kit</Dependency>
                 <Dependency>alsa-lib</Dependency>
                 <Dependency>libsndfile</Dependency>
@@ -18382,12 +18389,20 @@
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
+                <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-06-12</Date>
+                <Version>0.4.6</Version>
+                <Comment>Bump to latest stable with lots of improvements and bug fixes, add strict dependency to Qt 4.6</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2010-02-24</Date>
                 <Version>0.4.5</Version>
@@ -19392,7 +19407,7 @@
                 <Name>Mehmet Nur Olcay</Name>
                 <Email>mnurolcay@gmail.com</Email>
             </Packager>
-            <License>GPLv3</License>
+            <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.stream</PartOf>
             <Summary xml:lang="en">An Internet radio application for making a live radio show</Summary>
@@ -19400,7 +19415,7 @@
             <Description xml:lang="en">Internet DJ Console is a graphical shoutcast and icecast client that runs under GTK+ and the JACK audio connection kit. In short, it&apos;s an Internet radio app for making a live radio show.</Description>
             <Description xml:lang="tr">Internet DJ Console, JACK ses sunucusu kullanan, shoutcast ve icecast destekli bir GTK+ uygulamasıdır. İnternet üzerinden canlı radyo yayınları yapmanızı sağlar.</Description>
             <Icon>idjc</Icon>
-            <Archive type="targz" sha1sum="f86b124a052127ce4d1aefa7db5a1c1e86b08428">mirrors://sourceforge/idjc/idjc-0.8.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="47c17e1d1d0d1b59c3b9586def3f018f1eafe9ae">mirrors://sourceforge/idjc/idjc-0.8.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>libvorbis</Dependency>
@@ -19420,7 +19435,6 @@
             <Patches>
                 <Patch level="1">desktop.patch</Patch>
                 <Patch level="1">no-compiled-py.patch</Patch>
-                <Patch level="1">no_NL.patch</Patch>
                 <Patch level="1">python26_ready.patch</Patch>
                 <Patch>server_window_size.patch</Patch>
             </Patches>
@@ -19456,6 +19470,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2010-10-12</Date>
+                <Version>0.8.2</Version>
+                <Comment>Bump to latest stable, license is GPLv2 again, drop upstreamed patch</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="14">
                 <Date>2009-12-29</Date>
                 <Version>0.8.1</Version>
@@ -23675,7 +23696,7 @@
             <Description xml:lang="en">Kicad is an open source (GPL) software for the creation of electronic schematic diagrams and printed circuit board artwork.</Description>
             <Description xml:lang="tr">Kicad, elektronik şema diagramları hazırlamak ve devrelerin çıktısını almak için kullanılan bir yazılımdır.</Description>
             <Icon>kicad</Icon>
-            <Archive type="tarbz2" sha1sum="57a773b27945a26a0bd855744a1c4ffe0985cca0">mirrors://sourceforge/kicad/kicad-20100314.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="57a773b27945a26a0bd855744a1c4ffe0985cca0">http://members.comu.edu.tr/nyucel/pisi/kicad-20100314.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>wxGTK-devel</Dependency>
                 <Dependency>mesa</Dependency>
@@ -32505,9 +32526,17 @@
                 <Path fileType="doc">/usr/share/doc/zibu</Path>
                 <Path fileType="config">/etc</Path>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/var/lib/zibu</Path>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-06-11</Date>
+                <Version>0.3.5</Version>
+                <Comment>small fix.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-08-15</Date>
                 <Version>0.3.5</Version>
@@ -34709,7 +34738,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Description xml:lang="en">AcetoneISO, is an application to manage CD/DVD images. It will let you mount typical proprietary images formats of the Windows world such as ISO, BIN, NRG, MDF, IMG and do plenty of other things.</Description>
             <Description xml:lang="tr">AcetoneISO, CD/DVD imajlarını yapılandırabileceğiniz bir araçtır. ISO, BIN, NRG, MDF, IMG gibi formatlardaki imajları bağlayıp, çeşitli düzenlemeler yapabilirsiniz.</Description>
             <Icon>acetoneiso</Icon>
-            <Archive type="targz" sha1sum="c9213cd10ef73ce662cd5c5b8b76dcda7ba396fa">mirrors://sourceforge/acetoneiso/acetoneiso/acetoneiso_2.1.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="9e3520afc759c855fe040b0310245f23874f704a">mirrors://sourceforge/acetoneiso/acetoneiso_2.2.1.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt</Dependency>
             </BuildDependencies>
@@ -34747,6 +34776,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Replaces>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-06-12</Date>
+                <Version>2.2.1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-10-10</Date>
                 <Version>2.1.1</Version>
@@ -35653,22 +35689,21 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Summary xml:lang="en">A small utility which allows the copy of DVD on Linux</Summary>
             <Description xml:lang="en">k9copy is a DVD backup utility which allows the copy of one or more titles from a DVD9 to a DVD5.</Description>
             <Icon>k9copy</Icon>
-            <Archive type="targz" sha1sum="c8cec2850a28e01baade78076494ecc7dfe626a9">mirrors://sourceforge/k9copy/k9copy-2.3.4-Source.tar.gz</Archive>
+            <Archive type="targz" sha1sum="9ca21db87120fe9ad5a424c8a42aebf499497563">mirrors://sourceforge/k9copy/k9copy-2.3.5-Source.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>ffmpeg</Dependency>
                 <Dependency>automoc4</Dependency>
-                <Dependency>kdelibs-devel</Dependency>
+                <Dependency versionFrom="4.4.4">kdelibs-devel</Dependency>
                 <Dependency>vamps</Dependency>
                 <Dependency>dvd+rw-tools</Dependency>
                 <Dependency>mplayer</Dependency>
                 <Dependency>xine-lib</Dependency>
                 <Dependency>libmpeg2</Dependency>
-                <Dependency>qt</Dependency>
+                <Dependency versionFrom="4.6.2">qt-devel</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">desktop_tr.patch</Patch>
                 <Patch level="1">gcc43.patch</Patch>
-                <Patch level="1">svn-r493.diff</Patch>
             </Patches>
             <SourceURI>hardware/optical/k9copy/pspec.xml</SourceURI>
         </Source>
@@ -35676,7 +35711,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Name>k9copy</Name>
             <RuntimeDependencies>
                 <Dependency>ffmpeg</Dependency>
-                <Dependency>kdelibs</Dependency>
+                <Dependency versionFrom="4.4.4">kdelibs</Dependency>
                 <Dependency>vamps</Dependency>
                 <Dependency>dvd+rw-tools</Dependency>
                 <Dependency>mplayer</Dependency>
@@ -35684,7 +35719,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>phonon</Dependency>
                 <Dependency>xine-lib</Dependency>
                 <Dependency>libmpeg2</Dependency>
-                <Dependency>qt</Dependency>
+                <Dependency versionFrom="4.6.2">qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/kde/4/bin</Path>
@@ -35703,6 +35738,13 @@ supported DAQ cards, such as those from National Instruments.</Description>
             </Replaces>
         </Package>
         <History>
+            <Update release="18">
+                <Date>2010-10-12</Date>
+                <Version>2.3.5</Version>
+                <Comment>Bump to latest stable, drop redundant patch, add strict dependencies to new KDE/Qt</Comment>
+                <Name>Mehmet Nur Olcay</Name>
+                <Email>mnurolcay@gmail.com</Email>
+            </Update>
             <Update release="17">
                 <Date>2009-12-26</Date>
                 <Version>2.3.4</Version>
@@ -64084,10 +64126,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Freerapid is an application which automaticly downloads a list of files from public sharing web pages like rapidshare.com.</Description>
             <Description xml:lang="tr">Freerapid; rapidshare, easyshare ve daha bir çok online dosya paylaşım adresinden dosyaları verilen listeye göre sırayla indiren, java ile yazılmış bir uygulamadır.</Description>
             <Icon>freerapid</Icon>
-            <Archive type="zip" sha1sum="5a18a23ff9b323312abbff1cfb8ad1cf02fddd42">http://freerapid-downloader.sweb.cz/FreeRapiD-0.82.zip</Archive>
-            <Patches>
-                <Patch level="1">path-fix.patch</Patch>
-            </Patches>
+            <Archive type="zip" sha1sum="d6205bff4f105992a980b60b2f27ae87c37b2267">http://freerapid-downloader.sweb.cz/FreeRAPID-0.83U1.zip</Archive>
             <SourceURI>network/download/freerapid/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -64107,6 +64146,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-06-12</Date>
+                <Version>0.83</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2009-08-16</Date>
                 <Version>0.82</Version>
