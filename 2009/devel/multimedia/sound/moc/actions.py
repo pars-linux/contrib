@@ -18,3 +18,4 @@ def install():
     autotools.install()
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README", "THANKS", "TODO")
+    pisitools.removeDir("/usr/include")
