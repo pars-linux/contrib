@@ -20,3 +20,4 @@ def install():
     pisitools.dosym("/usr/share/hardinfo/pixmaps/logo.png", "/usr/share/pixmaps/hardinfo.png")
 
     pisitools.dodoc("LICENSE", "TODO")
+    pisitools.removeDir("/usr/local")
