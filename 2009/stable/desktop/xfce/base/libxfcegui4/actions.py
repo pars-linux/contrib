@@ -21,6 +21,6 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.remove("/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml")
+    pisitools.removeDir("/etc")
 
     pisitools.dodoc("NEWS", "COPYING", "README", "TODO", "ChangeLog", "AUTHORS")
