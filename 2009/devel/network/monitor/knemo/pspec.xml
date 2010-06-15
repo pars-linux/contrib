@@ -13,29 +13,41 @@
         <IsA>app:gui</IsA>
         <Summary>KDE Network Monitor</Summary>
         <Description>KNemo offers a network monitor similar to the one found in Windows. For every network interface it displays an icon in the systray.</Description>
-        <Archive sha1sum="f6016233e87a0203eeaea150845ef99636788f19" type="targz">http://www.kde-apps.org/CONTENT/content-files/12956-knemo-0.5.2.tar.gz</Archive>
+        <Archive sha1sum="c2ab4528b368f1b4cf5b28a3cb76f34280c7e45f" type="tarbz2">http://kde-apps.org/CONTENT/content-files/12956-knemo-0.6.3.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>kdelibs-devel</Dependency>
+            <Dependency>qt-devel</Dependency>
+            <Dependency>libnl</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">translations.patch</Patch>
+            <Patch level="1">fix-ui.patch</Patch>
+        </Patches>
     </Source>
     <Package>
         <Name>knemo</Name>
         <RuntimeDependencies>
             <Dependency>kdelibs</Dependency>
+            <Dependency>libnl</Dependency>
+            <Dependency>qt</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/kde/4/bin</Path>
             <Path fileType="library">/usr/kde/4/lib</Path>
-            <Path fileType="data">/usr/kde/4/share/applications</Path>
-            <Path fileType="data">/usr/kde/4/share/apps</Path>
-            <Path fileType="data">/usr/kde/4/share/autostart</Path>
-            <Path fileType="data">/usr/kde/4/share/kde4</Path>
+            <Path fileType="data">/usr/kde/4/share</Path>
             <Path fileType="localedata">/usr/kde/4/share/locale</Path>
             <Path fileType="data">/usr/share/icons</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="7">
+            <Date>2010-06-15</Date>
+            <Version>0.6.3</Version>
+            <Comment>Version bump</Comment>
+            <Name>Ozan Çağlayan</Name>
+            <Email>ozan@pardus.org.tr</Email>
+        </Update>
         <Update release="6">
             <Date>2009-07-20</Date>
             <Version>0.5.2</Version>
