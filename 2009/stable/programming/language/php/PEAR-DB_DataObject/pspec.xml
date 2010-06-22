@@ -6,12 +6,12 @@
         <Homepage>http://pear.php.net/package/DB_DataObject/</Homepage>
         <Packager>
             <Name>Necdet Yücel</Name>
-            <Email>nyucel@comu.edu.tr</Email>
+            <Email>necdetyucel@gmail.com</Email>
         </Packager>
         <License>PHP</License>
         <IsA>library</IsA>
         <Summary>An SQL Builder, Object Interface to Database Tables</Summary>
-        <Archive sha1sum="e765fb5d93fab32ea22f8c6fd78e5ac698910d67" type="targz">http://download.pear.php.net/package/DB_DataObject-1.9.3.tgz</Archive>
+        <Archive sha1sum="06f53b2a8d35eaf6b03dd4a9eaf608d398aeb2c4" type="targz">http://download.pear.php.net/package/DB_DataObject-1.9.4.tgz</Archive>
     </Source>
 
     <Package>
@@ -31,6 +31,26 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2010-06-22</Date>
+            <Version>1.9.4</Version>
+            <Comment>
+                Bug Fixes
+                #17508 - whereAddIn used wrong method to quote strings
+                #6202 - better docs on getLinkArray - needs documentation as well really..
+                #17343 - tidy up padding code, - fix alignnment of comments in generated files
+                #17289 - fix sequence_ table = XXXXX (madsliejensen)
+                #17157 - use property_exists in newer versions of php.
+                New Features
+                #7590 - union support - thanks to Ian Carmichael
+                #----- - whereAdd in support for negative (prefix column with '!') and empty arrays forces 1=0 query.
+                #13798 - add hookpostvar for adding things like varchar len data etc.. as per req
+                #16267 - Linking Multiple foreign keys - supports links.ini id[] = table1:col1 id[] =...
+                #17049 - generate links.ini for postgres - by madsliejensen
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="3">
             <Date>2010-02-01</Date>
             <Version>1.9.3</Version>
