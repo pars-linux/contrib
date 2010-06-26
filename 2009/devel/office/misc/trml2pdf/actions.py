@@ -17,6 +17,6 @@ def install():
     pisitools.dosym("/usr/lib/%s/site-packages/trml2pdf/trml2pdf.py" % get.curPYTHON(),"/usr/bin/trml2pdf")
 
     # add examples and docs
-    pisitools.insinto("/usr/share/doc/trml2pdf-%s-%s/examples" % (get.srcVERSION(),get.srcRELEASE()),"rmls/*.rml")
+    pisitools.insinto("/usr/share/doc/trml2pdf/examples" , "rmls/*.rml")
 
     pisitools.dodoc("README.txt","COPYRIGHT.txt")
