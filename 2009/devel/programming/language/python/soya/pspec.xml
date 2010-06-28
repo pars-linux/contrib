@@ -8,10 +8,10 @@
             <Name>Ertuğrul Erata</Name>
             <Email>ertugrulerata@gmail.com</Email>
         </Packager>
-        <License>GPL-2</License>
+        <License>GPLv2</License>
         <IsA>library</IsA>
         <Summary>Soya 3D is an object oriented "high level" 3D engine for Python</Summary>
-        <Archive sha1sum="b085019f886ec2063d1ff8afe8292127ecb4020e" type="tarbz2">http://download.gna.org/soya/Soya-0.13.tar.bz2</Archive>
+        <Archive sha1sum="535bb45ded025ae436203120a5fef9a3df33320d" type="tarbz2">http://download.gna.org/soya/Soya-0.15rc1.tar.bz2</Archive>
         <BuildDependencies>
            <Dependency>python-imaging</Dependency>
            <Dependency>ode</Dependency>
@@ -19,8 +19,12 @@
            <Dependency>libsdl</Dependency>
            <Dependency>glew</Dependency>
            <Dependency>openal</Dependency>
-           <Dependency>pyrex</Dependency>
+           <!--an error with pyrex-->
+           <!--<Dependency>pyrex</Dependency>-->
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">dont_use_pyrex.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -35,11 +39,20 @@
             <Dependency>freefont</Dependency>
         </RuntimeDependencies>
         <Files>
+            <Path fileType="executable">/usr/bin</Path>
             <Path fileType="library">/usr/lib</Path>
+            <Path fileType="data">/usr/share/doc</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2010-06-26</Date>
+            <Version>0.15_p1</Version>
+            <Comment>Version Bump.</Comment>
+            <Name>Ertuğrul Erata</Name>
+            <Email>ertugrulerata@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2007-04-30</Date>
             <Version>0.13</Version>

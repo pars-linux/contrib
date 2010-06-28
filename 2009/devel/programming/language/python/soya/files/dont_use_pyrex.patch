@@ -1,0 +1,30 @@
+diff -Nuar Soya-0.15rc1.orig/setup.py Soya-0.15rc1/setup.py
+--- Soya-0.15rc1.orig/setup.py	2010-01-18 23:39:57.000000000 +0200
++++ Soya-0.15rc1/setup.py	2010-06-27 17:36:00.845121977 +0300
+@@ -23,6 +23,7 @@
+ 
+ # Modify the following if needed :
+ USE_OPENAL = 1     # use OpenAL
++USE_PYREX = 0 # don't use pyrex
+ #USE_OPENAL = 0
+ 
+ # Modify the following if needed :
+@@ -81,12 +82,12 @@
+ SDISTING = ("sdist" in sys.argv[1:]) and not ("--help" in sys.argv[1:])
+ 
+ MACOSX_DEPLOYMENT_TARGET  = os.getenv('MACOSX_DEPLOYMENT_TARGET')
+-try:
+-	from Pyrex.Distutils import build_ext
+-	USE_PYREX = 1
+-except ImportError:
+-	USE_PYREX = 0
+-	print "No Pyrex found"
++#try:
++#	from Pyrex.Distutils import build_ext
++#	USE_PYREX = 1
++#except ImportError:
++#	USE_PYREX = 0
++#	print "No Pyrex found"
+ 
+ if USE_PYREX: print "Pyrex compilation enabled!"
+ else:          print "Pyrex compilation disabled."
