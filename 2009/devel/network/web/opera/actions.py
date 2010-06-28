@@ -9,7 +9,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="%s-%s-4742.gcc4-qt4.i386" %(get.srcNAME(), get.srcVERSION())
+WorkDir="%s-%s-4791.gcc4-qt4.i386" %(get.srcNAME(), get.srcVERSION())
 
 def install():
     shelltools.system("./install.sh DESTDIR=%s" % get.installDIR())
