@@ -41402,11 +41402,11 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Ertuğrul Erata</Name>
                 <Email>ertugrulerata@gmail.com</Email>
             </Packager>
-            <License>GPL-2</License>
+            <License>GPLv2</License>
             <IsA>library</IsA>
             <PartOf>programming.language.python</PartOf>
             <Summary xml:lang="en">Soya 3D is an object oriented &quot;high level&quot; 3D engine for Python</Summary>
-            <Archive type="tarbz2" sha1sum="b085019f886ec2063d1ff8afe8292127ecb4020e">http://download.gna.org/soya/Soya-0.13.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="535bb45ded025ae436203120a5fef9a3df33320d">http://download.gna.org/soya/Soya-0.15rc1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>python-imaging</Dependency>
                 <Dependency>ode</Dependency>
@@ -41414,8 +41414,10 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>libsdl</Dependency>
                 <Dependency>glew</Dependency>
                 <Dependency>openal</Dependency>
-                <Dependency>pyrex</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">dont_use_pyrex.patch</Patch>
+            </Patches>
             <SourceURI>programming/language/python/soya/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41430,10 +41432,19 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Dependency>freefont</Dependency>
             </RuntimeDependencies>
             <Files>
+                <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="data">/usr/share/doc</Path>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-06-26</Date>
+                <Version>0.15_p1</Version>
+                <Comment>Version Bump.</Comment>
+                <Name>Ertuğrul Erata</Name>
+                <Email>ertugrulerata@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2007-04-30</Date>
                 <Version>0.13</Version>
@@ -62167,7 +62178,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">A standards-compliant graphical Web browser.</Description>
             <Description xml:lang="tr">Opera, standartlarla uyumlu, grafik arayüzlü bir internet tarayıcısıdır.</Description>
             <Icon>opera</Icon>
-            <Archive type="tarbz2" sha1sum="f6d2938acdc8bbe2d762521313892989fd62a8be">http://get.opera.com/pub/opera/linux/1010/final/en/i386/opera-10.10.gcc4-qt4.i386.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a8be6753d64e815f4797c1654eec521299019440">http://get.opera.com/pub/opera/linux/1011/final/en/i386/opera-10.11.gcc4-qt4.i386.tar.bz2</Archive>
             <Patches>
                 <Patch level="1">add_nsbrowserplugins.patch</Patch>
             </Patches>
@@ -62198,6 +62209,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="28">
+                <Date>2010-06-28</Date>
+                <Version>10.11</Version>
+                <Comment>Version bump to 10.11 release. See http://www.opera.com/docs/changelogs/linux/1011/ for details.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="27">
                 <Date>2010-01-05</Date>
                 <Version>10.10</Version>
