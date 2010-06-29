@@ -18,4 +18,7 @@ def build():
 def install():
     autotools.install()
 
+    pisitools.rename("/etc/xdg/menus/applications.menu", "gnome-applications.menu")
+    pisitools.rename("/etc/xdg/menus/settings.menu", "gnome-settings.menu")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "NEWS", "README")
