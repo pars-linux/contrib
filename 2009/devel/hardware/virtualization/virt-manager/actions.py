@@ -11,8 +11,6 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-#    shelltools.export("AUTOPOINT", "/bin/true")
-#    autotools.autoreconf("-fvi")
     autotools.configure("--disable-rpath")
 
 def build():
