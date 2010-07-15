@@ -36339,7 +36339,7 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Name>Emre Erenoglu</Name>
                 <Email>paketci@erenoglu.com</Email>
             </Packager>
-            <License>GPLv2</License>
+            <License>GPLv2+</License>
             <IsA>app:gui</IsA>
             <PartOf>hardware.virtualization</PartOf>
             <Summary xml:lang="en">Graphical tool for administering virtual machines for KVM, Xen, and QEmu</Summary>
@@ -36349,48 +36349,57 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Icon>virt-manager-icon</Icon>
             <Archive type="targz" sha1sum="cdc8e65c84164c28ac5027c3bba46a3cd7531e96">http://virt-manager.et.redhat.com/download/sources/virt-manager/virt-manager-0.8.4.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>gtk2</Dependency>
-                <Dependency>gnome-python</Dependency>
-                <Dependency>libvirt</Dependency>
-                <Dependency>virtinst</Dependency>
-                <Dependency>vte</Dependency>
+                <Dependency>pygtk</Dependency>
                 <Dependency>rarian</Dependency>
-                <Dependency>gtk-vnc</Dependency>
-                <Dependency>cairo</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">fedora/virt-manager-0.8.4-close-remote-error.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-livecd-customize.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-perms-qemu-user.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-vnc-zsh.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-install-force-off.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-pool-refresh-button.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-packagekit-packages.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-fix-icon-install.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-vnc-auto-keymap.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-fix-border.patch</Patch>
+                <Patch level="1">fedora/virt-manager-0.8.4-vnc-reconnect-traceback.patch</Patch>
+                <Patch level="1">tr.patch</Patch>
+            </Patches>
             <SourceURI>hardware/virtualization/virt-manager/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>virt-manager</Name>
             <RuntimeDependencies>
-                <Dependency>gtk2</Dependency>
-                <Dependency>gnome-python</Dependency>
-                <Dependency>libvirt</Dependency>
-                <Dependency>virtinst</Dependency>
                 <Dependency>vte</Dependency>
-                <Dependency>librsvg</Dependency>
+                <Dependency>pygtk</Dependency>
                 <Dependency>rarian</Dependency>
+                <Dependency>libvirt</Dependency>
+                <Dependency>librsvg</Dependency>
                 <Dependency>gtk-vnc</Dependency>
-                <Dependency>cairo</Dependency>
+                <Dependency>virtinst</Dependency>
+                <Dependency>gnome-python</Dependency>
                 <Dependency>x11-ssh-askpass</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="config">/etc</Path>
-                <Path fileType="library">/usr/lib</Path>
                 <Path fileType="executable">/usr/libexec</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="config">/etc/gconf/schemas</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="data">/usr/share</Path>
+                <Path fileType="man">/usr/share/man</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/pixmaps/virt-manager-icon.svg" permission="0644" owner="root">virt-manager-icon.svg</AdditionalFile>
-                <AdditionalFile target="/usr/share/applications/virt-manager.desktop" permission="0644" owner="root">virt-manager.desktop</AdditionalFile>
-            </AdditionalFiles>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-07-14</Date>
+                <Version>0.8.4</Version>
+                <Comment>Add fedora patches, reorganize dependencies.</Comment>
+                <Name>Ozan Çağlayan</Name>
+                <Email>ozan@pardus.org.tr</Email>
+            </Update>
             <Update release="2">
                 <Date>2010-06-09</Date>
                 <Version>0.8.4</Version>
@@ -42938,13 +42947,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Homepage>http://pear.php.net/package/Math_Stats/</Homepage>
             <Packager>
                 <Name>Necdet Yücel</Name>
-                <Email>nyucel@comu.edu.tr</Email>
+                <Email>necdetyucel@gmail.com</Email>
             </Packager>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Classes to calculate statistical parameters</Summary>
             <Summary xml:lang="tr">İstatistiksel parametreleri hesaplamak için sınıflar</Summary>
+            <Description xml:lang="en">PEAR-Math_Stats is a package to calculate statistical parameters of numerical arrays of data.</Description>
             <Archive type="targz" sha1sum="402d1ff41a5cfb2a76e9d8ce4f1401c6da8c4274">http://download.pear.php.net/package/Math_Stats-0.9.0beta3.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Math_Stats/pspec.xml</SourceURI>
         </Source>
@@ -45517,13 +45527,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Homepage>http://pear.php.net/package/Mail_Mime/</Homepage>
             <Packager>
                 <Name>Necdet Yücel</Name>
-                <Email>nyucel@comu.edu.tr</Email>
+                <Email>necdetyucel@gmail.com</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Provides classes to create and decode mime messages</Summary>
             <Summary xml:lang="tr">Mime mesajları oluşturma ve ayrıştırma olanağı veren sınıflar</Summary>
+            <Description xml:lang="en">PEAR-Mail_Mime provides classes to deal with the creation and manipulation of MIME messages.</Description>
             <Archive type="targz" sha1sum="1f047bcd6e2ca22ffe89230c62a97b776cd8a5f6">http://download.pear.php.net/package/Mail_Mime-1.7.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Mail_Mime/pspec.xml</SourceURI>
         </Source>
@@ -46188,13 +46199,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Homepage>http://pear.php.net/package/Mail/</Homepage>
             <Packager>
                 <Name>Necdet Yücel</Name>
-                <Email>nyucel@comu.edu.tr</Email>
+                <Email>necdetyucel@gmail.com</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Class that provides multiple interfaces for sending emails</Summary>
             <Summary xml:lang="tr">Email yollamak için bir çok arayüzü sağlayan sınıf</Summary>
+            <Description xml:lang="en">PEAR-Mail defines an interface for implementing mailers under the PEAR hierarchy.</Description>
             <Archive type="targz" sha1sum="6fbc5cae9a3e2da004c57fce0455fad40eb11381">http://download.pear.php.net/package/Mail-1.2.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Mail/pspec.xml</SourceURI>
         </Source>
@@ -47672,13 +47684,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Homepage>http://pear.php.net/package/Net_CheckIP/</Homepage>
             <Packager>
                 <Name>Necdet Yücel</Name>
-                <Email>nyucel@comu.edu.tr</Email>
+                <Email>necdetyucel@gmail.com</Email>
             </Packager>
             <License>MIT</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Check the syntax of IPv4 addresses</Summary>
             <Summary xml:lang="tr">IPv4 adreslerinin yazım şeklini kontrol eder</Summary>
+            <Description xml:lang="en">PEAR-Net_CheckIP validates IPv4 addresses.</Description>
             <Archive type="targz" sha1sum="d105cdad9efbf4454338567d882fa5e4762685f1">http://download.pear.php.net/package/Net_CheckIP-1.2.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_CheckIP/pspec.xml</SourceURI>
         </Source>
