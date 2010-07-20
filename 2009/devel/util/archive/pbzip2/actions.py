@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
+# Copyright 2007-2010 TUBITAK/UEKAE
 # Licensed under the GNU General Public License, version 2.
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 
@@ -14,7 +15,8 @@ def build():
 def install():
     pisitools.dobin("pbzip2")
     pisitools.doman("pbzip2.1")
-    pisitools.dosym("/usr/bin/pbzip2","/usr/bin/bzip2")
-    pisitools.dosym("/usr/bin/pbzip2","/usr/bin/bunzip2")
-    pisitools.dosym("/usr/bin/pbzip2","/usr/bin/bzcat")
+
+    pisitools.dosym("pbzip2","/usr/bin/pbunzip2")
+    pisitools.dosym("pbzip2","/usr/bin/pbzcat")
+
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
