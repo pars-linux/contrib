@@ -10,6 +10,7 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
 shelltools.export("MONO_SHARED_DIR", get.workDIR())
+shelltools.export("XDG_CONFIG_HOME", get.workDIR())
 
 def setup():
     autotools.configure("--enable-subversion \
@@ -21,7 +22,7 @@ def setup():
                          --disable-update-desktopdb")
 
 def build():
-    autotools.make("-j1")
+    autotools.make("DESTDIR=%s -j1" % get.installDIR())
 
 def install():
     autotools.install()
@@ -29,4 +30,4 @@ def install():
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
 
     # Empty files: NEWS
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "README")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "README")
