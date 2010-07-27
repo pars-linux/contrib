@@ -13,13 +13,12 @@
         <IsA>app:gui</IsA>
         <Summary>A program written to help you practice ear training</Summary>
         <Description>Solfege is a free ear training program written in python using gtk+ and PyGTK.</Description>
-        <Archive sha1sum="3cc6937b5c2a418fcbac5202228b31a7f42710e0" type="targz">mirrors://sourceforge/solfege/solfege-3.16.3.tar.gz</Archive>
+        <Archive sha1sum="34ca593971eb4ef4c79c8ba444ae10bc78f1de57" type="targz">mirrors://sourceforge/solfege/solfege-3.16.4.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gnome-python-extras</Dependency>
             <Dependency>docbook-xsl</Dependency>
         </BuildDependencies>
         <Patches>
-            <!--<Patch>sandbox.patch</Patch>-->
             <Patch>desktop.patch</Patch>
         </Patches>
     </Source>
@@ -49,6 +48,19 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-07-27</Date>
+            <Version>3.16.4</Version>
+            <Comment>
+                - Version bump,
+                - Updated Estonian, Russian and Italian translations,
+                - Don't raise string exceptions,
+                - Use gtk.gdk.screen_width() to get the screen size, since the way we did it earlier caused segfaults on some systems,
+                - Fix the abstract.Gui.std_buttons_ API so that the New button for interval, idtone and other exercises are insensitive when it should be.
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2010-05-19</Date>
             <Version>3.16.3</Version>
