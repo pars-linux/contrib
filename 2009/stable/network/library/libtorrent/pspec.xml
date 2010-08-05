@@ -5,14 +5,14 @@
         <Name>libtorrent</Name>
         <Homepage>http://www.rasterbar.com/products/libtorrent</Homepage>
         <Packager>
-            <Name>Gökmen Görgen</Name>
-            <Email>gkmngrgn@gmail.com</Email>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
         </Packager>
         <License>BSD</License>
         <IsA>library</IsA>
         <Summary>Full featured torrent client library</Summary>
         <Description>Rasterbar's C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
-        <Archive sha1sum="a7765748b6bb9385eb65185702244418dab9098b" type="targz">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.7.tar.gz</Archive>
+        <Archive sha1sum="68303b76ef88d1315725c9d114edd8bc95972c83" type="targz">http://libtorrent.googlecode.com/files/libtorrent-rasterbar-0.14.10.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>libsigc++</Dependency>
             <Dependency>boost-devel</Dependency>
@@ -38,6 +38,16 @@
     </Package>
 
     <History>
+        <Update release="8">
+            <Date>2010-08-05</Date>
+            <Version>0.14.10</Version>
+            <Comment>Version bump. Breaks ABI, we have 4 reverse dependencies and all bumped to the compatible version with new libtorrent.</Comment>
+            <Requires>
+                <Action>reverseDependencyUpdate</Action>
+            </Requires>
+            <Name>H. İbrahim Güngör</Name>
+            <Email>ibrahim@pardus.org.tr</Email>
+        </Update>
         <Update release="7">
             <Date>2009-12-26</Date>
             <Version>0.14.7</Version>
