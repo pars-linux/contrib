@@ -19398,13 +19398,13 @@
             <Description xml:lang="en">Miro is an Internet TV player with integrated RSS and BitTorrent functionality.</Description>
             <Description xml:lang="tr">Miro, RSS ve BitTorrent destekli bir internet multimedya oynatıcısıdır.</Description>
             <Icon>miro</Icon>
-            <Archive type="targz" sha1sum="c5707b653d1acc097a11f3dedc0807e6807a37ad">http://ftp.osuosl.org/pub/pculture.org/miro/src/miro-3.0.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="506c61163bd60b5fc6facc74290dc919b2140359">http://ftp.osuosl.org/pub/pculture.org/miro/src/miro-3.0.3.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pyrex</Dependency>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>nspr</Dependency>
-                <Dependency releaseFrom="7">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
                 <Dependency>gconf</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -19429,7 +19429,7 @@
                 <Dependency>pyrex</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>nspr</Dependency>
-                <Dependency releaseFrom="7">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>desktop-file-utils</Dependency>
                 <Dependency>gconf</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -19459,6 +19459,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2010-08-05</Date>
+                <Version>3.0.3</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="16">
                 <Date>2010-06-10</Date>
                 <Version>3.0.2</Version>
@@ -59191,7 +59198,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Gelişmiş bir torrent kitaplığı</Summary>
             <Description xml:lang="en">Rasterbar&apos;s C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
             <Description xml:lang="tr">Rasterbar C++ kitaplığı, diğer bittorrent kitaplıklarına karşın iyi bir alternatifdir.</Description>
-            <Archive type="targz" sha1sum="a7765748b6bb9385eb65185702244418dab9098b">mirrors://sourceforge/libtorrent/libtorrent-rasterbar-0.14.7.tar.gz</Archive>
+            <Archive type="targz" sha1sum="68303b76ef88d1315725c9d114edd8bc95972c83">http://libtorrent.googlecode.com/files/libtorrent-rasterbar-0.14.10.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libsigc++</Dependency>
                 <Dependency>boost-devel</Dependency>
@@ -59216,6 +59223,16 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2010-08-05</Date>
+                <Version>0.14.10</Version>
+                <Comment>Version bump. Breaks ABI, we have 4 reverse dependencies and all bumped to the compatible version with new libtorrent.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+                <Requires>
+                    <Action>reverseDependencyUpdate</Action>
+                </Requires>
+            </Update>
             <Update release="7">
                 <Date>2009-12-26</Date>
                 <Version>0.14.7</Version>
@@ -60507,12 +60524,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">qbittorrent is a BitTorrent client using the libtorrent library.</Description>
             <Description xml:lang="tr">qbittorrent, libtorrent kitaplığını kullanan Qt4 tabanlı bir BitTorrent istemcisidir.</Description>
             <Icon>qbittorrent</Icon>
-            <Archive type="targz" sha1sum="695602fb66704027d49e5ff31a71eba9180ff7c5">mirrors://sourceforge/qbittorrent/qbittorrent-1.4.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="e73961c935d518d93a2377b817c0d0042b30a2ab">mirrors://sourceforge/qbittorrent/qbittorrent-2.3.0.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt-devel</Dependency>
-                <Dependency versionFrom="0.14.5">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>zziplib</Dependency>
+                <Dependency>libnotify</Dependency>
             </BuildDependencies>
             <SourceURI>network/p2p/qbittorrent/pspec.xml</SourceURI>
         </Source>
@@ -60520,9 +60538,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>qbittorrent</Name>
             <RuntimeDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency versionFrom="0.14.5">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>zziplib</Dependency>
+                <Dependency>libnotify</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -60534,6 +60553,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-08-05</Date>
+                <Version>2.3.0</Version>
+                <Comment>Version bump to major release. Add missing libnotify dependency.</Comment>
+                <Name>Ramazan Utku</Name>
+                <Email>ramazanutku@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-09-02</Date>
                 <Version>1.4.1</Version>
@@ -61100,7 +61126,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Deluge is a Bittorrent client. Deluge is intended to bring a native, full-featured client to Linux GTK+ desktop environments such as GNOME and Xfce.</Description>
             <Description xml:lang="tr">Deluge, bir Bittorrent istemcisidir. Xfce ve GNOME gibi GTK+ tabanlı masaüstü ortamlarıyla görsel kütüphaneler açısından uyumlu çalışması için yazılmış tam donanımlı bir istemcidir.</Description>
             <Icon>deluge</Icon>
-            <Archive type="tarbz2" sha1sum="5f36f5f55a6d84a90840b166c379647f8774ca19">http://download.deluge-torrent.org/source/deluge-1.2.0_rc5.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a99df49b3aa1b82bf5d7fe6900050a13887ce0d6">http://download.deluge-torrent.org/source/deluge-1.3.0_rc1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -61108,6 +61134,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>Twisted</Dependency>
                 <Dependency>pyopenssl</Dependency>
                 <Dependency>chardet</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">do-not-check-update.patch</Patch>
@@ -61125,7 +61152,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>Twisted</Dependency>
                 <Dependency>pyopenssl</Dependency>
                 <Dependency>chardet</Dependency>
-                <Dependency releaseFrom="7">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>python-mako</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -61139,6 +61166,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-08-05</Date>
+                <Version>1.3.0_rc1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-12-26</Date>
                 <Version>1.2.0_rc5</Version>
@@ -63198,10 +63232,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">FatRat is a download manager that supports multi protocols like sftp, torrent, http, rss feed support etc.</Description>
             <Description xml:lang="tr">FatRat, Torrent, HTTP, RSS besleyicisi gibi protokolleri destekleyen çok işlevli bir indirme yöneticisidir.</Description>
             <Icon>fatrat</Icon>
-            <Archive type="targz" sha1sum="5d31cadf237186f6edd1417444c7cd4393f66eb0">http://www.dolezel.info/download/data/fatrat/fatrat-1.1.1.tar.gz</Archive>
+            <Archive type="targz" sha1sum="7020b6d724b680edeb52817b49c36025f27115ce">http://www.dolezel.info/download/data/fatrat/fatrat-1.1.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt-devel</Dependency>
-                <Dependency>libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>gloox</Dependency>
                 <Dependency>boost-devel</Dependency>
             </BuildDependencies>
@@ -63215,7 +63249,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>fatrat</Name>
             <RuntimeDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency>libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>gloox</Dependency>
                 <Dependency>boost</Dependency>
             </RuntimeDependencies>
@@ -63231,6 +63265,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="7">
+                <Date>2010-08-05</Date>
+                <Version>1.1.2</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="6">
                 <Date>2009-12-02</Date>
                 <Version>1.1.1</Version>
@@ -63774,7 +63815,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">Multipurpose relay for bidirectional data transfer (netcat++)</Summary>
             <Description xml:lang="fr">Socat établi 2 flux d&apos;octet bidirectionnel et transfert les données entre eux. Les canaux de données peuvent être des fichiers, des pipes, des péréphérioques ou des sockets. Il permet de forker, tracer et de logguer différent modes pour la communication interprocessus et bien d&apos;autres options.</Description>
             <Description xml:lang="en">Socat establishes two bidirectional byte streams and transfers data between them. Data channels may be files, pipes, devices, or sockets (Unix, IPv4, IPv6, raw, UDP, TCP, SSL). It provides forking, logging and tracing, different modes for interprocess communication and many more options.</Description>
-            <Archive type="targz" sha1sum="dbd76e9fdac13ae95c46be9bb8a95ef4258bb466">http://www.dest-unreach.org/socat/download/socat-1.7.1.2.tar.gz</Archive>
+            <Archive type="targz" sha1sum="5a42275da0d8a5182452b36535a74c3cdf21793b">http://www.dest-unreach.org/socat/download/socat-1.7.1.3.tar.gz</Archive>
             <SourceURI>network/monitor/socat/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -63786,6 +63827,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4" type="security">
+                <Date>2010-08-05</Date>
+                <Version>1.7.1.3</Version>
+                <Comment>- Version bump to fix a stack overflow vulnerability
+                - Reindent pspec.xml</Comment>
+                <Name>Jérôme Schneider</Name>
+                <Email>jerome.schneider@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2010-01-13</Date>
                 <Version>1.7.1.2</Version>
