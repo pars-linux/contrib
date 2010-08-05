@@ -28,6 +28,7 @@ def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.insinto('/usr/include/libtorrent/asio/', 'include/libtorrent/asio/*')
+    pisitools.removeDir("/usr/bin")
 
     pisitools.dohtml("docs/*")
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "NEWS", "README")
