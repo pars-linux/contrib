@@ -6,11 +6,12 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 
 def setup():
-    autotools.configure("--enable-gtk-doc")
-
-    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
+    shelltools.system('xdt-autogen')
+    autotools.configure("--enable-gtk-doc \
+                         --enable-startup-notification")
 
 def build():
     autotools.make()
@@ -19,7 +20,8 @@ def install():
     autotools.install()
 
     pisitools.remove("/usr/share/icons/hicolor/icon-theme.cache")
+
     # Panel config files are already in pardus-default-settings-xfce.
     pisitools.removeDir("/etc")
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "HACKING", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "HACKING", "NEWS", "README", "TODO")
