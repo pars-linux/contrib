@@ -10,14 +10,14 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.unlink("py-compile" )
-    shelltools.sym("/bin/true", "%s/py-compile" % get.curDIR())
-
-    autotools.configure("--disable-static \
+    shelltools.system('NOCONFIGURE=1 xdt-autogen')
+    autotools.configure("--sysconfdir=/etc \
+                         --libexecdir=/usr/lib/xfce4 \
+                         --localstatedir=/var \
+                         --disable-static \
                          --enable-gtk-doc \
+                         --enable-notifications \
                          --enable-python")
-
-    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
@@ -25,4 +25,4 @@ def build():
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
-    pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING*", "HACKING", "NEWS", "README", "THANKS", "TODO")
+    pisitools.dodoc("AUTHORS", "ChangeLog", "NEWS", "README", "THANKS", "TODO")
