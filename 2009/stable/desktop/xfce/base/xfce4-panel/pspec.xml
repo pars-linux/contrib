@@ -9,22 +9,21 @@
             <Email>gkmngrgn@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <License>LGPLv2</License>
         <Icon>xfce4-panel</Icon>
         <IsA>library</IsA>
         <IsA>app:gui</IsA>
         <Summary>Xfce panel</Summary>
         <Description>The Xfce4 panel supports multiple panels, with many options for their position, appearance, transparency and behavior. There are many items available by default to full fit a panel, like application launchers with detachable menus, a graphical pager, a tasklist, a clock, a system tray, a show / hide desktop switcher, and even more. It offers an easy way to add items using a dialog, and to move items accross different panels.</Description>
-        <Archive sha1sum="e2b22b59dbdf9aa6fcaf5cb9eb9807c234d82929"  type="tarbz2">http://archive.xfce.org/src/xfce/xfce4-panel/4.6/xfce4-panel-4.6.3.tar.bz2</Archive>
+        <Archive sha1sum="d2b310c036be84ed9886c06ae35b7a1a8eabfcb8"  type="tarbz2">http://archive.xfce.org/src/xfce/xfce4-panel/4.6/xfce4-panel-4.6.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libxfcegui4-devel</Dependency>
             <Dependency>exo-devel</Dependency>
             <Dependency>cairo</Dependency>
             <Dependency>libwnck</Dependency>
             <Dependency>startup-notification</Dependency>
+            <Dependency>xfce4-dev-tools</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">fix-underlinking.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -67,6 +66,22 @@
     </Package>
 
     <History>
+        <Update release="17">
+            <Date>2010-06-16</Date>
+            <Version>4.6.4</Version>
+            <Comment>
+                * Version bump:
+                    - Destroy windowlist menu in an idle (bug #3853).
+                    - Link directly to libm (bug #6233).
+                    - Allow compilation with exo-1 too.
+                    - Translation updates (ru, ta, pr_BR, hu, gl, fi, it, si, uk, id, ug).
+                * Add missing license information.
+                * Use xdt-autogen.
+                * Remove unrequired patch.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="16">
             <Date>2010-01-10</Date>
             <Version>4.6.3</Version>
