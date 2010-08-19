@@ -6,17 +6,17 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
+    shelltools.system('xdt-autogen')
     autotools.configure("--disable-static \
                          --enable-gnome \
                          --enable-libgnome-keyring \
                          --enable-final \
                          --enable-session-screenshots \
                          --disable-legacy-sm")
-
-    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
@@ -27,4 +27,4 @@ def install():
     # It's also in pardus-default-settings-xfce package.
     pisitools.remove("/etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml")
 
-    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog*", "COPYING", "NEWS", "README", "TODO")
+    pisitools.dodoc("AUTHORS", "BUGS", "ChangeLog*", "NEWS", "README", "TODO")
