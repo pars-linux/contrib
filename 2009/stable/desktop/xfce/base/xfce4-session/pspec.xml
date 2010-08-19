@@ -13,7 +13,7 @@
         <IsA>app:console</IsA>
         <Summary>Xfce session manager</Summary>
         <Description>The session manager allows the user to save sessions and restore them after login. It is capable of saving several different sessions. It comes with three splash screen engines. And at last it helps you to log out, reboot, and shutdown the system.</Description>
-        <Archive sha1sum="760e05bf73783521b3ce34e91aa187c74018ab8c" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/xfce4-session-4.6.1.tar.bz2</Archive>
+        <Archive sha1sum="2a5778a1543f97845f118a186e2dbb8a8ea3ff4b" type="tarbz2">http://archive.xfce.org/src/xfce/xfce4-session/4.6/xfce4-session-4.6.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libxfce4util-devel</Dependency>
             <Dependency>libxfcegui4-devel</Dependency>
@@ -21,6 +21,7 @@
             <Dependency>libwnck</Dependency>
             <Dependency>gconf</Dependency>
             <Dependency>gnome-keyring</Dependency>
+            <Dependency>xfce4-dev-tools</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">no_tips_on_startup.patch</Patch>
@@ -58,7 +59,7 @@
         <PartOf>desktop.xfce.library</PartOf>
         <Summary>Xfce4 Session development files</Summary>
         <RuntimeDependencies>
-            <Dependency releaseFrom="13">xfce4-session</Dependency>
+            <Dependency releaseFrom="15">xfce4-session</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="header">/usr/include</Path>
@@ -68,6 +69,21 @@
     </Package>
 
     <History>
+        <Update release="15">
+            <Date>2010-08-19</Date>
+            <Version>4.6.2</Version>
+            <Comment>
+                * Version bump:
+                    - Build fixes for GIT.
+                    - Add timing information to verbose output.
+                    - If it looks like the helper got killed, just return success (bug #4849).
+                    - Translation updates (de, es, gl, hu, id, pl, pt, ru, tr, uk, ro,
+                      lv, ur, ur_PK, ast, sk, nl, it, kk).
+                * xfce4-dev-tools dependency added for reconfigure package.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="14">
             <Date>2009-07-13</Date>
             <Version>4.6.1</Version>
