@@ -5738,7 +5738,7 @@
             <Summary xml:lang="tr">Xfce oturum yöneticisi</Summary>
             <Description xml:lang="en">The session manager allows the user to save sessions and restore them after login. It is capable of saving several different sessions. It comes with three splash screen engines. And at last it helps you to log out, reboot, and shutdown the system.</Description>
             <Description xml:lang="tr">Xfce oturum yöneticisi, kullanıcıların oturumlarını kaydetmesine ve giriş yaptıktan sonra tekrar oturumu çağırmalarına izin verir. Birden fazla, farklı oturumları kaydetmede oldukça başarılıdır. Pakette üç tane örnek açılış teması var ve son olarak, sistemi kapatırken, yeniden başlatırken veya çıkarken kullanıcılara yardımcı olur.</Description>
-            <Archive type="tarbz2" sha1sum="760e05bf73783521b3ce34e91aa187c74018ab8c">mirrors://xfce/xfce-4.6.1/src/xfce4-session-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2a5778a1543f97845f118a186e2dbb8a8ea3ff4b">http://archive.xfce.org/src/xfce/xfce4-session/4.6/xfce4-session-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -5746,6 +5746,7 @@
                 <Dependency>libwnck</Dependency>
                 <Dependency>gconf</Dependency>
                 <Dependency>gnome-keyring</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">no_tips_on_startup.patch</Patch>
@@ -5783,7 +5784,7 @@
             <IsA>data:doc</IsA>
             <PartOf>desktop.xfce.library</PartOf>
             <RuntimeDependencies>
-                <Dependency releaseFrom="13">xfce4-session</Dependency>
+                <Dependency releaseFrom="15">xfce4-session</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="header">/usr/include</Path>
@@ -5792,6 +5793,19 @@
             </Files>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2010-08-19</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Add timing information to verbose output.
+                    - If it looks like the helper got killed, just return success (bug #4849).
+                    - Translation updates (de, es, gl, hu, id, pl, pt, ru, tr, uk, ro,
+                      lv, ur, ur_PK, ast, sk, nl, it, kk).
+                * xfce4-dev-tools dependency added for reconfigure package.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="14">
                 <Date>2009-07-13</Date>
                 <Version>4.6.1</Version>
@@ -6638,7 +6652,7 @@
             <Description xml:lang="en">The desktop manager sets the background image, provides a right-click menu to launch applications and can optionally show files (including application launchers) or iconified windows. It includes gradient support for background color, saturation support for background image, real multiscreen and xinerama support, and it provides a desktop menu editor.</Description>
             <Description xml:lang="tr">Xfce masaüstü yöneticisi arkaplan resmini belirler, uygulamaları başlatmak, simge durumuna küçültülmüş pencereleri veya dosya seçeneklerini göstermek için sağ tık menüsünü hazırlar. Arkaplan rengi için gradyan desteği, arkaplan resmi için doygunluk desteği, gerçek çoklu ekran ve xinerama desteği içerir. Ayrıca, masaüstü menü düzenleme aracını da bünyesinde barındırır.</Description>
             <Icon>xfce4_xicon1</Icon>
-            <Archive type="tarbz2" sha1sum="c2c1b54acaae924077caa3cdffe449e3bb34b2bd">mirrors://xfce/xfce-4.6.1/src/xfdesktop-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="cefcd1c1386d34386d4e900cbf88b7c24ef3bafb">http://archive.xfce.org/src/xfce/xfdesktop/4.6/xfdesktop-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfce4menu-devel</Dependency>
@@ -6650,10 +6664,8 @@
                 <Dependency>libwnck</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>gnome-doc-utils</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">fix-underlinking.patch</Patch>
-            </Patches>
             <SourceURI>desktop/xfce/base/xfdesktop/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -6681,6 +6693,31 @@
             </Files>
         </Package>
         <History>
+            <Update release="14">
+                <Date>2010-08-18</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                   - Build fixes for GIT.
+                   - Rebuild doc directory.
+                   - Add libexo to CFLAGS and LIBS for panel plugin.
+                   - Fix detection of rename/delete ability.
+                   - Fix compilation when libexo isn&apos;t present.
+                   - Update icon text labels when system font size changes (bug #2862).
+                   - Set mnemonic widget properly for icon type/size labels (bug #5555).
+                   - Always show &apos;Eject&apos; in volume context menus, regardless of whether
+                     or not it&apos;s mounted (bug #5343).
+                   - Never show &apos;Unmount&apos; in volume context menus.
+                   - Use GtkBindingSet for keyboard handling on desktop.
+                   - Only register menu with panel if popup succeeded (bug #5792).
+                   - Fix inability to delete broken symlinks on the desktop (bug 5387).
+                   - Don&apos;t misuse the g_return_(val_)?if_fail() macros as much (bug #5791).
+                   - Translation updates (el, es, gl, it, pl, pt, ru, tr, ro, lv, ca,
+                     ur, ur_PK, hu, ast, da, sk, nn, nl, si, am, kk, ja, ug, fr).
+                * Remove unrequired patch.
+                * Remove COPYING file.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="13">
                 <Date>2009-06-18</Date>
                 <Version>4.6.1</Version>
@@ -28901,7 +28938,7 @@
             <Description xml:lang="en">Terminator is an attempt to maximise useful space on a given desktop for terminals</Description>
             <Description xml:lang="tr">Terminator tek pencerede birden çok terminal çalıştırarak masaüstü alanınızı daha rahat kullanmanızı amaçlar.</Description>
             <Icon>terminator</Icon>
-            <Archive type="targz" sha1sum="7bee32c6ff9e73699b87710702f1df2e7fcd7562">http://launchpad.net/terminator/trunk/0.14/+download/terminator_0.14.tar.gz</Archive>
+            <Archive type="targz" sha1sum="ccc64da12e2a7a56efe2a4aa444518d17864bcfb">http://launchpad.net/terminator/trunk/0.94/+download/terminator-0.94.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-python</Dependency>
@@ -28929,6 +28966,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-08-19</Date>
+                <Version>0.94</Version>
+                <Comment>Version bump</Comment>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
+            </Update>
             <Update release="2">
                 <Date>2010-01-05</Date>
                 <Version>0.14</Version>
@@ -42601,7 +42645,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Abstraction of various SASL mechanism responses</Summary>
             <Summary xml:lang="tr">Çeşitli SASL mekanızması cevapları ayırması</Summary>
-            <Description xml:lang="en">Provides code to generate responses to common SASL mechanisms, including: Digest-MD5, CramMD5, Plain, Anonymous, Login.</Description>
+            <Description xml:lang="en">PEAR-Auth_SASL provides code to generate responses to common SASL mechanisms, including: Digest-MD5, CramMD5, Plain, Anonymous, Login.</Description>
+            <Description xml:lang="tr">PEAR-Auth_SASL; Digest-MD5, CramMD5, Plain, Anonymous ve Login gibi yaygın SASL mekanizmalarına yanıt vermek için kullanılabilen PHP sınıfıdır.</Description>
             <Archive type="targz" sha1sum="1b752f3077c06399d755502dc3969cd3e4ee8fd5">http://download.pear.php.net/package/Auth_SASL-1.0.4.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Auth_SASL/pspec.xml</SourceURI>
         </Source>
@@ -42933,7 +42978,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Preferences management class</Summary>
             <Summary xml:lang="tr">Tercih yönetim sınıfı</Summary>
-            <Description xml:lang="en">Preference Manager is a class to handle user preferences in a web application, looking them up in a table using a combination of their userid, and the preference name to get a value, and (optionally) returning a default value for the preference if no value could be found for that user.</Description>
+            <Description xml:lang="en">Preference Manager is a PHP class to handle user preferences in a web application.</Description>
+            <Description xml:lang="tr">PEAR-Auth_PrefManager bir web uygulamasında kullanıcı tercih yönetimini idare etmek için bir PHP sınıfıdır.</Description>
             <Archive type="targz" sha1sum="e3fc7a1d70a8b2da809a9f86eefbe6b62ec7f565">http://download.pear.php.net/package/Auth_PrefManager-1.2.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Auth_PrefManager/pspec.xml</SourceURI>
         </Source>
@@ -43418,7 +43464,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Fast and Safe little cache system</Summary>
             <Summary xml:lang="tr">Hızlı ve güvenilir küçük bir önbellek sistemi</Summary>
-            <Description xml:lang="en">This package is a little cache system optimized for file containers. It is fast and safe (because it uses file locking and/or anti-corruption tests).</Description>
+            <Description xml:lang="en">PEAR-Cache_Lite is a little cache system optimized for file containers. It is fast and safe (because it uses file locking and/or anti-corruption tests).</Description>
+            <Description xml:lang="tr">PEAR-Cache_Lite dosya tutucular içn optimize edilmiş küçük bir önbellek sistemidir. Dosya kilitleme ve bozulma karışıtı testleri kullandığından hızlı ve güvenlidir.</Description>
             <Archive type="targz" sha1sum="f00385829b23eeddf332e09356e1c14e13d2e94b">http://download.pear.php.net/package/Cache_Lite-1.7.8.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Cache_Lite/pspec.xml</SourceURI>
         </Source>
@@ -43536,7 +43583,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">A class for creating/reading and editing configuration files</Summary>
             <Summary xml:lang="tr">Yapılandırma dosyaları oluşturmak/okumak ve düzenlemek için bir sınıf.</Summary>
-            <Description xml:lang="en">The Config package provides methods for configuration manipulation.</Description>
+            <Description xml:lang="en">PEAR-Config provides methods for configuration manipulation.</Description>
+            <Description xml:lang="tr">PEAR-Config yapılandırmaları düzenlemek için gerekli metotları sağlayan bir sınıftır.</Description>
             <Archive type="targz" sha1sum="c4dba0980d8e846420556f3f0453adfe89145669">http://download.pear.php.net/package/Config-1.10.11.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Config/pspec.xml</SourceURI>
         </Source>
@@ -43713,8 +43761,9 @@ processing unit (GPU) present in modern graphics cards</Description>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">Generating CHAP packets</Summary>
-            <Summary xml:lang="tr">CHAP paketleri oluşturur</Summary>
-            <Description xml:lang="en">This package provides Classes for generating CHAP packets.</Description>
+            <Summary xml:lang="tr">CHAP paketleri oluşturmak için gerekli sınıflar</Summary>
+            <Description xml:lang="en">PEAR-Crypt_CHAP provides classes for generating CHAP packets.</Description>
+            <Description xml:lang="tr">PEAR-Crypt_CHAP, CHAP paketleri oluşturmak için gerekli sınıfları içerir.</Description>
             <Archive type="targz" sha1sum="66f7fbf93aae6e26a5240a7342ae81ee2915503f">http://download.pear.php.net/package/Crypt_CHAP-1.0.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Crypt_CHAP/pspec.xml</SourceURI>
         </Source>
@@ -44037,6 +44086,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">A class for creating an authentication system</Summary>
             <Summary xml:lang="tr">Kimlik denetim sistemi oluşturmak için bir sınıf</Summary>
             <Description xml:lang="en">The PEAR::Auth package provides methods for creating an authentication system using PHP.</Description>
+            <Description xml:lang="tr">PEAR-Auth, PHP kullanarak bir kimlik kanıtlama sistemi oluşturulması için gerekli metotları sağlar.</Description>
             <Archive type="targz" sha1sum="34b3e8356678b46752ff7fe14d489110b2a9c827">http://download.pear.php.net/package/Auth-1.6.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Auth/pspec.xml</SourceURI>
         </Source>
@@ -44455,7 +44505,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">A package for building Calendar data structures</Summary>
             <Summary xml:lang="tr">Takvim veri yapıları oluşturmak için bir paket</Summary>
-            <Description xml:lang="en">Calendar provides an API for building Calendar data structures. Using the simple iterator and it&apos;s &quot;query&quot; API, a user interface can easily be built on top of the calendar data structure, at the same time easily connecting it to some kind of underlying data store, where &quot;event&quot; information is being held.</Description>
+            <Description xml:lang="en">PEAR-Calendar provides an API for building Calendar data structures.</Description>
+            <Description xml:lang="tr">PEAR-Calendar takvim veri yapıları oluşturmak için gerekli araçları içerir.</Description>
             <Archive type="targz" sha1sum="9b81a7b4cb59665e696ff598cc96e577e40c7871">http://download.pear.php.net/package/Calendar-0.5.5.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Calendar/pspec.xml</SourceURI>
         </Source>
@@ -44550,9 +44601,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>MIT</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
-            <Summary xml:lang="en">This Class allows you to easily use ANSI console colors in your application.</Summary>
-            <Summary xml:lang="tr">Uygulamalarda rahatça ANSI konsol renklerini kullanmanızı sağlayan bir sınıf</Summary>
-            <Description xml:lang="en">You can use Console_Color::convert to transform colorcodes like %r into ANSI control codes.</Description>
+            <Summary xml:lang="en">A Class that allows you to easily use ANSI console colors in an application</Summary>
+            <Summary xml:lang="tr">Uygulamalarda rahatça ANSI konsol renklerinin kullanılmasını sağlayan bir sınıf</Summary>
+            <Description xml:lang="en">PEAR-Console_Color is a class that allows you to easily use ANSI console colors in an application.</Description>
+            <Description xml:lang="tr">PEAR-Console_Color uygulamalarda rahatça ANSI konsol renklerinin kullanılmasını sağlayan bir sınıftır.</Description>
             <Archive type="targz" sha1sum="5a507f37fbc829ad344084f5b632cb4a184236c0">http://download.pear.php.net/package/Console_Color-1.0.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Console_Color/pspec.xml</SourceURI>
         </Source>
@@ -44957,7 +45009,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <PartOf>programming.language.php</PartOf>
             <Summary xml:lang="en">A class for caching arbitrary data</Summary>
             <Summary xml:lang="tr">İsteğe bağlı verilerin önbelleklenmesi için bir sınıf</Summary>
-            <Description xml:lang="en">With the PEAR Cache you can cache the result of certain function calls, as well as the output of a whole script run or share data between applications.</Description>
+            <Description xml:lang="en">With PEAR-Cache one can cache the result of certain function calls, as well as the output of a whole script run or share data between applications.</Description>
+            <Description xml:lang="tr">PEAR-Cache ile belirli fonksiyon çağrıları önbelleklenbilir ve uygulamalar arasında veri paylaşımı yapılabilir.</Description>
             <Archive type="targz" sha1sum="0d4f276ea5e49e85c3a4b4dc3304f6dcf81bd826">http://download.pear.php.net/package/Cache-1.5.5.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Cache/pspec.xml</SourceURI>
         </Source>
@@ -45418,9 +45471,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
-            <Summary xml:lang="en">Encryption class for RC4 encryption</Summary>
-            <Summary xml:lang="tr">RC4 şifrelemesi için şifreleme sınıfı</Summary>
+            <Summary xml:lang="en">An encryption class for RC4 encryption</Summary>
+            <Summary xml:lang="tr">RC4 şifrelemesi için bir şifreleme sınıfı</Summary>
             <Description xml:lang="en">PEAR-Crypt_RC4 is encryption class for RC4 encryption.</Description>
+            <Description xml:lang="tr">PEAR-Crypt_RC4, RC4 şifrelemesi için bir şifreleme sınıfıdır.</Description>
             <Archive type="targz" sha1sum="76fbce5aaa7d98e86c80afbd681968dffcd29b7b">http://download.pear.php.net/package/Crypt_RC4-1.0.2.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Crypt_RC4/pspec.xml</SourceURI>
         </Source>
@@ -46380,9 +46434,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>BSD</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
-            <Summary xml:lang="en">Class that makes it easy to build console style tables</Summary>
-            <Summary xml:lang="tr">Kolaylıkla konsol tarzı tablolar oluşturmanızı sağlayan bir sınıf</Summary>
-            <Description xml:lang="en">Provides methods such as addRow(), insertRow(), addCol() etc. to build console tables with or without headers and with user defined table rules and padding.</Description>
+            <Summary xml:lang="en">A class that makes it easy to build console style tables</Summary>
+            <Summary xml:lang="tr">Kolaylıkla konsol tabloları oluşturulmasınıı sağlayan bir sınıf</Summary>
+            <Description xml:lang="en">PEAR-Console_Table provides methods such as addRow(), insertRow(), addCol() etc. to build console tables with or without headers and with user defined table rules and padding.</Description>
+            <Description xml:lang="tr">PEAR-Console_Table konsol tabloları oluşturmak için addRow(), insertRow(), addCol() gibi metotlar sunar.</Description>
             <Archive type="targz" sha1sum="d45b1ddd4f86c04411f157a4bb47ad2938c92e1e">http://download.pear.php.net/package/Console_Table-1.1.3.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Console_Table/pspec.xml</SourceURI>
         </Source>
@@ -46859,6 +46914,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">A class to calculate RFC 2104 compliant hashes</Summary>
             <Summary xml:lang="tr">RFC 2104 şifreleme oluşturmak için bir sınıf</Summary>
             <Description xml:lang="en">PEAR-Crypt_HMAC is a class to calculate RFC 2104 compliant hashes.</Description>
+            <Description xml:lang="tr">PEAR-Crypt_HMAC, RFC 2104 şifreleme oluşturmak için bir sınıftır.</Description>
             <Archive type="targz" sha1sum="c8ed06174c2d1668ccd4752d5e524ecb94a224ba">http://download.pear.php.net/package/Crypt_HMAC-1.0.1.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Crypt_HMAC/pspec.xml</SourceURI>
         </Source>
@@ -46893,9 +46949,10 @@ processing unit (GPU) present in modern graphics cards</Description>
             <License>PHP</License>
             <IsA>library</IsA>
             <PartOf>programming.language.php</PartOf>
-            <Summary xml:lang="en">HTTP authentication</Summary>
+            <Summary xml:lang="en">HTTP authentication class</Summary>
             <Summary xml:lang="tr">HTTP kimlik doğrulama</Summary>
             <Description xml:lang="en">The PEAR::Auth_HTTP class provides methods for creating an HTTP authentication system using PHP, that is similar to Apache&apos;s realm-based .htaccess authentication.</Description>
+            <Description xml:lang="tr">PEAR-Auth_HTTP sınıfı Apache&apos;nin yetki alanı tabanlı .htaccess kimlik kanıtlamasına benzer bir HTTP kimlik kanıtlama sistemi oluşturulması için gerekli metotları sağlar.</Description>
             <Archive type="targz" sha1sum="22d4f9d40bb93594c98c543e15517ab56fe8f515">http://download.pear.php.net/package/Auth_HTTP-2.1.6.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Auth_HTTP/pspec.xml</SourceURI>
         </Source>
@@ -47550,7 +47607,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Homepage>http://pear.php.net/package/Archive_Tar</Homepage>
             <Packager>
                 <Name>Necdet Yücel</Name>
-                <Email>nyucel@comu.edu.tr</Email>
+                <Email>necdetyucel@gmail.com</Email>
             </Packager>
             <License>BSD</License>
             <IsA>library</IsA>
@@ -47558,6 +47615,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">Tar file management class</Summary>
             <Summary xml:lang="tr">Tar dosyası yönetim sınıfı</Summary>
             <Description xml:lang="en">This class provides handling of tar files in PHP. It supports creating, listing, extracting and adding to tar files. Gzip support is available if PHP has the zlib extension built-in or loaded. Bz2 compression is also supported with the bz2 extension loaded.</Description>
+            <Description xml:lang="tr">PEAR-Archive_Tar sınıfı PHP&apos;nin tar dosyalarıyla işlem yapabilmesni sağlar. Tar dosyalarının oluşturulmasını, listelenmesini, açlmasını ve tar dosyalarına ekleme yapılabilmesine imkan verir. Eğer PHP zlib eklentisiyle kurulmuşsa ya da bu modül yüklenmişse gzip de destekenir. bz2 eklentisiyle bzip2 sıkıştırması da yapılabilir.</Description>
             <Archive type="targz" sha1sum="5b35a8c3bfa34ba8b29c5208f8f37504d0ce280c">http://download.pear.php.net/package/Archive_Tar-1.3.7.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Archive_Tar/pspec.xml</SourceURI>
         </Source>
