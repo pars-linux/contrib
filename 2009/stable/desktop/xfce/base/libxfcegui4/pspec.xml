@@ -12,14 +12,14 @@
         <IsA>library</IsA>
         <Summary>Xfce GUI library</Summary>
         <Description>Libxfcegui4 is a various GTK+ widgets for Xfce desktop environment.</Description>
-        <Archive sha1sum="93b3e88b3122d3cc13d7c0e94407e56ec5ae9ffd"  type="tarbz2">http://archive.xfce.org/src/xfce/libxfcegui4/4.6/libxfcegui4-4.6.3.tar.bz2</Archive>
+        <Archive sha1sum="a12c79f8fa14c5d1fc0fca5615a451b7d23f8695"  type="tarbz2">http://archive.xfce.org/src/xfce/libxfcegui4/4.6/libxfcegui4-4.6.4.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>xfconf-devel</Dependency>
             <Dependency>startup-notification</Dependency>
             <Dependency>libglade</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>gtk-doc</Dependency>
             <Dependency>glade-devel</Dependency>
+            <Dependency>xfce4-dev-tools</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">use-thunar.patch</Patch>
@@ -78,6 +78,17 @@
     </Package>
 
     <History>
+        <Update release="17">
+            <Date>2010-08-21</Date>
+            <Version>4.6.4</Version>
+            <Comment>
+                * Version bump:
+                * Added xfce4-dev-tools dependency for reconfiguring.
+                * There are already gtk-doc files as html.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="16">
             <Date>2010-06-14</Date>
             <Version>4.6.3</Version>
