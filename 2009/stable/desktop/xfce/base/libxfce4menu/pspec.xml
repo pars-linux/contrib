@@ -12,11 +12,11 @@
         <IsA>library</IsA>
         <Summary>A compliant menu implementation for Xfce</Summary>
         <Description>Libxfce4menu is a compliant menu library that is written for Xfce. It implements the Desktop Menu Specification version 1.0.</Description>
-        <Archive sha1sum="17348f661c04e8d8d633b8831638d38987269e9a" type="tarbz2">mirrors://xfce/xfce-4.6.1/src/libxfce4menu-4.6.1.tar.bz2</Archive>
+        <Archive sha1sum="32a85c1ad31360347d5a2f240c4ddc08b444d124" type="tarbz2">http://archive.xfce.org/src/xfce/libxfce4menu/4.6/libxfce4menu-4.6.2.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>libxfce4util-devel</Dependency>
             <Dependency>gtk2</Dependency>
-            <Dependency>gtk-doc</Dependency>
+            <Dependency>xfce4-dev-tools</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">libxfce4menu-4.6.1-fix-underlinking.patch</Patch>
@@ -54,6 +54,19 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-08-21</Date>
+            <Version>4.6.2</Version>
+            <Comment>
+                * Version bump:
+                    - Build fixes for GIT.
+                    - Fix make distcheck and compiler warnings.
+                    - Translation updates (lv, ur_PK, ur, ro, hu, ast, pa, nn, nl, am, ug).
+                * Disable gtk-doc. html files are also ready.
+            </Comment>
+            <Name>Gökmen Görgen</Name>
+            <Email>gkmngrgn@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2009-06-19</Date>
             <Version>4.6.1</Version>
