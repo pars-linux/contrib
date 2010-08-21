@@ -6,14 +6,13 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
+    shelltools.system('xdt-autogen')
     autotools.configure("--disable-static \
-                         --enable-gtk-doc \
                          --enable-startup-notification")
-
-    pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
 
 def build():
     autotools.make()
