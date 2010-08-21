@@ -15,12 +15,19 @@ shelltools.export("CXXFLAGS", get.CXXFLAGS())
 shelltools.export("LINKFLAGS", get.LDFLAGS())
 
 def setup():
-    shelltools.system("./waf configure --prefix=/usr \
-                                       --enable-nls      --update-po \
-                                       --enable-docs     --enable-userdocs \
-                                       --enable-apidocs  --enable-unique \
-                                       --enable-libidn   --enable-sqlite \
-                                       --enable-addons   --disable-hildon")
+    shelltools.system("./waf configure \
+                       --prefix=/usr \
+                       --enable-nls \
+                       --update-po \
+                       --enable-docs \
+                       --enable-userdocs \
+                       --enable-apidocs  \
+                       --enable-unique \
+                       --enable-libidn \
+                       --enable-vala \
+                       --enable-libnotify \
+                       --enable-addons \
+                       --disable-hildon")
 
 def build():
     shelltools.system("./waf build")
