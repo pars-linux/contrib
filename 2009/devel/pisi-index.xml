@@ -5390,7 +5390,7 @@
             <Description xml:lang="en">The Xfce4 window manager manages the placement of application windows on the screen, provides beautiful window decorations, manages workspaces or virtual desktops, and natively supports multiscreen mode.</Description>
             <Description xml:lang="tr">Xfce4 pencere yöneticisi, uygulama pencerelerinin ekrana yerleştirmeyi sağlar, pencerelerin güzel görünmesini sağlar, çalışma alanlarını ve sanal masaüstlerini yönetir ve doğal olarak çoklu ekran kipini destekler.</Description>
             <Icon>xfwm4</Icon>
-            <Archive type="tarbz2" sha1sum="236622ffddd4618b94eaba8f402c0c48bdcef929">mirrors://xfce/xfce-4.6.1/src/xfwm4-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="34514db4531e95a7dbcd7d73c8d97e5cb9d1bf89">http://archive.xfce.org/src/xfce/xfwm4/4.6/xfwm4-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -5431,6 +5431,34 @@
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2010-08-22</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Fix mixed RTL/LTR text not rendering properly in title and tabwin.
+                    - Place windows on top of stack even when not focused in focus
+                      follow mouse (bug #5479).
+                    - Increase menu button height and redice width (bug #5567).
+                    - Do not set the &quot;demand attention&quot; flag when the window is already
+                      focused.
+                    - Keep windows entirely visible on screen change (bug #5795).
+                    - Various compilation warnings fixed.
+                    - Compute screen size based on each monitor size and layout and
+                      avoid using reported size (bug #5795).
+                    - Reloading settings on keys-changed signal is a huge overhead and
+                      complete nonsense (bug #5964).
+                    - Recent Xorg drivers disable the output when the lid is closed,
+                      leaving no active monitor, in that case simply ignore the event to
+                      avoid messing with windows&apos; positions (bug #6209).
+                    - Add linkage to libm when compositor is used (bug #6231).
+                    - Check for invalid type for GValue to avoid a crash (bug #6195).
+                    - Allow only regular windows to be placed either above or below.
+                    - Translation updates (cs, el, es, gl, it, pl, pt, sv, tr, uk, lv,
+                      ur, ur_PK, ro, ru, nl, ug).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="11">
                 <Date>2009-06-18</Date>
                 <Version>4.6.1</Version>
@@ -6831,7 +6859,7 @@
             <PartOf>desktop.xfce.base</PartOf>
             <Summary xml:lang="en">Xfce settings plugins</Summary>
             <Description xml:lang="en">Xfce4-settings is a configuration manager for Xfce desktop environment.</Description>
-            <Archive type="tarbz2" sha1sum="93dc4358de157bdf9885648ca15034016f39384d">http://archive.xfce.org/src/xfce/xfce4-settings/4.6/xfce4-settings-4.6.4.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="c036cc2f3100a46b2649e678dff7c0106b219263">http://archive.xfce.org/src/xfce/xfce4-settings/4.6/xfce4-settings-4.6.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfcegui4-devel</Dependency>
                 <Dependency>exo-devel</Dependency>
@@ -6876,6 +6904,16 @@
             </Replaces>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-08-21</Date>
+                <Version>4.6.5</Version>
+                <Comment>* Version bump:
+                    - Port to libxklavier 5.0 API.
+                    - Fix linking issues (bug #6236).
+                    - Translation updates (pt, nl, it, am, kk, hu).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2010-01-10</Date>
                 <Version>4.6.4</Version>
@@ -7275,14 +7313,14 @@
             <Summary xml:lang="tr">Xfce arayüz kütüphanesi</Summary>
             <Description xml:lang="en">Libxfcegui4 is a various GTK+ widgets for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Libxfcegui4, Xfce masaüstü yöneticisi için tasarlanmış farklı GTK+ parçacıkları kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="93b3e88b3122d3cc13d7c0e94407e56ec5ae9ffd">http://archive.xfce.org/src/xfce/libxfcegui4/4.6/libxfcegui4-4.6.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a12c79f8fa14c5d1fc0fca5615a451b7d23f8695">http://archive.xfce.org/src/xfce/libxfcegui4/4.6/libxfcegui4-4.6.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfconf-devel</Dependency>
                 <Dependency>startup-notification</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency>gtk-doc</Dependency>
                 <Dependency>glade-devel</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">use-thunar.patch</Patch>
@@ -7340,6 +7378,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2010-08-21</Date>
+                <Version>4.6.4</Version>
+                <Comment>* Version bump:
+                * Added xfce4-dev-tools dependency for reconfiguring.
+                * There are already gtk-doc files as html.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2010-06-14</Date>
                 <Version>4.6.3</Version>
@@ -7748,7 +7795,7 @@
             <Description xml:lang="en">Xfce-taskmanager is a small taskmanager based on the Xfce libraries.</Description>
             <Description xml:lang="tr">Xfce4-taskmanager, Xfce kütüphaneleriyle yazılmış basit bir Xfce görev yöneticisidir.</Description>
             <Icon>xfce4_xicon</Icon>
-            <Archive type="tarbz2" sha1sum="e93824f9e9a369f6353f4b22251ff7f18468dbd4">http://goodies.xfce.org/releases/xfce4-taskmanager/xfce4-taskmanager-0.4.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="835e408bdb7c0d53f63448e6a0d1a0eeb1e7b358">http://archive.xfce.org/src/apps/xfce4-taskmanager/1.0/xfce4-taskmanager-1.0.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -7768,6 +7815,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-08-22</Date>
+                <Version>1.0.0</Version>
+                <Comment>* Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-06-18</Date>
                 <Version>0.4.1</Version>
@@ -8000,7 +8054,7 @@
             <Summary xml:lang="tr">Xfce yardımcı uygulamaları</Summary>
             <Description xml:lang="en">The utilities and scripts provides an about dialog for Xfce4, an application launcher, and several useful scripts that are also used by other Xfce components such as the panel and the desktop menu.</Description>
             <Description xml:lang="tr">Xfce-utils, Xfce4 için önceden hazırlanmış bir hakkında penceresi, uygulama başlatıcı, farklı panel ve masaüstü menüsü gibi farklı Xfce bileşenlerince kullanılan betikler ve araçları kapsar.</Description>
-            <Archive type="tarbz2" sha1sum="0bdb5b6e494f15372d8c0826ac93baca476c9f16">mirrors://xfce/xfce-4.6.1/src/xfce-utils-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="6373886c3d70e576859741bde747a235567ffd8e">http://archive.xfce.org/src/xfce/xfce-utils/4.6/xfce-utils-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -8041,6 +8095,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2010-08-22</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2009-07-13</Date>
                 <Version>4.6.1</Version>
@@ -8323,11 +8384,11 @@
             <Summary xml:lang="tr">Xfce için kullanıcı dostu, basit bir menü uygulama kütüphanesi</Summary>
             <Description xml:lang="en">Libxfce4menu is a compliant menu library that is written for Xfce. It implements the Desktop Menu Specification version 1.0.</Description>
             <Description xml:lang="tr">Libxfce4menu, Xfce için yazılmış kullanıcı dostu ve basit bir menü uygulama kütüphanesidir. 1.0 sürümü Masaüstü Menü Standartları&apos;ndaki kuralları yerine getirir.</Description>
-            <Archive type="tarbz2" sha1sum="17348f661c04e8d8d633b8831638d38987269e9a">mirrors://xfce/xfce-4.6.1/src/libxfce4menu-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="32a85c1ad31360347d5a2f240c4ddc08b444d124">http://archive.xfce.org/src/xfce/libxfce4menu/4.6/libxfce4menu-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency>gtk-doc</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">libxfce4menu-4.6.1-fix-underlinking.patch</Patch>
@@ -8364,6 +8425,17 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-08-21</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Fix make distcheck and compiler warnings.
+                    - Translation updates (lv, ur_PK, ur, ro, hu, ast, pa, nn, nl, am, ug).
+                * Disable gtk-doc. html files are also ready.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-06-19</Date>
                 <Version>4.6.1</Version>
@@ -8422,8 +8494,9 @@
             <Description xml:lang="en">Midori is a lightweight GTK+ web browser based on WebkitGtk. It features tabs, windows and session management, bookmarks stored with XBEL, searchbox based on OpenSearch, and user script support.</Description>
             <Description xml:lang="tr">Midori, WebkitGtk tarayıcı motorunu kullanan, hafif bir GTK+ tabanlı internet tarayıcısıdır. Birçok internet tarayıcısında olduğu gibi, Midori de sekmeleri, pencereleri ve oturum yöneticisini; XBEL ile sık kullanılanları kaydetmeyi, OpenSearch tabanlı arama kutusunu ve kullanıcı betiklerini kullanma gibi özellikleri desteklemektedir.</Description>
             <Icon>midori</Icon>
-            <Archive type="tarbz2" sha1sum="c70f6d75e2ea2947dcf05201192b9405bb4036f4">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.6.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="61e6a802e0a561394b06bd75b0077549d1834d55">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.7.tar.bz2</Archive>
             <BuildDependencies>
+                <Dependency>vala</Dependency>
                 <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
@@ -8441,6 +8514,7 @@
         <Package>
             <Name>midori</Name>
             <RuntimeDependencies>
+                <Dependency>vala</Dependency>
                 <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
@@ -8451,14 +8525,26 @@
                 <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/midori</Path>
+                <Path fileType="data">/usr/share/vala</Path>
+                <Path fileType="data">/usr/share/gir*</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-08-21</Date>
+                <Version>0.2.7</Version>
+                <Comment>* Version bump.
+                * Enable vala support.
+                * Remove unused arguments.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2010-06-04</Date>
                 <Version>0.2.6</Version>
@@ -8825,7 +8911,7 @@
             <Description xml:lang="en">Xfce4-appfinder is a useful software that permits you to find every application in the system supporting desktop entry format.</Description>
             <Description xml:lang="tr">Xfce4-appfinder, kullanıcının sisteminde yüklü, masastünde doğrudan çalışabilen her uygulamayı bulmasını sağlayan, kullanışlı bir uygulama bulucudur.</Description>
             <Icon>xfce4-appfinder</Icon>
-            <Archive type="tarbz2" sha1sum="ecc1f2c6afec8cfb79464a34d23f94c6ed7d017e">mirrors://xfce/xfce-4.6.1/src/xfce4-appfinder-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2fa2534aa5a6b2fc24942689a0b7bb7cf327feda">http://archive.xfce.org/src/xfce/xfce4-appfinder/4.6/xfce4-appfinder-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfce4menu-devel</Dependency>
@@ -8849,6 +8935,17 @@
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2010-08-22</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Properly propagate the focus-in-event of the search entry (bug #5883).
+                    - Translation updates (es, gl, hu, id, it, pl, pt, tr, lv, ur, ur_PK,
+                      ro, sq, sk, nl, kk, ug).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2009-06-18</Date>
                 <Version>4.6.1</Version>
