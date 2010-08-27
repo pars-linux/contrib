@@ -9730,7 +9730,7 @@
             <Summary xml:lang="tr">Xfce oturum yöneticisi</Summary>
             <Description xml:lang="en">The session manager allows the user to save sessions and restore them after login. It is capable of saving several different sessions. It comes with three splash screen engines. And at last it helps you to log out, reboot, and shutdown the system.</Description>
             <Description xml:lang="tr">Xfce oturum yöneticisi, kullanıcıların oturumlarını kaydetmesine ve giriş yaptıktan sonra tekrar oturumu çağırmalarına izin verir. Birden fazla, farklı oturumları kaydetmede oldukça başarılıdır. Pakette üç tane örnek açılış teması var ve son olarak, sistemi kapatırken, yeniden başlatırken veya çıkarken kullanıcılara yardımcı olur.</Description>
-            <Archive type="tarbz2" sha1sum="760e05bf73783521b3ce34e91aa187c74018ab8c">mirrors://xfce/xfce-4.6.1/src/xfce4-session-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2a5778a1543f97845f118a186e2dbb8a8ea3ff4b">http://archive.xfce.org/src/xfce/xfce4-session/4.6/xfce4-session-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -9738,6 +9738,7 @@
                 <Dependency>libwnck</Dependency>
                 <Dependency>gconf</Dependency>
                 <Dependency>gnome-keyring</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">no_tips_on_startup.patch</Patch>
@@ -9775,7 +9776,7 @@
             <IsA>data:doc</IsA>
             <PartOf>desktop.xfce.library</PartOf>
             <RuntimeDependencies>
-                <Dependency releaseFrom="13">xfce4-session</Dependency>
+                <Dependency releaseFrom="15">xfce4-session</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="header">/usr/include</Path>
@@ -9784,6 +9785,19 @@
             </Files>
         </Package>
         <History>
+            <Update release="15">
+                <Date>2010-08-19</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Add timing information to verbose output.
+                    - If it looks like the helper got killed, just return success (bug #4849).
+                    - Translation updates (de, es, gl, hu, id, pl, pt, ru, tr, uk, ro,
+                      lv, ur, ur_PK, ast, sk, nl, it, kk).
+                * xfce4-dev-tools dependency added for reconfigure package.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="14">
                 <Date>2009-07-13</Date>
                 <Version>4.6.1</Version>
@@ -10355,7 +10369,7 @@
             <Description xml:lang="en">Xfce-taskmanager is a small taskmanager based on the Xfce libraries.</Description>
             <Description xml:lang="tr">Xfce4-taskmanager, Xfce kütüphaneleriyle yazılmış basit bir Xfce görev yöneticisidir.</Description>
             <Icon>xfce4_xicon</Icon>
-            <Archive type="tarbz2" sha1sum="e93824f9e9a369f6353f4b22251ff7f18468dbd4">http://goodies.xfce.org/releases/xfce4-taskmanager/xfce4-taskmanager-0.4.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="835e408bdb7c0d53f63448e6a0d1a0eeb1e7b358">http://archive.xfce.org/src/apps/xfce4-taskmanager/1.0/xfce4-taskmanager-1.0.0.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -10375,6 +10389,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-08-22</Date>
+                <Version>1.0.0</Version>
+                <Comment>* Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="4">
                 <Date>2009-06-18</Date>
                 <Version>0.4.1</Version>
@@ -10730,7 +10751,7 @@
             <Description xml:lang="en">The Xfce4 window manager manages the placement of application windows on the screen, provides beautiful window decorations, manages workspaces or virtual desktops, and natively supports multiscreen mode.</Description>
             <Description xml:lang="tr">Xfce4 pencere yöneticisi, uygulama pencerelerinin ekrana yerleştirmeyi sağlar, pencerelerin güzel görünmesini sağlar, çalışma alanlarını ve sanal masaüstlerini yönetir ve doğal olarak çoklu ekran kipini destekler.</Description>
             <Icon>xfwm4</Icon>
-            <Archive type="tarbz2" sha1sum="236622ffddd4618b94eaba8f402c0c48bdcef929">mirrors://xfce/xfce-4.6.1/src/xfwm4-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="34514db4531e95a7dbcd7d73c8d97e5cb9d1bf89">http://archive.xfce.org/src/xfce/xfwm4/4.6/xfwm4-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -10771,6 +10792,34 @@
             </Files>
         </Package>
         <History>
+            <Update release="12">
+                <Date>2010-08-22</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Fix mixed RTL/LTR text not rendering properly in title and tabwin.
+                    - Place windows on top of stack even when not focused in focus
+                      follow mouse (bug #5479).
+                    - Increase menu button height and redice width (bug #5567).
+                    - Do not set the &quot;demand attention&quot; flag when the window is already
+                      focused.
+                    - Keep windows entirely visible on screen change (bug #5795).
+                    - Various compilation warnings fixed.
+                    - Compute screen size based on each monitor size and layout and
+                      avoid using reported size (bug #5795).
+                    - Reloading settings on keys-changed signal is a huge overhead and
+                      complete nonsense (bug #5964).
+                    - Recent Xorg drivers disable the output when the lid is closed,
+                      leaving no active monitor, in that case simply ignore the event to
+                      avoid messing with windows&apos; positions (bug #6209).
+                    - Add linkage to libm when compositor is used (bug #6231).
+                    - Check for invalid type for GValue to avoid a crash (bug #6195).
+                    - Allow only regular windows to be placed either above or below.
+                    - Translation updates (cs, el, es, gl, it, pl, pt, sv, tr, uk, lv,
+                      ur, ur_PK, ro, ru, nl, ug).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="11">
                 <Date>2009-06-18</Date>
                 <Version>4.6.1</Version>
@@ -10983,7 +11032,7 @@
             <Summary xml:lang="tr">Xfce yardımcı uygulamaları</Summary>
             <Description xml:lang="en">The utilities and scripts provides an about dialog for Xfce4, an application launcher, and several useful scripts that are also used by other Xfce components such as the panel and the desktop menu.</Description>
             <Description xml:lang="tr">Xfce-utils, Xfce4 için önceden hazırlanmış bir hakkında penceresi, uygulama başlatıcı, farklı panel ve masaüstü menüsü gibi farklı Xfce bileşenlerince kullanılan betikler ve araçları kapsar.</Description>
-            <Archive type="tarbz2" sha1sum="0bdb5b6e494f15372d8c0826ac93baca476c9f16">mirrors://xfce/xfce-4.6.1/src/xfce-utils-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="6373886c3d70e576859741bde747a235567ffd8e">http://archive.xfce.org/src/xfce/xfce-utils/4.6/xfce-utils-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfcegui4-devel</Dependency>
@@ -11024,6 +11073,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2010-08-22</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2009-07-13</Date>
                 <Version>4.6.1</Version>
@@ -11153,14 +11209,14 @@
             <Summary xml:lang="tr">Xfce arayüz kütüphanesi</Summary>
             <Description xml:lang="en">Libxfcegui4 is a various GTK+ widgets for Xfce desktop environment.</Description>
             <Description xml:lang="tr">Libxfcegui4, Xfce masaüstü yöneticisi için tasarlanmış farklı GTK+ parçacıkları kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="93b3e88b3122d3cc13d7c0e94407e56ec5ae9ffd">http://archive.xfce.org/src/xfce/libxfcegui4/4.6/libxfcegui4-4.6.3.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a12c79f8fa14c5d1fc0fca5615a451b7d23f8695">http://archive.xfce.org/src/xfce/libxfcegui4/4.6/libxfcegui4-4.6.4.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xfconf-devel</Dependency>
                 <Dependency>startup-notification</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency>gtk-doc</Dependency>
                 <Dependency>glade-devel</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">use-thunar.patch</Patch>
@@ -11218,6 +11274,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="17">
+                <Date>2010-08-21</Date>
+                <Version>4.6.4</Version>
+                <Comment>* Version bump:
+                * Added xfce4-dev-tools dependency for reconfiguring.
+                * There are already gtk-doc files as html.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="16">
                 <Date>2010-06-14</Date>
                 <Version>4.6.3</Version>
@@ -11366,7 +11431,7 @@
             <Description xml:lang="en">Xfce4-appfinder is a useful software that permits you to find every application in the system supporting desktop entry format.</Description>
             <Description xml:lang="tr">Xfce4-appfinder, kullanıcının sisteminde yüklü, masastünde doğrudan çalışabilen her uygulamayı bulmasını sağlayan, kullanışlı bir uygulama bulucudur.</Description>
             <Icon>xfce4-appfinder</Icon>
-            <Archive type="tarbz2" sha1sum="ecc1f2c6afec8cfb79464a34d23f94c6ed7d017e">mirrors://xfce/xfce-4.6.1/src/xfce4-appfinder-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2fa2534aa5a6b2fc24942689a0b7bb7cf327feda">http://archive.xfce.org/src/xfce/xfce4-appfinder/4.6/xfce4-appfinder-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfce4menu-devel</Dependency>
@@ -11390,6 +11455,17 @@
             </Files>
         </Package>
         <History>
+            <Update release="11">
+                <Date>2010-08-22</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Properly propagate the focus-in-event of the search entry (bug #5883).
+                    - Translation updates (es, gl, hu, id, it, pl, pt, tr, lv, ur, ur_PK,
+                      ro, sq, sk, nl, kk, ug).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="10">
                 <Date>2009-06-18</Date>
                 <Version>4.6.1</Version>
@@ -11877,8 +11953,9 @@
             <Description xml:lang="en">Midori is a lightweight GTK+ web browser based on WebkitGtk. It features tabs, windows and session management, bookmarks stored with XBEL, searchbox based on OpenSearch, and user script support.</Description>
             <Description xml:lang="tr">Midori, WebkitGtk tarayıcı motorunu kullanan, hafif bir GTK+ tabanlı internet tarayıcısıdır. Birçok internet tarayıcısında olduğu gibi, Midori de sekmeleri, pencereleri ve oturum yöneticisini; XBEL ile sık kullanılanları kaydetmeyi, OpenSearch tabanlı arama kutusunu ve kullanıcı betiklerini kullanma gibi özellikleri desteklemektedir.</Description>
             <Icon>midori</Icon>
-            <Archive type="tarbz2" sha1sum="c70f6d75e2ea2947dcf05201192b9405bb4036f4">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.6.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="61e6a802e0a561394b06bd75b0077549d1834d55">http://archive.xfce.org/src/apps/midori/0.2/midori-0.2.7.tar.bz2</Archive>
             <BuildDependencies>
+                <Dependency>vala</Dependency>
                 <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
@@ -11896,6 +11973,7 @@
         <Package>
             <Name>midori</Name>
             <RuntimeDependencies>
+                <Dependency>vala</Dependency>
                 <Dependency>libunique</Dependency>
                 <Dependency>gtk2</Dependency>
                 <Dependency>pango</Dependency>
@@ -11906,14 +11984,26 @@
                 <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="library">/usr/lib</Path>
+                <Path fileType="header">/usr/include</Path>
                 <Path fileType="data">/usr/share/icons</Path>
                 <Path fileType="data">/usr/share/midori</Path>
+                <Path fileType="data">/usr/share/vala</Path>
+                <Path fileType="data">/usr/share/gir*</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-08-21</Date>
+                <Version>0.2.7</Version>
+                <Comment>* Version bump.
+                * Enable vala support.
+                * Remove unused arguments.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2010-06-04</Date>
                 <Version>0.2.6</Version>
@@ -12160,7 +12250,7 @@
             <Description xml:lang="en">Terminal is a modern, lightweight, and low memory cost terminal emulator with tabs and multiple windows for the Xfce desktop environment. It offers full-customization for the key bindings, the aspect, the colors, and more.</Description>
             <Description xml:lang="tr">Terminal çağdaş, hafif ve az bellek harcayan; sekmeli ve çoklu pencereyi destekleyen, Xfce masaüstü ortamı için yazılmış bir uçbirim öykünücüsüdür. Renkler, görünüm, kısayol tuşları ve daha fazlası için kişiselleştirmeye izin verir.</Description>
             <Icon>terminal</Icon>
-            <Archive type="tarbz2" sha1sum="8aadeb16f23f71691adbc1e042f4f9c89640a653">http://archive.xfce.org/src/apps/terminal/0.4/Terminal-0.4.4.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="8c23799922700b1f74dc7b7e029eec192d8ff62c">http://archive.xfce.org/src/apps/terminal/0.4/Terminal-0.4.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>exo-devel</Dependency>
                 <Dependency>libxfce4util-devel</Dependency>
@@ -12199,6 +12289,24 @@
             </Files>
         </Package>
         <History>
+            <Update release="22">
+                <Date>2010-08-18</Date>
+                <Version>0.4.5</Version>
+                <Comment>* Version bump:
+                    - Improve support for --program-transform-name.
+                    - Don&apos;t set the locale twice on a normal startup.
+                    - Only install the symlink if the Terminal command exists.
+                    - Don&apos;t set translation domain when libxfce4util is new enough.
+                    - Use utilities-terminal for the icon name.
+                    - Add question dialog to view online manual.
+                    - Abort when compiling with --enable-gen-doc with missing deps.
+                    - Disconnect bindings before closing the dialog.
+                    - Improve handling shells (bug #6368).
+                    - Translation updates (hu, fr, de, da, pt, ca, ru, it, fi, si, kk,
+                      cs, uk, zh_CN, es, lv, ja, gl, hr, sk, ug).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="21">
                 <Date>2010-02-04</Date>
                 <Version>0.4.4</Version>
@@ -12543,7 +12651,7 @@
             <PartOf>desktop.xfce.base</PartOf>
             <Summary xml:lang="en">Xfce settings plugins</Summary>
             <Description xml:lang="en">Xfce4-settings is a configuration manager for Xfce desktop environment.</Description>
-            <Archive type="tarbz2" sha1sum="93dc4358de157bdf9885648ca15034016f39384d">http://archive.xfce.org/src/xfce/xfce4-settings/4.6/xfce4-settings-4.6.4.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="c036cc2f3100a46b2649e678dff7c0106b219263">http://archive.xfce.org/src/xfce/xfce4-settings/4.6/xfce4-settings-4.6.5.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfcegui4-devel</Dependency>
                 <Dependency>exo-devel</Dependency>
@@ -12588,6 +12696,16 @@
             </Replaces>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-08-21</Date>
+                <Version>4.6.5</Version>
+                <Comment>* Version bump:
+                    - Port to libxklavier 5.0 API.
+                    - Fix linking issues (bug #6236).
+                    - Translation updates (pt, nl, it, am, kk, hu).</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="8">
                 <Date>2010-01-10</Date>
                 <Version>4.6.4</Version>
@@ -12965,11 +13083,11 @@
             <Summary xml:lang="tr">Xfce için kullanıcı dostu, basit bir menü uygulama kütüphanesi</Summary>
             <Description xml:lang="en">Libxfce4menu is a compliant menu library that is written for Xfce. It implements the Desktop Menu Specification version 1.0.</Description>
             <Description xml:lang="tr">Libxfce4menu, Xfce için yazılmış kullanıcı dostu ve basit bir menü uygulama kütüphanesidir. 1.0 sürümü Masaüstü Menü Standartları&apos;ndaki kuralları yerine getirir.</Description>
-            <Archive type="tarbz2" sha1sum="17348f661c04e8d8d633b8831638d38987269e9a">mirrors://xfce/xfce-4.6.1/src/libxfce4menu-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="32a85c1ad31360347d5a2f240c4ddc08b444d124">http://archive.xfce.org/src/xfce/libxfce4menu/4.6/libxfce4menu-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>gtk2</Dependency>
-                <Dependency>gtk-doc</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">libxfce4menu-4.6.1-fix-underlinking.patch</Patch>
@@ -13006,6 +13124,17 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-08-21</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                    - Build fixes for GIT.
+                    - Fix make distcheck and compiler warnings.
+                    - Translation updates (lv, ur_PK, ur, ro, hu, ast, pa, nn, nl, am, ug).
+                * Disable gtk-doc. html files are also ready.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2009-06-19</Date>
                 <Version>4.6.1</Version>
@@ -13065,7 +13194,7 @@
             <Description xml:lang="en">The desktop manager sets the background image, provides a right-click menu to launch applications and can optionally show files (including application launchers) or iconified windows. It includes gradient support for background color, saturation support for background image, real multiscreen and xinerama support, and it provides a desktop menu editor.</Description>
             <Description xml:lang="tr">Xfce masaüstü yöneticisi arkaplan resmini belirler, uygulamaları başlatmak, simge durumuna küçültülmüş pencereleri veya dosya seçeneklerini göstermek için sağ tık menüsünü hazırlar. Arkaplan rengi için gradyan desteği, arkaplan resmi için doygunluk desteği, gerçek çoklu ekran ve xinerama desteği içerir. Ayrıca, masaüstü menü düzenleme aracını da bünyesinde barındırır.</Description>
             <Icon>xfce4_xicon1</Icon>
-            <Archive type="tarbz2" sha1sum="c2c1b54acaae924077caa3cdffe449e3bb34b2bd">mirrors://xfce/xfce-4.6.1/src/xfdesktop-4.6.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="cefcd1c1386d34386d4e900cbf88b7c24ef3bafb">http://archive.xfce.org/src/xfce/xfdesktop/4.6/xfdesktop-4.6.2.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>libxfce4util-devel</Dependency>
                 <Dependency>libxfce4menu-devel</Dependency>
@@ -13077,10 +13206,8 @@
                 <Dependency>libwnck</Dependency>
                 <Dependency>libglade</Dependency>
                 <Dependency>gnome-doc-utils</Dependency>
+                <Dependency>xfce4-dev-tools</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">fix-underlinking.patch</Patch>
-            </Patches>
             <SourceURI>desktop/xfce/base/xfdesktop/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -13108,6 +13235,31 @@
             </Files>
         </Package>
         <History>
+            <Update release="14">
+                <Date>2010-08-18</Date>
+                <Version>4.6.2</Version>
+                <Comment>* Version bump:
+                   - Build fixes for GIT.
+                   - Rebuild doc directory.
+                   - Add libexo to CFLAGS and LIBS for panel plugin.
+                   - Fix detection of rename/delete ability.
+                   - Fix compilation when libexo isn&apos;t present.
+                   - Update icon text labels when system font size changes (bug #2862).
+                   - Set mnemonic widget properly for icon type/size labels (bug #5555).
+                   - Always show &apos;Eject&apos; in volume context menus, regardless of whether
+                     or not it&apos;s mounted (bug #5343).
+                   - Never show &apos;Unmount&apos; in volume context menus.
+                   - Use GtkBindingSet for keyboard handling on desktop.
+                   - Only register menu with panel if popup succeeded (bug #5792).
+                   - Fix inability to delete broken symlinks on the desktop (bug 5387).
+                   - Don&apos;t misuse the g_return_(val_)?if_fail() macros as much (bug #5791).
+                   - Translation updates (el, es, gl, it, pl, pt, ru, tr, ro, lv, ca,
+                     ur, ur_PK, hu, ast, da, sk, nn, nl, si, am, kk, ja, ug, fr).
+                * Remove unrequired patch.
+                * Remove COPYING file.</Comment>
+                <Name>Gökmen Görgen</Name>
+                <Email>gkmngrgn@gmail.com</Email>
+            </Update>
             <Update release="13">
                 <Date>2009-06-18</Date>
                 <Version>4.6.1</Version>
@@ -19220,8 +19372,8 @@
             <Name>guake</Name>
             <Homepage>http://www.guake-terminal.org</Homepage>
             <Packager>
-                <Name>Cihan Okyay</Name>
-                <Email>okyaycihan@gmail.com</Email>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -19231,14 +19383,14 @@
             <Description xml:lang="en">Guake is a drop-down terminal for Gnome Desktop Environment. You can press a key to invoke it and press again to hide.</Description>
             <Description xml:lang="tr">Guake, Gnome masaüstü yöneticisi için geliştirilmiş; Quake uçbirimi tarzında uçbirim öykünücüsüdür.</Description>
             <Icon>guake</Icon>
-            <Archive type="targz" sha1sum="265191fa85b8e84c43d9ce3e83a356532687a7bc">http://trac.guake-terminal.org/files/guake-0.4.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="97e1adbba7d1ec4569689b1b4a69a8f41421a02d">http://trac.guake-terminal.org/files/guake-0.4.2.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>pygtk</Dependency>
                 <Dependency>gconf</Dependency>
                 <Dependency>vte</Dependency>
             </BuildDependencies>
             <Patches>
-                <Patch>desktop.patch</Patch>
+                <Patch level="1">desktop.patch</Patch>
                 <Patch level="1">aclocal-flag.patch</Patch>
             </Patches>
             <SourceURI>x11/terminal/guake/pspec.xml</SourceURI>
@@ -19263,6 +19415,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-08-18</Date>
+                <Version>0.4.2</Version>
+                <Comment>Version bump</Comment>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-06-30</Date>
                 <Version>0.4.0</Version>
@@ -19378,8 +19537,8 @@
             <Name>terminator</Name>
             <Homepage>http://www.tenshu.net/terminator</Homepage>
             <Packager>
-                <Name>Cihan Okyay</Name>
-                <Email>okyaycihan@gmail.com</Email>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -19389,7 +19548,7 @@
             <Description xml:lang="en">Terminator is an attempt to maximise useful space on a given desktop for terminals</Description>
             <Description xml:lang="tr">Terminator tek pencerede birden çok terminal çalıştırarak masaüstü alanınızı daha rahat kullanmanızı amaçlar.</Description>
             <Icon>terminator</Icon>
-            <Archive type="targz" sha1sum="7bee32c6ff9e73699b87710702f1df2e7fcd7562">http://launchpad.net/terminator/trunk/0.14/+download/terminator_0.14.tar.gz</Archive>
+            <Archive type="targz" sha1sum="ccc64da12e2a7a56efe2a4aa444518d17864bcfb">http://launchpad.net/terminator/trunk/0.94/+download/terminator-0.94.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
                 <Dependency>gnome-python</Dependency>
@@ -19417,6 +19576,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-08-19</Date>
+                <Version>0.94</Version>
+                <Comment>Version bump</Comment>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
+            </Update>
             <Update release="2">
                 <Date>2010-01-05</Date>
                 <Version>0.14</Version>
@@ -24545,8 +24711,8 @@
             <Name>deluge</Name>
             <Homepage>http://deluge-torrent.org</Homepage>
             <Packager>
-                <Name>Cihan Okyay</Name>
-                <Email>okyaycihan@gmail.com</Email>
+                <Name>Pardus</Name>
+                <Email>admins@pardus.org.tr</Email>
             </Packager>
             <License>GPLv3</License>
             <IsA>app:gui</IsA>
@@ -24556,7 +24722,7 @@
             <Description xml:lang="en">Deluge is a Bittorrent client. Deluge is intended to bring a native, full-featured client to Linux GTK+ desktop environments such as GNOME and Xfce.</Description>
             <Description xml:lang="tr">Deluge, bir Bittorrent istemcisidir. Xfce ve GNOME gibi GTK+ tabanlı masaüstü ortamlarıyla görsel kütüphaneler açısından uyumlu çalışması için yazılmış tam donanımlı bir istemcidir.</Description>
             <Icon>deluge</Icon>
-            <Archive type="tarbz2" sha1sum="5f36f5f55a6d84a90840b166c379647f8774ca19">http://download.deluge-torrent.org/source/deluge-1.2.0_rc5.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="a99df49b3aa1b82bf5d7fe6900050a13887ce0d6">http://download.deluge-torrent.org/source/deluge-1.3.0_rc1.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>imagemagick</Dependency>
@@ -24564,6 +24730,7 @@
                 <Dependency>Twisted</Dependency>
                 <Dependency>pyopenssl</Dependency>
                 <Dependency>chardet</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch level="1">do-not-check-update.patch</Patch>
@@ -24581,7 +24748,7 @@
                 <Dependency>Twisted</Dependency>
                 <Dependency>pyopenssl</Dependency>
                 <Dependency>chardet</Dependency>
-                <Dependency releaseFrom="7">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
                 <Dependency>python-mako</Dependency>
             </RuntimeDependencies>
             <Files>
@@ -24595,6 +24762,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-08-05</Date>
+                <Version>1.3.0_rc1</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="8">
                 <Date>2009-12-26</Date>
                 <Version>1.2.0_rc5</Version>
@@ -27842,7 +28016,7 @@
             <Homepage>http://www.playonlinux.com</Homepage>
             <Packager>
                 <Name>Deniz Ege Tunçay</Name>
-                <Email>denizutkan@lanetlidiyarlar.com</Email>
+                <Email>info@egetun.com</Email>
             </Packager>
             <License>GPLv3</License>
             <IsA>app:gui</IsA>
@@ -27852,7 +28026,7 @@
             <Description xml:lang="en">PlayOnLinux is a piece of sofware which allow you to install and use easily numerous games and softwares designed to run with Microsoft&apos;s Windows.</Description>
             <Description xml:lang="tr">PlayOnLinux, Microsoft&apos;s Windows için hazırlanan çok sayıdaki oyunu ve uygulamayı Linux&apos;ta kullanmanıza olanak sağlayan bir uygulamadır.</Description>
             <Icon>PlayOnLinux</Icon>
-            <Archive type="targz" sha1sum="888e81c3d56838181d927b2ff2955b87fa1ee9da">http://www.playonlinux.com/script_files/PlayOnLinux/3.7.6/PlayOnLinux_3.7.6.tar.gz</Archive>
+            <Archive type="targz" sha1sum="889da1916bd01332bacc24cd778fd281a0875394">http://www.playonlinux.com/script_files/PlayOnLinux/3.8/PlayOnLinux_3.8.tar.gz</Archive>
             <Patches>
                 <Patch>bin_path.patch</Patch>
                 <Patch>konsole.patch</Patch>
@@ -27882,6 +28056,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="16">
+                <Date>2010-08-24</Date>
+                <Version>3.8</Version>
+                <Comment>Stable update.</Comment>
+                <Name>Deniz Ege Tunçay</Name>
+                <Email>info@egetun.com</Email>
+            </Update>
             <Update release="15">
                 <Date>2010-06-09</Date>
                 <Version>3.7.6</Version>
