@@ -21,6 +21,4 @@ def build():
 def install():
     autotools.install()
 
-    pisitools.remove("/etc/solfege")
-
     pisitools.dodoc('README', 'FAQ', 'COPYING', 'ChangeLog', 'AUTHORS')
