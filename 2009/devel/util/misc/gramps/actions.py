@@ -6,12 +6,17 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import pythonmodules
+from pisi.actionsapi import shelltools
+from pisi.actionsapi import get
 
 def setup():
+    shelltools.unlink("py-compile" )
+    shelltools.sym("/bin/true", "%s/py-compile" % get.curDIR())
+
     autotools.configure("--disable-scrollkeeper \
                          --disable-schemas-install \
-                         --disable-mime-install")
+                         --disable-mime-install \
+                         --enable-packager-mode")
 
 def build():
     autotools.make()
@@ -19,19 +24,5 @@ def build():
 def install():
     autotools.install()
 
-    pythonmodules.fixCompiledPy(lookInto="/usr/share/gramps")
+    pisitools.dodoc("AUTHORS", "COPYING", "README","NEWS","FAQ","TODO")
 
-    # remove TR locale, it hasn't been translated completely
-    pisitools.remove("/usr/share/locale/tr/LC_MESSAGES/gramps.mo")
-
-    mimeFiles = ["/usr/share/mime/XMLnamespaces",
-                 "/usr/share/mime/aliases",
-                 "/usr/share/mime/globs",
-                 "/usr/share/mime/magic",
-                 "/usr/share/mime/mime.cache",
-                 "/usr/share/mime/subclasses"]
-
-    for file in mimeFiles:
-        pisitools.remove(file)
-
-    pisitools.dodoc("AUTHORS", "ChangeLog", "README","NEWS","FAQ","TODO")
