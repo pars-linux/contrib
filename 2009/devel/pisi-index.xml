@@ -21197,31 +21197,31 @@
             <Name>AutoQ3D</Name>
             <Homepage>http://autoq3d.ecuadra.com/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.graphics</PartOf>
             <Summary xml:lang="en">3D modeling application</Summary>
-            <Description xml:lang="en">A complete 3D modeling application for computing aided drafting in three dimensions. AutoQ3D can be used by anyone who wants an easy way to imagine, create, and publish in 3D. It is ideal for you to use as modeling editor for your home additions, game design, math geometrical education or whatever your imagination tells you.</Description>
-            <Archive type="zip" sha1sum="644535d789f2f07878d0a0ceeaf0903f180b90c9">http://autoq3d.ecuadra.com/downloads/AutoQ3Dsource.zip</Archive>
+            <Summary xml:lang="tr">3d Modelleme programı</Summary>
+            <Description xml:lang="en">A complete 3D modeling application for computing aided drafting in three dimensions.(Community Version) AutoQ3D can be used by anyone who wants an easy way to imagine, create, and publish in 3D. It is ideal for you to use as modeling editor for your home additions, game design, math geometrical education or whatever your imagination tells you.</Description>
+            <Description xml:lang="tr">Üç boyutlu bilgisayar destekli çizim için tam bir 3D modelleme uygulaması.(Topluluk sürümü) AutoQ3D ile hayalinizdekileri oluşturup, 3D olarak yayınlayabilirsiniz.</Description>
+            <Icon>AutoQ3D</Icon>
+            <Archive type="zip" sha1sum="3f9931f38899d5fc042a771ae5a751120d36343b">mirrors://sourceforge/autoq3d/AutoQ3DCommunity1-40qt4source.zip</Archive>
             <BuildDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">default_program_path.patch</Patch>
-            </Patches>
             <SourceURI>multimedia/graphics/AutoQ3D/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>AutoQ3D</Name>
             <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
+                <Dependency>qt</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/AutoQ3D</Path>
+                <Path fileType="data">/usr/share/AutoQ3D-Community</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
@@ -21231,6 +21231,13 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="2">
+                <Date>2010-08-28</Date>
+                <Version>1.40</Version>
+                <Comment>Version Bump.Add translations.xml.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="1">
                 <Date>2006-09-25</Date>
                 <Version>1.35</Version>
@@ -30701,8 +30708,8 @@
             <Name>gramps</Name>
             <Homepage>http://www.gramps-project.org/</Homepage>
             <Packager>
-                <Name>Türker Sezer</Name>
-                <Email>turkersezer@tsdesign.info</Email>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
@@ -30711,41 +30718,63 @@
             <Summary xml:lang="tr">GRAMPS bir soyağacı programıdır.</Summary>
             <Description xml:lang="en">GRAMPS is a GNOME genealogy program for Linux that allows you to easily build and keep track of your family tree.</Description>
             <Description xml:lang="tr">GRAMPS soyağacınızı rahatça oluşturmanızı ve takip etmenizi sağlayan bir soyağacı programıdır.</Description>
-            <Archive type="targz" sha1sum="371ffba136fe596a3a1a853cd63fd8cd68d0d02b">mirrors://sourceforge/gramps/gramps-3.0.1.tar.gz</Archive>
+            <Icon>gramps</Icon>
+            <Archive type="targz" sha1sum="156622b7a51189fb2c105e29ff33978d4c165be4">mirrors://sourceforge/gramps/gramps-3.2.3.tar.gz</Archive>
             <BuildDependencies>
-                <Dependency>pygtk</Dependency>
+                <Dependency versionFrom="2.12">pygtk</Dependency>
+                <Dependency>pywebkitgtk</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>xdg-utils</Dependency>
                 <Dependency>gnome-python</Dependency>
                 <Dependency>gnome-vfs</Dependency>
                 <Dependency>gnome-doc-utils</Dependency>
                 <Dependency>graphviz</Dependency>
                 <Dependency>reportlab</Dependency>
-                <Dependency>scrollkeeper</Dependency>
             </BuildDependencies>
             <SourceURI>util/misc/gramps/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>gramps</Name>
             <RuntimeDependencies>
-                <Dependency>pygtk</Dependency>
+                <Dependency versionFrom="2.12">pygtk</Dependency>
+                <Dependency>pywebkitgtk</Dependency>
+                <Dependency>librsvg</Dependency>
+                <Dependency>xdg-utils</Dependency>
                 <Dependency>gnome-python</Dependency>
                 <Dependency>gnome-vfs</Dependency>
+                <Dependency>gnome-doc-utils</Dependency>
                 <Dependency>graphviz</Dependency>
                 <Dependency>reportlab</Dependency>
-                <Dependency>scrollkeeper</Dependency>
             </RuntimeDependencies>
             <Files>
-                <Path fileType="config">/etc</Path>
                 <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/share/gramps</Path>
+                <Path fileType="data">/usr/share/application-registry</Path>
+                <Path fileType="data">/usr/share/applications</Path>
+                <Path fileType="data">/usr/share/pixmaps</Path>
                 <Path fileType="man">/usr/share/man</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="doc">/usr/share/gnome/help</Path>
-                <Path fileType="data">/usr/share</Path>
+                <Path fileType="data">/usr/share/mime</Path>
+                <Path fileType="data">/usr/share/mime-info</Path>
+                <Path fileType="data">/usr/share/icons</Path>
+                <Path fileType="localedata">/usr/share/locale</Path>
             </Files>
             <AdditionalFiles>
                 <AdditionalFile target="/usr/share/applications/gramps.desktop" permission="0644" owner="root">gramps.desktop</AdditionalFile>
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-08-28</Date>
+                <Version>3.2.3</Version>
+                <Comment>- Version bump.
+                - Icon tag added, Add dep xdg-utils, librsvg, pywebkitgtk. 
+                - Sandbox error shelltools.unlink, shelltools.sym added and fixCompiledPy lines were removed.
+                - Compiled with disable-scrollkeeper dependency been removed scrollkeeper.
+                - Mime files the lines have been removed.</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2008-06-04</Date>
                 <Version>3.0.1</Version>
