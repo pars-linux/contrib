@@ -5,42 +5,53 @@
         <Name>gramps</Name>
         <Homepage>http://www.gramps-project.org/</Homepage>
         <Packager>
-            <Name>Türker Sezer</Name>
-            <Email>turkersezer@tsdesign.info</Email>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
+        <Icon>gramps</Icon>
         <IsA>app:gui</IsA>
         <Summary>GRAMPS is a genealogy program</Summary>
         <Description>GRAMPS is a GNOME genealogy program for Linux that allows you to easily build and keep track of your family tree.</Description>
-        <Archive sha1sum="371ffba136fe596a3a1a853cd63fd8cd68d0d02b" type="targz">mirrors://sourceforge/gramps/gramps-3.0.1.tar.gz</Archive>
+        <Archive sha1sum="156622b7a51189fb2c105e29ff33978d4c165be4" type="targz">mirrors://sourceforge/gramps/gramps-3.2.3.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>pygtk</Dependency>
+            <Dependency versionFrom="2.12">pygtk</Dependency>
+            <Dependency>pywebkitgtk</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>xdg-utils</Dependency> 
             <Dependency>gnome-python</Dependency>
             <Dependency>gnome-vfs</Dependency>
             <Dependency>gnome-doc-utils</Dependency>
             <Dependency>graphviz</Dependency>
             <Dependency>reportlab</Dependency>
-            <Dependency>scrollkeeper</Dependency>
         </BuildDependencies>
     </Source>
 
     <Package>
         <Name>gramps</Name>
         <RuntimeDependencies>
-            <Dependency>pygtk</Dependency>
+            <Dependency versionFrom="2.12">pygtk</Dependency>
+            <Dependency>pywebkitgtk</Dependency>
+            <Dependency>librsvg</Dependency>
+            <Dependency>xdg-utils</Dependency> 
             <Dependency>gnome-python</Dependency>
             <Dependency>gnome-vfs</Dependency>
+            <Dependency>gnome-doc-utils</Dependency>
             <Dependency>graphviz</Dependency>
             <Dependency>reportlab</Dependency>
-            <Dependency>scrollkeeper</Dependency>
         </RuntimeDependencies>
         <Files>
-            <Path fileType="config">/etc</Path>
             <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="data">/usr/share/gramps</Path>
+            <Path fileType="data">/usr/share/application-registry</Path>
+            <Path fileType="data">/usr/share/applications</Path>    
+            <Path fileType="data">/usr/share/pixmaps</Path>       
             <Path fileType="man">/usr/share/man</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="doc">/usr/share/gnome/help</Path>
-            <Path fileType="data">/usr/share</Path>
+            <Path fileType="data">/usr/share/mime</Path>
+            <Path fileType="data">/usr/share/mime-info</Path>
+            <Path fileType="data">/usr/share/icons</Path>
+            <Path fileType="localedata">/usr/share/locale</Path>
         </Files>
         <AdditionalFiles>
             <AdditionalFile owner="root" permission="0644" target="/usr/share/applications/gramps.desktop">gramps.desktop</AdditionalFile>
@@ -48,6 +59,19 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-08-28</Date>
+            <Version>3.2.3</Version>
+            <Comment>
+                - Version bump.
+                - Icon tag added, Add dep xdg-utils, librsvg, pywebkitgtk. 
+                - Sandbox error shelltools.unlink, shelltools.sym added and fixCompiledPy lines were removed.
+                - Compiled with disable-scrollkeeper dependency been removed scrollkeeper.
+                - Mime files the lines have been removed.
+            </Comment>
+            <Name>Ertan Argüden</Name>
+            <Email>ert976@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2008-06-04</Date>
             <Version>3.0.1</Version>
