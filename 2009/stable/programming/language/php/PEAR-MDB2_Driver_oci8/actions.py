@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="MDB2_Driver_oci8-1.5.0b2"
+WorkDir="MDB2_Driver_oci8-1.5.0b3"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/MDB2/Driver", "MDB2/Driver/*")
