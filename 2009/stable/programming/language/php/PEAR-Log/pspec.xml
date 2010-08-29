@@ -11,7 +11,8 @@
         <License>MIT</License>
         <IsA>library</IsA>
         <Summary>Logging utilities</Summary>
-        <Archive sha1sum="d47cce0397aaefa71cd2aa94e07ef4f5175ec9a8" type="targz">http://download.pear.php.net/package/Log-1.12.1.tgz</Archive>
+        <Description>PEAR-Log provides an abstracted logging framework. It includes output handlers for log files, databases, syslog, email, Firebug, and the console.</Description>
+        <Archive sha1sum="781694c17078d6ecb6409e7d5e41299bd7b01335" type="targz">http://download.pear.php.net/package/Log-1.12.2.tgz</Archive>
     </Source>
 
     <Package>
@@ -29,6 +30,17 @@
     </Package>
 
     <History>
+        <Update release="9">
+            <Date>2010-08-29</Date>
+            <Version>1.12.2</Version>
+            <Comment>Version bump:
+                - Use PHP5-specific static method notation to avoid strict warnings. (Bug: 17509)
+                - Fixing some potential undefined backtrace references. (Bug: 17738)
+                - Adding `lineFormat` and `timeFormat` configuration variables to the syslog handler. (Request: 17753)
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="8">
             <Date>2010-05-29</Date>
             <Version>1.12.1</Version>
