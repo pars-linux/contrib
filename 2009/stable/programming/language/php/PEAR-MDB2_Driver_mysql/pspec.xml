@@ -6,12 +6,13 @@
         <Homepage>http://pear.php.net/package/MDB2_Driver_mysql/</Homepage>
         <Packager>
             <Name>Necdet Yücel</Name>
-            <Email>nyucel@comu.edu.tr</Email>
+            <Email>necdetyucel@gmail.com</Email>
         </Packager>
         <License>BSD</License>
         <IsA>library</IsA>
         <Summary>MDB2 MySQL Driver</Summary>
-        <Archive sha1sum="3ae1d579ace24ec7ccbb769b7e6693c8a64e686e" type="targz">http://download.pear.php.net/package/MDB2_Driver_mysql-1.5.0b2.tgz</Archive>
+        <Description>PEAR-MDB2_Driver_mysql is the MySQL MDB2 driver for PEAR.</Description>
+        <Archive sha1sum="26cdb9ec37a6f0324803bc40b6224ff31ad34939" type="targz">http://download.pear.php.net/package/MDB2_Driver_mysql-1.5.0b3.tgz</Archive>
     </Source>
 
     <Package>
@@ -27,6 +28,22 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-08-29</Date>
+            <Version>1.5.0_beta3</Version>
+            <Comment>Version bump:
+                - fixed bug #15650: mysqli function used in setCharset()
+                - fixed bug #16003: incorrect check for error after mysql_store_result
+                - fixed bug #16147: first prepared statement is emulated when using factory with mysql
+                - fixed bug #16669: hostspec is ignored when protocol is unix
+                - fixed bug #17037: 'on update' not mentioned in tableInfo()
+                - fixed bug #17065: There is no NEW row in on DELETE trigger (fix error in FK constraint triggers)
+                - fixed bug #17650: lastInsertId can not handle bigint, forces cast to integer [alexpw]
+                - return ON UPDATE|DELETE action in getTableConstraintDefinition()
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2010-02-03</Date>
             <Version>1.5.0_beta2</Version>
