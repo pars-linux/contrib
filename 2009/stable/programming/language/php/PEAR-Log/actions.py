@@ -14,3 +14,4 @@ def install():
     pisitools.insinto("/usr/share/php5/PEAR/misc", "misc/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Log", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Log", "tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/Log/examples","examples/*")
