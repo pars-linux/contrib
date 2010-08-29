@@ -6,10 +6,9 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="MDB2-2.5.0b2"
+WorkDir="MDB2-2.5.0b3"
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR", "MDB2.php")
-    pisitools.insinto("/usr/share/php5/PEAR/MDB2", "MDB2/*")
+    pisitools.insinto("/usr/share/php5/PEAR/", "MDB2*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/MDB2", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/MDB2", "tests/*")
