@@ -9,13 +9,13 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 from pisi.actionsapi import get
 
-WorkDir="dxflib-%s-2.src" % get.srcVERSION()
+WorkDir="dxflib-%s-1.src" % get.srcVERSION()
 
 def setup():
     autotools.configure()
 
 def build():
-    autotools.make("shared")
+    autotools.make()
 
 def install():
     pisitools.insinto("/usr/lib", "lib/*")
