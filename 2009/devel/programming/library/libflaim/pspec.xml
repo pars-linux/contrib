@@ -3,15 +3,15 @@
 <PISI>
     <Source>
         <Name>libflaim</Name>
-        <Homepage>http://forge.novell.com/modules/xfmod/project/?flaim</Homepage>
+        <Homepage>http://chorgan.provo.novell.com/flaim/development/flaim/documentation/</Homepage>
         <Packager>
-            <Name>Pardus</Name>
-            <Email>admins@pardus.org.tr</Email>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <IsA>library</IsA>
-        <Summary>FLAIM is an embeddable cross-platform database engine that provides a rich, powerful, easy-to-use feature set</Summary>
-        <Description>FLAIM is an embeddable cross-platform database engine that provides a rich, powerful, easy-to-use feature set</Description>
+        <Summary>An embeddable cross-platform database engine that provides a rich, powerful, easy-to-use feature set</Summary>
+        <Description>FLAIM is an embeddable cross-platform database engine that provides a rich, powerful, easy-to-use feature set.</Description>
         <Archive sha1sum="3f219f23cc6fc5371c995ad4084d1e1b6721d382" type="targz">http://forgeftp.novell.com/flaim/development/flaim/downloads/source/libflaim-4.9.989.tar.gz</Archive>
         <Patches>
             <Patch>do-not-compile-with-werror.patch</Patch>
@@ -23,10 +23,30 @@
         <Files>
             <Path fileType="header">/usr/include</Path>
             <Path fileType="library">/usr/lib</Path>
+            <Path fileType="doc">/usr/share/doc</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>libflaim-docs</Name>
+        <IsA>data:doc</IsA>
+        <Summary>Document files for libflaim</Summary>
+        <RuntimeDependencies>
+            <Dependency release="3">libflaim</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="doc">/usr/share/doc/libflaim/html/</Path>
         </Files>
     </Package>
 
     <History>
+        <Update release="3">
+            <Date>2010-09-01</Date>
+            <Version>4.9.989</Version>
+            <Comment>Add docs</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="2">
             <Date>2008-06-01</Date>
             <Version>4.9.989</Version>
