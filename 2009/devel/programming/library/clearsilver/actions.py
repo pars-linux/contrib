@@ -6,7 +6,6 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
 def setup():
     autotools.configure("--enable-compression \
@@ -24,9 +23,8 @@ def build():
     autotools.make()
 
 def install():
-    autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    autotools.install()
 
-    # no static libs
-    pisitools.remove("/usr/lib/*.a")
+    pisitools.removeDir("/usr/lib")
 
     pisitools.dodoc("CS_LICENSE", "LICENSE", "README*")
