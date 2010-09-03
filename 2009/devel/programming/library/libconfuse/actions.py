@@ -23,3 +23,5 @@ def install():
     autotools.install()
 
     pisitools.dodoc("AUTHORS", "README", "NEWS")
+
+    pisitools.doman("doc/man/man3/*")
