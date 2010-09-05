@@ -13,22 +13,23 @@ from pisi.actionsapi import get
 def setup():
     shelltools.export("LDFLAGS", "")
 
-    autotools.configure("--with-python \
-                         --with-tcl \
+    autotools.configure("--disable-dependency-tracking \
+                         --disable-static \
+                         --with-python \
+                         --with-python-ldflags='-shared -lrdf' \
                          --with-redland=system \
                          --with-perl \
-                         --with-java \
                          --with-php \
-                         --with-ruby \
-                         --with-jdk")
+                         --with-ruby")
 
 def build():
     autotools.make()
+
+def check():
+    autotools.make("check")
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
 
     pisitools.dodoc("AUTHORS", "ChangeLog*", "COPYING*", "NEWS", "README", "TODO")
     pisitools.dohtml("*.html")
-
-    perlmodules.fixLocalPod()
