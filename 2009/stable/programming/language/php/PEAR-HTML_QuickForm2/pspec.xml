@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PEAR-HTML_QuickForm2</Name>
+        <Homepage>http://pear.php.net/package/HTML_QuickForm2</Homepage>
+        <Packager>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Packager>
+        <License>PHP</License>
+        <IsA>library</IsA>
+        <Summary>PHP5 rewrite of HTML_QuickForm package</Summary>
+        <Description>PHP5 rewrite of HTML_QuickForm and HTML_QuickForm_Controller packages.</Description>
+        <Archive sha1sum="ba84c08b8db9081471fed094cda20262f5aa707e" type="targz">http://download.pear.php.net/package/HTML_QuickForm2-0.4.0.tgz</Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-HTML_QuickForm2</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>PEAR-HTML_QuickForm</Package>
+            <Package>PEAR-HTML_QuickForm_Controller</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2010-07-11</Date>
+            <Version>0.4.0</Version>
+            <Comment>First release</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>nyucel@comu.edu.tr</Email>
+        </Update>
+    </History>
+</PISI>
