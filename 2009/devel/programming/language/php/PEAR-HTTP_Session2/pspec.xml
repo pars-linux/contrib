@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "http://www.pardus.org.tr/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>PEAR-HTTP_Session2</Name>
+        <Homepage>http://pear.php.net/package/HTTP_Session2</Homepage>
+        <Packager>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Packager>
+        <License>BSD</License>
+        <IsA>library</IsA>
+        <Summary>PHP5 Session Handler</Summary>
+        <Description>PHP5 Object-oriented interface to the session_* family functions it provides extra features such as database storage for session data using DB/MDB2 packages.</Description>
+        <Archive sha1sum="f7e68991d1590a8215b2cd911862e40340c41196" type="targz">http://download.pear.php.net/package/HTTP_Session2-0.7.3.tgz</Archive>
+    </Source>
+
+    <Package>
+        <Name>PEAR-HTTP_Session2</Name>
+        <RuntimeDependencies>
+            <Dependency>mod_php</Dependency>
+            <Dependency>PEAR</Dependency>
+            <Dependency>PEAR-MDB2</Dependency>
+        </RuntimeDependencies>
+        <Replaces>
+            <Package>PEAR-HTTP_Session</Package>
+        </Replaces>
+        <Files>
+            <Path fileType="data">/usr/share/php5/PEAR</Path>
+            <Path fileType="doc">/usr/share/php5/PEAR/doc</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2010-07-18</Date>
+            <Version>0.7.3</Version>
+            <Comment>First release.</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>
