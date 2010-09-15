@@ -67,7 +67,6 @@
             <Path fileType="data">/usr/share</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
-            <Path fileType="man">/usr/share/man</Path>
         </Files>
     </Package>
 
@@ -83,11 +82,44 @@
         </Files>
     </Package>
 
+    <Package>
+        <Name>gdal-perl</Name>
+        <Summary>perl bindings for gdal</Summary>
+        <RuntimeDependencies>
+            <Dependency release="12">gdal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/perl5</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>gdal-python</Name>
+        <Summary>python bindings for gdal</Summary>
+        <RuntimeDependencies>
+            <Dependency release="12">gdal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/python*</Path>
+        </Files>
+    </Package>
+
+    <Package>
+        <Name>gdal-ruby</Name>
+        <Summary>ruby bindings for gdal</Summary>
+        <RuntimeDependencies>
+            <Dependency release="12">gdal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/lib/ruby</Path>
+        </Files>
+    </Package>
+
     <History>
         <Update release="12">
             <Date>2010-09-16</Date>
             <Version>1.7.2</Version>
-            <Comment>Version bump, add gentoo patches, split headers</Comment>
+            <Comment>Version bump, add gentoo patches, split headers, split perl, python and ruby bindings</Comment>
             <Name>Necdet Yücel</Name>
             <Email>necdetyucel@gmail.com</Email>
         </Update>
