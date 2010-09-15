@@ -12,7 +12,7 @@
         <IsA>library</IsA>
         <Summary>GDAL is a translator library for raster geospatial data formats (includes OGR support)</Summary>
         <Description>is a translator library for raster geospatial data formats that is released under an X/MIT style Open Source license by the Open Source Geospatial Foundation. As a library, it presents a single abstract data model to the calling application for all supported formats.</Description>
-        <Archive sha1sum="9f5f830a464a34ef2b3a7b31a808d0938f13c9fb" type="targz">http://download.osgeo.org/gdal/gdal-1.4.4.tar.gz</Archive>
+        <Archive sha1sum="a03127530708e3924aec7b505cc2ca4f8153f13c" type="targz">http://download.osgeo.org/gdal/gdal-1.7.2.tar.gz</Archive>
         <BuildDependencies>
             <Dependency versionFrom="3.7.0">tiff</Dependency>
             <Dependency>libgeotiff</Dependency>
@@ -27,11 +27,18 @@
             <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
             <Dependency versionFrom="8.1.9">postgresql-pl</Dependency>
             <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
-            <Dependency>unixodbc</Dependency>
+            <Dependency>unixODBC</Dependency>
             <Dependency versionFrom="3.4.2">sqlite</Dependency>
             <Dependency versionFrom="2.2.3">geos</Dependency>
             <Dependency>doxygen</Dependency>
+            <Dependency>mysql-lib</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch>1.7.2-ruby_cflags.patch</Patch>
+            <Patch>gdal-1.5.0-install_name.patch</Patch>
+            <Patch>gdal-1.5.0-soname.patch</Patch>
+            <Patch>gdal-1.5.1-python-install.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -50,13 +57,13 @@
             <Dependency versionFrom="8.1.9">postgresql-lib</Dependency>
             <Dependency versionFrom="8.1.9">postgresql-pl</Dependency>
             <Dependency versionFrom="8.1.9">postgresql-server</Dependency>
-            <Dependency>unixodbc</Dependency>
+            <Dependency>unixODBC</Dependency>
             <Dependency versionFrom="3.4.2">sqlite</Dependency>
             <Dependency versionFrom="2.2.3">geos</Dependency>
+            <Dependency>mysql-lib</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include</Path>
             <Path fileType="data">/usr/share</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
@@ -64,7 +71,26 @@
         </Files>
     </Package>
 
+    <Package>
+        <Name>gdal-devel</Name>
+        <Summary>Development headers for gdal</Summary>
+        <Description>gdal-devel provides development headers for gdal.</Description>
+        <RuntimeDependencies>
+            <Dependency release="12">gdal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include</Path>
+        </Files>
+    </Package>
+
     <History>
+        <Update release="12">
+            <Date>2010-09-16</Date>
+            <Version>1.7.2</Version>
+            <Comment>Version bump, add gentoo patches, split headers</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="11">
             <Date>2007-12-20</Date>
             <Version>1.4.4</Version>
