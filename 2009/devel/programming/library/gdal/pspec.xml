@@ -126,11 +126,23 @@
         </Files>
     </Package>
 
+    <Package>
+        <Name>gdal-docs</Name>
+        <IsA>data:doc</IsA>
+        <Summary>Documentation files of gdal</Summary>
+        <RuntimeDependencies>
+            <Dependency release="12">gdal</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="library">/usr/share/doc/gdal/html</Path>
+        </Files>
+    </Package>
+
     <History>
         <Update release="12">
             <Date>2010-09-16</Date>
             <Version>1.7.2</Version>
-            <Comment>Version bump, add gentoo patches, split headers, split perl, python and ruby bindings</Comment>
+            <Comment>Version bump, add gentoo patches, split headers and docs, split perl, python and ruby bindings</Comment>
             <Name>Necdet Yücel</Name>
             <Email>necdetyucel@gmail.com</Email>
         </Update>

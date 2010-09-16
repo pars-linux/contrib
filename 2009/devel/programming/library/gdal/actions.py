@@ -63,9 +63,13 @@ def setup():
 
 def build():
     autotools.make()
+    autotools.make("docs")
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
+    
+    pisitools.dohtml("html/*")
+    pisitools.dohtml("ogr/html/*")
 
     pisitools.dodoc("COMMITERS", "HOWTO-RELEASE", "NEWS", "PROVENANCE.TXT", "VERSION")
 
