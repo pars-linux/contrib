@@ -10,8 +10,9 @@ from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.export("AUTOPOINT", "/bin/true")
-    autotools.autoreconf("-fiv")
+    autotools.aclocal("-I mk/autoconf")
+    autotools.automake()
+    autotools.autoconf()
 
     autotools.configure("--disable-static\
                          --disable-rpath \
