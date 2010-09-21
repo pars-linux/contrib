@@ -10,7 +10,8 @@ from pisi.actionsapi import pisitools
 
 def setup():
     autotools.autoreconf("-vfi")
-    autotools.configure("--disable-update-databases \
+    autotools.configure("--disable-static \
+                        --disable-update-databases \
                         --disable-xml-catalog-update")
 
 def build():
