@@ -847,51 +847,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>3ddesktop</Name>
-            <Homepage>http://desk3d.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.misc</PartOf>
-            <Summary xml:lang="en">3D-Desktop is a program for switching virtual desktops in a seamless 3-dimensional manner.</Summary>
-            <Summary xml:lang="tr">3D-Desktop sanal masaüstleri arasında 3 boyutlu geçiş sağlayan bir programdır.</Summary>
-            <Archive type="targz" sha1sum="33ff86b559d0c0407ef4c6c989a9fcbf804f7e5f">mirrors://sourceforge/desk3d/3ddesktop-0.2.9.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>xorg-server</Dependency>
-                <Dependency>glut</Dependency>
-                <Dependency>imlib2</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/misc/3ddesktop/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>3ddesktop</Name>
-            <RuntimeDependencies>
-                <Dependency>xorg-server</Dependency>
-                <Dependency>glut</Dependency>
-                <Dependency>imlib2</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/etc</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="man">/usr/kde/3.5/man</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-03-20</Date>
-                <Version>0.2.9</Version>
-                <Comment>First Release</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>PackageKit</Name>
             <Homepage>http://www.packagekit.org</Homepage>
             <Packager>
@@ -2188,6 +2143,59 @@
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
+            </Update>
+        </History>
+    </SpecFile>
+    <SpecFile>
+        <Source>
+            <Name>kde-servicemenu-audiokonverter</Name>
+            <Homepage>http://kde-apps.org/content/show.php/audiokonverter?content=12608</Homepage>
+            <Packager>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Packager>
+            <License>GPLv2</License>
+            <IsA>app:gui</IsA>
+            <PartOf>unknown</PartOf>
+            <Summary xml:lang="en">Audiokonverter is a service menu to easily convert sound files</Summary>
+            <Summary xml:lang="tr">Ses dosyalarını birbirleri arasında dönüştürmek için bir servis menüsü</Summary>
+            <Description xml:lang="en">Audiokonverter is a small utility to easily convert from OGG, MP3, AAC, M4A, FLAC, WMA, RealAudio, Musepack, Wavpack, WAV and movies to MP3, OGG, M4A, WAV and FLAC in Dolphin by right-clicking on them.</Description>
+            <Description xml:lang="tr">Audiokonverter OGG, MP3, AAC, M4A, FLAC, WMA, RealAudio, Musepack, Wavpack, WAV dosyalarını MP3, OGG, M4A, WAV ve FLAC dosyalarına çevirmek için bir servis menüsüdür.</Description>
+            <Icon>dolphin</Icon>
+            <Archive type="tarbz2" sha1sum="4b7641a942171bf8df2156d333f0948cd0ff2042">http://kde-apps.org/CONTENT/content-files/12608-audiokonverter-5.9.tar.bz2</Archive>
+            <SourceURI>desktop/kde/addon/kde-servicemenu-audiokonverter/pspec.xml</SourceURI>
+        </Source>
+        <Package>
+            <Name>kde-servicemenu-audiokonverter</Name>
+            <RuntimeDependencies>
+                <Dependency>wavpack</Dependency>
+                <Dependency>vorbis-tools</Dependency>
+                <Dependency>taglib</Dependency>
+                <Dependency>flac</Dependency>
+                <Dependency>kdebase</Dependency>
+                <Dependency>mplayer</Dependency>
+                <Dependency>ffmpeg</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="executable">/usr/bin</Path>
+                <Path fileType="data">/usr/kde/4/share/kde4/services/ServiceMenus</Path>
+                <Path fileType="doc">/usr/share/doc</Path>
+            </Files>
+        </Package>
+        <History>
+            <Update release="2">
+                <Date>2010-05-11</Date>
+                <Version>5.9</Version>
+                <Comment>Version bump</Comment>
+                <Name>Anıl Özbek</Name>
+                <Email>ozbekanil@gmail.com</Email>
+            </Update>
+            <Update release="1">
+                <Date>2007-06-20</Date>
+                <Version>5.5</Version>
+                <Comment>First release</Comment>
+                <Name>Ekrem SEREN</Name>
+                <Email>ekrem.seren@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -10313,57 +10321,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>tweak</Name>
-            <Homepage>http://beta.smileaf.org/projects/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.admin</PartOf>
-            <Summary xml:lang="en">KDE configuration tweak utility</Summary>
-            <Summary xml:lang="tr">KDE&apos;nin gizli kalmış ayarları için bir arayüz</Summary>
-            <Archive type="tarbz2" sha1sum="c5dd5fdb9dd598e253d73d86cbf7d3274dc02c9d">http://beta.smileaf.org/files/tweaK/tweaK-0.2.2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>desktop.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/admin/tweak/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tweak</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applications/kde</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-06-25</Date>
-                <Version>0.2.2</Version>
-                <Comment>Version Bump, bugfixes</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-01-18</Date>
-                <Version>0.1</Version>
-                <Comment>First release</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>kkeyled</Name>
             <Homepage>http://www.truesoft.ch/dieter/kkeyled.html</Homepage>
             <Packager>
@@ -10400,479 +10357,6 @@
                 <Comment>First release</Comment>
                 <Name>Michael Austin</Name>
                 <Email>tuxedup@tuxedup.greenisp.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>tulliana-splash</Name>
-            <Homepage>http://www.kde-look.org/content/show.php?content=49480</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>data</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Tulliana Splash Screen for Pardus</Summary>
-            <Summary xml:lang="tr">Pardus için Tulliana açılış ekranı</Summary>
-            <Archive type="targz" sha1sum="09f2c0a1612b3f6b991a2d49e865b11ae499445b">http://www.kde-look.org/CONTENT/content-files/49480-PardusTulliana.tar.gz</Archive>
-            <SourceURI>desktop/kde3/addon/tulliana-splash/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tulliana-splash</Name>
-            <Files>
-                <Path fileType="data">/usr/kde/3.5/share/apps/ksplash</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-12-16</Date>
-                <Version>1.0</Version>
-                <Comment>First release.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kooldock</Name>
-            <Homepage>http://sourceforge.net/projects/kooldock/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">A kool dock for KDE</Summary>
-            <Description xml:lang="en">A kool dock for KDE. It attemps to resemble the Mac OSX dock.</Description>
-            <Archive type="tarbz2" sha1sum="73b1514551ec23c238d4b0e5a8ac116b77595f12">mirrors://sourceforge/kooldock/kooldock-0.4.7.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">turkish.patch</Patch>
-                <Patch level="1">gcc43.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/kooldock/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kooldock</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps/kooldock</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/kde/3.5/share/applnk/Utilities/kooldock.desktop" permission="0644" owner="root">kooldock.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="5">
-                <Date>2008-06-30</Date>
-                <Version>0.4.7</Version>
-                <Comment>Add gcc43.patch</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-10-09</Date>
-                <Version>0.4.7</Version>
-                <Comment>Add desktop file</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-09-24</Date>
-                <Version>0.4.7</Version>
-                <Comment>Version bump</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-04-29</Date>
-                <Version>0.4.6</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2005-05-28</Date>
-                <Version>0.3</Version>
-                <Comment>First release</Comment>
-                <Name>Mert Uzbaşlı</Name>
-                <Email>mert@bunalmis.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kmetabar</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=28725</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Kmetabar is version of the metabar</Summary>
-            <Summary xml:lang="tr">Kmetabar, metabar&apos;in gelistirilmiş bir versiyonudur</Summary>
-            <Archive type="tarbz2" sha1sum="ee7ab90f7c87fa5e1a456fe0d7293c3d01a0c078">http://www.kde-apps.org/CONTENT/content-files/28725-kmetabar-0.2-beta2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.4.0">kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">kmetabar-fix.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/kmetabar/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kmetabar</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.4.0">kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-11-06</Date>
-                <Version>0.2_beta2</Version>
-                <Comment>Fix compile errors</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-05-10</Date>
-                <Version>0.2_beta2</Version>
-                <Comment>First Release</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kirocker</Name>
-            <Homepage>http://kde-apps.org/content/show.php?content=52869</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">It is a Kicker applet that displays what you listen to in Amarok</Summary>
-            <Description xml:lang="en">You then always know what you are listening to, and watch its cover: it is always visible on your panel.This is to offer the full-screen mode</Description>
-            <Archive type="targz" sha1sum="b8a839819b0c14eb71fa57cfed55b8f384903fc5">http://sudrap.org/dist/files/kirocker-4.0.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-                <Dependency>qt-devel</Dependency>
-                <Dependency>lcms</Dependency>
-                <Dependency>libmng</Dependency>
-                <Dependency>libart_lgpl</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">desktop_tr.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/kirocker/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kirocker</Name>
-            <RuntimeDependencies>
-                <Dependency>amarok</Dependency>
-                <Dependency>qt</Dependency>
-                <Dependency>lcms</Dependency>
-                <Dependency>libmng</Dependency>
-                <Dependency>libart_lgpl</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="9">
-                <Date>2007-12-09</Date>
-                <Version>4.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2007-08-20</Date>
-                <Version>3.4.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2007-06-18</Date>
-                <Version>3.2</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-03-13</Date>
-                <Version>3.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-03-05</Date>
-                <Version>2.2</Version>
-                <Comment>Turkish translation</Comment>
-                <Name>Gökmen GÖKSEL</Name>
-                <Email>gokmen@pardus.org.tr</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-03-03</Date>
-                <Version>2.2</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-02-19</Date>
-                <Version>2.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-02-15</Date>
-                <Version>2.0_beta1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-02-10</Date>
-                <Version>1.4</Version>
-                <Comment>First release</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kpaste</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=52154</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">A python script that allows you to paste something to www.rafb.net/paste</Summary>
-            <Summary xml:lang="tr">www.rafb.net/paste adresine bir şeyler yapıştırmanızı sağlayan bir python uygulaması</Summary>
-            <Archive type="tarbz2" sha1sum="5025a0e26905a23a1bc786ad24c427d8e5147e8c">http://www.kde-apps.org/CONTENT/content-files/52154-kpaste-0.5.tar.bz2</Archive>
-            <SourceURI>desktop/kde3/addon/kpaste/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kpaste</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-01-25</Date>
-                <Version>0.5</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kdmtheme</Name>
-            <Homepage>http://www.kde-look.org/content/show.php?content=22120</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">KDM theme manager</Summary>
-            <Icon>kdmconfig</Icon>
-            <Archive type="tarbz2" sha1sum="0d359ae8542bdc7bf0aefff5d2155bb6d2202013">http://slacky.uglyplace.org/repository/slackware-12.0/desktop/kdmtheme/1.2.2/src/kdmtheme-1.2.2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">kdmtheme-1.2.2-new-autotools.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/kdmtheme/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kdmtheme</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/kde/3.5/share/applications/kde</Path>
-                <Path fileType="library">/usr/kde/3.5/lib/kde3</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/kde/3.5/share/applications/kde/tasmakdmtheme.desktop" permission="0644" owner="root">tasmakdmtheme.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="8">
-                <Date>2008-06-20</Date>
-                <Version>1.2.2</Version>
-                <Comment>Version bump. Add patch for autotools</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2007-10-04</Date>
-                <Version>1.1.3</Version>
-                <Comment>Revert back to 1.1.3, 1.2 is buggy. (#6395)</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-09-29</Date>
-                <Version>1.2</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-04-26</Date>
-                <Version>1.1.3</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-04-26</Date>
-                <Version>1.1.2</Version>
-                <Comment>Fix little typo in desktop file.</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>rasimakar@pardusdepo.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-04-25</Date>
-                <Version>1.1.2</Version>
-                <Comment>Add desktop file.</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>rasimakar@pardusdepo.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-05-05</Date>
-                <Version>1.1.2</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-05-05</Date>
-                <Version>1.1</Version>
-                <Comment>First version.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>surprise</Name>
-            <Homepage>http://frpturk.com/pardus/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">progenic by ksplash for pardus</Summary>
-            <Archive type="targz" sha1sum="a8f652c01cfd05b8ef626b588fb3a33ea8dea8a7">http://frpturk.com/pardus/pardussurprise.tar.gz</Archive>
-            <SourceURI>desktop/kde3/addon/surprise/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>surprise</Name>
-            <Files>
-                <Path fileType="data">/usr/kde/3.5/share/apps/ksplash</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-03-11</Date>
-                <Version>1.0</Version>
-                <Comment>First release</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>klcddimmer</Name>
-            <Homepage>http://klcddimmer.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">A KDE Applet to adjust LCD brightness</Summary>
-            <Summary xml:lang="tr">LCD parlaklığını ayarlamak için bir KDE eklentisi</Summary>
-            <Archive type="targz" sha1sum="14069c11fcd34616d3b941db8c796ce1e9f945f8">mirrors://sourceforge/klcddimmer/klcddimmer-0.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/kde3/addon/klcddimmer/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>klcddimmer</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-                <Dependency>smartdimmer</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-03-02</Date>
-                <Version>0.3</Version>
-                <Comment>First release</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -10983,38 +10467,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>metalik-splash</Name>
-            <Homepage>http://www.kde-look.org/content/show.php?content=49764</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>data</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Metalik Splash Screen for Pardus</Summary>
-            <Summary xml:lang="tr">Pardus için metaliK açılış ekranı</Summary>
-            <Archive type="targz" sha1sum="7051a1ee2aac164cb46d6794a974e09b56e91735">http://www.kde-look.org/CONTENT/content-files/49764-metaliK.tar.gz</Archive>
-            <SourceURI>desktop/kde3/addon/metalik-splash/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>metalik-splash</Name>
-            <Files>
-                <Path fileType="data">/usr/kde/3.5/share/apps/ksplash</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-12-15</Date>
-                <Version>1.0</Version>
-                <Comment>First release.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>conversion-tools</Name>
             <Homepage>http://www.kde-apps.org/content/show.php?content=50741</Homepage>
             <Packager>
@@ -11046,147 +10498,6 @@
                 <Comment>First release</Comment>
                 <Name>Ayan Öztürk</Name>
                 <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>tastymenu</Name>
-            <Homepage>http://www.notmart.org/tastymenu/index.html</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <License>LGPLv2</License>
-            <License>FDL-1.2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">KDE alternative K-Menu</Summary>
-            <Summary xml:lang="tr">Alternatif KDE menüsü</Summary>
-            <Description xml:lang="en">Tasty Menu is a KMenu replacement aiming to provide the maximum usability, or at least to be a testbed for usability concepts and ideas for a future kmenu replacement.</Description>
-            <Description xml:lang="tr">Tasty Menu, KDE menüsünün kullanılabilirliğini en iyi hale getirme amaçlı yapılmış bir uygulamadır.</Description>
-            <Icon>kmenu</Icon>
-            <Archive type="tarbz2" sha1sum="d9903b138ea580c18e94b181671c03c7ed740df1">http://www.notmart.org/files/tastymenu-1.0.7.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>pardus.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/tastymenu/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tastymenu</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="config">/usr/kde/3.5/share/config.kcfg</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="7">
-                <Date>2008-08-15</Date>
-                <Version>1.0.7</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-11-17</Date>
-                <Version>1.0.4</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-08-04</Date>
-                <Version>0.9</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-04-03</Date>
-                <Version>0.7</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-03-01</Date>
-                <Version>0.6.5.1</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-09-27</Date>
-                <Version>0.6.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-08-31</Date>
-                <Version>0.5.2</Version>
-                <Comment>First Release</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>baghira</Name>
-            <Homepage>http://www.kde-look.org/content/show.php?content=8692</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Baghira KDE Theme</Summary>
-            <Description xml:lang="en">Native KDE Theme like MacOSX</Description>
-            <Archive type="tarbz2" sha1sum="ce6e60bee947801297e450964791827cfdeac1c5">mirrors://sourceforge/baghira/baghira-0.8.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/kde3/addon/baghira/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>baghira</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="data">/usr/kde/3.5/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/apps</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-12-15</Date>
-                <Version>0.8</Version>
-                <Comment>Version bump.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-06-26</Date>
-                <Version>0.7</Version>
-                <Comment>First release.</Comment>
-                <Name>Gökmen GÖKSEL</Name>
-                <Email>gokmen@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -11349,113 +10660,6 @@
                 <Comment>First release</Comment>
                 <Name>Türker Sezer</Name>
                 <Email>turkersezer@tsdesign.info</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kde-servicemenu-audiokonverter</Name>
-            <Homepage>http://kde-apps.org/content/show.php/audiokonverter?content=12608</Homepage>
-            <Packager>
-                <Name>Anıl Özbek</Name>
-                <Email>ozbekanil@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Audiokonverter is a service menu to easily convert sound files</Summary>
-            <Summary xml:lang="tr">Ses dosyalarını birbirleri arasında dönüştürmek için bir servis menüsü</Summary>
-            <Description xml:lang="en">Audiokonverter is a small utility to easily convert from OGG, MP3, AAC, M4A, FLAC, WMA, RealAudio, Musepack, Wavpack, WAV and movies to MP3, OGG, M4A, WAV and FLAC in Dolphin by right-clicking on them.</Description>
-            <Description xml:lang="tr">Audiokonverter OGG, MP3, AAC, M4A, FLAC, WMA, RealAudio, Musepack, Wavpack, WAV dosyalarını MP3, OGG, M4A, WAV ve FLAC dosyalarına çevirmek için bir servis menüsüdür.</Description>
-            <Icon>dolphin</Icon>
-            <Archive type="tarbz2" sha1sum="4b7641a942171bf8df2156d333f0948cd0ff2042">http://kde-apps.org/CONTENT/content-files/12608-audiokonverter-5.9.tar.bz2</Archive>
-            <SourceURI>desktop/kde3/addon/audiokonverter/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kde-servicemenu-audiokonverter</Name>
-            <RuntimeDependencies>
-                <Dependency>wavpack</Dependency>
-                <Dependency>vorbis-tools</Dependency>
-                <Dependency>taglib</Dependency>
-                <Dependency>flac</Dependency>
-                <Dependency>kdebase</Dependency>
-                <Dependency>mplayer</Dependency>
-                <Dependency>ffmpeg</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/kde/4/share/kde4/services/ServiceMenus</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2010-05-11</Date>
-                <Version>5.9</Version>
-                <Comment>Version bump</Comment>
-                <Name>Anıl Özbek</Name>
-                <Email>ozbekanil@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-20</Date>
-                <Version>5.5</Version>
-                <Comment>First release</Comment>
-                <Name>Ekrem SEREN</Name>
-                <Email>ekrem.seren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>imaj-at</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=50341</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">A service menu for host images on imaj.at .</Summary>
-            <Summary xml:lang="tr">Imaj.at&apos;e resimleri kolayca yüklemeyi sağlayan bir KDE servis menüsü</Summary>
-            <Archive type="targz" sha1sum="500c591905897b0b755f6d5144e58cffcde9fbe7">http://www.kde-apps.org/CONTENT/content-files/50341-imaj.at-1.1.tar.gz</Archive>
-            <Patches>
-                <Patch>result.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/imaj-at/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>imaj-at</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/kde</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2007-10-17</Date>
-                <Version>1.1</Version>
-                <Comment>Fix #6440</Comment>
-                <Name>Türker Sezer</Name>
-                <Email>turkersezer@tsdesign.info</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-04-05</Date>
-                <Version>1.1</Version>
-                <Comment>Some bugs fixed.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-01-30</Date>
-                <Version>1.1</Version>
-                <Comment>First release</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -11789,70 +10993,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>deposplash</Name>
-            <Homepage>http://www.pardus-tt.org/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>LGPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">deposplash</Summary>
-            <Description xml:lang="en">Pisidepo Splash Screen</Description>
-            <Archive type="targz" sha1sum="5b73285ad39610d3519e2d2a9c1cd231cc7eccb2">http://pardus-tt.org/downloads/yukleme_ekrani/deposplash.tar.gz</Archive>
-            <SourceURI>desktop/kde3/addon/deposplash/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>deposplash</Name>
-            <Files>
-                <Path fileType="data">/usr/kde/3.5/share/apps/ksplash/Themes</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-12-01</Date>
-                <Version>1.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>rasimakar@pardusdepo.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>pardus-tticonset</Name>
-            <Homepage>http://www.pardus-tt.org/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>LGPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Pardus-tt icon theme</Summary>
-            <Description xml:lang="en">Pardus Tema Takımı icon theme</Description>
-            <Archive type="targz" sha1sum="77670c57acd76c18d0c8c8a9db9ec14f56cf9155">http://pardus-tt.org/downloads/icon/pardus-tt.tar.gz</Archive>
-            <SourceURI>desktop/kde3/addon/pardus-tticonset/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pardus-tticonset</Name>
-            <Files>
-                <Path fileType="data">/usr/share/icons</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-11-20</Date>
-                <Version>1.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>rasimakar@pardusdepo.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>imageshack-upload</Name>
             <Homepage>http://www.kde-apps.org/content/show.php?content=51247</Homepage>
             <Packager>
@@ -11906,80 +11046,6 @@
                 <Comment>First release</Comment>
                 <Name>Ayan Öztürk</Name>
                 <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>ksmoothdock</Name>
-            <Homepage>http://ksmoothdock.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">Dock program for KDE with smooth parabolic zooming</Summary>
-            <Description xml:lang="en">KSmoothDock is a dock program for KDE with smooth parabolic zooming.</Description>
-            <Icon>ksmoothdock</Icon>
-            <Archive type="targz" sha1sum="fb769fcef14e9c3f654a9a4f6fa015037fe769aa">mirrors://sourceforge/ksmoothdock/ksmoothdock-4.5_automake1.9.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>gcc43.patch</Patch>
-            </Patches>
-            <SourceURI>desktop/kde3/addon/ksmoothdock/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>ksmoothdock</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="5">
-                <Date>2008-06-28</Date>
-                <Version>4.5</Version>
-                <Comment>Added gcc 4.3 patch (from Gentoo #226189).</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-04-19</Date>
-                <Version>4.5</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-04-13</Date>
-                <Version>4.4</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-12-16</Date>
-                <Version>4.3</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-07-20</Date>
-                <Version>4.2</Version>
-                <Comment>First release.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
             </Update>
         </History>
     </SpecFile>
@@ -12209,46 +11275,6 @@
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>dekorator</Name>
-            <Homepage>http://www.kde-look.org/content/show.php?content=31447</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>desktop.kde3.addon</PartOf>
-            <Summary xml:lang="en">KDE window decoration engine</Summary>
-            <Description xml:lang="en">deKorator takes several user-defined images and presents them as a window decoration. It loads its images from a user-defined directory (similar to iceWM), thus everything is themeable in no time and no programming knowledge is needed.</Description>
-            <Archive type="targz" sha1sum="e8b4a851c993c3f67f95ad9e0c424ce13231cfc3">http://cekirdek.pardus.org.tr/~fatih/dist/misc/dekorator-0.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <SourceURI>desktop/kde3/addon/dekorator/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>dekorator</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-05-28</Date>
-                <Version>0.3</Version>
-                <Comment>First release.</Comment>
-                <Name>Fatih Aşıcı</Name>
-                <Email>fatih.asici@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -13521,46 +12547,6 @@
                 <Comment>First release.</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>destick</Name>
-            <Homepage>http://code.google.com/p/destick/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.sound</PartOf>
-            <Summary xml:lang="en">This is a desktop metronome that is designed to just work.</Summary>
-            <Archive type="targz" sha1sum="3a67bde8b1612d6d4ba090d6f14f51de31894e31">http://destick.googlecode.com/files/destick-0.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-                <Dependency>sdl-mixer</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/sound/destick/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>destick</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-                <Dependency>sdl-mixer</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-12-27</Date>
-                <Version>0.3</Version>
-                <Comment>First release.</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -15306,51 +14292,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>klearnnotes2</Name>
-            <Homepage>http://klearnnotes2.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.sound</PartOf>
-            <Summary xml:lang="en">KLearnNotes2 is a program which can help you learn music notes&apos; names fast and easily.</Summary>
-            <Summary xml:lang="tr">KLearnNotes müzik notala adlarını kolay ve hızlı bir şekilde öğrenmenize yardımcı olan bir uygulamadır</Summary>
-            <Archive type="tarbz2" sha1sum="1009ec9472d0e3a4e58508449c1b155003583212">mirrors://sourceforge/klearnnotes2/klearnnotes2-1.2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.0">kdelibs</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">kln-timidityfix.patch</Patch>
-                <Patch>KLN-fix.patch</Patch>
-            </Patches>
-            <SourceURI>multimedia/sound/klearnnotes2/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>klearnnotes2</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.0">kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-26</Date>
-                <Version>1.2</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>audacious-plugins</Name>
             <Homepage>http://audacious-media-player.org</Homepage>
             <Packager>
@@ -16382,69 +15323,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>manencode</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=52228</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.editor</PartOf>
-            <Summary xml:lang="en">Manencode is a MANDVD module that prepares video to be DVD compliant.</Summary>
-            <Summary xml:lang="tr">Manencode DVD uyumlu videolar hazırlayan bir MANDVD eklentisidir.</Summary>
-            <Description xml:lang="en">This module can be use to transcode any video and edit it. It can cut part of a film, add subtitles, and adjust lightness, contrast, and saturation.</Description>
-            <Description xml:lang="tr">Oldukça şık ve kullanışlı bir arayüzü vardır. Bu program her türlü videoyu dönüştürmek ve filmleri kesmek, alt yazı eklemek, ışık, karşıtlık ve doygunluk gibi özelliklerini düzenlemek için kullanılabilir</Description>
-            <Icon>manencode</Icon>
-            <Archive type="targz" sha1sum="8dde9a0590ace26bba202c0daab1746edcee5e71">http://kpelit.com/dist/files/manencode-1.0.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>qt4</Dependency>
-                <Dependency>mplayer</Dependency>
-                <Dependency>sox</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>xine-lib</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/editor/manencode/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>manencode</Name>
-            <RuntimeDependencies>
-                <Dependency>qt4</Dependency>
-                <Dependency>mplayer</Dependency>
-                <Dependency>sox</Dependency>
-                <Dependency>libvorbis</Dependency>
-                <Dependency>xine-lib</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/manencode</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/pixmaps/manencode.png" permission="0644">manencode.png</AdditionalFile>
-                <AdditionalFile target="/usr/share/applications/manencode.desktop" permission="0644">manencode.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-07-08</Date>
-                <Version>1.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-03-03</Date>
-                <Version>0.8</Version>
-                <Comment>First release</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>milkytracker-xi</Name>
             <Homepage>http://www.milkytracker.org</Homepage>
             <Packager>
@@ -17082,53 +15960,6 @@
                 <Comment>First release.</Comment>
                 <Name>Ertan Argüden</Name>
                 <Email>ert976@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>sonik</Name>
-            <Homepage>http://sonik.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.editor</PartOf>
-            <Summary xml:lang="en">KDE Audio Editor</Summary>
-            <Summary xml:lang="tr">KDE Ses Düzenleyicisi</Summary>
-            <Archive type="targz" sha1sum="fcdef03eaadcae157c4fc56c833d3b651f12b0f9">mirrors://sourceforge/sonik/sonik-1.0.0.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>liblrdf</Dependency>
-                <Dependency>gsl</Dependency>
-                <Dependency>kdelibs</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/editor/sonik/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>sonik</Name>
-            <RuntimeDependencies>
-                <Dependency>liblrdf</Dependency>
-                <Dependency>gsl</Dependency>
-                <Dependency>kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="header">/usr/kde/3.5/include</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-06-14</Date>
-                <Version>1.0.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -18618,137 +17449,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>bmpx</Name>
-            <Homepage>http://bmpx.beep-media-player.org/site/BMPx_Homepage</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.video</PartOf>
-            <Summary xml:lang="en">GTK2 and Xine based media player.</Summary>
-            <Summary xml:lang="tr">GTK2 ve Xine tabanlı medya oynatıcısı.</Summary>
-            <Archive type="tarbz2" sha1sum="d1f798038add19b95f292e16cbfe88e91f02034a">http://files.beep-media-player.org/releases/0.36/bmpx-0.36.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>gst-plugins-base</Dependency>
-                <Dependency>taglib</Dependency>
-                <Dependency>faad2</Dependency>
-                <Dependency>libmodplug</Dependency>
-                <Dependency>cdparanoia</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>startup-notification</Dependency>
-                <Dependency>gamin</Dependency>
-                <Dependency>sqlite</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency versionFrom="0.25.5">neon</Dependency>
-                <Dependency>dbus-glib</Dependency>
-                <Dependency>hal</Dependency>
-                <Dependency>librsvg</Dependency>
-                <Dependency>gtkmm</Dependency>
-                <Dependency>libglademm</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>bmpx-0.36.0-python.diff</Patch>
-            </Patches>
-            <SourceURI>multimedia/video/bmpx/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>bmpx</Name>
-            <RuntimeDependencies>
-                <Dependency>gst-plugins-base</Dependency>
-                <Dependency>taglib</Dependency>
-                <Dependency>faad2</Dependency>
-                <Dependency>libmodplug</Dependency>
-                <Dependency>cdparanoia</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>startup-notification</Dependency>
-                <Dependency>gamin</Dependency>
-                <Dependency>sqlite</Dependency>
-                <Dependency>libxml2</Dependency>
-                <Dependency versionFrom="0.25.5">neon</Dependency>
-                <Dependency>dbus-glib</Dependency>
-                <Dependency>hal</Dependency>
-                <Dependency>librsvg</Dependency>
-                <Dependency>gtkmm</Dependency>
-                <Dependency>libglademm</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="executable">/usr/libexec</Path>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-                <Path fileType="man">/usr/share/man</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-05-28</Date>
-                <Version>0.36.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>camstream</Name>
-            <Homepage>http://www.smcc.demon.nl/camstream/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.video</PartOf>
-            <Summary xml:lang="en">A webcam streaming image viewer</Summary>
-            <Summary xml:lang="tr">Webcam ve Görüntü aygıtları için bir araç.</Summary>
-            <Description xml:lang="en">CamStream is (going to be) a collection of tools for webcams and other video-devices, enhancing your Linux system with multimedia video.</Description>
-            <Icon>camstream</Icon>
-            <Archive type="targz" sha1sum="4d6600947398c11e34f6a1b631a5e270a46956ab">http://www.smcc.demon.nl/camstream/download/camstream-snapshot-070511.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>qt-devel</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/video/camstream/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>camstream</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/camstream.desktop" permission="0644" owner="root">camstream.desktop</AdditionalFile>
-                <AdditionalFile target="/usr/share/pixmaps/camstream.png" permission="0644" owner="root">camstream.png</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-12-21</Date>
-                <Version>0.27_20070511</Version>
-                <Comment>Version bump</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-07-13</Date>
-                <Version>0.27</Version>
-                <Comment>First release.</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>mplayer-skins</Name>
             <Homepage>http://www.mplayerhq.hu/design7/dload.html</Homepage>
             <Packager>
@@ -18798,65 +17498,6 @@
                 <Comment>First release.</Comment>
                 <Name>Fethi Aymaz</Name>
                 <Email>fethi@linux-sevenler.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>elisa</Name>
-            <Homepage>http://elisa.fluendo.com/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.video</PartOf>
-            <Summary xml:lang="en">Elisa is an open source cross platform media center solution.</Summary>
-            <Description xml:lang="en">Elisa is a project to create an open source cross platform media center solution. Elisa runs on top of the GStreamer multimedia framework and takes full advantage of harware acceleration provided by modern graphic cards by using OpenGL APIs.</Description>
-            <Archive type="targz" sha1sum="a8e2ce46077e425f5a59748af2ade1c6204ce476">http://elisa.fluendo.com/static/download/elisa/elisa-0.3.5.tar.gz</Archive>
-            <SourceURI>multimedia/video/elisa/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>elisa</Name>
-            <RuntimeDependencies>
-                <Dependency>gstreamer</Dependency>
-                <Dependency>Twisted</Dependency>
-                <Dependency>setuptools</Dependency>
-                <Dependency>gnome-vfs</Dependency>
-                <Dependency>gnome-python</Dependency>
-                <Dependency>python-imaging</Dependency>
-                <Dependency>pigment-python</Dependency>
-                <Dependency>pigment</Dependency>
-                <Dependency>pycairo</Dependency>
-                <Dependency>pygtk</Dependency>
-                <Dependency>ElementTree</Dependency>
-                <Dependency>gst-plugins-good</Dependency>
-                <Dependency>gst-plugins-base</Dependency>
-                <Dependency>gst-plugins-ugly</Dependency>
-                <Dependency releaseFrom="3">gst-ffmpeg</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib/python2.4/site-packages</Path>
-                <Path fileType="doc">/usr/share/doc/</Path>
-                <Path fileType="data">/usr/share/</Path>
-                <Path fileType="executable">/usr/bin/</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-04-15</Date>
-                <Version>0.3.5</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>Nicolas E. Lara G.</Name>
-                <Email>nicolaslara@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-27</Date>
-                <Version>0.1.7</Version>
-                <Comment>First release.</Comment>
-                <Name>Nicolas E. Lara G.</Name>
-                <Email>nicolaslara@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -19084,43 +17725,6 @@
                 <Comment>First release.</Comment>
                 <Name>Gökmen Görgen</Name>
                 <Email>gkmngrgn@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>elisa-plugins-good</Name>
-            <Homepage>http://elisa.fluendo.com/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>multimedia.video</PartOf>
-            <Summary xml:lang="en">Elisa plugins good bundle</Summary>
-            <Archive type="targz" sha1sum="62e2ecbbce41ee7064386a99d077c57500468e9d">http://elisa.fluendo.com/static/download/elisa/elisa-plugins-good-0.3.5.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="0.3.5">elisa</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/video/elisa-plugins-good/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>elisa-plugins-good</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="0.3.5">elisa</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-04-15</Date>
-                <Version>0.3.5</Version>
-                <Comment>First Release</Comment>
-                <Name>Nicolas E. Lara G.</Name>
-                <Email>nicolaslara@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -19613,43 +18217,6 @@
                 <Comment>First release</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>elisa-plugins-bad</Name>
-            <Homepage>http://elisa.fluendo.com/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>multimedia.video</PartOf>
-            <Summary xml:lang="en">Elisa plugins bad bundle</Summary>
-            <Archive type="targz" sha1sum="ba2e78b47b5ea39f5cc7462be246c13280bf5f0c">http://elisa.fluendo.com/static/download/elisa/elisa-plugins-bad-0.3.5.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>elisa-plugins-good</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/video/elisa-plugins-bad/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>elisa-plugins-bad</Name>
-            <RuntimeDependencies>
-                <Dependency>elisa-plugins-good</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2008-04-15</Date>
-                <Version>0.3.5</Version>
-                <Comment>First Release</Comment>
-                <Name>Nicolas E. Lara G.</Name>
-                <Email>nicolaslara@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -20536,61 +19103,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>themekreator</Name>
-            <Homepage>http://prdownloads.sourceforge.net/themekreator/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>desktop.kde</PartOf>
-            <Summary xml:lang="en">Sony Ericsson Tema Programı</Summary>
-            <Summary xml:lang="tr">Sony Ericsson Tema Programı</Summary>
-            <Description xml:lang="en">Sony Ericsson telefonlar için temalar hazırlamanıza yarayan bir yazılım</Description>
-            <Description xml:lang="tr">Sony Ericsson telefonlar için temalar hazırlamanıza yarayan bir yazılım</Description>
-            <Archive type="targz" sha1sum="3a7e3db70f4d28caff1133b3ae744d9cebbf776b">mirrors://sourceforge/themekreator/themekreator-0.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>qt-devel</Dependency>
-                <Dependency>lcms</Dependency>
-                <Dependency>libICE</Dependency>
-                <Dependency>kdebase</Dependency>
-                <Dependency>libmng</Dependency>
-                <Dependency>fontconfig</Dependency>
-                <Dependency>libart_lgpl</Dependency>
-                <Dependency>xorg-server</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/graphics/themekreator/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>themekreator</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-                <Dependency>lcms</Dependency>
-                <Dependency>libICE</Dependency>
-                <Dependency>kdebase</Dependency>
-                <Dependency>libmng</Dependency>
-                <Dependency>fontconfig</Dependency>
-                <Dependency>libart_lgpl</Dependency>
-                <Dependency>xorg-server</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-11-12</Date>
-                <Version>0.3</Version>
-                <Comment>themekreator</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>rasimakar@pardusdepo.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>rawstudio</Name>
             <Homepage>http://rawstudio.org</Homepage>
             <Packager>
@@ -21327,73 +19839,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>koverartist</Name>
-            <Homepage>http://kde-apps.org/content/show.php?content=38195</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2+</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.graphics</PartOf>
-            <Summary xml:lang="en">Create CD/DVD covers</Summary>
-            <Summary xml:lang="tr">CD/DVD kapak hazırlayıcısı</Summary>
-            <Description xml:lang="en">Koverartist is a program for the fast creation of covers for cd/dvd cases and boxes. The main idea behind it is to be able to create decent looking covers with some mouseclicks.</Description>
-            <Description xml:lang="tr">Koverartist, bir kaç tıkla güzel görünen CD/DVD kapakları hazırlamak için kullanabileceğiz hızlı bir uygulamadır.</Description>
-            <Icon>koverartist</Icon>
-            <Archive type="tarbz2" sha1sum="2fff3824c7b72a769dd2960bdc38d4dd5ff9e263">http://members.inode.at/499177/software/koverartist/koverartist-0.5.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>desktop-file.patch</Patch>
-                <Patch level="1">gcc43.patch</Patch>
-                <Patch>tr.patch</Patch>
-            </Patches>
-            <SourceURI>multimedia/graphics/koverartist/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>koverartist</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/mimelnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps/koverartist</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2009-04-20</Date>
-                <Version>0.5</Version>
-                <Comment>Add descriptions, --disable-rpath, icon tag, gcc4.3 patch and tidy paths</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-03-13</Date>
-                <Version>0.5</Version>
-                <Comment>Turkish translations</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-01-17</Date>
-                <Version>0.5</Version>
-                <Comment>First release</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>gimp-gap</Name>
             <Homepage>http://www.gimp.org/</Homepage>
             <Packager>
@@ -21435,53 +19880,6 @@
                 <Comment>First release</Comment>
                 <Name>Anıl Özbek</Name>
                 <Email>ozbekanil@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>gimp-greycstoration</Name>
-            <Homepage>http://www.greyc.ensicaen.fr/~dtschump/greycstoration/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>CeCILL-2</License>
-            <IsA>data</IsA>
-            <PartOf>multimedia.graphics.gimp.addon</PartOf>
-            <Summary xml:lang="en">A gimp plug-in using open source algorithm for image denoising and interpolation.</Summary>
-            <Summary xml:lang="tr">Açık kaynak kodlu bir görüntü iyileştirme algoritması kullanan Gimp eklentisi.</Summary>
-            <Description xml:lang="en">GREYCstoration is an image regularization algorithm which is able to process a color image by locally removing small variations of pixel intensities while preserving significant global image features, such as edges and corners.</Description>
-            <Description xml:lang="tr">GREYCstoration renkli görüntülerde lokal piksel gruplarında işlem yaparken görüntünün tamamında kenar ve geçişleri koruyan bir görüntü düzeltme algoritmasıdır.</Description>
-            <Archive type="zip" sha1sum="3db8d83fff95e48e6f13d8172498518d7a10e3ac">http://www.greyc.ensicaen.fr/~dtschump/greycstoration/data/GREYCstoration-2.6.zip</Archive>
-            <BuildDependencies>
-                <Dependency>gimp-devel</Dependency>
-            </BuildDependencies>
-            <SourceURI>multimedia/graphics/gimp/addon/gimp-greycstoration/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>gimp-greycstoration</Name>
-            <RuntimeDependencies>
-                <Dependency>gimp</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/lib/gimp/2.0/plug-ins/</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-03-06</Date>
-                <Version>2.6</Version>
-                <Comment>Version Bump</Comment>
-                <Name>Koray Löker</Name>
-                <Email>loker@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-26</Date>
-                <Version>2.5.2.1</Version>
-                <Comment>First Release</Comment>
-                <Name>Koray Löker</Name>
-                <Email>loker@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -21541,58 +19939,6 @@
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kalbum</Name>
-            <Homepage>http://www.paldandy.com/kalbum/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>multimedia.graphics</PartOf>
-            <Summary xml:lang="en">A photo album generator for KDE 3.x</Summary>
-            <Summary xml:lang="tr">Fotoğraf albümleri oluşturmak için bir programdır.</Summary>
-            <Archive type="tarbz2" sha1sum="04c811f4dd0cd6701ecbc61f957e34401021b2db">http://www.paldandy.com/kalbum/data/kalbum-0.8.0/kalbum-0.8.0.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>kalbum-0.8.0-configure-arts.patch</Patch>
-                <Patch>desktop.patch</Patch>
-            </Patches>
-            <SourceURI>multimedia/graphics/kalbum/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kalbum</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-05-03</Date>
-                <Version>0.8.0</Version>
-                <Comment>add menu patch</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-01-29</Date>
-                <Version>0.8.0</Version>
-                <Comment>First release</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -28883,54 +27229,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>cdcat</Name>
-            <Homepage>http://cdcat.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>util.archive</PartOf>
-            <Summary xml:lang="en">A catalog program which scans the directories/drives</Summary>
-            <Description xml:lang="en">The cdcat is graphical (Qt based) multiplatform (Linux/Windows/MacOS) catalog program which scans the directories/drives you want and memoryze the filesystem (including the tags of mp3&apos;s) and store it in a small file.</Description>
-            <Icon>cdcat</Icon>
-            <Archive type="tarbz2" sha1sum="67f4212ddfe5582ce2a02dd01d86481548b2ec8b">http://cdcat.sourceforge.net/cdcat-1.01b.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>qt-devel</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>turkish.patch</Patch>
-                <Patch>cdcat-pro.patch</Patch>
-                <Patch>desktop.patch</Patch>
-                <Patch>gcc4.patch</Patch>
-            </Patches>
-            <SourceURI>util/archive/cdcat/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>cdcat</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="localedata">/usr/share/cdcat</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-07-28</Date>
-                <Version>1.01b</Version>
-                <Comment>First release.</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>kbackup</Name>
             <Homepage>http://members.aon.at/m.koller</Homepage>
             <Packager>
@@ -29981,52 +28279,6 @@
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kleansweep</Name>
-            <Homepage>http://kde-apps.org/content/show.php?content=28631</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>util.misc</PartOf>
-            <Summary xml:lang="en">An unneeded file finder</Summary>
-            <Description xml:lang="en">Allows you to reclaim disk space by finding unneeded files</Description>
-            <Icon>kleansweep</Icon>
-            <Archive type="tarbz2" sha1sum="c43c3767e0af2ee1db58a8efe13677af884011bc">http://linux.bydg.org/~yogin/kleansweep-0.2.9.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>turkish.patch</Patch>
-                <Patch>desktop-tr.patch</Patch>
-            </Patches>
-            <SourceURI>util/misc/kleansweep/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kleansweep</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-12-18</Date>
-                <Version>0.2.9</Version>
-                <Comment>First release</Comment>
-                <Name>Ertan Argüden</Name>
-                <Email>ert976@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -31508,62 +29760,6 @@
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>qtfprot</Name>
-            <Homepage>http://www.coffeecrew.org</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>util.antivirus</PartOf>
-            <Summary xml:lang="en">A front-end for the fprot</Summary>
-            <Summary xml:lang="tr">Fprot için arayüz</Summary>
-            <Description xml:lang="en">A QT front-end for the antivirus software Fprot.</Description>
-            <Description xml:lang="tr">Kişisel kullanımı ücretsiz anti-virüs yazılımı fprot için QT ile yazılmış arayüz</Description>
-            <Icon>qtfprot</Icon>
-            <Archive type="tarbz2" sha1sum="52125983e0e800affe71b70af941664f7f00bfb7">http://www.coffeecrew.org/projects/qtfprot/qtfprot-0.2.1c.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>qt-devel</Dependency>
-            </BuildDependencies>
-            <SourceURI>util/antivirus/qtfprot/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>qtfprot</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/icons</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/qtfprot.desktop" permission="0644" owner="root">qtfprot.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2009-01-17</Date>
-                <Version>0.2.1</Version>
-                <Comment>* remove unnecessary dependencies.
-                * fix some XML issues in pspec.xml.
-                * edit description and summary tags.
-                * fix broken .desktop file.</Comment>
-                <Name>Emre Yılmaz</Name>
-                <Email>yilmazyemre@yahoo.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-12-11</Date>
-                <Version>0.2.1</Version>
-                <Comment>First release</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>rasimakar@pardusdepo.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>sqliteman</Name>
             <Homepage>http://sqliteman.com/</Homepage>
             <Packager>
@@ -31824,60 +30020,6 @@
                 <Comment>First release.</Comment>
                 <Name>Doruk Fişek</Name>
                 <Email>dfisek@fisek.com.tr</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>mysqlcc</Name>
-            <Homepage>http://sourceforge.net/projects/mysqlcc/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>alsaberk@gmail.com</Email>
-            </Packager>
-            <License>GPLv1</License>
-            <IsA>app:gui</IsA>
-            <PartOf>util.database</PartOf>
-            <Summary xml:lang="en">Mysql Database control interface</Summary>
-            <Summary xml:lang="tr">Mysql veritabanınızı arayüz ile kontrol etmenizi saylayan bir araç.</Summary>
-            <Description xml:lang="en">Mysql Database control interface</Description>
-            <Description xml:lang="tr">Mysql veritabanınızı arayüz ile kontrol etmenizi saylayan bir araç.</Description>
-            <Archive type="targz" sha1sum="d85b9fd480a2e8eef01ac62d62642c0375be9ea0">mirrors://sourceforge/mysqlcc/mysqlcc-0.9.8-src.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.3">qt-devel</Dependency>
-                <Dependency versionFrom="4.0.3">mysql-server</Dependency>
-            </BuildDependencies>
-            <SourceURI>util/database/mysqlcc/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>mysqlcc</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.3">qt</Dependency>
-                <Dependency versionFrom="4.0.3">mysql-server</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/mysqlcc.desktop" permission="0644">mysqlcc.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-09-28</Date>
-                <Version>0.9.8</Version>
-                <Comment>Desktop turkish translation fix.</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-05-18</Date>
-                <Version>0.9.8</Version>
-                <Comment>First release.</Comment>
-                <Name>Rasim AKAR</Name>
-                <Email>alsaberk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -32942,185 +31084,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>klineakconfig</Name>
-            <Homepage>http://lineak.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>hardware.misc</PartOf>
-            <Summary xml:lang="en">KDE frontend for lineak</Summary>
-            <Summary xml:lang="tr">Lineak için KDE arayüzü</Summary>
-            <Description xml:lang="en">LinEAK is a utility designed to enable the use and configuration of those special keys on Internet, Easy Access and Multimedia keyboards in Linux. If your keyboard is not directly supported by lineakd, klineakconfig provides an easy to use graphic interface to both getting your keyboard working, and submitting your keyboard for inclusion into lineakd.</Description>
-            <Description xml:lang="tr">LinEAK, Linux altında İnternet, kolay erişim ve çokluortam klavyelerinin kullanımını ve ayarlanmasını mümkün kılan bir araçtır. Klavyeniz lineakd tarafından direkt olarak desteklenmiyorsa klineakconfig klavyenizi ayarlayabilmeniz için size kolay kullanımlı bir arayüz sağlar.</Description>
-            <Icon>klineakconfig</Icon>
-            <Archive type="targz" sha1sum="375ac58628d7e6ae8c76ffb8d7b3e2f6af932f29">mirrors://sourceforge/lineak/klineakconfig-0.8-beta2.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency>lineakd</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">klineakconfig-desktop.patch</Patch>
-            </Patches>
-            <SourceURI>hardware/misc/klineakconfig/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>klineakconfig</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency>lineakd</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/kde/3.5/share/locale/tr/LC_MESSAGES/klineakconfig.mo" permission="0644" owner="root">klineakconfig.mo</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-04-25</Date>
-                <Version>0.8_beta2</Version>
-                <Comment>First Release</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>ksynaptics</Name>
-            <Homepage>http://qsynaptics.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>hardware.misc</PartOf>
-            <Summary xml:lang="en">Synaptics touchpad configuration tool</Summary>
-            <Summary xml:lang="tr">Synaptics touchpad yapılandırma aracı</Summary>
-            <Description xml:lang="fr">KSynaptics est un module du centre de contrôle permettant aux utilisateurs de profiter pleinement des pavés tactiles de leur ordinateur portable.</Description>
-            <Description xml:lang="en">KSynaptics is a control center module and a system tray application that enables users to take full advantage of their mobiles&apos; synaptics touchpad.</Description>
-            <Description xml:lang="tr">Ksynaptics synaptics touch pad yapılandırma aracı olarak kullanılan bir KDE yapılandırma merkezi birimidir.</Description>
-            <Icon>ksynaptics</Icon>
-            <Archive type="targz" sha1sum="93e24026feecf2f841c11b5a0da5c5660d78f898">http://qsynaptics.sourceforge.net/ksynaptics-0.3.1.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency versionFrom="0.14.4d">libsynaptics</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>turkish.patch</Patch>
-            </Patches>
-            <SourceURI>hardware/misc/ksynaptics/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>ksynaptics</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency versionFrom="0.14.4d">libsynaptics</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/kde/3.5/share/applications/kde/tasmaksynaptics.desktop" permission="0644">tasmaksynaptics.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="12">
-                <Date>2008-10-14</Date>
-                <Version>0.3.1</Version>
-                <Comment>Remove kdebase dependency.</Comment>
-                <Name>İnanç Yıldırgan</Name>
-                <Email>inancyildirgan@gmail.com</Email>
-            </Update>
-            <Update release="11">
-                <Date>2008-10-01</Date>
-                <Version>0.3.1</Version>
-                <Comment>Make the application accessible from the &apos;System&apos; section of KMenu(Fixes #6779).</Comment>
-                <Name>Ozan Çağlayan</Name>
-                <Email>ozan@pardus.org.tr</Email>
-            </Update>
-            <Update release="10">
-                <Date>2007-10-25</Date>
-                <Version>0.3.1</Version>
-                <Comment>Switch to previous stable release</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="9">
-                <Date>2007-09-05</Date>
-                <Version>0.3.3</Version>
-                <Comment>Workaround for general locale problems, add more Turkish translation</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="8">
-                <Date>2007-07-30</Date>
-                <Version>0.3.3</Version>
-                <Comment>Version bump, add tasma icon, add package icon</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="7">
-                <Date>2006-12-30</Date>
-                <Version>0.3.1</Version>
-                <Comment>Fix #4512</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="6">
-                <Date>2006-11-06</Date>
-                <Version>0.3.1</Version>
-                <Comment>Fix #3203, #3235</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="5">
-                <Date>2006-07-14</Date>
-                <Version>0.3.1</Version>
-                <Comment>Don&apos;t start (real fix)</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="4">
-                <Date>2006-07-09</Date>
-                <Version>0.3.1</Version>
-                <Comment>Don&apos;t start</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="3">
-                <Date>2006-06-20</Date>
-                <Version>0.3.1</Version>
-                <Comment>fix #2477</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-03-17</Date>
-                <Version>0.3.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-02-07</Date>
-                <Version>0.3.0</Version>
-                <Comment>First release.</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>fprint_demo</Name>
             <Homepage>http://www.reactivated.net/fprint/wiki/Fprint_demo</Homepage>
             <Packager>
@@ -33698,46 +31661,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Ali Erdinç Köroğlu</Name>
                 <Email>erdinc@pardus.org.tr</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>diskmonitor</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=45015</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>hardware.disk</PartOf>
-            <Summary xml:lang="en">A simple kicker disk monitor</Summary>
-            <Summary xml:lang="tr">Kicker&apos;a yerleşen bir disk izleme eklentisi.</Summary>
-            <Archive type="targz" sha1sum="de0dca4716dc72f39a937e050b3faf4d8bfaffb0">http://kde-apps.org/CONTENT/content-files/45015-diskmonitor-0.4.1.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <SourceURI>hardware/disk/diskmonitor/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>diskmonitor</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-01-16</Date>
-                <Version>0.4.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -34431,60 +32354,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kdevisualboyadvance</Name>
-            <Homepage>http://sourceforge.net/projects/kvbadvance/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>hardware.emulator</PartOf>
-            <Summary xml:lang="en">KDE frontend for VisualBoy Advance</Summary>
-            <Summary xml:lang="tr">VisualBoy Advance için KDE arayüzü</Summary>
-            <Description xml:lang="en">This application is a FrontEnd for VisualBoy Advance, based on others frontends online like (kvba, qtvba, vbaexpress), and trying to be the best.</Description>
-            <Description xml:lang="tr">Bu uygulama VisualBoy Advance için bir KDE arayüzü sunar. kvba, qtvba, vbaexpress gibi diğer arayüzler baz alınarak en iyisi oluşturulmaya çalışılmıştır.</Description>
-            <Archive type="targz" sha1sum="129d67fc93653d5a724432e237fa236cdfdddaa0">mirrors://sourceforge/kvbadvance/KDEVisualBoyAdvance-0.3beta.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency versionFrom="3.2">qt-devel</Dependency>
-                <Dependency versionFrom="1.2.2">libsdl</Dependency>
-                <Dependency>sdlconsole</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">sdl-console.patch</Patch>
-            </Patches>
-            <SourceURI>hardware/emulator/kdevisualboyadvance/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kdevisualboyadvance</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-                <Dependency versionFrom="3.2">qt</Dependency>
-                <Dependency>visualboyadvance</Dependency>
-                <Dependency versionFrom="1.2.2">libsdl</Dependency>
-                <Dependency>sdlconsole</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-09-21</Date>
-                <Version>0.3_beta1</Version>
-                <Comment>First release.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
             </Update>
         </History>
     </SpecFile>
@@ -38920,65 +36789,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Mustafa Günay</Name>
                 <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>protoeditor</Name>
-            <Homepage>http://protoeditor.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>programming.debug</PartOf>
-            <Summary xml:lang="en">A small text editor developed for debugging scripts interactively</Summary>
-            <Summary xml:lang="tr">Betiklerde etkileşimli olarak hata ayıklamak için geliştirilmiş küçük bir metin düzenleyici</Summary>
-            <Description xml:lang="en">Small text editor which aims to support a variety of debuggers for different languages. Currently, it supports PHP, Perl and Python.</Description>
-            <Description xml:lang="tr">Değişik diller için tasarlanmış birçok hata ayıklama aracını desteklemeyi amaçlayan küçük bir metin düzenleyicisi. Şimdilik PHP, Perl ve Python dillerini desteklemektedir.</Description>
-            <Archive type="targz" sha1sum="3749072a78eb10cc5f2369fa64b98de40b30bd96">http://easynews.dl.sourceforge.net/sourceforge/protoeditor/protoeditor-1.1beta3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.5.5">kdelibs</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>makefile.patch</Patch>
-            </Patches>
-            <SourceURI>programming/debug/protoeditor/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>protoeditor</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.5.5">kdelibs</Dependency>
-                <Dependency versionFrom="2.0.0_rc1">xdebug</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2008-04-12</Date>
-                <Version>1.1_beta3</Version>
-                <Comment>Remove *.pyc files from package.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-04-16</Date>
-                <Version>1.1_beta3</Version>
-                <Comment>Avoid sandbox violations</Comment>
-                <Name>Fatih Aşıcı</Name>
-                <Email>fatih.asici@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-11-09</Date>
-                <Version>1.1_beta3</Version>
-                <Comment>First release</Comment>
-                <Name>Fatih Aşıcı</Name>
-                <Email>fatih.asici@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -49519,72 +47329,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>sturmbahnfahrer</Name>
-            <Homepage>http://www.sturmbahnfahrer.com/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>game.simulation</PartOf>
-            <Summary xml:lang="en">Simulated obstacle course for automobiles</Summary>
-            <Summary xml:lang="tr">Engelli arazide araba simülasyonu</Summary>
-            <Description xml:lang="en">Sturmbahnfahrer... for expert drivers only. If you want to master it, try to have the laws of physics work with you, not against you.</Description>
-            <Description xml:lang="tr">Sturmbahnfahrer uzmanlar içindir. Eğer üstesinden gelmek istiyorsanız fizik kurallarına sadık kalmalısınız.</Description>
-            <Icon>sturmbahnfahrer</Icon>
-            <Archive type="targz" sha1sum="76a960e9ec1ff86f7100eb3c6c3ea255e5d3b45e">http://www.stolk.org/sturmbahnfahrer/download/sturmbahnfahrer-1.3.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>ode</Dependency>
-                <Dependency>plib</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>glut</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch level="1">ode.patch</Patch>
-                <Patch level="1">destdir.patch</Patch>
-            </Patches>
-            <SourceURI>game/simulation/sturmbahnfahrer/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>sturmbahnfahrer</Name>
-            <RuntimeDependencies>
-                <Dependency>ode</Dependency>
-                <Dependency>plib</Dependency>
-                <Dependency>alsa-lib</Dependency>
-                <Dependency>glut</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/sturmbahnfahrer</Path>
-                <Path fileType="data">/usr/share/pixmaps</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/sturmbahnfahrer.desktop" permission="0644" owner="root">sturmbahnfahrer.desktop</AdditionalFile>
-                <AdditionalFile target="/usr/share/pixmaps/sturmbahnfahrer.png" permission="0644" owner="root">sturmbahnfahrer.png</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-04-08</Date>
-                <Version>1.3</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-08-08</Date>
-                <Version>1.2</Version>
-                <Comment>First release.</Comment>
-                <Name>Serkan Avcı</Name>
-                <Email>killer@wolke7.net</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>planeshift</Name>
             <Homepage>http://www.planeshift.it</Homepage>
             <Packager>
@@ -50832,64 +48576,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>hearts</Name>
-            <Homepage>http://hearts.luispedro.org/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>game.board</PartOf>
-            <Summary xml:lang="en">Hearts card game</Summary>
-            <Summary xml:lang="tr">Hearts kart oyunu</Summary>
-            <Description xml:lang="en">Hearts is a card game with beta support for network play</Description>
-            <Description xml:lang="tr">Maça kızı olarak da bilinen ünlü bir kart oyunu</Description>
-            <Icon>hearts</Icon>
-            <Archive type="tarbz2" sha1sum="e8541e7f6b1c7ed6cc4b34e4da44406244b5a09a">mirrors://sourceforge/hearts/hearts-1.98.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>hearts-1.98-gcc.patch</Patch>
-            </Patches>
-            <SourceURI>game/board/hearts/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>hearts</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applnk</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="data">/usr/kde/3.5/share/icons</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/kde/3.5/share/locale/tr/LC_MESSAGES/hearts.mo" permission="0644" owner="root">hearts.mo</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-08-25</Date>
-                <Version>1.98</Version>
-                <Comment>Turkish translation.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-05-06</Date>
-                <Version>1.98</Version>
-                <Comment>First release.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>vulcan</Name>
             <Homepage>http://www.fzort.org/mpr/projects/vulcan/</Homepage>
             <Packager>
@@ -50984,47 +48670,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>Initial release.</Comment>
                 <Name>İlker Kesen</Name>
                 <Email>ikesen92@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>kskippingstones</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=29959</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>game.board</PartOf>
-            <Summary xml:lang="en">Jump neighboring stones over one another</Summary>
-            <Summary xml:lang="tr">Birbirleri üzerinden komşu taşları atlat</Summary>
-            <Description xml:lang="en">Jump neighboring stones over one another. Only one stone will survive</Description>
-            <Description xml:lang="tr">Birbirleri üzerinden komşu taşları atlayarak, tek bir taş bırakmaya dayananan bir oyun</Description>
-            <Archive type="tarbz2" sha1sum="84421525d011b496b38ee0dc858d05c880444b4c">http://www.kde-apps.org/CONTENT/content-files/29959-kskippingstones-0.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdelibs</Dependency>
-            </BuildDependencies>
-            <SourceURI>game/board/kskippingstones/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kskippingstones</Name>
-            <RuntimeDependencies>
-                <Dependency>kdelibs</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-02-11</Date>
-                <Version>0.1</Version>
-                <Comment>First release</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -51127,86 +48772,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First Release</Comment>
                 <Name>Ceyhun Asılkazancı</Name>
                 <Email>ceyhunasilkazanci@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>glchess</Name>
-            <Homepage>http://glchess.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>game.board</PartOf>
-            <Summary xml:lang="en">2D/3D Chess Interface</Summary>
-            <Summary xml:lang="tr">2B ve 3B satranç arayüzü</Summary>
-            <Description xml:lang="en">glChess is an open source 3D chess interface for the Gnome desktop. It is designed to be used by both beginner and experienced players. Games can be played between a combination of local players, players connected via a LAN and artificial intelligences.</Description>
-            <Description xml:lang="tr">glChess Gnome masaüstü için yapılmış 3 boyutlu bir satranç arayüzüdür. Hem yeni başlayanların için hem de tecrübeli oyuncuların kullanması için tasarlanmıştır. Oyun bilgisayara karşı, yerel rakibe karşı ve internet üzerinden oynanabilir.</Description>
-            <Archive type="targz" sha1sum="10a66cb0737d268f0518d088695ce235eac3546e">mirrors://sourceforge/glchess/glchess-1.0.6.tar.gz</Archive>
-            <Patches>
-                <Patch>desktop.patch</Patch>
-            </Patches>
-            <SourceURI>game/board/glchess/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>glchess</Name>
-            <RuntimeDependencies>
-                <Dependency>pygtk</Dependency>
-                <Dependency>gnuchess</Dependency>
-                <Dependency>pygtkglext</Dependency>
-                <Dependency>PyOpenGL</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share</Path>
-                <Path fileType="library">/usr/lib</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="6">
-                <Date>2007-11-03</Date>
-                <Version>1.0.6</Version>
-                <Comment>Enable 3D.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-07-01</Date>
-                <Version>1.0.6</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-02-11</Date>
-                <Version>1.0.2</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-01-14</Date>
-                <Version>1.0.1</Version>
-                <Comment>Fixed desktop file, added gnuchess dependency.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-01-01</Date>
-                <Version>1.0.1</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-12-16</Date>
-                <Version>1.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Uğur Çetin</Name>
-                <Email>jnmbk@users.sourceforge.net</Email>
             </Update>
         </History>
     </SpecFile>
@@ -52708,58 +50273,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>kxmleditor</Name>
-            <Homepage>http://kxmleditor.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>editor.misc</PartOf>
-            <Summary xml:lang="en">KDE xml editor</Summary>
-            <Summary xml:lang="tr">KDE xml düzenleyici</Summary>
-            <Archive type="targz" sha1sum="f285eca3ca33d7e8d100f8a808e91507bc955ee2">mirrors://sourceforge/kxmleditor/kxmleditor-1.1.4.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>desktop.patch</Patch>
-            </Patches>
-            <SourceURI>editor/misc/kxmleditor/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>kxmleditor</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="doc">/usr/kde/3.5/share/doc</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-05-08</Date>
-                <Version>1.1.4</Version>
-                <Comment>Fix #5625</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-05-05</Date>
-                <Version>1.1.4</Version>
-                <Comment>First revision</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>poedit</Name>
             <Homepage>http://www.poedit.net</Homepage>
             <Packager>
@@ -53257,55 +50770,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Eren Türkay</Name>
                 <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>katephpbrowser</Name>
-            <Homepage>http://protoeditor.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>editor.misc</PartOf>
-            <Summary xml:lang="en">Kate PHP browser plugin</Summary>
-            <Summary xml:lang="tr">Kate için PHP tarayıcı eklentisi</Summary>
-            <Description xml:lang="en">Kate plugin for browsing PHP source structures.</Description>
-            <Description xml:lang="tr">PHP kaynak kod yapılarını dolaşmak için Kate eklentisi.</Description>
-            <Archive type="targz" sha1sum="1856b7b3dfcd15eceb5a83891df0258e2bb952d0">http://easynews.dl.sourceforge.net/sourceforge/protoeditor/katephpbrowser-0.1beta.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency releaseFrom="2">antlr</Dependency>
-                <Dependency versionFrom="3.5.5">kdebase</Dependency>
-            </BuildDependencies>
-            <SourceURI>editor/misc/katephpbrowser/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>katephpbrowser</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.5.5">kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2007-04-16</Date>
-                <Version>0.1_beta1</Version>
-                <Comment>Depend on new antlr release</Comment>
-                <Name>Fatih Aşıcı</Name>
-                <Email>fatih.asici@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-11-09</Date>
-                <Version>0.1_beta1</Version>
-                <Comment>First release</Comment>
-                <Name>Fatih Aşıcı</Name>
-                <Email>fatih.asici@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -58528,52 +55992,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>knmap</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=31108</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>network.analyzer</PartOf>
-            <Summary xml:lang="en">Knmap is a graphical front end to the nmap &quot;Network exploration tool and security scanner&quot;</Summary>
-            <Summary xml:lang="tr">Knmap, nmap &quot;Network exploration tool and security scanner&quot; programının grafiksel halidir.</Summary>
-            <Description xml:lang="en">You can scan the network and see your network bugs</Description>
-            <Description xml:lang="tr">Bu uygulama ile ağınızı tarayabilir ve açıklarını görebilirsiniz</Description>
-            <Archive type="tarbz2" sha1sum="9d26f0728ebeaa81443a081b251d15c612675b39">mirrors://sourceforge/knmap/knmap-2.1.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency versionFrom="3.4.0">kdelibs</Dependency>
-                <Dependency>nmap</Dependency>
-            </BuildDependencies>
-            <SourceURI>network/analyzer/knmap/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>knmap</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="3.4.0">kdebase</Dependency>
-                <Dependency>nmap</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/kde/3.5/lib</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="header">/usr/kde/3.5/include</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2006-05-07</Date>
-                <Version>2.1</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>fping</Name>
             <Homepage>http://fping.sourceforge.net/</Homepage>
             <Packager>
@@ -59727,148 +57145,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release</Comment>
                 <Name>Kenan Pelit</Name>
                 <Email>kpelit@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>tork</Name>
-            <Homepage>http://tork.sf.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>network.proxy</PartOf>
-            <Summary xml:lang="en">Tor Controller for KDE</Summary>
-            <Archive type="tarbz2" sha1sum="bea5ad063bd4b1fda9ce9c28d5315bd7ba222f3d">mirrors://sourceforge/tork/tork-0.29.2.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-                <Dependency versionFrom="1.4.3">geoip</Dependency>
-                <Dependency>tsocks</Dependency>
-            </BuildDependencies>
-            <SourceURI>network/proxy/tork/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>tork</Name>
-            <RuntimeDependencies>
-                <Dependency>tor</Dependency>
-                <Dependency>privoxy</Dependency>
-                <Dependency versionFrom="1.4.3">geoip</Dependency>
-                <Dependency>tsocks</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="library">/usr/kde/3.5/lib/kde3/</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="15">
-                <Date>2008-08-03</Date>
-                <Version>0.29.2</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>İnanç Yıldırgan</Name>
-                <Email>inancyildirgan@gmail.com</Email>
-            </Update>
-            <Update release="14" type="security">
-                <Date>2007-11-09</Date>
-                <Version>0.22</Version>
-                <Comment>Stable update to fix http://www.securityfocus.com/bid/26386/info</Comment>
-                <Name>İsmail Dönmez</Name>
-                <Email>ismail@pardus.org.tr</Email>
-            </Update>
-            <Update release="13">
-                <Date>2007-10-22</Date>
-                <Version>0.21</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="12">
-                <Date>2007-10-07</Date>
-                <Version>0.20</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="11">
-                <Date>2007-07-31</Date>
-                <Version>0.18</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="10">
-                <Date>2007-06-08</Date>
-                <Version>0.17</Version>
-                <Comment>Work fine with external tsocks.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="9">
-                <Date>2007-06-04</Date>
-                <Version>0.17</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2007-05-24</Date>
-                <Version>0.16</Version>
-                <Comment>Internal tsocks disabled,tsocks dep add</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2007-05-16</Date>
-                <Version>0.16</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2007-05-11</Date>
-                <Version>0.15</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-01-31</Date>
-                <Version>0.12</Version>
-                <Comment>lang_tr patch add.</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2006-11-28</Date>
-                <Version>0.12</Version>
-                <Comment>Version bump to 0.12beta</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2006-11-13</Date>
-                <Version>0.11</Version>
-                <Comment>Version bump</Comment>
-                <Name>Ertuğrul Erata</Name>
-                <Email>ertugrulerata@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-08-01</Date>
-                <Version>0.05</Version>
-                <Comment>Version bump</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-07-07</Date>
-                <Version>0.04_alpha1</Version>
-                <Comment>First release.</Comment>
-                <Name>S.Çağlar Onur</Name>
-                <Email>caglar@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -61409,55 +58685,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>amsn-emerald-theme</Name>
-            <Homepage>http://amsn.lnxteam.org</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>data</IsA>
-            <PartOf>network.plugin</PartOf>
-            <Summary xml:lang="en">Emerald skin for amsn</Summary>
-            <Summary xml:lang="tr">Amsn için emerald teması</Summary>
-            <Archive type="tarbz2" sha1sum="088b5fc4fc25318b403264e4f71357be2f95f41a">http://repo.pardus-linux.nl/sources/Emerald-2.0.tar.bz2</Archive>
-            <SourceURI>network/plugin/amsn-emerald-theme/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>amsn-emerald-theme</Name>
-            <RuntimeDependencies>
-                <Dependency>amsn</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/share/amsn</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2006-12-29</Date>
-                <Version>2.0</Version>
-                <Comment>Use normal smileys</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-12-29</Date>
-                <Version>2.0</Version>
-                <Comment>Version bump.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-12-01</Date>
-                <Version>1.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>amsn-live-theme</Name>
             <Homepage>http://amsn.lnxteam.org</Homepage>
             <Packager>
@@ -62238,48 +59465,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>opera-i18n</Name>
-            <Homepage>http://www.opera.com</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>OPERA-9.0</License>
-            <IsA>locale</IsA>
-            <PartOf>network.web</PartOf>
-            <Summary xml:lang="en">Translation files for Opera</Summary>
-            <Summary xml:lang="tr">Opera için çeviri dosyaları</Summary>
-            <Archive type="tarbz2" sha1sum="b6fb722734c32cc8ecb7e085b5226e37fb2233a2">http://cekirdek.pardus.org.tr/~gokcen/files/opera-i18n-9.2.0.tar.bz2</Archive>
-            <SourceURI>network/web/opera-i18n/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>opera-i18n</Name>
-            <RuntimeDependencies>
-                <Dependency versionFrom="9.2.0">opera</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="data">/usr/share/opera/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2008-04-15</Date>
-                <Version>9.2.0</Version>
-                <Comment>Fix broken link of source</Comment>
-                <Name>Gökçen Eraslan</Name>
-                <Email>gokcen@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-04-21</Date>
-                <Version>9.2.0</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>scythia</Name>
             <Homepage>http://scythia.free.fr/</Homepage>
             <Packager>
@@ -63040,54 +60225,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release</Comment>
                 <Name>Ekrem SEREN</Name>
                 <Email>ekrem.seren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>ktu</Name>
-            <Homepage>http://www.kde-apps.org/content/show.php?content=43429</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>network.download</PartOf>
-            <Summary xml:lang="en">A tool to fetch and edit KDE translations from SVN</Summary>
-            <Description xml:lang="en">A tool to fetch and edit KDE translations from SVN</Description>
-            <Archive type="tarbz2" sha1sum="2ac20433a7f50f0e29de1c3c88904eba8ee245a0">http://www.kde-apps.org/CONTENT/content-files/43429-ktu-0.0.3.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>kdesdk</Dependency>
-            </BuildDependencies>
-            <SourceURI>network/download/ktu/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>ktu</Name>
-            <RuntimeDependencies>
-                <Dependency>kdesdk</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share/applications</Path>
-                <Path fileType="data">/usr/kde/3.5/share/apps</Path>
-                <Path fileType="localedata">/usr/kde/3.5/share/locale</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2006-08-30</Date>
-                <Version>0.0.3</Version>
-                <Comment>Version bump</Comment>
-                <Name>Ali Erdinç Köroğlu</Name>
-                <Email>erdinc@pardus.org.tr</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-08-09</Date>
-                <Version>0.0.2c</Version>
-                <Comment>First release.</Comment>
-                <Name>Ali Erdinç Köroğlu</Name>
-                <Email>erdinc@pardus.org.tr</Email>
             </Update>
         </History>
     </SpecFile>
@@ -65025,50 +62162,6 @@ processing unit (GPU) present in modern graphics cards</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>openc6</Name>
-            <Homepage>http://openc6.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>network.chat</PartOf>
-            <Summary xml:lang="en">OpenC6 is a Linux and Mac OSX free instant messenger which implements the C6 protocol</Summary>
-            <Summary xml:lang="tr">C6 protokolünü kullanan bir anlık mesajlaşma programı.</Summary>
-            <Archive type="targz" sha1sum="fb8ba6b64559fdc9fd9ae0797e4ddacb353254fc">mirrors://sourceforge/openc6/openc6-0.9.9.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>xorg-server</Dependency>
-                <Dependency>qt-devel</Dependency>
-                <Dependency>libmng</Dependency>
-            </BuildDependencies>
-            <SourceURI>network/chat/openc6/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>openc6</Name>
-            <RuntimeDependencies>
-                <Dependency>xorg-server</Dependency>
-                <Dependency>qt</Dependency>
-                <Dependency>libmng</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/kde/3.5/bin</Path>
-                <Path fileType="data">/usr/kde/3.5/share</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="1">
-                <Date>2007-01-17</Date>
-                <Version>0.9.9</Version>
-                <Comment>First Release</Comment>
-                <Name>Ayan Öztürk</Name>
-                <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>tmsnc</Name>
             <Homepage>http://tmsnc.sourceforge.net/</Homepage>
             <Packager>
@@ -65323,78 +62416,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Fethi Aymaz</Name>
                 <Email>fethi@linux-sevenler.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>trix</Name>
-            <Homepage>http://trix.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>network.chat</PartOf>
-            <Summary xml:lang="en">A Chat Application for LANs</Summary>
-            <Description xml:lang="en">TriX - serverless chat for small home or office LANs running Linux. TriX chat based on the VyQChat. The project is released under term of GNU GPLv2 license. As compared to VyQChat in TriX such new features appears as: files transfer, users avatars, logs, links navigation, broadcast and multicast type of connection, search by IP address and many other, not listed here things. TriX is compatible with 2.0 protocol version of the Vypress Chat (TM) developed by VyPRESS Research, but there are some protocol differences in TriX (needs to support avatars).</Description>
-            <Archive type="tarbz2" sha1sum="d06b63d70b946f0d9dc3236e72047fd4618e91dd">mirrors://sourceforge/trix/trix-0.93.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>qt-devel</Dependency>
-            </BuildDependencies>
-            <SourceURI>network/chat/trix/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>trix</Name>
-            <RuntimeDependencies>
-                <Dependency>qt</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/applications</Path>
-                <Path fileType="data">/usr/share/trix</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-            <AdditionalFiles>
-                <AdditionalFile target="/usr/share/applications/trix.desktop" permission="0644" owner="root">trix.desktop</AdditionalFile>
-            </AdditionalFiles>
-        </Package>
-        <History>
-            <Update release="5">
-                <Date>2008-06-02</Date>
-                <Version>0.93</Version>
-                <Comment>Version bump, add desktop file.</Comment>
-                <Name>Kenan Pelit</Name>
-                <Email>kpelit@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-02-23</Date>
-                <Version>0.91</Version>
-                <Comment>Missing dependency added.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-01-23</Date>
-                <Version>0.91</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2006-12-26</Date>
-                <Version>0.9</Version>
-                <Comment>Version Bump.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-12-12</Date>
-                <Version>0.89</Version>
-                <Comment>First Release.</Comment>
-                <Name>İlker Kesen</Name>
-                <Email>ikesen92@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -65933,68 +62954,6 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Comment>First release.</Comment>
                 <Name>Uğur Çetin</Name>
                 <Email>jnmbk@users.sourceforge.net</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>krdm</Name>
-            <Homepage>http://krdm.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:gui</IsA>
-            <PartOf>network.remoteshell</PartOf>
-            <Summary xml:lang="en">KDE remote desktop manager</Summary>
-            <Summary xml:lang="tr">KDE uzak masaüstü yöneticisi</Summary>
-            <Description xml:lang="en">Krdm makes the configuration and utilization of multiple connection to remote desktops easy.</Description>
-            <Description xml:lang="tr">Krdm uzak masaüstleri arasında bağlantı kurmanızı ve yapılandırmalar yapmanızı sağlayan bir uygulamadır.</Description>
-            <Archive type="targz" sha1sum="fd5631dc9fdb345d728ae89ddc8a4fb121d0006d">mirrors://sourceforge/krdm/krd-1.6.tar.gz</Archive>
-            <BuildDependencies>
-                <Dependency>kdebase</Dependency>
-            </BuildDependencies>
-            <Patches>
-                <Patch>desktop.patch</Patch>
-                <Patch level="1">gcc-4.3.patch</Patch>
-            </Patches>
-            <SourceURI>network/remoteshell/krdm/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>krdm</Name>
-            <RuntimeDependencies>
-                <Dependency>kdebase</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="data">/usr/share/applnk</Path>
-                <Path fileType="data">/usr/share/apps</Path>
-                <Path fileType="data">/usr/share/icons</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2007-09-15</Date>
-                <Version>1.6</Version>
-                <Comment>Stable update</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-08-28</Date>
-                <Version>1.5.1</Version>
-                <Comment>Version bump</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-08-09</Date>
-                <Version>1.5</Version>
-                <Comment>First release.</Comment>
-                <Name>Alper Somuncu</Name>
-                <Email>alpersomuncu@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
