@@ -3,23 +3,28 @@
 <PISI>
     <Source>
         <Name>lxsession</Name>
-        <Homepage>http://www.lxde.org</Homepage>
+        <Homepage>http://wiki.lxde.org/en/LXSession</Homepage>
         <Packager>
-            <Name>Cihan Okyay</Name>
-            <Email>okyaycihan@gmail.com</Email>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
         </Packager>
         <License>GPLv2</License>
         <Icon>lxsession</Icon>
         <IsA>app:gui</IsA>
         <Summary>LXDE session manager</Summary>
         <Description>The default X11 session manager of LXDE.</Description>
-        <Archive sha1sum="6890b23acd50f66457d0531a5bfd19fbf1278a6a" type="targz">mirrors://sourceforge/lxde/lxsession-0.3.8.tar.gz</Archive>
+        <Archive sha1sum="e76d437abb111bda2b83cc7de541790bcbca0c17" type="targz">mirrors://sourceforge/lxde/lxsession-0.4.4.tar.gz</Archive>
         <BuildDependencies>
             <Dependency>gtk2</Dependency>
             <Dependency>cairo</Dependency>
             <Dependency>pango</Dependency>
             <Dependency>atk</Dependency>
         </BuildDependencies>
+        <Patches>
+            <Patch level="1">01_upower.patch</Patch>
+            <Patch level="1">02_gdm3.patch</Patch>
+            <Patch level="1">03_screenlock.patch</Patch>
+        </Patches>
     </Source>
 
     <Package>
@@ -40,6 +45,13 @@
     </Package>
 
     <History>
+        <Update release="2">
+            <Date>2010-09-19</Date>
+            <Version>0.4.4</Version>
+            <Comment>Version bump</Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="1">
             <Date>2009-11-02</Date>
             <Version>0.3.8</Version>
