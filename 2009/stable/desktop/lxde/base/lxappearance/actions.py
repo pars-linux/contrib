@@ -9,8 +9,7 @@ from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
 
 def setup():
-    autotools.autoreconf("-fiv")
-    autotools.configure()
+    autotools.configure("--disable-dependency-tracking")
 
 def build():
     autotools.make()
