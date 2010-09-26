@@ -10,7 +10,8 @@ from pisi.actionsapi import get
 
 
 def setup():
-    autotools.configure("--disable-static")
+    autotools.configure("--disable-static \
+                         --enable-nls")
 
 def build():
     autotools.make()
