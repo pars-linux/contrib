@@ -14,7 +14,9 @@ def setup():
     shelltools.export("AUTOPOINT", "true")
     autotools.autoreconf("-fi")
     autotools.configure("--disable-static \
-                         --docdir=/%s/%s" % (get.docDIR(), get.srcDIR()))
+                         --enable-nls \
+                         --enable-startup-notification \
+                         --docdir=/%s/%s" % (get.docDIR(), get.srcNAME()))
 
 def build():
     autotools.make()
