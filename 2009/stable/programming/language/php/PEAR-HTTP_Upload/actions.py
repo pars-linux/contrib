@@ -6,8 +6,9 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="HTTP_Upload-1.0.0b1"
+WorkDir="HTTP_Upload-1.0.0b2"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTTP", "HTTP/Upload.php")
-    pisitools.insinto("/usr/share/php5/PEAR/doc/HTTP_Upload", "docs/upload_example.php")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/HTTP_Upload", "docs/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/HTTP_Upload", "tests/*")
