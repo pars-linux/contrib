@@ -11,4 +11,4 @@ from pisi.actionsapi import get
 WorkDir="Crypt_RC4-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Crypt", "Rc4.php")
+    pisitools.insinto("/usr/share/php5/PEAR/Crypt", "Crypt/Rc4.php")
