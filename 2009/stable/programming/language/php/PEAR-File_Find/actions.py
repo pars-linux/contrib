@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="File_Find-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/File","Find.php")
+    pisitools.insinto("/usr/share/php5/PEAR/File","File/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/File_Find","tests/*")
