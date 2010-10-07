@@ -6,28 +6,20 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="emotion-20060926"
+shelltools.export("HOME", get.workDIR())
 
 def setup():
-    autotools.configure("--with-eet \
-                        --with-eet-exec \
-                        --with-evas \
-                        --with-evas-exec \
-                        --with-edje \
-                        --with-edje-exec \
-                        --with-ecore \
-                        --with-ecore-exec \
-                        --with-embryo \
-                        --with-embryo-exec \
-                        --enable-xine \
-                        --enable-gstreamer \
-                        --with-xine-exec")
+    autotools.configure("--disable-static \
+                         --disable-vlc \
+                         --disable-xine")
 
 def build():
     autotools.make()
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-    pisitools.dodoc("AUTHORS", "Changelog", "COPYING*", "NEWS", "README", "TODO")
+
+    pisitools.dodoc("AUTHORS", "COPYING", "NEWS", "README", "TODO")
