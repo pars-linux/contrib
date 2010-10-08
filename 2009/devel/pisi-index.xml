@@ -1614,28 +1614,27 @@
             <Summary xml:lang="tr">Enlightenment için video kitaplığı</Summary>
             <Description xml:lang="en">emotion is a video library that supports Xine and Gstreamer backends.</Description>
             <Description xml:lang="tr">emotion, Xine ve Gstreamer destekli bir video kitaplığıdır.</Description>
-            <Archive type="tarbz2" sha1sum="c21d9488860cd324f4c40cabe629400eb9d186c8">http://sunner.elcomnet.ru/~stas/emotion-20060926.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="9fed4a269e3f9b4cb46ce577797afbd2cbc3191c">http://cekirdek.pardus.org.tr/~ibrahim/dist/efl/emotion-0.2.0_52995.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency versionFrom="0.9.10.036">eet</Dependency>
-                <Dependency versionFrom="0.9.9.036">evas</Dependency>
-                <Dependency versionFrom="0.5.0.036">edje</Dependency>
-                <Dependency versionFrom="0.9.9.036">ecore</Dependency>
-                <Dependency versionFrom="0.9.1.036">embryo</Dependency>
-                <Dependency versionFrom="1.1.2">xine-lib</Dependency>
-                <Dependency versionFrom="0.10.8">gstreamer</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">eina</Dependency>
+                <Dependency versionFrom="1.4.0_beta1">eet</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">evas</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">edje</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">ecore</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">embryo</Dependency>
+                <Dependency>gstreamer</Dependency>
             </BuildDependencies>
             <SourceURI>desktop/enlightenment/addon/emotion/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>emotion</Name>
             <RuntimeDependencies>
-                <Dependency versionFrom="0.9.10.036">eet</Dependency>
-                <Dependency versionFrom="0.9.9.036">evas</Dependency>
-                <Dependency versionFrom="0.5.0.036">edje</Dependency>
-                <Dependency versionFrom="0.9.9.036">ecore</Dependency>
-                <Dependency versionFrom="0.9.1.036">embryo</Dependency>
-                <Dependency versionFrom="1.1.2">xine-lib</Dependency>
-                <Dependency versionFrom="0.10.8">gstreamer</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">eina</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">evas</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">edje</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">ecore</Dependency>
+                <Dependency versionFrom="1.0.0_beta1">embryo</Dependency>
+                <Dependency>gstreamer</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -1646,6 +1645,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-10-07</Date>
+                <Version>0.2.0_52995</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2006-11-03</Date>
                 <Version>0.0.1.20060926</Version>
@@ -54500,7 +54506,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Gelişmiş bir torrent kitaplığı</Summary>
             <Description xml:lang="en">Rasterbar&apos;s C++ library that aims to be a good alternative to all the other bittorrent implementations around. It is a library and not a full featured client, although it comes with a working example client.</Description>
             <Description xml:lang="tr">Rasterbar C++ kitaplığı, diğer bittorrent kitaplıklarına karşın iyi bir alternatifdir.</Description>
-            <Archive type="targz" sha1sum="68303b76ef88d1315725c9d114edd8bc95972c83">http://libtorrent.googlecode.com/files/libtorrent-rasterbar-0.14.10.tar.gz</Archive>
+            <Archive type="targz" sha1sum="e1165fccd4a34ed1d686b350b88e9a5a321b7515">http://libtorrent.googlecode.com/files/libtorrent-rasterbar-0.14.12.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>libsigc++</Dependency>
                 <Dependency>boost-devel</Dependency>
@@ -54525,6 +54531,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2010-10-07</Date>
+                <Version>0.14.12</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="8">
                 <Date>2010-08-05</Date>
                 <Version>0.14.10</Version>
@@ -55684,21 +55697,24 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">qbittorrent is a BitTorrent client using the libtorrent library.</Description>
             <Description xml:lang="tr">qbittorrent, libtorrent kitaplığını kullanan Qt4 tabanlı bir BitTorrent istemcisidir.</Description>
             <Icon>qbittorrent</Icon>
-            <Archive type="targz" sha1sum="e73961c935d518d93a2377b817c0d0042b30a2ab">mirrors://sourceforge/qbittorrent/qbittorrent-2.3.0.tar.gz</Archive>
+            <Archive type="targz" sha1sum="d9764eaecac719017c530f768e5039001b43d690">mirrors://sourceforge/qbittorrent/qbittorrent-2.4.4.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>qt-devel</Dependency>
-                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.12">libtorrent</Dependency>
                 <Dependency>boost-devel</Dependency>
                 <Dependency>zziplib</Dependency>
                 <Dependency>libnotify</Dependency>
             </BuildDependencies>
+            <Patches>
+                <Patch level="1">default-bugzilla-address.patch</Patch>
+            </Patches>
             <SourceURI>network/p2p/qbittorrent/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>qbittorrent</Name>
             <RuntimeDependencies>
                 <Dependency>qt</Dependency>
-                <Dependency versionFrom="0.14.10">libtorrent</Dependency>
+                <Dependency versionFrom="0.14.12">libtorrent</Dependency>
                 <Dependency>boost</Dependency>
                 <Dependency>zziplib</Dependency>
                 <Dependency>libnotify</Dependency>
@@ -55713,6 +55729,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="5">
+                <Date>2010-10-07</Date>
+                <Version>2.4.4</Version>
+                <Comment>Version bump.</Comment>
+                <Name>H. İbrahim Güngör</Name>
+                <Email>ibrahim@pardus.org.tr</Email>
+            </Update>
             <Update release="4">
                 <Date>2010-08-05</Date>
                 <Version>2.3.0</Version>
