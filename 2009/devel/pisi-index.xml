@@ -33124,149 +33124,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>loki</Name>
-            <Homepage>http://loki-lib.sourceforge.net/</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">A C++ library of designs, containing flexible implementations of common design patterns and idioms</Summary>
-            <Summary xml:lang="tr">loki</Summary>
-            <Description xml:lang="en">Loki makes extensive use of C++ template metaprogramming and implements several commonly used tools.</Description>
-            <Description xml:lang="tr">loki</Description>
-            <Archive type="tarbz2" sha1sum="006c630217b1e1fd33015dc0597d2d743d8ee4e3">mirrors://sourceforge/loki-lib/loki-0.1.7.tar.bz2</Archive>
-            <Patches>
-                <Patch>disable-static.patch</Patch>
-            </Patches>
-            <SourceURI>programming/library/loki/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>loki</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>loki-devel</Name>
-            <Summary xml:lang="en">Development headers for loki</Summary>
-            <Summary xml:lang="tr">loki için geliştirme dosyaları</Summary>
-            <RuntimeDependencies>
-                <Dependency release="2">loki</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>loki-docs</Name>
-            <Summary xml:lang="en">Document files for loki</Summary>
-            <Summary xml:lang="tr">loki için geliştirme belgeleri</Summary>
-            <IsA>data:doc</IsA>
-            <RuntimeDependencies>
-                <Dependency release="2">loki</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="doc">/usr/share/doc/loki/html/</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2010-09-01</Date>
-                <Version>0.1.7</Version>
-                <Comment>Version bump, split headers and docs</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-07-25</Date>
-                <Version>0.1.6</Version>
-                <Comment>First Release</Comment>
-                <Name>Recep Kırmızı</Name>
-                <Email>rkirmizi@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libbinio</Name>
-            <Homepage>http://libbinio.sourceforge.net</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>LGPLv2.1</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">Binary I/O stream class library</Summary>
-            <Summary xml:lang="tr">İkili I/O yayın sınıfı kütüphanesi</Summary>
-            <Description xml:lang="en">Binary I/O stream class library</Description>
-            <Description xml:lang="tr">libbinio ikili I/O yayın sınıfı kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="47db5f7448245f38b9d26c8b11f53a07b6f6da73">mirrors://sourceforge/libbinio/libbinio-1.4.tar.bz2</Archive>
-            <Patches>
-                <Patch level="1">gcc44.patch</Patch>
-                <Patch level="1">string-conversion.patch</Patch>
-            </Patches>
-            <SourceURI>programming/library/libbinio/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libbinio</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="info">/usr/share/info</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>libbinio-devel</Name>
-            <Summary xml:lang="en">Development headers for libbinio</Summary>
-            <Summary xml:lang="tr">libbinio için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">libbinio-devel provides development headers for libbinio.</Description>
-            <Description xml:lang="tr">libbinio için geliştirme başlıklarını içerir.</Description>
-            <RuntimeDependencies>
-                <Dependency release="4">libbinio</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="data">/usr/lib/pkgconfig</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="4">
-                <Date>2010-09-03</Date>
-                <Version>1.4</Version>
-                <Comment>Split headers</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2009-06-22</Date>
-                <Version>1.4</Version>
-                <Comment>Add gcc44 and string-conversion patches</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-04-29</Date>
-                <Version>1.4</Version>
-                <Comment>Disable static libs</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-09-06</Date>
-                <Version>1.4</Version>
-                <Comment>First release.</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>xylib</Name>
             <Homepage>http://www.unipress.waw.pl/fityk/xylib/</Homepage>
             <Packager>
@@ -33932,111 +33789,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Ayan Öztürk</Name>
                 <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libmowgli</Name>
-            <Homepage>http://www.atheme.org</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>BSD</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">A development framework for C</Summary>
-            <Summary xml:lang="tr">C için bir geliştirme çatısı</Summary>
-            <Description xml:lang="en">Mowgli provides high performance and highly flexible algorithms.</Description>
-            <Description xml:lang="tr">libmowgli, C için yüksek ferformanslı ve esnek algoritmalar içeren bir geliştirme çatısıdır.</Description>
-            <Archive type="tarbz2" sha1sum="ad51d5f5352954553fc55ce26b98185edce31509">http://distfiles.atheme.org/libmowgli-0.7.1.tbz2</Archive>
-            <SourceURI>programming/library/libmowgli/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libmowgli</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>libmowgli-devel</Name>
-            <Summary xml:lang="en">Development headers for libmowgli</Summary>
-            <Summary xml:lang="tr">libmowgli için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">libmowgli-devel provides development headers for libmowgli.</Description>
-            <Description xml:lang="tr">libmowgli için geliştirme başlıklarını içerir.</Description>
-            <RuntimeDependencies>
-                <Dependency release="9">libmowgli</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="data">/usr/lib/pkgconfig</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="9">
-                <Date>2010-09-03</Date>
-                <Version>0.7.1</Version>
-                <Comment>Version bump, split headers, add translations.xml</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="8">
-                <Date>2009-06-22</Date>
-                <Version>0.6.1</Version>
-                <Comment>Fix home page</Comment>
-                <Name>Mehmet Nur Olcay</Name>
-                <Email>mnurolcay@gmail.com</Email>
-            </Update>
-            <Update release="7">
-                <Date>2008-03-29</Date>
-                <Version>0.6.1</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="6">
-                <Date>2008-01-23</Date>
-                <Version>0.6.0</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="5">
-                <Date>2007-11-09</Date>
-                <Version>0.5.0</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="4">
-                <Date>2007-09-12</Date>
-                <Version>0.4.0</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2007-08-20</Date>
-                <Version>0.3.1</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-07-31</Date>
-                <Version>0.3.0</Version>
-                <Comment>Stable bump</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-06-13</Date>
-                <Version>0.2.0_20070613</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -34856,52 +34608,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>dxflib</Name>
-            <Homepage>http://www.ribbonsoft.com/dxflib.html</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <License>as-is</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">An open source C++ library mainly for parsing DXF files</Summary>
-            <Summary xml:lang="tr">DXF dosyalarını ayrıştırmak için açık kaynak kodlu C++ kütüphanesi</Summary>
-            <Description xml:lang="en">Dxflib can write DXF files, but you need to have good knowledge of the DXF format to produce valid output.</Description>
-            <Description xml:lang="tr">Dxflib, DXF dosyalarına yazabilir ama geçerli bir çıktı üretebilmek için DXF formatı hakkında yeterli bilgiye sahip olmanız gereklidir.</Description>
-            <Archive type="targz" sha1sum="2bfce1557fc4d84a54cf17836f20fc8f3be9e138">ftp://ribbonsoft.com/archives/dxflib/dxflib-2.2.0.0-1.src.tar.gz</Archive>
-            <Patches>
-                <Patch level="1">gcc-43.patch</Patch>
-            </Patches>
-            <SourceURI>programming/library/dxflib/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>dxflib</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="header">/usr/include</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2010-09-01</Date>
-                <Version>2.2.0.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-02-01</Date>
-                <Version>2.0.4.8</Version>
-                <Comment>First release</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>libstroke</Name>
             <Homepage>http://www.etla.net/libstroke/</Homepage>
             <Packager>
@@ -34939,76 +34645,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Ayan Öztürk</Name>
                 <Email>ayanozturk@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libconfuse</Name>
-            <Homepage>http://www.nongnu.org/confuse/</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>LGPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">Configuration file parser library</Summary>
-            <Summary xml:lang="tr">Yapılandırma dosyası ayrıştırıcısı</Summary>
-            <Description xml:lang="en">libconfuse is a configuration file parser library.</Description>
-            <Description xml:lang="tr">libconfuse bir yapılandırma dosyası ayrıştırıcısıdır.</Description>
-            <Archive type="targz" sha1sum="b3f74f9763e6c9012476dbd323d083af4be34cad">http://download.savannah.gnu.org/releases/confuse/confuse-2.7.tar.gz</Archive>
-            <SourceURI>programming/library/libconfuse/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libconfuse</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="localedata">/usr/share/locale</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>libconfuse-devel</Name>
-            <Summary xml:lang="en">Development headers for libconfuse</Summary>
-            <Summary xml:lang="tr">libconfuse için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">libconfuse-devel provides development headers for libconfuse.</Description>
-            <Description xml:lang="tr">libconfuse için geliştirme başlıklarını içerir.</Description>
-            <RuntimeDependencies>
-                <Dependency release="3">libconfuse</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="man">/usr/share/man/man3</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="3">
-                <Date>2009-10-23</Date>
-                <Version>2.7</Version>
-                <Comment>Version bump, split headers</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2009-10-23</Date>
-                <Version>2.6</Version>
-                <Comment>* Stable update
-                * added French translation contributed by Matthieu Sion
-                * added build script and instructions for compiling with Mingw under Windows
-                * added flag CFGF_NO_TITLE_DUPES: multiple section titles must be unique (duplicates raises an error, only applies to sections)
-                * fixed a memory leak in default values for string lists, reported by Vineeth Neelakant.
-                * add confuse-2.6-no-Werror.patch
-                * Take over</Comment>
-                <Name>Cihan Okyay</Name>
-                <Email>okyaycihan@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-02-28</Date>
-                <Version>2.5</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -35254,78 +34890,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
             <Update release="1">
                 <Date>2006-11-14</Date>
                 <Version>0.10.3</Version>
-                <Comment>First release</Comment>
-                <Name>Murat Şenel</Name>
-                <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>libtommath</Name>
-            <Homepage>http://math.libtomcrypt.org</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>public-domain</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">Highly optimized and portable routines for integer based number theoretic applications</Summary>
-            <Summary xml:lang="tr">Tam sayı tabanlı sayılar teorisi uygulamaları için en iyilenmiş ve taşınabilir rutinler</Summary>
-            <Description xml:lang="en">libtommath provides highly optimized and portable routines for integer based number theoretic applications.</Description>
-            <Description xml:lang="tr">libtommath, tam sayı tabanlı sayılar teorisi uygulamaları için en iyilenmiş ve taşınabilir rutinler içerir.</Description>
-            <Archive type="tarbz2" sha1sum="9b192701cf62b85e9bd65fbb4d622d04cfa5ee0d">http://www.libtom.org/files/ltm-0.42.0.tar.bz2</Archive>
-            <Patches>
-                <Patch>libtommath-0.41-LDFLAGS.patch</Patch>
-                <Patch level="1">libtommath-0.41-CC.patch</Patch>
-            </Patches>
-            <SourceURI>programming/library/libtommath/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>libtommath</Name>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc/libtommath/changes.txt</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>libtommath-devel</Name>
-            <Summary xml:lang="en">Development headers for libtommath</Summary>
-            <Summary xml:lang="tr">libtommath için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">libtommath-devel provides development headers for libtommath.</Description>
-            <Description xml:lang="tr">libtommath için geliştirme başlıklarını içerir.</Description>
-            <RuntimeDependencies>
-                <Dependency release="2">libtommath</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>libtommath-docs</Name>
-            <Summary xml:lang="en">Documentation files for libtommath</Summary>
-            <Summary xml:lang="tr">libtommath için belgelendirme dosyaları</Summary>
-            <Description xml:lang="en">libtommath-docs provides documentation files for libtommath.</Description>
-            <Description xml:lang="tr">libtommath için belgelendirme dosyalarını içerir.</Description>
-            <RuntimeDependencies>
-                <Dependency release="2">libtommath</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2010-09-03</Date>
-                <Version>0.42.0</Version>
-                <Comment>Version bump, split headers and docs</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2006-11-18</Date>
-                <Version>0.39</Version>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
@@ -41553,7 +41117,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Doğrulama sınıfı</Summary>
             <Description xml:lang="en">Package to validate various datas: numbers, email, date, etc.</Description>
             <Description xml:lang="tr">Sayı, eposta, tarih gibi verileri doğrulama sınıfı.</Description>
-            <Archive type="targz" sha1sum="36a6552b506c74c97cbdc024dc17dd64bca2db40">http://download.pear.php.net/package/Validate-0.8.3.tgz</Archive>
+            <Archive type="targz" sha1sum="1f0299a8a4d3dd3ab7ed0a6b73762b5169995838">http://download.pear.php.net/package/Validate-0.8.4.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Validate/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -41569,6 +41133,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="3">
+                <Date>2010-10-11</Date>
+                <Version>0.8.4</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="2">
                 <Date>2010-01-31</Date>
                 <Version>0.8.3</Version>
