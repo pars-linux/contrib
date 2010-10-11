@@ -13,3 +13,4 @@ def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net", "SMTP.php")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Net_SMTP", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Net_SMTP", "tests/*")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/Net_SMTP/examples", "examples/*")
