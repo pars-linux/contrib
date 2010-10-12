@@ -14489,7 +14489,7 @@
             <Archive type="targz" sha1sum="83138f4c282eff5468b1d9ca5894a1a1350ad398">mirrors://sourceforge/synfig/synfigstudio-0.62.00.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
-                <Dependency>etl</Dependency>
+                <Dependency>ETL</Dependency>
                 <Dependency>gtkmm</Dependency>
                 <Dependency>synfig</Dependency>
                 <Dependency>libxmlpp</Dependency>
@@ -14501,7 +14501,7 @@
             <Name>synfigstudio</Name>
             <RuntimeDependencies>
                 <Dependency>gtk2</Dependency>
-                <Dependency>etl</Dependency>
+                <Dependency>ETL</Dependency>
                 <Dependency>gtkmm</Dependency>
                 <Dependency>synfig</Dependency>
                 <Dependency>libxmlpp</Dependency>
@@ -18023,7 +18023,7 @@
             <Archive type="targz" sha1sum="10c5ffcffac0a3d2d2290a98fde2bc079aaaaca3">mirrors://sourceforge/synfig/synfig-0.62.00.tar.gz</Archive>
             <BuildDependencies>
                 <Dependency>gtk2</Dependency>
-                <Dependency>etl</Dependency>
+                <Dependency>ETL</Dependency>
                 <Dependency>gtkmm</Dependency>
                 <Dependency>libxmlpp</Dependency>
             </BuildDependencies>
@@ -18033,7 +18033,7 @@
             <Name>synfig</Name>
             <RuntimeDependencies>
                 <Dependency>gtk2</Dependency>
-                <Dependency>etl</Dependency>
+                <Dependency>ETL</Dependency>
                 <Dependency>gtkmm</Dependency>
                 <Dependency>libxmlpp</Dependency>
             </RuntimeDependencies>
@@ -33124,69 +33124,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>xylib</Name>
-            <Homepage>http://www.unipress.waw.pl/fityk/xylib/</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">A portable C++ library for reading files that contain x-y data from powder diffraction, spectroscopy or other experimental methods</Summary>
-            <Summary xml:lang="tr">Deneysel yöntemlerle elde edilmiş x-y verilerini içeren dosyaları okuyabilmek için bir C++ kütüphanesi</Summary>
-            <Description xml:lang="en">xylib is a portable C++ library for reading files that contain x-y data from powder diffraction, spectroscopy or other experimental methods.</Description>
-            <Description xml:lang="tr">xylib deneysel yöntemlerle elde edilmiş x-y verilerini içeren dosyaları okuyabilmek için bir C++ kütüphanesidir.</Description>
-            <Archive type="tarbz2" sha1sum="7f35c8ddbe2bbb1d9da540369ad63c8b388a5a12">mirrors://sourceforge/xylib/xylib-0.6.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>boost-devel</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/library/xylib/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>xylib</Name>
-            <RuntimeDependencies>
-                <Dependency>boost</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>xylib-devel</Name>
-            <Summary xml:lang="en">Development headers for xylib</Summary>
-            <Summary xml:lang="tr">xylib için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">xylib-devel provides development headers xylib.</Description>
-            <Description xml:lang="tr">xylib için geliştirme başlıklarını içerir.</Description>
-            <RuntimeDependencies>
-                <Dependency release="2">xylib</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="2">
-                <Date>2010-09-02</Date>
-                <Version>0.6</Version>
-                <Comment>Version bump, split headers</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2008-04-16</Date>
-                <Version>0.2</Version>
-                <Comment>First release.</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>libsift</Name>
             <Homepage>http://user.cs.tu-berlin.de/~nowozin/libsift/</Homepage>
             <Packager>
@@ -33620,88 +33557,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release.</Comment>
                 <Name>Ozan Çağlayan</Name>
                 <Email>ozan.caglayan@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>etl</Name>
-            <Homepage>http://wiki.synfig.org</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>app:console</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">Extended Template Library</Summary>
-            <Summary xml:lang="tr">Uzatılmış Şablon Kütüphanesi</Summary>
-            <Description xml:lang="en">ETL is a multi-platform class and template library designed to add new datatypes and functions which combine well with the existing types and functions from the C++ Standard Template Library (STL).</Description>
-            <Description xml:lang="tr">Standart C++ Şablon Kütüphanesinin (STL) mevcut tip ve fonksiyonlarıyla bir araya gelebilmesi için tasarlanmış yeni veri tipleri ve fonksiyonları içeren çoklu-platform sınıf ve şablon kütüphaneleridir.</Description>
-            <Archive type="targz" sha1sum="fc2bdb7186107b2f8ed0560d55444a8afc925013">mirrors://sourceforge/synfig/ETL-0.04.13.tar.gz</Archive>
-            <SourceURI>programming/library/etl/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>etl</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>etl-devel</Name>
-            <Summary xml:lang="en">Development headers for etl</Summary>
-            <Summary xml:lang="tr">etl için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">etl-devel provides development headers for etl.</Description>
-            <Description xml:lang="tr">etl için geliştirme başlıklarını içerir.</Description>
-            <IsA>library</IsA>
-            <RuntimeDependencies>
-                <Dependency release="4">etl</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="data">/usr/lib/pkgconfig</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="4">
-                <Date>2010-09-05</Date>
-                <Version>0.04.13</Version>
-                <Comment>Split headers, add translations.xml</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2009-10-26</Date>
-                <Version>0.04.13</Version>
-                <Comment>* Version bump
-                * Improve the derivative class for hermites.
-                * Update configure.ac as suggested by autoupdate.
-                * Migration to git repository.
-                * Deleted generated ETL/etl_profile_.h.in file.
-                * Improved the rendering of curve gradient layers near vertices with 0-length tangents.
-                * Fixed a division by zero when calculating the distance to a bezier.
-                * Fixed the pthread and kernel32 library check to not check for main.
-                * Don&apos;t enable the use of mutexes on platforms other than windows unless pthread is available.
-                * Removed ancient trunk folder from svn repository.
-                * Several compiler warnings fixed.
-                * Take over.</Comment>
-                <Name>Cihan Okyay</Name>
-                <Email>okyaycihan@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2008-06-03</Date>
-                <Version>0.04.11</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-10-11</Date>
-                <Version>0.04.10</Version>
-                <Comment>First release.</Comment>
-                <Name>Mustafa Günay</Name>
-                <Email>mgunay@pardusman.org</Email>
             </Update>
         </History>
     </SpecFile>
@@ -35238,93 +35093,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
                 <Comment>First release</Comment>
                 <Name>Murat Şenel</Name>
                 <Email>muratasenel@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
-            <Name>xapian-core</Name>
-            <Homepage>http://www.oligarchy.co.uk/xapian</Homepage>
-            <Packager>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <IsA>app:console</IsA>
-            <PartOf>programming.library</PartOf>
-            <Summary xml:lang="en">Probabilistic Information Retrieval library</Summary>
-            <Summary xml:lang="tr">İstatistiksel Bilgi Çıkarma kütüphanesi</Summary>
-            <Description xml:lang="en">xapian-core is a probabilistic information retrieval library.</Description>
-            <Description xml:lang="tr">xapian-core bir istatistiksel bilgi çıkarma kütüphanesidir.</Description>
-            <Archive type="targz" sha1sum="abc0c5d22e6f77c757976719a590580c068ae894">http://oligarchy.co.uk/xapian/1.2.3/xapian-core-1.2.3.tar.gz</Archive>
-            <SourceURI>programming/library/xapian-core/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>xapian-core</Name>
-            <Files>
-                <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="man">/usr/share/man</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>xapian-core-devel</Name>
-            <Summary xml:lang="en">Development headers for xapian-core</Summary>
-            <Summary xml:lang="tr">xapian-core için geliştirme başlıkları</Summary>
-            <Description xml:lang="en">xapian-core-devel provides development headers for xapian-core.</Description>
-            <Description xml:lang="tr">xapian-core için geliştirme başlıklarını içerir.</Description>
-            <IsA>library</IsA>
-            <RuntimeDependencies>
-                <Dependency release="4">xapian-core</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="header">/usr/include</Path>
-                <Path fileType="data">/usr/share/aclocal</Path>
-            </Files>
-        </Package>
-        <Package>
-            <Name>xapian-core-docs</Name>
-            <Summary xml:lang="en">Documentation files for xapian-core</Summary>
-            <Summary xml:lang="tr">xapian-core için belgelendirme dosyaları</Summary>
-            <Description xml:lang="en">xapian-core-docs provides documentation files for xapian-core.</Description>
-            <Description xml:lang="tr">xapian-core için belgelendirme dosyalarını içerir.</Description>
-            <IsA>data:doc</IsA>
-            <RuntimeDependencies>
-                <Dependency release="4">xapian-core</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="doc">/usr/share/doc/</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="4">
-                <Date>2010-09-03</Date>
-                <Version>1.2.3</Version>
-                <Comment>Version bump, split headers and docs</Comment>
-                <Name>Necdet Yücel</Name>
-                <Email>necdetyucel@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2008-06-03</Date>
-                <Version>1.0.6</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2007-11-01</Date>
-                <Version>1.0.4</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Serdar Soytetir</Name>
-                <Email>tulliana@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-10-31</Date>
-                <Version>1.0.2</Version>
-                <Comment>First release.</Comment>
-                <Name>Serdar Soytetir</Name>
-                <Email>tulliana@gmail.com</Email>
             </Update>
         </History>
     </SpecFile>
@@ -37049,69 +36817,6 @@ supported DAQ cards, such as those from National Instruments.</Description>
     </SpecFile>
     <SpecFile>
         <Source>
-            <Name>pygtksourceview</Name>
-            <Homepage>http://www.gnome.org/</Homepage>
-            <Packager>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Packager>
-            <License>GPLv2</License>
-            <IsA>library</IsA>
-            <PartOf>programming.language.python</PartOf>
-            <Summary xml:lang="en">Python bindings of gtksourceview</Summary>
-            <Archive type="tarbz2" sha1sum="480742c6ea15e2c6f3d864fae4708ef528fade0f">mirrors://gnome/pygtksourceview/2.6/pygtksourceview-2.6.0.tar.bz2</Archive>
-            <BuildDependencies>
-                <Dependency>pygtk</Dependency>
-                <Dependency>gtksourceview</Dependency>
-                <Dependency>docbook-xml4_1_2</Dependency>
-            </BuildDependencies>
-            <SourceURI>programming/language/python/pygtksourceview/pspec.xml</SourceURI>
-        </Source>
-        <Package>
-            <Name>pygtksourceview</Name>
-            <RuntimeDependencies>
-                <Dependency>pygtk</Dependency>
-                <Dependency>gtksourceview</Dependency>
-            </RuntimeDependencies>
-            <Files>
-                <Path fileType="library">/usr/lib</Path>
-                <Path fileType="doc">/usr/share/doc</Path>
-                <Path fileType="data">/usr/share/pygtk</Path>
-            </Files>
-        </Package>
-        <History>
-            <Update release="4">
-                <Date>2009-06-04</Date>
-                <Version>2.6.0</Version>
-                <Comment>Version bump</Comment>
-                <Name>Burak Çalışkan</Name>
-                <Email>burakclskn@gmail.com</Email>
-            </Update>
-            <Update release="3">
-                <Date>2008-03-10</Date>
-                <Version>2.2.0</Version>
-                <Comment>Version bump to new stable release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="2">
-                <Date>2008-02-03</Date>
-                <Version>2.1.0</Version>
-                <Comment>Version bump.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-            <Update release="1">
-                <Date>2007-01-26</Date>
-                <Version>2.0.0</Version>
-                <Comment>First release.</Comment>
-                <Name>Eren Türkay</Name>
-                <Email>turkay.eren@gmail.com</Email>
-            </Update>
-        </History>
-    </SpecFile>
-    <SpecFile>
-        <Source>
             <Name>gnome-python-desktop</Name>
             <Homepage>http://www.gnome.org/</Homepage>
             <Packager>
@@ -37973,7 +37678,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">An implementation of the SMTP protocol</Summary>
             <Summary xml:lang="tr">SMTP Protokolü için bir sınıf</Summary>
             <Description xml:lang="en">PEAR-Net_SMTP provides an implementation of the SMTP protocol using PEAR&apos;s Net_Socket class.</Description>
-            <Archive type="targz" sha1sum="1e18f49b76869014315c4231b3d7f246b8e87ca9">http://download.pear.php.net/package/Net_SMTP-1.4.2.tgz</Archive>
+            <Archive type="targz" sha1sum="b98f4de01a3bc00c4738220dd7a6f96c4b32e15d">http://download.pear.php.net/package/Net_SMTP-1.4.3.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_SMTP/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -37990,6 +37695,15 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-10-11</Date>
+                <Version>1.4.3</Version>
+                <Comment>Version bump:
+                - Reduce peak memory usage when sending large files. (Request 17887)
+                - Adding support for proxy authentication. (Request 17358)</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2010-03-11</Date>
                 <Version>1.4.2</Version>
@@ -48584,7 +48298,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>iso-codes</Dependency>
                 <Dependency>enchant</Dependency>
                 <Dependency>gconf</Dependency>
-                <Dependency>pygtksourceview</Dependency>
+                <Dependency>python-pygtksourceview</Dependency>
                 <Dependency>docbook-xml4_1_2</Dependency>
                 <Dependency>gnome-doc-utils</Dependency>
             </BuildDependencies>
@@ -48597,7 +48311,7 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Dependency>iso-codes</Dependency>
                 <Dependency>enchant</Dependency>
                 <Dependency>gconf</Dependency>
-                <Dependency>pygtksourceview</Dependency>
+                <Dependency>python-pygtksourceview</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="config">/etc/gconf</Path>
