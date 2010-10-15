@@ -12,7 +12,7 @@
         <IsA>library</IsA>
         <Summary>Class interface to TCP sockets</Summary>
         <Description>PEAR-Net_Socket is a class interface to TCP sockets. It provides blocking and non-blocking operation, with different reading and writing modes (byte-wise, block-wise, line-wise and special formats like network byte-order ip addresses).</Description>
-        <Archive sha1sum="97235034b2599f7a91d0bc64e926581d102c4419" type="targz">http://download.pear.php.net/package/Net_Socket-1.0.9.tgz</Archive>
+        <Archive sha1sum="a65164fe55b8103ef68eda346d47bb8f5f8766f7" type="targz">http://download.pear.php.net/package/Net_Socket-1.0.10.tgz</Archive>
     </Source>
 
     <Package>
@@ -27,6 +27,19 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2010-10-16</Date>
+            <Version>1.0.10</Version>
+            <Comment>Version bump:
+                - Configurable newline sequence (PEAR Bug #14181)
+                - Make $size parameter to gets() optional (PEAR Bug #14433)
+                - Don't overwrite $errstr set by fsockopen (PEAR Bug #14448)
+                - Avoid an infinite loop if fwrite() returns 0 (PEAR Bug #14619)
+                - CS cleanup (PEAR Bug #14803)
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="4">
             <Date>2010-01-31</Date>
             <Version>1.0.9</Version>
