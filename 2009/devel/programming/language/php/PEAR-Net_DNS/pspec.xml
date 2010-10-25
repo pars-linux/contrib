@@ -12,7 +12,7 @@
         <IsA>library</IsA>
         <Summary>Resolver library used to communicate with a DNS server</Summary>
         <Description>PEAR-Net_DNS is a resolver library used to communicate with a name server to perform DNS queries, zone transfers, dynamic DNS updates.</Description>
-        <Archive sha1sum="94b847e2026b0e5501645701155ea2639af2b4b8" type="targz">http://download.pear.php.net/package/Net_DNS-1.0.5.tgz</Archive>
+        <Archive sha1sum="c7a902d3920d7c4d0a1a3bc16477de9627a885ce" type="targz">http://download.pear.php.net/package/Net_DNS-1.0.6.tgz</Archive>
     </Source>
 
     <Package>
@@ -27,6 +27,18 @@
     </Package>
 
     <History>
+        <Update release="6">
+            <Date>2010-10-25</Date>
+            <Version>1.0.6</Version>
+            <Comment>Version bump:
+                - Bug #17743 $this used in statically called Net_DNS_Packet::dn_expand()
+                - Bug #17867 fixed Net_DNS_Resolver:nextid() overflow
+                - Bug #17988 Parse error: syntax error, unexpected T_STATIC
+                - Bug #17767 Patch: Avoid deprecated socket_set_blocking
+            </Comment>
+            <Name>Necdet Yücel</Name>
+            <Email>necdetyucel@gmail.com</Email>
+        </Update>
         <Update release="5">
             <Date>2010-08-10</Date>
             <Version>1.0.5</Version>
