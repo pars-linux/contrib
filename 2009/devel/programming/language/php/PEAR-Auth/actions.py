@@ -11,11 +11,7 @@ from pisi.actionsapi import get
 WorkDir="Auth-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR", "Auth.php")
-    pisitools.insinto("/usr/share/php5/PEAR/Auth", "Container.php")
-    pisitools.insinto("/usr/share/php5/PEAR/Auth", "Auth/*")
-    pisitools.insinto("/usr/share/php5/PEAR/Auth", "Container")
-    pisitools.insinto("/usr/share/php5/PEAR/Auth", "Frontend")
+    pisitools.insinto("/usr/share/php5/PEAR", "Auth*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Auth", "tests/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Auth", "README*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Auth/examples", "examples/*")
