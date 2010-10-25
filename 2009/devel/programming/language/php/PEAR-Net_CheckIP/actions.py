@@ -10,4 +10,4 @@ from pisi.actionsapi import get
 WorkDir="Net_CheckIP-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Net", "CheckIP.php")
+    pisitools.insinto("/usr/share/php5/PEAR/Net", "Net/CheckIP.php")
