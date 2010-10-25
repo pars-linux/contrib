@@ -10,7 +10,6 @@ from pisi.actionsapi import get
 WorkDir="MIME_Type-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/MIME","MIME/Type.php")
-    pisitools.insinto("/usr/share/php5/PEAR/MIME/Type","MIME/Type/Parameter.php")
-    pisitools.insinto("/usr/share/php5/PEAR/MIME/Type","MIME/Type/Extension.php")
+    pisitools.insinto("/usr/share/php5/PEAR/MIME","MIME/Type*")
     pisitools.insinto("/usr/share/php5/PEAR/docs/MIME_Type", "docs/examples/example.php")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/MIME_Type", "tests/*")
