@@ -14,4 +14,6 @@ def install():
     pisitools.insinto("/usr/share/php5/PEAR/HTML/images", "images/*")
     pisitools.insinto("/usr/share/php5/PEAR/HTML/imagesAlt", "imagesAlt/*")
     pisitools.insinto("/usr/share/php5/PEAR/HTML/imagesAlt2", "imagesAlt2/*")
+    pisitools.insinto("/usr/share/php5/PEAR/HTML/imagesAlt3", "imagesAlt3/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/HTML_TreeMenu", "docs/*")
+    pisitools.insinto("/usr/share/php5/PEAR/tests/HTML_TreeMenu", "tests/*")
