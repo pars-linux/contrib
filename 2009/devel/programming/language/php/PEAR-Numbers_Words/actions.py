@@ -10,6 +10,6 @@ from pisi.actionsapi import get
 WorkDir="Numbers_Words-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Numbers", "Words*")
+    pisitools.insinto("/usr/share/php5/PEAR/Numbers", "Numbers/Words*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Numbers_Words", "README")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Numbers_Words", "tests/*")
