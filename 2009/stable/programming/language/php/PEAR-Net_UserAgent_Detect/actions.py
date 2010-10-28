@@ -10,5 +10,5 @@ from pisi.actionsapi import get
 WorkDir="Net_UserAgent_Detect-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR/Net/UserAgent", "Detect.php")
+    pisitools.insinto("/usr/share/php5/PEAR/Net/UserAgent", "Detect*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Net_Useragent_Detect", "tests/example.php")
