@@ -11,3 +11,4 @@ WorkDir="System_Command-%s" % get.srcVERSION()
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/System","Command.php")
+    pisitools.insinto("/usr/share/php5/PEAR/doc/System_Command", "docs/*")
