@@ -10,14 +10,17 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir = "cinelerra"
+WorkDir = "cinelerra-cv"
 
 def setup():
-    shelltools.export("AUTOPOINT", "/bin/true")
-    autotools.autoreconf("-fiv")
+    shelltools.export("AUTOPOINT", "/bin/true")  
 
-    autotools.configure("--enable-alsa \
-                         --enable-mmx \
+#   fails due to ‘UINT64_C’ was not declared in this scope - ffmpeg svn related  
+    shelltools.export("CXXFLAGS", "%s -D__STDC_CONSTANT_MACROS" % get.CXXFLAGS())
+
+    autotools.autoreconf("-fiv")
+    autotools.configure("--enable-mmx \
+                         --enable-alsa \
                          --with-external-ffmpeg \
                          --disable-opengl \
                          --enable-esd \
@@ -36,5 +39,7 @@ def install():
     pisitools.rename("/usr/bin/mpeg3cat", "mpeg3cat.hv")
     pisitools.rename("/usr/bin/mpeg3dump", "mpeg3dump.hv")
     pisitools.rename("/usr/bin/mpeg3toc", "mpeg3toc.hv")
+    
+    pisitools.dosym("/usr/bin/mpeg2enc", "/usr/lib/cinelerra/mpeg2enc") 
 
     pisitools.dodoc("AUTHORS", "ChangeLog", "COPYING", "LICENSE", "NEWS", "TODO")
