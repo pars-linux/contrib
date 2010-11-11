@@ -14908,7 +14908,7 @@
             <Description xml:lang="en">Cinelerra is the most advanced non-linear video editor and compositor for Linux. This package tweaks the kernel/shmmax=0x7fffffff value in /etc/sysctl.conf so there is no need for you to modify it.</Description>
             <Description xml:lang="tr">Paket kurulumu yaptıktan sonra root olarak /etc/sysctl.conf dosyasının en alt satırına kernel/shmmax=0x7fffffff satırını ekleyip sysctl -p komutunu uygulayın.</Description>
             <Icon>cinelerra</Icon>
-            <Archive type="tarbz2" sha1sum="5753d427bd91d472cedcf06d79375332e92943c6">http://pardus.kilu.de/dist/cinelerra-2.1_20100212.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="cb8573cdb4cace526f89b58d42a02a6106d16dd8">http://pardus.kilu.de/dist/cinelerra-2.1_20101108.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>a52dec</Dependency>
                 <Dependency>libsndfile</Dependency>
@@ -14937,9 +14937,8 @@
             <Patches>
                 <Patch>desktop.patch</Patch>
                 <Patch>v4l2.patch</Patch>
-                <Patch level="1">new_ffmpeg.patch</Patch>
-                <Patch>fonts_path.patch</Patch>
-                <Patch>no_install_font.patch</Patch>
+                <Patch level="1">fix-font.patch</Patch>
+                <Patch level="1">remove-fontts.patch</Patch>
             </Patches>
             <SourceURI>multimedia/editor/cinelerra/pspec.xml</SourceURI>
         </Source>
@@ -14981,6 +14980,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-11-08</Date>
+                <Version>2.1_20101108</Version>
+                <Comment>New snapshot. Remove new_ffmpeg.patch</Comment>
+                <Name>Ertan Argüden</Name>
+                <Email>ert976@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2010-03-21</Date>
                 <Version>2.1_20100212</Version>
