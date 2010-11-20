@@ -5,9 +5,8 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="Net_IPv6-%s" % get.srcVERSION()
+WorkDir="Net_IPv6-1.2.0b"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net", "Net/IPv6.php")
