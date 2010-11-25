@@ -13,16 +13,13 @@
         <IsA>app:gui</IsA>
         <Summary>Fast and lightweight programming tool using GTK+</Summary>
         <Description>Geany is a small C editor using GTK+ with basic features of an integrated development environment. It features syntax highlighting, code completion, call tips, many supported filetypes (including C, Java, PHP, HTML, DocBook, Perl, LateX, and Bash), and symbol lists.</Description>
-        <Archive sha1sum="cb039ac4c6fe3738afb8d0aa9f4ddb024eebb084" type="tarbz2">http://download.geany.org/geany-0.18.1.tar.bz2</Archive>
+        <Archive sha1sum="75e7d5744ff84bf5757f88c89f7452287130e986" type="tarbz2">http://download.geany.org/geany-0.19.1.tar.bz2</Archive>
         <BuildDependencies>
-            <Dependency>gtk2</Dependency>
-            <Dependency>atk</Dependency>
-            <Dependency>pango</Dependency>
-            <Dependency>cairo</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>atk-devel</Dependency>
+            <Dependency>pango-devel</Dependency>
+            <Dependency>cairo-devel</Dependency>
         </BuildDependencies>
-        <Patches>
-            <Patch level="1">geany-0.17-fix-underlinking.patch</Patch>
-        </Patches>
     </Source>
 
     <Package>
@@ -36,7 +33,6 @@
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
-            <Path fileType="header">/usr/include/geany</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="doc">/usr/share/doc</Path>
             <Path fileType="man">/usr/share/man</Path>
@@ -48,7 +44,30 @@
         </Files>
     </Package>
 
+    <Package>
+        <Name>geany-devel</Name>
+        <Summary>Development files for geany</Summary>
+        <RuntimeDependencies>
+            <Dependency>geany</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="header">/usr/include/geany</Path>
+        </Files>
+    </Package>
+
     <History>
+        <Update release="16">
+            <Date>2010-11-25</Date>
+            <Version>0.19.1</Version>
+            <Comment>
+              * Version bump
+              * Fix build deps
+              * Move to Pardus 2011
+              * Split devel package
+            </Comment>
+            <Name>Aşkın Yollu</Name>
+            <Email>askin@askin.ws</Email>
+        </Update>
         <Update release="15">
             <Date>2010-05-04</Date>
             <Version>0.18.1</Version>
