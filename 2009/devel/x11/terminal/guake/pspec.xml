@@ -15,9 +15,10 @@
         <Description>Guake is a drop-down terminal for Gnome Desktop Environment. You can press a key to invoke it and press again to hide.</Description>
         <Archive sha1sum="97e1adbba7d1ec4569689b1b4a69a8f41421a02d" type="targz">http://trac.guake-terminal.org/files/guake-0.4.2.tar.gz</Archive>
         <BuildDependencies>
-            <Dependency>pygtk</Dependency>
-            <Dependency>gconf</Dependency>
-            <Dependency>vte</Dependency>
+            <Dependency>gtk2-devel</Dependency>
+            <Dependency>pygtk-devel</Dependency>
+            <Dependency>gconf-devel</Dependency>
+            <Dependency>vte-devel</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch level="1">desktop.patch</Patch>
@@ -28,6 +29,7 @@
     <Package>
         <Name>guake</Name>
         <RuntimeDependencies>
+            <Dependency>gtk2</Dependency>
             <Dependency>gconf</Dependency>
             <Dependency>pygtk</Dependency>
             <Dependency>gnome-python</Dependency>
@@ -46,6 +48,16 @@
     </Package>
 
     <History>
+        <Update release="5">
+            <Date>2010-11-25</Date>
+            <Version>0.4.2</Version>
+            <Comment>
+                * Move to Pardus 2011
+                * Fix Build Dependencies
+            </Comment>
+            <Name>Aşkın Yollu</Name>
+            <Email>askin@askin.ws</Email>
+        </Update>
         <Update release="4">
             <Date>2010-08-18</Date>
             <Version>0.4.2</Version>
