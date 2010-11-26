@@ -42336,7 +42336,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">IPv6 ağ hesaplamaları ve doğrulaması</Summary>
             <Description xml:lang="en">The class allows you to check if an address is an IPv6 address, compress/uncompress IPv6 addresses, check for an IPv4 compatible ending in an IPv6 address, do netmask calculations.</Description>
             <Description xml:lang="tr">Bu sınıf bir adresin IPv6 adresi olup olmadığını kontrol etmenize, IPv6 adreslerini sıkıştırıp açmanıza, bir IPv6 adresinin IPv4 uyumlu sonlanıp sonlanmadığını kontrol etmenize ve ağ maskesi hesaplaması yapmanıza imkan verir.</Description>
-            <Archive type="targz" sha1sum="e29823eeb0440b68369a728021277aa038df996c">http://download.pear.php.net/package/Net_IPv6-1.2.0b.tgz</Archive>
+            <Archive type="targz" sha1sum="509f974f17951024e1717285356dda68842b0ce6">http://download.pear.php.net/package/Net_IPv6-1.2.1b.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_IPv6/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -42350,6 +42350,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-11-25</Date>
+                <Version>1.2.1_beta1</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2010-11-20</Date>
                 <Version>1.2.0_beta1</Version>
@@ -47898,16 +47905,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Description xml:lang="en">Geany is a small C editor using GTK+ with basic features of an integrated development environment. It features syntax highlighting, code completion, call tips, many supported filetypes (including C, Java, PHP, HTML, DocBook, Perl, LateX, and Bash), and symbol lists.</Description>
             <Description xml:lang="tr">Geany, bir bütünleşik geliştirme ortamında yer alan temel özellikleri içeren basit bir GTK+ arayüzlü programlama aracıdır. Kod renklendirme, kod tamamlama, çağrı tipleri gibi özellikleri desteklmekte; birçok dosya tiplerini (C, Java, PHP, HTML, DocBook, Perl, LateX, and Bash) ve sembol listelerini içermektedir.</Description>
             <Icon>geany</Icon>
-            <Archive type="tarbz2" sha1sum="cb039ac4c6fe3738afb8d0aa9f4ddb024eebb084">http://download.geany.org/geany-0.18.1.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="75e7d5744ff84bf5757f88c89f7452287130e986">http://download.geany.org/geany-0.19.1.tar.bz2</Archive>
             <BuildDependencies>
-                <Dependency>gtk2</Dependency>
-                <Dependency>atk</Dependency>
-                <Dependency>pango</Dependency>
-                <Dependency>cairo</Dependency>
+                <Dependency>gtk2-devel</Dependency>
+                <Dependency>atk-devel</Dependency>
+                <Dependency>pango-devel</Dependency>
+                <Dependency>cairo-devel</Dependency>
             </BuildDependencies>
-            <Patches>
-                <Patch level="1">geany-0.17-fix-underlinking.patch</Patch>
-            </Patches>
             <SourceURI>editor/misc/geany/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -47921,7 +47925,6 @@ processing unit (GPU) present in modern graphics cards</Description>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
-                <Path fileType="header">/usr/include/geany</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
                 <Path fileType="man">/usr/share/man</Path>
@@ -47932,7 +47935,28 @@ processing unit (GPU) present in modern graphics cards</Description>
                 <Path fileType="data">/usr/share/pixmaps</Path>
             </Files>
         </Package>
+        <Package>
+            <Name>geany-devel</Name>
+            <Summary xml:lang="en">Development files for geany</Summary>
+            <Summary xml:lang="tr">Geany için geliştirme dosyaları</Summary>
+            <RuntimeDependencies>
+                <Dependency>geany</Dependency>
+            </RuntimeDependencies>
+            <Files>
+                <Path fileType="header">/usr/include/geany</Path>
+            </Files>
+        </Package>
         <History>
+            <Update release="16">
+                <Date>2010-11-25</Date>
+                <Version>0.19.1</Version>
+                <Comment>* Version bump
+              * Fix build deps
+              * Move to Pardus 2011
+              * Split devel package</Comment>
+                <Name>Aşkın Yollu</Name>
+                <Email>askin@askin.ws</Email>
+            </Update>
             <Update release="15">
                 <Date>2010-05-04</Date>
                 <Version>0.18.1</Version>
