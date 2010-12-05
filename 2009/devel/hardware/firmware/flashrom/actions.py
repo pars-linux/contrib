@@ -14,4 +14,4 @@ def build():
 def install():
     pisitools.dosbin("flashrom")
     pisitools.doman("flashrom.8")
-    pisitools.dodoc("README")
+    pisitools.dodoc("ChangeLog", "COPYING", "README")
