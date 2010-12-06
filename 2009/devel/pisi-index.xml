@@ -31764,15 +31764,18 @@
             <License>GPLv2</License>
             <IsA>app:console</IsA>
             <PartOf>hardware.firmware</PartOf>
-            <Summary xml:lang="en">Utility to flash BIOS/EFI/coreboot/firmware images.</Summary>
-            <Summary xml:lang="tr">BIOS/EFI/coreboot/firmware imajlarını yazmak için kullanılan bir araç.</Summary>
-            <Description xml:lang="en">A utility for identifying, reading, writing, verifying and erasing flash chips</Description>
+            <Summary xml:lang="en">Utility to flash BIOS/EFI/coreboot/firmware images</Summary>
+            <Summary xml:lang="tr">BIOS/EFI/coreboot/firmware imajlarını yazmak için kullanılan bir araç</Summary>
+            <Description xml:lang="en">flashrom is a utility for identifying, reading, writing, verifying and erasing flash chips.</Description>
             <Description xml:lang="tr">flashrom, flash yongalarına yazmak, okumak ve doğrulamak için bir araçtır.</Description>
-            <Archive type="tarbz2" sha1sum="64dab463a23d329b80b4901180df77a853afd17a">http://qa.coreboot.org/releases/flashrom-0.9.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="d6208613780eb05d54bf103f0f5229405ebecd6b">http://qa.coreboot.org/releases/flashrom-0.9.3.tar.bz2</Archive>
             <SourceURI>hardware/firmware/flashrom/pspec.xml</SourceURI>
         </Source>
         <Package>
             <Name>flashrom</Name>
+            <RuntimeDependencies>
+                <Dependency>libftdi</Dependency>
+            </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/sbin</Path>
                 <Path fileType="doc">/usr/share/doc</Path>
@@ -31780,6 +31783,13 @@
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-12-05</Date>
+                <Version>0.9.3</Version>
+                <Comment>Version bump</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="3">
                 <Date>2010-06-07</Date>
                 <Version>0.9.2</Version>
@@ -39519,7 +39529,7 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="tr">Çoklu dil destekli uygulama yönetimi için bir sınıf</Summary>
             <Description xml:lang="en">A class provides an easy way to retrieve all the strings for a multilingual site from a data source.</Description>
             <Description xml:lang="tr">Bir veri kaynağından çoklu dil verilerini almak için kolay bir yol sunan bir sınıf.</Description>
-            <Archive type="targz" sha1sum="ed02e7886a50634d45190b659f7a0adf97357afb">http://download.pear.php.net/package/Translation2-2.0.3.tgz</Archive>
+            <Archive type="targz" sha1sum="d72855ef7927d3eea59c8edbf2ad7b4c0fbc6a7b">http://download.pear.php.net/package/Translation2-2.0.4.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Translation2/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -39542,6 +39552,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="6">
+                <Date>2010-12-06</Date>
+                <Version>2.0.4</Version>
+                <Comment>Version bump:
+                - Bug #18081 Translation2.php installed in the wrong place</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="5">
                 <Date>2010-10-25</Date>
                 <Version>2.0.3</Version>
