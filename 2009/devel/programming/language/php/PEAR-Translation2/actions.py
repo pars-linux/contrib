@@ -10,10 +10,7 @@ from pisi.actionsapi import get
 WorkDir="Translation2-%s" % get.srcVERSION()
 
 def install():
-    pisitools.insinto("/usr/share/php5/PEAR", "Translation2.php")
-    pisitools.insinto("/usr/share/php5/PEAR/Translation2", "Admin*")
-    pisitools.insinto("/usr/share/php5/PEAR/Translation2", "Container*")
-    pisitools.insinto("/usr/share/php5/PEAR/Translation2", "Decorator*")
+    pisitools.insinto("/usr/share/php5/PEAR", "Translation*")
     pisitools.insinto("/usr/share/php5/PEAR/Translation2/scripts", "scripts/*")
     pisitools.insinto("/usr/share/php5/PEAR/doc/Translation2", "docs/*")
     pisitools.insinto("/usr/share/php5/PEAR/tests/Translation2", "tests/*")
