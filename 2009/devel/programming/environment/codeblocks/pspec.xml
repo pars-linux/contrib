@@ -5,17 +5,18 @@
         <Name>codeblocks</Name>
         <Homepage>http://www.codeblocks.org/</Homepage>
         <Packager>
-            <Name>Pardus</Name>
-            <Email>admins@pardus.org.tr</Email>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
         </Packager>
         <License>GPLv3</License>
         <Icon>codeblocks</Icon>
         <IsA>app:gui</IsA>
         <Summary>A free C++ IDE built to meet the most demanding needs of its users</Summary>
-        <Archive sha1sum="078932cfd4fee2066ec931cb6dfa8079235c1237" type="tarbz2">mirrors://berlios/codeblocks/codeblocks-8.02-src.tar.bz2</Archive>
+        <Archive sha1sum="b7697f512de69ad731f0febac4b91bb6c605fa57" type="tarbz2">mirrors://berlios/codeblocks/codeblocks-10.05-src.tar.bz2</Archive>
         <BuildDependencies>
             <Dependency>wxGTK-devel</Dependency>
             <Dependency>xterm</Dependency>
+            <Dependency>gtk2</Dependency>
         </BuildDependencies>
         <Patches>
             <Patch>desktop.patch</Patch>
@@ -27,10 +28,14 @@
         <RuntimeDependencies>
             <Dependency>wxGTK</Dependency>
             <Dependency>xterm</Dependency>
+            <Dependency>gtk2</Dependency>
         </RuntimeDependencies>
         <Files>
             <Path fileType="executable">/usr/bin</Path>
             <Path fileType="header">/usr/include/codeblocks</Path>
+            <Path fileType="header">/usr/include/wxsmith</Path>
+            <Path fileType="header">/usr/include/wxSmithContribItems</Path>
+            <Path fileType="header">/usr/include/</Path>
             <Path fileType="library">/usr/lib</Path>
             <Path fileType="data">/usr/share/applications</Path>
             <Path fileType="data">/usr/share/codeblocks</Path>
@@ -43,6 +48,13 @@
     </Package>
 
     <History>
+        <Update release="4">
+            <Date>2010-12-15</Date>
+            <Version>10.05</Version>
+            <Comment>Version bump.</Comment>
+            <Name>Serdar Dalgıç</Name>
+            <Email>serdar@pardus.org.tr</Email>
+        </Update>
         <Update release="3">
             <Date>2009-07-18</Date>
             <Version>8.02</Version>
