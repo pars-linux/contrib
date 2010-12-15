@@ -7,8 +7,12 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
+from pisi.actionsapi import get
+
+WorkDir="%s-%s-release" % (get.srcNAME(), get.srcVERSION())
 
 def setup():
+    autotools.autoreconf("-vif")
     autotools.configure("--with-contrib-plugins=all")
 
     pisitools.dosed("libtool"," -shared ", " -Wl,--as-needed -shared ")
