@@ -43198,8 +43198,8 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Name>codeblocks</Name>
             <Homepage>http://www.codeblocks.org/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
             </Packager>
             <License>GPLv3</License>
             <IsA>app:gui</IsA>
@@ -43207,10 +43207,11 @@ processing unit (GPU) present in modern graphics cards</Description>
             <Summary xml:lang="en">A free C++ IDE built to meet the most demanding needs of its users</Summary>
             <Summary xml:lang="tr">C++ için bütünleşik geliştirme araçlarını barındıran özgür yazılım</Summary>
             <Icon>codeblocks</Icon>
-            <Archive type="tarbz2" sha1sum="078932cfd4fee2066ec931cb6dfa8079235c1237">mirrors://berlios/codeblocks/codeblocks-8.02-src.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="b7697f512de69ad731f0febac4b91bb6c605fa57">mirrors://berlios/codeblocks/codeblocks-10.05-src.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>wxGTK-devel</Dependency>
                 <Dependency>xterm</Dependency>
+                <Dependency>gtk2</Dependency>
             </BuildDependencies>
             <Patches>
                 <Patch>desktop.patch</Patch>
@@ -43222,10 +43223,14 @@ processing unit (GPU) present in modern graphics cards</Description>
             <RuntimeDependencies>
                 <Dependency>wxGTK</Dependency>
                 <Dependency>xterm</Dependency>
+                <Dependency>gtk2</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
                 <Path fileType="header">/usr/include/codeblocks</Path>
+                <Path fileType="header">/usr/include/wxsmith</Path>
+                <Path fileType="header">/usr/include/wxSmithContribItems</Path>
+                <Path fileType="header">/usr/include/</Path>
                 <Path fileType="library">/usr/lib</Path>
                 <Path fileType="data">/usr/share/applications</Path>
                 <Path fileType="data">/usr/share/codeblocks</Path>
@@ -43237,6 +43242,13 @@ processing unit (GPU) present in modern graphics cards</Description>
             </Files>
         </Package>
         <History>
+            <Update release="4">
+                <Date>2010-12-15</Date>
+                <Version>10.05</Version>
+                <Comment>Version bump.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="3">
                 <Date>2009-07-18</Date>
                 <Version>8.02</Version>
