@@ -5,9 +5,8 @@
 # See the file http://www.gnu.org/copyleft/gpl.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="DB-%s" % get.srcVERSION()
+WorkDir="DB-1.7.14RC2"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR","DB.php")
