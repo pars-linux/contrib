@@ -9,13 +9,9 @@ from pisi.actionsapi import pisitools
 from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
-WorkDir="%s-%s-6450.i386.linux" % (get.srcNAME(), get.srcVERSION())
+WorkDir="%s-%s-1156.i386.linux" % (get.srcNAME(), get.srcVERSION())
 
 def install():
-    pisitools.dosed("install", "dest=\$PREFIX", "dest=%s/usr" % get.installDIR())
-    pisitools.dosed("install", "\$HOME/.local", "/usr")
-    pisitools.dosed("install", "update-[a-z]*-database", "XXpatchedXX")
+    shelltools.system("./install --prefix /usr --repackage %s/usr" % get.installDIR())
 
-    shelltools.system("./install --unattended --user")
-
-    pisitools.dosym("/opt/netscape/plugins/libflashplayer.so", "/usr/lib/opera/plugins/libflashplayer.so")
+    #pisitools.dosym("/opt/netscape/plugins/libflashplayer.so", "/usr/lib/opera/plugins/libflashplayer.so")
