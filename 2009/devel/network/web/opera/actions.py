@@ -11,7 +11,13 @@ from pisi.actionsapi import get
 
 WorkDir="%s-%s-1156.i386.linux" % (get.srcNAME(), get.srcVERSION())
 
+def build():
+    # Flashplugin hack for Opera, see pardus #13989
+    shelltools.system("%s -shared -fPIC -L/opt/netscape/plugins/ \
+                        -lflashplayer -o libflashplayer.so -Wl,-rpath \
+                        /opt/netscape/plugins/ opera-flash-workaround.c" % get.CC())
+
 def install():
     shelltools.system("./install --prefix /usr --repackage %s/usr" % get.installDIR())
 
-    #pisitools.dosym("/opt/netscape/plugins/libflashplayer.so", "/usr/lib/opera/plugins/libflashplayer.so")
+    pisitools.insinto("/usr/lib/opera/plugins/", "libflashplayer.so")
