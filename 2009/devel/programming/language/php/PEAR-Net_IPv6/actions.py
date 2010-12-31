@@ -6,7 +6,7 @@
 
 from pisi.actionsapi import pisitools
 
-WorkDir="Net_IPv6-1.2.1b1"
+WorkDir="Net_IPv6-1.2.1RC1"
 
 def install():
     pisitools.insinto("/usr/share/php5/PEAR/Net", "Net/IPv6.php")
