@@ -28,5 +28,6 @@ def install():
 
     for d in remove_dirs:
         pisitools.removeDir("%s/%s" % (share, d))
+
     for f in remove_files:
         pisitools.remove("%s/%s" % (share, f))
