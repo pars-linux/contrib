@@ -7114,7 +7114,7 @@
             <Summary xml:lang="tr">SMTP Protokolü için bir sınıf</Summary>
             <Description xml:lang="en">PEAR-Net_SMTP provides an implementation of the SMTP protocol using PEAR&apos;s Net_Socket class.</Description>
             <Description xml:lang="tr">PEAR-Net_SMTP, SMTP protoklünün PEAR&apos;ın Net_Socket sınıfını kullanarak yapılmış bir gerçekleştirimini sunar.</Description>
-            <Archive type="targz" sha1sum="a146958aba3acbfbabda5f6a19d63b51637bcbaa">http://download.pear.php.net/package/Net_SMTP-1.4.4.tgz</Archive>
+            <Archive type="targz" sha1sum="781f9417b88c4982ecdc7fa611dc5341c64368b6">http://download.pear.php.net/package/Net_SMTP-1.5.0.tgz</Archive>
             <SourceURI>programming/language/php/PEAR-Net_SMTP/pspec.xml</SourceURI>
         </Source>
         <Package>
@@ -7131,6 +7131,15 @@
             </Files>
         </Package>
         <History>
+            <Update release="8">
+                <Date>2011-02-08</Date>
+                <Version>1.5.0</Version>
+                <Comment>Version bump:
+                - Avoid appending an extra space in mailFrom() when $params is empty. (Bug 17989)
+                - Differentiating between a connection timeout and general socket I/O timeouts. (Request 18197)</Comment>
+                <Name>Necdet Yücel</Name>
+                <Email>necdetyucel@gmail.com</Email>
+            </Update>
             <Update release="7">
                 <Date>2010-10-21</Date>
                 <Version>1.4.4</Version>
@@ -34144,21 +34153,23 @@
             <Name>wxcam</Name>
             <Homepage>http://wxcam.sourceforge.net/</Homepage>
             <Packager>
-                <Name>Pardus</Name>
-                <Email>admins@pardus.org.tr</Email>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
             </Packager>
             <License>GPLv2</License>
             <IsA>app:gui</IsA>
             <PartOf>multimedia.video</PartOf>
             <Summary xml:lang="en">A webcam application for linux</Summary>
+            <Summary xml:lang="tr">Linux için bir video kamera uygulaması</Summary>
             <Description xml:lang="en">wxcam supports video recording (in an avi uncompressed and Xvid format) and snapshot taking for webcams</Description>
+            <Description xml:lang="tr">wxcam web kameralarınızdan fotoğraf çekip avi biçimde video kaydı yapmanızı sağlayan bir video kamera uygulamasıdır.</Description>
             <Icon>wxcam</Icon>
-            <Archive type="tarbz2" sha1sum="c93f8907b362243c568c2911ffd8c6176cb37cc1">http://knec.org/dist/wxcam-1.0.2.tar.bz2</Archive>
+            <Archive type="tarbz2" sha1sum="2c9bffd2f653f8fe226091c36b481b63aeaf3762">mirrors://sourceforge/wxcam/wxcam-1.0.7.tar.bz2</Archive>
             <BuildDependencies>
                 <Dependency>xvid</Dependency>
-                <Dependency>revel</Dependency>
                 <Dependency>wxGTK-devel</Dependency>
                 <Dependency>mjpegtools</Dependency>
+                <Dependency>CImg</Dependency>
             </BuildDependencies>
             <SourceURI>multimedia/video/wxcam/pspec.xml</SourceURI>
         </Source>
@@ -34166,9 +34177,9 @@
             <Name>wxcam</Name>
             <RuntimeDependencies>
                 <Dependency>xvid</Dependency>
-                <Dependency>revel</Dependency>
                 <Dependency>wxGTK</Dependency>
                 <Dependency>mjpegtools</Dependency>
+                <Dependency>CImg</Dependency>
             </RuntimeDependencies>
             <Files>
                 <Path fileType="executable">/usr/bin</Path>
@@ -34181,6 +34192,20 @@
             </AdditionalFiles>
         </Package>
         <History>
+            <Update release="9">
+                <Date>2011-02-07</Date>
+                <Version>1.0.7</Version>
+                <Comment>Version bump, remove not linked revel library, wxcam uses internal revel library since 1.0.3.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
+            <Update release="8">
+                <Date>2010-05-11</Date>
+                <Version>1.0.5</Version>
+                <Comment>Version bump to latest version, add missing CImg dependency. translations.xml added.</Comment>
+                <Name>Serdar Dalgıç</Name>
+                <Email>serdar@pardus.org.tr</Email>
+            </Update>
             <Update release="7">
                 <Date>2008-08-12</Date>
                 <Version>1.0.2</Version>
