@@ -6,9 +6,8 @@
 # See the file http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import get
 
-WorkDir="HTTP_Request2-%s" % get.srcVERSION()
+WorkDir="HTTP_Request2-2.0.0beta1"
 pear="/usr/share/php5/PEAR"
 
 def install():
