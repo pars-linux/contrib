@@ -6,15 +6,11 @@
 
 from pisi.actionsapi import autotools
 from pisi.actionsapi import pisitools
-from pisi.actionsapi import shelltools
 from pisi.actionsapi import get
 
 def setup():
-    shelltools.copy("/usr/share/gettext/config.rpath", ".")
-
     autotools.autoreconf("-vfi")
     autotools.configure("--disable-static \
-                         --disable-dependency-tracking \
                          --disable-silent-rules \
                          --enable-py-build-only \
                          --enable-gnet \
@@ -26,7 +22,5 @@ def build():
 
 def install():
     autotools.rawInstall("DESTDIR=%s" % get.installDIR())
-
-    #pisitools.remove("/usr/lib/gcompris/libgoocanvas.so*")
 
     pisitools.dodoc("ABOUT-NLS", "AUTHORS", "ChangeLog", "COPYING", "NEWS", "README*", "THANKS", "TODO")
